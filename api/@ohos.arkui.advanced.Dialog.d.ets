@@ -20,8 +20,18 @@
 
 
 
-
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
+import image from './@ohos.multimedia.image';
+/*** if arkts 1.2 */
+import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
+import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
+import image from './@ohos.multimedia.image';
+import { ThemeColorMode, Callback } from './arkui/component/common';
+import { CustomDialogController } from './arkui/component/customDialogController';
+import { SheetInfo } from './arkui/component/actionSheet';
+import { CustomDialog, Prop, BuilderParam, Link, Require } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declare ButtonOptions
@@ -34,14 +44,8 @@ import { Theme, CustomTheme } from '@ohos.arkui.theme';
  * Declare ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class ButtonOptions {
   /**
@@ -55,15 +59,8 @@ export declare class ButtonOptions {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Display Content of a Button.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
   /**
@@ -77,15 +74,8 @@ export declare class ButtonOptions {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Button Callback.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
   /**
@@ -99,15 +89,8 @@ export declare class ButtonOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the background color of a button.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   background?: ResourceColor;
   /**
@@ -121,15 +104,8 @@ export declare class ButtonOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Button Text Color.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: ResourceColor;
   /**
@@ -139,7 +115,8 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonStyle?: ButtonStyleMode;
   /**
@@ -149,7 +126,8 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   role?: ButtonRole;
   /**
@@ -159,7 +137,8 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   defaultFocus?: boolean;
 }
@@ -172,14 +151,8 @@ export declare class ButtonOptions {
  * Declare CustomDialog TipsDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog TipsDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct TipsDialog {
@@ -194,15 +167,8 @@ export declare struct TipsDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
   /**
@@ -223,17 +189,10 @@ export declare struct TipsDialog {
    * @type { ResourceStr | PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  /**
-   * Sets the TipsDialog imageRes.
-   * @type { ResourceStr | PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  imageRes: ResourceStr | PixelMap;
+  imageRes: ResourceStr | image.PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -252,15 +211,8 @@ export declare struct TipsDialog {
    * @type { ?SizeOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog image size.
-   * @type { ?SizeOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageSize?: SizeOptions;
   /**
@@ -281,15 +233,8 @@ export declare struct TipsDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog title.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: ResourceStr;
   /**
@@ -303,15 +248,8 @@ export declare struct TipsDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: ResourceStr;
   /**
@@ -325,15 +263,8 @@ export declare struct TipsDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checkTips?: ResourceStr;
   /**
@@ -347,15 +278,8 @@ export declare struct TipsDialog {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog checkbox check state.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop isChecked?: boolean;
   /**
@@ -363,15 +287,8 @@ export declare struct TipsDialog {
    * @type { ?(isChecked: boolean) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?(isChecked: boolean) => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checkAction?: (isChecked: boolean) => void;
   /**
@@ -385,15 +302,8 @@ export declare struct TipsDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
   /**
@@ -407,15 +317,8 @@ export declare struct TipsDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -425,7 +328,8 @@ export declare struct TipsDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -435,7 +339,8 @@ export declare struct TipsDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
   /**
@@ -443,15 +348,8 @@ export declare struct TipsDialog {
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCheckedChange?: Callback<boolean>;
 }
@@ -465,14 +363,8 @@ export declare struct TipsDialog {
  * Declare CustomDialog SelectDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog SelectDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct SelectDialog {
@@ -487,15 +379,8 @@ export declare struct SelectDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
   /**
@@ -509,15 +394,8 @@ export declare struct SelectDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
   /**
@@ -531,15 +409,8 @@ export declare struct SelectDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: ResourceStr;
   /**
@@ -553,15 +424,8 @@ export declare struct SelectDialog {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog selected index.
-   * @type { ?number }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIndex?: number;
   /**
@@ -575,15 +439,8 @@ export declare struct SelectDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog confirm button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   confirm?: ButtonOptions;
   /**
@@ -597,15 +454,8 @@ export declare struct SelectDialog {
    * @type { Array<SheetInfo> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog sheets.
-   * @type { Array<SheetInfo> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radioContent: Array<SheetInfo>;
   /**
@@ -615,7 +465,8 @@ export declare struct SelectDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -625,7 +476,8 @@ export declare struct SelectDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
 }
@@ -639,14 +491,8 @@ export declare struct SelectDialog {
  * Declare CustomDialog ConfirmDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog ConfirmDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct ConfirmDialog {
@@ -661,15 +507,8 @@ export declare struct ConfirmDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
   /**
@@ -683,15 +522,8 @@ export declare struct ConfirmDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
   /**
@@ -705,15 +537,8 @@ export declare struct ConfirmDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: ResourceStr;
   /**
@@ -727,15 +552,8 @@ export declare struct ConfirmDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checkTips?: ResourceStr;
   /**
@@ -749,15 +567,8 @@ export declare struct ConfirmDialog {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog checkbox state.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop isChecked?: boolean;
   /**
@@ -771,15 +582,8 @@ export declare struct ConfirmDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
   /**
@@ -793,15 +597,8 @@ export declare struct ConfirmDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -811,7 +608,8 @@ export declare struct ConfirmDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -821,7 +619,8 @@ export declare struct ConfirmDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
   /**
@@ -829,15 +628,8 @@ export declare struct ConfirmDialog {
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the ConfirmDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCheckedChange?: Callback<boolean>;
 }
@@ -851,14 +643,8 @@ export declare struct ConfirmDialog {
  * Declare CustomDialog AlertDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog AlertDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct AlertDialog {
@@ -873,15 +659,8 @@ export declare struct AlertDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
   /**
@@ -890,7 +669,8 @@ export declare struct AlertDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   primaryTitle?: ResourceStr;
   /**
@@ -899,7 +679,8 @@ export declare struct AlertDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   secondaryTitle?: ResourceStr;
   /**
@@ -913,15 +694,8 @@ export declare struct AlertDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content: ResourceStr;
   /**
@@ -935,15 +709,8 @@ export declare struct AlertDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
   /**
@@ -957,15 +724,8 @@ export declare struct AlertDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
   /**
@@ -975,7 +735,8 @@ export declare struct AlertDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -985,7 +746,8 @@ export declare struct AlertDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
 }
@@ -999,14 +761,8 @@ export declare struct AlertDialog {
  * Declare CustomDialog LoadingDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog LoadingDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct LoadingDialog {
@@ -1021,15 +777,8 @@ export declare struct LoadingDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the LoadingDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Controller: CustomDialogController;
   /**
@@ -1043,15 +792,8 @@ export declare struct LoadingDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the LoadingDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: ResourceStr;
   /**
@@ -1061,7 +803,8 @@ export declare struct LoadingDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -1071,7 +814,8 @@ export declare struct LoadingDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
 }
@@ -1081,7 +825,8 @@ export declare struct LoadingDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @CustomDialog
 export declare struct CustomContentDialog {
@@ -1091,7 +836,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
   /**
@@ -1100,7 +846,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   primaryTitle?: ResourceStr;
   /**
@@ -1109,7 +856,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   secondaryTitle?: ResourceStr;
   /**
@@ -1118,7 +866,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @BuilderParam contentBuilder: () => void;
   /**
@@ -1127,17 +876,19 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentAreaPadding?: Padding;
   /**
-     * Sets the CustomContentDialog content area localized padding.
-     * @type { ?LocalizedPadding }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
+   * Sets the CustomContentDialog content area localized padding.
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   localizedContentAreaPadding?: LocalizedPadding;
   /**
    * Sets the CustomContentDialog buttons.
@@ -1145,7 +896,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttons?: ButtonOptions[];
   /**
@@ -1155,7 +907,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   theme?: Theme | CustomTheme;
   /**
@@ -1165,7 +918,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   themeColorMode?: ThemeColorMode;
 }
@@ -1176,7 +930,8 @@ export declare struct CustomContentDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct PopoverDialog {
@@ -1187,7 +942,8 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Link
   visible: boolean;
@@ -1198,7 +954,8 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Require @Prop
   popover: PopoverOptions;
@@ -1209,7 +966,8 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Require @BuilderParam 
   targetBuilder: Callback<void>;
@@ -1223,7 +981,8 @@ export declare struct PopoverDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
 }
