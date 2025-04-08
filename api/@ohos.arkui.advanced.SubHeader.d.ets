@@ -292,7 +292,7 @@ export declare class SelectOptions {
    * @since 18
    */
   selected?: number;
-  
+
   /**
    * The default text value.
    * @type { string }.
@@ -314,7 +314,15 @@ export declare class SelectOptions {
    * @atomicservice
    * @since 18
    */
-  value?: string;
+  /**
+   * The default text value.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  value?: ResourceStr;
 
  /**
   * Callback when the select is selected.
