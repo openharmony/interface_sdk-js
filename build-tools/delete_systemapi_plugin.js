@@ -15,6 +15,7 @@
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
+const commander = require('commander');
 
 let sourceFile = null;
 let lastNoteStr = '';
@@ -37,14 +38,30 @@ const PATT = {
   REFERENCEURL_RIGHTSDK: /(..\/)(\S*)build-tools\/ets-loader\/declarations\/(\S*)/g,
   REFERENCEURL_SDK: /(..\/)(\S*)component\/(\S*)/g,
 };
-function collectDeclaration(url) {
+
+function start() {
+  const program = new commander.Command();
+  program
+    .name('deleteSystemApi')
+    .version('0.0.1');
+  program
+    .option('--input <string>', 'path name')
+    .option('--output <>string>', 'output path')
+    .action((opts) => {
+      outputPath = opts.output;
+      inputDir = opts.input;
+      collectDeclaration(opts.input);
+    });
+  program.parse(process.argv);
+}
+
+function collectDeclaration(inputDir) {
   // 入口
   try {
-    const utPath = path.resolve(__dirname, url);
-    const arktsPath = path.resolve(utPath, '../arkts');
-    const kitPath = path.resolve(utPath, '../kits');
+    const arktsPath = path.resolve(inputDir, '../arkts');
+    const kitPath = path.resolve(inputDir, '../kits');
     const utFiles = [];
-    readFile(utPath, utFiles); // 读取文件
+    readFile(inputDir, utFiles); // 读取文件
     readFile(arktsPath, utFiles); // 读取文件
     tsTransform(utFiles, deleteSystemApi);
     tsTransformKitFile(kitPath);
@@ -181,9 +198,9 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
  * @returns {boolean} importPath是否存在
  */
 function hasFileByImportPath(importPath) {
-  let fileDir = path.resolve(apiSourcePath);
+  let fileDir = inputDir;
   if (importPath.startsWith('@arkts')) {
-    fileDir = path.resolve(apiSourcePath, '../arkts');
+    fileDir = path.resolve(inputDir, '../arkts');
   }
   const flag = ['.d.ts', '.d.ets'].some(ext => {
     const filePath = path.resolve(fileDir, `${importPath}${ext}`);
@@ -221,13 +238,12 @@ function processFileNameWithoutExt(filePath) {
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
+    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || !/\@systemapi/.test(content)) {
       // 特殊类型文件处理
-      const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);
     } else if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
       // dts文件处理
-      let content = fs.readFileSync(url, 'utf-8'); // 文件内容
       const fileName = processFileName(url);
       let references = content.match(PATT.GET_REFERENCE);
       if (references) {
@@ -334,10 +350,7 @@ function readFile(dir, utFiles) {
 }
 
 function writeFile(url, data, option) {
-  if (fs.existsSync(outputPath)) {
-    fs.rmdirSync(outputPath, { recursive: true });
-  }
-  const newFilePath = path.resolve(outputPath, path.relative(__dirname, url));
+  const newFilePath = path.resolve(outputPath, path.relative(inputDir.replace('api', ''), url));
   fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
@@ -1072,6 +1085,6 @@ function isEmptyFile(node) {
   return isEmpty;
 }
 
-const apiSourcePath = '../api';
-const outputPath = path.resolve(__dirname, 'output');
-collectDeclaration(apiSourcePath); //入口
+let outputPath = '';
+let inputDir = '';
+start();

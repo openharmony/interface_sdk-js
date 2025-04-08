@@ -20,46 +20,44 @@ import("interface_config.gni")
 
 # 全局变量方法见 https://gitee.com/openharmony/build/blob/master/docs/cmake%E8%BD%ACgn%E6%8C%87%E5%AF%BC%E6%96%87%E6%A1%A3.md#gn%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F
 
-template("ohos_copy_ets") {
-  forward_variables_from(invoker, "*")
-  process_script = "//interface/sdk-js/ohos_copy_ets.py"
-  process_arguments = [
-    "--input",
-    rebase_path(input_dir, root_build_dir),
-    "--output",
-    rebase_path(output_dir, root_build_dir),
-    "--type",
-    sdk_type,
-    "--source-root-dir",
+# 特殊场景没有拷贝interface接口信息，强基之后源码仓api不能直接使用，需要进行处理
+exists_path_tools = "//interface/sdk-js/exists_path.py"
+exists_path_args = [
+  "--path",
+  rebase_path(interface_sdk_path_ets1, root_build_dir),
+]
+has_interface_file =
+    exec_script(exists_path_tools, exists_path_args, "trim string")
+
+if (has_interface_file != "True") {
+  public_sdk_config_parser_arkts = "//build/ohos/sdk/parse_interface_sdk.py"
+  ohos_sdk_pub_description_file_arkts =
+      "//out/sdk-interface/ohos_sdk_pub_description_std.json"
+  public_sdk_args_arkts = [
+    "--sdk-description-file",
+    rebase_path("//build/ohos/sdk/ohos_sdk_description_std.json",
+                root_build_dir),
+    "--root-build-dir",
     rebase_path("//", root_build_dir),
     "--node-js",
     rebase_path(nodejs, root_build_dir),
+    "--output-pub-sdk-desc-file",
+    rebase_path(ohos_sdk_pub_description_file_arkts, root_build_dir),
+    "--sdk-build-public",
+    "${sdk_build_public}",
   ]
-  exec_script(process_script, process_arguments)
+  exec_script(public_sdk_config_parser_arkts, public_sdk_args_arkts)
 }
 
 template("ohos_copy_internal") {
   forward_variables_from(invoker, "*")
+  iv_input = invoker.iv_input
 
   # fullSDK中api路径
-  input_project_dir = "//interface/sdk-js"
-  if (sdk_type != "ets2" && (sdk_build_public || product_name == "ohos-sdk")) {
-    # publicSDK中api路径，经过./build-tools/delete_systemapi_plugin.js脚本处理过systemapi的接口
-    input_project_dir = "//out/sdk-public/public_interface/sdk-js"
+  input_project_dir = interface_sdk_path_ets1
+  if (sdk_type == "ets2") {
+    input_project_dir = interface_sdk_path_ets2
   }
-  base_dir = "//interface/sdk-js"
-  if (sdk_build_public) {
-    base_dir = "//out/sdk-public/public_interface/sdk-js"
-  }
-  iv_input = invoker.iv_input
-  ohos_copy_ets(target_name) {
-    sdk_type = sdk_type
-    input_dir = iv_input
-    output_dir =
-        input_project_dir + "/${sdk_type}/${bpf_inc_out_dir}/${target_name}"
-  }
-  iv_input =
-      input_project_dir + "/${sdk_type}/${bpf_inc_out_dir}/${target_name}"
 
   # 调用build/templates/common/copy.gni中的ohos_copy方法
   # 将处理完成的文件输出到中间产物对应位置 out/sdk/obj/interface/sdk-js/${target_name}
@@ -69,12 +67,14 @@ template("ohos_copy_internal") {
     # remove文件有对应$target_name的属性    保留base中的文件；
     #                                      删除global_remove中的文件；
     #                                     ispublic为真，删除sdk_build_public_remove文件。
-    process_script = input_project_dir + "/process_internal.py"
+    process_script = "//interface/sdk-js/process_internal.py"
     process_arguments = [
       "--input",
       rebase_path(iv_input, root_build_dir),
+      "--project-dir",
+      rebase_path(input_project_dir, root_build_dir),
       "--base-dir",
-      rebase_path(base_dir, root_build_dir),
+      rebase_path("//interface/sdk-js", root_build_dir),
       "--remove",
       rebase_path("//interface/sdk-js/remove_list.json", root_build_dir),
       "--ispublic",
@@ -98,20 +98,11 @@ template("ohos_declaration_template") {
   _module_info_target = "/ohos_declaration/${sdk_type}/${target_name}_info"
 
   # fullSDK中api路径
-  input_project_dir = "//interface/sdk-js"
-  if (sdk_type != "ets2" && (sdk_build_public || product_name == "ohos-sdk")) {
-    # publicSDK中api路径，经过./build-tools/delete_systemapi_plugin.js脚本处理过systemapi的接口
-    input_project_dir = "//out/sdk-public/public_interface/sdk-js"
+  input_project_dir = interface_sdk_path_ets1
+  if (sdk_type == "ets2") {
+    input_project_dir = interface_sdk_path_ets2
   }
   input_api_dir = input_project_dir + "/api"
-  ohos_copy_ets(target_name) {
-    sdk_type = sdk_type
-    input_dir = input_api_dir
-    output_dir =
-        input_project_dir + "/${sdk_type}/${bpf_inc_out_dir}/${target_name}"
-  }
-  input_api_dir =
-      input_project_dir + "/${sdk_type}/${bpf_inc_out_dir}/${target_name}"
 
   action_with_pydeps(target_name) {
     inputs = [ input_project_dir + "/api" ]
@@ -172,32 +163,24 @@ ohos_copy("common_api2") {
 # ets/api/@internal/full执行脚本
 ohos_copy_internal("ets_internal_api") {
   sdk_type = "ets"
-  iv_input = "//interface/sdk-js/api/@internal/ets"
+  iv_input = interface_sdk_path_ets1 + "/api/@internal/ets"
 }
 
 # ets/arkts执行脚本
 ohos_copy_internal("bundle_arkts") {
   sdk_type = "ets"
-  if (sdk_build_public || product_name == "ohos-sdk") {
-    iv_input = "//out/sdk-public/public_interface/sdk-js/arkts"
-  } else {
-    iv_input = "//interface/sdk-js/arkts"
-  }
+  iv_input = interface_sdk_path_ets1 + "/arkts"
 }
 
 # ets1.2/arkts执行脚本
 ohos_copy_internal("bundle_arkts_ets1.2") {
   sdk_type = "ets2"
-  if (sdk_build_public || product_name == "ohos-sdk") {
-    iv_input = "//out/sdk-public/public_interface/sdk-js/arkts"
-  } else {
-    iv_input = "//interface/sdk-js/arkts"
-  }
+  iv_input = interface_sdk_path_ets2 + "/arkts"
 }
 
 ohos_copy_internal("ets_internal_api2") {
   sdk_type = "ets2"
-  iv_input = "//interface/sdk-js/api/@internal/ets"
+  iv_input = interface_sdk_path_ets2 + "/api/@internal/ets"
 }
 
 if (!sdk_build_public) {
@@ -215,29 +198,25 @@ if (!sdk_build_public) {
 # ets/component执行脚本
 ohos_copy_internal("ets_component") {
   sdk_type = "ets"
-  iv_input = "//interface/sdk-js/api/@internal/component/ets"
+  iv_input = interface_sdk_path_ets1 + "/api/@internal/component/ets"
 }
 
 # ets1.2/component执行脚本
 ohos_copy_internal("ets_component2") {
   sdk_type = "ets2"
-  iv_input = "//interface/sdk-js/api/@internal/component/ets"
+  iv_input = interface_sdk_path_ets2 + "/api/@internal/component/ets"
 }
 
 # ets/kits执行脚本
 ohos_copy_internal("bundle_kits") {
   sdk_type = "ets"
-  if (sdk_build_public || product_name == "ohos-sdk") {
-    iv_input = "//out/sdk-public/public_interface/sdk-js/kits"
-  } else {
-    iv_input = "//interface/sdk-js/kits"
-  }
+  iv_input = interface_sdk_path_ets1 + "/kits"
 }
 
 # ets2/kits执行脚本
 ohos_copy_internal("bundle_kits2") {
   sdk_type = "ets2"
-  iv_input = "//interface/sdk-js/kits"
+  iv_input = interface_sdk_path_ets2 + "/kits"
 }
 
 # js/api执行脚本
@@ -247,12 +226,12 @@ ohos_declaration_template("ohos_declaration_common") {
 
 # js/api/@internal/full执行脚本
 ohos_copy_internal("internal_full") {
-  iv_input = "//interface/sdk-js/api/common/full"
+  iv_input = interface_sdk_path_ets1 + "/api/common/full"
 }
 
 # js/api/@internal/lite执行脚本呢
 ohos_copy_internal("internal_lite") {
-  iv_input = "//interface/sdk-js/api/common/lite"
+  iv_input = interface_sdk_path_ets1 + "/api/common/lite"
 }
 
 # js/api/config执行脚本
