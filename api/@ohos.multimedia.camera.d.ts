@@ -598,9 +598,9 @@ declare namespace camera {
      * @permission ohos.camera.CAMERA_CONTROL
      * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
      * @param { PolicyType } type - Type for indicating the calling role.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -1773,7 +1773,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
-    
+
     /**
      * Unsubscribes from camera occlusion detection results.
      *
@@ -3268,7 +3268,7 @@ declare namespace camera {
   /**
    * Zoom object.
    *
-   * extends ZoomQuery
+   * @extends ZoomQuery
    * @interface Zoom
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -7192,7 +7192,7 @@ declare namespace camera {
    * High resolution session object.
    *
    * @extends Session, AutoExposure, Focus
-   * @interface HighResolutionPhotoSession
+   * @interface HighResolutionPhotoSession 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -8125,6 +8125,7 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
      *
      * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -9477,7 +9478,7 @@ declare namespace camera {
   /**
    * Video output object.
    *
-   * extends CameraOutput
+   * @extends CameraOutput
    * @interface VideoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -10357,7 +10358,7 @@ declare namespace camera {
   /**
    * Metadata Output object
    *
-   * extends CameraOutput
+   * @extends CameraOutput
    * @interface MetadataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -10408,7 +10409,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be added.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -10422,7 +10423,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be removed.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
