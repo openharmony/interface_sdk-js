@@ -9433,7 +9433,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     maximizeSupported?: boolean;
     /**
