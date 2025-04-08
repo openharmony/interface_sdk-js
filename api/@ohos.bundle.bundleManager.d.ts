@@ -678,7 +678,6 @@ declare namespace bundleManager {
      */
     FORM_EDIT = 27,
 
-
     /**
      * Indicates extension info with type of unspecified
      *
