@@ -28,12 +28,15 @@ def copy_files(options):
     '''
     with open(options.remove) as f:
         remove_dict = json.load(f)
+        file_list = []
         if options.name in remove_dict:
             rm_name = remove_dict[options.name]
             if 'base' in rm_name:
-                file_list = rm_name['base']
-            else:
-                file_list = []
+                for i, base_path in enumerate(rm_name['base']):
+                    base_full_path = os.path.join(
+                        options.project_dir, base_path)
+                    format_src = format_path(base_full_path, options.base_dir)
+                    file_list.append(format_src)
             for file in os.listdir(options.input):
                 src = os.path.join(options.input, file)
                 if os.path.isfile(src) and (
@@ -52,7 +55,6 @@ def copy_files(options):
                     else:
                         file_list.append(format_src)
         else:
-            file_list = []
             for file in os.listdir(options.input):
                 src = os.path.join(options.input, file)
                 if os.path.isfile(src):
@@ -71,6 +73,7 @@ def parse_args(args):
     parser.add_option('--input', help='d.ts document input path')
     parser.add_option('--remove', help='d.ts to be remove path')
     parser.add_option('--base-dir', help='d.ts document base dir path')
+    parser.add_option('--project-dir', help='current project dir path')
     parser.add_option('--ispublic', help='whether or not sdk build public')
     parser.add_option('--name', help='module label name')
     options, _ = parser.parse_args(args)
