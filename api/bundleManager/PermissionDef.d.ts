@@ -24,16 +24,19 @@
  * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PermissionDef {
   /**
    * Indicates the name of this permission
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly permissionName: string;
 
@@ -41,9 +44,11 @@ export interface PermissionDef {
    * Indicates the grant mode of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly grantMode: number;
 
@@ -51,9 +56,11 @@ export interface PermissionDef {
    * Indicates the labelId of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 
@@ -61,9 +68,11 @@ export interface PermissionDef {
    * Indicates the descriptionId of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly descriptionId: number;
 }

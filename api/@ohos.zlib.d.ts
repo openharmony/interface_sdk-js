@@ -36,7 +36,8 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.Zlib
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace zlib {
   /**
@@ -76,7 +77,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressLevel {
     /**
@@ -91,7 +93,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     /**
@@ -106,7 +109,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
     /**
@@ -121,7 +125,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
     /**
@@ -136,7 +141,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
   }
@@ -155,7 +161,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressStrategy {
     /**
@@ -170,7 +177,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     /**
@@ -185,7 +193,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_FILTERED = 1,
     /**
@@ -200,7 +209,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
     /**
@@ -215,7 +225,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_RLE = 3,
     /**
@@ -230,9 +241,43 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_FIXED = 4
+  }
+
+  /**
+   * ParallelStrategy
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export enum ParallelStrategy {
+    /**
+     * Indicates the sequential strategy, compress and decompress sequentially.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    PARALLEL_STRATEGY_SEQUENTIAL = 0,
+    /**
+     * Indicates the parallel decompression strategy.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
 
   /**
@@ -249,7 +294,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum MemLevel {
     /**
@@ -264,7 +310,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_MIN = 1,
     /**
@@ -279,7 +326,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_MAX = 9,
     /**
@@ -294,7 +342,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_DEFAULT = 8
   }
@@ -305,7 +354,8 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressFlushMode {
     /**
@@ -313,7 +363,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_FLUSH = 0,
     /**
@@ -321,7 +372,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARTIAL_FLUSH = 1,
     /**
@@ -329,7 +381,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYNC_FLUSH = 2,
     /**
@@ -337,7 +390,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FULL_FLUSH = 3,
     /**
@@ -345,7 +399,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINISH = 4,
     /**
@@ -353,7 +408,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLOCK = 5,
     /**
@@ -361,7 +417,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TREES = 6
   }
@@ -372,7 +429,8 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ReturnStatus {
     /**
@@ -380,7 +438,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OK = 0,
     /**
@@ -388,7 +447,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_END = 1,
     /**
@@ -396,7 +456,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEED_DICT = 2,
   }
@@ -407,7 +468,8 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressMethod {
     /**
@@ -415,7 +477,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFLATED = 8,
   }
@@ -426,7 +489,8 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum OffsetReferencePoint {
     /**
@@ -434,7 +498,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_SET = 0,
 
@@ -443,7 +508,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_CUR = 1,
   }
@@ -462,7 +528,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Options {
     /**
@@ -478,7 +545,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     level?: CompressLevel;
     /**
@@ -494,7 +562,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     memLevel?: MemLevel;
     /**
@@ -510,9 +579,22 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     strategy?: CompressStrategy;
+
+    /**
+     * Indicates the parallel strategy.
+     *
+     * @type { ?ParallelStrategy }
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    parallel?: ParallelStrategy;
   }
 
   /**
@@ -521,7 +603,8 @@ declare namespace zlib {
    * @typedef ZStream
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ZStream {
     /**
@@ -530,7 +613,8 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     nextIn?: ArrayBuffer;
 
@@ -540,7 +624,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     availableIn?: number;
 
@@ -550,7 +635,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalIn?: number;
 
@@ -560,7 +646,8 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     nextOut?: ArrayBuffer;
 
@@ -570,7 +657,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     availableOut?: number;
 
@@ -580,7 +668,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalOut?: number;
 
@@ -590,7 +679,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataType?: number;
 
@@ -600,7 +690,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adler?: number;
   }
@@ -611,7 +702,8 @@ declare namespace zlib {
    * @typedef GzHeader
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GzHeader {
     /**
@@ -620,7 +712,8 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isText?: boolean;
 
@@ -630,7 +723,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     os?: number;
 
@@ -640,7 +734,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     time?: number;
 
@@ -650,7 +745,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     xflags?: number;
 
@@ -660,7 +756,8 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extra?: ArrayBuffer;
 
@@ -670,7 +767,8 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraLen?: number;
 
@@ -680,7 +778,8 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name?: ArrayBuffer;
 
@@ -690,7 +789,8 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     comment?: ArrayBuffer;
 
@@ -700,7 +800,8 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hcrc?: boolean;
 
@@ -710,7 +811,8 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     done?: boolean;
   }
@@ -721,7 +823,8 @@ declare namespace zlib {
    * @typedef ZipOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ZipOutputInfo {
     /**
@@ -730,7 +833,8 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: ReturnStatus
 
@@ -740,7 +844,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destLen: number
   }
@@ -751,7 +856,8 @@ declare namespace zlib {
    * @typedef DictionaryOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DictionaryOutputInfo {
     /**
@@ -760,7 +866,8 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: ReturnStatus
 
@@ -770,7 +877,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dictionaryLength: number
   }
@@ -781,7 +889,8 @@ declare namespace zlib {
    * @typedef DecompressionOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DecompressionOutputInfo {
     /**
@@ -790,7 +899,8 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: ReturnStatus
 
@@ -800,7 +910,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destLength: number
 
@@ -810,7 +921,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sourceLength: number
   }
@@ -821,7 +933,8 @@ declare namespace zlib {
    * @typedef DeflatePendingOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeflatePendingOutputInfo {
     /**
@@ -830,7 +943,8 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: ReturnStatus
 
@@ -840,7 +954,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pending: number
 
@@ -850,7 +965,8 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bits: number
   }
@@ -861,7 +977,8 @@ declare namespace zlib {
    * @typedef GzErrorOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GzErrorOutputInfo {
     /**
@@ -870,7 +987,8 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: ReturnStatus
 
@@ -880,7 +998,8 @@ declare namespace zlib {
      * @type { string }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     statusMsg: string
   }
@@ -895,7 +1014,8 @@ declare namespace zlib {
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type InflateBackInputCallback = (inDesc: object) => ArrayBuffer;
 
@@ -910,7 +1030,8 @@ declare namespace zlib {
    * @returns { number } Return the number of bytes output.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number;
 
@@ -968,7 +1089,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -998,7 +1120,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
@@ -1014,7 +1137,8 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
@@ -1059,7 +1183,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1089,7 +1214,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
 
@@ -1134,7 +1260,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
@@ -1149,7 +1276,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOriginalSize(compressedFile: string): Promise<number>;
 
@@ -1159,7 +1287,8 @@ declare namespace zlib {
    * @returns { Promise<Checksum> } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksum(): Promise<Checksum>;
 
@@ -1169,7 +1298,8 @@ declare namespace zlib {
    * @returns { Checksum } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksumSync(): Checksum;
 
@@ -1179,7 +1309,8 @@ declare namespace zlib {
    * @returns { Promise<Zip> } Returns zip objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createZip(): Promise<Zip>;
 
@@ -1189,7 +1320,8 @@ declare namespace zlib {
    * @returns { Zip } Returns zip objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createZipSync(): Zip;
 
@@ -1199,7 +1331,8 @@ declare namespace zlib {
    * @returns { Promise<GZip> } Returns zip objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createGZip(): Promise<GZip>;
 
@@ -1209,7 +1342,8 @@ declare namespace zlib {
    * @returns { GZip } Returns zip objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createGZipSync(): GZip;
 
@@ -1219,7 +1353,8 @@ declare namespace zlib {
    * @typedef Checksum
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Checksum {
     /**
@@ -1232,7 +1367,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adler32(adler: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1247,7 +1383,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adler32Combine(adler1: number, adler2: number, len2: number): Promise<number>;
 
@@ -1261,7 +1398,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crc32(crc: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1276,7 +1414,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crc32Combine(crc1: number, crc2: number, len2: number): Promise<number>;
 
@@ -1290,7 +1429,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crc64(crc: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1300,7 +1440,8 @@ declare namespace zlib {
      * @returns { Promise<Array<number>> } Return a array to the CRC-32 table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCrcTable(): Promise<Array<number>>;
 
@@ -1310,7 +1451,8 @@ declare namespace zlib {
      * @returns { Promise<Array<number>> } Return a array to the CRC-64 table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCrc64Table(): Promise<Array<number>>;
   }
@@ -1321,7 +1463,8 @@ declare namespace zlib {
    * @typedef Zip
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Zip {
     /**
@@ -1330,7 +1473,8 @@ declare namespace zlib {
      * @returns { Promise<ZStream> } Return the required ZStream for compression or decompression.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getZStream(): Promise<ZStream>;
 
@@ -1340,7 +1484,8 @@ declare namespace zlib {
      * @returns { Promise<string> } Returns a specific version number string constant containing the zlib library.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     zlibVersion(): Promise<string>;
 
@@ -1378,7 +1523,8 @@ declare namespace zlib {
      * 27-31: 0 (reserved).
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     zlibCompileFlags(): Promise<number>;
 
@@ -1394,7 +1540,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     compress(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<ZipOutputInfo>;
 
@@ -1412,7 +1559,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     compress2(dest: ArrayBuffer, source: ArrayBuffer, level: CompressLevel, sourceLen?: number,): Promise<ZipOutputInfo>;
 
@@ -1425,7 +1573,8 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     compressBound(sourceLen: number): Promise<number>;
 
@@ -1442,7 +1591,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uncompress(dest:ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<ZipOutputInfo>;
 
@@ -1459,7 +1609,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uncompress2(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<DecompressionOutputInfo>;
 
@@ -1474,7 +1625,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateValidate(strm: ZStream, check: number): Promise<ReturnStatus>;
 
@@ -1488,7 +1640,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateSyncPoint(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1504,7 +1657,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateSync(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1520,7 +1674,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800005 - Data error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -1534,7 +1689,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1549,7 +1705,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateReset2(strm: ZStream, windowBits: number): Promise<ReturnStatus>;
 
@@ -1563,7 +1720,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateReset(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1579,7 +1737,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflatePrime(strm: ZStream, bits: number, value: number): Promise<ReturnStatus>;
 
@@ -1592,7 +1751,8 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateMark(strm: ZStream): Promise<number>;
 
@@ -1624,7 +1784,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateInit2(strm: ZStream, windowBits: number): Promise<ReturnStatus>;
 
@@ -1637,7 +1798,8 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateInit(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1652,7 +1814,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateGetHeader(strm: ZStream, header: GzHeader): Promise<ReturnStatus>;
 
@@ -1667,7 +1830,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
@@ -1681,7 +1845,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1695,7 +1860,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateCopy(source: Zip): Promise<ReturnStatus>;
 
@@ -1708,7 +1874,8 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateCodesUsed(strm: ZStream): Promise<number>;
 
@@ -1724,7 +1891,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateBackInit(strm: ZStream, windowBits: number, window: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -1738,7 +1906,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateBackEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1756,7 +1925,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflateBack(strm: ZStream, backIn: InflateBackInputCallback, inDesc: object, backOut: InflateBackOutputCallback, outDesc: object): Promise<ReturnStatus>;
 
@@ -1772,7 +1942,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800005 - Data error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -1787,7 +1958,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateInit(strm: ZStream, level: CompressLevel): Promise<ReturnStatus>;
 
@@ -1806,7 +1978,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: number,
         memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
@@ -1823,7 +1996,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800007 - Buffer error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -1837,7 +2011,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1851,7 +2026,8 @@ declare namespace zlib {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateBound(strm: ZStream, sourceLength: number): Promise<number>;
 
@@ -1866,7 +2042,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateSetHeader(strm: ZStream, head: GzHeader): Promise<ReturnStatus>;
 
@@ -1880,7 +2057,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateCopy(source: Zip): Promise<ReturnStatus>;
 
@@ -1895,7 +2073,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -1910,7 +2089,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
@@ -1928,7 +2108,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateTune(strm: ZStream, goodLength: number, maxLazy: number, niceLength: number, maxChain: number): Promise<ReturnStatus>;
 
@@ -1942,7 +2123,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateReset(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1956,7 +2138,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1970,7 +2153,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflatePending(strm: ZStream): Promise<DeflatePendingOutputInfo>;
 
@@ -1986,7 +2170,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflateParams(strm: ZStream, level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
@@ -2002,7 +2187,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deflatePrime(strm: ZStream, bits: number, value: number): Promise<ReturnStatus>;
   }
@@ -2013,7 +2199,8 @@ declare namespace zlib {
    * @typedef GZip
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GZip {
 
@@ -2028,7 +2215,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzdopen(fd: number, mode: string): Promise<void>;
 
@@ -2042,7 +2230,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzbuffer(size: number): Promise<number>;
 
@@ -2057,7 +2246,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzopen(path: string, mode: string): Promise<void>;
 
@@ -2067,7 +2257,8 @@ declare namespace zlib {
      * @returns { Promise<number> } Return 1 (true) if the end-of-file indicator for file has been set while reading.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzeof(): Promise<number>;
 
@@ -2077,7 +2268,8 @@ declare namespace zlib {
      * @returns { Promise<number> } returns 1 (true) if transparent writing was requested.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzdirect(): Promise<number>;
 
@@ -2089,7 +2281,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzclose(): Promise<ReturnStatus>;
 
@@ -2099,7 +2292,8 @@ declare namespace zlib {
      * @returns { Promise<void> }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzclearerr(): Promise<void>;
 
@@ -2110,7 +2304,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzerror(): Promise<GzErrorOutputInfo>;
 
@@ -2121,7 +2316,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzgetc(): Promise<number>;
 
@@ -2135,7 +2331,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzflush(flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -2151,7 +2348,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzfwrite(buf: ArrayBuffer, size: number, nitems: number): Promise<number>;
 
@@ -2167,7 +2365,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzfread(buf: ArrayBuffer, size: number, nitems: number): Promise<number>;
 
@@ -2179,7 +2378,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzclosew(): Promise<ReturnStatus>;
 
@@ -2190,7 +2390,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzcloser(): Promise<ReturnStatus>;
 
@@ -2205,7 +2406,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzwrite(buf: ArrayBuffer, len: number): Promise<number>;
 
@@ -2219,7 +2421,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzungetc(c: number): Promise<number>;
 
@@ -2230,7 +2433,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gztell(): Promise<number>;
 
@@ -2245,7 +2449,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800004 - ZStream error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzsetparams(level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
@@ -2260,7 +2465,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzseek(offset: number, whence: OffsetReferencePoint): Promise<number>;
 
@@ -2271,7 +2477,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzrewind(): Promise<ReturnStatus>;
 
@@ -2285,7 +2492,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzread(buf: ArrayBuffer): Promise<number>;
 
@@ -2299,7 +2507,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzputs(str: string): Promise<number>;
 
@@ -2313,7 +2522,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzputc(char: number): Promise<number>;
 
@@ -2329,10 +2539,26 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @arkts 1.1
      * @since 12
      */
     gzprintf(format: string, ...args: Array<string | number>): Promise<number>;
+
+    /**
+     * Convert, format, compress, and write the arguments to file under control of the string format, as in fprintf.
+     *
+     * @param { string } format - Format descriptors and plain text.
+     * @param { (string | number)[] } args - Variable argument lists.
+     * @returns { Promise<number> } Return the number of uncompressed bytes actually written.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800009 - Internal structure error.
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    gzprintf(format: string, ...args: (string | number)[]): Promise<number>;
 
     /**
      * Return the current compressed (actual) read or write offset of file.
@@ -2341,7 +2567,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzoffset(): Promise<number>;
 
@@ -2356,7 +2583,8 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gzgets(buf: ArrayBuffer): Promise<string>;
   }

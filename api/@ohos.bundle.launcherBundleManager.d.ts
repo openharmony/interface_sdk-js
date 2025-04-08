@@ -28,8 +28,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  *
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 9
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace launcherBundleManager {
   /**
@@ -47,7 +47,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string,
     userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
@@ -67,7 +68,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -79,14 +81,12 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfoSync(bundleName: string, userId: number): Array<LauncherAbilityInfo>;
 
@@ -103,7 +103,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
@@ -120,7 +121,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -137,7 +139,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
@@ -154,7 +157,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
 
@@ -171,7 +175,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
@@ -191,7 +196,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
 
@@ -209,7 +215,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
@@ -218,8 +225,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
@@ -229,7 +236,8 @@ declare namespace launcherBundleManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -238,7 +246,8 @@ declare namespace launcherBundleManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -247,7 +256,8 @@ declare namespace launcherBundleManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
 }

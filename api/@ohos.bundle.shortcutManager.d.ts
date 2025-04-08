@@ -26,7 +26,8 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace shortcutManager {
   /**
@@ -46,7 +47,8 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
 
@@ -63,7 +65,8 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
 
@@ -79,7 +82,8 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
 
@@ -89,7 +93,8 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -98,7 +103,8 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -107,7 +113,8 @@ declare namespace shortcutManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
   }
