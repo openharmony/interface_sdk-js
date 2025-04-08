@@ -1114,7 +1114,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
 
     /**
-     * Defines the customDialog's display area in hover mode.
+     * Defines the dialog's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
