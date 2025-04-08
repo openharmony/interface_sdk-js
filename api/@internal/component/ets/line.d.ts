@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+import { Length } from './units';
+/*** endif */
+
 /**
  * Defines Line constructor options.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface LineOptions {
   /**
@@ -61,7 +67,8 @@ interface LineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: string | number;
 
@@ -97,7 +104,8 @@ interface LineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: string | number;
 }
@@ -435,3 +443,71 @@ declare const Line: LineInterface;
  * @since 11
  */
 declare const LineInstance: LineAttribute;
+
+/**
+ * Line drawing component.
+ *
+ * @interface LineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface LineInterface {
+  /**
+   * The return value of the parameter is Line.
+   *
+   * @param { LineOptions } [options] - Line options
+   * @returns { LineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: LineOptions): LineAttribute;
+}
+
+/**
+ * inheritance CommonShapeMethod.
+ *
+ * @extends CommonShapeMethod<LineAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
+  /**
+   * Coordinate of the start point of the line (relative coordinate).
+   *
+   * @param { Array<Length> } value
+   * @returns { LineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  startPoint(value: Array<Length>): LineAttribute;
+
+  /**
+   * Line end coordinates (relative coordinates).
+   *
+   * @param { Array<Length> } value
+   * @returns { LineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  endPoint(value: Array<Length>): LineAttribute;
+}

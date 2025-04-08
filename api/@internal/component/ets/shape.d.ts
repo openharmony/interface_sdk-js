@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common';
+import { image } from '../../@ohos.multimedia.image';
+import { ResourceColor, Length } from './units';
+import { Resource } from '../../global/resource';
+import { LineCapStyle, LineJoinStyle } from './enums';
+/*** endif */
+
 /**
  * Viewport bounding box.
  *
@@ -26,7 +34,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ViewportRect {
   /**
@@ -61,7 +70,8 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x?: number | string;
 
@@ -97,7 +107,8 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y?: number | string;
 
@@ -133,7 +144,8 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: number | string;
 
@@ -169,7 +181,8 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: number | string
 }
@@ -322,7 +335,8 @@ interface ShapeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
@@ -372,7 +386,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   viewPort(value: ViewportRect): ShapeAttribute;
 
@@ -412,7 +427,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stroke(value: ResourceColor): ShapeAttribute;
 
@@ -452,7 +468,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill(value: ResourceColor): ShapeAttribute;
 
@@ -492,7 +509,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeDashOffset(value: number | string): ShapeAttribute;
 
@@ -537,6 +555,20 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   strokeDashArray(value: Array<any>): ShapeAttribute;
 
   /**
+   * Called when the gap of the border is set.
+   *
+   * @param { Array<Length> } value
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  strokeDashArray(value: Array<Length>): ShapeAttribute;
+
+  /**
    * Called when the path endpoint drawing style is set.
    *
    * @param { LineCapStyle } value
@@ -572,7 +604,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeLineCap(value: LineCapStyle): ShapeAttribute;
 
@@ -612,7 +645,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeLineJoin(value: LineJoinStyle): ShapeAttribute;
 
@@ -652,7 +686,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeMiterLimit(value: number | string): ShapeAttribute;
 
@@ -692,7 +727,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -732,7 +768,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -772,7 +809,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth(value: number | string): ShapeAttribute;
 
@@ -812,7 +850,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   antiAlias(value: boolean): ShapeAttribute;
 
@@ -863,6 +902,22 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 11
    */
   mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
+
+  /**
+   * Called when shape mesh.
+   *
+   * @param { Array<number> } value
+   * @param { number } column
+   * @param { number } row
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  mesh(value: Array<number>, column: number, row: number): ShapeAttribute;
 }
 
 /**
@@ -928,3 +983,42 @@ declare const Shape: ShapeInterface;
  * @since 11
  */
 declare const ShapeInstance: ShapeAttribute;
+
+/**
+ * Provides interfaces for drawing components.
+ *
+ * @interface ShapeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface ShapeInterface {
+  /**
+   * Called when a component is drawn.
+   *
+   * @param { image.PixelMap } value
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (value: image.PixelMap): ShapeAttribute;
+
+  /**
+   * Called when a component is drawn.
+   *
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (): ShapeAttribute;
+}
