@@ -19,14 +19,12 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, Callback } from './common';
-import { drawing } from '../../@ohos.graphics.drawing';
+import { CommonMethod, Callback, PixelMap } from './common';
+import drawing from '../../@ohos.graphics.drawing';
 import { FrameNode } from '../FrameNode';
-import { ImageAIOptions, ImageAnalyzerConfig } from './image_common';
-import { image } from '../../@ohos.multimedia.image';
-import { LengthMetricsUnit } from '../Graphics';
+import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
-import { VoidCallback } from './units';
+import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
 /*** endif */
 
 /**
@@ -43,7 +41,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
 /**
  * Import the drawing canvas type object for Canvas.
  *
- * @typedef { import('../api/@ohos.graphics.drawing').default.Canvas } DrawingCanvas
+ * @typedef { drawing.Canvas } DrawingCanvas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -2173,21 +2171,10 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(data: PixelMap);
-
-  /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
-   *
-   * @param { image.PixelMap } data - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(data: image.PixelMap);
 
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
@@ -2197,22 +2184,10 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
-
-  /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
-   *
-   * @param { image.PixelMap } data - PixelMap object
-   * @param { LengthMetricsUnit } [unit] - the unit mode
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(data: image.PixelMap, unit: LengthMetricsUnit);
 }
 
 /**
@@ -2410,8 +2385,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 
@@ -2770,28 +2744,14 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
    * Draw an image on a canvas
    *
-   * @param { ImageBitmap | image.PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawImage(image: ImageBitmap | image.PixelMap, dx: number, dy: number): void;
-
-  /**
-   * Draw an image on a canvas
-   *
    * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
    * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
    * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
@@ -2837,28 +2797,12 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | image.PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawImage(image: ImageBitmap | image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
-
-  /**
    *Draw an image on a canvas
    *
    * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
@@ -2922,41 +2866,11 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(
     image: ImageBitmap | PixelMap,
-    sx: number,
-    sy: number,
-    sw: number,
-    sh: number,
-    dx: number,
-    dy: number,
-    dw: number,
-    dh: number,
-  ): void;
-
-  /**
-   *Draw an image on a canvas
-   *
-   * @param { ImageBitmap | image.PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawImage(
-    image: ImageBitmap | image.PixelMap,
     sx: number,
     sy: number,
     sw: number,
@@ -3829,25 +3743,10 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
-
-  /**
-   * Obtains the PixelMap of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { image.PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap;
 
   /**
    * Draws the specified ImageData object onto the canvas
@@ -5406,21 +5305,10 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setPixelMap(value?: PixelMap): void;
-
-  /**
-   * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
-   *
-   * @param { image.PixelMap } value - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setPixelMap(value?: image.PixelMap): void;
 
   /**
    * transfer ImageBitmap to content.
@@ -5743,8 +5631,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(settings?: RenderingContextSettings);
 
@@ -6008,8 +5895,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
 

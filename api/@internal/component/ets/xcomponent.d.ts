@@ -19,8 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { ImageAIOptions, ImageAnalyzerConfig } from './image_common';
+import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { CommonMethod } from './common';
+import { XComponentType } from './enums';
 import { VoidCallback } from './units';
 /*** endif */
 
@@ -643,7 +644,7 @@ declare const XComponentInstance: XComponentAttribute;
  * @since 20
  * @arkts 1.2
  */
-interface XComponentParameter {
+declare interface XComponentParameter {
   /**
    * The id of xcomponent
    *
@@ -704,7 +705,7 @@ interface XComponentInterface {
   /**
    * Constructor parameters
    *
-   * @param { XComponentLibrarynameOptions } value - Indicates the options of the xcomponent.
+   * @param { XComponentParameter } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

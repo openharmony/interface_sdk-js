@@ -20,11 +20,10 @@
 
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource';
-import { image } from '../../@ohos.multimedia.image';
-import { ImageAIOptions, ImageAnalyzerConfig } from './image_common';
+import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { ImageFit } from './enums';
-import { CommonMethod, Callback } from './common';
-import { VoidCallback } from './units';
+import { CommonMethod, Callback, PixelMap } from './common';
+import { VoidCallback, ColorMetrics } from './units';
 /*** endif */
 
 /**
@@ -524,21 +523,10 @@ declare interface VideoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   previewUri?: string | PixelMap | Resource;
-
-  /**
-   * preview uri of video.
-   *
-   * @type { ?(string | image.PixelMap | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  previewUri?: string | image.PixelMap | Resource;
 
   /**
    * controller of video.

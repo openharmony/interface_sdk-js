@@ -420,7 +420,7 @@ declare interface Point {
   /**
    * The x-axis coordinate of the point.
    *
-   * @type { (number | string) }
+   * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -433,7 +433,7 @@ declare interface Point {
   /**
    * The y-axis coordinate of the point.
    *
-   * @type { (number | string) }
+   * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form

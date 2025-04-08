@@ -19,8 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { image } from '../../@ohos.multimedia.image';
+import { CommonMethod, PixelMap } from './common';
 import { ResourceColor, Length } from './units';
 import { Resource } from '../../global/resource';
 import { LineCapStyle, LineJoinStyle } from './enums';
@@ -999,7 +998,7 @@ interface ShapeInterface {
   /**
    * Called when a component is drawn.
    *
-   * @param { image.PixelMap } value
+   * @param { PixelMap } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1007,7 +1006,7 @@ interface ShapeInterface {
    * @since 20
    * @arkts 1.2
    */
-  (value: image.PixelMap): ShapeAttribute;
+  (value: PixelMap): ShapeAttribute;
 
   /**
    * Called when a component is drawn.
