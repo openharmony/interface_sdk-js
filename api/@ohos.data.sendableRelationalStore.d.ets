@@ -18,8 +18,6 @@
  * @kit ArkData
  */
 
-import collections from '../arkts/@arkts.collections';
-import lang from '../arkts/@arkts.lang';
 import relationalStore from './@ohos.data.relationalStore';
 
 /**
@@ -34,11 +32,10 @@ declare namespace sendableRelationalStore {
    * Defines information of an asset.
    *
    * @interface Asset
-   * @extends lang.ISendable
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  interface Asset extends lang.ISendable {
+  interface Asset {
     /**
      * Name of the asset.
      *
@@ -99,31 +96,31 @@ declare namespace sendableRelationalStore {
   /**
    * Defines multiple assets in a column.
    *
-   * @typedef { collections.Array<Asset> } Assets
+   * @typedef { Array<Asset> } Assets
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type Assets = collections.Array<Asset>;
+  type Assets = Array<Asset>;
 
   /**
    * Defines the types of the value in a KV pair.
    *
-   * @typedef { null | number | string | boolean | collections.Uint8Array | Asset | Assets |
-   * collections.Float32Array | bigint } ValueType
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets |
+   * Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type ValueType = null | number | string | boolean | collections.Uint8Array | Asset | Assets |
-    collections.Float32Array | bigint;
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets |
+    Float32Array | bigint;
 
   /**
    * Defines the data stored in KV pairs in a ValuesBucket object.
    *
-   * @typedef { collections.Map<string, ValueType> } ValuesBucket
+   * @typedef { Map<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type ValuesBucket = collections.Map<string, ValueType>;
+  type ValuesBucket = Map<string, ValueType>;
 
   /**
    * Defines NonSendableBucket for convenience.
