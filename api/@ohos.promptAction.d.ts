@@ -104,7 +104,7 @@ export class LevelOrder {
    * @atomicservice
    * @since 18
    */
-  static clamp(order: number): LevelOrder
+  static clamp(order: number): LevelOrder;
 
   /**
    * Get the order from LevelOrder object.
@@ -115,7 +115,7 @@ export class LevelOrder {
    * @atomicservice
    * @since 18
    */
-  getOrder(): number
+  getOrder(): number;
 }
 
 /**
