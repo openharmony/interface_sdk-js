@@ -80,7 +80,8 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
         factory: () => T,
         initializers?: T_Options,
         @memo
-        content?: () => void
+        content?: () => void,
+        reuseKey?: string   
     ): T;
 
    // Life cycle for custom component
@@ -94,4 +95,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
 
     @memo
     build(): void;
+    
+    aboutToReuse(): void
+    aboutToRecycle(): void
 }
