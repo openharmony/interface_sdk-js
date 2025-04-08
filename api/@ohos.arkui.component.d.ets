@@ -111,7 +111,6 @@ export * from './arkui/component/refresh';
 export * from './arkui/component/relativeContainer';
 export * from './arkui/component/remoteWindow';
 export * from './arkui/component/repeat';
-export * from './arkui/component/reusable';
 export * from './arkui/component/richEditor';
 export * from './arkui/component/richText';
 export * from './arkui/component/rootScene';
