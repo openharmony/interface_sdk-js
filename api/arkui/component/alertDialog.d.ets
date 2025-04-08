@@ -101,6 +101,8 @@ export interface AlertDialogParamWithOptions extends AlertDialogParam {
     buttons: Array<AlertDialogButtonOptions>;
     buttonDirection?: DialogButtonDirection;
 }
-export interface AlertDialog {
-    show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): undefined
+export declare class AlertDialog {
+    static show(value
+                : AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions)
+        : undefined
 }
