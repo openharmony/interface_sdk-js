@@ -1243,14 +1243,14 @@ export interface CommonMethod {
     @memo
     pixelStretchEffect(value: PixelStretchEffectOptions): this;
     @memo
-    accessibilityGroup(value: boolean): this;
+    accessibilityGroup(value: boolean, AccessibilityOptions?: AccessibilityOptions): this;
     @memo
-    accessibilityText(value: string): this;
+    accessibilityText(value: string | Resource): this;
 
     @memo
     accessibilityTextHint(value: string): this;
     @memo
-    accessibilityDescription(value: string): this;
+    accessibilityDescription(value: string | Resource): this;
 
     @memo
     accessibilityLevel(value: string): this;
