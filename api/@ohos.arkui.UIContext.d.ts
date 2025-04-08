@@ -1473,22 +1473,6 @@ export class PromptAction {
 declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 
 /**
- * Defines the callback type used in UIObserver watch pan event.
- * The value of event indicates the information of pan event.
- * The value of node indicates the frameNode which will receive the event.
- *
- * @typedef { function } PanListenerCallback
- * @param { GestureEvent } event - the information of pan event
- * @param { GestureRecognizer } current - the information of panRecognizer
- * @param { FrameNode } [node] - the information of frameNode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
-
-/**
  * Defines the callback type used in UIObserver watch gesture.
  * The value of event indicates the information of gesture.
  * The value of node indicates the frameNode which will receive the event.
@@ -2022,110 +2006,6 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'beforePanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'beforePanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'beforePanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'afterPanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'afterPanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'afterPanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
 
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
