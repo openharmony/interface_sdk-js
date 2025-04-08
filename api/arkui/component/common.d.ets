@@ -23,7 +23,7 @@ import { Resource } from './../../../api/global/resource'
 import { Callback_Void } from './abilityComponent'
 import { DrawContext, LengthMetrics } from './../Graphics'
 import { ButtonType, ButtonStyleMode, ButtonRole } from './button'
-import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureInfo, GestureType, GestureMask, GestureHandler, GesturePriority } from './gesture'
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureInfo, GestureType, GestureMask, GestureHandler, GesturePriority, Gesture, GestureGroup } from './gesture'
 import { IntentionCode } from './../../../api/@ohos.multimodalInput.intentionCode'
 import { UIContext } from './../../../api/@ohos.arkui.UIContext'
 import { Callback_Number_Void } from './alphabetIndexer'
@@ -1284,6 +1284,12 @@ export interface CommonMethod {
     onTouchIntercept(value: ((parameter: TouchEvent) => HitTestMode)): this;
     @memo
     onSizeChange(value: SizeChangeCallback): this;
+    @memo
+    gesture(gesture: GestureType, mask?: GestureMask): this;
+    @memo
+    parallelGesture(gesture: GestureType, mask?: GestureMask): this;
+    @memo
+    priorityGesture(gesture: GestureType, mask?: GestureMask): this;
 }
 export interface CommonAttribute extends CommonMethod {
 }
