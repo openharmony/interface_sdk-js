@@ -76,7 +76,7 @@ function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCod
     return result;
 }
 
-export function handleComponentInterface(node: ts.InterfaceDeclaration, file: ComponentFile) {
+function handleComponentInterface(node: ts.InterfaceDeclaration, file: ComponentFile) {
     const result = getAllInterfaceCallSignature(node, file.sourceFile)
     const declPattern = readLangTemplate()
     const declComponentFunction: string[] = []
@@ -89,7 +89,7 @@ export function handleComponentInterface(node: ts.InterfaceDeclaration, file: Co
     return declComponentFunction.join('\n')
 }
 
-export function handleComponentAttribute(node: ts.ClassDeclaration, originalSource: ts.SourceFile) {
+function handleComponentAttribute(node: ts.ClassDeclaration, originalSource: ts.SourceFile) {
     const commentRanges = ts.getLeadingCommentRanges(originalSource.text, node.pos);
     const classStart = commentRanges?.[0]?.pos ?? node.getStart(originalSource);
     const classEnd = node.getEnd();
@@ -154,7 +154,7 @@ function isComponentInterface(node: ts.Node, file: ComponentFile) {
     return true;
 }
 
-export function convertComponentDeclaration(node: ts.Node, file: ComponentFile): boolean {
+function convertComponentDeclaration(node: ts.Node, file: ComponentFile): boolean {
     if (isComponentAttribute(node, file)) {
         file.appendAttribute(handleComponentAttribute(node as ts.ClassDeclaration, file.sourceFile))
         return true;
@@ -163,4 +163,17 @@ export function convertComponentDeclaration(node: ts.Node, file: ComponentFile):
         return true;
     }
     return false;
+}
+
+export function interfaceTransformer(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
+    return (context) => {
+        const visit: ts.Visitor = (node) => {
+            if (convertComponentDeclaration(node, componentFile)) {
+                return undefined;
+            }
+            return ts.visitEachChild(node, visit, context);
+        };
+
+        return (sourceFile) => ts.visitNode(sourceFile, visit);
+    };
 }

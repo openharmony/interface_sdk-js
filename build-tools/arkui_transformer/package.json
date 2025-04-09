@@ -4,7 +4,7 @@
   "main": "build/arkui_transformer.js",
   "scripts": {
     "compile:arkui": "tsc -p tsconfig.json",
-    "transform:arkui": "npm run compile:arkui && node . --input-dir ../../etstest/ --target-dir ../../output/"
+    "transform:arkui": "npm run compile:arkui && node . --input-dir ../../etstest --target-dir ../../api/arkui/component.test/"
   },
   "author": "",
   "license": "ISC",
