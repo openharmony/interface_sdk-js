@@ -2581,15 +2581,6 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     cameraShotKey?: string;
-    /**
-     * User id
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 18
-     */
-    userId?: number;
   }
 
   /**
