@@ -2121,7 +2121,7 @@ declare namespace avSession {
      * Register setTargetLoopMode command callback
      * Application should change playmode to the loopmode which is requested.
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
-     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2135,7 +2135,7 @@ declare namespace avSession {
     /**
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
-     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.

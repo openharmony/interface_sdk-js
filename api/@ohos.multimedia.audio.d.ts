@@ -786,13 +786,13 @@ declare namespace audio {
     /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     HDMI = 27,
     /**
      * Line connected digital output device, such as s/pdif
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     LINE_DIGITAL = 28,
     /**
@@ -4310,6 +4310,19 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+     /**
+     * Query whether Acoustic Echo Canceler is supported on input SourceType.
+     * @param { SourceType } sourceType - Audio source type.
+     * @returns { boolean } Promise used to return the support status of Acoustic Echo Canceler. 
+     * The value true means that Acoustic Echo Canceler is supported, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+     isAcousticEchoCancelerSupported(sourceType: SourceType): boolean;
   }
 
   /**
@@ -8493,7 +8506,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
-    SOURCE_TYPE_LIVE = 15
+    SOURCE_TYPE_LIVE = 17
   }
 
   /**

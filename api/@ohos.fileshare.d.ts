@@ -335,6 +335,18 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 12
    */
+  /**
+   * Check persistent permissions for the URI.
+   * 
+   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
+   * @returns { Promise<Array<boolean>> } Returns the persistent state of uri permissions.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 17
+   */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
 
   /**

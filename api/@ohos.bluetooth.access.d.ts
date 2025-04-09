@@ -332,6 +332,20 @@ declare namespace access {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Unsubscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
   /**

@@ -1165,6 +1165,19 @@ export namespace typeNode {
   function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
+
+  /**
    * Bind the controller of FrameNode.
    * 
    * @param { FrameNode } node - the target FrameNode.
@@ -1352,6 +1365,19 @@ export namespace typeNode {
   type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
+
+  /**
    * Create a FrameNode of ListItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -1454,6 +1480,19 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
 
   /**
    * Define the FrameNode type for FlowItem.
@@ -1872,6 +1911,19 @@ export namespace typeNode {
    * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 
   /**
    * Define the FrameNode type for GridItem.

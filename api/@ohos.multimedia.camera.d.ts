@@ -598,9 +598,9 @@ declare namespace camera {
      * @permission ohos.camera.CAMERA_CONTROL
      * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
      * @param { PolicyType } type - Type for indicating the calling role.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -831,6 +831,36 @@ declare namespace camera {
      * @since 11
      */
     createSession<T extends Session>(mode: SceneMode): T;
+
+    /**
+     * Queries a specified device based on position and type.
+     *
+     * @param { CameraPosition } position - Camera position.
+     * @param { CameraType } type - Camera type.
+     * @returns { CameraDevice } A device queried base on position and type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
+
+    /**
+     * Obtains the concurrent information of specified cameras,
+     * the empty return means concurrency is not supported.
+     *
+     * @param { Array<CameraDevice> } cameras - Set of camera devices to be queried.
+     * @returns { Array<CameraConcurrentInfo> } Set of queried concurrent information.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>;
 
     /**
      * Subscribes camera status change event callback.
@@ -1663,6 +1693,20 @@ declare namespace camera {
     open(isSecureEnabled: boolean): Promise<bigint>;
 
     /**
+     * Open camera with specified concurrent type.
+     *
+     * @param { CameraConcurrentType } type - Camera concurrent type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
+     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    open(type: CameraConcurrentType): Promise<void>;
+
+    /**
      * Close camera.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -1729,7 +1773,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
-    
+
     /**
      * Unsubscribes from camera occlusion detection results.
      *
@@ -1942,6 +1986,15 @@ declare namespace camera {
      * @since 12
      */
     CAMERA_FORMAT_DNG = 4,
+
+    /**
+     * Extreme Digital Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    CAMERA_FORMAT_DNG_XDRAW = 5,
 
     /**
      * YUV 420 Format.
@@ -3215,7 +3268,7 @@ declare namespace camera {
   /**
    * Zoom object.
    *
-   * extends ZoomQuery
+   * @extends ZoomQuery
    * @interface Zoom
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -7139,7 +7192,7 @@ declare namespace camera {
    * High resolution session object.
    *
    * @extends Session, AutoExposure, Focus
-   * @interface HighResolutionPhotoSession
+   * @interface HighResolutionPhotoSession 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -8072,6 +8125,7 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
      *
      * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -9424,7 +9478,7 @@ declare namespace camera {
   /**
    * Video output object.
    *
-   * extends CameraOutput
+   * @extends CameraOutput
    * @interface VideoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -10304,7 +10358,7 @@ declare namespace camera {
   /**
    * Metadata Output object
    *
-   * extends CameraOutput
+   * @extends CameraOutput
    * @interface MetadataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -10355,7 +10409,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be added.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -10369,7 +10423,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be removed.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -10417,6 +10471,80 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Enum for camera concurrent type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 18
+   */
+  enum CameraConcurrentType {
+    /**
+     * Cameras concurrency with limited capabilities.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    CAMERA_LIMITED_CAPABILITY = 0,
+
+    /**
+     * Cameras concurrency with full capabilities.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    CAMERA_FULL_CAPABILITY = 1,
+  }
+
+  /**
+   * Camera concurrent information.
+   *
+   * @interface CameraConcurrentInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 18
+   */
+  interface CameraConcurrentInfo {
+    /**
+     * Camera instance.
+     *
+     * @type { CameraDevice }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly device: CameraDevice;
+
+    /**
+     * Camera concurrent type.
+     *
+     * @type { CameraConcurrentType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly type: CameraConcurrentType;
+
+    /**
+     * Supported scene modes.
+     *
+     * @type { Array<SceneMode> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly modes: Array<SceneMode>;
+
+    /**
+     * Supported outputCapability.
+     *
+     * @type { Array<CameraOutputCapability> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly outputCapabilities: Array<CameraOutputCapability>;
   }
 
   /**

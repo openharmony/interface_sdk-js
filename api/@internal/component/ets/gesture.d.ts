@@ -1395,7 +1395,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 112
+ * @since 12
  */
 interface SwipeGestureEvent extends BaseGestureEvent {
   /**
@@ -2336,7 +2336,7 @@ declare class PanGestureOptions {
    * @atomicservice
    * @since 18
    */
-    getDistance(): number;
+  getDistance(): number;
 }
 
 /**
@@ -3568,6 +3568,16 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * @since 12
    */
   distance?: number;
+  /**
+   * Indicates minimum move distance map.
+   *
+   * @type { ?Map<SourceTool, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  distanceMap?: Map<SourceTool, number>;
 }
 
 /**
@@ -4457,4 +4467,36 @@ declare class PanRecognizer extends GestureRecognizer {
    * @since 12
    */
   getPanGestureOptions(): PanGestureOptions;
+  /**
+   * Returns the pan recognizer's direction attribute.
+   *
+   * @returns { PanDirection } - Pan recognizer direction
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getDirection(): PanDirection;
+  /**
+   * Returns the pan recognizer's distance.
+   * The unit is vp.
+   *
+   * @returns { number } - the distance of the pan recognizer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getDistance(): number;
+  /**
+   * Returns the pan recognizer's distance map.
+   * The unit is vp.
+   *
+   * @returns { Map<SourceTool, number> } - the distance map of the pan recognizer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getDistanceMap(): Map<SourceTool, number>;
 }

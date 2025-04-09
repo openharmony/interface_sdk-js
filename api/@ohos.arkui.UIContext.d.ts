@@ -1254,7 +1254,7 @@ export class PromptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
-  */
+   */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1319,7 +1319,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getTopOrder(): LevelOrder
+  getTopOrder(): LevelOrder;
 
   /**
    * Get order value of bottom dialog.
@@ -1330,7 +1330,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getBottomOrder(): LevelOrder
+  getBottomOrder(): LevelOrder;
 
   /**
    * Open popup with frameNode.
@@ -4060,6 +4060,7 @@ export class UIContext {
    * <br> 1. The number of parameters is incorrect.
    * <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17
@@ -4069,6 +4070,7 @@ export class UIContext {
   /**
    * Destroy the UI instance singleton without window.
    *
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17
@@ -4192,6 +4194,7 @@ export class TextMenuController {
   /**
    * Set text menu options.
    *
+   * @param { TextMenuOptions } options - the options of the text menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

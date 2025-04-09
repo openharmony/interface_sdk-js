@@ -531,7 +531,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onWillForeground(): void;
 
@@ -541,7 +541,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDidForeground(): void;
 
@@ -577,7 +577,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onWillBackground(): void;
 
@@ -587,7 +587,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDidBackground(): void;
 

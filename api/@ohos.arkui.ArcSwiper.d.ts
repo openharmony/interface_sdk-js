@@ -190,7 +190,7 @@ export class ArcDotIndicator {
   /**
    * Set the gradient color for the mask.
    *
-   * @param { Optional<LinearGradient> } color - the gradient color.
+   * @param { Optional<LinearGradient> } color - the gradient color, default start color is { #00000000 }, default end color is { #FF000000 }.
    * @returns { ArcDotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -508,10 +508,9 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
 
   /**
-   * Invoked when setting the sliding effect
+   * Set effect when scrolling over edge.
    *
    * @param {  Optional<EdgeEffect> } edgeEffect - scrolling effect over edge, default value is { EdgeEffect.Spring }.
-
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -535,7 +534,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * Custom swiper content transition animation.
    *
-   * @param { Optional<boolean> } disabled
+   * @param { Optional<boolean> } disabled - the value indicates whether to disable the transition animation, default value is { false }.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

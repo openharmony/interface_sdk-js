@@ -1037,6 +1037,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
 
   /**
+   * Set hdrBrightness for Image.
+  *
+  * @param { number } brightness - control the brightness of HDR Image
+  * @returns { ImageAttribute }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 20
+  */
+ hdrBrightness(brightness: number): ImageAttribute;
+
+  /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    *
    * @param { ImageInterpolation } value
@@ -1807,6 +1818,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 /**
  * Defines Image Component.
  *
+ * <p>If flickering occurs during image loading, set <b>syncLoad</b> to <b>true</b>.
+ * For details, see [Concurrency Optimization]{@link 
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-click-to-click-response-optimization}</p>
+ * 
+ * <p>If white blocks persist during image loading, follow the steps in [Solution to White Image Blocks]{@link
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-image-white-lump-solution}</p>
+ * 
+ * <p>If image loading takes a long time, follow the steps in [Reducing the Loading Time of Preset Images]{@link
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-texture-compression-improve-performance}</p>
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form

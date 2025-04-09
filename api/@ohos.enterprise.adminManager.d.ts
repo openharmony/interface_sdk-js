@@ -173,7 +173,8 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 18
+   * @systemapi
+   * @since 19
    */
   export enum RunningMode {
     /**
@@ -181,7 +182,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 18
+     * @since 19
      */
     DEFAULT = 0,
 
@@ -190,7 +191,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 18
+     * @since 19
      */
     MULTI_USER = 1,
   }
@@ -503,7 +504,7 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function setAdminRunningMode(admin: Want, mode: RunningMode): void;
 
