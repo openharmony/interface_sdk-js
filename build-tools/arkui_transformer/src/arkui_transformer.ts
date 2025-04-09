@@ -17,25 +17,10 @@ import { program } from "commander"
 import * as ts from 'typescript';
 import * as path from 'path';
 import * as fs from 'fs';
-import { handleComponentAttribute, convertComponentDeclaration } from "./interface_converter"
+import { interfaceTransformer } from "./interface_converter"
 import { ComponentFile } from './component_file';
 import { exportAllTransformer } from './add_export'
-
-const TARGET_DIR = "../../output/"
-
-function transformer(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
-  return (context) => {
-    const visit: ts.Visitor = (node) => {
-      if (convertComponentDeclaration(node, componentFile)) {
-        return undefined;
-      }
-      return ts.visitEachChild(node, visit, context);
-    };
-
-    return (sourceFile) => ts.visitNode(sourceFile, visit);
-  };
-}
-
+import { addImportTransformer } from './add_import'
 
 function getFiles(dir: string, fileFilter: (f: string) => boolean): string[] {
   const result: string[] = []
@@ -73,7 +58,7 @@ function main() {
   convertedFile.forEach(f => {
     const sourceFile = program.getSourceFile(f)!;
     const componentFile = new ComponentFile(f, sourceFile)
-    const result = ts.transform(sourceFile, [transformer(program, componentFile), exportAllTransformer()]);
+    const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
     const transformedSource = ts.createPrinter().printFile(result.transformed[0]);
     printResult(transformedSource, componentFile)
   })
