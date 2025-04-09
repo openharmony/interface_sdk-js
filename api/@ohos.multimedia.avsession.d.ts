@@ -4220,7 +4220,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     singleLyricText?: string;
 
