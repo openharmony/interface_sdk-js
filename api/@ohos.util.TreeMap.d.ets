@@ -35,7 +35,9 @@ declare class TreeMap<K, V> {
    * A constructor used to create a TreeMap object.
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) User-defined comparison functions.
+   * comparator (Optional) User-defined comparison functions, return number type.
+   * If it returns secondValue minus firstValue, the TreeMap will be in ascending order.
+   * If it returns firstValue minus secondValue, the TreeMap will be in descending order.
    * firstValue (required) previous element.
    * secondValue (required) next element.
    * @syscap SystemCapability.Utils.Lang
@@ -43,7 +45,7 @@ declare class TreeMap<K, V> {
    * @atomicservice
    * @since 20
    */
-  constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
+  constructor(comparator?: (firstValue: K, secondValue: K) => number);
 
   /**
    * Gets the element number of the hashmap.
