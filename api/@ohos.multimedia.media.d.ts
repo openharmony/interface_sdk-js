@@ -4708,18 +4708,18 @@ declare namespace media {
      * @since 13
      */
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
+
     /**
-     * Set metadata to recorder.
-     * @param { Record<string, string> } metadata : Watermark image.
-     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * Set metadata.
+     * Can be called after start, before stop.
+     * @param { Record<string, string> } metadata - Metadata to set.
+     * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 18
      */
-    setMetadata(metadata: Record<string, string>): Promise<void>
+    setMetadata(metadata: Record<string, string>): void;
+
     /**
      * Update the video orientation before recorder start.
      * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
