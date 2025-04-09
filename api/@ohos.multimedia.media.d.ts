@@ -4718,7 +4718,7 @@ declare namespace media {
      * @systemapi
      * @since 18
      */
-    setMetadata(metadata: Record<string, string>): void
+    setMetadata(metadata: Record<string, string>): void;
 
     /**
      * Update the video orientation before recorder start.
