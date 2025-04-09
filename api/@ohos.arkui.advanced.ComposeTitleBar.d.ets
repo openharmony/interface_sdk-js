@@ -18,9 +18,10 @@
  * @kit ArkUI
  */
 
-
-
-
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declaration of the menu item on the right side.
@@ -31,7 +32,8 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class ComposeTitleBarMenuItem {
   /**
@@ -45,10 +47,10 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
-
   /**
    * Symbol resource for this menu item.
    * @type { ?SymbolGlyphModifier }.
@@ -57,7 +59,6 @@ export declare class ComposeTitleBarMenuItem {
    * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
-
   /**
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
@@ -66,7 +67,6 @@ export declare class ComposeTitleBarMenuItem {
    * @since 13
    */
   label?: ResourceStr;
-
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
@@ -78,10 +78,10 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEnabled?: boolean;
-
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
@@ -93,10 +93,10 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
-
   /**
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }
@@ -105,7 +105,6 @@ export declare class ComposeTitleBarMenuItem {
    * @since 18
    */
   accessibilityText?: ResourceStr;
-
   /**
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
@@ -114,7 +113,6 @@ export declare class ComposeTitleBarMenuItem {
    * @since 18
    */
   accessibilityDescription?: ResourceStr;
-
   /**
    * The accessibilityLevel of this menu item.
    * @type { ?string }
@@ -140,7 +138,8 @@ export declare class ComposeTitleBarMenuItem {
  * Declaration of the composable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct ComposeTitleBar {
@@ -155,10 +154,10 @@ export declare struct ComposeTitleBar {
    * @type { ?ComposeTitleBarMenuItem }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   item?: ComposeTitleBarMenuItem;
-
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
@@ -170,10 +169,10 @@ export declare struct ComposeTitleBar {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
-
   /**
    * Sub-title of this title bar.
    * @type { ?ResourceStr }.
@@ -185,10 +184,10 @@ export declare struct ComposeTitleBar {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subtitle?: ResourceStr;
-
   /**
    * Menu items on the right side.
    * @type { ?Array<ComposeTitleBarMenuItem> }.
@@ -200,7 +199,8 @@ export declare struct ComposeTitleBar {
    * @type { ?Array<ComposeTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
 }

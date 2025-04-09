@@ -20,6 +20,14 @@
 
 import { TextModifier } from './@ohos.arkui.modifier';
 
+/*** if arkts 1.2 */
+import { Resource, ResourceStr, ResourceColor, LocalizedPadding, LocalizedMargin } from './arkui/component/units';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './arkui/component/symbolglyph';
+import { SelectOption } from './arkui/component/select';
+import { Prop, BuilderParam } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+import { FontWeight } from './arkui/component/enums';
+/*** endif */
 
 /**
  * Control style of operation element
@@ -32,7 +40,8 @@ import { TextModifier } from './@ohos.arkui.modifier';
  * @enum { OperationStyle }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Control style of operation element
@@ -52,7 +61,8 @@ export declare enum OperationType {
    * The TextArrow style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The TextArrow style.
@@ -72,7 +82,8 @@ export declare enum OperationType {
    * The Button style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The Button style.
@@ -92,7 +103,8 @@ export declare enum OperationType {
    * The IconGroup style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The IconGroup style.
@@ -112,7 +124,8 @@ export declare enum OperationType {
    * The LoadingProgress style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The LoadingProgress style.
@@ -133,7 +146,8 @@ export declare enum OperationType {
  * Declare type OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Declare type OperationOption
@@ -154,7 +168,8 @@ export declare class OperationOption {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The content of text or the address of icon.
@@ -165,7 +180,6 @@ export declare class OperationOption {
    * @since 18
    */
   value: ResourceStr;
-
   /**
    * callback function when operate the text or icon.
    * @type { () => void }.
@@ -177,7 +191,8 @@ export declare class OperationOption {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * callback function when operate the text or icon.
@@ -188,7 +203,6 @@ export declare class OperationOption {
    * @since 18
    */
   action?: () => void;
-
   /**
    * The accessibilityText of this text or icon.
    * @type { ?ResourceStr }.
@@ -197,7 +211,6 @@ export declare class OperationOption {
    * @since 18
    */
   accessibilityText?: ResourceStr;
-
   /**
    * The accessibilityDescription of this text or icon.
    * @type { ?ResourceStr }
@@ -206,7 +219,6 @@ export declare class OperationOption {
    * @since 18
    */
   accessibilityDescription?: ResourceStr;
-
   /**
    * The accessibilityLevel of this text or icon.
    * @type { ?string }
@@ -216,7 +228,6 @@ export declare class OperationOption {
    * @since 18
    */
   accessibilityLevel?: string;
-
   /**
    * Sets the default focus state of the text or icon.
    * @type { ?boolean }.
@@ -237,7 +248,8 @@ export declare class OperationOption {
  * Declare type SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Declare type SelectOption
@@ -258,7 +270,8 @@ export declare class SelectOptions {
    * @type { Array<SelectSubOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * SubOption array of the select.
@@ -269,7 +282,6 @@ export declare class SelectOptions {
    * @since 18
    */
   options: Array<SelectOption>;
-
   /**
    * The default selected index.
    * @type { number }.
@@ -281,7 +293,8 @@ export declare class SelectOptions {
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The default selected index.
@@ -292,7 +305,6 @@ export declare class SelectOptions {
    * @since 18
    */
   selected?: number;
-  
   /**
    * The default text value.
    * @type { string }.
@@ -304,7 +316,8 @@ export declare class SelectOptions {
    * @type { string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The default text value.
@@ -315,30 +328,29 @@ export declare class SelectOptions {
    * @since 18
    */
   value?: string;
-
- /**
-  * Callback when the select is selected.
-  * @type { (index: number, value?: string) => void }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 10
-  */
- /**
-  * Callback when the select is selected.
-  * @type { (index: number, value?: string) => void }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 11
-  */
- /**
-  * Callback when the select is selected.
-  * @type { (index: number, value?: string) => void }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 18
-  */
+  /**
+   * Callback when the select is selected.
+   * @type { (index: number, value?: string) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Callback when the select is selected.
+   * @type { (index: number, value?: string) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Callback when the select is selected.
+   * @type { (index: number, value?: string) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onSelect?: (index: number, value?: string) => void;
-
   /**
    * Sets the default focus state of select.
    * @type { ?boolean }.
@@ -354,14 +366,14 @@ export declare class SelectOptions {
  * Declare type SymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 
+ * @since 12
  */
- /**
+/**
  * Declare type SymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18 
+ * @since 18
  */
 export declare class SymbolOptions {
   /**
@@ -380,7 +392,6 @@ export declare class SymbolOptions {
    * @since 18
    */
   fontSize?: number | string | Resource;
-
   /**
    * The color of symbol icon.
    * @type { ?(Array<ResourceColor>) }.
@@ -397,7 +408,6 @@ export declare class SymbolOptions {
    * @since 18
    */
   fontColor?: Array<ResourceColor>;
-
   /**
    * The fontWeight of symbol icon.
    * @type { ?(number | FontWeight | string) }.
@@ -414,7 +424,6 @@ export declare class SymbolOptions {
    * @since 18
    */
   fontWeight?: number | FontWeight | string;
-
   /**
    * The effect strategy of symbol icon.
    * @type { ?(SymbolEffectStrategy) }.
@@ -431,7 +440,6 @@ export declare class SymbolOptions {
    * @since 18
    */
   effectStrategy?: SymbolEffectStrategy;
-
   /**
    * The rendering strategy of symbol icon.
    * @type { ?(SymbolRenderingStrategy) }.
@@ -459,7 +467,8 @@ export declare class SymbolOptions {
  * Declare struct SubHeader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Declare struct SubHeader
@@ -470,7 +479,6 @@ export declare class SymbolOptions {
  */
 @Component
 export declare struct SubHeader {
-
   /**
    * Icon resource of content area.
    * @type { ResourceStr }.
@@ -482,7 +490,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Icon resource of content area.
@@ -493,7 +502,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @Prop icon?: ResourceStr;
-
   /**
    * Attributes of Symbol icon.
    * @type { SymbolOptions}.
@@ -509,7 +517,6 @@ export declare struct SubHeader {
    * @since 18
    */
   iconSymbolOptions?: SymbolOptions;
-
   /**
    * The first line text of content area.
    * @type { ResourceStr }.
@@ -521,7 +528,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The first line text of content area.
@@ -532,7 +540,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @Prop primaryTitle?: ResourceStr;
-
   /**
    * The secondary line text of content area.
    * @type { ResourceStr }.
@@ -544,7 +551,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The secondary line text of content area.
@@ -555,7 +563,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @Prop secondaryTitle?: ResourceStr;
-
   /**
    * Select option of content area.
    * @type { SelectOptions }.
@@ -567,7 +574,8 @@ export declare struct SubHeader {
    * @type { SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Select option of content area.
@@ -578,7 +586,6 @@ export declare struct SubHeader {
    * @since 18
    */
   select?: SelectOptions;
-
   /**
    * Operation style of SubHeader.
    * @type { OperationStyle }.
@@ -590,7 +597,8 @@ export declare struct SubHeader {
    * @type { OperationStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Operation style of SubHeader.
@@ -601,7 +609,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @Prop operationType?: OperationType;
-
   /**
    * operation item.
    * @type { Array<OperationOption> }.
@@ -613,7 +620,8 @@ export declare struct SubHeader {
    * @type { Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * operation item.
@@ -624,7 +632,6 @@ export declare struct SubHeader {
    * @since 18
    */
   operationItem?: Array<OperationOption>;
-
   /**
    * Attributes of Symbol icons in operation area.
    * @type { Array<SymbolOptions> }.
@@ -640,7 +647,6 @@ export declare struct SubHeader {
    * @since 18
    */
   operationSymbolOptions?: Array<SymbolOptions>;
-
   /**
    * Text modifier for primary title.
    * @type { TextModifier }.
@@ -657,7 +663,6 @@ export declare struct SubHeader {
    * @since 18
    */
   primaryTitleModifier?: TextModifier;
-
   /**
    * Text modifier for secondary title.
    * @type { TextModifier }.
@@ -674,7 +679,6 @@ export declare struct SubHeader {
    * @since 18
    */
   secondaryTitleModifier?: TextModifier;
-
   /**
    * Set the title content.
    * @type { () => void }
@@ -691,7 +695,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @BuilderParam titleBuilder?: () => void;
-
   /**
    * Set the content margin.
    * @type { ?LocalizedMargin }
@@ -712,7 +715,6 @@ export declare struct SubHeader {
    * @since 18
    */
   @Prop contentMargin?: LocalizedMargin;
-
   /**
    * Set the content padding.
    * @type { ?LocalizedPadding }
