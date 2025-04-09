@@ -92,7 +92,7 @@ declare namespace huks {
    * @systemapi this method can be used only by system applications.
    * @since 20
    */
-    function generateKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  export function generateKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Delete Key.
@@ -115,6 +115,33 @@ declare namespace huks {
    * @since 20
    */
   export function deleteKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
+
+  /**
+   * Delete Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { int } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 20
+   */
+  export function deleteKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Import Key.
@@ -143,6 +170,39 @@ declare namespace huks {
    * @since 20
    */
   export function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
+
+  /**
+   * Import Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { int } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  export function importKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Import Wrapped Key.
@@ -174,6 +234,41 @@ declare namespace huks {
   export function importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions): Promise<void>;
 
   /**
+   * Import Wrapped Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { int } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
+   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  export function importWrappedKeyItemAsUser(userId: int, keyAlias: string, wrappingKeyAlias: string,
+    huksOptions: HuksOptions): Promise<void>;
+
+  /**
    * Export Key.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
@@ -200,6 +295,38 @@ declare namespace huks {
   export function exportKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
+   * Export Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { int } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  export function exportKeyItemAsUser(userId: int, keyAlias: string,
+    huksOptions: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
    * Check whether the key exists.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
@@ -222,6 +349,64 @@ declare namespace huks {
    * @since 20
    */
   export function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
+
+  /**
+   * Get properties of the key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
+   */
+  export function getKeyItemProperties(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * Get properties of the key as user.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { int } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 20
+   */
+  function getKeyItemPropertiesAsUser(userId: int, keyAlias: string,
+    huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Init Operation.
@@ -338,29 +523,31 @@ declare namespace huks {
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since 20
    */
-  export interface HuksParam {
+  export class HuksParam {
     /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 8
-     */
+      * A constructor used to create a HuksReturnResult object
+      * @syscap SystemCapability.Base
+      * @crossplatform
+      * @form
+      * @atomicservice
+      * @since 20
+      */
+    constructor(tag : HuksTag, value : boolean | int | bigint | Uint8Array);
     /**
      * @type { HuksTag }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     tag: HuksTag;
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 8
-     */
+
     /**
      * @type { boolean | int | bigint | Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     value: boolean | int | bigint | Uint8Array;
   }
@@ -370,37 +557,22 @@ declare namespace huks {
    *
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
-   * @since 9
-   */
-  /**
-   * Interface of huks handle.
-   *
-   * @typedef HuksSessionHandle
-   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since 20
    */
-  export interface HuksSessionHandle {
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 9
-     */
+  export class HuksSessionHandle {
     /**
      * @type { long }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 20
      */
-    handle: long;
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 9
-     */
+    handle: long = 0;
     /**
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     challenge?: Uint8Array;
   }
@@ -410,39 +582,33 @@ declare namespace huks {
    *
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
-   * @since 8
-   */
-  /**
-   * Interface of huks option.
-   *
-   * @typedef HuksOptions
-   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since 20
    */
-  export interface HuksOptions {
+  export class HuksOptions {
     /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 8
-     */
+      * A constructor used to create a HuksOptions object
+      * @syscap SystemCapability.Base
+      * @crossplatform
+      * @form
+      * @atomicservice
+      * @since 20
+      */
+    constructor(propertiesIn?: Array<huks.HuksParam> | undefined, inDataIn?: Uint8Array | undefined);
     /**
      * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
-    properties?: Array<HuksParam>;
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 8
-     */
+    properties?: Array<HuksParam> | undefined;
     /**
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
-    inData?: Uint8Array;
+    inData?: Uint8Array | undefined;
   }
 
   /**
@@ -450,50 +616,43 @@ declare namespace huks {
    *
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
-   * @since 9
-   */
-  /**
-   * Interface of huks result.
-   *
-   * @typedef HuksReturnResult
-   * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since 20
    */
-  export interface HuksReturnResult {
+  export class HuksReturnResult {
     /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 9
-     */
+      * A constructor used to create a HuksReturnResult object
+      * @syscap SystemCapability.Base
+      * @crossplatform
+      * @form
+      * @atomicservice
+      * @since 20
+      */
+    constructor(outData?: Uint8Array | undefined, properties?: Array<HuksParam> | undefined,
+      certChains?: Array<string> | undefined);
     /**
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
-    outData?: Uint8Array;
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 9
-     */
+    outData?: Uint8Array | undefined;
+
     /**
      * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since 20
      */
-    properties?: Array<HuksParam>;
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @since 9
-     */
+    properties?: Array<HuksParam> | undefined;
+
     /**
      * @type { ?Array<string> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
-    certChains?: Array<string>;
+    certChains?: Array<string> | undefined;
   }
 
     /**
