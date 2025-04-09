@@ -94,7 +94,7 @@ export interface IDataSource<T> {
     unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
-export interface LazyForEachAttributes extends DynamicNode {}
+export interface LazyForEachAttribute extends DynamicNode {}
 
 @memo
 @ComponentBuilder
@@ -102,4 +102,4 @@ export declare function LazyForEach<T>(dataSource: IDataSource<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
-): LazyForEachAttributes
+): LazyForEachAttribute
