@@ -26,12 +26,12 @@
   * @returns { void }
   * @throws {BusinessError} 401 - if the input parameters are invalid.
   * @syscap SystemCapability.Test.UiTest
-  * @arkts 1.2
   * @since arkts {'1.2':20}
+  * @arkts 1.2
   * @test
   */
- export function loadAndSetupUiTest(): void {};
-
+ export function loadAndSetupUiTest(): void { };
+ 
  /**
   * Enumerates the string value match pattern.
   *
@@ -1162,7 +1162,7 @@
     * @atomicservice
     * @since arkts {'1.1':11, '1.2':20}
     * @arkts 1.1&1.2
-    */ 
+    */
    readonly left: number;
    /**
     * The y-coordinate of the top left corner of the rectangle.
@@ -3020,7 +3020,7 @@
     * @since arkts {'1.1':12, '1.2':20}
     * @arkts 1.1&1.2
     * @test
-    */ 
+    */
    getBounds(): Promise<Rect>;
  
    /**
@@ -3171,7 +3171,7 @@
     * @test
     */
    getHint(): Promise<string>;
-
+ 
    /**
     * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
     *
@@ -4199,7 +4199,7 @@
     * @test
     */
    mouseMoveTo(p: Point): Promise<void>;
-    
+ 
    /**
     * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
     *
@@ -4981,16 +4981,21 @@
   */
  declare const ON: On;
  
+ /*** if arkts 1.1 */
  export {
    UiComponent,
    UiDriver,
+   BY,
+   By,
+ }
+ /*** endif */
+ 
+ export {
    Component,
    Driver,
    UiWindow,
    ON,
    On,
-   BY,
-   By,
    MatchPattern,
    DisplayRotation,
    ResizeDirection,
@@ -5005,4 +5010,5 @@
    UIEventObserver,
    TouchPadSwipeOptions
  };
+ 
  
