@@ -2338,9 +2338,6 @@ declare namespace usbManager {
    *
    * @param { transfer } As a generic USB data transfer interface. The Client populates this interface and
    * submits it in order to request a transfer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400007 - Resource busy.
@@ -2356,9 +2353,6 @@ declare namespace usbManager {
    * Cancel USB data transfer.
    *
    * @param { transfer } Cancel the target transfer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
