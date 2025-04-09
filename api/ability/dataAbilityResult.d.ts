@@ -23,7 +23,8 @@
  *
  * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface DataAbilityResult {
   /**

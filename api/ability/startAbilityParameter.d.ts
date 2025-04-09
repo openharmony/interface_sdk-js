@@ -17,15 +17,17 @@
  * @file
  * @kit AbilityKit
  */
-
+/*** if arkts 1.1 */
 import Want from '../@ohos.app.ability.Want';
+/*** endif */
 
 /**
  * Define startup Ability parameters, which can be used as input parameters.
  *
  * @typedef StartAbilityParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 6
+ * @since arkts {'1.1':'6', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface StartAbilityParameter {
   /**
