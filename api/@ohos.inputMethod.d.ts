@@ -1824,7 +1824,7 @@ declare namespace inputMethod {
      *
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 20
      */
     placeholder?: string;
 
@@ -1833,7 +1833,7 @@ declare namespace inputMethod {
      *
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 20
      */
     abilityName?: string;
   }

@@ -2098,7 +2098,7 @@ declare namespace inputMethodEngine {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 20
      */
     readonly placeholder?: string;
 
@@ -2108,7 +2108,7 @@ declare namespace inputMethodEngine {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 20
      */
     readonly abilityName?: string;
   }
