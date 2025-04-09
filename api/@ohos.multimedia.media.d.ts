@@ -4708,6 +4708,18 @@ declare namespace media {
      * @since 13
      */
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
+
+    /**
+     * Set metadata.
+     * Can be called after start, before stop.
+     * @param { Record<string, string> } metadata - Metadata to set.
+     * @throws { BusinessError } 202 - Not System App.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 18
+     */
+    setMetadata(metadata: Record<string, string>): void;
+
     /**
      * Update the video orientation before recorder start.
      * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
