@@ -2863,7 +2863,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedDecoders(): Promise<Array<DecoderType>>;
 
@@ -2876,7 +2876,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>;
 
@@ -2886,7 +2886,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>;
 
@@ -2896,7 +2896,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedPlaySpeeds(): Promise<Array<number>>;
 
@@ -3985,14 +3985,14 @@ declare namespace avSession {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum DecoderType {
     /**
      * Defination of avc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
 
@@ -4000,7 +4000,7 @@ declare namespace avSession {
      * Defination of hevc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
 
@@ -4008,7 +4008,7 @@ declare namespace avSession {
      * Defination of audio vivid codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a",
   }
@@ -4018,14 +4018,14 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum ResolutionLevel {
     /**
      * Defination of 480P which typically resolution is 640*480.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_480P = 0,
 
@@ -4033,7 +4033,7 @@ declare namespace avSession {
      * Defination of 720P which typically resolution is 1280*720.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_720P = 1,
 
@@ -4041,7 +4041,7 @@ declare namespace avSession {
      * Defination of 1080P which typically resolution is 1920*1080.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_1080P = 2,
 
@@ -4049,7 +4049,7 @@ declare namespace avSession {
      * Defination of 2K which typically resolution is 2560*1440.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_2K = 3,
 
@@ -4057,7 +4057,7 @@ declare namespace avSession {
      * Defination of 4K which typically resolution is 4096*3840.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_4K = 4,
   }
