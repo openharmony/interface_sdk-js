@@ -18,9 +18,10 @@
  * @kit ArkUI
  */
 
-
-
-
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declaration of the menu item on the right side.
@@ -31,7 +32,8 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class ComposeTitleBarMenuItem {
   /**
@@ -45,7 +47,8 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -69,7 +72,8 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEnabled?: boolean;
 
@@ -84,7 +88,8 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
 }
@@ -98,7 +103,8 @@ export declare class ComposeTitleBarMenuItem {
  * Declaration of the composable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct ComposeTitleBar {
@@ -113,7 +119,8 @@ export declare struct ComposeTitleBar {
    * @type { ?ComposeTitleBarMenuItem }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   item?: ComposeTitleBarMenuItem;
 
@@ -128,7 +135,8 @@ export declare struct ComposeTitleBar {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
 
@@ -143,7 +151,8 @@ export declare struct ComposeTitleBar {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subtitle?: ResourceStr;
 
@@ -158,7 +167,8 @@ export declare struct ComposeTitleBar {
    * @type { ?Array<ComposeTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
 }

@@ -18,9 +18,11 @@
  * @kit ArkUI
  */
 
-
-
-
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { BuilderParam } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declaration of the menu item on the right side.
@@ -31,7 +33,8 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class TabTitleBarMenuItem {
   /**
@@ -45,7 +48,8 @@ export declare class TabTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -69,7 +73,8 @@ export declare class TabTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEnabled?: boolean;
 
@@ -84,7 +89,8 @@ export declare class TabTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
 }
@@ -98,7 +104,8 @@ export declare class TabTitleBarMenuItem {
  * Declaration of the tab item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class TabTitleBarTabItem {
   /**
@@ -112,7 +119,8 @@ export declare class TabTitleBarTabItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
 
@@ -127,7 +135,8 @@ export declare class TabTitleBarTabItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 }
@@ -141,7 +150,8 @@ export declare class TabTitleBarTabItem {
  * Declaration of the tabbed title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct TabTitleBar {
@@ -156,7 +166,8 @@ export declare struct TabTitleBar {
    * @type { ?Array<TabTitleBarItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   tabItems: Array<TabTitleBarTabItem>;
 
@@ -171,7 +182,8 @@ export declare struct TabTitleBar {
    * @type { Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItems?: Array<TabTitleBarMenuItem>;
 
@@ -188,7 +200,8 @@ export declare struct TabTitleBar {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @BuilderParam
   swiperContent: () => void;

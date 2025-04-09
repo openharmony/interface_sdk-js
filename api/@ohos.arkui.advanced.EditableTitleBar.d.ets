@@ -18,9 +18,11 @@
  * @kit ArkUI
  */
 
-
-
-
+/*** if arkts 1.2 */
+import { ResourceStr, ResourceColor, LocalizedMargin } from './arkui/component/units';
+import { Prop, BlurStyle, SafeAreaType, SafeAreaEdge } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declaration of the menu item on the right side.
@@ -31,7 +33,8 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class EditableTitleBarMenuItem {
   /**
@@ -45,7 +48,8 @@ export declare class EditableTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -69,7 +73,8 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEnabled?: boolean;
 
@@ -84,7 +89,8 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
 }
@@ -109,7 +115,8 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * @enum { EditableLeftIconType }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum EditableLeftIconType {
   /**
@@ -121,7 +128,8 @@ export declare enum EditableLeftIconType {
    * The back type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Back = 0,
 
@@ -134,7 +142,8 @@ export declare enum EditableLeftIconType {
    * The cancel type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Cancel = 1
 }
@@ -203,7 +212,8 @@ export declare interface EditableTitleBarOptions {
  * Declaration of the editable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct EditableTitleBar {
@@ -218,7 +228,8 @@ export declare struct EditableTitleBar {
    * @type { EditableLeftIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   leftIconStyle: EditableLeftIconType;
 
@@ -243,7 +254,8 @@ export declare struct EditableTitleBar {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: ResourceStr;
 
@@ -279,7 +291,8 @@ export declare struct EditableTitleBar {
    * @type { ?Array<EditableTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItems?: Array<EditableTitleBarMenuItem>;
 
@@ -294,7 +307,8 @@ export declare struct EditableTitleBar {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSave?: () => void;
 
@@ -309,10 +323,11 @@ export declare struct EditableTitleBar {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancel?: () => void;
-  
+
   /**
    * Indicates the options of titlebar.
    * @type { EditableTitleBarOptions }

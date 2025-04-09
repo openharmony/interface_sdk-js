@@ -18,9 +18,11 @@
  * @kit ArkUI
  */
 
-
-
-
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { Prop, BuilderParam, State } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
 
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
@@ -31,7 +33,8 @@
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct SplitLayout {
@@ -46,9 +49,10 @@ export declare struct SplitLayout {
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-    @BuilderParam container: () => void;
+  @BuilderParam container: () => void;
 
   /**
    * Image in the layout.
@@ -61,7 +65,8 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @State mainImage: ResourceStr;
 
@@ -76,7 +81,8 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop primaryText: ResourceStr;
 
@@ -91,7 +97,8 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop secondaryText?: ResourceStr;
 
@@ -106,7 +113,8 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop tertiaryText?: ResourceStr;
 }
