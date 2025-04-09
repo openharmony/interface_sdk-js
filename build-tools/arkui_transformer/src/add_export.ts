@@ -23,7 +23,6 @@ export function exportAllTransformer(): ts.TransformerFactory<ts.SourceFile> {
       const visitor = (node: ts.Node): ts.Node => {
         if (isTopLevelExportable(node)) {
           const modifiers = ts.getModifiers(node as ts.HasModifiers) || [];
-          
           if (!hasExportModifier(modifiers)) {
             const newNode = updateNodeWithExport(node, modifiers, exportModifier);
             return newNode || node;
@@ -57,7 +56,7 @@ function updateNodeWithExport(
   exportModifier: ts.Modifier
 ): ts.Node {
   const newModifiers = [exportModifier, ...existingModifiers];
-  
+
   switch (node.kind) {
     case ts.SyntaxKind.VariableStatement:
       return ts.factory.updateVariableStatement(
@@ -65,7 +64,7 @@ function updateNodeWithExport(
         newModifiers,
         (node as ts.VariableStatement).declarationList
       );
-    
+
     case ts.SyntaxKind.FunctionDeclaration:
       const func = node as ts.FunctionDeclaration;
       return ts.factory.updateFunctionDeclaration(
@@ -78,7 +77,7 @@ function updateNodeWithExport(
         func.type,
         func.body
       );
-    
+
     case ts.SyntaxKind.ClassDeclaration:
       const cls = node as ts.ClassDeclaration;
       return ts.factory.updateClassDeclaration(
@@ -89,7 +88,7 @@ function updateNodeWithExport(
         cls.heritageClauses,
         cls.members
       );
-    
+
     case ts.SyntaxKind.InterfaceDeclaration:
       const intf = node as ts.InterfaceDeclaration;
       return ts.factory.updateInterfaceDeclaration(
@@ -100,17 +99,17 @@ function updateNodeWithExport(
         intf.heritageClauses,
         intf.members
       );
-    
+
     case ts.SyntaxKind.TypeAliasDeclaration:
       const type = node as ts.TypeAliasDeclaration;
       return ts.factory.updateTypeAliasDeclaration(
         type,
-        newModifiers,
+        newModifiers.filter(m => m.kind !== ts.SyntaxKind.DeclareKeyword),
         type.name,
         type.typeParameters,
         type.type
       );
-    
+
     case ts.SyntaxKind.EnumDeclaration:
       const enm = node as ts.EnumDeclaration;
       return ts.factory.updateEnumDeclaration(
@@ -119,7 +118,7 @@ function updateNodeWithExport(
         enm.name,
         enm.members
       );
-    
+
     case ts.SyntaxKind.ModuleDeclaration:
       const mod = node as ts.ModuleDeclaration;
       return ts.factory.updateModuleDeclaration(
@@ -128,7 +127,7 @@ function updateNodeWithExport(
         mod.name,
         mod.body
       );
-    
+
     default:
       return node;
   }
