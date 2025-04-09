@@ -18312,16 +18312,6 @@ declare interface DragInteractionOptions {
   defaultAnimationBeforeLifting?: boolean;
 
   /**
-  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
-  *
-  * @type { ?boolean }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 18
-  */
-  enableEdgeAutoScroll?: boolean;
-
-  /**
   * Define whether to enable the haptic feedback when dragging, the default value is false.
   *
   * @type { ?boolean }
@@ -18330,6 +18320,16 @@ declare interface DragInteractionOptions {
   * @since 18
   */
   enableHapticFeedback?: boolean;
+
+  /**
+  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 18
+  */
+  enableEdgeAutoScroll?: boolean;
 
   /**
   * Define whether to lifting trigger drag by finger.
