@@ -2322,7 +2322,7 @@ declare namespace osAccount {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {  }
+  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
 
   /**
    * Provides information about domain accounts.
