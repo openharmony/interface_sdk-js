@@ -5758,6 +5758,58 @@ declare namespace camera {
      * @since 14
      */
     setQualityPrioritization(quality : QualityPrioritization) : void;
+    
+    /**
+     * Subscribes camera light status event callback.
+     *
+     * @param { 'lightStatusChange' } type - Event type.
+     * @param { AsyncCallback<LightStatus> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    on(type: 'lightStatusChange', callback: AsyncCallback<LightStatus>): void;
+
+    /**
+     * Unsubscribes camera light status event callback.
+     *
+     * @param { 'lightStatusChange' } type - Event type.
+     * @param { AsyncCallback<LightStatus> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    off(type: 'lightStatusChange', callback?: AsyncCallback<LightStatus>): void;
+  }
+
+  /**
+   * Enum for the camera light status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  enum LightStatus {
+    /**
+     * Sufficient lighting.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    NORMAL = 0,
+
+    /**
+     * Insufficient lighting.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    INSUFFICIENT = 1
   }
 
   /**
