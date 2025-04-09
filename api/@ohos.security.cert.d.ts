@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -45,7 +45,8 @@ import cryptoFramework from './@ohos.security.cryptoFramework';
  * @syscap SystemCapability.Security.Cert
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cert {
   /**
@@ -5017,7 +5018,7 @@ declare namespace cert {
      * @atomicservice
      * @since 18
      */
-    DER = 1,
+    DER = 1
   }
 
   /**
@@ -6073,7 +6074,7 @@ declare namespace cert {
      * @atomicservice
      * @since 18
      */
-    addSmimeCapAttr?: boolean
+    addSmimeCapAttr?: boolean;
   }
 
   /**
