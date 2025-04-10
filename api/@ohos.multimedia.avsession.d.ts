@@ -27,7 +27,6 @@ import audio from './@ohos.multimedia.audio';
 import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
-import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * @namespace avSession
