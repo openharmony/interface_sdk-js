@@ -1290,6 +1290,14 @@ export interface CommonMethod {
     parallelGesture(gesture: GestureType, mask?: GestureMask): this;
     @memo
     priorityGesture(gesture: GestureType, mask?: GestureMask): this;
+    @memo
+    bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): this;
+    @memo
+    bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): this;
+    @memo
+    bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): this;
+    @memo
+    bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): this;
 }
 export interface CommonAttribute extends CommonMethod {
 }
