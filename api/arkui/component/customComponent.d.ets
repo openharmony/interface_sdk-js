@@ -92,6 +92,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     onPageShow(): void
     onPageHide(): void
     onBackPress(): boolean
+    getUIContext(): UIContext
 
     @memo
     build(): void;
