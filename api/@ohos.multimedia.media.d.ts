@@ -1709,7 +1709,7 @@ declare namespace media {
   interface AVPlayer {
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * @param { AsyncCallback<void> } callback used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1717,7 +1717,7 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * @param { AsyncCallback<void> } callback used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1726,7 +1726,7 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * @param { AsyncCallback<void> } callback used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1738,7 +1738,7 @@ declare namespace media {
 
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1746,7 +1746,7 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1755,7 +1755,7 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1767,14 +1767,14 @@ declare namespace media {
 
     /**
      * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * @param { AsyncCallback<void> } callback used to return when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * @param { AsyncCallback<void> } callback used to return when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1782,7 +1782,7 @@ declare namespace media {
      */
     /**
      * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * @param { AsyncCallback<void> } callback used to return when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1793,14 +1793,14 @@ declare namespace media {
 
     /**
      * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1808,7 +1808,7 @@ declare namespace media {
      */
     /**
      * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1819,14 +1819,14 @@ declare namespace media {
 
     /**
      * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * @param { AsyncCallback<void> } callback used to return when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * @param { AsyncCallback<void> } callback used to return when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1834,7 +1834,7 @@ declare namespace media {
      */
     /**
      * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * @param { AsyncCallback<void> } callback used to return when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1845,14 +1845,14 @@ declare namespace media {
 
     /**
      * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1860,7 +1860,7 @@ declare namespace media {
      */
     /**
      * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1871,14 +1871,14 @@ declare namespace media {
 
     /**
      * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * @param { AsyncCallback<void> } callback used to return when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * @param { AsyncCallback<void> } callback used to return when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1886,7 +1886,7 @@ declare namespace media {
      */
     /**
      * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * @param { AsyncCallback<void> } callback used to return when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1897,14 +1897,14 @@ declare namespace media {
 
     /**
      * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1912,7 +1912,7 @@ declare namespace media {
      */
     /**
      * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1922,23 +1922,23 @@ declare namespace media {
     stop(): Promise<void>;
 
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback used to return when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback used to return when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback used to return when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1948,23 +1948,23 @@ declare namespace media {
     reset(callback: AsyncCallback<void>): void;
 
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1975,14 +1975,14 @@ declare namespace media {
 
     /**
      * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * @param { AsyncCallback<void> } callback used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * @param { AsyncCallback<void> } callback used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1990,7 +1990,7 @@ declare namespace media {
      */
     /**
      * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * @param { AsyncCallback<void> } callback used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2001,14 +2001,14 @@ declare namespace media {
 
     /**
      * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
      * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2016,7 +2016,7 @@ declare namespace media {
      */
     /**
      * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
