@@ -23,7 +23,7 @@ import { KeyboardOptions, PasteEvent } from './rich_editor'
 import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue } from './text_common'
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow,
     TextHeightAdaptivePolicy, WordBreak } from './enums'
-import { EnterKeyType, SubmitEvent } from './text_input'
+import { EnterKeyType, SubmitEvent, ContentType } from './text_input'
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units'
 import { CustomBuilder, InputCounterOptions, TextContentControllerBase, SelectionOptions,
     TextDecorationOptions, CommonMethod, Callback } from './common'
@@ -446,10 +446,23 @@ declare enum TextAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
+
+/**
+ * Declare the event listener callback of the enter key.
+ *
+ * @typedef { function } TextAreaSubmitCallback
+ * @param { EnterKeyType } enterKeyType - The enter key type of soft keyboard.
+ * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
 
 /**
  * Defines the attribute functions of TextArea.
@@ -871,8 +884,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
   /**
@@ -883,10 +895,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
+  /**
+   * Called when submitted.
+   *
+   * @param { ((enterKey: EnterKeyType) => void) | TextAreaSubmitCallback } callback - callback of the listened event.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onSubmit(callback: ((enterKey: EnterKeyType) => void) | TextAreaSubmitCallback): TextAreaAttribute;
 
   /**
    * Called when the input changes.
