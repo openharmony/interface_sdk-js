@@ -172,7 +172,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onInc(event: VoidCallback): CounterAttribute;
 
@@ -223,7 +223,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onDec(event: VoidCallback): CounterAttribute;
 
