@@ -386,6 +386,71 @@ declare namespace connection {
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
 
   /**
+   * Set the network extended attribute for a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
+   * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
+   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { string } netExtAttribute - Indicates the extended attribute of the network.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 18
+   */
+  function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>;
+ 
+  /**
+   * Set the network extended attribute for a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
+   * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
+   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { string } netExtAttribute - Indicates the extended attribute of the network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 18
+   */
+  function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void;
+     
+  /**
+   * Get the network extended attribute for a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @returns { Promise<string> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 18
+   */
+  function getNetExtAttribute(netHandle: NetHandle): Promise<string>;
+     
+  /**
+   * Get the network extended attribute for a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @returns { string } The netExtAttribute string returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 18
+   */
+  function getNetExtAttributeSync(netHandle: NetHandle): string;
+    
+  /**
    * Checks whether data traffic usage on the current network is metered.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { AsyncCallback<boolean> } callback - Returns {@code true} if data traffic usage on the current network is metered;
@@ -806,6 +871,30 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
+   * Set the URL {@link pacUrl} of the current PAC script.
+   * To invoke this method, you must have the {@code ohos.permission.SET_PAC_URL} permission.
+   * @permission ohos.permission.SET_PAC_URL
+   * @param { string } pacUrl - Indicates the URL of the current PAC script.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 15
+   */
+  function setPacUrl(pacUrl: string): void;
+
+  /**
+   * Obtain the URL {@link pacUrl} of the current PAC script.
+   * @returns { string } Returns the URL of the current PAC script or empty string if there is no PAC script.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 15
+   */
+  function getPacUrl(): string;
+
+  /**
    * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
@@ -818,6 +907,21 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
+   */
+  /**
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
+   * @param { AsyncCallback<void> } callback - Returns the callback of addCustomDnsRule.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
    */
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -835,6 +939,21 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
    */
+  /**
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
+   */
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
   /**
@@ -850,6 +969,20 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
    */
+  /**
+   * Remove the custom DNS rule of the {@link host} for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { AsyncCallback<void> } callback - Returns the callback of removeCustomDnsRule.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
+   */
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -864,6 +997,20 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
+   */
+  /**
+   * Remove the custom DNS rule of the {@link host} for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
    */
   function removeCustomDnsRule(host: string): Promise<void>;
 
@@ -1347,6 +1494,20 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
+    /**
+     * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
+     * @permission ohos.permission.INTERNET
+     * @param { string } host - Indicates the host name or the domain.
+     * @param { AsyncCallback<Array<NetAddress>> } callback - the callback of getAddressesByName.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100001 - Invalid parameter value.
+     * @throws { BusinessError } 2100002 - Failed to connect to the service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 15
+     */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
     /**
@@ -1361,6 +1522,20 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
+     * @permission ohos.permission.INTERNET
+     * @param { string } host - Indicates the host name or the domain.
+     * @returns { Promise<Array<NetAddress>> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100001 - Invalid parameter value.
+     * @throws { BusinessError } 2100002 - Failed to connect to the service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 15
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
 

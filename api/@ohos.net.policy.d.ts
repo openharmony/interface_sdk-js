@@ -1265,6 +1265,22 @@ declare namespace policy {
      * @since 12
      */
     allowCellular?: boolean;
+    /**
+    * Indicate whether the application can be always allowed to access the network by wifi and users cannot set it.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Communication.NetManager.Core
+    * @systemapi Hide this for inner system use.
+    * @since 18
+    */
+    alwaysAllowWiFi?: boolean;
+    /**
+    * Indicate whether the application can be always allowed to access the network by cellular and users cannot set it.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Communication.NetManager.Core
+    * @systemapi Hide this for inner system use.
+    * @since 18
+    */
+    alwaysAllowCellular?: boolean;
   }
 
   /**

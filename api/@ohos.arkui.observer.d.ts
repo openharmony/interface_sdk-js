@@ -46,7 +46,6 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @since 11
    */
   /**
@@ -55,7 +54,6 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 12
    */
@@ -65,7 +63,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @since 11
      */
     /**
@@ -73,7 +70,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -84,7 +80,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @since 11
      */
     /**
@@ -92,7 +87,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -103,7 +97,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -114,7 +107,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -125,7 +117,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -136,7 +127,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -147,7 +137,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -158,18 +147,36 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
     ON_WILL_DISAPPEAR = 7,
 
     /**
+     * When the NavDestination is active.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 17
+     */
+    ON_ACTIVE = 8,
+
+    /**
+     * When the NavDestination is inactive.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 17
+     */
+    ON_INACTIVE = 9,
+
+    /**
      * When back press event happened in NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -449,6 +456,28 @@ declare namespace uiObserver {
      * @since 12
      */
     navDestinationId: string;
+
+    /**
+     * NavDestination mode.
+     *
+     * @type { NavDestinationMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    mode?: NavDestinationMode;
+
+    /**
+     * NavDestination uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    uniqueId?: number;
   }
 
   /**

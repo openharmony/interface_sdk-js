@@ -100,3 +100,35 @@ declare enum FocusPriority {
    */
   PREVIOUS = 3000,
 }
+
+/**
+ * Key processing mode.
+ * Determines the priority of key event processing when component cannot handle the key event.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare enum KeyProcessingMode {
+  /**
+   * Key events are used to move focus.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  FOCUS_NAVIGATION = 0,
+
+  /**
+   * Key events bubble up to ancestors.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  ANCESTOR_EVENT = 1,
+}

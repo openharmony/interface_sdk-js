@@ -52,6 +52,7 @@ declare namespace pan {
   /**
    * Manager pan host profile.
    *
+   * @extends BaseProfile
    * @typedef PanProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10

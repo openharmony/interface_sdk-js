@@ -246,5 +246,125 @@ export enum AutoFillType {
    * @StageModelOnly
    * @since 12
    */
-  FORMAT_ADDRESS = 26
+  FORMAT_ADDRESS = 26,
+
+  /**
+   * Indicates the type of passport number.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  PASSPORT_NUMBER = 27,
+
+  /**
+   * Indicates the type of passport validity.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  VALIDITY = 28,
+
+  /**
+   * Indicates the type of issue place.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  ISSUE_AT = 29,
+
+  /**
+   * Indicates the type of invoice organization.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  ORGANIZATION = 30,
+
+  /**
+   * Indicates the type of invoice tax id.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  TAX_ID = 31,
+
+  /**
+   * Indicates the type of address city and state.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  ADDRESS_CITY_AND_STATE = 32,
+
+  /**
+   * Indicates the type of airline flight number.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  FLIGHT_NUMBER = 33,
+
+  /**
+   * Indicates the type of license number for drivers.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  LICENSE_NUMBER = 34,
+
+  /**
+   * Indicates the type of license file number for drivers.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  LICENSE_FILE_NUMBER = 35,
+
+  /**
+   * Indicates the type of license plate for vehicles.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  LICENSE_PLATE = 36,
+
+  /**
+   * Indicates the type of engine number for vehicles.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  ENGINE_NUMBER = 37,
+
+  /**
+   * Indicates the type of license chassis number for vehicles.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  LICENSE_CHASSIS_NUMBER = 38
 }

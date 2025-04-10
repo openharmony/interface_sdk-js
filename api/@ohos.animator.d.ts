@@ -299,6 +299,114 @@ export interface AnimatorOptions {
 }
 
 /**
+ * Defines the SimpleAnimatorOptions class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+export declare class SimpleAnimatorOptions {
+  /**
+   * constructor.
+   *
+   * @param { number } begin - Starting point of animator interpolation.
+   * @param { number } end - Ending point of animator interpolation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  constructor(begin: number, end: number);
+
+  /**
+   * Set duration of the animation, in milliseconds.
+   *
+   * @param { number } duration - if not set, default is 1000.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  duration(duration: number): SimpleAnimatorOptions;
+
+  /**
+   * Set time curve of the animation. For details about the supported types.
+   * linear The animation speed keeps unchanged.
+   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
+   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
+   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
+   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
+   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
+   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
+   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
+   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
+   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
+   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
+   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
+   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
+   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
+   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
+   * @param { string } curve - if not set, default is ease.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  easing(curve: string): SimpleAnimatorOptions;
+
+  /**
+   * Set delay for the animation start. The default value indicates no delay.
+   *
+   * @param { number } delay - if not set, default is 0.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  delay(delay: number): SimpleAnimatorOptions;
+
+  /**
+   * Set FillMode of animation. FillMode indicates whether to resume to the initial state after the animation is executed.
+   *
+   * @param { FillMode } fillMode - if not set, default is FillMode.Forwards.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  fill(fillMode: FillMode): SimpleAnimatorOptions;
+
+  /**
+   * Set the animation playback mode.
+   *
+   * @param { PlayMode } direction - if not set, default is PlayMode.Normal.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  direction(direction: PlayMode): SimpleAnimatorOptions;
+
+  /**
+   * Set number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
+   *
+   * @param { number } iterations - if not set, default is 1.
+   * @returns { SimpleAnimatorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  iterations(iterations: number): SimpleAnimatorOptions;
+}
+
+/**
  * Defines the Animator result interface.
  * @interface AnimatorResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -367,6 +475,21 @@ export interface AnimatorResult {
    * @since 11
    */
   reset(options: AnimatorOptions): void;
+
+  /**
+   * Reset the options for current animator.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 
   /**
    * Starts the animation.
@@ -676,6 +799,23 @@ export default class Animator {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
   static create(options: AnimatorOptions): AnimatorResult;
+
+  /**
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
+   * @returns { AnimatorResult } animator result
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }

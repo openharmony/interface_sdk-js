@@ -551,6 +551,15 @@ declare namespace reminderAgentManager {
     title?: string;
 
     /**
+     * Resource ID for title.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 18
+     */
+    titleResourceId?: number;
+  
+    /**
      * Reminder content.
      *
      * @type { ?string }
@@ -559,6 +568,15 @@ declare namespace reminderAgentManager {
      */
     content?: string;
 
+    /**
+     * Resource ID for content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 18
+     */
+    contentResourceId?: number;
+  
     /**
      * Content to be displayed when the reminder is expired.
      *
@@ -569,6 +587,15 @@ declare namespace reminderAgentManager {
     expiredContent?: string;
 
     /**
+     * Resource ID for expired content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 18
+     */
+    expiredContentResourceId?: number;
+  
+    /**
      * Content to be displayed when the reminder is snoozing.
      *
      * @type { ?string }
@@ -577,6 +604,15 @@ declare namespace reminderAgentManager {
      */
     snoozeContent?: string;
 
+    /**
+     * Resource ID for snooze content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 18
+     */
+    snoozeContentResourceId?: number;
+  
     /**
      * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
      *

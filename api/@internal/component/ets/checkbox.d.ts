@@ -271,9 +271,9 @@ interface CheckboxInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
-declare type OnCheckboxChangeCallback  = (value: boolean) => void;
+declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
 /**
  * Defines the attribute functions of Checkbox.
@@ -351,6 +351,19 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   select(value: boolean): CheckboxAttribute;
 
   /**
+   * setting whether checkbox is selected.
+   *
+   * @param { Optional<boolean> } isSelected
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  select(isSelected: Optional<boolean>): CheckboxAttribute;
+
+  /**
    * setting the display color of checkbox.
    *
    * @param { ResourceColor } value
@@ -391,6 +404,19 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
+   * setting the display color of checkbox.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  selectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
+
+  /**
    * setting the shape of checkbox.
    *
    * @param { CheckBoxShape } value - The configuration of checkbox shape.
@@ -412,6 +438,19 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @since 12
    */
   shape(value: CheckBoxShape): CheckboxAttribute;
+
+   /**
+   * setting the shape of checkbox.
+   *
+   * @param { Optional<CheckBoxShape> } shape - The configuration of checkbox shape.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  shape(shape: Optional<CheckBoxShape>): CheckboxAttribute;
 
   /**
    * Set the display border color of unselected checkbox.
@@ -435,6 +474,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   unselectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
+   * Set the display border color of unselected checkbox.
+   *
+   * @param { Optional<ResourceColor> } resColor - The color of border when checkbox unselected.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  unselectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
+
+  /**
    * Set the mark style of checkbox.
    *
    * @param { MarkStyle } value - The style configuration of checkbox mark.
@@ -454,6 +505,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @since 11
    */
   mark(value: MarkStyle): CheckboxAttribute;
+
+  /**
+   * Set the mark style of checkbox.
+   *
+   * @param { Optional<MarkStyle> } style - The style configuration of checkbox mark.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  mark(style: Optional<MarkStyle>): CheckboxAttribute;
 
   /**
    * Called when the selection status changes.
@@ -502,9 +565,22 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
+
+  /**
+   * Called when the selection status changes.
+   *
+   * @param { Optional<OnCheckboxChangeCallback> } callback
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  onChange(callback: Optional<OnCheckboxChangeCallback>): CheckboxAttribute;
 
   /**
    * Set the content modifier of checkbox.
@@ -517,6 +593,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @since 12
    */
   contentModifier(modifier: ContentModifier<CheckBoxConfiguration>): CheckboxAttribute;
+
+  /**
+   * Set the content modifier of checkbox.
+   *
+   * @param { Optional<ContentModifier<CheckBoxConfiguration>> } modifier - The content modifier of checkbox.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */  
+  contentModifier(modifier: Optional<ContentModifier<CheckBoxConfiguration>>): CheckboxAttribute;
 }
 
 /**

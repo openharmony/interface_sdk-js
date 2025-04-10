@@ -284,7 +284,7 @@ declare enum PlaybackSpeed {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface FullscreenInfo {
   /**
@@ -313,7 +313,7 @@ interface FullscreenInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface PreparedInfo {
   /**
@@ -342,7 +342,7 @@ interface PreparedInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface PlaybackInfo {
   /**
@@ -362,6 +362,27 @@ interface PlaybackInfo {
    * @since 11
    */
   time: number;
+}
+
+/**
+ * Defines the video poster options.
+ *
+ * @interface PosterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+declare interface PosterOptions {
+  /**
+   * Whether to display the first frame of video on prepared status of AVPlayer.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  showFirstFrame?: boolean;
 }
 
 /**
@@ -511,6 +532,16 @@ declare interface VideoOptions {
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
+
+  /**
+   * poster options of video.
+   *
+   * @type { ?PosterOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  posterOptions?: PosterOptions;
 }
 
 /**
@@ -1001,7 +1032,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onStart(event: VoidCallback): VideoAttribute;
 
@@ -1040,7 +1071,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onPause(event: VoidCallback): VideoAttribute;
 
@@ -1079,7 +1110,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onFinish(event: VoidCallback): VideoAttribute;
 
@@ -1118,7 +1149,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onFullscreenChange(callback: Callback<FullscreenInfo>): VideoAttribute;
 
@@ -1157,7 +1188,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onPrepared(callback: Callback<PreparedInfo>): VideoAttribute;
 
@@ -1196,7 +1227,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onSeeking(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1235,7 +1266,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onSeeked(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1274,7 +1305,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onUpdate(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1340,6 +1371,32 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @since 12
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
+
+  /**
+   * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+   *
+   * @param { ColorMetrics } color
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 15
+   */
+  surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
+
+  /**
+   * Indicates whether to response shortcut key. The default value is false.
+   * If the value is true, video will respond to the shortcut keys as follows:
+   * Space key: play/pause the video.
+   * Up/Down arrow key: turn up/down volume of the video.
+   * Right/Left arrow key: fast forward/backward the video.
+   *
+   * @param { boolean } enabled
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  enableShortcutKey(enabled: boolean): VideoAttribute;
 }
 
 /**

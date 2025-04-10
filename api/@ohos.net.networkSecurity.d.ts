@@ -178,6 +178,29 @@ declare namespace networkSecurity {
    * @since 12
    */
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): number;
+
+  /**
+   * Checks whether the Cleartext traffic is permitted.
+   * To invoke this method, you must have the {@code ohos.permission.INTERNET} permission.
+   * @permission ohos.permission.INTERNET
+   * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 18
+   */
+  export function isCleartextPermitted(): boolean;
+ 
+  /**
+   * Checks whether the Cleartext traffic for a specified hostname is permitted.
+   * To invoke this method, you must have the {@code ohos.permission.INTERNET} permission.
+   * @permission ohos.permission.INTERNET
+   * @param { string } hostName - Indicates the host name. 
+   * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 18
+   */
+  export function isCleartextPermittedByHostName(hostName: string): boolean;
 }
 
 export default networkSecurity;

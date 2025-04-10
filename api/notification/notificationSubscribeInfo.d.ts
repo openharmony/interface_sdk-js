@@ -68,4 +68,14 @@ export interface NotificationSubscribeInfo {
    * @since 16
    */
   slotTypes?: Array<notificationManager.SlotType>;
+
+  /**
+   * Filtered notification type range.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  filterLimit?: number;
 }

@@ -1042,6 +1042,157 @@ declare namespace cloudSync {
      */
     uris: Array<string>;
   }
+
+  /**
+   * Optimize storage space
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @returns { Promise<void> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  function optimizeStorage(): Promise<void>;
+
+  /**
+   * Start optimize storage space task.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @param { OptimizeSpaceParam } optimizePara - Setting parameters with a `OptimizeSpaceParam` argument.
+   * @param { Callback<OptimizeSpaceProgress> } callback - callback function with a `OptimizeSpaceProgress` argument.
+   * @returns { Promise<void> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 22400005 - Inner error.
+   * @throws { BusinessError } 22400006 - Other optimize task is running.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  function startOptimizeSpace(optimizePara: OptimizeSpaceParam, callback?: Callback<OptimizeSpaceProgress>): Promise<void>;
+
+  /**
+   * Stop optimize storage space task.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 22400005 - Inner error.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  function stopOptimizeSpace(): void;
+
+  /**
+   * Describes the state type of optimize space task.
+   * @enum { number } OptimizeState
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  export enum OptimizeState {
+
+    /**
+     * Indicates that the optimize space task in process now.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    RUNNING = 0,
+
+    /**
+     * Indicates that the optimize space task finished successfully.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    COMPLETED = 1,
+
+    /**
+     * Indicates that the optimize space task failed.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    FAILED = 2,
+
+    /**
+     * Indicates that the optimize space task stopped.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    STOPPED = 3
+  }
+
+  /**
+   * Defines the OptimizeSpaceProgress data structure.
+   * @typedef OptimizeSpaceProgress
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  declare interface OptimizeSpaceProgress {
+
+    /**
+     * The current optimize space task state.
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @type { OptimizeState }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    state: OptimizeState;
+
+    /**
+     * The percentage of clearing files.
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    progress: number;
+  }
+
+  /**
+   * Defines the OptimizeSpaceParam data structure.
+   * @typedef OptimizeSpaceParam
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 17
+   */
+  declare interface OptimizeSpaceParam {
+
+    /**
+     * The total size(Unit:byte) of clean space.
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    totalSize: number;
+
+    /**
+     * Clean files that are not accessed agingDays(unit:day) ago.
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 17
+     */
+    agingDays: number;
+  }
 }
 
 export default cloudSync;

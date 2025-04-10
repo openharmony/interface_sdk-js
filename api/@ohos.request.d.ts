@@ -718,6 +718,15 @@ declare namespace request {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
+     * @since 15
+     */
     url: string;
     /**
      * Adds an HTTP or HTTPS header to be included with the download request.
@@ -1885,6 +1894,15 @@ declare namespace request {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
+     * @since 15
+     */
     url: string;
     /**
      * Adds an HTTP or HTTPS header to be included with the upload request.
@@ -2657,8 +2675,19 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       * @deprecated since 18
+       * @useinstead ohos.request.agent.FileSpec.contentType
        */
       mimeType?: string;
+      /**
+       * Sets the content-type field of the part.
+       * The default is obtained by the suffix of the filename.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 18
+       */
+      contentType?: string;
       /**
        * The filename, the default is obtained by path.
        *
@@ -2749,6 +2778,36 @@ declare namespace request {
     }
 
     /**
+     * Options of the custom notification of backend tasks.
+     *
+     * @typedef Notification
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    interface Notification {
+      /**
+       * The title of the notification.
+       * If not specified, use default style instead.
+       * The maximum size of title is 1024 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      title?: string;
+      /**
+       * The text of the notification.
+       * If not specified, use the file name of the task instead.
+       * The maximum size of text is 3072 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      text?: string;
+    }
+
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
@@ -2806,6 +2865,17 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       */
+      /**
+       * The Universal Resource Locator for a task.
+       * The maximum length is 8192 characters.
+       * Using raw `url` option, even url parameters in it.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 15
        */
       url: string;
       /**
@@ -3281,6 +3351,25 @@ declare namespace request {
        * @since 11
        */
       extras?: object;
+      /**
+       * Use a single request to upload multiple files.
+       * If true, use the form format to merge multiple files into one request.
+       * If false, use independent requests to send each file.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      multipart?: boolean;
+      /**
+       * Customizes the notification of the backend task.
+       *
+       * @type { ?Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      notification?: Notification;
     }
 
     /**
@@ -4760,6 +4849,19 @@ declare namespace request {
        * @since 11
        */
       stop(): Promise<void>;
+      /**
+       * Sets the maximum transfer speed of the task.
+       * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
+       *
+       * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 18
+       */
+      setMaxSpeed(speed: number): Promise<void>;
     }
 
     /**
@@ -5148,6 +5250,81 @@ declare namespace request {
      * @since 10
      */
     function query(id: string): Promise<TaskInfo>;
+
+    /**
+     * The config of the task group.
+     * 
+     * @typedef GroupConfig
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    interface GroupConfig {
+      /**
+       * Sets display strategy for background task notifications.
+       * If true, progress, completed, and failed notifications will be displayed.
+       * If false, only completed or failed notifications will be displayed.
+       * The default value is false.
+       * 
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      gauge?: boolean;
+      /**
+       * Customizes the notification of the task group.
+       * 
+       * @type { Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      notification: Notification;
+    }
+
+    /**
+     * Creates a background download task notification group.
+     * 
+     * @param { GroupConfig } config - config of the group.
+     * @returns { Promise<string> } the gid of the group.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function createGroup(config: GroupConfig): Promise<string>;
+
+    /**
+     * Adds a newly created background download task to the target group.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @param { string[] } tids - the tid list of tasks to be attached.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 21900007 - task state error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function attachGroup(gid: string, tids: string[]): Promise<void>;
+
+    /**
+     * Deletes the target group, no more new tasks can be added to this group.
+     * If all tasks in this group end, completed or failed notifications will be displayed.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function deleteGroup(gid: string): Promise<void>;
   }
 }
 

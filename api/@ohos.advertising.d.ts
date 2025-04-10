@@ -596,7 +596,8 @@ declare namespace advertising {
    * @param { AdRequestParams[] } adParams - Indicates the parameters in the request.
    * @param { AdOptions } adOptions - Indicates the ad options.
    * @returns { Promise<string> } The promise of ad request message body.
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
+   * <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -609,7 +610,8 @@ declare namespace advertising {
    * @param { string } adResponse - Indicate the ad response message.
    * @param { MultiSlotsAdLoadListener } listener - Indicates the listener to be registered that use to load ad.
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
-   * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
+   * <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
@@ -629,6 +631,31 @@ declare namespace advertising {
    * @since 12
    */
   function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void;
+  
+  /**
+   * Register ad javascript proxy interface into webview in order to enable web Ad.
+   * @param { web_webview.WebviewController } controller - Indicates webview controller to register ad javascript proxy interface.
+   * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @param { boolean } needRefresh - Controls whether to refresh the page (true: refresh required; false: no refresh needed).
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 21800001 - operation javascriptRegister error.
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 16
+   */
+  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void;
+
+  /**
+   * Delete ad javascript proxy interface from webview.
+   * @param { web_webview.WebviewController } controller - Indicates webview controller to delete ad javascript proxy interface.
+   * @param { boolean } needRefresh - Controls whether to refresh the page (true: refresh required; false: no refresh needed).
+   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 21800001 - operation javascriptRegister error.
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 16
+   */
+  function deleteWebAdInterface(controller: web_webview.WebviewController, needRefresh: boolean): void;
 }
 
 export default advertising;

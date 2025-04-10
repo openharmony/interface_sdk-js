@@ -21,7 +21,7 @@
 /**
  * Defines AtomicServiceTabs.
  *
- * @struct AtomicServiceTabs
+ * @struct { AtomicServiceTabs }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -70,6 +70,16 @@ export declare struct AtomicServiceTabs {
    */
   @Prop
   tabBarPosition?: TabBarPosition;
+  /**
+   * Set the layout mode of the bottom tab bar
+   *
+   * @type { ?LayoutMode }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  @Prop
+  layoutMode?: LayoutMode;
   /**
    * Sets the barBackgroundColor of tabs.
    *

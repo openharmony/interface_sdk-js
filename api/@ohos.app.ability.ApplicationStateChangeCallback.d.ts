@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * The application state change callback.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 export default class ApplicationStateChangeCallback {
   /**
    * Called back when the state of the application changes to foreground.
@@ -48,6 +57,15 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Called back when the state of the application changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   onApplicationForeground(): void;
 
@@ -65,6 +83,15 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Called back when the state of the application changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   onApplicationBackground(): void;
 }

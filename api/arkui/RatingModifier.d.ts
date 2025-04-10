@@ -25,7 +25,7 @@
  * Defines Rating Modifier
  *
  * @extends RatingAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

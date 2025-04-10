@@ -358,7 +358,31 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 12
      */
-    EFFECT_SHARP = 'haptic.effect.sharp'
+    EFFECT_SHARP = 'haptic.effect.sharp',
+
+    /**
+     * Describes the vibration effect of the successful notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    EFFECT_NOTICE_SUCCESS = 'haptic.notice.success',
+
+    /**
+     * Describes the vibration effect of the failed notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    EFFECT_NOTICE_FAILURE = 'haptic.notice.fail',
+
+    /**
+     * Describes the vibration effect of the warning notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    EFFECT_NOTICE_WARNING = 'haptic.notice.warning'
   }
 
   /**
@@ -487,7 +511,15 @@ declare namespace vibrator {
    * @atomicservice
    * @since 11
    */
-  type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile;
+  /**
+   * Describes the effect of vibration.
+   *
+   * @typedef { VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 18
+   */
+  type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern;
 
   /**
    * Vibrate continuously for a period of time at the default intensity of the system.
@@ -654,6 +686,318 @@ declare namespace vibrator {
      * @since 10
      */
     length?: number;
+  }
+
+  /**
+   * Types of vibration events
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  enum VibratorEventType {
+    /**
+     * Steady state long vibration
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    CONTINUOUS = 0,
+
+    /**
+     * Transient short vibration
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    TRANSIENT = 1,
+  }
+
+  /**
+   * The vibration curve is valid when the vibration event type is 'continuous'
+   *
+   * @interface VibratorCurvePoint
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface VibratorCurvePoint {
+    /**
+      * The offset of the starting time of the relative event.
+      *
+      * @type { number }
+      * @syscap SystemCapability.Sensors.MiscDevice
+      * @since 18
+      */
+    time: number;
+
+    /**
+      * Gain in relative event vibration intensity
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.Sensors.MiscDevice
+      * @since 18
+      */
+    intensity?: number;
+    /**
+     * Changes in relative event vibration frequency
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    frequency?: number;
+  }
+
+  /**
+   * Vibration event.
+   *
+   * @interface VibratorEvent
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface VibratorEvent {
+    /**
+     * Types of vibration events
+     *
+     * @type { VibratorEventType }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    eventType: VibratorEventType;
+
+    /**
+     * Relative starting time of vibration
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    time: number;
+
+    /**
+     * The duration of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    duration?: number;
+
+    /**
+     * Intensity of vibration events
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    intensity?: number;
+
+    /**
+     * Vibration event frequency
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    frequency?: number;
+
+    /**
+     * Channel number
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    index?: number;
+
+    /**
+     * An array representing vibration adjustment curves.
+     *
+     * @type { ?Array<VibratorCurvePoint> }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    points?: Array<VibratorCurvePoint>;
+  }
+
+  /**
+   * Each 'events' attribute in the vibration sequence represents one vibration event
+   *
+   * @interface VibratorPattern
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface VibratorPattern {
+    /**
+     * Absolute starting time of vibration
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    time: number;
+
+    /**
+     * Vibration event array, where each 'events' attribute represents one vibration event.
+     *
+     * @type { Array<VibratorEvent> }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    events: Array<VibratorEvent>;
+  }
+
+  /**
+   * The continuous vibration parameters
+   *
+   * @interface ContinuousParam
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface ContinuousParam {
+    /**
+     * Intensity of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    intensity?: number;
+
+    /**
+     * Frequency of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    frequency?: number;
+
+    /**
+     * The points of vibration
+     *
+     * @type { ?VibratorCurvePoint[] }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    points?: VibratorCurvePoint[];
+
+    /**
+     * Index of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    index?: number;
+  }
+
+  /**
+   * The transient vibration parameters
+   *
+   * @interface TransientParam
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface TransientParam {
+    /**
+     * Intensity of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    intensity?: number;
+
+    /**
+     * Frequency of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    frequency?: number;
+
+    /**
+     * Index of vibration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    index?: number;
+  }
+
+  /**
+   * Provide methods for adding long or short vibration events and generate VibratorPattern objects.
+   *
+   * @name VibratorPatternBuilder
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  class VibratorPatternBuilder {
+    /**
+     * Method for adding long vibration events
+     *
+     * @param { number } time Relative starting time of the long-term vibration event.
+     * @param { number } duration The duration of the long-term vibration event
+     * @param { ContinuousParam } options Optional parameter object
+     * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    addContinuousEvent(time: number, duration: number, options?: ContinuousParam): VibratorPatternBuilder;
+
+    /**
+     * Method for adding short vibration events.
+     *
+     * @param { number } time Relative starting time of short oscillation events.
+     * @param { TransientParam } options Optional parameter object
+     * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    addTransientEvent(time: number, options?: TransientParam): VibratorPatternBuilder;
+
+    /**
+     * Method for constructing vibration sequences of combined short or long events.
+     *
+     * @returns { VibratorPattern } Return VibratorPattern object.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    build(): VibratorPattern;
+  }
+
+  /**
+   * Trigger motor vibration with custom vibration effects.
+   *
+   * @interface VibrateFromPattern
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 18
+   */
+  interface VibrateFromPattern {
+    /**
+     * The value is "pattern", which triggers motor vibration based on the combination pattern.
+     *
+     * @type { 'pattern' }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    type: 'pattern';
+
+    /**
+     * Customize the sequence of motor vibration events, the VibratorPattern object returned by the build() method.
+     *
+     * @type { VibratorPattern }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18
+     */
+    pattern: VibratorPattern;
   }
 }
 

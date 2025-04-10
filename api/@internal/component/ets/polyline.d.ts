@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface PolylineOptions {
   /**
@@ -176,7 +176,7 @@ interface PolylineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: PolylineOptions): PolylineAttribute;
 
@@ -227,7 +227,7 @@ interface PolylineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: PolylineOptions): PolylineAttribute;
 }

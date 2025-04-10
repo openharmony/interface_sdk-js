@@ -91,13 +91,12 @@ function tsTransformKitFile(kitPath) {
 function getKitNewSourceFile(sourceFile, kitName) {
   const newStatements = [];
   const needDeleteExportName = new Set();
-  const needDeleteMap = kitFileNeedDeleteMap.get(kitName);
   let copyrightMessage = '';
   // 初始化ts工厂
   const factory = ts.factory;
   sourceFile.statements.forEach((statement, index) => {
     if (ts.isImportDeclaration(statement)) {
-      const newStatement = processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName);
+      const newStatement = processKitImportDeclaration(statement, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
       } else if (index === 0) {
@@ -124,7 +123,7 @@ function getKitNewSourceFile(sourceFile, kitName) {
  * @param { Map} needDeleteExportName 需要删除的导出节点
  * @returns { ts.ImportDeclaration | undefined } 返回新的import节点，全部删除为undefined
  */
-function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName) {
+function processKitImportDeclaration(statement, needDeleteExportName) {
   // 初始化ts工厂
   const factory = ts.factory;
   const importClause = statement.importClause;
@@ -132,11 +131,11 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
     return statement;
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
-  if (needDeleteMap === undefined || !needDeleteMap.has(importPath)) {
+  if (kitFileNeedDeleteMap === undefined || !kitFileNeedDeleteMap.has(importPath)) {
     const hasFilePath = hasFileByImportPath(importPath);
     return hasFilePath ? statement : undefined;
   }
-  const currImportInfo = needDeleteMap.get(importPath);
+  const currImportInfo = kitFileNeedDeleteMap.get(importPath);
   let defaultName = '';
   let importNodeNamedBindings = [];
   if (importClause.name) {
@@ -155,7 +154,7 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
         element.propertyName.escapedText.toString() :
         element.name.escapedText.toString();
       if (!currImportInfo.exportName.has(exportName)) {
-        importNodeNamedBindings.push(factory.createImportSpecifier(element.propertyName, element.name));
+        importNodeNamedBindings.push(factory.createImportSpecifier(false, element.propertyName, element.name));
       } else {
         needDeleteExportName.add(element.name.escapedText.toString());
       }
@@ -163,7 +162,6 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
   }
   if (defaultName !== '' || importNodeNamedBindings.length !== 0) {
     const newImportNode = factory.createImportDeclaration(
-      undefined,
       undefined,
       factory.createImportClause(
         false,
@@ -393,9 +391,10 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
             referencesMessage +
             result.substring(copyrightMessage.length);
         }
+        result = removeSystemapiDoc(result);
         writeFile(url, result);
       }
-      return node;
+      return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
     function collectAllIdentifier(node) {
       if (ts.isSourceFile(node) && node.statements) {
@@ -438,7 +437,6 @@ function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCo
       } else if (ts.isStructDeclaration(statement)) {
         statement = ts.factory.updateStructDeclaration(
           statement,
-          statement.decorators,
           statement.modifiers,
           statement.name,
           statement.typeParameters,
@@ -608,6 +606,16 @@ function getFileAndKitComment(fileFullText) {
   return fileAndKitComment;
 }
 
+/**
+ * 处理最终结果中的systemapi
+ * @param {string} result 
+ */
+function removeSystemapiDoc(result) {
+  result.split;
+  return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
+    return /@systemapi/g.test(substring) ? '' : substring;
+  });
+}
 
 /**
  * 每个文件处理前回调函数第一个
@@ -644,7 +652,7 @@ function deleteSystemApi(url) {
           transformers: { before: [formatImportDeclaration(url, copyrightMessage, deleteNode.isCopyrightDeleted)] },
         });
       }
-      return node;
+      return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
 }
@@ -690,13 +698,7 @@ function processSourceFile(node, kitName) {
     processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport);
   });
   if (needDeleteExport.fileName !== '') {
-    let kitMap = kitFileNeedDeleteMap.get(kitName);
-    if (kitMap === undefined) {
-      kitMap = new Map([[needDeleteExport.fileName, needDeleteExport]]);
-    } else {
-      kitMap.set(needDeleteExport.fileName, needDeleteExport);
-    }
-    kitFileNeedDeleteMap.set(kitName, kitMap);
+    kitFileNeedDeleteMap.set(needDeleteExport.fileName, needDeleteExport);
   }
   return {
     node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles),
@@ -715,14 +717,15 @@ function processExportNode(statement, node, needDeleteExport, names, deleteSyste
     let needExport = false;
     const newSpecifiers = [];
     names.forEach((name, index) => {
+      const exportSpecifier = statement.exportClause.elements[index];
       if (!deleteSystemApiSet.has(name)) {
         //未被删除的节点
-        newSpecifiers.push(statement.exportClause.elements[index]);
+        newSpecifiers.push(exportSpecifier);
         needExport = true;
       } else {
         //被删除的节点
         needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.exportName.add(statement.name.escapedText.toString());
+        needDeleteExport.exportName.add(exportSpecifier.name.escapedText.toString());
       }
     });
     if (needExport) {
@@ -836,37 +839,9 @@ function processVisitEachChild(context, node) {
   return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
   function processAllNodes(node) {
     if (ts.isInterfaceDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateInterfaceDeclaration(
-        node,
-        node.decorators,
-        node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-      );
+      node = processInterfaceDeclaration(node);
     } else if (ts.isClassDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateClassDeclaration(
-        node,
-        node.decorators,
-        node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-      );
+      node = processClassDeclaration(node);
     } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
       const newStatements = [];
       node.body.statements.forEach((statement) => {
@@ -875,34 +850,101 @@ function processVisitEachChild(context, node) {
         }
       });
       const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
-      node = ts.factory.updateModuleDeclaration(node, node.decorators, node.modifiers, node.name, newModuleBody);
-    } else if (ts.isEnumDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateEnumDeclaration(node, node.decorators, node.modifiers, node.name, newMembers);
-    } else if (ts.isStructDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member, index) => {
-        if (index >= 1 && !isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateStructDeclaration(
+      node = ts.factory.updateModuleDeclaration(
         node,
-        node.decorators,
         node.modifiers,
         node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
+        newModuleBody
       );
+    } else if (ts.isEnumDeclaration(node)) {
+      node = processEnumDeclaration(node);
+    } else if (ts.isStructDeclaration(node)) {
+      node = processStructDeclaration(node);
     }
     return ts.visitEachChild(node, processAllNodes, context);
   }
+}
+
+/**
+ * 处理interface子节点 
+ */
+function processInterfaceDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateInterfaceDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理class子节点 
+ */
+function processClassDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateClassDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理enum子节点 
+ */
+function processEnumDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateEnumDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理struct子节点 
+ */
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1 && !isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
 }
 
 /**

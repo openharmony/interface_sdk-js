@@ -602,6 +602,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
+     * @deprecated since 16
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -612,6 +613,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
+     * @deprecated since 16
      */
     showOptionalInputMethods(): Promise<boolean>;
 
@@ -632,6 +634,17 @@ declare namespace inputMethod {
      * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
      */
     displayOptionalInputMethod(): Promise<void>;
+
+    /**
+     * The input method application calls this interface to obtain its own enabled state.
+     *
+     * @returns { Promise<EnabledState> } the promise returned by the function.
+     * @throws { BusinessError } 12800004 - not an input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    getInputMethodState(): Promise<EnabledState>;
   }
 
   /**
@@ -654,7 +667,6 @@ declare namespace inputMethod {
      * @since 10
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
-
     /**
      * Attach application to the input method service.
      *
@@ -669,7 +681,21 @@ declare namespace inputMethod {
      * @since 10
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
-
+    /**
+     * Attach application to the input method service.
+     *
+     * @param { boolean } showKeyboard - show the keyboard or not when attach the input method.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
      * Show the text input and start typing.
      *
@@ -681,7 +707,6 @@ declare namespace inputMethod {
      * @since 10
      */
     showTextInput(callback: AsyncCallback<void>): void;
-
     /**
      * Show the text input and start typing.
      *
@@ -693,7 +718,18 @@ declare namespace inputMethod {
      * @since 10
      */
     showTextInput(): Promise<void>;
-
+    /**
+     * Show the text input and start typing.
+     *
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
      * Hide the text input and stop typing.
      *
@@ -964,6 +1000,34 @@ declare namespace inputMethod {
      * @since 9
      */
     hideSoftKeyboard(): Promise<void>;
+
+    /**
+     * Send message to input method.
+     *
+     * @param { string } msgId - the identifier of the message. Max size is 256B.
+     * @param { ?ArrayBuffer } [msgParam] - the param of the custom message. Max size is 128KB.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1. Incorrect parameter types. 2. Incorrect parameter length.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800014 - the input method is in basic mode.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @throws { BusinessError } 12800016 - input method client is not editable.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
+
+    /**
+     * Start receiving message from input method.
+     *
+     * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    recvMessage(msgHandler?: MessageHandler): void;
 
     /**
      * Register a callback and when IME sends select event with range of selection,
@@ -1272,6 +1336,52 @@ declare namespace inputMethod {
      * @since 10
      */
     off(type: 'getTextIndexAtCursor', callback?: () => number): void;
+
+    /**
+     * <p>Subscribe 'setPreviewText' event.</p>
+     * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+     *
+     * @param { 'setPreviewText' } type - the type of subscribe event.
+     * @param { SetPreviewTextCallback } callback - the callback of on('setPreviewText').
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    on(type: 'setPreviewText', callback: SetPreviewTextCallback): void;
+
+    /**
+     * Unsubscribe 'setPreviewText' event.
+     *
+     * @param { 'setPreviewText' } type - the type of unsubscribe event.
+     * @param { SetPreviewTextCallback } [callback] - optional, the callback of off('setPreviewText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void;
+
+    /**
+     * <p>Subscribe 'finishTextPreview' event.</p>
+     * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+     *
+     * @param { 'finishTextPreview' } type - the type of subscribe event.
+     * @param { Callback<void> } callback - the callback of on('finishTextPreview').
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    on(type: 'finishTextPreview', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe 'finishTextPreview' event.
+     *
+     * @param { 'finishTextPreview' } type - the type of unsubscribe event.
+     * @param { Callback<void> } [callback] - optional, the callback of off('finishTextPreview').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    off(type: 'finishTextPreview', callback?: Callback<void>): void;
   }
 
   /**
@@ -1899,6 +2009,112 @@ declare namespace inputMethod {
      */
     height: number;
   }
+
+  /**
+   * <p>Custom message handler.</p>
+   * <p>Implement this interface to respond to custem messages.</p>
+   * 
+   * @interface MessageHandler
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  interface MessageHandler {
+    /**
+     * This method is called when a custom message is received.
+     * 
+     * @param { string } msgId - the identifier of the message.
+     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
+
+    /**
+     * This method is called when a new message handler is set.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    onTerminated(): void;
+  }
+
+  /**
+   * Enumerates the enabled state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum EnabledState {
+    /**
+     * Disabled state.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    DISABLED = 0,
+
+    /**
+     * Enabled state with basic mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    BASIC_MODE,
+
+    /**
+     * Enabled state with full experience mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    FULL_EXPERIENCE_MODE
+  }
+
+  /**
+   *  requestKeyboardReason of input click 
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum RequestKeyboardReason {
+    /**
+      * The request keyboard reason is NONE.
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 15
+      */
+    NONE = 0,
+    /**
+     * The request keyboard reason is MOUSE.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    MOUSE = 1,
+    /**
+     * The request keyboard reason is TOUCH.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    TOUCH = 2,
+    /**
+     * The request keyboard reason is OTHER.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    OTHER = 20
+  }
+
+  /**
+   * The callback of 'setPreviewText' event.
+   *
+   * @typedef { function } SetPreviewTextCallback.
+   * @param { text } string - text to be previewed.
+   * @param { range } Range - the range of the text to be replaced by the preview text.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 17
+   */
+  export type SetPreviewTextCallback = (text: string, range: Range) => void;
 }
 
 export default inputMethod;

@@ -23,6 +23,7 @@ import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMeta
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
+import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
@@ -661,6 +662,38 @@ declare namespace bundleManager {
      * @since 12
      */
     INSIGHT_INTENT_UI = 22,
+
+    /**
+     * Indicates extension info with type of FENCE
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    FENCE = 24,
+
+    /**
+     * Indicates extension info with type of asset acceleration
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    ASSET_ACCELERATION = 26,
+
+    /**
+     * Indicates extension info with type of form edit
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    FORM_EDIT = 27,
+
+    /**
+     * Indicates extension info with type of distributed
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    DISTRIBUTED = 28,
 
     /**
      * Indicates extension info with type of unspecified
@@ -1403,19 +1436,43 @@ declare namespace bundleManager {
   */
   export enum ApplicationInfoFlag {
     /**
-     * Indicates The application is currently installed for the calling user.
+     * Indicates the application is currently installed for the calling user.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
      */
     FLAG_INSTALLED = 0x00000001,
+    /**
+     * Indicates the application is currently installed for the other user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_OTHER_INSTALLED = 0x00000010,
+    /**
+     * Indicates the application is a preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP = 0x00000020,
+    /**
+     * Indicates the application is an updated preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP_UPDATE = 0x00000040,
   }
 
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1424,7 +1481,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1436,7 +1493,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1445,7 +1502,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1457,7 +1514,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1466,7 +1523,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1480,7 +1537,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1496,7 +1553,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1515,7 +1572,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1533,7 +1590,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1551,7 +1608,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1572,7 +1629,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1591,7 +1648,7 @@ declare namespace bundleManager {
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1606,7 +1663,7 @@ declare namespace bundleManager {
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1623,7 +1680,7 @@ declare namespace bundleManager {
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1640,7 +1697,7 @@ declare namespace bundleManager {
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1655,7 +1712,7 @@ declare namespace bundleManager {
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1673,7 +1730,7 @@ declare namespace bundleManager {
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1691,7 +1748,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1712,7 +1769,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1736,7 +1793,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1759,7 +1816,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Array<Want> } wants - Indicates the Want Array containing the application bundle name to be queried.
-   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } [userId] - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1782,7 +1839,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Array<AbilityInfo> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1806,7 +1863,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1829,7 +1886,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
@@ -1854,7 +1911,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
@@ -1879,7 +1936,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
@@ -1904,7 +1961,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { string } extensionAbilityType - Indicates extensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
@@ -1928,7 +1985,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
@@ -1993,7 +2050,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle archive info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2011,7 +2068,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2029,7 +2086,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { BundleInfo } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2074,6 +2131,51 @@ declare namespace bundleManager {
    * @since 9
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
+
+  /**
+   * Clears cache data of a specified application.
+   *
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Clean bundle cache files result
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
+
+  /**
+   * Get the all bundle cache size of the current user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<number> } Returns all bundle cache size.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function getAllBundleCacheSize(): Promise<number>;
+
+  /**
+   * Clean all bundle cache files of the current user, does not include the currently running program.
+   *
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @returns { Promise<void> } Clear all bundle cache results.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function cleanAllBundleCache(): Promise<void>;
 
   /**
    * Sets whether to enable a specified application.
@@ -2796,7 +2898,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2814,7 +2916,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -3315,12 +3417,25 @@ declare namespace bundleManager {
   function switchUninstallState(bundleName: string, state: boolean): void;
 
   /**
+   * Get the SignatureInfo of the application through UID.
+   *
+   * @permission ohos.permission.GET_SIGNATURE_INFO
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { SignatureInfo } The result of getting the signature info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700021 - The uid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 18
+   */
+  function getSignatureInfo(uid: number): SignatureInfo;
+
+  /**
    * Get the BundleInfo of the specified MultiIsolation App.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } appIndex - Indicates the index of clone app.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
    * @returns { Promise<BundleInfo> } Returns A BundleInfo Of MultiApp Mode.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3341,7 +3456,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
    * @returns { Promise<Array<BundleInfo>> } Returns BundleInfo Arrays Of MultiApp Mode.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3369,6 +3484,45 @@ declare namespace bundleManager {
    * @since 14
    */
   function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
+
+  /**
+   * Get all plugin info of host application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } hostBundleName - Indicates the host application bundle name to be queried.
+   * @param { number } [userId] - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<Array<PluginBundleInfo>> } Returns PluginBundleInfo Arrays.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 18
+   */
+  function getAllPluginInfo(hostBundleName: string, userId?: number): Promise<Array<PluginBundleInfo>>;
+
+  /**
+   * Migrate files from the source paths to the destination path.
+   * 
+   * @permission ohos.permission.MIGRATE_DATA
+   * @param { Array<string> } sourcePaths - Indicates the source paths to be migrated.
+   * @param { string } destinationPath - Target path for data migration.
+   * @returns { Promise<void> } The result of migrating data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700080 - The source paths are invalid.
+   * @throws { BusinessError } 17700081 - The destination path is invalid.
+   * @throws { BusinessError } 17700082 - User authentication failed.
+   * @throws { BusinessError } 17700083 - Waiting for user authentication timeout.
+   * @throws { BusinessError } 17700084 - There are inaccessible path in the source paths.
+   * @throws { BusinessError } 17700085 - The destination path cannot be accessed.
+   * @throws { BusinessError } 17700086 - System error occurred during copy execution.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 18
+   */
+  function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
   /**
    * Obtains configuration information about an application.
@@ -3494,8 +3648,7 @@ declare namespace bundleManager {
    *
    * @typedef { _BundleInfo.AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 15
    */
   export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
 
@@ -3717,6 +3870,26 @@ declare namespace bundleManager {
    * @since 12
    */
   export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
+
+  /**
+   * Indicates the information about a plugin.
+   *
+   * @typedef { _PluginBundleInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 18
+   */
+  export type PluginBundleInfo = _PluginBundleInfo;
+
+  /**
+   * Indicates the plugin module info.
+   *
+   * @typedef { _PluginModuleInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 18
+   */
+  export type PluginModuleInfo = _PluginModuleInfo;
 }
 
 export default bundleManager;

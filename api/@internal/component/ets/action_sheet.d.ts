@@ -126,7 +126,7 @@ interface SheetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -171,7 +171,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface ActionSheetButtonOptions {
   /**
@@ -288,7 +288,7 @@ interface ActionSheetButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -300,7 +300,7 @@ interface ActionSheetButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface ActionSheetOffset {
   /**
@@ -310,7 +310,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   dx: number | string | Resource;
   /**
@@ -320,10 +320,32 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   dy: number | string | Resource;
 }
+
+/**
+ * Import the LevelMode type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').LevelMode } LevelMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
+
+/**
+ * Import the ImmersiveMode type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').ImmersiveMode } ImmersiveMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 
 /**
  * The options of ActionSheet.
@@ -451,7 +473,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   confirm?: ActionSheetButtonOptions;
 
@@ -486,7 +508,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   cancel?: VoidCallback;
 
@@ -599,7 +621,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   offset?: ActionSheetOffset;
 
@@ -703,6 +725,28 @@ interface ActionSheetOptions
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the actionSheet's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the actionSheet's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
 
   /**
    * Callback function when the actionSheet interactive dismiss
@@ -826,6 +870,97 @@ interface ActionSheetOptions
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onDidAppear?: Callback<void>;
+
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onDidDisappear?: Callback<void>;
+
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onWillAppear?: Callback<void>;
+
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onWillDisappear?: Callback<void>;
+
+  /**
+   * Determine the display level of the dialog.
+   *
+   * @type { ?LevelMode }
+   * @default LevelMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelUniqueId?: number;
+
+  /**
+   * Determine the immersive mode of the dialog.
+   *
+   * @type { ?ImmersiveMode }
+   * @default ImmersiveMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  immersiveMode?: ImmersiveMode;
+
+  /**
+   * Determine the display order of the dialog.
+   *
+   * @type { ?LevelOrder }
+   * @default The value returns by LevelOrder.clamp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  levelOrder?: LevelOrder;
 }
 
 /**
@@ -873,6 +1008,8 @@ declare class ActionSheet {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
    */
   static show(value: ActionSheetOptions);
 }

@@ -25,7 +25,7 @@
  * Defines Path Modifier
  *
  * @extends PathAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

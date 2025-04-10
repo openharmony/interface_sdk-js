@@ -534,6 +534,18 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   iterations(value: number): ImageAnimatorAttribute;
 
   /**
+   * Determines whether to use the system onVisibleAreaChange callback to control pause and play.
+   *
+   * @param { boolean } monitorInvisibleArea
+   * @returns { ImageAnimatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  monitorInvisibleArea(monitorInvisibleArea: boolean) : ImageAnimatorAttribute;
+
+  /**
    * Status callback, which is triggered when the animation starts to play.
    *
    * @param { function } event

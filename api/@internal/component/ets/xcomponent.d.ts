@@ -302,6 +302,46 @@ declare interface XComponentOptions {
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
+
+  /**
+   * Identifier of a screen.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 17
+   */
+  screenId?: number;
+}
+
+/**
+ * Defines the native xcomponent parameters.
+ *
+ * @interface NativeXComponentParameters
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+declare interface NativeXComponentParameters {
+  /**
+   * The type of xcomponent
+   *
+   * @type { XComponentType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  type: XComponentType;
+
+  /**
+   * Image ai options.
+   *
+   * @type { ?ImageAIOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  imageAIOptions?: ImageAIOptions;
 }
 
 /**
@@ -362,6 +402,17 @@ interface XComponentInterface {
    * @since 12
    */
   (options: XComponentOptions): XComponentAttribute;
+
+  /**
+   * Constructor parameters
+   *
+   * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the xcomponent for native developing.
+   * @returns { XComponentAttribute } The attribute of the xcomponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  (params: NativeXComponentParameters): XComponentAttribute;
 }
 
 /**
@@ -373,9 +424,9 @@ interface XComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
-declare type OnNativeLoadCallback = (event?: object) => void
+declare type OnNativeLoadCallback = (event?: object) => void;
 
 /**
  * Defines XComponentAttribute.
@@ -420,7 +471,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onLoad(callback: OnNativeLoadCallback): XComponentAttribute;
 
@@ -450,7 +501,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onDestroy(event: VoidCallback): XComponentAttribute;
 
@@ -485,7 +536,27 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @systemapi
    * @since 14
    */
+  /**
+   * Set hdrBrightness for XComponent.
+   *
+   * @param { number } brightness - control the brightness of HDR video
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
   hdrBrightness(brightness: number): XComponentAttribute;
+  
+  /**
+   * Enable transparent layer for XComponent.
+   *
+   * @param { boolean } enabled - whether to enable transparent layer for XComponent.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  enableTransparentLayer(enabled: boolean): XComponentAttribute;
 }
 
 /**

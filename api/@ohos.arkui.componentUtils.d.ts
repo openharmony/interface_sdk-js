@@ -785,20 +785,20 @@ declare namespace componentUtils {
 
   /**
   * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 10
   */
   /**
   * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
   */
   /**
   * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -841,6 +841,8 @@ declare namespace componentUtils {
   * @crossplatform
   * @atomicservice
   * @since 11
+  * @deprecated since 18
+  * @useinstead ohos.arkui.UIContext.ComponentUtils#getRectangleById
   */
   function getRectangleById(id: string): ComponentInfo;
 }

@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface PolygonOptions {
   /**
@@ -175,7 +175,7 @@ interface PolygonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: PolygonOptions): PolygonAttribute;
 
@@ -226,7 +226,7 @@ interface PolygonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: PolygonOptions): PolygonAttribute;
 }

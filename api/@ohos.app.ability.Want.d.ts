@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -139,6 +139,15 @@ export default class Want {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The description of the type in this Want.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   type?: string;
 
   /**
@@ -242,4 +251,15 @@ export default class Want {
    * @since 11
    */
   moduleName?: string;
+
+  /**
+   * The description of fds in a Want.
+   *
+   * @type { ?Record<string, number> }
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 15
+   */
+  readonly fds?: Record<string, number>;
 }

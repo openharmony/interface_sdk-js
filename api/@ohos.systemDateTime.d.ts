@@ -27,6 +27,14 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.MiscServices.Time
  * @since 9
  */
+/**
+ * System time and timezone.
+ *
+ * @namespace systemDateTime
+ * @syscap SystemCapability.MiscServices.Time
+ * @crossplatform
+ * @since 18
+ */
 declare namespace systemDateTime {
   /**
    * Sets the system time.
@@ -99,6 +107,15 @@ declare namespace systemDateTime {
    * @returns { number } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @since 10
+   */
+  /**
+   * Obtains the number of timestamp that have elapsed since the Unix epoch.
+   *
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { number } The timestamp returned of getTime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
    */
   function getTime(isNanoseconds?: boolean): number;
 
@@ -179,12 +196,27 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 10
    */
+  /**
+   * Indicates time type.
+   *
+   * @enum { number } TimeType
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
+   */
   enum TimeType {
     /**
      * Indicates the time elapsed since the system was booted, including deep sleep time.
      *
      * @syscap SystemCapability.MiscServices.Time
      * @since 10
+     */
+    /**
+     * Indicates the time elapsed since the system was booted, including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @crossplatform
+     * @since 18
      */
     STARTUP,
 
@@ -193,6 +225,13 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @since 10
+     */
+    /**
+     * Indicates the time elapsed since the system was booted, not including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @crossplatform
+     * @since 18
      */
     ACTIVE
   }
@@ -216,6 +255,18 @@ declare namespace systemDateTime {
    *     3. Parameter verification failed. This error code was added due to missing issues.
    * @syscap SystemCapability.MiscServices.Time
    * @since 12
+   */
+  /**
+   * Obtains the number of milliseconds since the system has been running.
+   *
+   * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { number } The timestamp returned of getUpTime.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+   *     3. Parameter verification failed. This error code was added due to missing issues.
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
    */
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
 
@@ -324,6 +375,14 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 12
    */
+  /**
+   * Obtains the system time zone.
+   *
+   * @param { AsyncCallback<string> } callback - The callback of getTimezone
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
+   */
   function getTimezone(callback: AsyncCallback<string>): void;
 
   /**
@@ -341,6 +400,14 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 12
    */
+  /**
+   * Obtains the system time zone.
+   *
+   * @returns { Promise<string> } The promise returned by the function
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
+   */
   function getTimezone(): Promise<string>;
 
   /**
@@ -349,6 +416,14 @@ declare namespace systemDateTime {
    * @returns { string } The timezone returned of getTimezoneSync.
    * @syscap SystemCapability.MiscServices.Time
    * @since 10
+   */
+  /**
+   * Obtains the system time zone.
+   *
+   * @returns { string } The timezone returned of getTimezoneSync.
+   * @syscap SystemCapability.MiscServices.Time
+   * @crossplatform
+   * @since 18
    */
   function getTimezoneSync(): string;
 

@@ -25,7 +25,7 @@
  * Defines Menu Modifier
  *
  * @extends MenuAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

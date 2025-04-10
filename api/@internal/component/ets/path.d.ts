@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface PathOptions {
   /**
@@ -208,7 +208,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: PathOptions): PathAttribute;
 
@@ -259,7 +259,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: PathOptions): PathAttribute;
 }

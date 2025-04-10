@@ -18,16 +18,18 @@
  * @kit ArkGraphics3D
  */
 
-import { ToneMappingType, ToneMappingSettings, PostProcessSettings,
+import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
+  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
   SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image,
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene } from '@ohos.graphics.scene';
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters } from '@ohos.graphics.scene';
 
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings,
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
+  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
   SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image,
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene };
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters };

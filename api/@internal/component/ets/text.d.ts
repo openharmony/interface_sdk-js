@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface TextOverflowOptions {
   /**
@@ -619,7 +619,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   textOverflow(options: TextOverflowOptions): TextAttribute;
 
@@ -923,6 +923,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable the selectable area can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   draggable(value: boolean): TextAttribute;
 
   /**
@@ -1187,6 +1197,30 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextAttribute;
+  
+  /**
+   * Set the marquee options.
+   *
+   * @param { Optional<TextMarqueeOptions> } options
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  marqueeOptions(options: Optional<TextMarqueeOptions>): TextAttribute;
+
+  /**
+   * Called when the text marquee state changes.
+   *
+   * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 
   /**
    * Whether to support sensitive privacy information
@@ -1381,6 +1415,16 @@ declare enum TextSpanType {
    * @since 12
    */
   MIXED = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -1451,6 +1495,88 @@ declare enum TextResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
+}
+
+/**
+ * Defines marquee state.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare enum MarqueeState {
+  /**
+   * The marquee started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  START = 0,
+
+  /**
+   * The marquee a round finished and start next round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  BOUNCE = 1,
+
+  /**
+   * The marquee all finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  FINISH = 2,
+}
+
+/**
+ * Defines marquee start policy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare enum MarqueeStartPolicy {
+  /**
+   * Start marquee in any case. This is the default policy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  DEFAULT = 0,
+
+  /**
+   * Start marquee only when get focus.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  ON_FOCUS = 1,
 }
 
 /**
@@ -1489,6 +1615,94 @@ declare interface TextOptions {
    * @since 12
    */
   controller: TextController;
+}
+
+/**
+ * Defines the marquee options.
+ *
+ * @interface TextMarqueeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface TextMarqueeOptions {
+  /**
+   * Is need start marquee.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  start: boolean;
+
+  /**
+   * The step size of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  step?: number;
+
+  /**
+   * The rounds of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  loop?: number;
+
+  /**
+   * The running direction of the marquee.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  fromStart?: boolean;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  delay?: number;
+
+  /**
+   * Set whether the text is faded out.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  fadeout?: boolean;
+
+  /**
+   * The start policy for marquee.
+   * 
+   * @type { ?MarqueeStartPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  marqueeStartPolicy?: MarqueeStartPolicy;
 }
 
 /**

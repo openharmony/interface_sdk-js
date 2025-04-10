@@ -417,7 +417,15 @@ declare namespace pointer {
      * @atomicservice
      * @since 12
      */
-    RUNNING
+    RUNNING,
+
+    /**
+     * Scrolling east and west
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 18
+     */
+    MIDDLE_BTN_EAST_WEST
   }
 
   /**
@@ -473,6 +481,54 @@ declare namespace pointer {
      * @since 10
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
+  }
+
+  /**
+   * Defines a custom cursor.
+   *
+   * @interface CustomCursor
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 15
+   */
+  interface CustomCursor {
+    /**
+     * pixelMap - Custom cursor. The size limit is 256 x 256.
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 15
+     */
+    pixelMap: image.PixelMap;
+    /**
+     * focusX - Horizontal coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 15
+     */
+    focusX?: number;
+    /**
+     * focusY - Vertical coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 15
+     */
+    focusY?: number;
+  }
+  
+  /**
+   * Specifies custom cursor config.
+   *
+   * @interface CursorConfig
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 15
+   */
+  interface CursorConfig {
+    /**
+     * followSystem - Whether to adjust the cursor size based on the system settings.
+     * @type { boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 15
+     */
+    followSystem : boolean;
   }
 
   /**
@@ -677,6 +733,18 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @param { AsyncCallback<void> } callback - Callback for the input device event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported;
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 14
+   */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -689,6 +757,18 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
+   */
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported;
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 14
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
@@ -1458,6 +1538,73 @@ declare namespace pointer {
    * @since 11
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
-}
 
+  /**
+   * Sets the custom cursor. You can set whether to adjust the cursor size based on the system settings.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { CustomCursor } cursor - Custom cursor, including the custom cursor resource and focus position.
+   * @param { CursorConfig } config - Custom cursor config.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
+   * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
+   * <br>4. Abnormal focusY parameter passed in.
+   * @throws { BusinessError } 26500001 - Invalid windowId.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 15
+   */
+  function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>;
+
+  /**
+   * Set touchpad double tap and drag state.
+   *
+   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad double tap and drag state.
+   *
+   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
+
+  /**
+   * Get touchpad double tap and drag state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad double tap and drag state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
+}
 export default pointer;

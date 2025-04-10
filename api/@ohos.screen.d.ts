@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+import image from './@ohos.multimedia.image';
 
 /**
  * Interface of screen manager
@@ -182,6 +183,24 @@ declare namespace screen {
   function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
 
   /**
+   * Make screens as mirror-screen
+   *
+   * @param { number } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<number> } mirrorScreen IDs of secondary screens
+   * @param { Rect } mainScreenRegion mirror screen region
+   * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
+
+  /**
    * Stop mirror screens
    *
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
@@ -212,6 +231,23 @@ declare namespace screen {
    * @since 10
    */
   function stopMirror(mirrorScreen: Array<number>): Promise<void>;
+  
+  /**
+   * Make screens as unique-screen
+   *
+   * @param { Array<number> } uniqueScreen IDs of the unique screens. It's type should be int.
+   * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
@@ -312,6 +348,25 @@ declare namespace screen {
    * @since 9
    */
   function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
+
+  /**
+   * Set privacy mask image for the screen.
+   *
+   * @param { number } screenId Indicates the screen id of the screen.
+   * @param { image.PixelMap } image Indicates the privacy mask image. This parameter is optional. If not provided,
+   * the mask image will be cleared;
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
 
   /**
    * Get screen rotation lock status.
@@ -689,6 +744,17 @@ declare namespace screen {
     readonly sourceMode: ScreenSourceMode;
 
     /**
+     * Screen Serial Number
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager
+     * @systemapi Hide this for inner system use.
+     * @since 15
+     */
+    readonly serialNumber?: string;
+    
+    /**
      * Set the orientation of the screen
      *
      * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
@@ -882,6 +948,61 @@ declare namespace screen {
      * @since 9
      */
     refreshRate: number;
+  }
+
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    width: number;
+
+    /**
+     * Height of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    height: number;
   }
 }
 

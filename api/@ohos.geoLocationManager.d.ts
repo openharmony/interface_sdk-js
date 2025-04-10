@@ -89,6 +89,22 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Subscribe location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
+   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 18
+   */
   function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
   callback: Callback<Location>): void;
 
@@ -122,6 +138,20 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Unsubscribe location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 18
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
 
@@ -199,6 +229,21 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
+  /**
+   * Subscribe to cache GNSS locations update messages.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
+   * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
+   * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 18
+   */
   function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
   /**
@@ -215,6 +260,20 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
+   */
+  /**
+   * Unsubscribe to cache GNSS locations update messages.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 18
    */
   function off(type: 'cachedGnssLocationsChange', callback?: Callback<Array<Location>>): void;
 
@@ -412,6 +471,37 @@ declare namespace geoLocationManager {
   function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
 
   /**
+   * Registers and listens to bluetooth scanning results for location services.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @since 16
+   */
+  function on(type: 'bluetoothScanResultChange', callback: Callback<BluetoothScanResult>): void;
+
+  /**
+   * Stop bluetooth scanning and unregister to listen to bluetooth scanning result changes.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @since 16
+   */
+  function off(type: 'bluetoothScanResultChange', callback?: Callback<BluetoothScanResult>): void;
+
+  /**
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
@@ -593,6 +683,20 @@ declare namespace geoLocationManager {
   function isLocationEnabled(): boolean;
 
   /**
+   * Obtaining the location switch status of a specified user.
+   *
+   * @param { number } userId - Indicates the ID of a specified user.
+   * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabledByUserId} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 18
+   */
+  function isLocationEnabledByUserId(userId: number): boolean;
+
+  /**
    * Enable location switch.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
@@ -605,6 +709,20 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Enable location switch.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
+   * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
    */
   function enableLocation(callback: AsyncCallback<void>): void;
 
@@ -621,7 +739,36 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Enable location switch.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
+   */
   function enableLocation(): Promise<void>;
+
+  /**
+   * Turn on the location switch for a specified user.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
+   * @param { number } userId - Indicates the ID of a specified user.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 18
+   */
+  function enableLocationByUserId(userId: number): Promise<void>;
 
   /**
    * Disable location switch.
@@ -635,7 +782,50 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Disable location switch.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
+   */
   function disableLocation(): void;
+
+  /**
+   * Turn off the location switch for a specified user.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
+   * @param { number } userId - Indicates the ID of a specified user.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 18
+   */
+  function disableLocationByUserId(userId: number): void;
+
+  /**
+   * Set the app locating behavior not controlled by the location switch.
+   *
+   * @permission ohos.permission.LOCATION_SWITCH_IGNORED
+   * @param { boolean } isIgnored - True indicates that the location behavior of the app is not controlled by the location switch.
+   *                                Otherwise, it's the opposite.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 18
+   */
+  function setLocationSwitchIgnored(isIgnored: boolean): void;
 
   /**
    * Obtain address info from location.
@@ -832,6 +1022,19 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Enable the geographical location simulation function.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
+   */
   function enableLocationMock(): void;
 
   /**
@@ -844,6 +1047,19 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Disable the geographical location simulation function.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
    */
   function disableLocationMock(): void;
 
@@ -861,6 +1077,22 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set the configuration parameters for location simulation.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
+   * Contains the array of locations and reporting intervals that need to be simulated.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
+   */
   function setMockedLocations(config: LocationMockConfig): void;
 
   /**
@@ -873,6 +1105,18 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Enable the reverse geocoding simulation function.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
+   */
   function enableReverseGeocodingMock(): void;
 
   /**
@@ -884,6 +1128,18 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Disable the reverse geocoding simulation function.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
    */
   function disableReverseGeocodingMock(): void;
 
@@ -898,6 +1154,20 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Set the configuration parameters for simulating reverse geocoding.
+   *
+   * @permission ohos.permission.MOCK_LOCATION
+   * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be simulated.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setReverseGeocodingMockInfo} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 20
    */
   function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>): void;
 
@@ -1879,6 +2149,18 @@ declare namespace geoLocationManager {
      * @since 12
      */
     locationScenario: UserActivityScenario | PowerConsumptionScenario;
+
+    /**
+     * Indicates the type of sports.
+     * This parameter is valid only when locationScenario is set to UserActivityScenario.SPORT.
+     *
+     * @type { SportsType }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @atomicservice
+     * @since 18
+     */
+    sportsType?: SportsType;
   }
 
   /**
@@ -2363,6 +2645,60 @@ declare namespace geoLocationManager {
      * @since 10
      */
     timestamp: number;
+  }
+
+  /**
+   * Describes the contents of the bluetooth scan results.
+   *
+   * @typedef BluetoothScanResult
+   * @syscap SystemCapability.Location.Location.Core
+   * @since 16
+   */
+  export interface BluetoothScanResult {
+    /**
+     * Address of the scanned device
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 16
+     */
+    deviceId: string;
+
+    /**
+     * RSSI of the scanned device
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 16
+     */
+    rssi: number;
+
+    /**
+     * The raw data of broadcast packet
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 16
+     */
+    data?: ArrayBuffer;
+
+    /**
+     * The local name of the scanned device
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 16
+     */
+    deviceName: string;
+
+    /**
+     * Connectable of the scanned device
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 16
+     */
+    connectable: boolean;
   }
 
   /**
@@ -3013,6 +3349,43 @@ declare namespace geoLocationManager {
      * @since 9
      */
     CORE_LOCATION
+  }
+
+  /**
+   * Enum for sports type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 18
+   */
+  export enum SportsType {
+    /**
+     * Indicates running.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 18
+     */
+    RUNNING = 1,
+
+    /**
+     * Indicates walking.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 18
+     */
+    WALKING,
+
+    /**
+     * Indicates cycling.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 18
+     */
+    CYCLING
   }
 
   /**

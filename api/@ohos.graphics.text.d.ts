@@ -157,6 +157,13 @@ declare namespace text {
      * @since 12
      */
     BREAK_WORD,
+
+    /**
+     * Breaks word by hyphen.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 18
+     */
+    BREAK_HYPHEN,
   }
 
   /**
@@ -863,7 +870,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1049,7 +1056,7 @@ declare namespace text {
      * according to this tab effect.
      * @type { ?TextTab }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     tab?: TextTab;
   }
@@ -1215,6 +1222,13 @@ declare namespace text {
      * @since 14
      */
     INSTALLED = 1 << 3,
+
+    /**
+     * Customized font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 18
+     */
+    CUSTOMIZED = 1 << 4,
   }
 
   /**
@@ -1326,7 +1340,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     layout(width: number): Promise<void>;
 
@@ -1527,7 +1541,7 @@ declare namespace text {
   /**
    * Provides the abilities to typeset by line.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since 18
    */
   class LineTypeset {
     /**
@@ -1538,7 +1552,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getLineBreak(startIndex: number, width: number): number;
 
@@ -1550,7 +1564,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     createLine(startIndex: number, count: number): TextLine;
   }
@@ -1758,7 +1772,7 @@ declare namespace text {
      * Create LineTypeset object.
      * @returns { LineTypeset } The LineTypeset value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     buildLineTypeset(): LineTypeset;
 
@@ -1775,14 +1789,14 @@ declare namespace text {
    * Provides the definition of the typographic bounds.
    * @typedef TypographicBounds
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since 18
    */
   interface TypographicBounds {
     /**
      * Distance Retained Above Baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     ascent: number;
 
@@ -1790,7 +1804,7 @@ declare namespace text {
      * The distance that remains below the baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     descent: number;
 
@@ -1798,7 +1812,7 @@ declare namespace text {
      * Line Spacing.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     leading: number;
 
@@ -1806,7 +1820,7 @@ declare namespace text {
      * The total width of the typesetting border.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     width: number;
   }
@@ -1822,7 +1836,7 @@ declare namespace text {
    * @returns { boolean } The return value of the user-defined callback function. If false is returned, the traversal
    * continues. If true is returned, the traversal stops.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since 18
    */
   type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean;
 
@@ -1875,7 +1889,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
@@ -1883,7 +1897,7 @@ declare namespace text {
      * Gets the text line typographic bounds.
      * @returns { TypographicBounds } The text line of typographic bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getTypographicBounds(): TypographicBounds;
 
@@ -1891,7 +1905,7 @@ declare namespace text {
      * Gets the text line image bounds.
      * @returns { common2D.Rect } Rect of text line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getImageBounds(): common2D.Rect;
 
@@ -1899,7 +1913,7 @@ declare namespace text {
      * Gets the tail space width.
      * @returns { number } The tail space width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getTrailingSpaceWidth(): number;
 
@@ -1910,7 +1924,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getStringIndexForPosition(point: common2D.Point): number;
 
@@ -1921,7 +1935,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getOffsetForStringIndex(index: number): number;
 
@@ -1931,7 +1945,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     enumerateCaretOffsets(callback: CaretOffsetsCallback): void;
 
@@ -1946,7 +1960,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number;
   }
@@ -1981,7 +1995,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getGlyphs(range: Range): Array<number>;
 
@@ -2001,7 +2015,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getPositions(range: Range): Array<common2D.Point>;
 
@@ -2039,7 +2053,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getStringIndices(range?: Range): Array<number>;
 
@@ -2047,7 +2061,7 @@ declare namespace text {
      * Gets the run glyph location and length.
      * @returns { Range } The run of glyph location and length, Range.start is location, Range.end is length.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getStringRange(): Range;
 
@@ -2055,7 +2069,7 @@ declare namespace text {
      * Gets the run typographic bounds.
      * @returns { TypographicBounds } The run of typographic bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getTypographicBounds(): TypographicBounds;
 
@@ -2063,7 +2077,7 @@ declare namespace text {
      * Gets the run image bounds.
      * @returns { common2D.Rect } The run rect bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     getImageBounds(): common2D.Rect;
   }
@@ -2223,7 +2237,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since 18
    */
   function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>;
 
@@ -2231,7 +2245,7 @@ declare namespace text {
    * Text tab contains alignment type and location in paragraph style.
    * @typedef TextTab
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since 18
    */
   interface TextTab {
     /**
@@ -2239,7 +2253,7 @@ declare namespace text {
      * other enumeration values are left alignment effect.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     alignment: TextAlign;
     
@@ -2247,7 +2261,7 @@ declare namespace text {
      * The position of the tab relative to the start of the line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 18
      */
     location: number;
   }

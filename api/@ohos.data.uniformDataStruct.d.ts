@@ -18,6 +18,8 @@
  * @kit ArkData
  */
 
+import image from './@ohos.multimedia.image';
+
 /**
  * Provide uniform data struct definition.
  *
@@ -301,6 +303,162 @@ declare namespace uniformDataStruct {
      * @since 14
      */
     linkUri?: string;
+  }
+
+  /**
+   * Describe form uniform data struct.
+   *
+   * @interface Form
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 15
+   */
+  interface Form {
+    /**
+     * Indicates the uniform data type of this data struct.
+     *
+     * @type { 'openharmony.form' }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    readonly uniformDataType: 'openharmony.form';
+
+    /**
+     * Indicates the form id of form.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    formId: number;
+
+    /**
+     * Indicates the form name of form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    formName: string;
+
+    /**
+     * Indicates the bundle name of form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the ability name of form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    abilityName: string;
+
+    /**
+     * Indicates the module of form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    module: string;
+
+    /**
+     * Indicates the details of form.
+     *
+     * @type { ?Record<string, number | string | Uint8Array> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    details?: Record<string, number | string | Uint8Array>;
+  }
+
+  /**
+   * Describe the file uri uniform data struct.
+   *
+   * @interface FileUri
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 15
+   */
+  interface FileUri {
+    /**
+     * Indicates the uniform data type of this data struct.
+     * 
+     * @type { 'general.file-uri' }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    readonly uniformDataType: 'general.file-uri';
+
+    /**
+     * Indicates the oriUri of fileUri.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    oriUri: string;
+
+    /**
+     * Indicates the file type of fileUri.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    fileType: string;
+
+    /**
+     * Indicates the details of fileUri.
+     *
+     * @type { ?Record<string, number | string | Uint8Array> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    details?: Record<string, number | string | Uint8Array>;
+  }
+
+  /**
+   * Describe the pixelMap uniform data struct.
+   *
+   * @interface PixelMap
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 15
+   */
+  interface PixelMap {
+    /**
+     * Indicates the uniform data type of this data struct.
+     * 
+     * @type { 'openharmony.pixel-map' }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    readonly uniformDataType: 'openharmony.pixel-map';
+
+    /**
+     * Indicates the pixelMap value of pixelMap.
+     *
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    pixelMap: image.PixelMap;
+
+    /**
+     * Indicates the details of pixelMap.
+     *
+     * @type { ?Record<string, number | string | Uint8Array> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    details?: Record<string, number | string | Uint8Array>;
   }
 }
 

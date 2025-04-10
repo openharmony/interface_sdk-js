@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface LineOptions {
   /**
@@ -192,7 +192,7 @@ interface LineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: LineOptions): LineAttribute;
 
@@ -251,7 +251,7 @@ interface LineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: LineOptions): LineAttribute;
 }

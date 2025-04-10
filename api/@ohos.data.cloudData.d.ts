@@ -159,6 +159,34 @@ declare namespace cloudData {
   }
 
   /**
+   * Describes sync status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 18
+   */
+  enum SyncStatus {
+    /**
+     * Indicates cloud sync status is running.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 18
+     */
+    RUNNING = 0,
+
+    /**
+     * Indicates cloud sync status was finished.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 18
+     */
+    FINISHED = 1
+  }
+
+  /**
    * Sync information.
    *
    * @interface SyncInfo
@@ -196,6 +224,16 @@ declare namespace cloudData {
      * @since 12
      */
     code: relationalStore.ProgressCode;
+
+    /**
+     * Sync status.
+     *
+     * @type { ?SyncStatus }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 18
+     */
+    syncStatus?: SyncStatus;
   }
 
   /**

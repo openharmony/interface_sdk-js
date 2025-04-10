@@ -445,6 +445,55 @@ declare namespace notificationSubscribe {
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
+   /**
+   * Trigger notification cross-device operation.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } [hashcode] - The notification identifier.
+   * @param { OperationInfo } [operationInfo] - The interactive information.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600021 - Distributed operation timed out.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+   function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
+
+   /**
+    * Information on cross-device notification interactions
+    *
+    * @typedef OperationInfo
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 18
+    */
+   export interface OperationInfo {
+     /**
+      * action button name
+      *
+      * @type { ?string }
+      * @syscap SystemCapability.Notification.Notification
+      * @systemapi
+      * @since 18
+      */
+     actionName?: string;
+
+     /**
+      * user input.
+      *
+      * @type { ?string }
+      * @syscap SystemCapability.Notification.Notification
+      * @systemapi
+      * @since 18
+      */
+     userInput?: string;
+   }
+
   /**
    * Describes a bundleOption in a notification.
    *

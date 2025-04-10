@@ -393,13 +393,11 @@ declare namespace appManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 15
    */
   function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -514,7 +512,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
@@ -570,7 +568,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -644,7 +642,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -692,7 +690,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
 
@@ -1151,7 +1149,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
 

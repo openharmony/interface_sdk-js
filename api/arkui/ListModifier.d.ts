@@ -25,7 +25,7 @@
  * Defines List Modifier
  *
  * @extends ListAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

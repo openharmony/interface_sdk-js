@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RatingOptions {
   /**
@@ -110,7 +110,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface StarStyleOptions {
   /**
@@ -304,7 +304,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -375,6 +375,18 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    */
   triggerChange: Callback<number>;
 }
+
+/**
+ * Callback of the star rating of the operation scoring bar changes event.
+ * 
+ * @typedef {function} OnRatingChangeCallback
+ * @param {number} rating - The rating of the rating bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+  declare type OnRatingChangeCallback = (rating: number) => void;
 
 /**
  * Defines the rating attribute functions.
@@ -452,6 +464,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   stars(value: number): RatingAttribute;
 
   /**
+   * Called when the total number of stars is set.
+   *
+   * @param { Optional<number> } starCount
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */  
+  stars(starCount: Optional<number>): RatingAttribute;
+
+  /**
    * Called when the step size of the operation rating.
    *
    * @param { number } value
@@ -490,6 +515,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 11
    */
   stepSize(value: number): RatingAttribute;
+
+  /**
+   * Called when the step size of the operation rating.
+   *
+   * @param { Optional<number> } size
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */  
+  stepSize(size: Optional<number>): RatingAttribute;
 
   /**
    * Called when a picture is set.
@@ -538,9 +576,22 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
+
+  /**
+   * Called when a picture is set.
+   *
+   * @param { Optional<StarStyleOptions> } options - star style options
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */  
+  starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
   /**
    * Called when the star rating of the operation scoring bar changes.
@@ -583,6 +634,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   onChange(callback: (value: number) => void): RatingAttribute;
 
   /**
+   * Called when the star rating of the operation scoring bar changes.
+   *
+   * @param { Optional<OnRatingChangeCallback> } callback
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */  
+  onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
+
+  /**
    * Set the content modifier of rating.
    *
    * @param { ContentModifier<RatingConfiguration> } modifier - The content modifier of rating.
@@ -593,6 +657,18 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;
+
+  /**
+   * Set the content modifier of rating.
+   *
+   * @param { Optional<ContentModifier<RatingConfiguration>> } modifier - The content modifier of rating.
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */  
+  contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }
 
 /**

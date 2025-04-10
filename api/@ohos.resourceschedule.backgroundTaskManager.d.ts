@@ -101,6 +101,40 @@ declare namespace backgroundTaskManager {
      * @since 12
      */
     notificationId: number;
+    /**
+     * The continuous task id.
+     * @type { ?number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    continuousTaskId?: number;
+  }
+
+  /**
+   * The continuous task cancel info.
+   *
+   * @interface ContinuousTaskCancelInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 15
+   */
+  interface ContinuousTaskCancelInfo {
+    /**
+     * The cancel reason of continuous task.
+     *
+     * @type { ContinuousTaskCancelReason }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    reason: ContinuousTaskCancelReason;
+
+    /**
+     * The id of cancelled continuous task.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    id: number;
   }
 
   /**
@@ -356,6 +390,23 @@ declare namespace backgroundTaskManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice
+   * @since 17
+   */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
   /**
@@ -392,6 +443,23 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice
+   * @since 17
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
 
@@ -430,6 +498,34 @@ declare namespace backgroundTaskManager {
    * @since 9
    */
   function resetAllEfficiencyResources(): void;
+
+  /**
+   * Register continuous task cancel callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskCancel' } type - The type of continuous task cancel.
+   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
+   * <br> 2. Register a exist callback type; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 15
+   */
+  function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
+
+  /**
+   * Unregister continuous task cancel callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskCancel' } type - The type of continuous task cancel.
+   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
+   * <br> 2. Unregister type has not register; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 15
+   */
+  function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
 
   /**
    * Supported background mode.
@@ -695,6 +791,135 @@ declare namespace backgroundTaskManager {
      * @since 9
      */
     reason: string;
+  }
+
+  /**
+   * The type of continuous task cancel reason.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 15
+   */
+  export enum ContinuousTaskCancelReason {
+    /**
+     * User cancel.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    USER_CANCEL = 1,
+    /**
+     * System cancel.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL = 2,
+    /**
+     * User remove notification.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    USER_CANCEL_REMOVE_NOTIFICATION = 3,
+
+    /**
+     * Low network speed when request data transfer mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
+
+    /**
+     *  Not use avsession when request audio playback mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
+
+    /**
+     * Audio is not running when request audio playback mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
+
+    /**
+     * Audio is not running when request audio recording mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
+
+    /**
+     * Not use location when request location mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
+
+    /**
+     * Not use bluetooth when request bluetooth interaction mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
+
+    /**
+     * Not use multi device when request multi-device connection mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
+
+    /**
+     * Use some mode illegally.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 15
+     */
+    SYSTEM_CANCEL_USE_ILLEGALLY = 11,
+  }
+
+  /**
+   * Supported background submode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundSubMode {
+    /**
+     * bluetooth car key mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    CAR_KEY = 1
+  }
+
+  /**
+   * Supported background mode type.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundModeType {
+    /**
+     * subMode type
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    SUB_MODE = 'subMode'
   }
 }
 

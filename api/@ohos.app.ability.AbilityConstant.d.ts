@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -104,6 +104,17 @@ declare namespace AbilityConstant {
     launchReason: LaunchReason;
 
     /**
+     * Indicates launch detailed reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    launchReasonMessage?: string;
+
+    /**
      * Indicates last exit reason.
      *
      * @type { LastExitReason }
@@ -142,6 +153,116 @@ declare namespace AbilityConstant {
      * @since 12
      */
     lastExitMessage: string;
+
+    /**
+     * Indicates process last exit details.
+     *
+     * @type { LastExitDetailInfo }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    lastExitDetailInfo?: LastExitDetailInfo;
+  }
+
+  /**
+   * The definition of detailed information of process exits
+   *
+   * @typedef LastExitDetailInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  export interface LastExitDetailInfo {
+    /**
+     * Indicates the exited process id
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    pid: number;
+
+    /**
+     * Indicates the exited process name
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    processName: string;
+
+    /**
+     * Indicates the uid of exited process
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    uid: number;
+
+    /**
+     * Indicates the exit sub-reason
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    exitSubReason: number;
+
+    /**
+     * Indicates the exit detailed reason
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    exitMsg: string;
+
+    /**
+     * Indicates the rss value when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    rss: number;
+
+    /**
+     * Indicates the pss value when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    pss: number;
+
+    /**
+     * Indicates the timestamp when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    timestamp: number;
   }
 
   /**
@@ -494,7 +615,27 @@ declare namespace AbilityConstant {
      * @atomicservice
      * @since 11
      */
-    UPGRADE = 8
+    UPGRADE = 8,
+
+    /**
+     * Exit reason : USER_REQUEST. App exit due to user request.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    USER_REQUEST = 9,
+
+    /**
+     * Exit reason : SIGNAL. App exit due to system signal.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    SIGNAL = 10
   }
 
   /**
@@ -921,6 +1062,65 @@ declare namespace AbilityConstant {
      * @since 11
      */
     INACTIVE = 1
+  }
+
+  /**
+   * Type of collaborate result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  export enum CollaborateResult {
+    /**
+     * Accept to the result of Ability collaborate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 18
+     */
+    ACCEPT = 0,
+
+    /**
+     * Reject to the result of Ability collaborate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 18
+     */
+    REJECT = 1,
+  }
+
+  /**
+   * PrepareTerminateAction indicates what to do prior to terminating process.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15
+   */
+  export enum PrepareTermination {
+    /**
+     * Terminate process immediately.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 15
+     */
+    TERMINATE_IMMEDIATELY = 0,
+
+    /**
+     * Cancel terminate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 15
+     */
+    CANCEL = 1
   }
 }
 

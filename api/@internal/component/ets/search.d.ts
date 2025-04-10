@@ -298,6 +298,16 @@ declare enum SearchType {
    * @since 12
    */
   URL = 13,
+
+  /**
+   * One time code mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ONE_TIME_CODE = 14,
 }
 
 /**
@@ -307,7 +317,7 @@ declare enum SearchType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface SearchOptions {
   /**
@@ -446,7 +456,7 @@ interface SearchInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: SearchOptions): SearchAttribute;
 }
@@ -590,7 +600,7 @@ interface SearchButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   autoDisable?: Boolean;
 }
@@ -633,7 +643,6 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -643,7 +652,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -654,7 +662,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1018,7 +1025,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onSubmit(callback: Callback<string>): SearchAttribute;
   /**
@@ -1099,7 +1106,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): SearchAttribute;
 
@@ -1130,7 +1137,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onContentScroll(callback: OnContentScrollCallback): SearchAttribute;
 
@@ -1169,7 +1176,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onCopy(callback: Callback<string>): SearchAttribute;
 
@@ -1208,7 +1215,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onCut(callback: Callback<string>): SearchAttribute;
 
@@ -1250,7 +1257,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onPaste(callback: OnPasteCallback): SearchAttribute;
 
@@ -1399,6 +1406,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
+   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number | Resource> } scale
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
+
+   /**
+    * Called when the maximum font scale of the font is set.
+    *
+    * @param { Optional<number | Resource> } scale
+    * @returns { SearchAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 18
+    */
+   maxFontScale(scale: Optional<number | Resource>): SearchAttribute;
+   
   /**
    * Define custom keyboard.
    *
@@ -1586,6 +1615,64 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
+
+  /**
+   * Set text mode of automatic case mode switching.
+   *
+   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): SearchAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Get text value information when about to change.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
 }
 
 /**

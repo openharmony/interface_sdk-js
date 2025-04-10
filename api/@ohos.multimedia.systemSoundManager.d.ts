@@ -139,7 +139,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the ringtone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -148,7 +147,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the text message tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -157,7 +155,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the notification tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -166,7 +163,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the alarm tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -319,14 +315,54 @@ declare namespace systemSoundManager {
     GENTLE = 1,
   }
   /**
-   * Type definition of haptics in tone scenario.
+   * Enum for haptics in tone scenario.
    *
-   * @typedef {RingtoneType | SystemToneType} ToneHapticsType
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 14
    */
-  type ToneHapticsType = RingtoneType | SystemToneType;
+  enum ToneHapticsType {
+    /**
+     * Haptics in incoming call scenario for sim card 0.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14
+     */
+    CALL_SIM_CARD_0 = 0,
+
+    /**
+     * Haptics in incoming call scenario for sim card 1.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14
+     */
+    CALL_SIM_CARD_1 = 1,
+
+    /**
+     * Haptics in text message scenario for sim card 0.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14
+     */
+    TEXT_MESSAGE_SIM_CARD_0 = 20,
+
+    /**
+     * Haptics in text message scenario for sim card 1.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14
+     */
+    TEXT_MESSAGE_SIM_CARD_1 = 21,
+
+    /**
+     * Haptics in notification scenario.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14
+     */
+    NOTIFICATION = 40,
+  }
 
   /**
    * Enum for haptics mode in tone scenario.

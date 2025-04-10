@@ -67,6 +67,17 @@ declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').defaul
 declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
 
 /**
+ * Object matrix used for setting image transformations.
+ *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -610,6 +621,29 @@ interface ImageSourceSize {
 }
 
 /**
+ * Defines the ColorContent.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare class ColorContent {
+  /**
+   * Indicates the ColorContent to original value.
+   * 
+   * @type { ColorContent }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  static readonly ORIGIN: ColorContent;
+}
+
+/**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -808,6 +842,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
+   * fill Color
+   *
+   * @param { ResourceColor | ColorContent } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  fillColor(color: ResourceColor | ColorContent): ImageAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value
@@ -846,6 +892,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   objectFit(value: ImageFit): ImageAttribute;
+
+  /**
+   * Sets the matrix for the image.
+   *
+   * @param { ImageMatrix } matrix
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
   /**
    * Set the repeat style of the picture
@@ -977,6 +1035,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
+
+  /**
+   * Set hdrBrightness for Image.
+  *
+  * @param { number } brightness - control the brightness of HDR Image
+  * @returns { ImageAttribute }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 20
+  */
+ hdrBrightness(brightness: number): ImageAttribute;
 
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
@@ -1211,6 +1280,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Enable image dragging.
+   * Default value is true.
+   *
+   * @param { boolean } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   draggable(value: boolean): ImageAttribute;
 
@@ -1738,6 +1818,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 /**
  * Defines Image Component.
  *
+ * <p>If flickering occurs during image loading, set <b>syncLoad</b> to <b>true</b>.
+ * For details, see [Concurrency Optimization]{@link 
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-click-to-click-response-optimization}</p>
+ * 
+ * <p>If white blocks persist during image loading, follow the steps in [Solution to White Image Blocks]{@link
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-image-white-lump-solution}</p>
+ * 
+ * <p>If image loading takes a long time, follow the steps in [Reducing the Loading Time of Preset Images]{@link
+ * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-texture-compression-improve-performance}</p>
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form

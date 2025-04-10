@@ -94,7 +94,7 @@ export interface Resource {
    *
    * @type { ?any[] }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 7
+   * @since 9
    */
   /**
    * Set params.
@@ -112,7 +112,7 @@ export interface Resource {
    *
    * @type { ?number }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 7
+   * @since 9
    */
   /**
    * Set type.

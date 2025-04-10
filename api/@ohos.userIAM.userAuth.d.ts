@@ -37,7 +37,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace userAuth {
   /**
-   * The maximum allowable reuse duration is 300000 milliseconds.
+   * Represents the maximum period for which the device unlocking result can be reused.
    *
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -321,7 +321,7 @@ declare namespace userAuth {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
-     * @type { function } 
+     * @type { function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -673,7 +673,7 @@ declare namespace userAuth {
    * @since 8
    */
   /**
-   * Credential type for authentication.
+   * Enumerates the identity authentication types.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -744,7 +744,7 @@ declare namespace userAuth {
    * @since 8
    */
   /**
-   * Trust level of authentication results.
+   * Enumerates the trust levels of the authentication result.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1022,7 +1022,7 @@ declare namespace userAuth {
    * @since 9
    */
   /**
-   * Check whether the authentication capability is available.
+   * Checks whether the specified authentication capability is supported.
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Credential type for authentication.
@@ -1042,7 +1042,7 @@ declare namespace userAuth {
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
   /**
-   * Enrolled state.
+   * Represents information about the enrolled credentials.
    *
    * @typedef EnrolledState
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1072,7 +1072,7 @@ declare namespace userAuth {
   }
 
   /**
-   * Get the state of enrolled credentials which varies as credentials change.
+   * Obtains information about the credentials enrolled. With this API, you can obtain the change of the credentials.
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Credential type for authentication.
@@ -1136,7 +1136,7 @@ declare namespace userAuth {
   }
 
   /**
-   * The mode for reusing unlock authentication result.
+   * Represents the mode for reusing the device unlocking result.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1187,7 +1187,7 @@ declare namespace userAuth {
   }
 
   /**
-   * Reuse unlock authentication result.
+   * Represents the device unlocking result.
    *
    * @typedef ReuseUnlockResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1224,7 +1224,7 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Auth parameter.
+   * Defines the user authentication parameters.
    *
    * @typedef AuthParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1292,6 +1292,16 @@ declare namespace userAuth {
      * @since 12
      */
     reuseUnlockResult?: ReuseUnlockResult;
+
+    /**
+     * The user id to authenticate.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    userId?: number;
   }
 
   /**
@@ -1302,7 +1312,7 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Auth widget parameter.
+   * Represents the information presented on the user authentication page.
    *
    * @typedef WidgetParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1354,6 +1364,17 @@ declare namespace userAuth {
      * @since 10
      */
     windowMode?: WindowModeType;
+
+    /**
+     * Display the authentication dialog in modal application mode. This mode is supported only on PC. Without this
+     * parameter or on other kind of devices, the authentication dialog would be displayed in modal system mode.
+     *
+     * @type { ?Context }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 18
+     */
+    uiContext?: Context;
   }
 
   /**
@@ -1364,7 +1385,7 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Authentication result: authentication token, credential type for authentication succeed.
+   * Defines the user authentication result. If the authentication is successful, the authentication type and token information are returned.
    *
    * @typedef UserAuthResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1443,7 +1464,7 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Asynchronous callback of authentication operation.
+   * Provides callbacks to return the authentication result.
    *
    * @interface IAuthCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1460,8 +1481,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * The authentication result code is returned through the callback.
-     * If the authentication is passed, the authentication token is returned in extraInfo.
+     * Called to return the authentication result. If the authentication is successful, the token information can be obtained from UserAuthResult.
      *
      * @param { UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1479,7 +1499,8 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * User authentication instance, used to initiate a complete authentication.
+   * Provides APIs for user authentication. The user authentication widget is supported.
+   * Before using the APIs, you need to obtain a UserAuthInstance instance by using getUserAuthInstance.
    *
    * @interface UserAuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1501,7 +1522,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Turn on widget authentication result event listening.
+     * Subscribes to the user authentication result.
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
@@ -1530,7 +1551,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Turn off widget authentication result event listening.
+     * Unsubscribes from the user authentication result. The UserAuthInstance instance used to invoke this API must be the one used to subscribe to the event.
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
@@ -1587,6 +1608,30 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Start this authentication, an instance can only perform authentication once.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC or ohos.permission.USER_AUTH_FROM_BACKGROUND
+     * @throws { BusinessError } 201 - Permission verification failed. Possible causes:
+     * <br>1. No permission to access biometric.
+     * <br>2. No permission to start authentication from background.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * <br>1. Incorrect parameter types.
+     * @throws { BusinessError } 12500001 - Authentication failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500003 - Authentication canceled.
+     * @throws { BusinessError } 12500004 - Authentication timeout.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     * @throws { BusinessError } 12500007 - Authentication service is busy.
+     * @throws { BusinessError } 12500009 - Authentication is locked out.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+     * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
+     * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
     start(): void;
 
     /**
@@ -1601,7 +1646,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Cancel this authentication.
+     * Cancel this authentication, userAuthInstance must be the instance being authenticated.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -1623,7 +1668,7 @@ declare namespace userAuth {
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 
+   * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
@@ -1632,7 +1677,8 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Get user authentication instance with widget.
+   * Obtains a UserAuthInstance instance for user authentication. The user authentication widget is also supported.
+   * A UserAuthInstance instance can be used for an authentication only once.
    *
    * @param { AuthParam } authParam - Auth parameter.
    * @param { WidgetParam } widgetParam - Widget parameter.
@@ -1696,7 +1742,7 @@ declare namespace userAuth {
    * @since 9
    */
   /**
-   * Enum for operation result.
+   * Enumerates the authentication result codes.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1876,7 +1922,25 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    PIN_EXPIRED = 12500013
+    PIN_EXPIRED = 12500013,
+
+    /**
+     * Indicates that current operation failed because of authToken integrity check failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    AUTH_TOKEN_CHECK_FAILED = 12500015,
+
+    /**
+     * Indicates that current operation failed because of authToken has expired.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    AUTH_TOKEN_EXPIRED = 12500016
   }
 
   /**

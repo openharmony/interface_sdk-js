@@ -27,6 +27,15 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 9
  */
+
+/**
+ * Provides fileUri APIS
+ *
+ * @namespace fileUri
+ * @syscap SystemCapability.FileManagement.AppFileService
+ * @atomicservice
+ * @since 15
+ */
 declare namespace fileUri {
   /**
    * FileUri represents the uri of the file.
@@ -34,6 +43,14 @@ declare namespace fileUri {
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 10
+   */
+  /**
+   * FileUri represents the uri of the file.
+   *
+   * @extends uri.URI
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @atomicservice
+   * @since 15
    */
   class FileUri extends uri.URI {
     /**
@@ -47,6 +64,18 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 10
      */
+    /**
+     * Constructor for obtaining the instance of the FileUri class.
+     *
+     * @param { string } uriOrPath - Uri or Path.
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @atomicservice
+     * @since 15
+     */
     constructor(uriOrPath: string);
 
     /**
@@ -58,6 +87,17 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 10
+     */
+    /**
+     * Obtains the file name of uri.
+     *
+     * @type { string }
+     * @readonly
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @atomicservice
+     * @since 15
      */
     readonly name: string;
 
@@ -71,6 +111,17 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
+    /**
+     * Get the full directory uri where the file URI is located
+     *
+     * @returns { string } Return the directory uri
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @atomicservice
+     * @since 15
+     */
     getFullDirectoryUri(): string;
 
     /**
@@ -80,6 +131,15 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 12
+     */
+    /**
+     * Check whether the incoming URI is a remote URI
+     *
+     * @returns { boolean } Return true or false
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @atomicservice
+     * @since 15
      */
     isRemoteUri(): boolean;
   }
@@ -93,6 +153,17 @@ declare namespace fileUri {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 9
+   */
+  /**
+   * Get the uri from the path of file in app sandbox
+   *
+   * @param { string } path the path of file in app sandbox
+   * @returns { string } Return the file uri
+   * @throws { BusinessError } 401 - The input parameter is invalidPossible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @atomicservice
+   * @since 15
    */
   function getUriFromPath(path: string): string;
 }

@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import Want from './@ohos.app.ability.Want';
+import wantConstant from './@ohos.app.ability.wantConstant';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 
@@ -117,12 +119,39 @@ declare namespace insightIntentDriver {
      * @since 12
      */
     displayId?: number;
+
+    /**
+     * Indicates the URIs will be authorized to the insight intent executor.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 18
+     */
+    uris?: Array<string>;
+
+    /**
+     * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
+     * flags must be one of {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 18
+     */
+    flags?: number;
   }
 
   /**
    * Execute insight intent.
    * If the caller application is in foreground, you can use this method to execute insight intent;
-   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND;
+   * If the execute mode is UI_ABILITY_BACKGROUND, you need to apply for permission: ohos.permission.ABILITY_BACKGROUND_COMMUNICATION.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Execute parameter.
@@ -155,7 +184,8 @@ declare namespace insightIntentDriver {
   /**
    * Execute insight intent.
    * If the caller application is in foreground, you can use this method to execute insight intent;
-   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND;
+   * If the execute mode is UI_ABILITY_BACKGROUND, you need to apply for permission: ohos.permission.ABILITY_BACKGROUND_COMMUNICATION.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Execute parameter.

@@ -23,7 +23,7 @@
  * Defines Line Modifier
  *
  * @extends LineAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

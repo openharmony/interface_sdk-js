@@ -10,6 +10,7 @@
         "AbilityComponent",
         "AlphabetIndexer",
         "Animator",
+        "ArcScrollBar",
         "Badge",
         "Blank",
         "Button",
@@ -40,10 +41,13 @@
         "Hyperlink",
         "Image",
         "ImageAnimator",
+        "LazyVGridLayout",
         "Line",
         "List",
         "ListItem",
         "ListItemGroup",
+        "ArcList",
+        "ArcListItem",
         "LoadingProgress",
         "Marquee",
         "MediaCachedImage",
@@ -102,7 +106,9 @@
         "Web",
         "XComponent",
         "GridRow",
-        "GridCol"
+        "GridCol",
+        "ArcAlphabetIndexer",
+        "ArcSwiper"
       ],
       "extend": {
         "decorator": "Extend",
@@ -121,6 +127,11 @@
             "name": "Animator",
             "type": "AnimatorAttribute",
             "instance": "AnimatorInstance"
+          },
+          {
+            "name": "ArcScrollBar",
+            "type": "ArcScrollBarAttribute",
+            "instance": "ArcScrollBarInstance"
           },
           {
             "name": "Badge",
@@ -273,6 +284,11 @@
             "instance": "ImageAnimatorInstance"
           },
           {
+            "name": "LazyVGridLayout",
+            "type": "LazyVGridLayoutAttribute",
+            "instance": "LazyVGridLayoutInstance"
+          },
+          {
             "name": "Line",
             "type": "LineAttribute",
             "instance": "LineInstance"
@@ -291,6 +307,16 @@
             "name": "ListItemGroup",
             "type": "ListItemGroupAttribute",
             "instance": "ListItemGroupInstance"
+          },
+          {
+            "name": "ArcList",
+            "type": "ArcListAttribute",
+            "instance": "ArcListInstance"
+          },
+          {
+            "name": "ArcListItem",
+            "type": "ArcListItemAttribute",
+            "instance": "ArcListItemInstance"
           },
           {
             "name": "LoadingProgress",
@@ -586,6 +612,16 @@
             "name": "GridCol",
             "type": "GridColAttribute",
             "instance": "GridColInterface"
+          },
+          {
+            "name": "ArcAlphabetIndexer",
+            "type": "ArcAlphabetIndexerAttribute",
+            "instance": "ArcAlphabetIndexerInstance"
+          },
+          {
+            "name": "ArcSwiper",
+            "type": "ArcSwiperAttribute",
+            "instance": "ArcSwiperInstance"
           }
         ]
       },

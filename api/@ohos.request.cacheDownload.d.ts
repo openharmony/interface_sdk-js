@@ -25,7 +25,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @namespace cacheDownload
  * @syscap SystemCapability.Request.FileTransferAgent
- * @since 14
+ * @since 18
  */
 declare namespace cacheDownload {
     /**
@@ -33,7 +33,7 @@ declare namespace cacheDownload {
      *
      * @typedef CacheDownloadOptions
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 14
+     * @since 18
      */
     interface CacheDownloadOptions {
         /**
@@ -41,7 +41,7 @@ declare namespace cacheDownload {
          *
          * @type { ?Record<string, string> }
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 14
+         * @since 18
          */
         headers?: Record<string, string>;
     }
@@ -59,7 +59,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 14
+     * @since 18
      */
     function download(url: string, options: CacheDownloadOptions);
 
@@ -71,7 +71,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 14
+     * @since 18
      */
     function cancel(url: string);
 
@@ -84,7 +84,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 14
+     * @since 18
      */
     function setMemoryCacheSize(bytes: number);
 
@@ -97,7 +97,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 14
+     * @since 18
      */
     function setFileCacheSize(bytes: number);
 }

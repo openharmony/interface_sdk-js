@@ -677,6 +677,59 @@ declare namespace deviceInfo {
    * @since 12
    */
   const ODID: string;
+
+  /**
+   * Obtaining the hard drive serial number.
+   *
+   * @permission ohos.permission.ACCESS_DISK_PHY_INFO
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 15
+   */
+  const diskSN: string;
+
+/**
+   * Performance Class level of a device.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 18
+   */
+  export enum PerformanceClassLevel {
+    /**
+     * Device Capability Level is high.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
+     */
+    CLASS_LEVEL_HIGH,
+    /**
+     * Device Capability Level is medium.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
+     */
+    CLASS_LEVEL_MEDIUM,
+    /**
+     * Device Capability Level is low.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
+     */
+    CLASS_LEVEL_LOW
+  }
+
+  /**
+   * Obtaining the performance class.
+   *
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 18
+   */
+  const performanceClass: PerformanceClassLevel;
 }
 
 export default deviceInfo;

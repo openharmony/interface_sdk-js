@@ -442,6 +442,19 @@ declare namespace calendarManager {
      * @since 10
      */
     getAccount(): CalendarAccount;
+
+    /**
+     * Query event instances based on the conditions.
+     * @param { number } start - start time of query range
+     * @param { number } end - end time of query range
+     * @param { number[] } ids - Indicates the IDs of multiple events
+     * @param { (keyof Event)[] } eventKey - Expected column to be returned
+     * @returns { Promise<Event[]> } Information about events that match the condition
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
   }
 
   /**
@@ -755,7 +768,25 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 12
      */
-    isLunar?: boolean;  
+    isLunar?: boolean;
+
+    /**
+     * Start time of the event instance.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    instanceStartTime?: number;
+
+    /**
+     * End time of the event instance.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    instanceEndTime?: number;
   }
 
   /**
@@ -1219,6 +1250,24 @@ declare namespace calendarManager {
      * @since 12
      */
     role?: AttendeeRole;
+
+    /**
+     * Type of the Attendee.
+     * @type { ?AttendeeType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    type?: AttendeeType;
+
+    /**
+     * Status of the Attendee.
+     * @type { ?AttendeeStatus }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    status?: AttendeeStatus;
   }
 
   /**
@@ -1244,6 +1293,88 @@ declare namespace calendarManager {
      * @since 12
      */
     PARTICIPANT = 'participant'
+  }
+
+  /**
+   * Enum for the attendee type
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 18
+   */
+  export enum AttendeeType {
+    /**
+     * A mailbox user who is a required attendee to the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    REQUIRED = 1,
+
+    /**
+     * A mailbox user who is an optional attendee to the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    OPTIONAL = 2,
+
+    /**
+     * A resource such as a TV or projector that is scheduled for use in the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    RESOURCE = 3
+  }
+
+  /**
+   * Enum for the attendee states
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 18
+   */
+  export enum AttendeeStatus {
+    /**
+     * The acceptance status of the participant is unknown.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    UNKNOWN = 0,
+
+    /**
+     * The acceptance status of the participant is tentative.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    TENTATIVE = 1,
+
+    /**
+     * The acceptance status of the participant is accepted.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    ACCEPTED = 2,
+
+    /**
+     * The acceptance status of the participant is declined.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    DECLINED = 3,
+
+    /**
+     * The acceptance status of the participant is unresponsive.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 18
+     */
+    UNRESPONSIVE = 4,
   }
 
   /**

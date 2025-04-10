@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import { ValueType } from './@ohos.data.ValuesBucket';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
@@ -1436,6 +1437,43 @@ declare namespace contact {
   function isMyCard(context: Context, id: number): Promise<boolean>;
 
   /**
+   * Creates a contact through UI interaction.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
+   * @throws { BusinessError } 16700103 - User cancel.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  function addContactViaUI(context: Context, contact: Contact): Promise<number>;
+
+  /**
+   * Saves the information to an existing contact through UI interaction.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700101 - Failed to get value to contacts data.
+   * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
+   * @throws { BusinessError } 16700103 - User cancel.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  function saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>;
+
+  /**
    * ContactSelectionOptions Object
    *
    * @interface ContactSelectionOptions
@@ -1467,6 +1505,316 @@ declare namespace contact {
      * @since 11
      */
     isMultiSelect?: boolean;
+
+    /**
+     * Maximum number of contacts. The value ranges from 1 to 10000. The default value is 10000.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    maxSelectable?: number;
+
+    /**
+     * Contact display dimension.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    isDisplayedByName?: boolean;
+
+    /**
+     * Contact filtering parameters.
+     *
+     * @type { ?ContactSelectionFilter }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    filter?: ContactSelectionFilter;
+  }
+
+  /**
+   * ContactSelectionFilter Object
+   *
+   * @interface ContactSelectionFilter
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  interface ContactSelectionFilter {
+    /**
+     * Filter clause.
+     *
+     * @type { FilterClause }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    filterClause: FilterClause,
+
+    /**
+     * Filter type.
+     *
+     * @type { FilterType }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    filterType: FilterType
+  }
+
+  /**
+   * The type for functions of filter conditions
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
+   */
+  enum FilterType {
+    /**
+     * Only the contacts that meet the filter condition will be displayed.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    SHOW_FILTER,
+
+    /**
+     * Contacts that meet the filter condition will be selected by default.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT_SELECT,
+
+    /**
+     * Only the contacts that meet the filter condition will be displayed and are selected by default.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    SHOW_FILTER_AND_DEFAULT_SELECT,
+  }
+
+  /**
+   * FilterClause Object
+   * The relation of clause in arrays is OR, and the maximum length of the array is 3.
+   *
+   * @interface FilterClause
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  interface FilterClause {
+    /**
+     * Contact ID.
+     *
+     * @type { ?Array<FilterOptions> }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    id?: Array<FilterOptions>,
+
+    /**
+     * Contact name.
+     *
+     * @type { ?Array<FilterOptions> }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    name?: Array<FilterOptions>,
+
+    /**
+     * Contact data filter item.
+     *
+     * @type { ?DataFilter }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    dataItem?: DataFilter,
+
+    /**
+     * Focus mode.
+     *
+     * @type { ?Array<FilterOptions> }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    focusModeList?: Array<FilterOptions>,
+  }
+
+  /**
+   * FilterOptions Object
+   *
+   * @interface FilterOptions
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  interface FilterOptions {
+    /**
+     * Filter condition.
+     *
+     * @type { FilterCondition }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    filterCondition: FilterCondition,
+
+    /**
+     * Filter value.
+     *
+     * @type { ?string | ValueType[] }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    value?: string | ValueType[]
+  }
+
+  /**
+   * The type of filter condition
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
+   */
+  enum FilterCondition {
+    /**
+     * Field is not null.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    IS_NOT_NULL,
+
+    /**
+     * Field equal to value, value type is string.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    EQUAL_TO,
+
+    /**
+     * Field not equal to value, value type is string.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    NOT_EQUAL_TO,
+
+    /**
+     * Field in value, value type is ValueType[].
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    IN,
+
+    /**
+     * Field not in value, value type is ValueType[].
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    NOT_IN,
+
+    /**
+     * Field contains value, value type is string.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    CONTAINS,
+  }
+
+  /**
+   * DataFilter Object
+   * The relation of clause in arrays is OR, and the maximum length of the array is 3.
+   *
+   * @interface DataFilter
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  interface DataFilter {
+    /**
+     * Data filter field.
+     *
+     * @type { DataField }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    field: DataField,
+
+    /**
+     * Data filter options.
+     *
+     * @type { Array<FilterOptions> }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    options: Array<FilterOptions>
+  }
+
+  /**
+   * Data field that support filtering
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
+   */
+  enum DataField {
+    /**
+     * Indicates email addresses of the contact.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    EMAIL,
+
+    /**
+     * Indicates a phone of the contact.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    PHONE,
+
+    /**
+     * Indicates organization information of the contact.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
+     */
+    ORGANIZATION,
   }
 
   /**
