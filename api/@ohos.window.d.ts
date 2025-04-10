@@ -1269,6 +1269,13 @@ declare namespace window {
    * @systemapi
    * @since 12
    */
+  /**
+   * The info of window
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 18
+   */
   interface WindowInfo {
     /**
      * The position and size of the window
@@ -1277,6 +1284,13 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12
+     */
+    /**
+     * The position and size of the window
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
      */
     rect: Rect;
 
@@ -1288,6 +1302,13 @@ declare namespace window {
      * @systemapi
      * @since 12
      */
+    /**
+     * bundleName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
     bundleName: string;
 
     /**
@@ -1297,6 +1318,13 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12
+     */
+    /**
+     * abilityName of window
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
      */
     abilityName: string;
 
@@ -1308,6 +1336,13 @@ declare namespace window {
      * @systemapi
      * @since 12
      */
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
     windowId: number;
 
     /**
@@ -1318,6 +1353,13 @@ declare namespace window {
      * @systemapi
      * @since 12
      */
+    /**
+     * The window status of an application.
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
     windowStatusType: WindowStatusType;
 
     /**
@@ -1327,6 +1369,13 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 14
+     */
+    /**
+     * Whether the window is focused. The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
      */
     isFocused?: boolean;
   }
