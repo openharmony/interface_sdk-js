@@ -585,6 +585,33 @@ declare namespace distributedDeviceManager {
   }
 
   /**
+   * Device network id query filter options.
+   * @interface NetworkIdQueryFilter
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @since 18
+   */
+  interface NetworkIdQueryFilter {
+    /**
+     * Get device network id list by wiseDevice ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    wiseDeviceId : string;
+
+    /**
+     * Get device network id list by online status.
+     * @type { number }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    onlineStatus : number,
+  }
+
+  /**
    * Creates an {@code DeviceManager} instance.
    *
    * To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -1224,6 +1251,31 @@ declare namespace distributedDeviceManager {
      * @since 18
      */
     restoreLocalDeivceName(): void;
+
+    /**
+     * Get the device network id list by conditions.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { NetworkIdQueryFilter } filterOptions - parameter for querying the device network id list, 
+     *                                                 The parameter type is map, such as:
+     *      "wiseDeviceId" : xx-xxxxx - Get device network id list by wiseDevice id.
+     *      "onlineStatus" : 1,             -  Get device network id list by online status.
+     *                                       0 - indicates that the device is offline.
+     *                                       1 - indicates that the device is online.
+     * @returns { Promise<Array<string>> }  - Returns a list of device network id.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Parameter verification failed;
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600107 - A login account is required.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    getDeviceNetworkIdList(filterOptions: NetworkIdQueryFilter): Promise<Array<string>>;
   }
 }
 
