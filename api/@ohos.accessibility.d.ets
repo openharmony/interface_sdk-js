@@ -186,29 +186,6 @@ declare namespace accessibility {
   /**
    * Checks whether accessibility ability is enabled.
    *
-   * @param { AccessibilityCallback<boolean> } callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 10
-   * @useinstead ohos.accessibility#isOpenAccessibilitySync
-   */
-  function isOpenAccessibility(callback: AccessibilityCallback<boolean>): void;
-
-  /**
-   * Checks whether accessibility ability is enabled.
-   *
-   * @returns { Promise<boolean> } Returns {@code true} if the accessibility is enabled; returns {@code false}
-   *     otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 10
-   * @useinstead ohos.accessibility#isOpenAccessibilitySync
-   */
-  function isOpenAccessibility(): Promise<boolean>;
-
-  /**
-   * Checks whether accessibility ability is enabled.
-   *
    * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
@@ -226,29 +203,6 @@ declare namespace accessibility {
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    *
-   * @param { AccessibilityCallback<boolean> } callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 7
-   * @deprecated since 10
-   * @useinstead ohos.accessibility#isOpenTouchGuideSync
-   */
-  function isOpenTouchGuide(callback: AccessibilityCallback<boolean>): void;
-
-  /**
-   * Checks touch browser ability (which is used by talkback) is enabled.
-   *
-   * @returns { Promise<boolean> } Returns {@code true} if the touch browser is enabled; returns {@code false}
-   *     otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 7
-   * @deprecated since 10
-   * @useinstead ohos.accessibility#isOpenTouchGuideSync
-   */
-  function isOpenTouchGuide(): Promise<boolean>;
-
-  /**
-   * Checks touch browser ability (which is used by talkback) is enabled.
-   *
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 10
@@ -262,36 +216,6 @@ declare namespace accessibility {
    * @since 11
    */
   function isOpenTouchGuideSync(): boolean;
-
-  /**
-   * Queries the list of accessibility abilities.
-   *
-   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
-   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @param { AccessibilityCallback<Array<AccessibilityAbilityInfo>> } callback
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.accessibility#getAccessibilityExtensionList
-   */
-  function getAbilityLists(
-    abilityType: AbilityType,
-    stateType: AbilityState,
-    callback: AccessibilityCallback<Array<AccessibilityAbilityInfo>>
-  ): void;
-
-  /**
-   * Queries the list of accessibility abilities.
-   *
-   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
-   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.accessibility#getAccessibilityExtensionList
-   */
-  function getAbilityLists(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
   /**
    * Queries the list of accessibility abilities.
@@ -343,30 +267,6 @@ declare namespace accessibility {
     abilityType: AbilityType,
     stateType: AbilityState
   ): Array<AccessibilityAbilityInfo>;
-
-  /**
-   * Send accessibility Event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @param { AccessibilityCallback<void> } callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.accessibility#sendAccessibilityEvent
-   */
-  function sendEvent(event: EventInfo, callback: AccessibilityCallback<void>): void;
-
-  /**
-   * Send accessibility Event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.accessibility#sendAccessibilityEvent
-   */
-  function sendEvent(event: EventInfo): Promise<void>;
 
   /**
    * Send accessibility event.
@@ -425,16 +325,6 @@ declare namespace accessibility {
   function off(type: ObserverEventType, callback?: Callback<boolean>): void;
 
   /**
-   * Get the captions manager.
-   *
-   * @returns { CaptionsManager } Returns the captions manager.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8
-   * @deprecated since 12
-   */
-  function getCaptionsManager(): CaptionsManager;
-
-  /**
    * The type of the caption observer.
    *
    * @typedef {'enableChange' | 'styleChange'}
@@ -467,36 +357,6 @@ declare namespace accessibility {
      * @since 8
      */
     style: CaptionsStyle;
-
-    /**
-     * Register the observe.
-     *
-     * @param { CaptionObserverType } type
-     * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
-     * @deprecated since 12
-     */
-    on(type: CaptionObserverType, callback: Callback<boolean>): void;
-
-    /**
-     * Unregister the observe.
-     *
-     * @param { CaptionObserverType } type
-     * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
-     * @deprecated since 12
-     */
-    off(type: CaptionObserverType, callback?: Callback<boolean>): void;
   }
 
   /**

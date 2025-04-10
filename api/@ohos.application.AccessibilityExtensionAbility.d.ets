@@ -153,45 +153,6 @@ export declare class AccessibilityExtensionAbility {
    * @since 9
    */
   context: AccessibilityExtensionContext;
-
-  /**
-   * Called when extension ability is connected.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
-   * @deprecated since 12
-   */
-  onConnect(): void;
-
-  /**
-   * Called when extension ability is disconnected.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
-   * @deprecated since 12
-   */
-  onDisconnect(): void;
-
-  /**
-   * Called when an accessibility event occurs, such as when the user touches the application interface.
-   *
-   * @param { AccessibilityEvent } event Indicates an accessibility event.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
-   * @deprecated since 12
-   */
-  onAccessibilityEvent(event: AccessibilityEvent): void;
-
-  /**
-   * Called when a physical key is pressed, such as when the user presses the volume button .
-   *
-   * @param { KeyEvent } keyEvent Indicates the physical key event.
-   * @returns { boolean }
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
-   * @deprecated since 12
-   */
-  onKeyEvent(keyEvent: KeyEvent): boolean;
 }
 
 /**
