@@ -24,10 +24,6 @@ function readLangTemplate(): string {
     return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
 }
 
-function escapeRegExp(str: string) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 function extractSignatureComment(
     signature: ts.CallSignatureDeclaration,
     sourceFile: ts.SourceFile
@@ -89,87 +85,85 @@ function handleComponentInterface(node: ts.InterfaceDeclaration, file: Component
     return declComponentFunction.join('\n')
 }
 
-function handleComponentAttribute(node: ts.ClassDeclaration, originalSource: ts.SourceFile) {
-    const commentRanges = ts.getLeadingCommentRanges(originalSource.text, node.pos);
-    const classStart = commentRanges?.[0]?.pos ?? node.getStart(originalSource);
-    const classEnd = node.getEnd();
-    const originalCode = originalSource.text.substring(classStart, classEnd);
+function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node {
+    const members = node.members.map(member => {
+        if (!ts.isMethodDeclaration(member)) {
+            return undefined;
+        }
+        const returnType = ts.factory.createThisTypeNode();
+        return ts.factory.createMethodSignature(
+            undefined,
+            member.name,
+            member.questionToken,
+            member.typeParameters,
+            member.parameters,
+            returnType
+        ) as ts.TypeElement;
+    }).filter((member): member is ts.MethodSignature => member !== undefined);
 
-    const superClasses = new Array<string>
-    const className = node.name!.escapedText.toString()
-    const classPattern = new RegExp(`\\b${className}\\b`, 'g');
-    const genericPattern = new RegExp(`<\\s*${className}\\s*>`, 'g');
+    const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
+    const delcareModifier = ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword);
 
-    {
-        node.heritageClauses?.forEach(clause => {
-            if (clause.token == ts.SyntaxKind.ExtendsKeyword) {
-                clause.types.forEach(t => {
-                    superClasses.push((t.expression as ts.Identifier).escapedText.toString())
-                })
-            }
-
-        })
-    }
-
-    assert(superClasses.length <= 1)
-
-    const modifiedCode = originalCode
-        .replace(/declare\s+class/, 'export interface')
-        .replace(new RegExp(`(\\))\\s*:\\s*${className}\\s*;`, 'g'), '$1: this;')
-        .replace(new RegExp(`(@returns\\s*{\\s*)${className}(\\s*})`, 'g'), '$1this$2')
-        .replace(genericPattern, '')
-
-    if (superClasses.length == 1) {
-        const superClassName = superClasses[0]
-        modifiedCode.replace(
-            new RegExp(`(extends\\s+)${escapeRegExp(superClassName)}\\s*<[^>]+>`, 'g'),
-            `$1${superClassName}`
-        );
-    }
-
-    return modifiedCode
+    return ts.factory.createInterfaceDeclaration(
+        [exportModifier, delcareModifier],
+        node.name as ts.Identifier,
+        node.typeParameters,
+        node.heritageClauses,
+        members
+    );
 }
 
-function isComponentAttribute(node: ts.Node, file: ComponentFile) {
+function isComponentAttribute(node: ts.Node) {
     if (!(ts.isClassDeclaration(node) && node.name?.escapedText)) {
         return false;
     }
-    const name = node.name.escapedText;
-    if (!(name.endsWith('Attribute') && uiconfig.componentSet.has(name.replaceAll('Attribute', '')))) {
-        return false;
-    }
-    file.componentName = name.replaceAll('Attribute', '')
-    return true;
+    return uiconfig.isComponent(node.name.escapedText, 'Attribute')
 }
 
-function isComponentInterface(node: ts.Node, file: ComponentFile) {
+function isComponentInterface(node: ts.Node) {
     if (!(ts.isInterfaceDeclaration(node) && node.name?.escapedText)) {
         return false;
     }
-    const name = node.name.escapedText;
-    if (!(name.endsWith('Interface') && uiconfig.componentSet.has(name.replaceAll('Interface', '')))) {
-        return false;
-    }
-    file.componentName = name.replaceAll('Interface', '')
-    return true;
+    return uiconfig.isComponent(node.name.escapedText, 'Interface')
 }
 
-function convertComponentDeclaration(node: ts.Node, file: ComponentFile): boolean {
-    if (isComponentAttribute(node, file)) {
-        file.appendAttribute(handleComponentAttribute(node as ts.ClassDeclaration, file.sourceFile))
-        return true;
-    } else if (isComponentInterface(node, file)) {
-        file.appendFunction(handleComponentInterface(node as ts.InterfaceDeclaration, file))
-        return true;
+function isComponentSuperClass(node: ts.Node) {
+    if (!(ts.isClassDeclaration(node) && node.name?.escapedText)) {
+        return false;
     }
-    return false;
+    return uiconfig.isRelatedToComponent(node.name.escapedText)
 }
 
 export function interfaceTransformer(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
-            if (convertComponentDeclaration(node, componentFile)) {
+            if (isComponentInterface(node)) {
+                componentFile.appendFunction(handleComponentInterface(node as ts.InterfaceDeclaration, componentFile))
                 return undefined;
+            }
+            if (isComponentAttribute(node) || isComponentSuperClass(node)) {
+                return transformComponentAttribute(node as ts.ClassDeclaration)
+            }
+            return ts.visitEachChild(node, visit, context);
+        };
+
+        return (sourceFile) => ts.visitNode(sourceFile, visit);
+    };
+}
+
+export function componentInterfaceCollector(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
+    return (context) => {
+        const visit: ts.Visitor = (node) => {
+            if (isComponentAttribute(node)) {
+                componentFile.componentName = ((node as ts.ClassDeclaration).name!.escapedText as string).replaceAll('Attribute', '');
+                (node as ts.ClassDeclaration).heritageClauses?.forEach(clause => {
+                    if (clause.token === ts.SyntaxKind.ExtendsKeyword) {
+                        clause.types.forEach(t => {
+                            const superClassName = (t.expression as ts.Identifier).escapedText.toString();
+                            uiconfig.addComponentSuperclass(superClassName);
+                        });
+                    }
+                });
             }
             return ts.visitEachChild(node, visit, context);
         };

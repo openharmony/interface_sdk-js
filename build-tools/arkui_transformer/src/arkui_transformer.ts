@@ -17,7 +17,7 @@ import { program } from "commander"
 import * as ts from 'typescript';
 import * as path from 'path';
 import * as fs from 'fs';
-import { interfaceTransformer } from "./interface_converter"
+import { componentInterfaceCollector, interfaceTransformer } from "./interface_converter"
 import { ComponentFile } from './component_file';
 import { exportAllTransformer } from './add_export'
 import { addImportTransformer } from './add_import'
@@ -50,18 +50,25 @@ function printResult(source: string, file: ComponentFile) {
   fs.writeFileSync(outPath, source.concat(file.concactSource))
 }
 
-
 function main() {
   const files = getFiles(options.inputDir, f => f.endsWith(".d.ets"))
   const convertedFile = convertFiles(files)
   const program = ts.createProgram(convertedFile, { allowJs: true })
+  const componentFileMap = new Map<string, ComponentFile>()
+  convertedFile.forEach(f => {
+    const sourceFile = program.getSourceFile(f)!
+    const componentFile = new ComponentFile(f, sourceFile)
+    componentFileMap.set(f, componentFile)
+    ts.transform(sourceFile, [componentInterfaceCollector(componentFile)])
+  })
   convertedFile.forEach(f => {
     const sourceFile = program.getSourceFile(f)!;
-    const componentFile = new ComponentFile(f, sourceFile)
+    const componentFile = componentFileMap.get(f)!;
     const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
     const transformedSource = ts.createPrinter().printFile(result.transformed[0]);
     printResult(transformedSource, componentFile)
   })
+  convertedFile.forEach(f => fs.unlinkSync(f));
 }
 
 const options = program
