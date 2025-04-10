@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit LocalizationKit
- * @arkts 1.1 & 1.2
  */
 
 /**
@@ -33,7 +32,8 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Resource {
   /**
@@ -50,7 +50,8 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -68,7 +69,8 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -86,7 +88,8 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   id: number;
 
@@ -105,8 +108,21 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   params?: any[];
+  
+  /**
+   * Set params.
+   *
+   * @type { ?Array<Object | undefined> }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  params?: Array<Object | undefined>;
 
   /**
    * Set type.
@@ -122,7 +138,8 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: number;
 }
