@@ -5005,7 +5005,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stopThumbnailCreationTask(taskId: number): void;
     /**
