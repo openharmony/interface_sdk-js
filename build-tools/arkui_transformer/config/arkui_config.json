@@ -4,6 +4,8 @@
         "AlphabetIndexer",
         "AnalogClock",
         "Animator",
+        "ArcList",
+        "ArcListItem",
         "Badge",
         "Blank",
         "Button",
@@ -23,6 +25,7 @@
         "DataPanel",
         "DatePicker",
         "Divider",
+        "DotMatrix",
         "EffectComponent",
         "Ellipse",
         "EmbeddedComponent",
@@ -38,6 +41,8 @@
         "Hyperlink",
         "Image",
         "ImageAnimator",
+        "IndicatorComponent",
+        "LazyVGridLayout",
         "Line",
         "LinearIndicator",
         "List",
@@ -49,6 +54,7 @@
         "Menu",
         "MenuItem",
         "MenuItemGroup",
+        "Metaball",
         "MovingPhotoView",
         "NavDestination",
         "NavRouter",
@@ -123,6 +129,11 @@
         "IsolatedComponent",
         "RichEditor",
         "Component3D",
-        "ContainerSpan"
+        "ContainerSpan",
+        "ArcSwiper",
+        "ArcScrollBar",
+        "ArcAlphabetIndexer",
+        "HdsNavigation",
+        "HdsNavDestination"
     ]
 }
