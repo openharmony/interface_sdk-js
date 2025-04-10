@@ -2293,19 +2293,19 @@ declare namespace photoAccessHelper {
      */
     MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
     /**
-     * Dynamic range type of the asset, read only
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 12
-     */
-    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
-    /**
      * Cover position of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
     COVER_POSITION = 'cover_position',
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
      * Unique uuid of the burst photos, read only
      *
@@ -4837,7 +4837,12 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 15
      */
-    grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    grantPhotoUrisPermission(
+      tokenId: number,
+      uriList: Array<string>,
+      photoPermissionType: PhotoPermissionType,
+      hideSensitiveType: HideSensitiveType
+    ): Promise<number>;
     /**
      * Grant permission of asset to an APP.
      *
@@ -4985,7 +4990,8 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
+    createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean,
+      photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
   }
 
   /**
@@ -7137,7 +7143,7 @@ declare namespace photoAccessHelper {
     subtype: PhotoSubtype;
     /**
      * Effect mode of moving photo
-     * 
+     *
      * @type { MovingPhotoEffectMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
