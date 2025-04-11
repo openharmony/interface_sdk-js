@@ -18,10 +18,12 @@
  * @kit NotificationKit
  */
 
-import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
+/*** if arkts 1.1 */
+import notification from '../@ohos.notification';
+/*** endif */
 
 /**
  * Describes icon type.
@@ -29,7 +31,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef { Resource | image.PixelMap } IconType
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type IconType = Resource | image.PixelMap;
 
@@ -46,7 +49,8 @@ type IconType = Resource | image.PixelMap;
  * @typedef NotificationBasicContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationBasicContent {
   /**
@@ -62,7 +66,8 @@ export interface NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: string;
 
@@ -79,7 +84,8 @@ export interface NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: string;
 
@@ -88,7 +94,8 @@ export interface NotificationBasicContent {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   additionalText?: string;
 
@@ -97,7 +104,8 @@ export interface NotificationBasicContent {
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lockscreenPicture?: image.PixelMap;
 }
@@ -116,7 +124,8 @@ export interface NotificationBasicContent {
  * @typedef NotificationLongTextContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
@@ -132,7 +141,8 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   longText: string;
 
@@ -149,7 +159,8 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   briefText: string;
 
@@ -166,7 +177,8 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   expandedTitle: string;
 }
@@ -177,7 +189,8 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
 export enum LiveViewStatus {
   /**
@@ -185,7 +198,8 @@ export enum LiveViewStatus {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_CREATE = 0,
   /**
@@ -193,7 +207,8 @@ export enum LiveViewStatus {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_INCREMENTAL_UPDATE = 1,
   /**
@@ -201,7 +216,8 @@ export enum LiveViewStatus {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_END = 2,
   /**
@@ -209,7 +225,8 @@ export enum LiveViewStatus {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_FULL_UPDATE = 3
 }
@@ -220,7 +237,8 @@ export enum LiveViewStatus {
  * @enum { number }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum LiveViewTypes {
   /**
@@ -228,7 +246,8 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_ACTIVITY = 0,
   /**
@@ -236,7 +255,8 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_INSTANT = 1,
   /**
@@ -244,7 +264,8 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIVE_VIEW_LONG_TERM = 2
 }
@@ -256,7 +277,8 @@ export enum LiveViewTypes {
  * @typedef NotificationLiveViewContent
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
@@ -265,7 +287,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { LiveViewStatus }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   status: LiveViewStatus;
 
@@ -277,7 +300,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   version?: number;
 
@@ -287,7 +311,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?Record<string, Object>}
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extraInfo?: Record<string, Object>;
 
@@ -297,7 +322,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?Record<string, Array<image.PixelMap>> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pictureInfo?: Record<string, Array<image.PixelMap>>;
 
@@ -307,7 +333,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isLocalUpdateOnly?: boolean;
 }
@@ -326,7 +353,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  * @typedef NotificationMultiLineContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
@@ -342,7 +370,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   briefText: string;
 
@@ -359,7 +388,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   longTitle: string;
 
@@ -376,7 +406,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lines: Array<string>;
 }
@@ -387,7 +418,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  * @extends NotificationBasicContent
  * @typedef NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
@@ -395,7 +427,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   briefText: string;
 
@@ -404,7 +437,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   expandedTitle: string;
 
@@ -413,7 +447,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    *
    * @type { image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   picture: image.PixelMap;
 }
@@ -424,7 +459,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  * @extends NotificationBasicContent
  * @typedef NotificationSystemLiveViewContent
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
@@ -432,7 +468,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   typeCode: number;
 
@@ -441,7 +478,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { ?NotificationCapsule }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   capsule?: NotificationCapsule;
 
@@ -450,7 +488,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { ?NotificationButton }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   button?: NotificationButton;
 
@@ -460,7 +499,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cardButtons?: Array<NotificationIconButton>;
 
@@ -469,7 +509,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { ?NotificationTime }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   time?: NotificationTime;
 
@@ -478,7 +519,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { ?NotificationProgress }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   progress?: NotificationProgress;
 
@@ -488,7 +530,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   liveViewType?: LiveViewTypes;
 }
@@ -498,7 +541,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
  *
  * @typedef NotificationCapsule
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationCapsule {
   /**
@@ -506,7 +550,8 @@ export interface NotificationCapsule {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -515,7 +560,8 @@ export interface NotificationCapsule {
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: image.PixelMap;
 
@@ -524,7 +570,8 @@ export interface NotificationCapsule {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor?: string;
 
@@ -534,7 +581,8 @@ export interface NotificationCapsule {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: string;
 
@@ -544,7 +592,8 @@ export interface NotificationCapsule {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   time?: number;
 
@@ -554,7 +603,8 @@ export interface NotificationCapsule {
    * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   capsuleButtons?: Array<NotificationIconButton>;
 }
@@ -564,7 +614,8 @@ export interface NotificationCapsule {
  *
  * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationIconButton {
 
@@ -574,7 +625,8 @@ export interface NotificationIconButton {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   name: string;
 
@@ -584,7 +636,8 @@ export interface NotificationIconButton {
    * @type { IconType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconResource: IconType;
 
@@ -594,8 +647,8 @@ export interface NotificationIconButton {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
-   */
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
   text?: string;
 
   /**
@@ -604,7 +657,8 @@ export interface NotificationIconButton {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hidePanel?: boolean;
 }
@@ -614,7 +668,8 @@ export interface NotificationIconButton {
  *
  * @typedef NotificationButton
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationButton {
   /**
@@ -622,7 +677,8 @@ export interface NotificationButton {
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   names?: Array<string>;
 
@@ -631,7 +687,8 @@ export interface NotificationButton {
    *
    * @type { ?Array<image.PixelMap> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icons?: Array<image.PixelMap>;
 
@@ -640,7 +697,8 @@ export interface NotificationButton {
    *
    * @type { ?Array<Resource> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconsResource?: Array<Resource>;
 }
@@ -650,7 +708,8 @@ export interface NotificationButton {
  *
  * @typedef NotificationTime
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationTime {
   /**
@@ -658,7 +717,8 @@ export interface NotificationTime {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   initialTime?: number;
 
@@ -668,7 +728,8 @@ export interface NotificationTime {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isCountDown?: boolean;
 
@@ -677,7 +738,8 @@ export interface NotificationTime {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isPaused?: boolean;
 
@@ -686,7 +748,8 @@ export interface NotificationTime {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isInTitle?: boolean;
 }
@@ -696,7 +759,8 @@ export interface NotificationTime {
  *
  * @typedef NotificationProgress
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationProgress {
   /**
@@ -704,7 +768,8 @@ export interface NotificationProgress {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxValue?: number;
 
@@ -713,7 +778,8 @@ export interface NotificationProgress {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentValue?: number;
 
@@ -722,7 +788,8 @@ export interface NotificationProgress {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isPercentage?: boolean;
 }
@@ -740,7 +807,8 @@ export interface NotificationProgress {
  * @typedef NotificationContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationContent {
   /**
@@ -767,7 +835,8 @@ export interface NotificationContent {
    * @type { ?notificationManager.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   notificationContentType?: notificationManager.ContentType;
 
@@ -784,7 +853,8 @@ export interface NotificationContent {
    * @type { ?NotificationBasicContent }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   normal?: NotificationBasicContent;
 
@@ -801,7 +871,8 @@ export interface NotificationContent {
    * @type { ?NotificationLongTextContent }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   longText?: NotificationLongTextContent;
 
@@ -818,7 +889,8 @@ export interface NotificationContent {
    * @type { ?NotificationMultiLineContent }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   multiLine?: NotificationMultiLineContent;
 
@@ -827,7 +899,8 @@ export interface NotificationContent {
    *
    * @type { ?NotificationPictureContent }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   picture?: NotificationPictureContent;
 
@@ -836,7 +909,8 @@ export interface NotificationContent {
    *
    * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   systemLiveView?: NotificationSystemLiveViewContent;
 
@@ -846,7 +920,8 @@ export interface NotificationContent {
    * @type { ?NotificationLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   liveView?: NotificationLiveViewContent;
 }

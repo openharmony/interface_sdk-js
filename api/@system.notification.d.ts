@@ -21,7 +21,8 @@
 /**
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since arkts {'1.1':'3', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ActionResult {
   /**
@@ -29,7 +30,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -38,7 +40,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
@@ -51,7 +54,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uri: string;
 }
@@ -59,7 +63,8 @@ export interface ActionResult {
 /**
  * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since arkts {'1.1':'3', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowNotificationOptions {
   /**
@@ -67,7 +72,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentTitle?: string;
 
@@ -76,7 +82,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentText?: string;
 
@@ -85,16 +92,18 @@ export interface ShowNotificationOptions {
    *
    * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since arkts {'1.1':'3', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clickAction?: ActionResult;
 }
 
 /**
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since arkts {'1.1':'3', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class Notification {
+declare class Notification {
   /**
    * Displays the notification.
    *
@@ -104,3 +113,5 @@ export default class Notification {
    */
   static show(options?: ShowNotificationOptions): void;
 }
+
+export default Notification;

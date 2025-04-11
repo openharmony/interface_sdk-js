@@ -18,8 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
+/*** endif */
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -29,9 +31,10 @@ import ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class StaticSubscriberExtensionContext extends ExtensionContext {
+declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
    * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
    * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
@@ -96,3 +99,5 @@ export default class StaticSubscriberExtensionContext extends ExtensionContext {
    */
   startAbility(want: Want): Promise<void>;
 }
+
+export default StaticSubscriberExtensionContext;

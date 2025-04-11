@@ -18,8 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './../@ohos.base';
 import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
+/*** endif */
 
 /**
  * the subscriber of common event
@@ -34,7 +36,8 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  * @interface CommonEventSubscriber
  * @syscap SystemCapability.Notification.CommonEvent
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventSubscriber {
   /**

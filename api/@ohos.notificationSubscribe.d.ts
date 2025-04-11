@@ -24,13 +24,19 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+/*** if arkts 1.1 */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
+/*** endif */
+/*** if arkts 1.2 */
+import { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
+/*** endif */
 
 /**
  * @namespace notificationSubscribe
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace notificationSubscribe {
   /**
@@ -39,7 +45,8 @@ declare namespace notificationSubscribe {
    * @typedef NotificationKey
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NotificationKey {
     /**
@@ -48,7 +55,8 @@ declare namespace notificationSubscribe {
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -58,7 +66,8 @@ declare namespace notificationSubscribe {
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     label?: string;
   }
@@ -69,7 +78,8 @@ declare namespace notificationSubscribe {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RemoveReason {
     /**
@@ -77,7 +87,8 @@ declare namespace notificationSubscribe {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CLICK_REASON_REMOVE = 1,
 
@@ -86,7 +97,8 @@ declare namespace notificationSubscribe {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CANCEL_REASON_REMOVE = 2
   }
@@ -470,7 +482,8 @@ declare namespace notificationSubscribe {
     * @typedef OperationInfo
     * @syscap SystemCapability.Notification.Notification
     * @systemapi
-    * @since 18
+    * @since arkts {'1.1':'18', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
    export interface OperationInfo {
      /**
@@ -479,7 +492,8 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 18
+      * @since arkts {'1.1':'18', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
      actionName?: string;
 
@@ -489,7 +503,8 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 18
+      * @since arkts {'1.1':'18', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
      userInput?: string;
    }
@@ -500,7 +515,8 @@ declare namespace notificationSubscribe {
    * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type BundleOption = _BundleOption;
 
@@ -510,7 +526,8 @@ declare namespace notificationSubscribe {
    * @typedef { _NotificationSubscribeInfo } NotificationSubscribeInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo;
 
@@ -521,7 +538,8 @@ declare namespace notificationSubscribe {
    * @typedef { _NotificationSubscriber } NotificationSubscriber
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationSubscriber = _NotificationSubscriber;
 
@@ -532,7 +550,8 @@ declare namespace notificationSubscribe {
    * @typedef { _SubscribeCallbackData } SubscribeCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type SubscribeCallbackData = _SubscribeCallbackData;
 
@@ -542,7 +561,8 @@ declare namespace notificationSubscribe {
    * @typedef { _EnabledNotificationCallbackData } EnabledNotificationCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
 
@@ -552,7 +572,8 @@ declare namespace notificationSubscribe {
    * @typedef { _BadgeNumberCallbackData } BadgeNumberCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
 }

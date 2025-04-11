@@ -32,7 +32,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventSubscribeInfo {
   /**
@@ -49,7 +50,8 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   events: Array<string>;
 
@@ -68,7 +70,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   publisherPermission?: string;
 
@@ -85,7 +88,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   publisherDeviceId?: string;
 
@@ -104,7 +108,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?number }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   userId?: number;
 
@@ -121,7 +126,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?number }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   priority?: number;
 
@@ -131,7 +137,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   publisherBundleName?: string;
 }
