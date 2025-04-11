@@ -25,6 +25,7 @@
  * @since 9
  */
 export declare class GesturePoint {
+  /*** if arkts 1.1 */
   /**
    * A constructor used to create a GesturePoint object.
    *
@@ -35,6 +36,7 @@ export declare class GesturePoint {
    * @deprecated since 12
    */
   constructor(positionX: number, positionY: number);
+  /*** endif */
   /**
    * Indicates the X coordinate of point.
    *
