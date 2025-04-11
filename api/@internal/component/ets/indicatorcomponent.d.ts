@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, Callback } from './common';
+import { DotIndicator, DigitIndicator } from './swiper';
+/*** endif */
+
 /**
  * Provides methods for switching components.
  *
@@ -25,7 +30,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class IndicatorComponentController {
   /**
@@ -35,7 +41,8 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -46,7 +53,8 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showNext():void;
 
@@ -57,7 +65,8 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showPrevious():void;
 
@@ -71,7 +80,8 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   changeIndex(index: number, useAnimation?: boolean):void;
 }
@@ -84,7 +94,8 @@ declare class IndicatorComponentController {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface IndicatorComponentInterface {
    
@@ -97,7 +108,8 @@ interface IndicatorComponentInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (controller?: IndicatorComponentController): IndicatorComponentAttribute;
 }
@@ -110,7 +122,8 @@ interface IndicatorComponentInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
@@ -122,7 +135,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   initialIndex(index: number): IndicatorComponentAttribute;
 
@@ -135,7 +149,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   count(totalCount: number): IndicatorComponentAttribute;
 
@@ -148,7 +163,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style(indicatorStyle: DotIndicator | DigitIndicator): IndicatorComponentAttribute;
 
@@ -161,7 +177,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loop(isLoop: boolean): IndicatorComponentAttribute;
 
@@ -174,7 +191,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   vertical(isVertical: boolean): IndicatorComponentAttribute;
 
@@ -187,7 +205,8 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(event: Callback<number>): IndicatorComponentAttribute;
 }
