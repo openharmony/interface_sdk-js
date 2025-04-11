@@ -326,7 +326,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 16
+     * @since 17
      */
     TYPE_FLOAT_NAVIGATION
   }
@@ -2489,6 +2489,26 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
+   *
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+   * @param { Configuration } config - Parameters for window creation.
+   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 17
+   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -2526,6 +2546,26 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
+   *
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+   * @param { Configuration } config - Parameters for window creation.
+   * @returns { Promise<Window> } Promise used to return the window created.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300006 - This window context is abnormal.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 17
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -3064,6 +3104,17 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 12
+   */
+  /**
+   * Get info of visible windows.
+   *
+   * @permission ohos.permission.VISIBLE_WINDOW_INFO
+   * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Function getVisibleWindowInfo can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 18
    */
   function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
@@ -4411,7 +4462,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>;
 
@@ -7690,7 +7741,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     setWindowShadowRadius(radius: number): void;
 
@@ -7737,7 +7788,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     setWindowCornerRadius(cornerRadius: number): Promise<void>;
 
@@ -7750,7 +7801,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     getWindowCornerRadius(): number;
 
@@ -8974,6 +9025,38 @@ declare namespace window {
      * @since 18
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
+
+    /**
+     * Set the zlevel of current sub window.
+     *
+     * @param { number } zLevel - the zlevel of current sub window.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    setSubWindowZLevel(zLevel: number): Promise<void>;
+
+    /**
+     * Get the zlevel of current sub window.
+     *
+     * @returns { number } - the zlevel of current sub window.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    getSubWindowZLevel(): number;
   }
 
   /**
@@ -9246,6 +9329,15 @@ declare namespace window {
      * @since 18
      */
     maximizeSupported?: boolean;
+    /**
+     * Indicates zlevel of subwindow
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    zLevel?: number;
   }
   /**
    * WindowStage
@@ -10006,7 +10098,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 

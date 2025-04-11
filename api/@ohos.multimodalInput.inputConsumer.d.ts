@@ -134,7 +134,7 @@ declare namespace inputConsumer {
    */
   interface KeyPressedConfig {
     /**
-     * Key value.
+     * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -143,7 +143,8 @@ declare namespace inputConsumer {
     key: number;
 
     /**
-     * Key event type.
+     * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently
+     * listening is supported only for key press events.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -152,7 +153,7 @@ declare namespace inputConsumer {
     action: number;
 
     /**
-     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     * Whether to report repeated key events.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -291,7 +292,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */
-  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
+  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
    * Unsubscribe from hotkey event changes.
@@ -305,7 +306,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */
-  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
+  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
    * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
@@ -320,7 +321,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void
+  function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
   /**
    * Cancels consumption of key events.
@@ -333,7 +334,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void
+  function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }
 
 export default inputConsumer;

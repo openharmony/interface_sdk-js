@@ -468,28 +468,6 @@ declare interface CustomDialogControllerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the customDialog's background blur style with options
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Defines the customDialog's background effect with options
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
    * Defines the customDialog's keyboard avoid mode
    *
    * @type { ?KeyboardAvoidMode }
@@ -524,50 +502,6 @@ declare interface CustomDialogControllerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
-
-  /**
-   * Callback function when the dialog appears.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onDidAppear?: Callback<void>;
-
-  /**
-   * Callback function when the dialog disappears.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onDidDisappear?: Callback<void>;
-
-  /**
-   * Callback function before the dialog openAnimation starts.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillAppear?: Callback<void>;
-
-  /**
-   * Callback function before the dialog closeAnimation starts.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillDisappear?: Callback<void>;
 
   /**
    * Defines the distance between the customDialog and system keyboard.
@@ -626,18 +560,6 @@ declare interface CustomDialogControllerOptions {
    * @since 18
    */
   levelOrder?: LevelOrder;
-
-  /**
-   * Specifies whether to get focus when the custom dialog is displayed.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  focusable?: boolean;
 }
 
 /**

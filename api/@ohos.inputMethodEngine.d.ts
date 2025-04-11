@@ -645,6 +645,27 @@ declare namespace inputMethodEngine {
     off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
+     * Subscribe 'callingDisplayDidChange' event.
+     *
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } callback - indicates the callback of on('callingDisplayDidChange').
+     * @throws { BusinessError } 801 - capability not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    on(type: 'callingDisplayDidChange', callback: Callback<number>): void;
+
+    /**
+     * Unsubscribe 'callingDisplayDidChange' event.
+     *
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
+
+    /**
      * Get input method's security mode.
      *
      * @returns { SecurityMode } return security mode.
@@ -1407,6 +1428,32 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     recvMessage(msgHandler?: MessageHandler): void;
+    /**
+     * Get input attachOptions.
+     *
+     * @returns { AttachOptions } return attach options.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    getAttachOptions(): AttachOptions;
+    /**
+     * Subscribe 'attachOptionsDidChange' event.
+     *
+     * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
+     * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
+    /**
+     * Unsubscribe 'attachOptionsDidChange' event.
+     *
+     * @param { 'attachOptionsDidChange' } type - the type of unsubscribe event.
+     * @param { Callback<AttachOptions> } [callback] - optional, the callback of off('attachOptionsDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void;
   }
 
   /**
@@ -1584,6 +1631,40 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     DARK_IMMERSIVE
+  }
+
+  /**
+   *  RequestKeyboardReason of input click. 
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 17
+   */
+  export enum RequestKeyboardReason {
+    /**
+      * The request keyboard reason is NONE.
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 17
+      */
+    NONE = 0,
+    /**
+     * The request keyboard reason is MOUSE.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    MOUSE = 1,
+    /**
+     * The request keyboard reason is TOUCH.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    TOUCH = 2,
+    /**
+     * The request keyboard reason is OTHER.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    OTHER = 20
   }
 
   /**
@@ -2030,6 +2111,26 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     readonly immersiveMode?: ImmersiveMode;
+
+    /**
+     * Indicates the ID of the window where the edit box is located.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    readonly windowId?: number;
+
+    /**
+     * Indicates the ID of the display where the edit box is located.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    readonly displayId?: number;
   }
 
   /**
@@ -2506,6 +2607,23 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     right: number;
+  }
+  /**
+   * Attach options.
+   *
+   * @interface AttachOptions
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 17
+   */
+  export interface AttachOptions {
+    /**
+     * The reason for request keyboard.
+     *
+     * @type { ?RequestKeyboardReason }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    requestKeyboardReason?: RequestKeyboardReason;
   }
 }
 

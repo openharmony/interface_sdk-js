@@ -4671,11 +4671,15 @@ declare namespace webview {
     runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
     /**
-     * Execute createPdf code in the context of the currently displayed page and return the result.
+     * Rendering current Web page into Pdf data, return the result in async mode.
      *
-     * @param { PdfConfiguration } configuration - createPdf configuration.
+     * @param { PdfConfiguration } configuration - configuration for createPdf,
+     *                                             including page width and height, etc.
+     *                                             {@Link PdfConfiguration}
      * @param { AsyncCallback<PdfData> } callback - Callbacks execute createPdf results.
-     * @throws { BusinessError } 401 - Invalid input parameter. 
+     *                                              PdfData is pdf data stream of current web page in Uint8Array
+     *                                              {@Link PdfData}.
+     * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4685,13 +4689,16 @@ declare namespace webview {
     createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void;
 
     /**
-     * Execute createPdf code in the context of the currently displayed page and return the result.
+     * Rendering current Web page into Pdf data, return the result in promise mode.
      *
-     * @param { PdfConfiguration } configuration - createPdf configuration.
-     * @returns { Promise<PdfData> } A promise is solved after the createPdf is executed.
-     *                              This parameter will be the result of createPdf execution.
-     *                              If the createPdf fails to execute or has no return value,
-     *                              a none type value will be returned.
+     * @param { PdfConfiguration } configuration - configuration for createPdf,
+     *                                             including page width and height, etc.
+     *                                             {@Link PdfConfiguration}
+     * @returns { Promise<PdfData> } The promise returned by the function.
+     *                               PdfData is pdf data stream of current web page in Uint8Array
+     *                               {@Link PdfData}.
+     *                               If createPdf fails or no return value,
+     *                               a none type value will be returned.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5674,6 +5681,19 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Enable the ability to use Intelligent Tracking Prevention; default is disabled.
+     *
+     * @param { boolean } enable {@code true} enable Intelligent Tracking Prevention; {@code false} otherwise.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     enableIntelligentTrackingPrevention(enable: boolean): void;
 
     /**
@@ -5685,6 +5705,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Get whether Intelligent Tracking Prevention is enabled.
+     *
+     * @returns { boolean } True if enable the Intelligent Tracking Prevention; else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     isIntelligentTrackingPreventionEnabled(): boolean;
 
@@ -5698,6 +5729,17 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Add bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
     /**
@@ -5710,6 +5752,17 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Remove bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
     /**
@@ -5718,6 +5771,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Clear bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
 
@@ -5908,6 +5969,19 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Enable the ability to block Ads, disabled by default.
+     *
+     * @param { boolean } enable {@code true} Enable Ads block; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     enableAdsBlock(enable: boolean): void;
 
     /**
@@ -5918,6 +5992,15 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Get whether Ads block is enabled.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     isAdsBlockEnabled(): boolean;
 
     /**
@@ -5927,6 +6010,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Get whether Ads block is enabled for current Webpage.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     isAdsBlockEnabledForCurPage(): boolean;
 
@@ -8219,6 +8311,17 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * set Ads Block ruleset file, containing easylist rules.
+     * @param {string} rulesFile - absolute file path contains app customized ads block rules.
+     * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static setAdsBlockRules(rulesFile: string, replace: boolean): void;
 
     /**
@@ -8230,6 +8333,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Add items to Ads Block Disallow list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be disallowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -8246,6 +8360,20 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Add items to Ads Block Allow list.
+     * By default, ads block is allowed for all pages unless they are added to the
+     * disallow list. The priority of allowlist is higher than the disallowlist. It is
+     * used to re-enable ads block on the page that matches disallow list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be allowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
     /**
@@ -8256,6 +8384,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * remove items from Ads Block Disallowed list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -8268,6 +8406,16 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
     /**
@@ -8276,6 +8424,13 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * clear Ads Block Disallowed list.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
+     */
     static clearAdsBlockDisallowedList(): void;
 
     /**
@@ -8283,6 +8438,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * clear Ads Block Allowed list.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 18
      */
     static clearAdsBlockAllowedList(): void;
   }

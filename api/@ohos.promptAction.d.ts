@@ -104,7 +104,7 @@ export class LevelOrder {
    * @atomicservice
    * @since 18
    */
-  static clamp(order: number): LevelOrder
+  static clamp(order: number): LevelOrder;
 
   /**
    * Get the order from LevelOrder object.
@@ -115,7 +115,7 @@ export class LevelOrder {
    * @atomicservice
    * @since 18
    */
-  getOrder(): number
+  getOrder(): number;
 }
 
 /**
@@ -762,28 +762,6 @@ declare namespace promptAction {
     backgroundBlurStyle?: BlurStyle;
 
     /**
-     * Defines the dialog's background blur style with options
-     *
-     * @type { ?BackgroundBlurStyleOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-    /**
-     * Defines the dialog's background effect with options
-     *
-     * @type { ?BackgroundEffectOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundEffect?: BackgroundEffectOptions;
-
-    /**
      * Defines the dialog's shadow.
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
@@ -817,50 +795,6 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
-
-    /**
-     * Callback function when the dialog appears.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onDidAppear?: Callback<void>;
-
-    /**
-     * Callback function when the dialog disappears.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onDidDisappear?: Callback<void>;
-
-    /**
-     * Callback function before the dialog openAnimation starts.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onWillAppear?: Callback<void>;
-
-    /**
-     * Callback function before the dialog closeAnimation starts.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onWillDisappear?: Callback<void>;
 
     /**
      * Determine the display level of the dialog.
@@ -1088,28 +1022,6 @@ declare namespace promptAction {
      * @since 12
      */
     transition?: TransitionEffect;
-
-    /**
-     * Dialog transition parameters of opening/closing custom dialog.
-     *
-     * @type { ?TransitionEffect }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    dialogTransition?: TransitionEffect;
-
-    /**
-     * Mask transition parameters of opening/closing custom dialog.
-     *
-     * @type { ?TransitionEffect }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    maskTransition?: TransitionEffect;
     
     /**
      * Defines custom dialog maskColor
@@ -1202,7 +1114,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
 
     /**
-     * Defines the customDialog's display area in hover mode.
+     * Defines the dialog's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -1212,28 +1124,6 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
-
-    /**
-     * Defines the customDialog's background blur style with options
-     *
-     * @type { ?BackgroundBlurStyleOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-    /**
-     * Defines the customDialog's background effect with options
-     *
-     * @type { ?BackgroundEffectOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundEffect?: BackgroundEffectOptions;
 
     /**
      * Defines the distance between the customDialog and system keyboard.
@@ -1292,18 +1182,6 @@ declare namespace promptAction {
      * @since 18
      */
     levelOrder?: LevelOrder;
-
-    /**
-     * Specifies whether to get focus when the custom dialog is displayed.
-     *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    focusable?: boolean;
   }
 
   /**

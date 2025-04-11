@@ -305,37 +305,6 @@ declare enum LayoutStyle {
 } 
 
 /**
- * Declare the cache mode of the child components.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare enum TabsCacheMode {
-  /**
-   * Caches the child components on both sides of the current child components.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  CACHE_BOTH_SIDE = 0,
-
-  /**
-   * Caches the latest switched child components.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  CACHE_LATEST_SWITCHED = 1
-}
-
-/**
  * Provides methods for switching tabs.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1772,19 +1741,6 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 18
    */
   onContentWillChange(handler: OnTabsContentWillChangeCallback): TabsAttribute;
-
-  /**
-   * Sets the maximum number of child components to be cached.
-   *
-   * @param { number } count - the maximum number of child components to be cached.
-   * @param { TabsCacheMode } mode - the mode of caching child components.
-   * @returns { TabsAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  cachedMaxCount(count: number, mode: TabsCacheMode): TabsAttribute;
 }
 
 /**

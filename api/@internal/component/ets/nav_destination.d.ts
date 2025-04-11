@@ -336,7 +336,7 @@ declare enum NavDestinationMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 17
  */
 declare enum NavDestinationActiveReason {
   /**
@@ -345,7 +345,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   TRANSITION = 0,
 
@@ -355,7 +355,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   CONTENT_COVER = 1,
 
@@ -365,7 +365,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   SHEET = 2,
 
@@ -375,7 +375,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   DIALOG = 3,
 
@@ -385,7 +385,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   OVERLAY = 4,
 
@@ -395,7 +395,7 @@ declare enum NavDestinationActiveReason {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   APP_STATE = 5,
 }
@@ -898,19 +898,6 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
-
-  /**
-   * Set back button icon and accessibility broadcast content.
-   *
-   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Indicates icon of back button.
-   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
-   * @returns { NavDestinationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavDestinationAttribute;
   
   /**
    * NavDestination title bar's menus
@@ -923,19 +910,6 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
-
-  /**
-   * NavDestination title bar's menus
-   *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } items
-   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
-   * @returns { NavDestinationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavDestinationAttribute;
 
   /**
     * Configure toolbar with default style parameter or custom parameter.
@@ -1103,7 +1077,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   onActive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
 
@@ -1115,7 +1089,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
 
@@ -1130,18 +1104,6 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 15
    */
   customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute;
-
-  /**
-   * Invoked when destination be pushed with singleton mode.
-   *
-   * @param { Optional<Callback<ESObject>> } callback - Indicates callback when destination be pushed with singleton mode.
-   * @returns { NavDestinationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onNewParam(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
 }
 
 /**

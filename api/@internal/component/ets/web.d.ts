@@ -756,15 +756,6 @@ declare enum CacheMode {
   Default = 0,
 
   /**
-   * load cache when they are available and not expired, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 18
-   */
-  DEFAULT = 0,
-
-  /**
    * load cache when they are available, otherwise load online.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -786,15 +777,6 @@ declare enum CacheMode {
    * @since 18
    */
   None = 1,
-
-  /**
-   * load cache when they are available even if the cache is expired.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 18
-   */
-  CACHE_ELSE_NETWORK = 1,
 
   /**
    * Load online and not cache.
@@ -820,15 +802,6 @@ declare enum CacheMode {
   Online = 2,
 
   /**
-   * load only from network, not use cache.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 18
-   */
-  NO_CACHE = 2,
-
-  /**
    * load cache and not online.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -849,16 +822,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 18
    */
-  Only = 3,
-
-  /**
-   * load cache and not online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 18
-   */
-  CACHE_ONLY = 3
+  Only = 3
 }
 
 /**
@@ -9647,8 +9611,10 @@ declare interface NestedScrollOptionsExt {
  */
 declare interface EmbedOptions {
   /**
-   * Whether the embed element support the default intrinsic size of 300 * 150. 
-   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   * Whether the embed element support the default intrinsic size of 300 * 150, expressed in CSS pixels.
+   * <br>When CSS size is set, the embed element size is CSS size, otherwise it is intrinsic size.
+   * <br>If true, then the intrinsic size is 300 * 150.
+   * <br>If false, the embed element will not be rendered when the CSS size is not set.
    *
    * @type { ?boolean }
    * @default false

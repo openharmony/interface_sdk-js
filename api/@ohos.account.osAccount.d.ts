@@ -2288,26 +2288,6 @@ declare namespace osAccount {
      * @since 12
      */
     shortName: string;
-
-     /**
-     * Indicates the bundles are disallowed to be preinstalled on the OS account.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 18
-     */
-    disallowedPreinstalledBundles?: Array<string>;
-
-      /**
-     * Indicates the bundles are allowed to be preinstalled on the OS account.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 18
-     */
-    allowedPreinstalledBundles?: Array<string>;
   }
 
   /**
@@ -3690,7 +3670,7 @@ declare namespace osAccount {
     /**
      * Updates the target server config with the specified parameters.
      *
-     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS 
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { string } configId - Indicates the server config identifier.
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.

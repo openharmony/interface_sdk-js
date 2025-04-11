@@ -1509,18 +1509,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 
   /**
-   * Set text mode of automatic case mode switching.
-   *
-   * @param { AutoCapitalizationMode } mode - Automatic case mode values.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  autoCapitalizationMode(mode: AutoCapitalizationMode): TextAreaAttribute;
-
-  /**
    * Set the text with half leading.
    *
    * @param { Optional<boolean> } halfLeading

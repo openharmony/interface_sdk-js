@@ -1190,7 +1190,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1210,7 +1210,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1230,8 +1230,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1248,13 +1248,13 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
-  */
+   */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1319,7 +1319,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getTopOrder(): LevelOrder
+  getTopOrder(): LevelOrder;
 
   /**
    * Get order value of bottom dialog.
@@ -1330,7 +1330,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getBottomOrder(): LevelOrder
+  getBottomOrder(): LevelOrder;
 
   /**
    * Open popup with frameNode.
@@ -1343,10 +1343,10 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The content is incorrect.
-   * @throws { BusinessError } 103302 - The content already exists.
-   * @throws { BusinessError } 103304 - The target does not exist.
-   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - The ComponentContent already exists.
+   * @throws { BusinessError } 103304 - The targetId does not exist.
+   * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1367,8 +1367,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1385,8 +1385,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1405,10 +1405,10 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The content is incorrect.
-   * @throws { BusinessError } 103302 - The content already exists.
-   * @throws { BusinessError } 103304 - The target does not exist.
-   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - The ComponentContent already exists.
+   * @throws { BusinessError } 103304 - The targetId does not exist.
+   * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1429,8 +1429,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1447,8 +1447,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1471,22 +1471,6 @@ export class PromptAction {
  * @since 12
  */
 declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
-
-/**
- * Defines the callback type used in UIObserver watch pan event.
- * The value of event indicates the information of pan event.
- * The value of node indicates the frameNode which will receive the event.
- *
- * @typedef { function } PanListenerCallback
- * @param { GestureEvent } event - the information of pan event
- * @param { GestureRecognizer } current - the information of panRecognizer
- * @param { FrameNode } [node] - the information of frameNode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch gesture.
@@ -2022,110 +2006,6 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'beforePanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'beforePanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'beforePanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'afterPanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'afterPanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  on(type: 'afterPanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
 
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
@@ -3479,6 +3359,28 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
+   * Set the pixel round mode of the system. The default mode is PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH.
+   *
+   * @param { PixelRoundMode } mode - The mode of pixel round.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setPixelRoundMode(mode: PixelRoundMode): void;
+
+  /**
+   * Get the pixel round mode of the system.
+   *
+   * @returns { PixelRoundMode } the mode of pixel round.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getPixelRoundMode(): PixelRoundMode;
+
+  /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
@@ -4028,6 +3930,32 @@ export class UIContext {
    * @since 16
    */
   getTextMenuController(): TextMenuController;
+
+  /**
+   * Create a UI instance singleton without window and get its UIContext object.
+   * 
+   * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
+   * @returns { UIContext | undefined } object UIContext, or undefined when failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. The number of parameters is incorrect.
+   * <br> 2. Invalid parameter type of context.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 17
+   */
+  static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
+
+  /**
+   * Destroy the UI instance singleton without window.
+   *
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 17
+   */
+  static destroyUIContextWithoutWindow(): void;
 }
 
 /**

@@ -19,47 +19,6 @@
  */
 
 /**
- * Defines the StyledStringMarshallingValue Type.
- *
- * @typedef { UserDataSpan } StyledStringMarshallingValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type StyledStringMarshallingValue = UserDataSpan;
-
-
-/**
- * Defines the callback type used in marshalling.
- *
- * @typedef { function } StyledStringMarshallCallback
- * @param { StyledStringMarshallingValue } marshallableVal - value that will be serialized to array buffer
- * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
-
-/**
- * Defines the callback type used in unmarshalling.
- *
- * @typedef { function } StyledStringUnmarshallCallback
- * @param { ArrayBuffer } buf - The buffer that will be deserialized to a StyledStringMarshallingValue.
- * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
-
-/**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -180,34 +139,6 @@ declare class StyledString {
      * @since 14
      */
     static toHtml(styledString: StyledString): string;
-
-    /**
-     * Returns ArrayBuffer from the serialized styled string.
-     *
-     * @param { StyledString } styledString - StyledString parameter.
-     * @param { function } callback - When marshalling StyledStringMarshingValue, will trigger this callback to get ArrayBuffer
-     * @returns { ArrayBuffer }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 18
-     */
-    static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
-
-    /**
-     * Returns StyledString from the deserialized ArrayBuffer.
-     *
-     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @param { function } callback - When unmarshalling ArrayBuffer, will trigger this callback to get StyledStringMarshingValue
-     * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 18
-     */
-    static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
     /**
      * Returns ArrayBuffer from the serialized styled string.
@@ -883,18 +814,6 @@ declare class ParagraphStyle {
      * @since 12
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
-
-    /**
-     * Get the paragraph spacing of the StyledString.
-     *
-     * @type { ?number }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    readonly paragraphSpacing?: number;
 }
 
 /**
@@ -972,17 +891,6 @@ declare interface ParagraphStyleInterface {
      * @since 12
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
-
-    /**
-     * Set the paragraph spacing of the StyledString.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    paragraphSpacing?: LengthMetrics;
 }
 
 /**

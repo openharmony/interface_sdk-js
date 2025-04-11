@@ -23,7 +23,7 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since 15
+ * @since 17
  */
 declare namespace backgroundProcessManager {
     /**
@@ -31,14 +31,14 @@ declare namespace backgroundProcessManager {
      *
      * @enum { number }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 15
+     * @since 17
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 15
+         * @since 17
          */
         PROCESS_BACKGROUND = 1,
 
@@ -46,7 +46,7 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 15
+         * @since 17
          */
         PROCESS_INACTIVE = 2,
     }
@@ -58,9 +58,8 @@ declare namespace backgroundProcessManager {
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
-     * @throws { BusinessError } 31800001 - remote error. Possible causes: remote is not work.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 15
+     * @since 17
      */
     function setProcessPriority(pid: number, priority: ProcessPriority): Promise<void>;
 
@@ -69,9 +68,8 @@ declare namespace backgroundProcessManager {
      *
      * @param { number } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 31800001 - remote error. Possible causes: remote is not work.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 15
+     * @since 17
      */
     function resetProcessPriority(pid: number): Promise<void>;
 }
