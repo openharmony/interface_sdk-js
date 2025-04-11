@@ -360,7 +360,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   translate(value: TranslateOptions): T;
 
@@ -399,7 +399,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   scale(value: ScaleOptions): T;
 
@@ -563,7 +563,7 @@ declare interface PageTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
@@ -662,7 +662,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onEnter(event: PageTransitionCallback): PageTransitionEnterInterface;
 }
@@ -762,7 +762,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onExit(event: PageTransitionCallback): PageTransitionExitInterface;
 }
