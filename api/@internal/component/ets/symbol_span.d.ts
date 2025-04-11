@@ -60,7 +60,8 @@ interface SymbolSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: Resource): SymbolSpanAttribute;
 }
@@ -79,7 +80,8 @@ interface SymbolSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -98,7 +100,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
@@ -118,7 +121,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -138,7 +142,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
@@ -158,7 +163,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -178,7 +184,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 
@@ -189,7 +196,8 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }

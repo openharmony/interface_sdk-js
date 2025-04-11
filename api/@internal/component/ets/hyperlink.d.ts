@@ -62,7 +62,8 @@ interface HyperlinkInterface {
    * @returns { HyperlinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -80,7 +81,8 @@ interface HyperlinkInterface {
  * @extends CommonMethod<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -98,7 +100,8 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @returns { HyperlinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
