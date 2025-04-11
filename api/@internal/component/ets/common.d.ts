@@ -12078,10 +12078,9 @@ declare interface MouseEvent extends BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 10
    * @useinstead MouseEvent#windowX
-   * @arkts 1.1&1.2
    */
   screenX: number;
 
@@ -12090,10 +12089,9 @@ declare interface MouseEvent extends BaseEvent {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 10
    * @useinstead MouseEvent#windowY
-   * @arkts 1.1&1.2
    */
   screenY: number;
 
@@ -18021,10 +18019,9 @@ declare interface CustomPopupOptions {
    *
    * @type { ?(Color | string | Resource | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 10
    * @useinstead CustomPopupOptions#mask
-   * @arkts 1.1&1.2
    */
   maskColor?: Color | string | Resource | number;
 
@@ -21335,10 +21332,9 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead hitTestBehavior
-   * @arkts 1.1&1.2
    */
   touchable(value: boolean): T;
 
@@ -31218,10 +31214,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
    * @deprecated since 12
    * @useinstead ScrollableCommonMethod#onDidScroll
-   * @arkts 1.1&1.2
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
