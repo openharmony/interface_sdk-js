@@ -216,7 +216,7 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
       return;
     }
 
-    handleNoTagFileInFirstType(sourceFile, fullPath, fileContent);
+    handleNoTagFileInFirstType(sourceFile, outputPath, fileContent);
     return;
   }
   const firstNode = sourceFile.statements.find(statement => {
