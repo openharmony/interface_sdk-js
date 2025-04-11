@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { ButtonType } from './button'
-import { ClickEvent } from './common'
-import { SecurityComponentMethod } from './securityComponent'
+import { ButtonType } from './button';
+import { ClickEvent } from './common';
+import { SecurityComponentMethod } from './securityComponent';
 /*** endif */
 
 /**
