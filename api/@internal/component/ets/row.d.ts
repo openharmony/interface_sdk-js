@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RowOptions {
   /**
@@ -172,7 +172,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RowOptions): RowAttribute;
   /**

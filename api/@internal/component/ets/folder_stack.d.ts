@@ -35,7 +35,7 @@ declare type WindowStatusType = import('../api/@ohos.window').default.WindowStat
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface FolderStackOptions {
   /**
@@ -104,7 +104,7 @@ interface FolderStackInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: FolderStackOptions): FolderStackAttribute;
 }
@@ -116,7 +116,7 @@ interface FolderStackInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface OnFoldStatusChangeInfo {
   /**
@@ -147,7 +147,7 @@ interface OnFoldStatusChangeInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 
@@ -158,7 +158,7 @@ declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => voi
  * @param { HoverEventParam } param - hover event param
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
 
@@ -225,7 +225,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onFolderStateChange(callback: OnFoldStatusChangeCallback): FolderStackAttribute;
 
@@ -246,7 +246,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onHoverStatusChange(handler: OnHoverStatusChangeCallback): FolderStackAttribute;
 
