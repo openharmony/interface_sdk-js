@@ -271,7 +271,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { number } elementId Indicates the elementId.
    * @returns { Promise<Array<AccessibilityElement>> }
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *    1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameter types;
+   *    3. Parameter verification failed.
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

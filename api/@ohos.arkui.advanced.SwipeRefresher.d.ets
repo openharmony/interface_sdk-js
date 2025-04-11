@@ -53,13 +53,13 @@ export declare struct SwipeRefresher {
    */
   /**
    * Sets the content when loading.
-   * @type { string }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  @Prop content?: string;
+  @Prop content?: ResourceStr;
 
   /**
    * Whether the component is loading.

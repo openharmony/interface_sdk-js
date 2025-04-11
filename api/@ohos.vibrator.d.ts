@@ -943,7 +943,8 @@ declare namespace vibrator {
      * @param { number } duration The duration of the long-term vibration event
      * @param { ContinuousParam } options Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 18
      */
@@ -955,7 +956,8 @@ declare namespace vibrator {
      * @param { number } time Relative starting time of short oscillation events.
      * @param { TransientParam } options Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 18
      */
