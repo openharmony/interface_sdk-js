@@ -65,7 +65,7 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<notificationManager.SlotType> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   slotTypes?: Array<notificationManager.SlotType>;
 
