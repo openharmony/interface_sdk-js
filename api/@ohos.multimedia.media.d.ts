@@ -7617,16 +7617,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    /**
-     * File output uri, support a kind of uri now.
-     * format like: "fd://" + "context".
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    url?: string;
+    url: string;
 
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
