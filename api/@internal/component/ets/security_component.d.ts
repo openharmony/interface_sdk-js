@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from './units'
-import { FontStyle, FontWeight, BorderStyle } from './enums'
-import { Resource } from './../../../api/global/resource'
+import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from './units';
+import { FontStyle, FontWeight, BorderStyle } from './enums';
+import { Resource } from './../../../api/global/resource';
 /*** endif */
 
 /**
