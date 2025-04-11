@@ -113,5 +113,30 @@ declare namespace inspector {
    * @since 12
    */
   export function createComponentObserver(id: string): ComponentObserver;
+  
+  /**
+   * Obtains all attributes of the component with the specified ID.
+   *
+   * @param { string } id - ID of the component whose attributes are to be obtained.
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export function getInspectorByKey(id: string): string;
+
+  /**
+   * Get components tree.
+   *
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export function getInspectorTree(): string;
 }
 export default inspector;
