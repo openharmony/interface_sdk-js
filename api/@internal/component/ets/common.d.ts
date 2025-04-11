@@ -17329,7 +17329,7 @@ declare interface ContextMenuOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 20
     */
   outlineColor?: ResourceColor | EdgeColors;
 
@@ -17340,7 +17340,7 @@ declare interface ContextMenuOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 18
+    * @since 20
     */
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
