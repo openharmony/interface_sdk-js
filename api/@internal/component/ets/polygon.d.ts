@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+/*** endif */
+
 /**
  * Define options used to construct a polygon.
  *
@@ -26,7 +30,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PolygonOptions {
   /**
@@ -61,7 +66,8 @@ declare interface PolygonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: string | number;
 
@@ -97,7 +103,8 @@ declare interface PolygonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: string | number
 }
@@ -370,3 +377,96 @@ declare const Polygon: PolygonInterface;
  * @since 11
  */
 declare const PolygonInstance: PolygonAttribute;
+
+/**
+ * Provides the polygon drawing interface.
+ *
+ * @interface PolygonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface PolygonInterface {
+  /**
+   * Called when drawing a polygon.
+   *
+   * @param { PolygonOptions } [options] - Polygon options
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: PolygonOptions): PolygonAttribute;
+}
+
+/**
+ * Defines the Point interface
+ * 
+ * @interface Point
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface Point {
+  /**
+   * The x-axis coordinate of the point.
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  x: number | string;
+
+  /**
+   * The y-axis coordinate of the point.
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  y: number | string;
+}
+
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
+  /**
+   * Called when the vertex coordinate list of a polygon is set.
+   *
+   * @param { Array<Point> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  points(value: Array<Point>): PolygonAttribute;
+}

@@ -18,6 +18,15 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, Callback, PixelMap } from './common';
+import drawing from '../../@ohos.graphics.drawing';
+import { FrameNode } from '../FrameNode';
+import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
+import { Matrix2D } from './matrix2d';
+import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+/*** endif */
+
 /**
  * Import the drawing canvas type object for Canvas.
  *
@@ -28,6 +37,18 @@
  * @since 12
  */
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
+
+/**
+ * Import the drawing canvas type object for Canvas.
+ *
+ * @typedef { drawing.Canvas } DrawingCanvas
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DrawingCanvas = drawing.Canvas;
 
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -73,7 +94,8 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
@@ -125,7 +147,8 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
@@ -189,7 +212,8 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
@@ -237,7 +261,8 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
@@ -301,7 +326,8 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
@@ -369,7 +395,8 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
@@ -417,7 +444,8 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
@@ -460,7 +488,8 @@ declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CanvasGradient {
   /**
@@ -503,7 +532,8 @@ declare class CanvasGradient {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addColorStop(offset: number, color: string): void;
 }
@@ -536,7 +566,8 @@ declare class CanvasGradient {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CanvasPath {
   /**
@@ -595,7 +626,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
@@ -647,7 +679,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -703,7 +736,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
@@ -735,7 +769,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   closePath(): void;
 
@@ -807,7 +842,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ellipse(
     x: number,
@@ -856,7 +892,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineTo(x: number, y: number): void;
 
@@ -896,7 +933,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moveTo(x: number, y: number): void;
 
@@ -944,7 +982,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -992,7 +1031,8 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rect(x: number, y: number, w: number, h: number): void;
 }
@@ -1029,7 +1069,8 @@ declare class CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class Path2D extends CanvasPath {
   /**
@@ -1068,7 +1109,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
@@ -1100,7 +1142,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -1112,7 +1155,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(unit: LengthMetricsUnit);
 
@@ -1148,7 +1192,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(path: Path2D);
 
@@ -1161,7 +1206,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
 
@@ -1197,7 +1243,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(d: string);
 
@@ -1210,7 +1257,8 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(description: string, unit: LengthMetricsUnit);
 }
@@ -1247,7 +1295,8 @@ declare class Path2D extends CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CanvasPattern {
   /**
@@ -1282,7 +1331,8 @@ declare interface CanvasPattern {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -1319,7 +1369,8 @@ declare interface CanvasPattern {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextMetrics {
   /**
@@ -1362,7 +1413,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly actualBoundingBoxAscent: number;
 
@@ -1406,7 +1458,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly actualBoundingBoxDescent: number;
 
@@ -1450,7 +1503,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly actualBoundingBoxLeft: number;
 
@@ -1494,7 +1548,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly actualBoundingBoxRight: number;
 
@@ -1538,7 +1593,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly alphabeticBaseline: number;
 
@@ -1582,7 +1638,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly emHeightAscent: number;
 
@@ -1626,7 +1683,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly emHeightDescent: number;
 
@@ -1670,7 +1728,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly fontBoundingBoxAscent: number;
 
@@ -1714,7 +1773,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly fontBoundingBoxDescent: number;
 
@@ -1758,7 +1818,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly hangingBaseline: number;
 
@@ -1802,7 +1863,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly ideographicBaseline: number;
 
@@ -1842,7 +1904,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly width: number;
 
@@ -1882,7 +1945,8 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly height: number;
 }
@@ -1915,7 +1979,8 @@ declare interface TextMetrics {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ImageBitmap {
   /**
@@ -1954,7 +2019,8 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly height: number;
 
@@ -1994,7 +2060,8 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly width: number;
 
@@ -2026,7 +2093,8 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   close(): void;
 
@@ -2062,7 +2130,8 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(src: string);
 
@@ -2075,7 +2144,8 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(src: string, unit: LengthMetricsUnit);
   
@@ -2101,7 +2171,8 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(data: PixelMap);
 
@@ -2113,7 +2184,8 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
 }
@@ -2146,7 +2218,8 @@ declare class ImageBitmap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ImageData {
   /**
@@ -2185,7 +2258,8 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly data: Uint8ClampedArray;
 
@@ -2225,7 +2299,8 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly height: number;
 
@@ -2265,7 +2340,8 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly width: number;
 
@@ -2324,7 +2400,8 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
 }
@@ -2357,7 +2434,8 @@ declare class ImageData {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RenderingContextSettings {
   /**
@@ -2392,7 +2470,8 @@ declare class RenderingContextSettings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   antialias?: boolean;
 
@@ -2428,7 +2507,8 @@ declare class RenderingContextSettings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(antialias?: boolean);
 }
@@ -2465,7 +2545,8 @@ declare class RenderingContextSettings {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
@@ -2476,7 +2557,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   letterSpacing: LengthMetrics | string;
 
@@ -2520,7 +2602,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   globalAlpha: number;
 
@@ -2616,7 +2699,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   globalCompositeOperation: string;
 
@@ -2660,7 +2744,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
@@ -2712,7 +2797,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -2780,7 +2866,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -2822,7 +2909,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   beginPath(): void;
 
@@ -2858,7 +2946,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clip(fillRule?: CanvasFillRule): void;
 
@@ -2898,7 +2987,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -2934,7 +3024,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill(fillRule?: CanvasFillRule): void;
 
@@ -2974,7 +3065,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -3006,7 +3098,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stroke(): void;
 
@@ -3042,7 +3135,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stroke(path: Path2D): void;
 
@@ -3096,7 +3190,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -3150,7 +3245,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -3202,7 +3298,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -3266,7 +3363,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
@@ -3326,7 +3424,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
@@ -3353,7 +3452,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createConicGradient(
     startAngle: number,
@@ -3461,7 +3561,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   filter: string;
 
@@ -3505,7 +3606,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -3549,7 +3651,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -3601,7 +3704,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -3639,7 +3743,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
@@ -3683,7 +3788,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
 
@@ -3759,7 +3865,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   putImageData(
     imagedata: ImageData,
@@ -3811,7 +3918,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageSmoothingEnabled: boolean;
 
@@ -3851,7 +3959,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
@@ -3891,7 +4000,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineCap: CanvasLineCap;
 
@@ -3931,7 +4041,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineDashOffset: number;
 
@@ -3971,7 +4082,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineJoin: CanvasLineJoin;
 
@@ -4011,7 +4123,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineWidth: number;
 
@@ -4051,7 +4164,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   miterLimit: number;
 
@@ -4087,7 +4201,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLineDash(): number[];
 
@@ -4127,7 +4242,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setLineDash(segments: number[]): void;
 
@@ -4175,7 +4291,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -4223,7 +4340,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
@@ -4271,7 +4389,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
@@ -4311,7 +4430,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadowBlur: number;
 
@@ -4351,7 +4471,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadowColor: string;
 
@@ -4391,7 +4512,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadowOffsetX: number;
 
@@ -4431,7 +4553,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadowOffsetY: number;
 
@@ -4463,7 +4586,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restore(): void;
 
@@ -4495,7 +4619,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   save(): void;
 
@@ -4543,7 +4668,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -4583,7 +4709,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   measureText(text: string): TextMetrics;
 
@@ -4631,7 +4758,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -4671,7 +4799,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction: CanvasDirection;
 
@@ -4711,7 +4840,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font: string;
 
@@ -4751,7 +4881,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textAlign: CanvasTextAlign;
 
@@ -4791,7 +4922,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textBaseline: CanvasTextBaseline;
 
@@ -4827,7 +4959,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getTransform(): Matrix2D;
 
@@ -4859,7 +4992,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resetTransform(): void;
 
@@ -4899,7 +5033,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rotate(angle: number): void;
 
@@ -4939,7 +5074,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scale(x: number, y: number): void;
 
@@ -4999,7 +5135,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -5039,7 +5176,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setTransform(transform?: Matrix2D): void;
 
@@ -5099,7 +5237,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -5139,7 +5278,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   translate(x: number, y: number): void;
 
@@ -5165,7 +5305,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setPixelMap(value?: PixelMap): void;
 
@@ -5201,7 +5342,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
@@ -5211,7 +5353,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   saveLayer(): void;
 
@@ -5221,7 +5364,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restoreLayer(): void;
 
@@ -5231,7 +5375,8 @@ declare class CanvasRenderer extends CanvasPath {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
   reset(): void;
 }
@@ -5268,7 +5413,8 @@ declare class CanvasRenderer extends CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5307,7 +5453,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly height: number;
 
@@ -5347,7 +5494,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly width: number;
 
@@ -5359,7 +5507,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly canvas: FrameNode;
 
@@ -5412,6 +5561,22 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   toDataURL(type?: string, quality?: any): string;
 
   /**
+   * Generate a character string in the data url format.
+   *
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *    If the value is out of the range, the default value 0.92 is used.
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  toDataURL(type?: string, quality?: number): string;
+
+  /**
    * Start image analyzer.
    *
    * @param { ImageAnalyzerConfig } config - Image analyzer config.
@@ -5420,7 +5585,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
 
@@ -5428,7 +5594,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopImageAnalyzer(): void;
 
@@ -5477,7 +5644,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 
@@ -5493,7 +5661,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'onAttach', callback: Callback<void>): void;
 
@@ -5509,7 +5678,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'onAttach', callback?: Callback<void>): void;
 
@@ -5525,7 +5695,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'onDetach', callback: Callback<void>): void;
 
@@ -5541,7 +5712,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'onDetach', callback?: Callback<void>): void;
 }
@@ -5578,7 +5750,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5630,6 +5803,22 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   toDataURL(type?: string, quality?: any): string;
 
   /**
+   * Generate a character string in the data url format.
+   *
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *    If the value is out of the range, the default value 0.92 is used.
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  toDataURL(type?: string, quality?: number): string;
+
+  /**
    * transfer the content to ImageBitmap
    *
    * @returns { ImageBitmap }
@@ -5661,7 +5850,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5720,7 +5910,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
@@ -5756,7 +5947,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class OffscreenCanvas {
   /**
@@ -5791,7 +5983,8 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: number;
 
@@ -5827,7 +6020,8 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: number;
 
@@ -5863,7 +6057,8 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5888,7 +6083,8 @@ declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
@@ -5928,7 +6124,8 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(width: number, height: number);
 
@@ -5942,7 +6139,8 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(width: number, height: number, unit: LengthMetricsUnit);
 }
@@ -5954,7 +6152,8 @@ declare class OffscreenCanvas {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface Size {
   /**
@@ -5964,7 +6163,8 @@ declare interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: number;
 
@@ -5975,7 +6175,8 @@ declare interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: number;
 }
@@ -5986,7 +6187,8 @@ declare interface Size {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class DrawingRenderingContext {
 
@@ -5997,7 +6199,8 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   get size(): Size;
 
@@ -6008,7 +6211,8 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   get canvas(): DrawingCanvas;
 
@@ -6018,7 +6222,8 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   invalidate(): void;
 
@@ -6029,7 +6234,8 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(unit?: LengthMetricsUnit);
 }
@@ -6066,7 +6272,8 @@ declare class DrawingRenderingContext {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface CanvasInterface {
   /**
@@ -6116,7 +6323,8 @@ interface CanvasInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
@@ -6128,7 +6336,8 @@ interface CanvasInterface {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
 }
@@ -6165,7 +6374,8 @@ interface CanvasInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
@@ -6215,7 +6425,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onReady(event: VoidCallback): CanvasAttribute;
 
@@ -6226,7 +6437,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableAnalyzer(enable: boolean): CanvasAttribute;
 }

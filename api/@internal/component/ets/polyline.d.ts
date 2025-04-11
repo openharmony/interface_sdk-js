@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+import { Point } from './polygon';
+/*** endif */
+
 /**
  * Define options used to construct a polyline.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PolylineOptions {
   /**
@@ -61,7 +67,8 @@ declare interface PolylineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: string | number;
 
@@ -97,7 +104,8 @@ declare interface PolylineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: string | number
 }
@@ -363,3 +371,55 @@ declare const Polyline: PolylineInterface;
  * @since 11
  */
 declare const PolylineInstance: PolylineAttribute;
+
+/**
+ * Provides an interface for drawing polylines.
+ *
+ * @interface PolylineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface PolylineInterface {
+  /**
+   * Called when using the draw fold.
+   *
+   * @param { PolylineOptions } [options] - Poly line options
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: PolylineOptions): PolylineAttribute;
+}
+
+/**
+ * @extends CommonShapeMethod<PolylineAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   *
+   * @param { Array<Point> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  points(value: Array<Point>): PolylineAttribute;
+}

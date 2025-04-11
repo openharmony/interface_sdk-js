@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+/*** endif */
+
 /**
  * Ellipse constructor options.
  *
@@ -26,7 +30,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface EllipseOptions {
   /**
@@ -61,7 +66,8 @@ interface EllipseOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: string | number;
 
@@ -97,7 +103,8 @@ interface EllipseOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: string | number;
 }
@@ -264,7 +271,8 @@ interface EllipseInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
@@ -331,3 +339,30 @@ declare const Ellipse: EllipseInterface;
  * @since 11
  */
 declare const EllipseInstance: EllipseAttribute;
+
+/**
+ * Ellipse drawing.
+ *
+ * @interface EllipseInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface EllipseInterface {
+  /**
+   * Set the value.
+   *
+   * @param { EllipseOptions } [options] - ellipse options
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: EllipseOptions): EllipseAttribute;
+}

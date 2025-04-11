@@ -18,7 +18,10 @@
  * @kit ArkUI
  */
 
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common';
+import { RectAttribute } from './component/rect';
+/*** endif */
 
 
 /**
@@ -43,3 +46,29 @@ export declare class RectModifier extends RectAttribute implements AttributeModi
    */
   applyNormalAttribute?(instance: RectAttribute): void;
 }
+
+/**
+ * Defines Rect Modifier
+ *
+ * @extends RectAttribute
+ * @implements AttributeModifier<RectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class RectModifier extends RectAttribute implements AttributeModifier<RectAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?((instance: RectAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: ((instance: RectAttribute) => void);
+}
+
