@@ -123,7 +123,6 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
   export function getInspectorByKey(id: string): string;
 
@@ -135,7 +134,6 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
   export function getInspectorTree(): string;
 }
