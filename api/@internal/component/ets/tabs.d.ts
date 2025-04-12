@@ -37,18 +37,6 @@ import { CommonModifier } from "../CommonModifier";
 declare type CommonModifier = import('../api/arkui/CommonModifier').CommonModifier;
 
 /**
- * CommonModifier
- *
- * @typedef { import('../api/arkui/CommonModifier').CommonModifier } CommonModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type CommonModifier = CommonModifier;
-
-/**
  * Declare the graphic format of the bar chart.
  *
  * @enum { number }
