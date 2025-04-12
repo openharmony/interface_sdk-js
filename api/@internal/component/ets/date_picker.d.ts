@@ -531,6 +531,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    */
   /**
    * This event is triggered when a DatePicker date or time is selected.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<Date> } callback
    * @returns { DatePickerAttribute }
@@ -916,6 +917,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -955,6 +957,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   * Anonymous Object Rectification.
    *
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -983,6 +986,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
+   * Anonymous Object Rectification.
    *
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1067,6 +1071,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function when the dialog appears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1087,6 +1092,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function when the dialog disappears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1107,6 +1113,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function before the dialog openAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1127,6 +1134,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function before the dialog closeAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
