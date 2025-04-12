@@ -364,52 +364,6 @@ declare namespace inputDevice {
    * Obtains the IDs of all input devices.
    *
    * @param { AsyncCallback<Array<number>> } callback - Callback function, receive reported data
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
-   */
-  function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
-
-  /**
-   * Obtains the IDs of all input devices.
-   *
-   * @returns { Promise<Array<number>> }
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
-   */
-  function getDeviceIds(): Promise<Array<number>>;
-
-  /**
-   * Obtain the information about an input device.
-   *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
-   * @param { AsyncCallback<InputDeviceData> } callback - Callback function, receive reported data
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
-   */
-  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
-
-  /**
-   * Obtain the information about an input device.
-   *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
-   * @returns { Promise<InputDeviceData> }
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
-   */
-  function getDevice(deviceId: number): Promise<InputDeviceData>;
-
-  /**
-   * Obtains the IDs of all input devices.
-   *
-   * @param { AsyncCallback<Array<number>> } callback - Callback function, receive reported data
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice

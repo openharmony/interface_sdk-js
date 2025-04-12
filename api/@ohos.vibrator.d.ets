@@ -37,58 +37,6 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace vibrator {
   /**
-   * The trigger motor vibrates for a specified length of time.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { number } duration Indicate the duration of the motor vibration.
-   * @param { AsyncCallback<void> } callback The callback of vibrate.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#startVibration
-   */
-  function vibrate(duration: number, callback?: AsyncCallback<void>): void;
-
-  /**
-   * The trigger motor vibrates for a specified length of time.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { number } duration Indicate the duration of the motor vibration.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#startVibration
-   */
-  function vibrate(duration: number): Promise<void>;
-
-  /**
-   * The trigger motor vibrates for the specified effect of the preset.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#startVibration
-   */
-  function vibrate(effectId: EffectId): Promise<void>;
-
-  /**
-   * The trigger motor vibrates for the specified effect of the preset.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
-   * @param { AsyncCallback<void> } callback The callback of vibrate.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#startVibration
-   */
-  function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
-
-  /**
    * Trigger vibrator vibration.
    *
    * @permission ohos.permission.VIBRATE
@@ -276,32 +224,6 @@ declare namespace vibrator {
    * @since 12
    */
   function isSupportEffectSync(effectId: string): boolean;
-
-  /**
-   * Stop the motor from vibrating.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#stopVibration
-   */
-  function stop(stopMode: VibratorStopMode): Promise<void>;
-
-  /**
-   * Stop the motor from vibrating.
-   *
-   * @permission ohos.permission.VIBRATE
-   * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
-   * @param { AsyncCallback<void> } callback The callback of stop.
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead vibrator#stopVibration
-   */
-  function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
 
   /**
    * Whether the high-definition haptic is supported.
