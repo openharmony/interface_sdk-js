@@ -26,17 +26,18 @@ import { ElementName } from './ElementName';
  *
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 9
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface LauncherAbilityInfo {
   /**
    * Obtains application info information about an launcher ability.
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -44,9 +45,10 @@ export interface LauncherAbilityInfo {
    * Obtains element name about an launcher ability.
    *
    * @type { ElementName }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly elementName: ElementName;
 
@@ -54,9 +56,10 @@ export interface LauncherAbilityInfo {
    * Obtains labelId about an launcher ability.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 
@@ -64,9 +67,10 @@ export interface LauncherAbilityInfo {
    * Obtains iconId about an launcher ability.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly iconId: number;
 
@@ -74,9 +78,10 @@ export interface LauncherAbilityInfo {
    * Obtains userId about an launcher ability.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly userId: number;
 
@@ -84,9 +89,10 @@ export interface LauncherAbilityInfo {
    * Obtains installTime about an launcher ability.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installTime: number;
 }

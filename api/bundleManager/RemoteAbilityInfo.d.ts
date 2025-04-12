@@ -26,16 +26,19 @@ import { ElementName } from './ElementName';
  * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RemoteAbilityInfo {
   /**
    * Indicates the ability information
    *
    * @type { ElementName }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly elementName: ElementName;
 
@@ -43,9 +46,11 @@ export interface RemoteAbilityInfo {
    * Indicates the label of the ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly label: string;
 
@@ -53,9 +58,11 @@ export interface RemoteAbilityInfo {
    * Indicates the icon of the ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly icon: string;
 }

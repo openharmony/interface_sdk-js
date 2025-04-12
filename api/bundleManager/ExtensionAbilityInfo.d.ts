@@ -36,13 +36,15 @@ import { Skill } from './Skill';
  * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ExtensionAbilityInfo {
   /**
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -50,9 +52,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -60,6 +64,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -67,9 +72,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly moduleName: string;
 
@@ -77,6 +84,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -84,9 +92,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -94,6 +104,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the label id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -101,9 +112,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the label id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 
@@ -111,6 +124,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the description id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -118,9 +132,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the description id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly descriptionId: number;
 
@@ -128,6 +144,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the icon id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -135,9 +152,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the icon id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly iconId: number;
 
@@ -145,6 +164,7 @@ export interface ExtensionAbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -152,9 +172,11 @@ export interface ExtensionAbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly exported: boolean;
 
@@ -162,6 +184,7 @@ export interface ExtensionAbilityInfo {
    * Enumerates types of the extension ability info
    *
    * @type { bundleManager.ExtensionAbilityType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -169,9 +192,11 @@ export interface ExtensionAbilityInfo {
    * Enumerates types of the extension ability info
    *
    * @type { bundleManager.ExtensionAbilityType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
@@ -182,7 +207,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly extensionAbilityTypeName: string;
 
@@ -190,6 +216,7 @@ export interface ExtensionAbilityInfo {
    * The permissions that others need to use this extension ability info
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -197,9 +224,11 @@ export interface ExtensionAbilityInfo {
    * The permissions that others need to use this extension ability info
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly permissions: Array<string>;
 
@@ -207,6 +236,7 @@ export interface ExtensionAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -214,9 +244,11 @@ export interface ExtensionAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -224,6 +256,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the metadata of bundle
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -231,9 +264,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the metadata of bundle
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly metadata: Array<Metadata>;
 
@@ -241,6 +276,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the src language to express extension ability info
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -248,9 +284,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the src language to express extension ability info
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly enabled: boolean;
 
@@ -258,6 +296,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the read permission extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -265,9 +304,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the read permission extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly readPermission: string;
 
@@ -275,6 +316,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the write permission of extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -282,9 +324,11 @@ export interface ExtensionAbilityInfo {
    * Indicates the write permission of extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly writePermission: string;
 
@@ -295,7 +339,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly skills: Array<Skill>;
 
@@ -305,7 +350,8 @@ export interface ExtensionAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 }

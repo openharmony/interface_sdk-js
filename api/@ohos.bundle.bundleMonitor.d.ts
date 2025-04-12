@@ -26,7 +26,8 @@ import { Callback } from './@ohos.base';
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace bundleMonitor {
   /**
@@ -35,34 +36,41 @@ declare namespace bundleMonitor {
    * @typedef BundleChangedInfo
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BundleChangedInfo {
     /**
      * The bundle name
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly bundleName: string;
     /**
      * The user id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly userId: number;
     /**
      * The app index of clone app
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly appIndex: number;
   }
@@ -73,7 +81,8 @@ declare namespace bundleMonitor {
    * @typedef { 'add' | 'update' | 'remove' }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
@@ -88,7 +97,8 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: BundleChangedEvent, callback: Callback<BundleChangedInfo>): void;
 
@@ -103,7 +113,8 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
 }

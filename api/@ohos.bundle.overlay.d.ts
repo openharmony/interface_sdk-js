@@ -19,14 +19,15 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
+import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/OverlayModuleInfo';
 
 /**
  * Used for application interception overlay
  *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace overlay {
   /**
@@ -39,7 +40,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -53,7 +55,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean): Promise<void>;
 
@@ -74,7 +77,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setOverlayEnabledByBundleName(bundleName: string,
     moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
@@ -96,7 +100,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setOverlayEnabledByBundleName(bundleName: string, moduleName: string, isEnabled: boolean): Promise<void>;
 
@@ -110,7 +115,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
 
@@ -124,7 +130,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
 
@@ -137,7 +144,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTargetOverlayModuleInfos(targetModuleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -151,7 +159,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
 
@@ -168,7 +177,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -189,7 +199,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -210,7 +221,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     moduleName?: string): Promise<Array<OverlayModuleInfo>>;
@@ -228,7 +240,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -249,7 +262,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -270,7 +284,8 @@ declare namespace overlay {
    * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     moduleName?: string): Promise<Array<OverlayModuleInfo>>;
@@ -278,11 +293,12 @@ declare namespace overlay {
   /**
    * Obtains configuration information about a overlay hap module.
    *
-   * @typedef { _OverlayModuleInfo.OverlayModuleInfo }
+   * @typedef { _OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
+  export type OverlayModuleInfo = _OverlayModuleInfo;
 }
 
 export default overlay;

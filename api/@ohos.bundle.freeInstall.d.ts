@@ -20,7 +20,10 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { DispatchInfo as _DispatchInfo } from './bundleManager/DispatchInfo';
-import * as _PackInfo from './bundleManager/BundlePackInfo';
+import { BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, PackageSummary as _PackageSummary,
+  BundleConfigInfo as _BundleConfigInfo, ExtensionAbility as _ExtensionAbility, ModuleConfigInfo as _ModuleConfigInfo,
+  ModuleDistroInfo as _ModuleDistroInfo, ModuleAbilityInfo as _ModuleAbilityInfo, AbilityFormInfo as _AbilityFormInfo,
+  Version as _Version, ApiVersion as _ApiVersion } from './bundleManager/BundlePackInfo';
 
 /**
  * Free install bundle manager.
@@ -28,7 +31,8 @@ import * as _PackInfo from './bundleManager/BundlePackInfo';
  * @namespace freeInstall
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace freeInstall {
   /**
@@ -37,7 +41,8 @@ declare namespace freeInstall {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum UpgradeFlag {
     /**
@@ -45,7 +50,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOT_UPGRADE = 0,
     /**
@@ -53,7 +59,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_UPGRADE = 1,
     /**
@@ -61,7 +68,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATION_UPGRADE = 2
   }
@@ -72,7 +80,8 @@ declare namespace freeInstall {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum BundlePackFlag {
     /**
@@ -80,7 +89,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_PACK_INFO_ALL = 0x00000000,
     /**
@@ -88,7 +98,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_PACKAGES = 0x00000001,
     /**
@@ -96,7 +107,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_SUMMARY = 0x00000002,
     /**
@@ -104,7 +116,8 @@ declare namespace freeInstall {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_MODULE_SUMMARY = 0x00000004
   }
@@ -125,7 +138,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setHapModuleUpgradeFlag(bundleName: string,
     moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>): void;
@@ -146,7 +160,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
 
@@ -166,7 +181,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isHapModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -185,7 +201,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isHapModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
@@ -203,7 +220,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundlePackInfo(bundleName: string,
     bundlePackFlag: BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
@@ -222,7 +240,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundlePackInfo(bundleName: string, bundlePackFlag: BundlePackFlag): Promise<BundlePackInfo>;
 
@@ -236,7 +255,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDispatchInfo(callback: AsyncCallback<DispatchInfo>): void;
 
@@ -250,7 +270,8 @@ declare namespace freeInstall {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDispatchInfo(): Promise<DispatchInfo>;
 
@@ -260,119 +281,131 @@ declare namespace freeInstall {
    * @typedef { _DispatchInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type DispatchInfo = _DispatchInfo;
 
   /**
    * The bundle pack info class.
    *
-   * @typedef { _PackInfo.BundlePackInfo }
+   * @typedef { _BundlePackInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type BundlePackInfo = _PackInfo.BundlePackInfo;
+  export type BundlePackInfo = _BundlePackInfo;
 
   /**
    * The package info class.
    *
-   * @typedef { _PackInfo.PackageConfig }
+   * @typedef { _PackageConfig }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type PackageConfig = _PackInfo.PackageConfig;
+  export type PackageConfig = _PackageConfig;
 
   /**
    * The package summary class.
    *
-   * @typedef { _PackInfo.PackageSummary }
+   * @typedef { _PackageSummary }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type PackageSummary = _PackInfo.PackageSummary;
+  export type PackageSummary = _PackageSummary;
 
   /**
    * The bundle summary class.
    *
-   * @typedef { _PackInfo.BundleConfigInfo }
+   * @typedef { _BundleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type BundleConfigInfo = _PackInfo.BundleConfigInfo;
+  export type BundleConfigInfo = _BundleConfigInfo;
 
   /**
    * The extension ability forms class.
    *
-   * @typedef { _PackInfo.ExtensionAbility }
+   * @typedef { _ExtensionAbility }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type ExtensionAbility = _PackInfo.ExtensionAbility;
+  export type ExtensionAbility = _ExtensionAbility;
 
   /**
    * The module summary of a bundle.
    *
-   * @typedef { _PackInfo.ModuleConfigInfo }
+   * @typedef { _ModuleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type ModuleConfigInfo = _PackInfo.ModuleConfigInfo;
+  export type ModuleConfigInfo = _ModuleConfigInfo;
 
   /**
    * The bundle info summary class.
    *
-   * @typedef { _PackInfo.ModuleDistroInfo }
+   * @typedef { _ModuleDistroInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type ModuleDistroInfo = _PackInfo.ModuleDistroInfo;
+  export type ModuleDistroInfo = _ModuleDistroInfo;
 
   /**
    * The ability info of a module.
    *
-   * @typedef { _PackInfo.ModuleAbilityInfo }
+   * @typedef { _ModuleAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type ModuleAbilityInfo = _PackInfo.ModuleAbilityInfo;
+  export type ModuleAbilityInfo = _ModuleAbilityInfo;
 
   /**
    * The form info of an ability.
    *
-   * @typedef { _PackInfo.AbilityFormInfo }
+   * @typedef { _AbilityFormInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type AbilityFormInfo = _PackInfo.AbilityFormInfo;
+  export type AbilityFormInfo = _AbilityFormInfo;
 
   /**
    * The bundle version class.
    *
-   * @typedef { _PackInfo.Version }
+   * @typedef { _Version }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type Version = _PackInfo.Version;
+  export type Version = _Version;
 
   /**
    * The bundle Api version class.
    *
-   * @typedef { _PackInfo.ApiVersion }
+   * @typedef { _ApiVersion }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type ApiVersion = _PackInfo.ApiVersion;
+  export type ApiVersion = _ApiVersion;
 }
 
 export default freeInstall;
