@@ -543,7 +543,7 @@ interface ImageInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 
 interface ImageSourceSize {
@@ -1139,7 +1139,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   sourceSize(value: ImageSourceSize): ImageAttribute;
 
