@@ -186,6 +186,7 @@ interface ColumnInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ColumnOptions } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -198,6 +199,7 @@ interface ColumnInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification 
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
