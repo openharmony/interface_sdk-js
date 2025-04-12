@@ -3475,8 +3475,6 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - The new account info is invalid.
@@ -3657,8 +3655,6 @@ declare namespace osAccount {
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
@@ -3678,8 +3674,6 @@ declare namespace osAccount {
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300212 - Server config not found.
@@ -3698,8 +3692,6 @@ declare namespace osAccount {
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
@@ -3720,8 +3712,6 @@ declare namespace osAccount {
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<DomainServerConfig> } Returns the server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300212 - Server config not found.
@@ -3752,8 +3742,6 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
      * @returns { Promise<DomainServerConfig> } Returns the domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Domain account not found.
