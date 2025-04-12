@@ -173,7 +173,7 @@ export declare enum SourceType {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since 18
+ * @since 19
  */
 export declare enum FixedMode {
   /**
@@ -181,7 +181,7 @@ export declare enum FixedMode {
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   NONE = 0,
 
@@ -190,7 +190,7 @@ export declare enum FixedMode {
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   AUTO = 1
 }
@@ -352,7 +352,7 @@ export declare interface Touch {
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   fixedDisplayX?: number;
 
@@ -361,7 +361,7 @@ export declare interface Touch {
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   fixedDisplayY?: number;
 }
@@ -413,7 +413,7 @@ export declare interface TouchEvent extends InputEvent {
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   fixedMode?: FixedMode;
 }
