@@ -15051,7 +15051,7 @@ declare interface PopupMaskType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 20
  */
 declare interface PopupBorderLinearGradient {
   /**
@@ -15061,7 +15061,7 @@ declare interface PopupBorderLinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   direction?: GradientDirection;
 
@@ -15073,7 +15073,7 @@ declare interface PopupBorderLinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   colors: Array<[ResourceColor, number]>;
 }
@@ -15351,7 +15351,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */  
   outlineWidth?: Dimension;
 
@@ -15362,7 +15362,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderWidth?: Dimension;
     
@@ -15373,7 +15373,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   outlineLinearGradient?: PopupBorderLinearGradient;
 
@@ -15384,7 +15384,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderLinearGradient?: PopupBorderLinearGradient;
 }
@@ -16176,7 +16176,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */  
   outlineWidth?: Dimension;
 
@@ -16187,7 +16187,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderWidth?: Dimension;
     
@@ -16198,7 +16198,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   outlineLinearGradient?: PopupBorderLinearGradient;
 
@@ -16209,7 +16209,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderLinearGradient?: PopupBorderLinearGradient;
 }
@@ -16766,7 +16766,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */  
   outlineWidth?: Dimension;
 
@@ -16777,7 +16777,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderWidth?: Dimension;
     
@@ -16788,7 +16788,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   outlineLinearGradient?: PopupBorderLinearGradient;
 
@@ -16799,7 +16799,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   borderLinearGradient?: PopupBorderLinearGradient;
 }
