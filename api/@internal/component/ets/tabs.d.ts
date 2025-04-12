@@ -1231,8 +1231,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   barMode(value: BarMode.Fixed): TabsAttribute;
 
@@ -1255,8 +1254,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   barMode(value: BarMode.Scrollable, options: ScrollableBarModeOptions): TabsAttribute;
 
