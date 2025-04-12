@@ -36,7 +36,8 @@ import intl from '@ohos.intl';
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace i18n {
   /**
@@ -50,6 +51,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getDisplayCountry
+   * @arkts 1.1
    */
   export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -64,6 +66,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getDisplayLanguage
+   * @arkts 1.1
    */
   export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
@@ -75,6 +78,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemLanguage
+   * @arkts 1.1
    */
   export function getSystemLanguage(): string;
 
@@ -86,6 +90,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemRegion
+   * @arkts 1.1
    */
   export function getSystemRegion(): string;
 
@@ -97,6 +102,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemLocale
+   * @arkts 1.1
    */
   export function getSystemLocale(): string;
 
@@ -120,7 +126,8 @@ declare namespace i18n {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class System {
     /**
@@ -293,8 +300,8 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSystemLanguage(): string;
 
@@ -334,8 +341,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '12', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSystemRegion(): string;
 
@@ -375,8 +382,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSystemLocale(): string;
 
@@ -426,8 +433,8 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1': '12', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static is24HourClock(): boolean;
 
@@ -778,6 +785,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.I18NUtil
+   * @arkts 1.1
    */
   export interface Util {
     /**
@@ -793,6 +801,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.i18n/i18n.I18NUtil#unitConvert
+     * @arkts 1.1
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
   }
@@ -1240,8 +1249,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1': '12', '1.2': '20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getCalendar(locale: string, type?: string): Calendar;
 
@@ -1264,7 +1273,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
   export class Calendar {
     /**
@@ -1408,8 +1418,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '12', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTimeZone(): string;
 
@@ -1548,8 +1558,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '12', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(field: string): number;
 
@@ -1701,8 +1711,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1': '12', '1.2': '20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function isRTL(locale: string): boolean;
 
@@ -2005,6 +2015,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead Unicode
+   * @arkts 1.1
    */
   export class Character {
     /**
@@ -2016,6 +2027,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isDigit
+     * @arkts 1.1
      */
     isDigit(char: string): boolean;
 
@@ -2028,6 +2040,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isSpaceChar
+     * @arkts 1.1
      */
     isSpaceChar(char: string): boolean;
 
@@ -2040,6 +2053,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isWhitespace
+     * @arkts 1.1
      */
     isWhitespace(char: string): boolean;
 
@@ -2052,6 +2066,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isRTL
+     * @arkts 1.1
      */
     isRTL(char: string): boolean;
 
@@ -2064,6 +2079,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isIdeograph
+     * @arkts 1.1
      */
     isIdeograph(char: string): boolean;
 
@@ -2076,6 +2092,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLetter
+     * @arkts 1.1
      */
     isLetter(char: string): boolean;
 
@@ -2088,6 +2105,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLowerCase
+     * @arkts 1.1
      */
     isLowerCase(char: string): boolean;
 
@@ -2100,6 +2118,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isUpperCase
+     * @arkts 1.1
      */
     isUpperCase(char: string): boolean;
 
@@ -2112,6 +2131,7 @@ declare namespace i18n {
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.getType
+     * @arkts 1.1
      */
     getType(char: string): string;
   }
@@ -2250,8 +2270,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '12', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static isRTL(char: string): boolean;
 
@@ -2409,6 +2429,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#is24HourClock
+   * @arkts 1.1
    */
   export function is24HourClock(): boolean;
 
@@ -2422,6 +2443,7 @@ declare namespace i18n {
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#set24HourClock
+   * @arkts 1.1
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -2436,6 +2458,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#addPreferredLanguage
+   * @arkts 1.1
    */
   export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -2449,6 +2472,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#removePreferredLanguage
+   * @arkts 1.1
    */
   export function removePreferredLanguage(index: number): boolean;
 
@@ -2460,6 +2484,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#getPreferredLanguageList
+   * @arkts 1.1
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -2471,6 +2496,7 @@ declare namespace i18n {
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#getFirstPreferredLanguage
+   * @arkts 1.1
    */
   export function getFirstPreferredLanguage(): string;
 
@@ -2499,8 +2525,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1': '12', '1.2': '20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getTimeZone(zoneID?: string): TimeZone;
 
@@ -2523,7 +2549,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class TimeZone {
     /**

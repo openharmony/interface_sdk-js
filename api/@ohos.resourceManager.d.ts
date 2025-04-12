@@ -45,7 +45,8 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace resourceManager {
   /**
@@ -721,6 +722,7 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @since 6
    * @deprecated since 9
+   * @arkts 1.1
    */
   export interface AsyncCallback<T> {
     /**
@@ -731,6 +733,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
+     * @arkts 1.1
     */
     (err: Error, data: T): void;
   }
@@ -831,8 +834,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1': '11', '1.2': '20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getSystemResourceManager(): ResourceManager;
 
@@ -858,7 +861,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ResourceManager {
     /**
@@ -870,6 +874,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
+     * @arkts 1.1
      */
     getString(resId: number, callback: AsyncCallback<string>): void;
 
@@ -882,6 +887,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
+     * @arkts 1.1
      */
     getString(resId: number): Promise<string>;
 
@@ -925,8 +931,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
@@ -970,8 +976,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resource: Resource): Promise<string>;
 
@@ -984,6 +990,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
+     * @arkts 1.1
      */
     getStringArray(resId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -996,6 +1003,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
+     * @arkts 1.1
      */
     getStringArray(resId: number): Promise<Array<string>>;
 
@@ -1096,6 +1104,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
+     * @arkts 1.1
      */
     getMedia(resId: number, callback: AsyncCallback<Uint8Array>): void;
 
@@ -1108,6 +1117,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
+     * @arkts 1.1
      */
     getMedia(resId: number): Promise<Uint8Array>;
 
@@ -1271,6 +1281,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
+     * @arkts 1.1
      */
     getMediaBase64(resId: number, callback: AsyncCallback<string>): void;
 
@@ -1283,6 +1294,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
+     * @arkts 1.1
      */
     getMediaBase64(resId: number): Promise<string>;
 
@@ -1556,6 +1568,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
+     * @arkts 1.1
      */
     getPluralString(resId: number, num: number, callback: AsyncCallback<string>): void;
 
@@ -1571,6 +1584,7 @@ declare namespace resourceManager {
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
+     * @arkts 1.1
      */
     getPluralString(resId: number, num: number): Promise<string>;
 
@@ -1626,6 +1640,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
 
@@ -1681,6 +1696,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValue(resource: Resource, num: number): Promise<string>;
 
@@ -1693,6 +1709,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
+     * @arkts 1.1
      */
     getRawFile(path: string, callback: AsyncCallback<Uint8Array>): void;
 
@@ -1705,6 +1722,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
+     * @arkts 1.1
      */
     getRawFile(path: string): Promise<Uint8Array>;
 
@@ -1717,6 +1735,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFd
+     * @arkts 1.1
      */
     getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
@@ -1729,6 +1748,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFd
+     * @arkts 1.1
      */
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
@@ -1741,6 +1761,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
+     * @arkts 1.1
      */
     closeRawFileDescriptor(path: string, callback: AsyncCallback<void>): void;
 
@@ -1753,6 +1774,7 @@ declare namespace resourceManager {
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
+     * @arkts 1.1
      */
     closeRawFileDescriptor(path: string): Promise<void>;
 
@@ -2250,6 +2272,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
+     * @arkts 1.1
      */
     getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
 
@@ -2302,6 +2325,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
+     * @arkts 1.1
      */
     getPluralStringByName(resName: string, num: number): Promise<string>;
 
@@ -2342,8 +2366,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringSync(resId: number): string;
 
@@ -2376,10 +2400,30 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since 11
+     * @arkts 1.1
      */
     getStringSync(resId: number, ...args: Array<string | number>): string;
+    
+    /**
+     * Obtains string resources associated with a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+
+     */
+    getStringSync(resId: number, args: Array<string | number>): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -2421,8 +2465,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringSync(resource: Resource): string;
 
@@ -2457,10 +2501,30 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since 11
+     * @arkts 1.1
      */
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
+    
+    /**
+     * Obtains string resources associated with a specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getStringSync(resource: Resource, args: Array<string | number>): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
@@ -2699,8 +2763,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNumber(resId: number): number;
 
@@ -2744,8 +2808,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNumber(resource: Resource): number;
 
@@ -2811,6 +2875,7 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      * @deprecated since 12
+     * @arkts 1.1
      */
     release();
 
@@ -2851,8 +2916,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
@@ -2893,8 +2958,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resId: number): Promise<string>;
 
@@ -3029,6 +3094,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
 
@@ -3081,6 +3147,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValue(resId: number, num: number): Promise<string>;
 
@@ -3522,8 +3589,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3558,8 +3625,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
 
@@ -4100,8 +4167,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColorSync(resId: number) : number;
 
@@ -4131,8 +4198,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColorSync(resource: Resource) : number;
 
@@ -4298,8 +4365,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1': '11', '1.2': '20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContentSync(path: string): Uint8Array;
 
@@ -4460,6 +4527,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValueSync(resId: number, num: number): string;
 
@@ -4498,6 +4566,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
+     * @arkts 1.1
      */
     getPluralStringValueSync(resource: Resource, num: number): string;
 
@@ -4592,6 +4661,7 @@ declare namespace resourceManager {
      * @since 11
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
+     * @arkts 1.1
      */
     getPluralStringByNameSync(resName: string, num: number): string;
 
