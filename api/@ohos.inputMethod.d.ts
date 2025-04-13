@@ -1858,6 +1858,24 @@ declare namespace inputMethod {
      * @since 10
      */
     enterKeyType: EnterKeyType;
+
+    /**
+     * Placeholder text in the edit box.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    placeholder?: string;
+
+    /**
+     * The name of the ability where the edit box is located.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    abilityName?: string;
   }
 
   /**

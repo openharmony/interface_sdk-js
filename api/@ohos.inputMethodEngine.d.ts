@@ -2123,6 +2123,26 @@ declare namespace inputMethodEngine {
      * @since 18
      */
     readonly displayId?: number;
+
+    /**
+     * Placeholder text in the edit box.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly placeholder?: string;
+
+    /**
+     * The name of the ability where the edit box is located.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly abilityName?: string;
   }
 
   /**
