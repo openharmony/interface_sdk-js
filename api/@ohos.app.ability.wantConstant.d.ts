@@ -31,7 +31,8 @@
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace wantConstant {
   /**
@@ -47,7 +48,8 @@ declare namespace wantConstant {
    * @enum { string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Params {
     /**
@@ -55,7 +57,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DLP_PARAMS_SANDBOX = 'ohos.dlp.params.sandbox',
 
@@ -64,7 +67,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DLP_PARAMS_BUNDLE_NAME = 'ohos.dlp.params.bundleName',
 
@@ -73,7 +77,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DLP_PARAMS_MODULE_NAME = 'ohos.dlp.params.moduleName',
 
@@ -82,7 +87,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DLP_PARAMS_ABILITY_NAME = 'ohos.dlp.params.abilityName',
 
@@ -91,7 +97,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
@@ -100,7 +107,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
 
@@ -117,7 +125,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
 
@@ -132,7 +141,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ABILITY_RECOVERY_RESTART = 'ohos.ability.params.abilityRecoveryRestart',
 
@@ -147,7 +157,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
 
@@ -162,7 +173,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
 
@@ -177,7 +189,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
 
@@ -196,7 +209,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUPPORT_CONTINUE_PAGE_STACK_KEY = 'ohos.extra.param.key.supportContinuePageStack',
 
@@ -215,7 +229,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit',
 
@@ -225,7 +240,8 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId',
 
@@ -234,7 +250,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHOW_MODE_KEY = 'ohos.extra.param.key.showMode',
 
@@ -243,7 +260,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARAMS_STREAM = 'ability.params.stream',
 
@@ -252,7 +270,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
   
@@ -261,7 +280,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALLER_REQUEST_CODE = 'ohos.extra.param.key.callerRequestCode',
 
@@ -270,7 +290,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PAGE_PATH = 'ohos.param.atomicservice.pagePath',
 
@@ -279,7 +300,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROUTER_NAME = 'ohos.param.atomicservice.routerName',
 
@@ -288,7 +310,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PAGE_SOURCE_FILE = 'ohos.param.atomicservice.pageSourceFile',
 
@@ -297,7 +320,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUILD_FUNCTION = 'ohos.param.atomicservice.buildFunction',
   
@@ -306,7 +330,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
 
@@ -314,7 +339,8 @@ declare namespace wantConstant {
      * Indicates the param of app instance key.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP_INSTANCE_KEY = 'ohos.extra.param.key.appInstance',
 
@@ -322,7 +348,8 @@ declare namespace wantConstant {
     * Indicates the param of creating a new instance.
     *
     * @syscap SystemCapability.Ability.AbilityBase
-    * @since 14
+    * @since arkts {'1.1':'14', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
      CREATE_APP_INSTANCE_KEY = 'ohos.extra.param.key.createAppInstance',
 
@@ -330,7 +357,8 @@ declare namespace wantConstant {
     * Indicates the app clone index of caller.
     *
     * @syscap SystemCapability.Ability.AbilityBase
-    * @since 14
+    * @since arkts {'1.1':'14', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
 
@@ -341,7 +369,8 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
-    * @since 18
+    * @since arkts {'1.1':'18', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
   }
@@ -359,7 +388,8 @@ declare namespace wantConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Flags {
     /**
@@ -373,7 +403,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -388,14 +419,16 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
      * Indicates that the URI can be persisted by the callee.
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
@@ -410,7 +443,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
@@ -418,7 +452,8 @@ declare namespace wantConstant {
      * Collaborative target applications in the distributed scheduling system can be pulled up.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_ABILITY_ON_COLLABORATE = 0x00002000,
 
@@ -426,7 +461,8 @@ declare namespace wantConstant {
      * Indicates that if implicit start ability couldn't match any application, no tip dialog will be pulled up.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_START_WITHOUT_TIPS = 0x40000000
   }
@@ -437,7 +473,8 @@ declare namespace wantConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ShowMode {
     /**
@@ -445,7 +482,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW = 0,
 
@@ -454,7 +492,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMBEDDED_FULL = 1
   }

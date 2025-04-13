@@ -22,15 +22,17 @@
  * The ability or extension state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityStateData {
+declare class AbilityStateData {
   /**
    * The module name.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -39,7 +41,8 @@ export default class AbilityStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -48,7 +51,8 @@ export default class AbilityStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
@@ -57,7 +61,8 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pid: number;
 
@@ -66,7 +71,8 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uid: number;
 
@@ -75,7 +81,8 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   state: number;
 
@@ -84,7 +91,8 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityType: number;
 
@@ -93,7 +101,8 @@ export default class AbilityStateData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isAtomicService: boolean;
 
@@ -101,7 +110,10 @@ export default class AbilityStateData {
    * The app clone index of ability instance.
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appCloneIndex?: number;
 }
+
+export default AbilityStateData;

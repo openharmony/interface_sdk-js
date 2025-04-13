@@ -40,9 +40,10 @@
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class ApplicationStateChangeCallback {
+declare class ApplicationStateChangeCallback {
   /**
    * Called back when the state of the application changes to foreground.
    *
@@ -95,3 +96,5 @@ export default class ApplicationStateChangeCallback {
    */
   onApplicationBackground(): void;
 }
+
+export default ApplicationStateChangeCallback;

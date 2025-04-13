@@ -31,9 +31,10 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class UIServiceExtensionAbility extends ExtensionAbility {
+declare class UIServiceExtensionAbility extends ExtensionAbility {
   /**
    * Indicates configuration information about an UI service extension ability context.
    *
@@ -41,7 +42,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: UIServiceExtensionContext;
 
@@ -138,3 +140,5 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    */
   onDestroy(): void;
 }
+
+export default UIServiceExtensionAbility;

@@ -24,7 +24,8 @@
  * @typedef ContinueDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ContinueDeviceInfo {
   /**
@@ -33,7 +34,8 @@ export interface ContinueDeviceInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   srcDeviceId: string;
   /**
@@ -42,7 +44,8 @@ export interface ContinueDeviceInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dstDeviceId: string;
   /**
@@ -51,7 +54,8 @@ export interface ContinueDeviceInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   missionId: number;
   /**
@@ -68,7 +72,8 @@ export interface ContinueDeviceInfo {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wantParam: Record<string, Object>;
 }
