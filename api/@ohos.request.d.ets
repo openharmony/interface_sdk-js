@@ -556,21 +556,6 @@ declare namespace request {
    * Starts a download task.
    *
    * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config Download config
-   * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @syscap SystemCapability.MiscServices.Download
-   * @FAModelOnly
-   * @since 6
-   * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
-   */
-  export function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
-
-  /**
-   * Starts a download task.
-   *
-   * @permission ohos.permission.INTERNET
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { DownloadConfig } config Download config
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
@@ -601,21 +586,6 @@ declare namespace request {
    * @since 10
    */
   export function downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
-
-  /**
-   * Starts a download task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config Download config
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @syscap SystemCapability.MiscServices.Download
-   * @FAModelOnly
-   * @since 6
-   * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
-   */
-  export function download(config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a download task.
@@ -656,21 +626,6 @@ declare namespace request {
    * Starts an upload task.
    *
    * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config Upload config
-   * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @syscap SystemCapability.MiscServices.Upload
-   * @FAModelOnly
-   * @since 6
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   */
-  export function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
-
-  /**
-   * Starts an upload task.
-   *
-   * @permission ohos.permission.INTERNET
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { UploadConfig } config Upload config
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
@@ -697,21 +652,6 @@ declare namespace request {
    * @since 10
    */
   export function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
-
-  /**
-   * Starts an upload task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config Upload config
-   * @returns { Promise<UploadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @syscap SystemCapability.MiscServices.Upload
-   * @FAModelOnly
-   * @since 6
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   */
-  export function upload(config: UploadConfig): Promise<UploadTask>;
 
   /**
    * Starts an upload task.
@@ -1322,136 +1262,6 @@ declare namespace request {
      * @since 12
      */
     off(type: 'fail', callback?: (err: number) => void): void;
-
-    /**
-     * Deletes a download session and the downloaded files.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     * @deprecated since 9
-     * @useinstead ohos.request.delete
-     */
-    remove(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Deletes a download session and the downloaded files.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     * @deprecated since 9
-     * @useinstead ohos.request.delete
-     */
-    remove(): Promise<boolean>;
-
-    /**
-     * Pause a download session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.suspend
-     */
-    pause(callback: AsyncCallback<void>): void;
-
-    /**
-     * Pause a download session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.suspend
-     */
-    pause(): Promise<void>;
-
-    /**
-     * Resume a paused download session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.restore
-     */
-    resume(callback: AsyncCallback<void>): void;
-
-    /**
-     * Resume a paused download session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.restore
-     */
-    resume(): Promise<void>;
-
-    /**
-     * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback Indicate the callback function to receive download info.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.getTaskInfo
-     */
-    query(callback: AsyncCallback<DownloadInfo>): void;
-
-    /**
-     * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.getTaskInfo
-     */
-    query(): Promise<DownloadInfo>;
-
-    /**
-     * Queries the MIME type of the download file.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback Indicate the callback function to receive download file MIME type.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.getTaskMimeType
-     */
-    queryMimeType(callback: AsyncCallback<string>): void;
-
-    /**
-     * Queries the MIME type of the download file.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.request.getTaskMimeType
-     */
-    queryMimeType(): Promise<string>;
 
     /**
      * Delete the download task
@@ -2335,32 +2145,6 @@ declare namespace request {
      * @since 12
      */
     off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
-
-    /**
-     * Deletes an upload session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     * @deprecated since 9
-     * @useinstead ohos.request.delete
-     */
-    remove(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Deletes an upload session.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     * @deprecated since 9
-     * @useinstead ohos.request.delete
-     */
-    remove(): Promise<boolean>;
 
     /**
      * Delete the upload task
