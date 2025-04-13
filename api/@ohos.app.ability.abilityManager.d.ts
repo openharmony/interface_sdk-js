@@ -25,15 +25,22 @@ import Context from './application/Context';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
+/*** if arkts 1.1 */
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
+/*** endif */
+/*** if arkts 1.2 */
+import _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
+import _AbilityStateData from './application/AbilityStateData';
+/*** endif */
 
 /**
  * The class of an ability manager.
  *
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace abilityManager {
   /**
@@ -41,14 +48,16 @@ declare namespace abilityManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AbilityState {
     /**
      * Ability is initialized.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INITIAL = 0,
 
@@ -56,7 +65,8 @@ declare namespace abilityManager {
      * Ability is in the state of getting focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS = 2,
 
@@ -64,7 +74,8 @@ declare namespace abilityManager {
      * Ability is in the foreground state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOREGROUND = 9,
 
@@ -72,7 +83,8 @@ declare namespace abilityManager {
      * Ability is in the background state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKGROUND = 10,
 
@@ -80,7 +92,8 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling at the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOREGROUNDING = 11,
 
@@ -88,7 +101,8 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKGROUNDING = 12
   }
@@ -100,7 +114,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum UserStatus {
     /**
@@ -109,7 +124,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSERT_TERMINATE = 0,
 
@@ -119,7 +135,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSERT_CONTINUE = 1,
 
@@ -129,7 +146,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSERT_RETRY = 2
   }
@@ -141,7 +159,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -150,7 +169,8 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isOpenAllowed: boolean;
 
@@ -160,7 +180,8 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEmbeddedAllowed: boolean;
   }
@@ -520,7 +541,8 @@ declare namespace abilityManager {
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -535,12 +557,23 @@ declare namespace abilityManager {
   export type AbilityStateData = _AbilityStateData.default;
 
   /**
+   * The ability state data.
+   *
+   * @typedef { _AbilityStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityStateData = _AbilityStateData;
+  /**
    * The class of an extension running information.
    *
    * @typedef { _ExtensionRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
@@ -553,6 +586,17 @@ declare namespace abilityManager {
    * @since 11
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
+  
+  /**
+   * The ability foreground state observer.
+   *
+   * @typedef { _AbilityForegroundStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 }
 
 export default abilityManager;

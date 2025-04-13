@@ -47,9 +47,10 @@ import Context from './Context';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityStageContext extends Context {
+declare class AbilityStageContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
@@ -76,7 +77,8 @@ export default class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -106,7 +108,10 @@ export default class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   config: Configuration;
 }
+
+export default AbilityStageContext;

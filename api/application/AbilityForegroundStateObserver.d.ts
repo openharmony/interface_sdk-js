@@ -27,7 +27,7 @@ import AbilityStateData from './AbilityStateData';
  * @systemapi
  * @since 11
  */
-export default class AbilityForegroundStateObserver {
+declare class AbilityForegroundStateObserver {
 
   /**
    * Will be called when foreground or background ability changed.
@@ -39,3 +39,5 @@ export default class AbilityForegroundStateObserver {
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }
+
+export default AbilityForegroundStateObserver;

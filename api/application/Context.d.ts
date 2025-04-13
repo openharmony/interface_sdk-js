@@ -54,9 +54,10 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class Context extends BaseContext {
+declare class Context extends BaseContext {
   /**
    * Indicates the capability of accessing application resources.
    *
@@ -82,7 +83,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -111,7 +113,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   applicationInfo: ApplicationInfo;
 
@@ -140,7 +143,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cacheDir: string;
 
@@ -169,7 +173,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   tempDir: string;
 
@@ -198,7 +203,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   filesDir: string;
 
@@ -227,7 +233,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   databaseDir: string;
 
@@ -256,7 +263,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preferencesDir: string;
 
@@ -285,7 +293,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleCodeDir: string;
 
@@ -304,7 +313,8 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   distributedFilesDir: string;
 
@@ -316,7 +326,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceDir: string;
 
@@ -327,7 +338,8 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cloudFileDir: string;
 
@@ -356,7 +368,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   eventHub: EventHub;
 
@@ -375,7 +388,8 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   area: contextConstant.AreaMode;
 
@@ -505,7 +519,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getApplicationContext(): ApplicationContext;
 
@@ -603,3 +618,5 @@ export default class Context extends BaseContext {
    */
   createDisplayContext(displayId: number): Context;
 }
+
+export default Context;

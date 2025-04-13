@@ -29,9 +29,10 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class InsightIntentExecutor {
+declare class InsightIntentExecutor {
   /**
    * Indicates context of insight intent.
    *
@@ -39,7 +40,8 @@ export default class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: InsightIntentContext;
 
@@ -99,3 +101,5 @@ export default class InsightIntentExecutor {
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }
+
+export default InsightIntentExecutor;
