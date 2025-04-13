@@ -57,88 +57,6 @@ export default fileIo;
  * @since 12
  */
 declare namespace fileIo {
-  export { access };
-  export { accessSync };
-  export { close };
-  export { closeSync };
-  export { copy };
-  export { copyDir };
-  export { copyDirSync };
-  export { copyFile };
-  export { copyFileSync };
-  export { createRandomAccessFile };
-  export { createRandomAccessFileSync };
-  export { createStream };
-  export { createStreamSync };
-  export { createReadStream };
-  export { createWriteStream };
-  export { createWatcher };
-  export { dup };
-  export { fdatasync };
-  export { fdatasyncSync };
-  export { fdopenStream };
-  export { fdopenStreamSync };
-  export { fsync };
-  export { fsyncSync };
-  export { getxattr };
-  export { getxattrSync };
-  export { listFile };
-  export { listFileSync };
-  export { lseek };
-  export { lstat };
-  export { lstatSync };
-  export { mkdir };
-  export { mkdirSync };
-  export { mkdtemp };
-  export { mkdtempSync };
-  export { moveDir };
-  export { moveDirSync };
-  export { moveFile };
-  export { moveFileSync };
-  export { open };
-  export { openSync };
-  export { read };
-  export { readSync };
-  export { readLines };
-  export { readLinesSync };
-  export { readText };
-  export { readTextSync };
-  export { rename };
-  export { renameSync };
-  export { rmdir };
-  export { rmdirSync };
-  export { setxattr };
-  export { setxattrSync };
-  export { stat };
-  export { statSync };
-  export { symlink };
-  export { symlinkSync };
-  export { truncate };
-  export { truncateSync };
-  export { unlink };
-  export { unlinkSync };
-  export { utimes };
-  export { write };
-  export { writeSync };
-  export { AccessModeType };
-  export { AccessFlagType };
-  export { File };
-  export { OpenMode };
-  export { RandomAccessFile };
-  export { ReaderIterator };
-  export { Stat };
-  export { Stream };
-  export { ReadStream };
-  export { WriteStream };
-  export { Watcher };
-  export { WhenceType };
-  export { TaskSignal };
-  export { connectDfs };
-  export { disconnectDfs };
-  export { Progress };
-  export { CopyOptions };
-  export { ProgressListener };
-  export type { DfsListeners };
 
   /**
    * Mode Indicates the open flags.
@@ -468,7 +386,7 @@ declare namespace fileIo {
  * @atomicservice
  * @since 12
  */
-declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
+export declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
 /**
  * Access file.
@@ -533,7 +451,7 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
  * @atomicservice
  * @since 11
  */
-declare function access(path: string, callback: AsyncCallback<boolean>): void;
+export declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
  * Access file.
@@ -556,7 +474,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
+export declare function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
 
 /**
  * Access file with sync interface.
@@ -645,7 +563,7 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
  * @atomicservice
  * @since 12
  */
-declare function accessSync(path: string, mode?: AccessModeType): boolean;
+export declare function accessSync(path: string, mode?: AccessModeType): boolean;
 
 /**
  * Access file with sync interface.
@@ -668,7 +586,7 @@ declare function accessSync(path: string, mode?: AccessModeType): boolean;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
+export declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
 /**
  * Close file or fd.
@@ -715,7 +633,7 @@ declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlag
  * @atomicservice
  * @since 11
  */
-declare function close(file: number | File): Promise<void>;
+export declare function close(file: number | File): Promise<void>;
 
 /**
  * Close file or fd.
@@ -762,7 +680,7 @@ declare function close(file: number | File): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function close(file: number | File, callback: AsyncCallback<void>): void;
+export declare function close(file: number | File, callback: AsyncCallback<void>): void;
 
 /**
  * Close file or fd with sync interface.
@@ -806,7 +724,7 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @atomicservice
  * @since 11
  */
-declare function closeSync(file: number | File): void;
+export declare function closeSync(file: number | File): void;
 
 /**
  * Copy file or directory.
@@ -881,7 +799,7 @@ declare function closeSync(file: number | File): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
+export declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
  * Copy file or directory.
@@ -918,7 +836,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
+export declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
  * Copy file or directory.
@@ -956,7 +874,7 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
+export declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
  * Copy directory.
@@ -1013,7 +931,7 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
+export declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
  * Copy directory.
@@ -1041,7 +959,7 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+export declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
  * Copy directory.
@@ -1053,7 +971,7 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+export declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 
 /**
@@ -1083,7 +1001,7 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+export declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Copy directory.
@@ -1096,7 +1014,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+export declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy directory with sync interface.
@@ -1153,7 +1071,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function copyDirSync(src: string, dest: string, mode?: number): void;
+export declare function copyDirSync(src: string, dest: string, mode?: number): void;
 
 /**
  * Copy file.
@@ -1269,7 +1187,7 @@ declare function copyDirSync(src: string, dest: string, mode?: number): void;
  * @atomicservice
  * @since 12
  */
-declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
+export declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
 
 /**
  * Copy file.
@@ -1352,7 +1270,7 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @atomicservice
  * @since 11
  */
-declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
+export declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
 
 /**
  * Copy file.
@@ -1438,7 +1356,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @atomicservice
  * @since 11
  */
-declare function copyFile(
+export declare function copyFile(
   src: string | number,
   dest: string | number,
   mode: number,
@@ -1555,7 +1473,7 @@ declare function copyFile(
  * @atomicservice
  * @since 12
  */
-declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+export declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
 /**
  * Create class Stream.
@@ -1628,7 +1546,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createStream(path: string, mode: string): Promise<Stream>;
+export declare function createStream(path: string, mode: string): Promise<Stream>;
 
 /**
  * Create class Stream.
@@ -1665,7 +1583,7 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
+export declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
  * Create class Stream with sync interface.
@@ -1738,7 +1656,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createStreamSync(path: string, mode: string): Stream;
+export declare function createStreamSync(path: string, mode: string): Stream;
 
 
 /**
@@ -1813,7 +1731,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createRandomAccessFile(file: string | File, mode?: number,
+export declare function createRandomAccessFile(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
 
 /**
@@ -1850,7 +1768,7 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
+export declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
  * Create class RandomAccessFile.
@@ -1887,7 +1805,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function createRandomAccessFile(file: string | File, mode: number, callback: AsyncCallback<RandomAccessFile>): void;
+export declare function createRandomAccessFile(file: string | File, mode: number, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
  * Create class RandomAccessFile with sync interface.
@@ -1961,7 +1879,7 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createRandomAccessFileSync(file: string | File, mode?: number,
+export declare function createRandomAccessFileSync(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): RandomAccessFile;
 
 /**
@@ -1989,7 +1907,7 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
+export declare function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
 /**
  * Create file write stream.
@@ -2018,7 +1936,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
+export declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
 /**
  * Create watcher to listen for file changes.
@@ -2043,7 +1961,7 @@ declare function createWriteStream(path: string, options?: WriteStreamOptions): 
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
+export declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
 /**
  * Duplicate fd to File Object.
@@ -2060,7 +1978,7 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function dup(fd: number): File;
+export declare function dup(fd: number): File;
 
 /**
  * Synchronize file metadata.
@@ -2093,7 +2011,7 @@ declare function dup(fd: number): File;
  * @crossplatform
  * @since 10
  */
-declare function fdatasync(fd: number): Promise<void>;
+export declare function fdatasync(fd: number): Promise<void>;
 
 /**
  * Synchronize file metadata.
@@ -2126,7 +2044,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * @crossplatform
  * @since 10
  */
-declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
+export declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 
 /**
  * Synchronize file metadata with sync interface.
@@ -2157,7 +2075,7 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  * @crossplatform
  * @since 10
  */
-declare function fdatasyncSync(fd: number): void;
+export declare function fdatasyncSync(fd: number): void;
 
 /**
  * Create class Stream by using fd.
@@ -2195,7 +2113,7 @@ declare function fdatasyncSync(fd: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
+export declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 
 /**
  * Create class Stream by using fd.
@@ -2233,7 +2151,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
+export declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
  * Create class Stream by using fd with sync interface.
@@ -2271,7 +2189,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function fdopenStreamSync(fd: number, mode: string): Stream;
+export declare function fdopenStreamSync(fd: number, mode: string): Stream;
 
 /**
  * Synchronize file.
@@ -2304,7 +2222,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @crossplatform
  * @since 10
  */
-declare function fsync(fd: number): Promise<void>;
+export declare function fsync(fd: number): Promise<void>;
 
 /**
  * Synchronize file.
@@ -2337,7 +2255,7 @@ declare function fsync(fd: number): Promise<void>;
  * @crossplatform
  * @since 10
  */
-declare function fsync(fd: number, callback: AsyncCallback<void>): void;
+export declare function fsync(fd: number, callback: AsyncCallback<void>): void;
 
 /**
  * Synchronize file with sync interface.
@@ -2368,7 +2286,7 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  * @crossplatform
  * @since 10
  */
-declare function fsyncSync(fd: number): void;
+export declare function fsyncSync(fd: number): void;
 
 /**
  * List file.
@@ -2418,7 +2336,7 @@ declare function fsyncSync(fd: number): void;
  * @atomicservice
  * @since 11
  */
-declare function listFile(
+export declare function listFile(
   path: string,
   options?: ListFileOptions
 ): Promise<string[]>;
@@ -2468,7 +2386,7 @@ declare function listFile(
  * @atomicservice
  * @since 11
  */
-declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
+export declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
 /**
  * List file.
@@ -2518,7 +2436,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * @atomicservice
  * @since 11
  */
-declare function listFile(
+export declare function listFile(
   path: string,
   options: ListFileOptions,
   callback: AsyncCallback<string[]>
@@ -2569,7 +2487,7 @@ declare function listFile(
  * @atomicservice
  * @since 11
  */
-declare function listFileSync(
+export declare function listFileSync(
   path: string,
   options?: ListFileOptions
 ): string[];
@@ -2605,7 +2523,7 @@ declare function listFileSync(
  * @crossplatform
  * @since 12
  */
-declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
+export declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
 /**
  * Stat link file.
@@ -2625,7 +2543,7 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function lstat(path: string): Promise<Stat>;
+export declare function lstat(path: string): Promise<Stat>;
 
 /**
  * Stat link file.
@@ -2645,7 +2563,7 @@ declare function lstat(path: string): Promise<Stat>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
+export declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
  * Stat link file with sync interface.
@@ -2665,7 +2583,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function lstatSync(path: string): Stat;
+export declare function lstatSync(path: string): Stat;
 
 /**
  * Make dir.
@@ -2739,7 +2657,7 @@ declare function lstatSync(path: string): Stat;
  * @atomicservice
  * @since 11
  */
-declare function mkdir(path: string): Promise<void>;
+export declare function mkdir(path: string): Promise<void>;
 
 /**
  * Make dir.
@@ -2766,7 +2684,7 @@ declare function mkdir(path: string): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function mkdir(path: string, recursion: boolean): Promise<void>;
+export declare function mkdir(path: string, recursion: boolean): Promise<void>;
 
 /**
  * Make dir.
@@ -2840,7 +2758,7 @@ declare function mkdir(path: string, recursion: boolean): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function mkdir(path: string, callback: AsyncCallback<void>): void;
+export declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
  * Make dir.
@@ -2867,7 +2785,7 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @atomicservice
  * @since 11
  */
-declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
+export declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
 /**
  * Make dir with sync interface.
@@ -2938,7 +2856,7 @@ declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback
  * @atomicservice
  * @since 11
  */
-declare function mkdirSync(path: string): void;
+export declare function mkdirSync(path: string): void;
 
 /**
  * Make dir with sync interface.
@@ -2964,7 +2882,7 @@ declare function mkdirSync(path: string): void;
  * @atomicservice
  * @since 11
  */
-declare function mkdirSync(path: string, recursion: boolean): void;
+export declare function mkdirSync(path: string, recursion: boolean): void;
 
 /**
  * Make temp dir.
@@ -3013,7 +2931,7 @@ declare function mkdirSync(path: string, recursion: boolean): void;
  * @crossplatform
  * @since 10
  */
-declare function mkdtemp(prefix: string): Promise<string>;
+export declare function mkdtemp(prefix: string): Promise<string>;
 
 /**
  * Make temp dir.
@@ -3062,7 +2980,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * @crossplatform
  * @since 10
  */
-declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
+export declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 
 /**
  * Make temp dir with sync interface.
@@ -3111,7 +3029,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @crossplatform
  * @since 10
  */
-declare function mkdtempSync(prefix: string): string;
+export declare function mkdtempSync(prefix: string): string;
 
 /**
  * Move directory.
@@ -3142,7 +3060,7 @@ declare function mkdtempSync(prefix: string): string;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
+export declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
  * Move directory.
@@ -3171,7 +3089,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+export declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
  * Move directory.
@@ -3183,7 +3101,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+export declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory.
@@ -3213,7 +3131,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+export declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Move directory.
@@ -3226,7 +3144,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+export declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory with sync interface.
@@ -3256,7 +3174,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDirSync(src: string, dest: string, mode?: number): void;
+export declare function moveDirSync(src: string, dest: string, mode?: number): void;
 
 /**
  * Move file.
@@ -3317,7 +3235,7 @@ declare function moveDirSync(src: string, dest: string, mode?: number): void;
  * @crossplatform
  * @since 10
  */
-declare function moveFile(src: string, dest: string, mode?: number): Promise<void>;
+export declare function moveFile(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
  * Move file.
@@ -3376,7 +3294,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  * @crossplatform
  * @since 10
  */
-declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
+export declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
  * Move file.
@@ -3437,7 +3355,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @crossplatform
  * @since 10
  */
-declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+export declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Move file with sync interface.
@@ -3496,7 +3414,7 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
  * @crossplatform
  * @since 10
  */
-declare function moveFileSync(src: string, dest: string, mode?: number): void;
+export declare function moveFileSync(src: string, dest: string, mode?: number): void;
 
 /**
  * Open file.
@@ -3644,7 +3562,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @atomicservice
  * @since 12
  */
-declare function open(path: string, mode?: number): Promise<File>;
+export declare function open(path: string, mode?: number): Promise<File>;
 
 /**
  * Open file.
@@ -3751,7 +3669,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * @atomicservice
  * @since 11
  */
-declare function open(path: string, callback: AsyncCallback<File>): void;
+export declare function open(path: string, callback: AsyncCallback<File>): void;
 
 /**
  * Open file.
@@ -3861,7 +3779,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @atomicservice
  * @since 11
  */
-declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
+export declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
 
 /**
  * Open file with sync interface.
@@ -4009,7 +3927,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @atomicservice
  * @since 12
  */
-declare function openSync(path: string, mode?: number): File;
+export declare function openSync(path: string, mode?: number): File;
 
 /**
  * Read file.
@@ -4093,7 +4011,7 @@ declare function openSync(path: string, mode?: number): File;
  * @atomicservice
  * @since 12
  */
-declare function read(
+export declare function read(
   fd: number,
   buffer: ArrayBuffer,
   options?: ReadOptions
@@ -4156,7 +4074,7 @@ declare function read(
  * @atomicservice
  * @since 11
  */
-declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
+export declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
 /**
  * Read file.
@@ -4218,7 +4136,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @atomicservice
  * @since 11
  */
-declare function read(
+export declare function read(
   fd: number,
   buffer: ArrayBuffer,
   options: ReadOptions,
@@ -4307,7 +4225,7 @@ declare function read(
  * @atomicservice
  * @since 12
  */
-declare function readSync(
+export declare function readSync(
   fd: number,
   buffer: ArrayBuffer,
   options?: ReadOptions
@@ -4356,7 +4274,7 @@ declare function readSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
+export declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
 /**
  * Read content line by line.
@@ -4378,7 +4296,7 @@ declare function readLines(filePath: string, options?: Options): Promise<ReaderI
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
+export declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
  * Read content line by line.
@@ -4401,7 +4319,7 @@ declare function readLines(filePath: string, callback: AsyncCallback<ReaderItera
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
+export declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
  * Read content line by line with sync interface.
@@ -4446,7 +4364,7 @@ declare function readLines(filePath: string, options: Options, callback: AsyncCa
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
+export declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
 /**
  * Read text.
@@ -4542,7 +4460,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  * @atomicservice
  * @since 12
  */
-declare function readText(
+export declare function readText(
   filePath: string,
   options?: ReadTextOptions
 ): Promise<string>;
@@ -4613,7 +4531,7 @@ declare function readText(
  * @atomicservice
  * @since 11
  */
-declare function readText(filePath: string, callback: AsyncCallback<string>): void;
+export declare function readText(filePath: string, callback: AsyncCallback<string>): void;
 
 /**
  * Read text.
@@ -4684,7 +4602,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * @atomicservice
  * @since 11
  */
-declare function readText(
+export declare function readText(
   filePath: string,
   options: ReadTextOptions,
   callback: AsyncCallback<string>
@@ -4784,7 +4702,7 @@ declare function readText(
  * @atomicservice
  * @since 12
  */
-declare function readTextSync(
+export declare function readTextSync(
   filePath: string,
   options?: ReadTextOptions
 ): string;
@@ -4876,7 +4794,7 @@ declare function readTextSync(
  * @atomicservice
  * @since 11
  */
-declare function rename(oldPath: string, newPath: string): Promise<void>;
+export declare function rename(oldPath: string, newPath: string): Promise<void>;
 
 /**
  * Rename file.
@@ -4965,7 +4883,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
+export declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
 
 /**
  * Rename file with sync interface.
@@ -5051,7 +4969,7 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * @atomicservice
  * @since 11
  */
-declare function renameSync(oldPath: string, newPath: string): void;
+export declare function renameSync(oldPath: string, newPath: string): void;
 
 /**
  * Delete dir.
@@ -5116,7 +5034,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * @atomicservice
  * @since 11
  */
-declare function rmdir(path: string): Promise<void>;
+export declare function rmdir(path: string): Promise<void>;
 
 /**
  * Delete dir.
@@ -5181,7 +5099,7 @@ declare function rmdir(path: string): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function rmdir(path: string, callback: AsyncCallback<void>): void;
+export declare function rmdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
  * Delete dir with sync interface.
@@ -5243,7 +5161,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @atomicservice
  * @since 11
  */
-declare function rmdirSync(path: string): void;
+export declare function rmdirSync(path: string): void;
 
 /**
  * Get file information.
@@ -5311,7 +5229,7 @@ declare function rmdirSync(path: string): void;
  * @atomicservice
  * @since 11
  */
-declare function stat(file: string | number): Promise<Stat>;
+export declare function stat(file: string | number): Promise<Stat>;
 
 /**
  * Get file information.
@@ -5379,7 +5297,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * @atomicservice
  * @since 11
  */
-declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
+export declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
 
 /**
  * Get file information with sync interface.
@@ -5447,7 +5365,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * @atomicservice
  * @since 11
  */
-declare function statSync(file: string | number): Stat;
+export declare function statSync(file: string | number): Stat;
 
 /**
  * Link file.
@@ -5472,7 +5390,7 @@ declare function statSync(file: string | number): Stat;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function symlink(target: string, srcPath: string): Promise<void>;
+export declare function symlink(target: string, srcPath: string): Promise<void>;
 
 /**
  * Link file.
@@ -5497,7 +5415,7 @@ declare function symlink(target: string, srcPath: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
+export declare function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
 
 /**
  * Link file with sync interface.
@@ -5521,7 +5439,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare function symlinkSync(target: string, srcPath: string): void;
+export declare function symlinkSync(target: string, srcPath: string): void;
 
 /**
  * Truncate file.
@@ -5601,7 +5519,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  * @atomicservice
  * @since 11
  */
-declare function truncate(file: string | number, len?: number): Promise<void>;
+export declare function truncate(file: string | number, len?: number): Promise<void>;
 
 /**
  * Truncate file.
@@ -5678,7 +5596,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
+export declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
 
 /**
  * Truncate file.
@@ -5758,7 +5676,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  * @atomicservice
  * @since 11
  */
-declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
+export declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
 
 /**
  * Truncate file with sync interface.
@@ -5835,7 +5753,7 @@ declare function truncate(file: string | number, len: number, callback: AsyncCal
  * @atomicservice
  * @since 11
  */
-declare function truncateSync(file: string | number, len?: number): void;
+export declare function truncateSync(file: string | number, len?: number): void;
 
 /**
  * Delete file.
@@ -5909,7 +5827,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * @atomicservice
  * @since 11
  */
-declare function unlink(path: string): Promise<void>;
+export declare function unlink(path: string): Promise<void>;
 
 /**
  * Delete file.
@@ -5983,7 +5901,7 @@ declare function unlink(path: string): Promise<void>;
  * @atomicservice
  * @since 11
  */
-declare function unlink(path: string, callback: AsyncCallback<void>): void;
+export declare function unlink(path: string, callback: AsyncCallback<void>): void;
 
 /**
  * Delete file with sync interface.
@@ -6054,7 +5972,7 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  * @atomicservice
  * @since 11
  */
-declare function unlinkSync(path: string): void;
+export declare function unlinkSync(path: string): void;
 
 /**
  * Change file mtime.
@@ -6085,7 +6003,7 @@ declare function unlinkSync(path: string): void;
  * @crossplatform
  * @since 12
  */
-declare function utimes(path: string, mtime: number): void;
+export declare function utimes(path: string, mtime: number): void;
 
 /**
  * Write file.
@@ -6156,7 +6074,7 @@ declare function utimes(path: string, mtime: number): void;
  * @atomicservice
  * @since 11
  */
-declare function write(
+export declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
   options?: WriteOptions
@@ -6228,7 +6146,7 @@ declare function write(
  * @atomicservice
  * @since 11
  */
-declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
+export declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
 /**
  * Write file.
@@ -6299,7 +6217,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @atomicservice
  * @since 11
  */
-declare function write(
+export declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
   options: WriteOptions,
@@ -6375,7 +6293,7 @@ declare function write(
  * @atomicservice
  * @since 11
  */
-declare function writeSync(
+export declare function writeSync(
   fd: number,
   buffer: ArrayBuffer | string,
   options?: WriteOptions
@@ -6396,7 +6314,7 @@ declare function writeSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+export declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 
 /**
  * Disconnect Distributed File System.
@@ -6411,7 +6329,7 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function disconnectDfs(networkId: string): Promise<void>;
+export declare function disconnectDfs(networkId: string): Promise<void>;
 
 /**
  * Set extended attributes information of the file.
@@ -6434,7 +6352,7 @@ declare function disconnectDfs(networkId: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function setxattr(path: string, key: string, value: string): Promise<void>;
+export declare function setxattr(path: string, key: string, value: string): Promise<void>;
 
 /**
  * Set extended attributes information of the file.
@@ -6457,7 +6375,7 @@ declare function setxattr(path: string, key: string, value: string): Promise<voi
  * @since 12
  */
 
-declare function setxattrSync(path: string, key: string, value: string): void;
+export declare function setxattrSync(path: string, key: string, value: string): void;
 
 /**
  * Get extended attributes information of the file.
@@ -6477,7 +6395,7 @@ declare function setxattrSync(path: string, key: string, value: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function getxattr(path: string, key: string): Promise<string>;
+export declare function getxattr(path: string, key: string): Promise<string>;
 
 /**
  * Get extended attributes information of the file with sync interface.
@@ -6497,7 +6415,7 @@ declare function getxattr(path: string, key: string): Promise<string>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare function getxattrSync(path: string, key: string): string;
+export declare function getxattrSync(path: string, key: string): string;
 
 /**
  * Progress data of copyFile
@@ -6506,7 +6424,7 @@ declare function getxattrSync(path: string, key: string): string;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-interface Progress {
+export interface Progress {
   /**
    * @type { number }
    * @readonly
@@ -6530,7 +6448,7 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare class TaskSignal {
+export declare class TaskSignal {
   /**
    * Cancel the copy task in progress.
    *
@@ -6562,7 +6480,7 @@ declare class TaskSignal {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-interface CopyOptions {
+export interface CopyOptions {
   /**
    * Listener of copy progress
    *
@@ -6589,7 +6507,7 @@ interface CopyOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-type ProgressListener = (progress: Progress) => void;
+export type ProgressListener = (progress: Progress) => void;
 
 /**
  * File object.
@@ -6615,7 +6533,7 @@ type ProgressListener = (progress: Progress) => void;
  * @atomicservice
  * @since 11
  */
-declare interface File {
+export declare interface File {
   /**
    * @type { number }
    * @readonly
@@ -6760,7 +6678,7 @@ declare interface File {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare interface RandomAccessFile {
+export declare interface RandomAccessFile {
 
   /**
    * File descriptor
@@ -7193,7 +7111,7 @@ declare interface RandomAccessFile {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare class ReadStream extends stream.Readable {
+export declare class ReadStream extends stream.Readable {
   /**
     * The ReadStream constructor.
     *
@@ -7261,7 +7179,7 @@ declare class ReadStream extends stream.Readable {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare class WriteStream extends stream.Writable {
+export declare class WriteStream extends stream.Writable {
   /**
     * The WriteStream constructor.
     *
@@ -7346,7 +7264,7 @@ declare class WriteStream extends stream.Writable {
  * @atomicservice
  * @since 11
  */
-declare interface Stat {
+export declare interface Stat {
   /**
    * @type { bigint }
    * @readonly
@@ -7716,7 +7634,7 @@ declare interface Stat {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare interface Stream {
+export declare interface Stream {
   /**
    * Close stream.
    *
@@ -8309,7 +8227,7 @@ export interface ReaderIteratorResult {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare interface ReaderIterator {
+export declare interface ReaderIterator {
   /**
    * Get next result from the iterator.
    *
@@ -8735,7 +8653,7 @@ export interface DfsListeners {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare enum WhenceType {
+export declare enum WhenceType {
   /**
    * Starting position of the file offset.
    *
@@ -8768,7 +8686,7 @@ declare enum WhenceType {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare enum LocationType {
+export declare enum LocationType {
   /**
    * Local file.
    *
@@ -8794,7 +8712,7 @@ declare enum LocationType {
  * @atomicservice
  * @since 12
  */
-declare enum AccessModeType {
+export declare enum AccessModeType {
   /**
    * Check if the file exists.
    *
@@ -8839,7 +8757,7 @@ declare enum AccessModeType {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-declare enum AccessFlagType {
+export declare enum AccessFlagType {
   /**
    * Check if the file is on the local.
    *
