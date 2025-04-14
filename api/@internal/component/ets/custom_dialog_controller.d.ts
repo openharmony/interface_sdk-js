@@ -794,8 +794,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   open();
 
@@ -808,7 +807,7 @@ declare class CustomDialogController {
    * @since 20
    * @arkts 1.2
    */
-  open();
+  open(): void;
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
@@ -829,8 +828,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   close();
 
