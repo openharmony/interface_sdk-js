@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { SelectAttribute } from '../@internal/component/ets/select'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Select Modifier
@@ -42,4 +45,29 @@ export declare class SelectModifier extends SelectAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: SelectAttribute): void;
+}
+
+/**
+ * Defines Select Modifier
+ *
+ * @extends SelectAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class SelectModifier extends SelectAttribute implements AttributeModifier<SelectAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<SelectAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<SelectAttribute>;
 }

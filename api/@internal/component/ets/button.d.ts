@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from '../../../global/resource'
+import { ResourceStr,ResourceColor,Length, Font } from './units'
+import { TextOverflow, FontWeight, FontStyle,TextHeightAdaptivePolicy } from './enums'
+import { CommonConfiguration,CommonMethod,ContentModifier } from './common' 
+/*** endif */
+
 /**
  * Provides a button component.
  *
@@ -50,7 +57,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ButtonType {
   /**
@@ -81,7 +89,8 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Capsule,
 
@@ -113,7 +122,8 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Circle,
 
@@ -145,7 +155,8 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Normal,
 
@@ -156,7 +167,8 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ROUNDED_RECTANGLE = 3,
 }
@@ -178,7 +190,8 @@ declare enum ButtonType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ButtonStyleMode {
   /**
@@ -196,7 +209,8 @@ declare enum ButtonStyleMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NORMAL = 0,
 
@@ -215,7 +229,8 @@ declare enum ButtonStyleMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EMPHASIZED = 1,
 
@@ -234,7 +249,8 @@ declare enum ButtonStyleMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TEXTUAL = 2,
 }
@@ -247,7 +263,8 @@ declare enum ButtonStyleMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ButtonRole {
   /**
@@ -257,7 +274,8 @@ declare enum ButtonRole {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NORMAL = 0,
 
@@ -268,7 +286,8 @@ declare enum ButtonRole {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERROR = 1,
 }
@@ -282,7 +301,8 @@ declare enum ButtonRole {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
@@ -294,7 +314,8 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
@@ -305,7 +326,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   label: string;
 
@@ -316,7 +338,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressed: boolean;
 
@@ -327,7 +350,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerClick: ButtonTriggerClickCallback;
 }
@@ -349,7 +373,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ControlSize {
   /**
@@ -367,7 +392,8 @@ declare enum ControlSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SMALL = 'small',
 
@@ -386,7 +412,8 @@ declare enum ControlSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NORMAL = 'normal',
 }
@@ -423,7 +450,8 @@ declare enum ControlSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ButtonOptions {
   /**
@@ -458,7 +486,8 @@ declare interface ButtonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: ButtonType;
 
@@ -494,7 +523,8 @@ declare interface ButtonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stateEffect?: boolean;
 
@@ -517,7 +547,8 @@ declare interface ButtonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonStyle?: ButtonStyleMode;
 
@@ -540,7 +571,8 @@ declare interface ButtonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controlSize?: ControlSize;
 
@@ -553,7 +585,8 @@ declare interface ButtonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     role?: ButtonRole;
 }
@@ -590,7 +623,8 @@ declare interface ButtonOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ButtonInterface {
   /**
@@ -625,7 +659,8 @@ interface ButtonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): ButtonAttribute;
 
@@ -665,7 +700,8 @@ interface ButtonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: ButtonOptions): ButtonAttribute;
 
@@ -709,7 +745,8 @@ interface ButtonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
@@ -729,7 +766,8 @@ interface ButtonInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface LabelStyle {
   /**
@@ -747,7 +785,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   overflow?: TextOverflow;
 
@@ -766,7 +805,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxLines?: number;
 
@@ -785,7 +825,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minFontSize?: number | ResourceStr;
 
@@ -804,7 +845,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxFontSize?: number | ResourceStr;
 
@@ -823,7 +865,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
 
@@ -842,7 +885,8 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font?: Font;
 }
@@ -879,7 +923,8 @@ declare interface LabelStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
@@ -918,7 +963,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type(value: ButtonType): ButtonAttribute;
 
@@ -958,7 +1004,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stateEffect(value: boolean): ButtonAttribute;
 
@@ -981,7 +1028,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
   
@@ -1004,7 +1052,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controlSize(value: ControlSize): ButtonAttribute;
 
@@ -1017,7 +1066,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice 
-   * @since 12 
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   role(value: ButtonRole): ButtonAttribute;
 
@@ -1057,7 +1107,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): ButtonAttribute;
 
@@ -1097,7 +1148,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: Length): ButtonAttribute;
 
@@ -1137,7 +1189,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
@@ -1177,7 +1230,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle(value: FontStyle): ButtonAttribute;
 
@@ -1217,7 +1271,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily(value: string | Resource): ButtonAttribute;
 
@@ -1229,7 +1284,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
@@ -1250,7 +1306,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
 
@@ -1261,7 +1318,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minFontScale(scale: number | Resource): ButtonAttribute;
 
@@ -1272,7 +1330,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxFontScale(scale: number | Resource): ButtonAttribute;
 }
