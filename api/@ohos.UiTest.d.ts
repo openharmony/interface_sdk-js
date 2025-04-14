@@ -3223,11 +3223,28 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
-    * @arkts 1.1&1.2
+    * @since 18
     * @test
     */
    scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
+   
+   /**
+    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
+    *
+    * @param { On } on - the attribute requirements of the target {@link Component}.
+    * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
+    * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
+    * @returns { Promise<Component|null> } the found result,or undefined if not found.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @atomicservice
+    * @since arkts {'1.2':20}
+    * @arkts 1.2
+    * @test
+    */
+   scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component|null>;
  }
  
  /**
@@ -3364,11 +3381,24 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
-    * @arkts 1.1&1.2
+    * @since 11
     * @test
     */
    findComponent(on: On): Promise<Component>;
+   /**
+    * Find the first matched {@link Component} on current UI.
+    *
+    * @param { On } on - the attribute requirements of the target {@link Component}.
+    * @returns { Promise<Component|null> } the first matched {@link Component} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @syscap SystemCapability.Test.UiTest
+    * @atomicservice
+    * @since arkts {'1.2':20}
+    * @arkts 1.2
+    * @test
+    */
+   findComponent(on: On): Promise<Component|null>;
  
    /**
     * Find the first matched {@link UiWindow} window.
@@ -3390,11 +3420,24 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
-    * @arkts 1.1&1.2
+    * @since 11
     * @test
     */
    findWindow(filter: WindowFilter): Promise<UiWindow>;
+   /**
+    * Find the first matched {@link UiWindow} window.
+    *
+    * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+    * @returns { Promise<UiWindow|null> } the first matched {@link UiWindow} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @syscap SystemCapability.Test.UiTest
+    * @atomicservice
+    * @since {'1.2':20}
+    * @arkts 1.2
+    * @test
+    */
+   findWindow(filter: WindowFilter): Promise<UiWindow|null>;
  
    /**
     * Find the first matched {@link Component} on current UI during the time given.
@@ -3418,11 +3461,25 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
-    * @arkts 1.1&1.2
+    * @since 11
     * @test
     */
    waitForComponent(on: On, time: number): Promise<Component>;
+   /**
+    * Find the first matched {@link Component} on current UI during the time given.
+    *
+    * @param { On } on - the attribute requirements of the target {@link Component}.
+    * @param { number } time - duration of finding in milliseconds, not less than 0.
+    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @syscap SystemCapability.Test.UiTest
+    * @atomicservice
+    * @since arkts {'1.2':20}
+    * @arkts 1.2
+    * @test
+    */
+   waitForComponent(on: On, time: number): Promise<Component|null>;
  
    /**
     * Find all the matched {@link Component}s on current UI.
@@ -3457,11 +3514,25 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
-    * @arkts 1.1&1.2
+    * @since 11
     * @test
     */
    findComponents(on: On): Promise<Array<Component>>;
+   
+   /**
+    * Find all the matched {@link Component}s on current UI.
+    *
+    * @param { On } on - the attribute requirements of the target {@link Component}.
+    * @returns { Promise<Array<Component>|null> } the matched {@link Component}s list.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @syscap SystemCapability.Test.UiTest
+    * @atomicservice
+    * @since arkts {'1.2':20}
+    * @arkts 1.2
+    * @test
+    */
+  findComponents(on: On): Promise<Array<Component>|null>;
  
    /**
     * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
