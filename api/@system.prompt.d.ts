@@ -74,7 +74,8 @@ export interface ShowToastOptions {
  * @interface Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Button {
   /**
@@ -90,7 +91,8 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: string;
 
@@ -107,7 +109,8 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color: string;
 }
@@ -125,7 +128,8 @@ export interface Button {
  * @interface ShowDialogSuccessResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowDialogSuccessResponse {
   /**
@@ -141,7 +145,8 @@ export interface ShowDialogSuccessResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   index: number;
 }
@@ -159,7 +164,8 @@ export interface ShowDialogSuccessResponse {
  * @interface ShowDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowDialogOptions {
   /**
@@ -175,7 +181,8 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -192,7 +199,8 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   message?: string;
 
@@ -218,6 +226,19 @@ export interface ShowDialogOptions {
   buttons?: [Button, Button?, Button?];
 
   /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+   *
+   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons?: [Button, Button | undefined, Button | undefined];
+
+  /**
    * Called when the dialog box is displayed.
    *
    * @type { ?function }
@@ -230,7 +251,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
@@ -247,7 +269,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancel?: (data: string, code: string) => void;
 
@@ -264,7 +287,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   complete?: (data: string) => void;
 }
@@ -282,7 +306,8 @@ export interface ShowDialogOptions {
  * @interface ShowActionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowActionMenuOptions {
   /**
@@ -298,7 +323,8 @@ export interface ShowActionMenuOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -324,6 +350,19 @@ export interface ShowActionMenuOptions {
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
 
   /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to six buttons are supported.
+   *
+   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons?: [Button, Button | undefined, Button | undefined];
+
+  /**
    * Called when the dialog box is displayed.
    *
    * @type { ?function }
@@ -336,7 +375,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
@@ -353,7 +393,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fail?: (errMsg: string) => void;
 
@@ -370,7 +411,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   complete?: () => void;
 }
@@ -386,7 +428,8 @@ export interface ShowActionMenuOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class Prompt {
   /**
@@ -402,7 +445,8 @@ export default class Prompt {
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static showToast(options: ShowToastOptions): void;
 
@@ -419,7 +463,8 @@ export default class Prompt {
    * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static showDialog(options: ShowDialogOptions): void;
 
@@ -436,7 +481,8 @@ export default class Prompt {
    * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }

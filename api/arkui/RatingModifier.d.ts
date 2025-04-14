@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { RatingAttribute } from '../@internal/component/ets/rating'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Rating Modifier
@@ -42,4 +45,29 @@ export declare class RatingModifier extends RatingAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: RatingAttribute): void;
+}
+
+/**
+ * Defines Rating Modifier
+ *
+ * @extends RatingAttribute
+ * @implements AttributeModifier<RatingAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class RatingModifier extends RatingAttribute implements AttributeModifier<RatingAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<RatingAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<RatingAttribute>;
 }

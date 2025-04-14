@@ -18,6 +18,17 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod,CommonConfiguration,ContentModifier } from './common'
+import { Axis } from './enums'
+import { ResourceStr,ResourceColor,Length,Dimension,SizeOptions } from './units' 
+import { CircleAttribute } from './circle';
+import { RectAttribute } from './rect';
+import { PathAttribute } from './path';
+import { EllipseAttribute } from './ellipse';
+import { LinearGradient } from './data_panel'
+/*** endif */
+
 /**
  * Declare sliderstyle
  *
@@ -50,7 +61,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SliderStyle {
   /**
@@ -81,7 +93,8 @@ declare enum SliderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   OutSet,
 
@@ -113,7 +126,8 @@ declare enum SliderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   InSet,
   /**
@@ -123,7 +137,8 @@ declare enum SliderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NONE,
 }
@@ -160,7 +175,8 @@ declare enum SliderStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SliderChangeMode {
   /**
@@ -191,7 +207,8 @@ declare enum SliderChangeMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Begin,
 
@@ -223,7 +240,8 @@ declare enum SliderChangeMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Moving,
 
@@ -255,7 +273,8 @@ declare enum SliderChangeMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   End,
 
@@ -287,7 +306,8 @@ declare enum SliderChangeMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Click,
 }
@@ -299,7 +319,8 @@ declare enum SliderChangeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SliderInteraction {
   /**
@@ -308,7 +329,8 @@ declare enum SliderInteraction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SLIDE_AND_CLICK,
 
@@ -318,7 +340,8 @@ declare enum SliderInteraction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SLIDE_ONLY,
 
@@ -328,7 +351,8 @@ declare enum SliderInteraction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SLIDE_AND_CLICK_UP = 2
 }
@@ -340,7 +364,8 @@ declare enum SliderInteraction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SlideRange {
   /**
@@ -350,7 +375,8 @@ declare interface SlideRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   from?: number;
 
@@ -361,7 +387,8 @@ declare interface SlideRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   to?: number;
 }
@@ -398,7 +425,8 @@ declare interface SlideRange {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SliderOptions {
   /**
@@ -433,7 +461,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value?: number;
 
@@ -469,7 +498,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   min?: number;
 
@@ -505,7 +535,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   max?: number;
 
@@ -541,7 +572,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   step?: number;
 
@@ -577,7 +609,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style?: SliderStyle;
 
@@ -613,7 +646,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: Axis;
 
@@ -649,7 +683,8 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reverse?: boolean;
 }
@@ -669,7 +704,8 @@ declare interface SliderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SliderBlockType {
   /**
@@ -685,7 +721,8 @@ declare enum SliderBlockType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DEFAULT,
 
@@ -702,7 +739,8 @@ declare enum SliderBlockType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE,
 
@@ -719,7 +757,8 @@ declare enum SliderBlockType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SHAPE,
 }
@@ -739,7 +778,8 @@ declare enum SliderBlockType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SliderBlockStyle {
   /**
@@ -757,7 +797,8 @@ declare interface SliderBlockStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: SliderBlockType;
 
@@ -776,7 +817,8 @@ declare interface SliderBlockStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   image?: ResourceStr;
 
@@ -795,7 +837,8 @@ declare interface SliderBlockStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
 }
@@ -809,7 +852,8 @@ declare interface SliderBlockStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
 
@@ -821,7 +865,8 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
   /**
@@ -831,7 +876,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: number;
 
@@ -842,7 +888,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   min: number;
 
@@ -853,7 +900,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   max: number;
 
@@ -864,7 +912,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   step: number;
 
@@ -875,7 +924,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerChange: SliderTriggerChangeCallback;
 }
@@ -912,7 +962,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SliderInterface {
   /**
@@ -951,7 +1002,8 @@ interface SliderInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: SliderOptions): SliderAttribute;
 }
@@ -988,7 +1040,8 @@ interface SliderInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
@@ -1027,7 +1080,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   blockColor(value: ResourceColor): SliderAttribute;
 
@@ -1078,7 +1132,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1118,7 +1173,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedColor(value: ResourceColor): SliderAttribute;
   /**
@@ -1130,7 +1186,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedColor(selectedColor: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1194,7 +1251,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showSteps(value: boolean): SliderAttribute;
 
@@ -1238,7 +1296,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showTips(value: boolean, content?: ResourceStr): SliderAttribute;
 
@@ -1278,7 +1337,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackThickness(value: Length): SliderAttribute;
 
@@ -1318,7 +1378,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 
@@ -1339,7 +1400,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   blockBorderColor(value: ResourceColor): SliderAttribute;
 
@@ -1360,7 +1422,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   blockBorderWidth(value: Length): SliderAttribute;
 
@@ -1381,7 +1444,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stepColor(value: ResourceColor): SliderAttribute;
 
@@ -1402,7 +1466,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackBorderRadius(value: Length): SliderAttribute;
 
@@ -1414,7 +1479,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     selectedBorderRadius(value: Dimension): SliderAttribute;
   
@@ -1435,7 +1501,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   blockSize(value: SizeOptions): SliderAttribute;
 
@@ -1456,7 +1523,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   blockStyle(value: SliderBlockStyle): SliderAttribute;
 
@@ -1477,7 +1545,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stepSize(value: Length): SliderAttribute;
 
@@ -1489,7 +1558,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sliderInteractionMode(value: SliderInteraction): SliderAttribute;
 
@@ -1501,7 +1571,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minResponsiveDistance(value: number): SliderAttribute;
 
@@ -1513,7 +1584,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
 
@@ -1525,7 +1597,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   slideRange(value: SlideRange): SliderAttribute;
 
@@ -1537,7 +1610,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
 
@@ -1548,7 +1622,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback(enabled: boolean): SliderAttribute;
 }

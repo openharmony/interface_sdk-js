@@ -18,10 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.1 */
 import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
+/*** endif */
+
+/*** if arkts 1.2 */
+import { BuildOptions } from './BuilderNode';
+import { Content } from './Content';
+import { UIContext } from '../@ohos.arkui.UIContext';
+import { WrappedBuilder } from './WaterFlowModifier';
+/*** endif */
 
 /**
  * Defines ComponentContent.
@@ -30,7 +39,8 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export class ComponentContent<T extends Object> extends Content{
   /**
@@ -41,7 +51,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[]>);
 
@@ -54,7 +65,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T);
 
@@ -68,7 +80,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T, options: BuildOptions);
 
@@ -80,7 +93,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   update(args: T): void;
 
@@ -91,7 +105,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reuse(param?: Object): void;
 
@@ -101,7 +116,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   recycle(): void;
 
@@ -111,7 +127,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dispose(): void;
 
@@ -121,7 +138,8 @@ export class ComponentContent<T extends Object> extends Content{
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   updateConfiguration(): void;
 }

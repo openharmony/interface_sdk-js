@@ -18,7 +18,11 @@
  * @kit ArkUI
  */
 
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { ButtonAttribute } from '../@internal/component/ets/button'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Button Modifier
@@ -41,4 +45,29 @@ export declare class ButtonModifier extends ButtonAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ButtonAttribute): void;
+}
+
+/**
+ * Defines Button Modifier
+ *
+ * @extends ButtonAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class ButtonModifier extends ButtonAttribute implements AttributeModifier<ButtonAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<ButtonAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<ButtonAttribute>;
 }
