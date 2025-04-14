@@ -29,7 +29,7 @@
   * @arkts 1.2
   * @test
   */
- export function loadAndSetupUiTest(): void;
+ export function loadAndSetupUiTest(): void {};
  
  /**
   * Enumerates the string value match pattern.
@@ -3234,7 +3234,6 @@
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
     * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
     * @returns { Promise<Component|null> } the found result,or undefined if not found.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
@@ -3389,7 +3388,6 @@
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Component|null> } the first matched {@link Component} or undefined.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
@@ -3428,7 +3426,6 @@
     *
     * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
     * @returns { Promise<UiWindow|null> } the first matched {@link UiWindow} or undefined.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
@@ -3470,7 +3467,6 @@
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { number } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component|null> } the first matched {@link Component} or undefined.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
@@ -3523,7 +3519,6 @@
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Array<Component>|null> } the matched {@link Component}s list.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
