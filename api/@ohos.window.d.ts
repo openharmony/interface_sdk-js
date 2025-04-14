@@ -3186,7 +3186,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 19
    */
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
 
