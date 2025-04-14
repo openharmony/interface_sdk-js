@@ -7034,6 +7034,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to arkWeb rendering framework adaptation solution,
+   * see [ArkWeb Rendering Framework Adaptation]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
+   * </p>
+   *
    * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9117,6 +9124,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the enable native embed mode for web.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { boolean } mode - True if it needs to enable native embed mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9140,6 +9154,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when embed lifecycle changes.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { function } callback - Function Triggered when embed lifecycle changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9160,6 +9181,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when gesture effect on embed tag.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
    *
    * @param { function } callback - Function Triggered when gesture effect on embed tag.
    * @returns { WebAttribute }
