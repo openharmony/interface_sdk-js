@@ -424,6 +424,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    */
   /**
    * Called when judging whether the xcomponent surface is created.
+   * Anonymous Object Rectification.
    *
    * @param { OnNativeLoadCallback } callback - Called when judging whether the xcomponent surface is created.
    * @returns { XComponentAttribute }
@@ -454,6 +455,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    */
   /**
    * Called when judging whether the xcomponent is destroyed.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event - Called when judging whether the xcomponent is destroyed.
    * @returns { XComponentAttribute }
