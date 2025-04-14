@@ -954,6 +954,17 @@ interface ListOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set initialIndex.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   initialIndex?: number;
   /**
    * Set space.
@@ -989,6 +1000,17 @@ interface ListOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set space.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   space?: number | string;
   /**
    * Set scroller.
@@ -1023,6 +1045,17 @@ interface ListOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set scroller.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Scroller }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   scroller?: Scroller;
 }
@@ -1102,6 +1135,7 @@ interface ListInterface {
    */
   /**
    * Called when interface data is called.
+   * Anonymous Object Rectification.
    *
    * @param { ListOptions } [options] - list options
    * @returns { ListAttribute }
@@ -1159,6 +1193,17 @@ declare interface ListDividerOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set strokeWidth.
+   * Anonymous Object Rectification.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   strokeWidth: Length;
   /**
    * Set color.
@@ -1193,6 +1238,17 @@ declare interface ListDividerOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set color.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   color?: ResourceColor;
   /**
@@ -1229,6 +1285,17 @@ declare interface ListDividerOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set startMargin.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   startMargin?: Length;
   /**
    * Set endMargin.
@@ -1263,6 +1330,17 @@ declare interface ListDividerOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set endMargin.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   endMargin?: Length;
 }
@@ -1559,6 +1637,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Called when the ListItem split line style is set.
+   * Anonymous Object Rectification.
    *
    * @param { ListDividerOptions | null } value
    * @returns { ListAttribute }
