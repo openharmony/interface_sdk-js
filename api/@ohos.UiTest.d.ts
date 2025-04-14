@@ -23,14 +23,13 @@
  /**
   * Used to initialize the uitest environment at the start of the test
   *
-  * @returns { void }
-  * @throws {BusinessError} 401 - if the input parameters are invalid.
+  * @throws { BusinessError } 17000001 - Initialization failed.
   * @syscap SystemCapability.Test.UiTest
   * @since arkts {'1.2':20}
   * @arkts 1.2
   * @test
   */
- export function loadAndSetupUiTest(): void { };
+ export function loadAndSetupUiTest(): void;
  
  /**
   * Enumerates the string value match pattern.
@@ -3470,7 +3469,7 @@
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { number } time - duration of finding in milliseconds, not less than 0.
-    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
+    * @returns { Promise<Component|null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
