@@ -3772,7 +3772,7 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
-   * The infomation of keyboard
+   * The information of keyboard
    *
    * @interface KeyboardInfo
    * @syscap SystemCapability.Window.SessionManager
@@ -3781,14 +3781,24 @@ declare namespace window {
    */
   interface KeyboardInfo {
     /**
-     * The position and size of the keyboard
+     * The position and size of keyboard before animation.
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18
      */
-    rect: Rect;
+    beginRect: Rect;
+
+    /**
+     * The position and size of keyboard after animation completed.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    endRect: Rect;
   }
 
   /**
