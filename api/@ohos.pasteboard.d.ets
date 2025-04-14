@@ -215,6 +215,59 @@ declare namespace pasteboard {
   function getSystemPasteboard(): SystemPasteboard;
 
   /**
+   * Types of scope that PasteData can be pasted.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 9
+   */
+  /**
+   * Types of scope that PasteData can be pasted.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
+  enum ShareOption {
+    /**
+     * INAPP indicates that only paste in the same app is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 9
+     */
+    /**
+     * INAPP indicates that only paste in the same app is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    INAPP,
+    /**
+     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 9
+     */
+    /**
+     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    LOCALDEVICE,
+    /**
+     * CROSSDEVICE indicates that paste in any app across devices is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 9
+     */
+    /**
+     * CROSSDEVICE indicates that paste in any app across devices is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     * @deprecated since 12
+     */
+    CROSSDEVICE
+  }
+
+  /**
    * Enumerates the patterns allowed in the system pasteboard.
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -345,8 +398,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-    // shareOption: ShareOption; // TODO: now enum is not support^M
-    shareOption: number;
+    shareOption: ShareOption;
   }
 
   /**
@@ -514,6 +566,20 @@ declare namespace pasteboard {
     getData(type: string): Promise<ValueType>;
   }
 
+  /**
+   * Classes for paste data.
+   * @interface PasteData
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 6
+   */
+  /**
+   * Classes for paste data.
+   * @interface PasteData
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
+  export interface PasteData {
     /**
      * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
      * @param { PasteDataRecord } record - The content of a new record.
