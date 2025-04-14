@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import { window } from '@kit.ArkUI';
+import window from './@ohos.window';
 
 /**
  * Provide the capabilities to use different pickers.
