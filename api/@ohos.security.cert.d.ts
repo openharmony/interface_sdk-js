@@ -2004,6 +2004,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
@@ -2017,6 +2018,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2031,6 +2033,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2048,6 +2051,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
@@ -2061,6 +2065,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2075,6 +2080,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2310,6 +2316,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
@@ -2323,6 +2330,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2337,6 +2345,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2354,6 +2363,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
@@ -2367,6 +2377,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2381,6 +2392,7 @@ declare namespace cert {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
