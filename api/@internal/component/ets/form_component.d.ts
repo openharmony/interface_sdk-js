@@ -366,6 +366,7 @@ interface FormCallbackInfo {
 
 /**
  * Defines the size of Form.
+ * Anonymous Object Rectification
  *
  * @typedef FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -375,6 +376,7 @@ interface FormCallbackInfo {
 interface FormSize {
   /**
    * The width of the form.
+   * Anonymous Object Rectification
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -385,6 +387,7 @@ interface FormSize {
 
   /**
    * The height of the form.
+   * Anonymous Object Rectification
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -396,6 +399,7 @@ interface FormSize {
 
 /**
  * Defines error information for card loading.
+ * Anonymous Object Rectification
  *
  * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -405,6 +409,7 @@ interface FormSize {
 interface ErrorInformation {
   /**
    * Error code.
+   * Anonymous Object Rectification
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -415,6 +420,7 @@ interface ErrorInformation {
 
   /**
    * Error information.
+   * Anonymous Object Rectification
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -442,6 +448,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Sets the display area size of the card.
+   * Anonymous Object Rectification
    *
    * @param { FormSize } formSize - The size of Form.
    * @returns { FormComponentAttribute }
@@ -528,6 +535,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card loading error.
+   * Anonymous Object Rectification
    *
    * @param { Callback<ErrorInformation> } callback
    * @returns { FormComponentAttribute }
@@ -548,6 +556,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card to be redirected.
+   * Anonymous Object Rectification
    *
    * @param { Callback<object> } callback
    * @returns { FormComponentAttribute }
@@ -588,6 +597,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card to be loaded.
+   * Anonymous Object Rectification
    *
    * @param { VoidCallback } callback
    * @returns { FormComponentAttribute }
