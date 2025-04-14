@@ -24,8 +24,7 @@
  * @typedef AppProvisionInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 export interface AppProvisionInfo {
   /**
@@ -35,8 +34,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly versionCode: number;
 
@@ -47,8 +45,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly versionName: string;
 
@@ -59,8 +56,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly uuid: string;
 
@@ -71,8 +67,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly type: string;
 
@@ -83,8 +78,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly appDistributionType: string;
 
@@ -95,8 +89,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly validity: Validity;
 
@@ -107,8 +100,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly developerId: string;
 
@@ -119,8 +111,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly certificate: string;
 
@@ -131,8 +122,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly apl: string;
 
@@ -143,8 +133,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly issuer: string;
 
@@ -157,8 +146,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly appIdentifier: string;
 
@@ -169,8 +157,7 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   readonly organization: string;
 }
@@ -181,8 +168,7 @@ export interface AppProvisionInfo {
  * @typedef Validity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 export interface Validity {
   /**
@@ -192,8 +178,7 @@ export interface Validity {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly notBefore: number;
 
@@ -204,8 +189,7 @@ export interface Validity {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly notAfter: number;
 }
