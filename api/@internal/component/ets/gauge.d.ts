@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface GaugeOptions {
   /**
@@ -228,7 +228,7 @@ interface GaugeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options: GaugeOptions): GaugeAttribute;
 }

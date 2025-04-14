@@ -49,6 +49,7 @@ interface PluginComponentTemplate {
 
 /**
  * Define options used to construct a plugin component.
+ * AnonyMous Object Rectification
  *
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,6 +64,14 @@ declare interface PluginComponentOptions {
    * @systemapi
    * @since 9
    */
+  /**
+   * Plugin component template.
+   * AnonyMous Object Rectification
+   * @type { PluginComponentTemplate }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
   template: PluginComponentTemplate;
 
   /**
@@ -72,11 +81,20 @@ declare interface PluginComponentOptions {
    * @systemapi
    * @since 9
    */
+  /**
+   * Plugin component data.
+   * AnonyMous Object Rectification
+   * @type { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
   data: any;
 }
 
 /**
  * Data provided when an error occurs.
+ * AnonyMous Object Rectification
  *
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -91,6 +109,14 @@ declare interface PluginErrorData {
    * @systemapi
    * @since 9
    */
+  /**
+   * Error code.
+   * AnonyMous Object Rectification
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
   errcode: number;
 
   /**
@@ -100,11 +126,20 @@ declare interface PluginErrorData {
    * @systemapi
    * @since 9
    */
+  /**
+   * Error message.
+   * AnonyMous Object Rectification
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
   msg: string;
 }
 
 /**
  * Callback invoked when an error occurs.
+ * AnonyMous Object Rectification
  *
  * @typedef { function } PluginErrorCallback
  * @param { PluginErrorData } info - Plugin error data
@@ -134,6 +169,7 @@ interface PluginComponentInterface {
    */
   /**
    * Called when setting the plugin.
+   * AnonyMous Object Rectification
    *
    * @param { PluginComponentOptions } options - Plugin component options
    * @returns { PluginComponentAttribute }
@@ -164,6 +200,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    */
   /**
    * PluginComponent onComplete callback
+   * AnonyMous Object Rectification
    *
    * @param { VoidCallback } callback
    * @returns { PluginComponentAttribute }
@@ -184,6 +221,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    */
   /**
    * PluginComponent onError callback
+   * AnonyMous Object Rectification
    *
    * @param { PluginErrorCallback } callback
    * @returns { PluginComponentAttribute }

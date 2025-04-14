@@ -397,7 +397,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Debug = 0,
+  Debug,
 
   /**
    * Error level.
@@ -413,7 +413,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Error = 1,
+  Error,
 
   /**
    * Info level.
@@ -429,7 +429,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Info = 2,
+  Info,
 
   /**
    * Log level.
@@ -445,7 +445,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Log = 3,
+  Log,
 
   /**
    * Warn level.
@@ -461,7 +461,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Warn = 4
+  Warn
 }
 
 /**

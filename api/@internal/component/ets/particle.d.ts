@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type ParticleTuple<T1, T2> = [T1, T2];
 
@@ -36,7 +36,7 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface VelocityOptions {
   /**
@@ -81,7 +81,7 @@ declare interface VelocityOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface AccelerationOptions<
   ACC_SPEED_UPDATER extends ParticleUpdater,
@@ -244,7 +244,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   velocity?: VelocityOptions;
 
@@ -272,7 +272,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
@@ -384,7 +384,7 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   size: ParticleTuple<Dimension, Dimension>;
 
@@ -522,7 +522,7 @@ interface EmitterProperty {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
@@ -644,7 +644,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   particle: EmitterParticleOptions<PARTICLE>;
 
@@ -716,7 +716,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   position?: ParticleTuple<Dimension, Dimension>;
 
@@ -750,7 +750,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   size?: ParticleTuple<Dimension, Dimension>;
 }
@@ -811,7 +811,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   [ParticleUpdater.RANDOM]: ParticleTuple<T, T>;
 
@@ -840,7 +840,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
@@ -885,7 +885,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface ParticleColorOptions {
   /**
@@ -964,7 +964,7 @@ interface ParticleColorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
@@ -1039,7 +1039,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   range: ParticleTuple<TYPE, TYPE>;
 
@@ -1067,7 +1067,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   updater?: ParticleUpdaterOptions<TYPE, UPDATER>;
 }
@@ -1128,7 +1128,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   [ParticleUpdater.RANDOM]: ParticleColorOptions;
 
@@ -1189,7 +1189,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   range: ParticleTuple<ResourceColor, ResourceColor>;
 
@@ -1228,7 +1228,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   updater?: ParticleColorUpdaterOptions<UPDATER>;
 }
@@ -1344,7 +1344,7 @@ interface ParticlePropertyAnimation<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface Particles<
   PARTICLE extends ParticleType,
@@ -1426,7 +1426,7 @@ interface ParticleInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   <
     PARTICLE extends ParticleType,
