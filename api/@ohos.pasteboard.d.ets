@@ -398,7 +398,8 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-    shareOption: ShareOption;
+    // shareOption: ShareOption; // TODO: now enum is not support
+    shareOption: number;
   }
 
   /**
