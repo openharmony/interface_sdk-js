@@ -3414,7 +3414,6 @@ declare namespace bundleManager {
    * @param { number } uid - Indicates the UID of an application.
    * @returns { SignatureInfo } The result of getting the signature info.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 18
@@ -3487,7 +3486,6 @@ declare namespace bundleManager {
    * @returns { Promise<void> } The result of migrating data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700080 - The source paths are invalid.
    * @throws { BusinessError } 17700081 - The destination path is invalid.
    * @throws { BusinessError } 17700082 - User authentication failed.
