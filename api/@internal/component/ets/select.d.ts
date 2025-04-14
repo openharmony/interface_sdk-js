@@ -1383,8 +1383,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const Select: SelectInterface;
 
@@ -1407,7 +1406,6 @@ declare const Select: SelectInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const SelectInstance: SelectAttribute;

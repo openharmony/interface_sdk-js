@@ -289,8 +289,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const Menu: MenuInterface;
 
@@ -313,7 +312,6 @@ declare const Menu: MenuInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const MenuInstance: MenuAttribute;

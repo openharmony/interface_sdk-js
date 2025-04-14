@@ -653,8 +653,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const Radio: RadioInterface;
 
@@ -686,7 +685,6 @@ declare const Radio: RadioInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const RadioInstance: RadioAttribute;

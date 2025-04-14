@@ -18,9 +18,18 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
+/*** endif */
+
+/*** if arkts 1.2 */
+import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors,EdgeWidths, BorderRadiuses } from '../api/@internal/component/ets/units';
+import { AsyncCallback,Callback } from './@ohos.base';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from '../api/@internal/component/ets/common';
+import { DialogAlignment } from '../api/@internal/component/ets/alert_dialog';
+import { BorderStyle,Alignment } from '../api/@internal/component/ets/enums';
+import { Resource } from './global/resource';
+/*** endif */
 
 /**
  * Define the display mode of all kind of dialog
@@ -1850,10 +1859,23 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+
+    /**
+     * Array of buttons in the dialog box.
+     * The array structure is {text:'button', color: '#666666'}.
+     * One to six buttons are supported.
+     *
+     * @type { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    buttons: [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
 
     /**
      * Whether to display in the sub window.

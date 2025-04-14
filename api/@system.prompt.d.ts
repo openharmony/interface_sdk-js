@@ -221,10 +221,22 @@ export interface ShowDialogOptions {
    * @type { ?[Button, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   buttons?: [Button, Button?, Button?];
+
+  /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+   *
+   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons?: [Button, Button | undefined, Button | undefined];
 
   /**
    * Called when the dialog box is displayed.
@@ -333,10 +345,22 @@ export interface ShowActionMenuOptions {
    * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+
+  /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to six buttons are supported.
+   *
+   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons?: [Button, Button | undefined, Button | undefined];
 
   /**
    * Called when the dialog box is displayed.
