@@ -793,7 +793,7 @@ declare namespace adminManager {
    * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
    * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
    * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.=
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
