@@ -303,6 +303,16 @@ interface FullscreenInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The flag whether play in full screen.
+   * Anonymous Object Rectification.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   fullscreen: boolean;
 }
 
@@ -332,6 +342,16 @@ interface PreparedInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The duration of the current video, in seconds.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   duration: number;
 }
 
@@ -360,6 +380,16 @@ interface PlaybackInfo {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The current video playback progress, expressed in seconds.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   time: number;
 }
@@ -1026,6 +1056,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the video is played.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
@@ -1065,6 +1096,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the video is paused.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
@@ -1104,6 +1136,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the video playback ends.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
@@ -1143,6 +1176,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the video enters and exits the full screen.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<FullscreenInfo> } callback
    * @returns { VideoAttribute }
@@ -1182,6 +1216,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the video preparation is complete.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<PreparedInfo> } callback
    * @returns { VideoAttribute }
@@ -1221,6 +1256,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the time information is reported when the progress bar process is operated.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
@@ -1260,6 +1296,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
@@ -1299,6 +1336,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   /**
    * Called when the playback progress changes.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
