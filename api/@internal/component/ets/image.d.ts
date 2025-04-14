@@ -581,6 +581,17 @@ interface ImageSourceSize {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set width.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width: number;
 
   /**
@@ -616,6 +627,17 @@ interface ImageSourceSize {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set height.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height: number;
 }
@@ -1132,6 +1154,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * Anonymous Object Rectification.
    *
    * @param { ImageSourceSize } value - Image source size.
    * @returns { ImageAttribute }
