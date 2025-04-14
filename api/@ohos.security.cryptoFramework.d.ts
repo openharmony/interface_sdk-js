@@ -95,13 +95,13 @@ declare namespace cryptoFramework {
     NOT_SUPPORT = 801,
 
     /**
-     * Indicates the memory error.
+     * Indicates the memory operation failed.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
     /**
-     * Indicates the memory error.
+     * Indicates the memory operation failed.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -111,20 +111,20 @@ declare namespace cryptoFramework {
     ERR_OUT_OF_MEMORY = 17620001,
 
     /**
-     * Indicates that runtime error.
+     * Indicates that failed to convert paramters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
     /**
-     * Indicates that runtime error.
+     * Indicates that failed to convert paramters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Indicates that runtime error.
+     * Indicates that failed to convert paramters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -643,7 +643,7 @@ declare namespace cryptoFramework {
      *
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -653,7 +653,7 @@ declare namespace cryptoFramework {
      *
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -664,7 +664,7 @@ declare namespace cryptoFramework {
      *
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key
      * @crossplatform
@@ -843,7 +843,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -856,7 +856,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -870,7 +870,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -886,7 +886,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the binary data of the key object in DER format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -902,7 +902,7 @@ declare namespace cryptoFramework {
      * @returns { string } the string of the key object in PEM format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -920,7 +920,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -965,7 +965,7 @@ declare namespace cryptoFramework {
      * @returns { bigint | string | number } the specified parameters value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -977,7 +977,7 @@ declare namespace cryptoFramework {
      * @returns { bigint | string | number } the specified parameters value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -991,7 +991,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1007,7 +1007,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the binary data of the key object in DER format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1023,7 +1023,7 @@ declare namespace cryptoFramework {
      * @returns { string } the string of the key object in PEM format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1150,7 +1150,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1162,7 +1162,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1176,7 +1176,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
@@ -1192,7 +1192,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1204,7 +1204,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1218,7 +1218,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
@@ -1234,7 +1234,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1246,7 +1246,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1260,7 +1260,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } return the generated random blob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
@@ -1273,7 +1273,7 @@ declare namespace cryptoFramework {
      * Set seed by given DataBlob.
      *
      * @param { DataBlob } seed - indicates the seed DataBlob.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 9
@@ -1282,7 +1282,7 @@ declare namespace cryptoFramework {
      * Set seed by given DataBlob.
      *
      * @param { DataBlob } seed - indicates the seed DataBlob.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
@@ -1292,7 +1292,7 @@ declare namespace cryptoFramework {
      * Set seed by given DataBlob.
      *
      * @param { DataBlob } seed - indicates the seed DataBlob.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @crossplatform
      * @atomicservice
@@ -1335,7 +1335,7 @@ declare namespace cryptoFramework {
    * Create a random generator instance.
    *
    * @returns { Random } returns the created rand instance.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -1343,7 +1343,7 @@ declare namespace cryptoFramework {
    * Create a random generator instance.
    *
    * @returns { Random } returns the created rand instance.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
@@ -1353,7 +1353,7 @@ declare namespace cryptoFramework {
    * Create a random generator instance.
    *
    * @returns { Random } returns the created rand instance.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Rand
    * @crossplatform
    * @atomicservice
@@ -1391,7 +1391,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1401,7 +1401,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1412,7 +1412,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1427,7 +1427,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1438,7 +1438,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1450,7 +1450,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1465,7 +1465,7 @@ declare namespace cryptoFramework {
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1482,7 +1482,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1495,7 +1495,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1509,7 +1509,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1526,7 +1526,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1539,7 +1539,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1553,7 +1553,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1570,7 +1570,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -1583,7 +1583,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1597,7 +1597,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1614,7 +1614,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1627,7 +1627,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1641,7 +1641,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1658,7 +1658,7 @@ declare namespace cryptoFramework {
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1675,7 +1675,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1693,7 +1693,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1710,7 +1710,7 @@ declare namespace cryptoFramework {
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1728,7 +1728,7 @@ declare namespace cryptoFramework {
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1796,7 +1796,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
@@ -1804,7 +1804,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -1813,7 +1813,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1825,7 +1825,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
@@ -1833,7 +1833,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -1842,7 +1842,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @returns { Promise<SymKey> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1854,7 +1854,7 @@ declare namespace cryptoFramework {
      * Generate a symmetric key object randomly.
      *
      * @returns { SymKey } return SymKey.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1869,7 +1869,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
@@ -1880,7 +1880,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -1892,7 +1892,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1907,7 +1907,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<SymKey> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
@@ -1918,7 +1918,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<SymKey> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -1930,7 +1930,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<SymKey> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1945,7 +1945,7 @@ declare namespace cryptoFramework {
      * @returns { SymKey } return SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1991,7 +1991,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -2003,7 +2003,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -2016,7 +2016,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
@@ -2162,7 +2162,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2174,7 +2174,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2187,7 +2187,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2203,7 +2203,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2215,7 +2215,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2228,7 +2228,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2243,7 +2243,7 @@ declare namespace cryptoFramework {
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2259,7 +2259,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2271,7 +2271,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2284,7 +2284,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2300,7 +2300,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2312,7 +2312,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2325,7 +2325,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2340,7 +2340,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2353,7 +2353,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2362,7 +2362,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2372,7 +2372,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2385,7 +2385,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2394,7 +2394,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2404,7 +2404,7 @@ declare namespace cryptoFramework {
      * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2419,8 +2419,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2495,7 +2495,7 @@ declare namespace cryptoFramework {
    * @returns { Mac } returns the created mac instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -2506,7 +2506,7 @@ declare namespace cryptoFramework {
    * @returns { Mac } returns the created mac instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -2518,7 +2518,7 @@ declare namespace cryptoFramework {
    * @returns { Mac } returns the created mac instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
@@ -2533,8 +2533,8 @@ declare namespace cryptoFramework {
    * @returns { Mac } returns the created mac instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
-   * @throws { BusinessError } 17620002 - runtime error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
+   * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
    * @throws { BusinessError } 17630001 - crypto operation error.
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -2575,7 +2575,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2587,7 +2587,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2600,7 +2600,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2616,7 +2616,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2628,7 +2628,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2641,7 +2641,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2656,7 +2656,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory malloc failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2669,7 +2669,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2678,7 +2678,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2688,7 +2688,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2701,7 +2701,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2710,7 +2710,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2720,7 +2720,7 @@ declare namespace cryptoFramework {
      * Output the result of md calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2735,8 +2735,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2811,7 +2811,7 @@ declare namespace cryptoFramework {
    * @returns { Md } returns the created md instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -2822,7 +2822,7 @@ declare namespace cryptoFramework {
    * @returns { Md } returns the created md instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -2834,7 +2834,7 @@ declare namespace cryptoFramework {
    * @returns { Md } returns the created md instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
    * @crossplatform
    * @atomicservice
@@ -3172,8 +3172,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3187,8 +3187,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3203,8 +3203,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3222,8 +3222,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3237,8 +3237,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3253,8 +3253,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3272,8 +3272,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3287,8 +3287,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3303,8 +3303,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3322,8 +3322,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3337,8 +3337,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3353,8 +3353,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3371,8 +3371,8 @@ declare namespace cryptoFramework {
      * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3389,8 +3389,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3403,8 +3403,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3418,8 +3418,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3436,8 +3436,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3450,8 +3450,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3465,8 +3465,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3483,8 +3483,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3501,8 +3501,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3515,8 +3515,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3530,8 +3530,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3548,8 +3548,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3562,8 +3562,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3577,8 +3577,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3595,8 +3595,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3609,8 +3609,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3624,8 +3624,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3642,8 +3642,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3656,8 +3656,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3671,8 +3671,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3689,8 +3689,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3708,7 +3708,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3722,7 +3722,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3737,7 +3737,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3755,7 +3755,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3769,7 +3769,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3784,7 +3784,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3833,7 +3833,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -3847,7 +3847,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -3863,7 +3863,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
@@ -3903,8 +3903,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3916,8 +3916,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3930,8 +3930,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -3947,8 +3947,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3960,8 +3960,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3974,8 +3974,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -3990,8 +3990,8 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - the private key.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4007,8 +4007,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4020,8 +4020,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4034,8 +4034,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4051,8 +4051,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4064,8 +4064,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4078,8 +4078,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4094,8 +4094,8 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be signed.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4111,8 +4111,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4124,8 +4124,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4138,8 +4138,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4155,8 +4155,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4168,8 +4168,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4182,8 +4182,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4199,8 +4199,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4212,8 +4212,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4226,8 +4226,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4243,8 +4243,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4256,8 +4256,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4270,8 +4270,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4287,8 +4287,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } return the signed message.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4306,7 +4306,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4320,7 +4320,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4335,7 +4335,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4353,7 +4353,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4368,7 +4368,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4386,7 +4386,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4400,7 +4400,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4415,7 +4415,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4486,8 +4486,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4499,8 +4499,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4513,8 +4513,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4530,8 +4530,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4543,8 +4543,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4557,8 +4557,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4573,8 +4573,8 @@ declare namespace cryptoFramework {
      * @param { PubKey } pubKey - the public key.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4590,8 +4590,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4603,8 +4603,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4617,8 +4617,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4634,8 +4634,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4647,8 +4647,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4661,8 +4661,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4677,8 +4677,8 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - the data need to be verified.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4695,8 +4695,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4709,8 +4709,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4724,8 +4724,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4742,8 +4742,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4756,8 +4756,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4771,8 +4771,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<boolean> } callback - return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4789,8 +4789,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4803,8 +4803,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4818,8 +4818,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4836,8 +4836,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4850,8 +4850,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4865,8 +4865,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<boolean> } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4883,8 +4883,8 @@ declare namespace cryptoFramework {
      * @returns { boolean } return the verify result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4901,8 +4901,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4919,8 +4919,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob | null } return the recovered data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4938,7 +4938,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4952,7 +4952,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4967,7 +4967,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4985,7 +4985,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -5000,7 +5000,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -5018,7 +5018,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -5032,7 +5032,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -5047,7 +5047,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -5094,7 +5094,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -5106,7 +5106,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -5119,7 +5119,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
@@ -5135,7 +5135,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -5147,7 +5147,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -5160,7 +5160,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
@@ -5201,8 +5201,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -5215,8 +5215,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -5230,8 +5230,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - return the secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -5248,8 +5248,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -5262,8 +5262,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -5277,8 +5277,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -5295,8 +5295,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the promise used to return secret.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -5343,7 +5343,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
@@ -5355,7 +5355,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -5368,7 +5368,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
    * @crossplatform
    * @atomicservice
@@ -7198,7 +7198,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -7212,7 +7212,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -7229,7 +7229,7 @@ declare namespace cryptoFramework {
      * @returns { Point } the ECC point object.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -7248,7 +7248,7 @@ declare namespace cryptoFramework {
      * @returns { Uint8Array } the encoded point data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -7558,7 +7558,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
@@ -7574,7 +7574,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -8136,7 +8136,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8146,7 +8146,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8157,7 +8157,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8172,7 +8172,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8183,7 +8183,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8195,7 +8195,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8210,7 +8210,7 @@ declare namespace cryptoFramework {
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8224,7 +8224,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8234,7 +8234,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8245,7 +8245,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8260,7 +8260,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PriKey> } the promise used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8271,7 +8271,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PriKey> } the promise used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8283,7 +8283,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PriKey> } the promise used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8298,7 +8298,7 @@ declare namespace cryptoFramework {
      * @returns { PriKey } return PriKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8312,7 +8312,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8322,7 +8322,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8333,7 +8333,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8348,7 +8348,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PubKey> } the promise used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -8359,7 +8359,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PubKey> } the promise used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8371,7 +8371,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PubKey> } the promise used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8386,7 +8386,7 @@ declare namespace cryptoFramework {
      * @returns { PubKey } return PubKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -8433,7 +8433,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
@@ -8445,7 +8445,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -8458,7 +8458,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
@@ -8771,7 +8771,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8784,7 +8784,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -8800,7 +8800,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return dataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -8813,7 +8813,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } the promise used to return dataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -8829,8 +8829,8 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the sync used to return dataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -8869,7 +8869,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
@@ -8882,7 +8882,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
@@ -8962,7 +8962,7 @@ declare namespace cryptoFramework {
      * @returns { DataBlob } the SM2 ciphertext in ASN.1 format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -8980,7 +8980,7 @@ declare namespace cryptoFramework {
      * @returns { SM2CipherTextSpec } the specific data of SM2 ciphertext.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
