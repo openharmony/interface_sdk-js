@@ -1763,6 +1763,26 @@ declare namespace window {
      * @since 14
      */
     closeButtonRightMargin? : number;
+
+    /**
+     * button icon size.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    buttonIconSize? : number;
+
+    /**
+     * corner radius of button background when hover.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    buttonBackgroundCornerRadius? : number;
   }
 
   /**
