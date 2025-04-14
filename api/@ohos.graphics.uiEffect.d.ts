@@ -152,8 +152,7 @@ declare namespace uiEffect {
    * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
    *
    * @typedef { [ number, number ] } FractionStop
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @syscap SystemCapability.Graphics.Drawing
    * @since 19
    */
   type FractionStop = [
@@ -173,7 +172,6 @@ declare namespace uiEffect {
      * Right to left.
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     Left,
@@ -181,7 +179,6 @@ declare namespace uiEffect {
      * From the bottom up.
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     Top,
@@ -189,7 +186,6 @@ declare namespace uiEffect {
      * From left to right.
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     Right,
@@ -197,7 +193,6 @@ declare namespace uiEffect {
      * From the top down.
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     Bottom,
@@ -205,7 +200,6 @@ declare namespace uiEffect {
      * Top Left
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     LeftTop,
@@ -213,7 +207,6 @@ declare namespace uiEffect {
      * Left Bottom
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     LeftBottom,
@@ -221,7 +214,6 @@ declare namespace uiEffect {
      * Right Top
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     RightTop,
@@ -229,7 +221,6 @@ declare namespace uiEffect {
      * Right Bottom
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     RightBottom,
@@ -237,7 +228,6 @@ declare namespace uiEffect {
      * None
      *
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 19
      */
     None
