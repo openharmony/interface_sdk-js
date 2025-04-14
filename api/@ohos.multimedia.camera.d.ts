@@ -9004,8 +9004,12 @@ declare namespace camera {
     off(type: 'deferredPhotoProxyAvailable', callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
-     * Subscribes photo asset event callback.
+     * Subscribes to photo asset event callback.
      *
+     * <p>This API processes deferred photo delivery data by quickly displaying low-quality images to give
+     * users the impression of faster photo capture, while also generating high-quality images to maintain the
+     * final output quality. For details about the design specifications, see {@link
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-camera-shot2see}. </p>
      * @param { 'photoAssetAvailable' } type - Event type.
      * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
