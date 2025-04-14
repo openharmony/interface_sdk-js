@@ -743,7 +743,7 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 14
+   * @since 18
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
@@ -768,7 +768,7 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 14
+   * @since 18
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
