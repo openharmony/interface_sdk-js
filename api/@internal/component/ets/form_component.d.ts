@@ -366,7 +366,6 @@ interface FormCallbackInfo {
 
 /**
  * Defines the size of Form.
- * Anonymous Object Rectification
  *
  * @typedef FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -399,7 +398,6 @@ interface FormSize {
 
 /**
  * Defines error information for card loading.
- * Anonymous Object Rectification
  *
  * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
