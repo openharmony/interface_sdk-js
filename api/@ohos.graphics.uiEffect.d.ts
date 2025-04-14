@@ -113,7 +113,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 19
      */
     radiusGradientBlur(value: number, options: RadiusGradientBlurOptions): Filter;
   }
@@ -123,7 +123,7 @@ declare namespace uiEffect {
    * @interface RadiusGradientBlurOptions
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20
+   * @since 19
    */
   interface RadiusGradientBlurOptions {
     /**
@@ -131,7 +131,7 @@ declare namespace uiEffect {
      *
      * @type { FractionStop[] }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
+     * @since 19
      */
     fractionStops: FractionStop[];
     /**
@@ -139,7 +139,7 @@ declare namespace uiEffect {
      *
      * @type { GradientDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
+     * @since 19
      */
     direction: GradientDirection;
   }
@@ -154,7 +154,7 @@ declare namespace uiEffect {
    * @typedef { [ number, number ] } FractionStop
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
+   * @since 19
    */
   type FractionStop = [
       number,
@@ -166,7 +166,7 @@ declare namespace uiEffect {
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20
+   * @since 19
    */
   enum GradientDirection {
     /**
@@ -174,7 +174,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     Left,
     /**
@@ -182,7 +182,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     Top,
     /**
@@ -190,7 +190,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     Right,
     /**
@@ -198,7 +198,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     Bottom,
     /**
@@ -206,7 +206,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     LeftTop,
     /**
@@ -214,7 +214,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     LeftBottom,
     /**
@@ -222,7 +222,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     RightTop,
     /**
@@ -230,7 +230,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     RightBottom,
     /**
@@ -238,7 +238,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 19
      */
     None
   }
