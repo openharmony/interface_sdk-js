@@ -211,6 +211,16 @@ declare interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Defines whether an icon is shown.
+   *
+   * Anonymous Object Rectification.
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   shown: string | PixelMap | Resource;
 
   /**
@@ -237,6 +247,16 @@ declare interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * Anonymous Object Rectification.
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   hidden: string | PixelMap | Resource;
 
   /**
@@ -262,6 +282,16 @@ declare interface ButtonIconOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Defines whether an icon is switching.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(string | PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   switching?: string | PixelMap | Resource;
 }
@@ -434,6 +464,7 @@ declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
+   * Anonymous Object Rectification.
    * @type { ?ButtonIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
