@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { ToggleAttribute } from '../@internal/component/ets/toggle'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Toggle Modifier
@@ -42,4 +45,29 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ToggleAttribute): void;
+}
+
+/**
+ * Defines Toggle Modifier
+ *
+ * @extends ToggleAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class ToggleModifier extends ToggleAttribute implements AttributeModifier<ToggleAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<ToggleAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<ToggleAttribute>;
 }

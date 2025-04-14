@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { MenuAttribute } from '../@internal/component/ets/menu'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Menu Modifier
@@ -42,4 +45,29 @@ export declare class MenuModifier extends MenuAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: MenuAttribute): void;
+}
+
+/**
+ * Defines Menu Modifier
+ *
+ * @extends MenuAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class MenuModifier extends MenuAttribute implements AttributeModifier<MenuAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @type { ?Callback<MenuAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<MenuAttribute>;
 }

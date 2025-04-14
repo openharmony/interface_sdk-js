@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { RadioAttribute } from '../@internal/component/ets/radio'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Radio Modifier
@@ -42,4 +45,28 @@ export declare class RadioModifier extends RadioAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?(instance: RadioAttribute): void;
+}
+
+/**
+ * Defines Radio Modifier
+ *
+ * @extends RadioAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class RadioModifier extends RadioAttribute implements AttributeModifier<RadioAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<RadioAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<RadioAttribute>;
 }

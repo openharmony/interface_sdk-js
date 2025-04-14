@@ -18,8 +18,11 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from '../@internal/component/ets/common'
+import { SliderAttribute } from '../@internal/component/ets/slider'
+import { Callback } from '../@ohos.base'
+/*** endif */
 
 /**
  * Defines Slider Modifier
@@ -42,4 +45,29 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: SliderAttribute): void;
+}
+
+/**
+ * Defines Slider Modifier
+ *
+ * @extends SliderAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class SliderModifier extends SliderAttribute implements AttributeModifier<SliderAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?Callback<SliderAttribute> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: Callback<SliderAttribute>;
 }
