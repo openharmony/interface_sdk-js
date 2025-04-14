@@ -508,7 +508,7 @@ declare namespace emitter {
      * @since 20
      * @arkts 1.2
      */
-    data?: Record<string,Object>;
+    data?: Record<string, Object>;
   }
 
   /**

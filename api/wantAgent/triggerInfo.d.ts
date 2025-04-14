@@ -132,7 +132,7 @@ export interface TriggerInfo {
    * @since 20
    * @arkts 1.2
    */
-  extraInfo?: Record<string,Object>;
+  extraInfo?: Record<string, Object>;
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.

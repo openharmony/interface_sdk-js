@@ -184,7 +184,7 @@ export interface WantAgentInfo {
    * @since 20
    * @arkts 1.2
    */
-  extraInfo?: Record<string,Object>;
+  extraInfo?: Record<string, Object>;
 
   /**
    * Extra information about how the Want starts an ability.
