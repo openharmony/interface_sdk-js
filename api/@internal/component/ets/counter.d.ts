@@ -165,6 +165,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listen to the event that the value increases.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { CounterAttribute }
@@ -216,6 +217,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listens to the number decrease event.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { CounterAttribute }
