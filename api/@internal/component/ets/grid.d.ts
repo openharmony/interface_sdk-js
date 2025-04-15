@@ -1379,6 +1379,15 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines Grid Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare const Grid: GridInterface;
 
 /**

@@ -2457,6 +2457,16 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines List Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 declare const List: ListInterface;
 
 /**
