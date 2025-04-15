@@ -49,7 +49,6 @@ export interface PatternLockAttribute extends CommonMethod {
     sideLength(value: Length): this;
     @memo
     circleRadius(value: Length): this;
-    @memo
     backgroundColor(value: ResourceColor): this;
     @memo
     regularColor(value: ResourceColor): this;

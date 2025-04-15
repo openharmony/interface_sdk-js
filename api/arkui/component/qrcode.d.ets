@@ -32,7 +32,6 @@ export type QRCodeInterface = (value: string) => QRCodeAttribute;
 export interface QRCodeAttribute extends CommonMethod {
     @memo
     color(value: ResourceColor): this;
-    @memo
     backgroundColor(value: ResourceColor): this;
     @memo
     contentOpacity(value: number | Resource): this;

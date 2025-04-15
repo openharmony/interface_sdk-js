@@ -75,7 +75,7 @@ export interface Literal_Number_errcode_String_msg {
 export type Callback_Literal_Number_errcode_String_msg_Void = (info: Literal_Number_errcode_String_msg) => void;
 export type Callback_Any_Void = (info: object) => void;
 export interface FormComponentAttribute extends CommonMethod {
-    @memo
+    
     size(value: SizeOptions): this;
     @memo
     moduleName(value: string): this;
