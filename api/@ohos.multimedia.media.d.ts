@@ -1708,16 +1708,16 @@ declare namespace media {
    */
   interface AVPlayer {
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1725,8 +1725,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1737,16 +1737,16 @@ declare namespace media {
     prepare(callback: AsyncCallback<void>): void;
 
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1754,8 +1754,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1766,23 +1766,23 @@ declare namespace media {
     prepare(): Promise<void>;
 
     /**
-     * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVPlayer is in the prepared, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVPlayer is in the prepared, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Play audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVPlayer is in the prepared, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when play completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1792,23 +1792,23 @@ declare namespace media {
     play(callback: AsyncCallback<void>): void;
 
     /**
-     * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVPlayer is in the prepared, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVplayer is in the prepared, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Play audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when play completed.
+     * Play audio/video playback. This API can be called only when the AVPlayer is in the prepared, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1818,23 +1818,23 @@ declare namespace media {
     play(): Promise<void>;
 
     /**
-     * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @param { AsyncCallback<void> } callback used to return the result when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @param { AsyncCallback<void> } callback used to return the result when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Pause audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @param { AsyncCallback<void> } callback used to return the result when pause completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1844,23 +1844,23 @@ declare namespace media {
     pause(callback: AsyncCallback<void>): void;
 
     /**
-     * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Pause audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * Pause audio/video playback. This API can be called only when the AVPlayer is in the playing state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1870,23 +1870,23 @@ declare namespace media {
     pause(): Promise<void>;
 
     /**
-     * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Stop audio/video playback.
-     * @param { AsyncCallback<void> } callback - instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1896,23 +1896,23 @@ declare namespace media {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Stop audio/video playback.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1922,23 +1922,23 @@ declare namespace media {
     stop(): Promise<void>;
 
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1948,23 +1948,23 @@ declare namespace media {
     reset(callback: AsyncCallback<void>): void;
 
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will to idle state and can set src again.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -1974,23 +1974,23 @@ declare namespace media {
     reset(): Promise<void>;
 
     /**
-     * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @param { AsyncCallback<void> } callback used to return the result when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @param { AsyncCallback<void> } callback used to return the result when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Releases resources used for AVPlayer.
-     * @param { AsyncCallback<void> } callback - instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @param { AsyncCallback<void> } callback used to return the result when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2000,23 +2000,23 @@ declare namespace media {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
      */
     /**
-     * Releases resources used for AVPlayer.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases resources used for AVPlayer. This API can be called when the AVPlayer is in any state except released.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2026,14 +2026,14 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * Jumps to the specified playback position.
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Jumps to the specified playback position.
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2041,7 +2041,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Jumps to the specified playback position.
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
