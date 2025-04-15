@@ -18,10 +18,20 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.1 */
 import display from '@ohos.display';
 import window from '@ohos.window';
 import { Position, Size } from '@ohos.arkui.node';
 import { Callback } from '@ohos.base';
+/*** endif */
+
+/*** if arkts 1.2 */
+import display from '@ohos.display';
+import window from '@ohos.window';
+import { Callback } from '@ohos.base';
+import { Position, Size, AnimateParam } from './arkui/component/Common'
+import { Prop, Component, BuilderParam } from './arkui/stateManagement/common';
+/*** endif */
 
 /**
  * Position enum of the extra region
@@ -29,7 +39,8 @@ import { Callback } from '@ohos.base';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum ExtraRegionPosition {
     /**
@@ -37,7 +48,8 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOP = 1,
     /**
@@ -45,7 +57,8 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BOTTOM = 2
 }
@@ -55,7 +68,8 @@ export declare enum ExtraRegionPosition {
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ExpandedRegionLayoutOptions {
     /**
@@ -64,7 +78,8 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     horizontalSplitRatio?: number;
     /**
@@ -73,7 +88,8 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verticalSplitRatio?: number;
     /**
@@ -82,7 +98,8 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isExtraRegionPerpendicular?: boolean;
     /**
@@ -91,7 +108,8 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
@@ -101,7 +119,8 @@ export interface ExpandedRegionLayoutOptions {
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface HoverModeRegionLayoutOptions {
     /**
@@ -110,7 +129,8 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     horizontalSplitRatio?: number;
     /**
@@ -119,7 +139,8 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showExtraRegion?: boolean;
     /**
@@ -128,7 +149,8 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
@@ -138,7 +160,8 @@ export interface HoverModeRegionLayoutOptions {
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface FoldedRegionLayoutOptions {
     /**
@@ -147,7 +170,8 @@ export interface FoldedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verticalSplitRatio?: number;
 }
@@ -185,13 +209,54 @@ export declare enum PresetSplitRatio {
      */
     LAYOUT_3V2 = 1.5
 }
+
+/**
+ * Preset split ratio.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare enum PresetSplitRatio {
+    /**
+     * 1:1
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    LAYOUT_1V1 = 1,
+    /**
+     * 2:3
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    LAYOUT_2V3 = 2,
+    /**
+     * 3:2
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    LAYOUT_3V2 = 3
+}
+
 /**
  * The status of hover mode.
  *
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface HoverModeStatus {
     /**
@@ -200,7 +265,8 @@ export interface HoverModeStatus {
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     foldStatus: display.FoldStatus;
     /**
@@ -210,7 +276,8 @@ export interface HoverModeStatus {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHoverMode: boolean;
     /**
@@ -219,7 +286,8 @@ export interface HoverModeStatus {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appRotation: number;
     /**
@@ -228,7 +296,8 @@ export interface HoverModeStatus {
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowStatusType: window.WindowStatusType;
 }
@@ -239,7 +308,8 @@ export interface HoverModeStatus {
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 /**
@@ -248,7 +318,8 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  * @interface FoldSplitContainer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct FoldSplitContainer {
@@ -258,7 +329,8 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @BuilderParam
     primary: Callback<void>;
@@ -268,7 +340,8 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @BuilderParam
     secondary: Callback<void>;
@@ -278,7 +351,8 @@ export declare struct FoldSplitContainer {
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @BuilderParam
     extra?: Callback<void>;
@@ -288,7 +362,8 @@ export declare struct FoldSplitContainer {
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop
     expandedLayoutOptions: ExpandedRegionLayoutOptions;
@@ -298,7 +373,8 @@ export declare struct FoldSplitContainer {
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop
     hoverModeLayoutOptions: HoverModeRegionLayoutOptions;
@@ -308,7 +384,8 @@ export declare struct FoldSplitContainer {
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop
     foldedLayoutOptions: FoldedRegionLayoutOptions;
@@ -318,7 +395,8 @@ export declare struct FoldSplitContainer {
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop
     animationOptions?: AnimateParam | null;
@@ -329,7 +407,8 @@ export declare struct FoldSplitContainer {
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onHoverStatusChange?: OnHoverStatusChangeHandler;
 }
