@@ -405,6 +405,7 @@ interface CheckboxGroupInterface {
 
 /**
  * Defines a CheckboxGroup callback when onChange.
+ * Anonymous Object Rectification.
  *
  * @typedef { function } OnCheckboxGroupChangeCallback
  * @param { CheckboxGroupResult } value - checkbox group result
@@ -663,6 +664,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * Called when the selection status changes.
+   * Anonymous Object Rectification.
    *
    * @param { OnCheckboxGroupChangeCallback } callback
    * @returns { CheckboxGroupAttribute }
