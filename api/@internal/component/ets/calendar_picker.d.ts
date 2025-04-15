@@ -285,6 +285,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    */
   /**
    * Callback for selected date changed.
+   * Anonymous Object Rectification.
    * @param { Callback<Date> } callback - callback for selected date changed.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -341,6 +342,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   * Anonymous Object Rectification.
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -366,6 +368,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   * 
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -391,6 +394,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * This event is triggered when a date is selected in dialog.
+   * Anonymous Object Rectification.
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -474,6 +478,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function when the dialog appears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -485,6 +490,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * Callback function when the dialog disappears.
+   * Anonymous Object Rectification.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -514,6 +520,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function before the dialog openAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -525,6 +532,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * Callback function before the dialog closeAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
