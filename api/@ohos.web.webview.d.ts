@@ -6055,14 +6055,14 @@ declare namespace webview {
 
     /**
      * Enables debugging of web contents.
+     * <p><strong>API Note</strong>:<br>
+     * Port numbers from 0 to 1024 are not allowed.
+     * </p>
      *
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
      * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
-     *                        socket is created instead of a unix domain socket.It is recommended to choose a port
-     *                        number above 1024 to avoid permission issues and ensure that the selected port is not
-     *                        occupied by other services.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *                        socket is created instead of a unix domain socket.
+     * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
