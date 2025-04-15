@@ -8551,30 +8551,6 @@ declare interface BlurOptions {
 }
 
 /**
- * Defines the SystemAdaptiveOptions interface
- *
- * @interface SystemAdaptiveOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 18
- */
-declare interface SystemAdaptiveOptions {
-  /**
-   * Whether to disable system adaptive.
-   * 
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  disableSystemAdaptation?: boolean;
-}
-
-/**
  * Defines the options of blurStyle
  *
  * @interface BlurStyleOptions
@@ -14412,7 +14388,6 @@ declare interface SheetOptions extends BindOptions {
    * Called when detents of the sheet changed
    *
    * @type { ?Callback<number> }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -14533,18 +14508,6 @@ declare interface SheetOptions extends BindOptions {
    * @since 15
    */
   detentSelection?: SheetSize | Length;
-
-  /**
-   * Whether to display in the sub window 
-   *
-   * @type { ?boolean } 
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  showInSubWindow?: boolean;
 
   /**
    * The placement of popup sheet type.
@@ -19426,11 +19389,9 @@ declare class CommonMethod<T> {
   /**
    * Background blur style.
    * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
    * @param { BackgroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19438,7 +19399,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
+  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions): T;
 
    /**
    * options:background effect options.
@@ -19463,17 +19424,15 @@ declare class CommonMethod<T> {
 
   /**
    * options:background effect options.
-   * sysOptions: system adaptive options.
    *
    * @param { Optional<BackgroundEffectOptions> } options - options indicates the effect options.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 18
    */
-  backgroundEffect(options: Optional<BackgroundEffectOptions>, sysOptions?: SystemAdaptiveOptions): T;
+  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
 
   /**
    * Background image resizable.
@@ -19499,20 +19458,6 @@ declare class CommonMethod<T> {
    * @since 12
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
-
-  /**
-   * Foreground effect.
-   * sysOptions: system adaptive options.
-   *
-   * @param { ForegroundEffectOptions } options - options indicates the effect options.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - system adaptive options.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  foregroundEffect(options: ForegroundEffectOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Unified visual effect interface.
@@ -19590,18 +19535,16 @@ declare class CommonMethod<T> {
   /**
    * Foreground blur style.
    * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
    * @param { ForegroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 18
    */
-  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
+  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions): T;
 
   /**
    * Opacity
@@ -20955,7 +20898,6 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20963,7 +20905,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
+  blur(blurRadius: Optional<number>, options?: BlurOptions): T;
 
   /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
@@ -21637,7 +21579,6 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates the backdrop blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21645,7 +21586,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
+  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
