@@ -196,6 +196,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取路径
+   * @returns {string}
+   */
   getPath() {
     return this.path;
   }
