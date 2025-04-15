@@ -28890,7 +28890,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * @atomicservice
  * @since 12
  */
-declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
 /**
  * Defines the options about VisibleAreaEvent.
