@@ -5554,7 +5554,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 19
      */
-    MIMETypeFilter?: MIMETypeFilter;
+    mimeTypeFilter?: MimeTypeFilter;
 
     /**
      * Media file size filtering configuration.
@@ -5584,7 +5584,7 @@ declare namespace photoAccessHelper {
    * @atomicservice
    * @since 19
    */
-  class MIMETypeFilter {
+  class MimeTypeFilter {
     /**
      * Indicates the media file type to be filtered.
      *
@@ -5593,7 +5593,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 19
      */
-    MIMETypeArray: Array<string>;
+    mimeTypeArray: Array<string>;
   }
 
   /**
