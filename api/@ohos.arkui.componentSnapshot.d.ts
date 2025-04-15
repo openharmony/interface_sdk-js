@@ -36,7 +36,8 @@ import image from './@ohos.multimedia.image'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace componentSnapshot {
   /**
@@ -46,9 +47,10 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SnapshotRegion {
+  export interface SnapshotRegion {
     /**
      * Left side position of rectangle, in PX.
      *
@@ -56,7 +58,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
 
@@ -67,7 +70,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     right: number;
 
@@ -78,7 +82,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -89,7 +94,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom: number;
   }
@@ -102,9 +108,10 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface LocalizedSnapshotRegion {
+  export interface LocalizedSnapshotRegion {
     /**
      * Left/Right side position of rectangle, in PX
      *
@@ -112,7 +119,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start: number;
 
@@ -123,7 +131,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     end: number;
 
@@ -134,7 +143,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -145,7 +155,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom: number;
   }
@@ -157,9 +168,10 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+  export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
 
   /**
    * Defines the extra options for snapshot taking.
@@ -168,9 +180,10 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SnapshotOptions {
+  export interface SnapshotOptions {
     /**
      * Defines the scale property to render the snapshot.
      *
@@ -178,7 +191,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scale?: number
 
@@ -189,7 +203,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     waitUntilRenderFinished?: boolean
 
@@ -200,7 +215,8 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     region?: SnapshotRegionType
   }
@@ -368,9 +384,10 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+  export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }
 
 export default componentSnapshot;
