@@ -303,6 +303,7 @@ declare enum SearchType {
 /**
  * Options used to construct the search.
  *
+ * Anonymous Object Rectification.
  * @typedef SearchOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -324,6 +325,15 @@ declare interface SearchOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Text input in the search text box.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
    */
   value?: string;
 
@@ -349,6 +359,15 @@ declare interface SearchOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Text displayed when there is no input.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
   placeholder?: ResourceStr;
 
   /**
@@ -366,6 +385,15 @@ declare interface SearchOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Path to the search icon.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
   icon?: string;
 
   /**
@@ -382,6 +410,15 @@ declare interface SearchOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Controller of the <Search> component.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?SearchController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
    */
   controller?: SearchController;
 }
@@ -441,6 +478,7 @@ interface SearchInterface {
   /**
    * The options of SearchInterface.
    *
+   * Anonymous Object Rectification.
    * @param { SearchOptions } [options] - Search options.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1010,6 +1048,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Call the function when clicked the search button.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1091,6 +1130,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Called when the text selection changes.
    *
+   * Anonymous Object Rectification.
    * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1122,6 +1162,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Called when the content scrolls.
    *
+   * Anonymous Object Rectification.
    * @param { OnContentScrollCallback } callback - Callback of the listened event.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1161,6 +1202,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1200,6 +1242,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1242,6 +1285,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

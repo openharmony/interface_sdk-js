@@ -21,6 +21,7 @@
 /**
  * Text overflow options.
  *
+ * Anonymous Object Rectification.
  * @interface TextOverflowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -62,6 +63,17 @@ declare interface TextOverflowOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Text overflow option.
+   *
+   * Anonymous Object Rectification.
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   overflow: TextOverflow;
 }
@@ -613,6 +625,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the overflow mode of the font is set.
    *
+   * Anonymous Object Rectification.
    * @param { TextOverflowOptions } options - Text overflow options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
