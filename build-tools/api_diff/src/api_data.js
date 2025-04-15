@@ -265,6 +265,11 @@ class ApiDigestInfo {
     return this.signature;
   }
 
+  /**
+   * 设置API Name
+   * @param apiName
+   * @returns {ApiDigestInfo}
+   */
   setApiName(apiName) {
     this.apiName = apiName;
     return this;
