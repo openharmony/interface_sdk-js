@@ -1180,7 +1180,7 @@ export interface CommonMethod {
     @memo
     useSizeType(value: Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs): this;
     @memo
-    alignRules(value: AlignRuleOption): this;
+    alignRules(value: AlignRuleOption | LocalizedAlignRuleOptions): this;
 
     @memo
     aspectRatio(value: number): this;
