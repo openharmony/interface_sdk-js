@@ -12,6 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
 
 import { memo_intrinsic } from '@koalaui.runtime.annotations'
 import { __memo_context_type, __memo_id_type } from '../stateManagement/runtime'
