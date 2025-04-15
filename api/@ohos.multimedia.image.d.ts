@@ -4798,8 +4798,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
-   * @throws { BusinessError } 62980096 - Operation failed.
-   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+   * 2. Decoding process exception. 3. Insufficient memory.
+   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+   * 3. Decode process exception. 4. Insufficient memory.
    * @throws { BusinessError } 62980115 - Invalid input parameter.
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980177 - Abnormal API environment.
@@ -6686,7 +6688,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -6698,8 +6701,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -7062,7 +7067,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
@@ -7095,7 +7101,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { Picture } Returns the Picture object.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+   * 3. Decode process exception. 4. Insufficient memory.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13
    */
@@ -7820,7 +7827,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7847,7 +7855,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7874,7 +7883,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7899,7 +7909,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7928,7 +7939,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7955,7 +7967,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
@@ -7982,7 +7995,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8001,7 +8015,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8022,7 +8037,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8041,7 +8057,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8062,7 +8079,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
@@ -8076,7 +8094,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8094,7 +8113,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8114,7 +8134,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8132,7 +8153,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
@@ -8156,7 +8178,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImagePropertyOptions } options - Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8180,7 +8203,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImagePropertyOptions } options - Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8285,7 +8309,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
      * property values. If the operation fails, the null is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
@@ -8657,7 +8682,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOption } options Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -8755,7 +8781,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOption } options Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -8792,7 +8819,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -8814,7 +8842,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -8836,7 +8865,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
@@ -8858,7 +8888,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980113 - Unknown image format.
