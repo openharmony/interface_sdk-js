@@ -664,7 +664,7 @@ declare namespace picker {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     isEncryptionSupported?: boolean;
     
