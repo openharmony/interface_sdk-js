@@ -431,7 +431,7 @@ declare namespace relationalStore {
      *
      * @type { ?Tokenizer }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 18
+     * @since 17
      */
 
     tokenizer?: Tokenizer;
@@ -641,21 +641,21 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 18
+   * @since 17
    */
   enum Tokenizer {
     /**
      * NONE_TOKENIZER: not use tokenizer
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 18
+     * @since 17
      */
     NONE_TOKENIZER = 0,
     /**
      * ICU_TOKENIZER: native icu tokenizer.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 18
+     * @since 17
      */
     ICU_TOKENIZER,
     /**
