@@ -350,7 +350,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   handleNoTagFileInSecondType(sourceFile, outputPath);
 }
 
-function getFileJsdoc(firstNode){
+function getFileJsdoc(firstNode) {
   const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
   const jsdocs = firstNodeJSDoc.split('*/');
   let fileJSDoc = '';
