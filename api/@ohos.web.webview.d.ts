@@ -6052,6 +6052,22 @@ declare namespace webview {
      * @since 18
      */
     getLastHitTest(): HitTestValue;
+
+    /**
+     * Enables debugging of web contents.
+     *
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
+     *                        socket is created instead of a unix domain socket.It is recommended to choose a port
+     *                        number above 1024 to avoid permission issues and ensure that the selected port is not
+     *                        occupied by other services.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
   }
 
   /**
