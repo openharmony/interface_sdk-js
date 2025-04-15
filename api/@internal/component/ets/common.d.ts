@@ -1883,7 +1883,8 @@ declare function $rawfile(value: string): Resource;
  */
 declare enum AccessibilitySamePageMode {
   /**
-  * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent. this mode is to solve skipping focus
+  * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
+  * this mode is to solve skipping focus
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @form
