@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit NetworkKit
+ * @arkts 1.1&1.2
  */
 
 import ExtensionContext from './ExtensionContext';
@@ -26,7 +27,7 @@ import ExtensionContext from './ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
  */
 
 export default class VpnExtensionContext extends ExtensionContext {
