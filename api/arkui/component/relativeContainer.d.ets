@@ -64,7 +64,7 @@ export interface RelativeContainerAttribute extends CommonMethod {
     @memo
     guideLine(value: Array<GuideLineStyle>): this;
     @memo
-    barrier(value: Array<BarrierStyle>): this;
+    barrier(value: Array<BarrierStyle> | Array<LocalizedBarrierStyle>): this;
 
 }
 @memo
