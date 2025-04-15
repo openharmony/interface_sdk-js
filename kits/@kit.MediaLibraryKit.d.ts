@@ -21,19 +21,27 @@
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
-import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo } from '@ohos.file.AlbumPickerComponent';
+import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback } from '@ohos.file.AlbumPickerComponent';
 import {
     PhotoPickerComponent, PickerController, PickerOptions,
-    DataType, ItemInfo, PhotoBrowserInfo, AnimatorParams,
+    DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
-    SelectMode, PickerColorMode, ReminderMode, MaxCountType
+    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 } from '@ohos.file.PhotoPickerComponent';
+import {
+    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
+} from '@ohos.file.RecentPhotoComponent';
 export {
     photoAccessHelper, sendablePhotoAccessHelper,
     MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute,
     PhotoPickerComponent, PickerController, PickerOptions,
-    DataType, ItemInfo, PhotoBrowserInfo, AnimatorParams,
+    DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
-    SelectMode, PickerColorMode, ReminderMode, MaxCountType,
-    AlbumPickerComponent, AlbumPickerOptions, AlbumInfo
+    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
+    AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback,
+    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 };
