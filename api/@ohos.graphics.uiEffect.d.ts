@@ -108,129 +108,14 @@ declare namespace uiEffect {
      *
      * @param { number } value - the blurring radius.
      * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
-     * @param { RadiusGradientBlurOptions } options - the radius gradient blur options.
+     * @param { LinearGradientBlurOptions } options - the radius gradient blur options.
      * @returns { Filter } - Returns radius gradient blur Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 19
      */
-    radiusGradientBlur(value: number, options: RadiusGradientBlurOptions): Filter;
-  }
-
-  /**
-   * Radius Gradient Blur Interface
-   * @interface RadiusGradientBlurOptions
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @since 19
-   */
-  interface RadiusGradientBlurOptions {
-    /**
-     * Percentage of blurring effect.
-     *
-     * @type { FractionStop[] }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    fractionStops: FractionStop[];
-    /**
-     * Direction of radius gradient blur.
-     *
-     * @type { GradientDirection }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    direction: GradientDirection;
-  }
-
-  /**
-   * Defines the segment of blur.
-   * The first element in the tuple means fraction.
-   * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
-   * The second element means the stop position.
-   * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
-   *
-   * @typedef { [ number, number ] } FractionStop
-   * @syscap SystemCapability.Graphics.Drawing
-   * @since 19
-   */
-  type FractionStop = [
-      number,
-      number
-  ];
-
-  /**
-   * GradientDirection enumeration description
-   * @enum { number }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @since 19
-   */
-  enum GradientDirection {
-    /**
-     * Right to left.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    Left,
-    /**
-     * From the bottom up.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    Top,
-    /**
-     * From left to right.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    Right,
-    /**
-     * From the top down.
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    Bottom,
-    /**
-     * Top Left
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    LeftTop,
-    /**
-     * Left Bottom
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    LeftBottom,
-    /**
-     * Right Top
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    RightTop,
-    /**
-     * Right Bottom
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    RightBottom,
-    /**
-     * None
-     *
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 19
-     */
-    None
+    radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
   }
 
   /**
