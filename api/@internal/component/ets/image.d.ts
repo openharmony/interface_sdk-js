@@ -78,6 +78,18 @@ declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.L
 declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
 /**
+  * Business error in onError callback.
+  *
+  * @typedef { import('../api/@ohos.base').BusinessError<T> } BusinessError<T>
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+declare type BusinessError<T> = import('../api/@ohos.base').BusinessError<T>;
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1971,6 +1983,18 @@ declare interface ImageError {
    * @since 11
    */
   message: string
+
+  /**
+   * Business Error.
+   *
+   * @type { ?BusinessError<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  error?: BusinessError<void>;
 }
 
 /**
