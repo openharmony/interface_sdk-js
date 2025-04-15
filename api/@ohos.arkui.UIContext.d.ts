@@ -1005,20 +1005,20 @@ export class PromptAction {
   showToast(options: promptAction.ShowToastOptions): void;
 
   /**
-   * Displays the notification text.
-   *
-   * @param { promptAction.ShowToastOptions } options - Options.
-   * @returns { Promise<number> } return the toast id that will be used by closeToast.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
+  * Displays the notification text.
+  *
+  * @param { promptAction.ShowToastOptions } options - Options.
+  * @returns { Promise<number> } return the toast id that will be used by closeToast.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+  * <br> 1. Mandatory parameters are left unspecified.
+  * <br> 2. Incorrect parameters types.
+  * <br> 3. Parameter verification failed.
+  * @throws { BusinessError } 100001 - Internal error.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 18
+  */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
   /**
@@ -1543,17 +1543,6 @@ export interface OverlayManagerOptions {
    * @since 15
    */
   renderRootOverlay?: boolean;
-
-  /**
-   * Set whether support backPressed event or not.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  enableBackPressedEvent?: boolean;
 }
 
 /**
