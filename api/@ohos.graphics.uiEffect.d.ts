@@ -24,7 +24,8 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * @namespace uiEffect
  * @syscap SystemCapability.Graphics.Drawing
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiEffect {
 
@@ -228,7 +229,8 @@ declare namespace uiEffect {
    * The VisualEffect of Component.
    * @typedef VisualEffect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VisualEffect {
     /**
@@ -237,7 +239,8 @@ declare namespace uiEffect {
     * @returns { VisualEffect } VisualEffects for the current effect have been added.
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
-    * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
   }
@@ -247,7 +250,8 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Blender = BrightnessBlender;
 
@@ -256,7 +260,8 @@ declare namespace uiEffect {
    * @typedef BrightnessBlender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BrightnessBlender {
     /**
@@ -265,7 +270,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cubicRate: number;
 
@@ -275,7 +281,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     quadraticRate: number;
 
@@ -285,7 +292,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     linearRate: number;
 
@@ -295,7 +303,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     degree: number;
 
@@ -305,7 +314,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     saturation: number;
 
@@ -315,7 +325,8 @@ declare namespace uiEffect {
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     positiveCoefficient: [number, number, number];
 
@@ -325,7 +336,8 @@ declare namespace uiEffect {
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     negativeCoefficient: [number, number, number];
 
@@ -335,7 +347,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fraction: number;
   }
@@ -352,7 +365,8 @@ declare namespace uiEffect {
    * Create a VisualEffect to add multiple effects to the component.
    * @returns { VisualEffect } Returns the head node of visualEffect.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createEffect(): VisualEffect;
 
@@ -362,7 +376,8 @@ declare namespace uiEffect {
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 }
@@ -372,7 +387,8 @@ declare namespace uiEffect {
  * @typedef BrightnessBlenderParam
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BrightnessBlenderParam {
   /**
@@ -381,7 +397,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cubicRate: number;
 
@@ -391,7 +408,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   quadraticRate: number;
 
@@ -401,7 +419,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   linearRate: number;
 
@@ -411,7 +430,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   degree: number;
 
@@ -421,7 +441,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   saturation: number;
 
@@ -431,7 +452,8 @@ declare interface BrightnessBlenderParam {
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   positiveCoefficient: [number, number, number];
 
@@ -441,7 +463,8 @@ declare interface BrightnessBlenderParam {
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   negativeCoefficient: [number, number, number];
 
@@ -451,7 +474,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fraction: number;
 }
