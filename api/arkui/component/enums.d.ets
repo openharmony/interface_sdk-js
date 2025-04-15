@@ -711,3 +711,7 @@ export enum HeightBreakpoint {
     HEIGHT_MD = 1,
     HEIGHT_LG = 2
 }
+export enum PageFlipMode {
+    CONTINUOUS = 0,
+    SINGLE = 1
+}
