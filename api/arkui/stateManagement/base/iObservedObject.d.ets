@@ -25,4 +25,4 @@ export declare interface IObservedObject {
 
 export declare function castToIObservedObject<T>(obj: T): T | undefined;
 
-export declare function setObservationDepth<T>(obj: T, depth: number): void;
+export declare function setObservationDepth<T>(obj: T, depth: int32): void;
