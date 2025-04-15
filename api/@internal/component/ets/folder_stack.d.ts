@@ -55,6 +55,16 @@ interface FolderStackOptions {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
+   *
+   * Anonymous Object Rectification
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   upperItems?: Array<string>;
 }
 
@@ -99,6 +109,7 @@ interface FolderStackInterface {
   /**
    * Defines the constructor of folderStack.
    *
+   * Anonymous Object Rectification
    * @param { FolderStackOptions } [options] - id of children need to be show in upperItem
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,12 +147,23 @@ interface OnFoldStatusChangeInfo {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Folder state.
+   *
+   * Anonymous Object Rectification
+   * @type { FoldStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   foldStatus: FoldStatus
 }
 
 /**
  * Callback when onStateChangeCallback.
  * 
+ * Anonymous Object Rectification
  * @typedef { function } OnFoldStatusChangeCallback
  * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,6 +176,7 @@ declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => voi
 /**
  * Callback when onHoverStatusChange.
  * 
+ * Anonymous Object Rectification
  * @typedef { function } OnHoverStatusChangeCallback
  * @param { HoverEventParam } param - hover event param
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -220,6 +243,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    /**
    * Callback folderState when the folderState changes
    *
+   * Anonymous Object Rectification
    * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -242,6 +266,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
    *
+   * Anonymous Object Rectification
    * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
