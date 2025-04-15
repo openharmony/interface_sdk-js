@@ -329,8 +329,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     return !ts.isExpressionStatement(statement);
   });
 
-  if (firstNode && firstNode.jsDoc) {
-    const firstJsdocText = firstNode.jsDoc[0].getText();
+  if (firstNode) {
+    const firstJsdocText = getFileJsdoc(firstNode);
     if (regx.test(firstJsdocText)) {
       return;
     }
@@ -348,6 +348,20 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
 
   // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
   handleNoTagFileInSecondType(sourceFile, outputPath);
+}
+
+function getFileJsdoc(firstNode){
+  const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
+  const jsdocs = firstNodeJSDoc.split('*/');
+  let fileJSDoc = '';
+  for (let i = 0; i < jsdocs.length; i++) {
+    const jsdoc = jsdocs[i];
+    if (/\@file/.test(jsdoc)) {
+      fileJSDoc = jsdoc;
+      break;
+    }
+  }
+  return fileJSDoc;
 }
 
 /**

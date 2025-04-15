@@ -12,6 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
 
 import { ArrayState, Equivalent, MutableState, StateManager, ValueTracker } from '@koalaui.runtime.states.State'
 export declare class GlobalStateManager {
