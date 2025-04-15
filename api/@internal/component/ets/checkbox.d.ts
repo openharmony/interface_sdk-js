@@ -264,6 +264,7 @@ interface CheckboxInterface {
 
 /**
  * Defines a Checkbox callback when onChange.
+ * Anonymous Object Rectification.
  *
  * @typedef { function } OnCheckboxChangeCallback
  * @param { boolean } value - selected status
@@ -558,6 +559,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    */
   /**
    * Called when the selection status changes.
+   * Anonymous Object Rectification.
    *
    * @param { OnCheckboxChangeCallback } callback
    * @returns { CheckboxAttribute }
