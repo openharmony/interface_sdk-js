@@ -618,7 +618,6 @@ declare namespace abilityAccessCtrl {
      *
      * @param { number } tokenID - Token ID of the application.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100007 - The service is abnormal.
