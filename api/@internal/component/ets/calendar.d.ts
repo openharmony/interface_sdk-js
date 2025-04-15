@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor } from './units' 
+import { Axis } from './enums'
+/*** endif */
+
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  *
@@ -33,9 +38,10 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface CalendarDay {
+export interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
@@ -53,7 +59,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   index: number;
 
@@ -74,7 +81,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarMonth: string;
 
@@ -93,7 +101,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarDay: string;
 
@@ -112,7 +121,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayMark: string;
 
@@ -131,7 +141,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayMarkValue: string;
 
@@ -150,7 +161,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   year: number;
 
@@ -169,7 +181,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   month: number;
 
@@ -188,7 +201,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   day: number;
 
@@ -207,7 +221,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isFirstOfLunar: boolean;
 
@@ -228,7 +243,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasSchedule: boolean;
 
@@ -247,7 +263,8 @@ interface CalendarDay {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   markLunarDay: boolean;
 }
@@ -267,9 +284,10 @@ interface CalendarDay {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface MonthData {
+export interface MonthData {
   /**
    * Gregorian calendar year.
    *
@@ -285,7 +303,8 @@ interface MonthData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   year: number;
 
@@ -304,7 +323,8 @@ interface MonthData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   month: number;
 
@@ -323,7 +343,8 @@ interface MonthData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data: CalendarDay[];
 }
@@ -343,9 +364,10 @@ interface MonthData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface CurrentDayStyle {
+export interface CurrentDayStyle {
   /**
    * Text color.
    *
@@ -361,7 +383,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayColor?: ResourceColor;
 
@@ -380,7 +403,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarColor?: ResourceColor;
 
@@ -399,7 +423,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   markLunarColor?: ResourceColor;
 
@@ -418,7 +443,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayFontSize?: number;
 
@@ -437,7 +463,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarDayFontSize?: number;
 
@@ -456,7 +483,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayHeight?: number;
 
@@ -475,7 +503,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayWidth?: number;
 
@@ -494,7 +523,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   gregorianCalendarHeight?: number;
 
@@ -513,7 +543,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dayYAxisOffset?: number;
 
@@ -532,7 +563,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarDayYAxisOffset?: number;
 
@@ -551,7 +583,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   underscoreXAxisOffset?: number;
 
@@ -570,7 +603,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   underscoreYAxisOffset?: number;
 
@@ -589,7 +623,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scheduleMarkerXAxisOffset?: number;
 
@@ -608,7 +643,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scheduleMarkerYAxisOffset?: number;
 
@@ -627,7 +663,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colSpace?: number;
 
@@ -646,7 +683,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dailyFiveRowSpace?: number;
 
@@ -665,7 +703,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dailySixRowSpace?: number;
 
@@ -684,7 +723,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lunarHeight?: number;
 
@@ -703,7 +743,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   underscoreWidth?: number;
 
@@ -722,7 +763,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   underscoreLength?: number;
 
@@ -741,7 +783,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scheduleMarkerRadius?: number;
 
@@ -760,7 +803,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   boundaryRowOffset?: number;
 
@@ -779,7 +823,8 @@ interface CurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   boundaryColOffset?: number;
 }
@@ -799,9 +844,10 @@ interface CurrentDayStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface NonCurrentDayStyle {
+export interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
    *
@@ -817,7 +863,8 @@ interface NonCurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nonCurrentMonthDayColor?: ResourceColor;
 
@@ -836,7 +883,8 @@ interface NonCurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nonCurrentMonthLunarColor?: ResourceColor;
 
@@ -855,7 +903,8 @@ interface NonCurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nonCurrentMonthWorkDayMarkColor?: ResourceColor;
 
@@ -874,7 +923,8 @@ interface NonCurrentDayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nonCurrentMonthOffDayMarkColor?: ResourceColor;
 }
@@ -894,9 +944,10 @@ interface NonCurrentDayStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface TodayStyle {
+export interface TodayStyle {
   /**
    * Style of focus color.
    *
@@ -912,7 +963,8 @@ interface TodayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focusedDayColor?: ResourceColor;
 
@@ -931,7 +983,8 @@ interface TodayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focusedLunarColor?: ResourceColor;
 
@@ -950,7 +1003,8 @@ interface TodayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focusedAreaBackgroundColor?: ResourceColor;
 
@@ -969,7 +1023,8 @@ interface TodayStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focusedAreaRadius?: number;
 }
@@ -989,9 +1044,10 @@ interface TodayStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface WeekStyle {
+export interface WeekStyle {
   /**
    * Style of week color.
    *
@@ -1007,7 +1063,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekColor?: ResourceColor;
 
@@ -1026,7 +1083,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekendDayColor?: ResourceColor;
 
@@ -1045,7 +1103,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekendLunarColor?: ResourceColor;
 
@@ -1064,7 +1123,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekFontSize?: number;
 
@@ -1083,7 +1143,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekHeight?: number;
 
@@ -1102,7 +1163,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekWidth?: number;
 
@@ -1121,7 +1183,8 @@ interface WeekStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekAndDayRowSpace?: number;
 }
@@ -1141,9 +1204,10 @@ interface WeekStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface WorkStateStyle {
+export interface WorkStateStyle {
   /**
    * Style of day color.
    *
@@ -1159,7 +1223,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workDayMarkColor?: ResourceColor;
 
@@ -1178,7 +1243,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offDayMarkColor?: ResourceColor;
 
@@ -1197,7 +1263,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workDayMarkSize?: number;
 
@@ -1216,7 +1283,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offDayMarkSize?: number;
 
@@ -1235,7 +1303,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workStateWidth?: number;
 
@@ -1254,7 +1323,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workStateHorizontalMovingDistance?: number;
 
@@ -1273,7 +1343,8 @@ interface WorkStateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workStateVerticalMovingDistance?: number;
 }
@@ -1293,7 +1364,8 @@ interface WorkStateStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CalendarSelectedDate {
   /**
@@ -1311,7 +1383,8 @@ declare interface CalendarSelectedDate {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   year: number;
 
@@ -1330,7 +1403,8 @@ declare interface CalendarSelectedDate {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   month: number;
 
@@ -1349,7 +1423,8 @@ declare interface CalendarSelectedDate {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   day: number;
 }
@@ -1369,7 +1444,8 @@ declare interface CalendarSelectedDate {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CalendarRequestedData {
   /**
@@ -1387,7 +1463,8 @@ declare interface CalendarRequestedData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   year: number;
 
@@ -1406,7 +1483,8 @@ declare interface CalendarRequestedData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   month: number;
 
@@ -1425,7 +1503,8 @@ declare interface CalendarRequestedData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentYear: number;
 
@@ -1444,7 +1523,8 @@ declare interface CalendarRequestedData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentMonth: number;
 
@@ -1463,11 +1543,59 @@ declare interface CalendarRequestedData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   monthState: number;
 }
 
+/**
+ * Defines the struct of DateOptions.
+ *
+ * @interface DateOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @form
+ * @since 20
+ * @arkts 1.2
+ */
+export interface DateOptions {
+  /**
+   * Gregorian calendar year.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  year: number;
+
+  /**
+   * Gregorian calendar month.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  month: number;
+
+  /**
+   * Gregorian calendar day.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  day: number
+}
 /**
  * Calendar controller.
  *
@@ -1481,7 +1609,8 @@ declare interface CalendarRequestedData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CalendarController {
   /**
@@ -1497,7 +1626,8 @@ declare class CalendarController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -1515,8 +1645,20 @@ declare class CalendarController {
    * @systemapi
    * @form
    * @since 10
+   * @arkts 1.1
    */
   backToToday();
+
+  /**
+   * Back to day.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  backToToday():void;
 
   /**
    * To the specified element.
@@ -1534,8 +1676,20 @@ declare class CalendarController {
    * @systemapi
    * @form
    * @since 10
+   * @arkts 1.1
    */
   goTo(value: { year: number; month: number; day: number });
+  /**
+   * To the specified element.
+   *
+   * @param { DateOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  goTo(value: DateOptions):void;
 }
 
 /**
@@ -1553,7 +1707,9 @@ declare class CalendarController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
+ * @component
  */
 interface CalendarInterface {
   /**
@@ -1593,7 +1749,8 @@ interface CalendarInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @form
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CalendarAttribute {
   /**
@@ -1613,7 +1770,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showLunar(value: boolean): CalendarAttribute;
 
@@ -1634,7 +1792,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showHoliday(value: boolean): CalendarAttribute;
 
@@ -1655,7 +1814,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   needSlide(value: boolean): CalendarAttribute;
 
@@ -1676,7 +1836,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startOfWeek(value: number): CalendarAttribute;
 
@@ -1697,7 +1858,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offDays(value: number): CalendarAttribute;
 
@@ -1718,7 +1880,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction(value: Axis): CalendarAttribute;
 
@@ -1739,7 +1902,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentDayStyle(value: CurrentDayStyle): CalendarAttribute;
 
@@ -1760,7 +1924,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nonCurrentDayStyle(value: NonCurrentDayStyle): CalendarAttribute;
 
@@ -1781,7 +1946,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   todayStyle(value: TodayStyle): CalendarAttribute;
 
@@ -1802,7 +1968,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   weekStyle(value: WeekStyle): CalendarAttribute;
 
@@ -1823,7 +1990,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   workStateStyle(value: WorkStateStyle): CalendarAttribute;
 
@@ -1844,7 +2012,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSelectChange(event: (event: CalendarSelectedDate) => void): CalendarAttribute;
 
@@ -1865,7 +2034,8 @@ declare class CalendarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRequestData(
     event: (event: CalendarRequestedData) => void,
