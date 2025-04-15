@@ -236,6 +236,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 设置tagItem
+   * @param jsdocTagItem
+   */
   setJSDocTagItem(jsdocTagItem) {
     this.jsdocTagItem = jsdocTagItem;
   }
