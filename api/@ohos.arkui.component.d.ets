@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
+
 export * from './arkui/UserView';
 export * from './arkui/component/customComponent';
 export * from './arkui/component/common';
