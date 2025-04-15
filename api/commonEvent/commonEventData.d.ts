@@ -146,5 +146,5 @@ export interface CommonEventData {
    * @since 20
    * @arkts 1.2
    */
-  parameters?: Record<string,Object>;
+  parameters?: Record<string, Object>;
 }
