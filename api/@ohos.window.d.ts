@@ -4088,6 +4088,23 @@ declare namespace window {
     showWindow(): Promise<void>;
 
     /**
+     * Show window.
+     *
+     * @param { ShowWindowOptions } options - options of window shown
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function showWindow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    showWindow(options: ShowWindowOptions): Promise<void>;
+
+    /**
      * Show window with animation.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -9522,6 +9539,28 @@ declare namespace window {
      */
     APPLICATION_MODALITY = 1,
   }
+
+
+  /**
+   * Options for window shown
+   * 
+   * @interface ShowWindowOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface ShowWindowOptions {
+    /**
+     * Indicates whether the window get focus when it is shown
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    focusOnShow?: boolean;
+  }
+
 
   /**
    * Options for subwindow creation
