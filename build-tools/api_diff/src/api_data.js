@@ -217,6 +217,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取node
+   * @returns {collaborationEditObject.Node}
+   */
   getAstNode() {
     return this.node;
   }
