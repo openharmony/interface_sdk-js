@@ -13,6 +13,13 @@
  * limitations under the License.
  */
 
+export class ParameterError extends Error {
+    constructor(code: int) {
+        this.code = code;
+    }
+    code: int;
+}
+
 /**
  * The interface of system parameters class.
  *
