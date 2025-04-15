@@ -12,6 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
 
 import { memo } from '@koalaui.runtime.annotations'
 import { KoalaCallsiteKey, int32 } from '@koalaui.runtime.common'

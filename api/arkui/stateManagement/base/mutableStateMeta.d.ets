@@ -12,6 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
 
 export declare class MutableStateMetaBase {
     public constructor(decorator: string)
