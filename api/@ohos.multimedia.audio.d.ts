@@ -101,7 +101,7 @@ declare namespace audio {
      */
     ERROR_TIMEOUT = 6800105,
     /**
-     * Unsupported device.
+     * Unsupported output or input device.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -272,20 +272,15 @@ declare namespace audio {
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
 
   /**
-   * Checks whether the audio feedback is supported.
-   * @returns { boolean } The value true means that the audio feedback is supported,
-   *          and false means the opposite.
-   * @syscap SystemCapability.Multimedia.Audio.Feedback
-   * @systemapi
-   * @since 20
-   */
-  function isAudioFeedbackSupported(): boolean;
-
-  /**
    * Obtains a {@link AudioFeedback} instance. This method uses a promise to return the audio feedback instance.
-   * @returns { Promise<TonePlayer> } Promise used to return the audioFeedback instance.
+   * The instance will build low-latency capturer and low-latency render to implement in-ear monitor.
+   * @permission ohos.permission.MICROPHONE
+   * @returns { Promise<AudioFeedback> } Promise used to return the audioFeedback instance.
+   * @throws  { BusinessError } 201 - Permission denied.
+   * @throws  { BusinessError } 6800104 - Unsupported by the current system.
+   * @throws  { BusinessError } 6800106 - Unsupported by the output or input device change.
+   * @throws  { BusinessError } 6800107 - Unsupported by the audio interrupt.
    * @syscap SystemCapability.Multimedia.Audio.Feedback
-   * @systemapi
    * @since 20
    */
   function createAudioFeedback(): Promise<AudioFeedback>;
@@ -405,14 +400,14 @@ declare namespace audio {
     STATUS_AVAILABLE = 0,
 
     /**
-     * Audio feedback not available device.
+     * Audio feedback not available by the output or input device change.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
      * @since 20
      */
     STATUS_NOT_AVAILABLE_DEVICE = 1,
 
     /**
-     * Audio feedback not available scene.
+     * Audio feedback not available by the audio interrupt.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
      * @since 20
      */
@@ -4370,6 +4365,15 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+
+    /**
+     * Checks whether the audio feedback is supported.
+     * @returns { boolean } The value true means that the audio feedback is supported,
+     *          and false means the opposite.
+     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @since 20
+     */
+    isAudioFeedbackSupported(): boolean;
   }
 
   /**
@@ -10886,7 +10890,6 @@ declare namespace audio {
    * Provides APIs for audio feedback.
    * @typedef AudioFeedback
    * @syscap SystemCapability.Multimedia.Audio.Feedback
-   * @systemapi
    * @since 20
    */
   interface AudioFeedback {
@@ -10902,8 +10905,8 @@ declare namespace audio {
      * Sets the volume for a audio feedback. This method uses a promise to return the result.
      * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed, form 0.0 to 1.0.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
-     * @systemapi
      * @since 20
      */
     setVolume(volume: number): Promise<void>;
@@ -10911,7 +10914,8 @@ declare namespace audio {
     /**
      * Subscribes audio feedback status change event callback.
      * @param { 'statusChange' } type - Type of the event to listen for. Only the statusChange event is supported.
-     * @param { Callback<AudioFeedbackStatus> } callback - Callback invoked when status change.
+     * @param { Callback<AudioFeedbackStatus> } callback - Callback used to listen for the audio feedback status
+     *        change event.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
      * @since 20
      */
@@ -10919,11 +10923,13 @@ declare namespace audio {
 
     /**
      * Unsubscribes audio feedback status change event callback.
-     * @param { 'stateChange' } type - Type of the event to listen for.
+     * @param { 'statusChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioFeedbackStatus> } callback - Callback used to listen for the audio feedback status
+     *        change event.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
      * @since 20
      */
-    off(type: 'statusChange'): void;
+    off(type: 'statusChange', callback?: Callback<AudioFeedbackStatus>): void;
 
     /**
      * Enable or disable audio feedback. This method uses a promise to return the result.
@@ -10932,10 +10938,9 @@ declare namespace audio {
      *        and false means the opposite.
      * @returns { Promise<void> }Promise used to return the result.
      * @throws  { BusinessError } 201 - Permission denied.
-     * @throws  { BusinessError } 6800106 - Unsupportd device.
-     * @throws  { BusinessError } 6800107 - Unsupportd scene.
+     * @throws  { BusinessError } 6800106 - Unsupported by the output or input device change.
+     * @throws  { BusinessError } 6800107 - Unsupported by the audio interrupt.
      * @syscap SystemCapability.Multimedia.Audio.Feedback
-     * @systemapi
      * @since 20
      */
     enable(enable: boolean): Promise<void>;
