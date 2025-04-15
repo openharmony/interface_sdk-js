@@ -26899,7 +26899,7 @@ declare class CustomComponent extends BaseCustomComponent {
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 }
-
+ 
 /**
  * Custom ComponentV2
  *
@@ -26922,7 +26922,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
    */
   aboutToReuse?(): void;
 }
-
+ 
 /**
  * Custom Component base class and it is migrated from class CustomComponent.
  *
@@ -26934,7 +26934,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
  * @since 18
  */
 declare class BaseCustomComponent extends CommonAttribute {
-    /**
+  /**
    * Customize the pop-up content constructor .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
