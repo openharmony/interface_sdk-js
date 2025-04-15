@@ -23,25 +23,21 @@ import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Len
 import { FontStyle, FontWeight, BorderStyle } from './enums';
 import { Resource } from './../../../global/resource';
 /*** endif */
-/*** if arkts 1.1 */
-import { int } from '@ohos.base';
-/*** endif */
 
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SecurityComponentLayoutDirection {
   /**
@@ -55,8 +51,7 @@ declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HORIZONTAL = 0,
 
@@ -71,8 +66,38 @@ declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  VERTICAL = 1
+}
+
+/**
+ * Enumerates the layout direction of the icon and text.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare enum SecurityComponentLayoutDirection {
+  /**
+   * Horizontal layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  HORIZONTAL = 0,
+
+  /**
+   * Vertical layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   VERTICAL = 1
 }
@@ -252,7 +277,7 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font weight of the inner text.
    *
-   * @param { int | FontWeight | string } value - Indicates the font weight of the text in the security component.
+   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -260,12 +285,23 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font weight of the inner text.
    *
+   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  fontWeight(value: number | FontWeight | string): T;
+
+  /**
+   * Font weight of the inner text.
+   *
    * @param { int | FontWeight | string } value - Indicates the font weight of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   fontWeight(value: int | FontWeight | string): T;
 

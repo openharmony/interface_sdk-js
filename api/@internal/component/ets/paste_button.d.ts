@@ -22,6 +22,7 @@
 import { ButtonType } from './button';
 import { ClickEvent } from './common';
 import { SecurityComponentMethod } from './security_component';
+import { BusinessError } from './../../../@ohos.base'
 /*** endif */
 
 /**
@@ -291,7 +292,8 @@ type PasteButtonInterface = (options?: PasteButtonOptions) => PasteButtonAttribu
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError<void>) => void;
 
