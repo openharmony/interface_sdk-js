@@ -173,6 +173,7 @@ declare class SwiperController {
    */
   /**
    * Called when need to stop the swiper animation.
+   * Anonymous Object Rectification
    *
    * @param { ?VoidCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1950,6 +1951,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the index value changes.
+   * Anonymous Object Rectification
    *
    * @param { Callback<number> } event
    * @returns { SwiperAttribute }
@@ -2099,6 +2101,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper animation start.
+   * Anonymous Object Rectification
    *
    * @param { OnSwiperAnimationStartCallback } event
    * @returns { SwiperAttribute }
@@ -2145,6 +2148,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper animation end.
+   * Anonymous Object Rectification
    *
    * @param { OnSwiperAnimationEndCallback } event
    * @returns { SwiperAttribute }
@@ -2181,6 +2185,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper swipe with the gesture.
+   * Anonymous Object Rectification
    *
    * @param { OnSwiperGestureSwipeCallback } event
    * @returns { SwiperAttribute }

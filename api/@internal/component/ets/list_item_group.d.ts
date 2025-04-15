@@ -336,6 +336,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    */
   /**
    * Called when the ListItemGroup split line style is set.
+   * Anonymous Object Rectification.
    *
    * @param { ListDividerOptions | null } value
    * @returns { ListItemGroupAttribute }
