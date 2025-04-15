@@ -602,7 +602,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -613,7 +613,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(): Promise<boolean>;
 
