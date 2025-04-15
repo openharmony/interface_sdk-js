@@ -485,7 +485,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 19
    */
   function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
