@@ -108,7 +108,6 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   params?: any[];
   
