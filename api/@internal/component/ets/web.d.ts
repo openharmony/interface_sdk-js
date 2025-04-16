@@ -6555,6 +6555,15 @@ declare interface OnOverScrollEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the JavaScript object to be injected.
+ *
+ * @typedef JavaScriptProxy
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare interface JavaScriptProxy {
   /**
    * Objects participating in registration.
@@ -6563,6 +6572,15 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Objects participating in registration.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   object: object;
 
@@ -6575,6 +6593,16 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The name of the registered object, which is consistent with the
+   *                          object name called in the window.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   name: string;
 
   /**
@@ -6586,6 +6614,16 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The method of the application side JavaScript object participating
+   *                                       in the registration.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   methodList: Array<string>;
 
   /**
@@ -6596,6 +6634,15 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Controller.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   controller: WebController | WebviewController;
 
   /**
@@ -6605,6 +6652,15 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The async method of the application side JavaScript object participating in the registration.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   asyncMethodList?: Array<string>;
 
@@ -7070,6 +7126,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to arkWeb rendering framework adaptation solution,
+   * see [ArkWeb Rendering Framework Adaptation]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
+   * </p>
+   *
+   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
