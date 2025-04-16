@@ -1564,7 +1564,7 @@ export interface OverlayManagerOptions {
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
