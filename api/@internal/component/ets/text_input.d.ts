@@ -2794,7 +2794,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Set the ellipsis mode.
    *
-   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @param { Optional<EllipsisMode> } mode - The ellipsis mode.
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
