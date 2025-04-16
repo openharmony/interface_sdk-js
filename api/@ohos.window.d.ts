@@ -3728,6 +3728,75 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
+   * Defines the window animation curve param.
+   *
+   * @typedef { Array<number> } AnimationCurveParam
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  declare type WindowAnimationCurveParam = Array<number>;
+
+  /**
+   * Describes the window animation curve
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum WindowAnimationCurve {
+    /**
+     * animation curve type interpolation spring
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    INTERPOLATION_SPRING = 1
+  }
+
+  /**
+   * window animation config
+   *
+   * @interface WindowAnimationConfig
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface WindowAnimationConfig {
+    /**
+     * curve of the animation
+     *
+     * @type { WindowAnimationCurve }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    curve: WindowAnimationCurve;
+
+    /**
+     * duration of the animation
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    duration?: number;
+
+    /**
+     * param of animation curve
+     *
+     * @type { ?WindowAnimationCurveParam }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    param?: WindowAnimationCurveParam;
+  }
+
+  /**
    * The information of keyboard
    *
    * @interface KeyboardInfo
@@ -3744,7 +3813,37 @@ declare namespace window {
      * @atomicservice
      * @since 18
      */
-    rect: Rect;
+    beginRect: Rect;
+
+    /**
+     * The position and size of keyboard after animation completed.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    endRect: Rect;
+
+    /**
+     * Indicates whether animation exists.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animated?: boolean;
+
+    /**
+     * The configuration of keyboard animation.
+     *
+     * @type { ?WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    config?: WindowAnimationConfig;
   }
 
   /**
@@ -5773,6 +5872,37 @@ declare namespace window {
     off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
 
     /**
+     * Register the callback of keyboardWillShow
+     *
+     * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'keyboardWillShow', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardWillShow
+     *
+     * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'keyboardWillShow', callback?: Callback<KeyboardInfo>): void;
+
+    /**
      * Register the callback of keyboardDidHide
      *
      * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
@@ -5802,6 +5932,37 @@ declare namespace window {
      * @since 18
      */
     off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Register the callback of keyboardWillHide
+     *
+     * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'keyboardWillHide', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardWillHide
+     *
+     * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'keyboardWillHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Touch outside callback on.
