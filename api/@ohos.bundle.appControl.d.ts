@@ -28,7 +28,8 @@ import Want from './@ohos.app.ability.Want';
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appControl {
   /**
@@ -37,7 +38,8 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ComponentType {
     /**
@@ -45,7 +47,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UI_ABILITY = 1,
 
@@ -54,9 +57,31 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UI_EXTENSION = 2
+  }
+
+  /**
+   * Indicates the ability component type when uninstalled.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export enum UninstallComponentType {
+    /**
+     * Indicates the service extension ability type.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    EXTENSION = 1,
   }
 
   /**
@@ -65,7 +90,8 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DisposedType {
     /**
@@ -73,7 +99,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLOCK_APPLICATION = 1,
     /**
@@ -81,7 +108,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLOCK_ABILITY = 2,
     /**
@@ -89,7 +117,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NON_BLOCK = 3
   }
@@ -100,7 +129,8 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ControlType {
     /**
@@ -108,7 +138,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALLOWED_LIST = 1,
     /**
@@ -116,7 +147,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISALLOWED_LIST = 2
   }
@@ -127,7 +159,8 @@ declare namespace appControl {
    * @typedef DisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DisposedRule {
     /**
@@ -136,7 +169,8 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     want: Want;
 
@@ -146,7 +180,8 @@ declare namespace appControl {
      * @type { ComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     componentType: ComponentType;
 
@@ -156,7 +191,8 @@ declare namespace appControl {
      * @type { DisposedType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disposedType: DisposedType;
 
@@ -166,7 +202,8 @@ declare namespace appControl {
      * @type { ControlType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     controlType: ControlType;
 
@@ -176,7 +213,8 @@ declare namespace appControl {
      * @type { Array<ElementName> }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     elementList: Array<ElementName> ;
 
@@ -186,7 +224,52 @@ declare namespace appControl {
      * @type { number }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    priority: number;
+  }
+
+  /**
+   * Indicates the uninstall rule for interception.
+   *
+   * @typedef UninstallDisposedRule
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export interface UninstallDisposedRule {
+    /**
+     * Indicates the ability that will be pulled up when interception occurs.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    want: Want;
+
+    /**
+     * Indicates the type of the ability that will be pulled up when interception occurs.
+     *
+     * @type { UninstallComponentType }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    uninstallComponentType: UninstallComponentType;
+
+    /**
+     * Indicates priority of the rule.
+     *
+     * @type { number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority: number;
   }
@@ -428,6 +511,63 @@ declare namespace appControl {
    * @since 12
    */
   function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
+
+  /**
+   * Sets the uninstall disposed rule of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
+   * @param { UninstallDisposedRule } rule - Indicates the uninstall disposed rule of a specified bundle.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
+   * @throws { BusinessError } 17700075 - The specified bundleName of want is not the same with caller.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 15
+   */
+  function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: number): void;
+  
+  /**
+   * Obtains the uninstall disposed rule of a specified bundle.
+   *
+   * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @returns { UninstallDisposedRule } Returns the uninstall disposed rule of a specified bundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 15
+   */
+  function getUninstallDisposedRule(appIdentifier: string, appIndex?: number): UninstallDisposedRule;
+
+  /**
+   * Delete the uninstall disposed rule of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
+   * @param { number } [appIndex] Indicates the index of clone app.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 15
+   */
+  function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: number): void;
 }
 
 export default appControl;

@@ -19,14 +19,15 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
+import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/OverlayModuleInfo';
 
 /**
  * Used for application interception overlay
  *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace overlay {
   /**
@@ -278,11 +279,12 @@ declare namespace overlay {
   /**
    * Obtains configuration information about a overlay hap module.
    *
-   * @typedef { _OverlayModuleInfo.OverlayModuleInfo }
+   * @typedef { _OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
+  export type OverlayModuleInfo = _OverlayModuleInfo;
 }
 
 export default overlay;
