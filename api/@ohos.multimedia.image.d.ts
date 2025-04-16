@@ -42,7 +42,8 @@ import type rpc from './@ohos.rpc';
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace image {
   /**
@@ -77,7 +78,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PixelMapFormat {
     /**
@@ -108,7 +110,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = 0,
 
@@ -157,7 +160,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGB_565 = 2,
 
@@ -193,7 +197,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGBA_8888 = 3,
 
@@ -229,7 +234,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BGRA_8888 = 4,
 
@@ -265,7 +271,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGB_888 = 5,
 
@@ -301,7 +308,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALPHA_8 = 6,
 
@@ -337,7 +345,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGBA_F16 = 7,
 
@@ -373,7 +382,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NV21 = 8,
 
@@ -409,7 +419,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NV12 = 9,
 
@@ -418,7 +429,8 @@ declare namespace image {
      * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGBA_1010102 = 10,
 
@@ -427,7 +439,8 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     YCBCR_P010 = 11,
 
@@ -436,7 +449,8 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     YCRCB_P010 = 12,
 
@@ -457,7 +471,8 @@ declare namespace image {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ResolutionQuality {
     /**
@@ -465,7 +480,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW = 1,
 
@@ -474,7 +490,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIUM = 2,
 
@@ -483,7 +500,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH = 3
   }
@@ -609,7 +627,8 @@ declare namespace image {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PropertyKey {
     /**
@@ -623,7 +642,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BITS_PER_SAMPLE = 'BitsPerSample',
 
@@ -638,7 +658,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ORIENTATION = 'Orientation',
 
@@ -653,7 +674,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE_LENGTH = 'ImageLength',
 
@@ -668,7 +690,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE_WIDTH = 'ImageWidth',
 
@@ -683,7 +706,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_LATITUDE = 'GPSLatitude',
 
@@ -698,7 +722,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_LONGITUDE = 'GPSLongitude',
 
@@ -713,7 +738,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_LATITUDE_REF = 'GPSLatitudeRef',
 
@@ -728,7 +754,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_LONGITUDE_REF = 'GPSLongitudeRef',
 
@@ -743,7 +770,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_TIME_ORIGINAL = 'DateTimeOriginal',
 
@@ -758,7 +786,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_TIME = 'ExposureTime',
 
@@ -773,7 +802,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_TYPE = 'SceneType',
 
@@ -788,7 +818,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ISO_SPEED_RATINGS = 'ISOSpeedRatings',
 
@@ -803,7 +834,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     F_NUMBER = 'FNumber',
 
@@ -811,7 +843,8 @@ declare namespace image {
      * Date time
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_TIME = 'DateTime',
 
@@ -819,7 +852,8 @@ declare namespace image {
      * GPS time stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_TIME_STAMP = 'GPSTimeStamp',
  
@@ -827,7 +861,8 @@ declare namespace image {
      * GPS date stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DATE_STAMP = 'GPSDateStamp',
  
@@ -835,7 +870,8 @@ declare namespace image {
      * Image description
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE_DESCRIPTION = 'ImageDescription',
  
@@ -843,7 +879,8 @@ declare namespace image {
      * Make
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAKE = 'Make',
  
@@ -851,7 +888,8 @@ declare namespace image {
      * Model
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODEL = 'Model',
  
@@ -859,7 +897,8 @@ declare namespace image {
      * Photo mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHOTO_MODE = 'PhotoMode',
  
@@ -867,7 +906,8 @@ declare namespace image {
      * Sensitivity type
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SENSITIVITY_TYPE = 'SensitivityType',
  
@@ -875,7 +915,8 @@ declare namespace image {
      * Standard output sensitivity
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
  
@@ -883,7 +924,8 @@ declare namespace image {
      * Recommended exposure index
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
  
@@ -891,7 +933,8 @@ declare namespace image {
      * ISO speed
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ISO_SPEED = 'ISOSpeedRatings',
  
@@ -899,7 +942,8 @@ declare namespace image {
      * Aperture value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APERTURE_VALUE = 'ApertureValue',
  
@@ -907,7 +951,8 @@ declare namespace image {
      * Exposure bias value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
  
@@ -915,7 +960,8 @@ declare namespace image {
      * Metering mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     METERING_MODE = 'MeteringMode',
  
@@ -923,7 +969,8 @@ declare namespace image {
      * Light source
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LIGHT_SOURCE = 'LightSource',
  
@@ -931,7 +978,8 @@ declare namespace image {
      * Flash
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH = 'Flash',
  
@@ -939,7 +987,8 @@ declare namespace image {
      * Focal length
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCAL_LENGTH = 'FocalLength',
  
@@ -947,7 +996,8 @@ declare namespace image {
      * User comment
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_COMMENT = 'UserComment',
  
@@ -955,7 +1005,8 @@ declare namespace image {
      * Pixel x dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIXEL_X_DIMENSION = 'PixelXDimension',
  
@@ -963,7 +1014,8 @@ declare namespace image {
      * Pixel y dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIXEL_Y_DIMENSION = 'PixelYDimension',
  
@@ -971,7 +1023,8 @@ declare namespace image {
      * White balance
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WHITE_BALANCE = 'WhiteBalance',
  
@@ -979,7 +1032,8 @@ declare namespace image {
      * Focal length in 35mm film
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
  
@@ -987,7 +1041,8 @@ declare namespace image {
      * Capture mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAPTURE_MODE = 'HwMnoteCaptureMode',
  
@@ -995,7 +1050,8 @@ declare namespace image {
      * Physical aperture
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
 
@@ -1004,7 +1060,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROLL_ANGLE = 'HwMnoteRollAngle',
 
@@ -1013,7 +1070,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PITCH_ANGLE = 'HwMnotePitchAngle',
 
@@ -1022,7 +1080,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
 
@@ -1031,7 +1090,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
 
@@ -1040,7 +1100,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
@@ -1049,7 +1110,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
@@ -1058,7 +1120,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
 
@@ -1067,7 +1130,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
 
@@ -1076,7 +1140,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
 
@@ -1085,7 +1150,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
 
@@ -1094,7 +1160,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
 
@@ -1103,7 +1170,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
 
@@ -1112,7 +1180,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_COUNT = 'HwMnoteFaceCount',
 
@@ -1121,7 +1190,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_MODE = 'HwMnoteFocusMode',
   
@@ -1130,7 +1200,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESSION = 'Compression',
 
@@ -1139,7 +1210,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
@@ -1148,7 +1220,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STRIP_OFFSETS = 'StripOffsets',
 
@@ -1157,7 +1230,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLES_PER_PIXEL = 'SamplesPerPixel',
 
@@ -1166,7 +1240,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROWS_PER_STRIP = 'RowsPerStrip',
 
@@ -1175,7 +1250,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STRIP_BYTE_COUNTS = 'StripByteCounts',
 
@@ -1184,7 +1260,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     X_RESOLUTION = 'XResolution',
 
@@ -1193,7 +1270,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     Y_RESOLUTION = 'YResolution',
 
@@ -1202,7 +1280,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLANAR_CONFIGURATION = 'PlanarConfiguration',
 
@@ -1211,7 +1290,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESOLUTION_UNIT = 'ResolutionUnit',
 
@@ -1220,7 +1300,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_FUNCTION = 'TransferFunction',
 
@@ -1229,7 +1310,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOFTWARE = 'Software',
 
@@ -1238,7 +1320,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ARTIST = 'Artist',
 
@@ -1247,7 +1330,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WHITE_POINT = 'WhitePoint',
 
@@ -1256,7 +1340,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
@@ -1265,7 +1350,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
 
@@ -1274,7 +1360,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
 
@@ -1283,7 +1370,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     YCBCR_POSITIONING = 'YCbCrPositioning',
 
@@ -1292,7 +1380,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
@@ -1301,7 +1390,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COPYRIGHT = 'Copyright',
 
@@ -1310,7 +1400,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
 
@@ -1319,7 +1410,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
 
@@ -1328,7 +1420,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
@@ -1337,7 +1430,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
@@ -1346,7 +1440,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OECF = 'OECF',
 
@@ -1355,7 +1450,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXIF_VERSION = 'ExifVersion',
 
@@ -1364,7 +1460,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_TIME_DIGITIZED = 'DateTimeDigitized',
 
@@ -1373,7 +1470,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
 
@@ -1382,7 +1480,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
@@ -1391,7 +1490,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
@@ -1400,7 +1500,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAX_APERTURE_VALUE = 'MaxApertureValue',
 
@@ -1409,7 +1510,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBJECT_DISTANCE = 'SubjectDistance',
 
@@ -1418,7 +1520,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBJECT_AREA = 'SubjectArea',
 
@@ -1427,7 +1530,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAKER_NOTE = 'MakerNote',
 
@@ -1436,7 +1540,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBSEC_TIME = 'SubsecTime',
 
@@ -1445,7 +1550,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
@@ -1454,7 +1560,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
@@ -1463,7 +1570,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASHPIX_VERSION = 'FlashpixVersion',
 
@@ -1472,7 +1580,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR_SPACE = 'ColorSpace',
 
@@ -1481,7 +1590,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATED_SOUND_FILE = 'RelatedSoundFile',
 
@@ -1490,7 +1600,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH_ENERGY = 'FlashEnergy',
 
@@ -1499,7 +1610,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
 
@@ -1508,7 +1620,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
 
@@ -1517,7 +1630,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCAL_PLANE_Y_RESOLUTION = 'FocalPlaneYResolution',
 
@@ -1526,7 +1640,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
 
@@ -1535,7 +1650,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBJECT_LOCATION = 'SubjectLocation',
 
@@ -1544,7 +1660,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_INDEX = 'ExposureIndex',
 
@@ -1553,7 +1670,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SENSING_METHOD = 'SensingMethod',
 
@@ -1562,7 +1680,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILE_SOURCE = 'FileSource',
 
@@ -1571,7 +1690,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFA_PATTERN = 'CFAPattern',
 
@@ -1580,7 +1700,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CUSTOM_RENDERED = 'CustomRendered',
 
@@ -1589,7 +1710,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_MODE = 'ExposureMode',
 
@@ -1598,7 +1720,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
 
@@ -1607,7 +1730,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_CAPTURE_TYPE = 'SceneCaptureType',
 
@@ -1616,7 +1740,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GAIN_CONTROL = 'GainControl',
 
@@ -1625,7 +1750,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONTRAST = 'Contrast',
 
@@ -1634,7 +1760,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATURATION = 'Saturation',
 
@@ -1643,7 +1770,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARPNESS = 'Sharpness',
 
@@ -1652,7 +1780,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_SETTING_DESCRIPTION = 'DeviceSettingDescription',
 
@@ -1661,7 +1790,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBJECT_DISTANCE_RANGE = 'SubjectDistanceRange',
 
@@ -1670,7 +1800,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE_UNIQUE_ID = 'ImageUniqueID',
 
@@ -1679,7 +1810,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_VERSION_ID = 'GPSVersionID',
 
@@ -1688,7 +1820,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_ALTITUDE_REF = 'GPSAltitudeRef',
 
@@ -1697,7 +1830,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_ALTITUDE = 'GPSAltitude',
 
@@ -1706,7 +1840,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_SATELLITES = 'GPSSatellites',
 
@@ -1715,7 +1850,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_STATUS = 'GPSStatus',
 
@@ -1724,7 +1860,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_MEASURE_MODE = 'GPSMeasureMode',
 
@@ -1733,7 +1870,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DOP = 'GPSDOP',
 
@@ -1742,7 +1880,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_SPEED_REF = 'GPSSpeedRef',
 
@@ -1751,7 +1890,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_SPEED = 'GPSSpeed',
 
@@ -1760,7 +1900,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_TRACK_REF = 'GPSTrackRef',
 
@@ -1769,7 +1910,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_TRACK = 'GPSTrack',
 
@@ -1778,7 +1920,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_IMG_DIRECTION_REF = 'GPSImgDirectionRef',
 
@@ -1787,7 +1930,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_IMG_DIRECTION = 'GPSImgDirection',
 
@@ -1796,7 +1940,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_MAP_DATUM = 'GPSMapDatum',
 
@@ -1805,7 +1950,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_LATITUDE_REF = 'GPSDestLatitudeRef',
 
@@ -1814,7 +1960,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_LATITUDE = 'GPSDestLatitude',
 
@@ -1823,7 +1970,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_LONGITUDE_REF = 'GPSDestLongitudeRef',
 
@@ -1832,7 +1980,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_LONGITUDE = 'GPSDestLongitude',
 
@@ -1841,7 +1990,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_BEARING_REF = 'GPSDestBearingRef',
 
@@ -1850,7 +2000,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_BEARING = 'GPSDestBearing',
 
@@ -1859,7 +2010,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_DISTANCE_REF = 'GPSDestDistanceRef',
 
@@ -1868,7 +2020,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
@@ -1877,7 +2030,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
@@ -1886,7 +2040,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_AREA_INFORMATION = 'GPSAreaInformation',
 
@@ -1895,7 +2050,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
@@ -1904,7 +2060,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
@@ -1913,7 +2070,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_OWNER_NAME = 'CameraOwnerName',
 
@@ -1922,7 +2080,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPOSITE_IMAGE = 'CompositeImage',
 
@@ -1931,7 +2090,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
@@ -1940,7 +2100,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DNG_VERSION = 'DNGVersion',
 
@@ -1949,7 +2110,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
@@ -1958,7 +2120,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GAMMA = 'Gamma',
 
@@ -1967,7 +2130,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ISO_SPEED_LATITUDE_YYY = 'ISOSpeedLatitudeyyy',
 
@@ -1976,7 +2140,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ISO_SPEED_LATITUDE_ZZZ = 'ISOSpeedLatitudezzz',
 
@@ -1985,7 +2150,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LENS_MAKE = 'LensMake',
 
@@ -1994,7 +2160,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LENS_MODEL = 'LensModel',
 
@@ -2003,7 +2170,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LENS_SERIAL_NUMBER = 'LensSerialNumber',
 
@@ -2012,7 +2180,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LENS_SPECIFICATION = 'LensSpecification',
 
@@ -2021,7 +2190,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
@@ -2030,7 +2200,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OFFSET_TIME = 'OffsetTime',
 
@@ -2039,7 +2210,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
@@ -2048,7 +2220,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
@@ -2057,7 +2230,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
 
@@ -2066,7 +2240,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
@@ -2075,7 +2250,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUBFILE_TYPE = 'SubfileType',
 
@@ -2084,7 +2260,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
@@ -2093,7 +2270,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
 
@@ -2102,7 +2280,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BURST_NUMBER = 'HwMnoteBurstNumber',
 
@@ -2111,7 +2290,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_CONF = 'HwMnoteFaceConf',
 
@@ -2120,7 +2300,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_LEYE_CENTER = 'HwMnoteFaceLeyeCenter',
 
@@ -2129,7 +2310,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
 
@@ -2138,7 +2320,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_POINTER = 'HwMnoteFacePointer',
 
@@ -2147,7 +2330,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_RECT = 'HwMnoteFaceRect',
 
@@ -2156,7 +2340,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
 
@@ -2165,7 +2350,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
 
@@ -2174,7 +2360,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_VERSION = 'HwMnoteFaceVersion',
 
@@ -2183,7 +2370,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FRONT_CAMERA = 'HwMnoteFrontCamera',
 
@@ -2192,7 +2380,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_POINTER = 'HwMnoteScenePointer',
 
@@ -2201,7 +2390,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
@@ -2210,7 +2400,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
 
@@ -2219,7 +2410,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XMAGE_MODE = 'HwMnoteXmageMode',
 
@@ -2228,7 +2420,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XMAGE_LEFT = 'HwMnoteXmageLeft',
 
@@ -2237,7 +2430,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XMAGE_TOP = 'HwMnoteXmageTop',
 
@@ -2246,7 +2440,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XMAGE_RIGHT = 'HwMnoteXmageRight',
 
@@ -2255,7 +2450,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XMAGE_BOTTOM = 'HwMnoteXmageBottom',
 
@@ -2264,7 +2460,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
 
@@ -2273,7 +2470,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
 
@@ -2283,7 +2481,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GIF_LOOP_COUNT = 'GIFLoopCount'
   }
@@ -2345,7 +2544,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AlphaType {
     /**
@@ -2376,7 +2576,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = 0,
 
@@ -2408,7 +2609,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OPAQUE = 1,
 
@@ -2440,7 +2642,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PREMUL = 2,
 
@@ -2472,7 +2675,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNPREMUL = 3
   }
@@ -2482,14 +2686,16 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DecodingDynamicRange {
     /**
      * Decoding according to the content of the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO = 0,
 
@@ -2497,7 +2703,8 @@ declare namespace image {
      * Decoding to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SDR = 1,
 
@@ -2505,7 +2712,8 @@ declare namespace image {
      * Decoding to high dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDR = 2
   }
@@ -2515,14 +2723,16 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PackingDynamicRange {
     /**
      * Packing according to the content of the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO = 0,
 
@@ -2530,7 +2740,8 @@ declare namespace image {
      * Packing to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SDR = 1,
   }
@@ -2548,7 +2759,8 @@ declare namespace image {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AntiAliasingLevel {
     /**
@@ -2562,7 +2774,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -2577,7 +2790,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW = 1,
 
@@ -2592,7 +2806,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIUM = 2,
 
@@ -2607,7 +2822,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH = 3,
   }
@@ -2644,7 +2860,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ScaleMode {
     /**
@@ -2675,7 +2892,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FIT_TARGET_SIZE = 0,
 
@@ -2707,7 +2925,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CENTER_CROP = 1
   }
@@ -2758,14 +2977,16 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HdrMetadataKey {
     /**
      * Indicate the types of metadata that image needs to use.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDR_METADATA_TYPE = 0,
 
@@ -2773,7 +2994,8 @@ declare namespace image {
      * Static metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDR_STATIC_METADATA = 1,
 
@@ -2781,7 +3003,8 @@ declare namespace image {
      * Dynamic metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDR_DYNAMIC_METADATA = 2,
 
@@ -2789,7 +3012,8 @@ declare namespace image {
      * Gainmap metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDR_GAINMAP_METADATA = 3,
   }
@@ -2799,14 +3023,16 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HdrMetadataType {
     /**
      * No metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -2814,7 +3040,8 @@ declare namespace image {
      * Indicates that metadata will be used for the base image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BASE = 1,
 
@@ -2822,7 +3049,8 @@ declare namespace image {
      * Indicates that metadata will be used for the gainmap image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GAINMAP = 2,
 
@@ -2830,7 +3058,8 @@ declare namespace image {
      * Indicates that metadata will be used for the alternate image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALTERNATE = 3,
   }
@@ -2900,7 +3129,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Region {
     /**
@@ -2935,7 +3165,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: Size;
 
@@ -3044,7 +3275,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PositionArea {
     /**
@@ -3079,7 +3311,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pixels: ArrayBuffer;
 
@@ -3187,7 +3420,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     region: Region;
   }
@@ -3224,7 +3458,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImageInfo {
     /**
@@ -3259,7 +3494,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: Size;
 
@@ -3348,7 +3584,8 @@ declare namespace image {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mimeType: string;
 
@@ -3357,7 +3594,8 @@ declare namespace image {
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHdr: boolean;
   }
@@ -3628,7 +3866,8 @@ declare namespace image {
    * @typedef ImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImagePropertyOptions {
     /**
@@ -3647,7 +3886,8 @@ declare namespace image {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     defaultValue?: string;
   }
@@ -3684,7 +3924,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DecodingOptions {
     /**
@@ -3867,7 +4108,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredSize?: Size;
 
@@ -3903,7 +4145,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredRegion?: Region;
 
@@ -4099,7 +4342,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InitializationOptions {
     /**
@@ -4134,7 +4378,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: Size;
 
@@ -4143,7 +4388,8 @@ declare namespace image {
      *
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     srcPixelFormat?: PixelMapFormat;
 
@@ -4179,7 +4425,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pixelFormat?: PixelMapFormat;
 
@@ -4215,7 +4462,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     editable?: boolean;
 
@@ -4251,7 +4499,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alphaType?: AlphaType;
 
@@ -4287,7 +4536,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scaleMode?: ScaleMode;
   }
@@ -4324,7 +4574,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SourceOptions {
     /**
@@ -4431,7 +4682,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sourceSize?: Size;
   }
@@ -4717,7 +4969,8 @@ declare namespace image {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
 function createPixelMapSync(options: InitializationOptions): PixelMap;
 
@@ -4894,7 +5147,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -5095,7 +5349,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
@@ -5174,7 +5429,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImagePacker(): ImagePacker;
 
@@ -5269,7 +5525,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PixelMap {
     /**
@@ -5352,7 +5609,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -5411,7 +5669,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
 
@@ -5755,7 +6014,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getImageInfo(): Promise<ImageInfo>;
 
@@ -5808,7 +6068,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getImageInfoSync(): ImageInfo;
 
@@ -6045,7 +6306,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAlphaPixelmap(): Promise<PixelMap>;
 
@@ -6094,7 +6356,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAlphaPixelmapSync(): PixelMap;
     /**
@@ -6560,7 +6823,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
 
@@ -6640,7 +6904,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crop(region: Region): Promise<void>;
 
@@ -6654,7 +6919,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cropSync(region: Region): void;
 
@@ -6879,7 +7145,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -6974,7 +7241,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Picture {
     /**
@@ -6982,7 +7250,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { PixelMap } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainPixelmap(): PixelMap;
 
@@ -7084,7 +7353,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createPicture(mainPixelmap : PixelMap): Picture;
 
@@ -7120,7 +7390,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef AuxiliaryPicture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuxiliaryPicture {
     /**
@@ -7135,7 +7406,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
 
@@ -7147,7 +7419,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixelsToBuffer(): Promise<ArrayBuffer>;
 
@@ -7156,7 +7429,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getType(): AuxiliaryPictureType;
 
@@ -7171,7 +7445,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -7185,7 +7460,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>
 
@@ -7213,7 +7489,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Releases this AuxiliaryPicture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release():void
   }
@@ -7223,14 +7500,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuxiliaryPictureType {
     /**
      * Gain map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GAINMAP = 1,
 
@@ -7238,7 +7517,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Depth map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_MAP = 2,
 
@@ -7246,7 +7526,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Unrefocus map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNREFOCUS_MAP = 3,
 
@@ -7254,7 +7535,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Linear map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LINEAR_MAP = 4,
 
@@ -7262,7 +7544,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Fragment map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FRAGMENT_MAP = 5,
   }
@@ -7272,14 +7555,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MetadataType {
     /**
      * EXIF metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXIF_METADATA = 1,
 
@@ -7287,7 +7572,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Fragment metadata. 
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FRAGMENT_METADATA = 2,
   }
@@ -7297,7 +7583,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Metadata {
     /**
@@ -7311,7 +7598,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
@@ -7326,7 +7614,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setProperties(records: Record<string, string | null>): Promise<void>
 
@@ -7336,7 +7625,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllProperties(): Promise<Record<string, string | null>>
 
@@ -7347,7 +7637,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clone(): Promise<Metadata>
   }
@@ -7497,7 +7788,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImageSource {
     /**
@@ -7671,7 +7963,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -7786,7 +8079,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
@@ -8511,7 +8805,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
