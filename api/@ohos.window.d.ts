@@ -50,6 +50,16 @@ declare interface Callback<T, V = void> {
 }
 
 /**
+   * Defines the window animation curve param.
+   *
+   * @typedef { Array<number> } AnimationCurveParam
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+declare type WindowAnimationCurveParam = Array<number>;
+
+/**
  * Window manager.
  *
  * @namespace window
@@ -3726,16 +3736,6 @@ declare namespace window {
    * @since 12
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
-
-  /**
-   * Defines the window animation curve param.
-   *
-   * @typedef { Array<number> } AnimationCurveParam
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 20
-   */
-  declare type WindowAnimationCurveParam = Array<number>;
 
   /**
    * Describes the window animation curve
