@@ -28,7 +28,6 @@ import { AsyncCallback } from './@ohos.base';
  * @arkts 1.1&1.2
  */
 declare namespace uiEffect {
-
   /**
    * The Filter for Component.
    * @typedef Filter
