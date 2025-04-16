@@ -34,21 +34,21 @@ export class ComponentFile {
   }
 
   public appendAttribute(str: string) {
-    this.attributeSource = this.attributeSource.concat(str)
+    this.attributeSource.push(str)
   }
 
   public appendFunction(str: string) {
-    this.functionSource = this.attributeSource.concat(str)
+    this.functionSource = str
   }
 
   get concactSource() {
-    return [this.attributeSource, this.functionSource].join('\n')
+    return [...this.attributeSource, this.functionSource].join('\n')
   }
 
   constructor(
     public fileName: string,
     public sourceFile: ts.SourceFile,
-    public attributeSource: string = '',
+    public attributeSource: string[] = [],
     public functionSource: string = '',
   ) {
     const pureName = path.basename(this.fileName).replaceAll(".d.ts", "");

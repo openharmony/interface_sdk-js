@@ -14,27 +14,28 @@
  */
 
 import * as ts from "typescript";
+import uiconfig from './arkui_config_util';
 
 export function addImportTransformer(): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         return (sourceFile) => {
-            const targetImport = createTargetImport();
-            const insertPosition = findBestInsertPosition(sourceFile);
+            const [updatedSource, targetImport] = createTargetImport(sourceFile, context);
+            const insertPosition = findBestInsertPosition(updatedSource);
 
             const newStatements = [
-                ...sourceFile.statements.slice(0, insertPosition),
-                targetImport,
-                ...sourceFile.statements.slice(insertPosition)
+                ...updatedSource.statements.slice(0, insertPosition),
+                ...targetImport,
+                ...updatedSource.statements.slice(insertPosition)
             ];
 
             return ts.factory.updateSourceFile(
-                sourceFile,
+                updatedSource,
                 newStatements,
-                sourceFile.isDeclarationFile,
-                sourceFile.referencedFiles,
-                sourceFile.typeReferenceDirectives,
-                sourceFile.hasNoDefaultLib,
-                sourceFile.libReferenceDirectives
+                updatedSource.isDeclarationFile,
+                updatedSource.referencedFiles,
+                updatedSource.typeReferenceDirectives,
+                updatedSource.hasNoDefaultLib,
+                updatedSource.libReferenceDirectives
             );
         };
     };
@@ -55,8 +56,47 @@ function findBestInsertPosition(sourceFile: ts.SourceFile): number {
     return findFileKitCommentInsertIndex(sourceFile);
 }
 
-function createTargetImport(): ts.ImportDeclaration {
-    return ts.factory.createImportDeclaration(
+function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node | undefined, boolean] {
+    if (node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) {
+        const moduleText = node.moduleSpecifier.text;
+        if (moduleText.includes("common")) {
+            const importClause = node.importClause;
+            if (importClause && ts.isImportClause(importClause) && importClause.namedBindings && ts.isNamedImports(importClause.namedBindings)) {
+                const namedImports = importClause.namedBindings.elements;
+                const existingImports = namedImports.map((element) => element.name.text);
+
+                if (!existingImports.includes("AttributeModifier")) {
+                    const updatedNode = ts.factory.updateImportDeclaration(
+                        node,
+                        undefined,
+                        ts.factory.updateImportClause(
+                            importClause,
+                            importClause.isTypeOnly,
+                            importClause.name,
+                            ts.factory.updateNamedImports(
+                                importClause.namedBindings,
+                                [
+                                    ...namedImports,
+                                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("AttributeModifier")),
+                                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("CommonMethodUI"))
+                                ]
+                            )
+                        ),
+                        node.moduleSpecifier,
+                        undefined
+                    );
+                    return [updatedNode, true];
+                }
+            }
+        }
+    }
+    return [undefined, false];
+}
+
+function createTargetImport(sourceFile: ts.SourceFile, context: ts.TransformationContext): [ts.SourceFile, ts.ImportDeclaration[]] {
+    const targetImport: ts.ImportDeclaration[] = []
+
+    const memoImport = ts.factory.createImportDeclaration(
         undefined,
         ts.factory.createImportClause(
             false,
@@ -68,6 +108,40 @@ function createTargetImport(): ts.ImportDeclaration {
         ),
         ts.factory.createStringLiteral("./../stateManagement/runtime")
     );
+    targetImport.push(memoImport)
+
+    let importFlag = false;
+    const newSource = ts.visitEachChild(sourceFile, (node) => {
+        if (ts.isImportDeclaration(node)) {
+            const [transNode, flag] = handleImportDeclaration(node);
+            if (flag) {
+                importFlag = flag;
+                return transNode;
+            }
+        }
+        return node;
+    }, context)
+
+    if (!importFlag) {
+        const commonImport = ts.factory.createImportDeclaration(
+            undefined,
+            ts.factory.createImportClause(
+                false,
+                undefined,
+                ts.factory.createNamedImports([
+                    ts.factory.createImportSpecifier(
+                        false,
+                        undefined,
+                        ts.factory.createIdentifier("AttributeModifier")
+                    )
+                ])
+            ),
+            ts.factory.createStringLiteral("./common"),
+            undefined
+        )
+        targetImport.push(commonImport)
+    }
+    return [newSource, targetImport]
 }
 
 function findFileKitCommentInsertIndex(sourceFile: ts.SourceFile): number {

@@ -19,6 +19,7 @@ import * as path from 'path';
 import { assert } from 'console';
 import uiconfig from './arkui_config_util'
 import { ComponentFile } from './component_file';
+import { analyzeBaseClasses, isComponentHerirage } from './lib/attribute_utils'
 
 function readLangTemplate(): string {
     return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
@@ -85,32 +86,274 @@ function handleComponentInterface(node: ts.InterfaceDeclaration, file: Component
     return declComponentFunction.join('\n')
 }
 
-function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node {
+function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
+    const returnType = ts.factory.createThisTypeNode();
+    if ('jsDoc' in node) {
+        const paramNameType: Map<string, ts.TypeNode> = new Map();
+        node.parameters.forEach(param => {
+            paramNameType.set((param.name as ts.Identifier).escapedText!, param.type!);
+        })
+        const jsDoc = node.jsDoc as ts.JSDoc[];
+        const updatedJsDoc = jsDoc.map((doc) => {
+            const updatedTags = (doc.tags || []).map((tag: ts.JSDocTag) => {
+                if (tag.tagName.escapedText === 'returns') {
+                    return ts.factory.updateJSDocReturnTag(
+                        tag as ts.JSDocReturnTag,
+                        tag.tagName,
+                        ts.factory.createJSDocTypeExpression(returnType),
+                        tag.comment
+                    )
+                }
+                if (tag.tagName.escapedText === 'param') {
+                    const paramTag = tag as ts.JSDocParameterTag
+                    return ts.factory.updateJSDocParameterTag(
+                        paramTag,
+                        paramTag.tagName,
+                        paramTag.name,
+                        paramTag.isBracketed,
+                        ts.factory.createJSDocTypeExpression(paramNameType.get((paramTag.name as ts.Identifier).escapedText!)!),
+                        paramTag.isNameFirst,
+                        paramTag.comment
+                    )
+                }
+                return tag
+            })
+            return ts.factory.updateJSDocComment(doc, doc.comment, updatedTags);
+        });
+        (node as any).jsDoc = updatedJsDoc
+    }
+    return node
+}
+
+function handleAttributeMember(node: ts.MethodDeclaration): ts.MethodSignature {
+    const updatedParameters = node.parameters.map(param => {
+        const paramType = param.type;
+
+        if (paramType && ts.isTypeReferenceNode(paramType)) {
+            const typeName = (paramType.typeName as ts.Identifier).escapedText;
+
+            // Step 1: Check if the parameter type is Optional<XX>
+            if (typeName === 'Optional' && paramType.typeArguments?.length === 1) {
+                const innerType = paramType.typeArguments[0];
+
+                // Step 2: If T is a union type, flatten it and update the parameter type to (XX | undefined)
+                const updatedType = ts.factory.createUnionTypeNode([
+                    ...(ts.isUnionTypeNode(innerType) ? innerType.types : [innerType]),
+                    ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
+                ]);
+
+                return ts.factory.updateParameterDeclaration(
+                    param,
+                    undefined,
+                    param.dotDotDotToken,
+                    param.name,
+                    param.questionToken,
+                    updatedType,
+                    param.initializer
+                );
+            }
+        }
+
+        // Step 3: Ensure all other parameters are XX | undefined
+        if (paramType) {
+            if (ts.isUnionTypeNode(paramType)) {
+                // Check if the union type already includes undefined
+                const hasUndefined = paramType.types.some(
+                    type => type.kind === ts.SyntaxKind.UndefinedKeyword
+                );
+
+                if (!hasUndefined) {
+                    const updatedType = ts.factory.createUnionTypeNode([
+                        ...paramType.types,
+                        ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
+                    ]);
+
+                    return ts.factory.updateParameterDeclaration(
+                        param,
+                        undefined,
+                        param.dotDotDotToken,
+                        param.name,
+                        param.questionToken,
+                        updatedType,
+                        param.initializer
+                    );
+                }
+            } else {
+                // If not a union type, add | undefined
+                const updatedType = ts.factory.createUnionTypeNode([
+                    paramType,
+                    ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
+                ]);
+
+                return ts.factory.updateParameterDeclaration(
+                    param,
+                    undefined,
+                    param.dotDotDotToken,
+                    param.name,
+                    param.questionToken,
+                    updatedType,
+                    param.initializer
+                );
+            }
+        }
+
+        return param;
+    });
+
+
+    const returnType = ts.factory.createThisTypeNode();
+    const methodSignature = ts.factory.createMethodSignature(
+        undefined,
+        node.name,
+        node.questionToken,
+        node.typeParameters,
+        updatedParameters,
+        returnType
+    );
+
+    return methodSignature
+}
+
+function handleHeritageClause(node: ts.NodeArray<ts.HeritageClause> | undefined): ts.HeritageClause[] {
+    const heritageClauses: ts.HeritageClause[] = [];
+    if (!node) {
+        return heritageClauses;
+    }
+    node.forEach(clause => {
+        const types = clause.types.map(type => {
+            if (ts.isExpressionWithTypeArguments(type) &&
+                ts.isIdentifier(type.expression) && type.typeArguments) {
+
+                return ts.factory.updateExpressionWithTypeArguments(
+                    type,
+                    type.expression,
+                    [],
+                );
+            }
+            return type;
+        });
+        const newClause = ts.factory.createHeritageClause(ts.SyntaxKind.ExtendsKeyword, types);
+        heritageClauses.push(newClause);
+    });
+    return heritageClauses
+}
+
+function handleAttributeModifier(node: ts.ClassDeclaration, members: ts.MethodSignature[]) {
+    if (!isComponentAttribute(node)) {
+        members.forEach(m => {
+            if ((m.name as ts.Identifier).escapedText === 'attributeModifier') {
+                members.splice(members.indexOf(m), 1);
+            }
+        })
+        return
+    }
+    members.push(
+        ts.factory.createMethodSignature(
+            undefined,
+            ts.factory.createIdentifier("attributeModifier"),
+            undefined,
+            undefined,
+            [ts.factory.createParameterDeclaration(
+                undefined,
+                undefined,
+                ts.factory.createIdentifier("modifier"),
+                undefined,
+                ts.factory.createUnionTypeNode([
+                    ts.factory.createTypeReferenceNode(
+                        ts.factory.createIdentifier("AttributeModifier"),
+                        [ts.factory.createTypeReferenceNode(
+                            node.name!,
+                            undefined
+                        )]
+                    ),
+                    ts.factory.createTypeReferenceNode(
+                        ts.factory.createIdentifier("AttributeModifier"),
+                        [ts.factory.createTypeReferenceNode(
+                            ts.factory.createIdentifier("CommonMethod"),
+                            undefined
+                        )]
+                    ),
+                    ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword)
+                ]),
+                undefined
+            )],
+            ts.factory.createThisTypeNode()
+        )
+    )
+}
+
+function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
     const members = node.members.map(member => {
         if (!ts.isMethodDeclaration(member)) {
             return undefined;
         }
-        const returnType = ts.factory.createThisTypeNode();
-        return ts.factory.createMethodSignature(
-            undefined,
-            member.name,
-            member.questionToken,
-            member.typeParameters,
-            member.parameters,
-            returnType
-        ) as ts.TypeElement;
+        return handleAttributeMember(member);
     }).filter((member): member is ts.MethodSignature => member !== undefined);
+    handleAttributeModifier(node, members)
 
     const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
     const delcareModifier = ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword);
 
-    return ts.factory.createInterfaceDeclaration(
+    const heritageClauses = handleHeritageClause(node.heritageClauses)
+
+    const noneUIAttribute = ts.factory.createInterfaceDeclaration(
         [exportModifier, delcareModifier],
         node.name as ts.Identifier,
-        node.typeParameters,
-        node.heritageClauses,
+        [],
+        heritageClauses,
         members
     );
+    return [noneUIAttribute]
+}
+
+function getLeadingSpace(line: string): string {
+    let leadingSpaces = '';
+    for (const char of line) {
+        if (char === ' ') {
+            leadingSpaces += char;
+        } else {
+            break;
+        }
+    }
+    return leadingSpaces;
+}
+
+function extractMethodName(code: string): string | undefined {
+    const match = code.match(/^\s*([^(]+)/);
+    if (!match) return undefined;
+    return match[1].trim();
+}
+
+function addAttributeMemo(node: ts.ClassDeclaration, componentFile: ComponentFile) {
+    const originalSource = componentFile.sourceFile;
+    const commentRanges = ts.getLeadingCommentRanges(originalSource.text, node.pos);
+    const classStart = commentRanges?.[0]?.pos ?? node.getStart(originalSource);
+    const classEnd = node.getEnd();
+    const originalCode = originalSource.text.substring(classStart, classEnd).split('\n');
+
+    const functionSet: Set<string> = new Set();
+    node.members.forEach(m => {
+        functionSet.add((m.name! as ts.Identifier).escapedText!)
+    })
+
+    const updatedCode: string[] = []
+    originalCode.forEach(l => {
+        const name = extractMethodName(l);
+        if (!name) {
+            updatedCode.push(l);
+            return;
+        }
+        if (functionSet.has(name)) {
+            updatedCode.push(getLeadingSpace(l) + "@memo")
+        }
+        updatedCode.push(l);
+    })
+    const attributeName = node.name!.escapedText!
+    const superInterface = uiconfig.getComponentSuperclass(attributeName)
+    componentFile.appendAttribute(updatedCode.join('\n')
+        .replace(`export declare interface ${attributeName}`, `export declare interface ${attributeName}UI`)
+        .replace(`extends ${superInterface}`, `extends ${superInterface}UI`)
+    )
 }
 
 function isComponentAttribute(node: ts.Node) {
@@ -127,11 +370,16 @@ function isComponentInterface(node: ts.Node) {
     return uiconfig.isComponent(node.name.escapedText, 'Interface')
 }
 
-function isComponentSuperClass(node: ts.Node) {
-    if (!(ts.isClassDeclaration(node) && node.name?.escapedText)) {
-        return false;
+export function addMemoTransformer(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
+    return (context) => {
+        const visit: ts.Visitor = (node) => {
+            if (isComponentHerirage(node)) {
+                addAttributeMemo(node as ts.ClassDeclaration, componentFile)
+            }
+            return ts.visitEachChild(node, visit, context);
+        }
+        return (sourceFile) => { componentFile.sourceFile = sourceFile; return ts.visitNode(sourceFile, visit) };
     }
-    return uiconfig.isRelatedToComponent(node.name.escapedText)
 }
 
 export function interfaceTransformer(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
@@ -141,7 +389,7 @@ export function interfaceTransformer(program: ts.Program, componentFile: Compone
                 componentFile.appendFunction(handleComponentInterface(node as ts.InterfaceDeclaration, componentFile))
                 return undefined;
             }
-            if (isComponentAttribute(node) || isComponentSuperClass(node)) {
+            if (isComponentHerirage(node)) {
                 return transformComponentAttribute(node as ts.ClassDeclaration)
             }
             return ts.visitEachChild(node, visit, context);
@@ -151,19 +399,14 @@ export function interfaceTransformer(program: ts.Program, componentFile: Compone
     };
 }
 
-export function componentInterfaceCollector(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
+export function componentInterfaceCollector(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
             if (isComponentAttribute(node)) {
-                componentFile.componentName = ((node as ts.ClassDeclaration).name!.escapedText as string).replaceAll('Attribute', '');
-                (node as ts.ClassDeclaration).heritageClauses?.forEach(clause => {
-                    if (clause.token === ts.SyntaxKind.ExtendsKeyword) {
-                        clause.types.forEach(t => {
-                            const superClassName = (t.expression as ts.Identifier).escapedText.toString();
-                            uiconfig.addComponentSuperclass(superClassName);
-                        });
-                    }
-                });
+                const attributeName = (node as ts.ClassDeclaration).name!.escapedText as string
+                componentFile.componentName = attributeName.replaceAll('Attribute', '');
+                const baseTypes = analyzeBaseClasses(node as ts.ClassDeclaration, componentFile.sourceFile, program);
+                uiconfig.addComponentAttributeHeritage([attributeName, ...baseTypes])
             }
             return ts.visitEachChild(node, visit, context);
         };

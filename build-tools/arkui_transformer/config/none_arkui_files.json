@@ -1,0 +1,14 @@
+{
+    "files": [
+        "effect_component",
+        "form_component",
+        "form_link",
+        "location_button",
+        "media_cached_image",
+        "remote_window",
+        "rich_text",
+        "root_scene",
+        "screen",
+        "web"
+    ]
+}
