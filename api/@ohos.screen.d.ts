@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screen
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screen {
   /**

@@ -36,7 +36,8 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UIExtensionHostWindowProxy {
     /**
@@ -122,7 +123,8 @@ declare namespace uiExtensionHost {
      * @type { UIExtensionHostWindowProxyProperties } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -224,7 +226,8 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -233,7 +236,8 @@ declare namespace uiExtensionHost {
      * @type { window.Rect } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

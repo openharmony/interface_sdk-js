@@ -44,7 +44,8 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace display {
   /**
@@ -675,7 +676,8 @@ declare namespace display {
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -684,7 +686,8 @@ declare namespace display {
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
 
@@ -720,7 +723,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FoldStatus {
     /**
@@ -748,9 +752,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_STATUS_EXPANDED,
+    FOLD_STATUS_EXPANDED = 1,
     /**
      * Fold Status Folded.
      *
@@ -762,9 +767,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_STATUS_FOLDED,
+    FOLD_STATUS_FOLDED = 2,
     /**
      * Fold Status Half Folded.
      *
@@ -776,9 +782,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_STATUS_HALF_FOLDED,
+    FOLD_STATUS_HALF_FOLDED = 1,
     /**
      * Fold Status Expanded With Second Expanded.
      *
@@ -842,7 +849,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FoldDisplayMode {
     /**
@@ -856,7 +864,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLD_DISPLAY_MODE_UNKNOWN = 0,
     /**
@@ -870,9 +879,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_DISPLAY_MODE_FULL,
+    FOLD_DISPLAY_MODE_FULL = 1,
     /**
      * Main Display.
      *
@@ -884,9 +894,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_DISPLAY_MODE_MAIN,
+    FOLD_DISPLAY_MODE_MAIN = 2,
     /**
      * Sub Display.
      *
@@ -898,9 +909,10 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FOLD_DISPLAY_MODE_SUB,
+    FOLD_DISPLAY_MODE_SUB = 3,
     /**
      * Coordination Display.
      *
@@ -930,7 +942,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DisplayState {
     /**
@@ -1064,7 +1077,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT = 0,
 
@@ -1098,7 +1112,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT_INVERTED = 2,
 
@@ -1215,7 +1230,8 @@ declare namespace display {
    * @interface FoldCreaseRegion
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FoldCreaseRegion {
     /**
@@ -1252,7 +1268,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly creaseRects: Array<Rect>;
   }
@@ -1270,7 +1287,8 @@ declare namespace display {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
@@ -1286,7 +1304,8 @@ declare namespace display {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
 
@@ -1303,7 +1322,8 @@ declare namespace display {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -1392,7 +1412,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly right: Rect;
 
@@ -1411,7 +1432,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly top: Rect;
 
@@ -1430,7 +1452,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly bottom: Rect;
   }
@@ -1448,7 +1471,8 @@ declare namespace display {
    * @interface CutoutInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CutoutInfo {
     /**
@@ -1485,7 +1509,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
@@ -1580,7 +1605,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -1648,7 +1674,8 @@ declare namespace display {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     refreshRate: number;
 
@@ -1695,7 +1722,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -1721,7 +1749,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
 
@@ -1769,7 +1798,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     densityDPI: number;
 
@@ -1806,7 +1836,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     densityPixels: number;
 
@@ -1849,7 +1880,8 @@ declare namespace display {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     xDPI: number;
 

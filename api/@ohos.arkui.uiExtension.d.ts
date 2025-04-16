@@ -37,7 +37,8 @@ declare namespace uiExtension {
    * @interface WindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WindowProxy {
     /**
@@ -305,7 +306,8 @@ declare namespace uiExtension {
    * @interface AvoidAreaInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AvoidAreaInfo {
     /**
@@ -335,7 +337,8 @@ declare namespace uiExtension {
    * @interface WindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    * 
    */
   interface WindowProxyProperties {
