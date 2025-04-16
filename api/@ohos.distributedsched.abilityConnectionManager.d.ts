@@ -205,6 +205,13 @@ declare namespace abilityConnectionManager {
          * @since 18
          */
         PEER_ABILITY_NO_ONCOLLABORATE = 4,
+
+        /**
+         * The connection failed due to an internal system error.
+         * @syscap SystemCapability.DistributedSched.AppCollaboration
+         * @since 18
+         */
+        SYSTEM_INTERNAL_ERROR = 5,
     }
 
     /**
@@ -247,6 +254,14 @@ declare namespace abilityConnectionManager {
         sessionId: number;
 
         /**
+         * The type of event returned is consistent with the type registered in function 'on'.
+         * @type { string }
+         * @syscap SystemCapability.DistributedSched.AppCollaboration
+         * @since 18
+         */
+        eventType: string;
+
+        /**
          * Indicates the reason of ability disconnection.
          * @type { ?DisconnectReason }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -266,7 +281,6 @@ declare namespace abilityConnectionManager {
          * Received data.
          * @type { ?ArrayBuffer }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @systemapi
          * @since 18
          */
         data?: ArrayBuffer;
@@ -288,6 +302,14 @@ declare namespace abilityConnectionManager {
      * @since 18
      */
     interface CollaborateEventInfo {
+        /**
+         * Ability connection Session id.
+         * @type { number }
+         * @syscap SystemCapability.DistributedSched.AppCollaboration
+         * @since 18
+         */
+        sessionId: number;
+
         /**
          * Indicates the type of collaborate event.
          * @type { CollaborateEventType }
