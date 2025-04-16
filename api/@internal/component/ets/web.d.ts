@@ -24,7 +24,7 @@ import { CustomBuilder, CommonMethod, Callback, TouchEvent, NestedScrollOptions,
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr, PixelMap } from './units';
 import { MenuType, EditMenuOptions } from './textCommon';
-import { CopyOptions, NestedScrollMode } from './enums'
+import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
 
 /**
