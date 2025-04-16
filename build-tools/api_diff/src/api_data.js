@@ -269,6 +269,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取api签名
+   * @returns {string}
+   */
   getApiSignature() {
     return this.signature;
   }
