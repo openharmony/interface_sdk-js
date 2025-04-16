@@ -196,6 +196,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取路径
+   * @returns {string}
+   */
   getPath() {
     return this.path;
   }
@@ -213,6 +217,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取node
+   * @returns {collaborationEditObject.Node}
+   */
   getAstNode() {
     return this.node;
   }
@@ -228,6 +236,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 设置tagItem
+   * @param jsdocTagItem
+   */
   setJSDocTagItem(jsdocTagItem) {
     this.jsdocTagItem = jsdocTagItem;
   }
@@ -253,11 +265,20 @@ class ApiDigestInfo {
     return this.signature;
   }
 
+  /**
+   * 设置API Name
+   * @param apiName
+   * @returns {ApiDigestInfo}
+   */
   setApiName(apiName) {
     this.apiName = apiName;
     return this;
   }
 
+  /**
+   * 获取API Name
+   * @returns {*}
+   */
   getApiName() {
     return this.apiName;
   }

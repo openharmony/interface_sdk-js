@@ -711,7 +711,7 @@ declare namespace webview {
     scale?: number;
 
     /**
-     * Whether background should be printed when creating pdf. 
+     * Whether background should be printed when creating pdf.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3893,7 +3893,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
@@ -4085,7 +4085,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
@@ -4691,7 +4691,7 @@ declare namespace webview {
     /**
      * Rendering current Web page into Pdf data, return the result in promise mode.
      *
-     * @param { PdfConfiguration } configuration - configuration for createPdf, 
+     * @param { PdfConfiguration } configuration - configuration for createPdf,
      *                                             including page width and height, etc.
      *                                             {@Link PdfConfiguration}
      * @returns { Promise<PdfData> } The promise returned by the function.
@@ -6103,7 +6103,7 @@ declare namespace webview {
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
 
     /**
-     * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0. 
+     * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
      * And the unit is virtual pixel.
      *
      * @returns { ScrollOffset } scroll offset
@@ -8451,7 +8451,7 @@ declare namespace webview {
 
   /**
    * This class is used to enable back forward cache supported features.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
@@ -8485,7 +8485,7 @@ declare namespace webview {
 
   /**
    * This class is used to set back forward cache options.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
@@ -8545,7 +8545,7 @@ declare namespace webview {
   }
   /**
    * The ProxyConfig used by applyProxyOverride.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
@@ -8554,7 +8554,7 @@ declare namespace webview {
        * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
        * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
        * "https://www.example.com" and "http://test.example.com" will connect the server directly.
-       * 
+       *
        * @param { string } bypassRule - The bypass rule.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
@@ -8564,7 +8564,7 @@ declare namespace webview {
       insertBypassRule(bypassRule: string): void;
       /**
        * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
-       * 
+       *
        * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
@@ -8575,11 +8575,11 @@ declare namespace webview {
       /**
        * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
        * use the proxy rule if schemeFilter is null.
-       * 
+       *
        * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
        * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
        * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
-       * 
+       *
        * e.g. example.com host: example.com
        *      https://example.com  scheme: https  host: example.com
        *      example.com:8888     host: example.com  port: 8888
@@ -8587,7 +8587,7 @@ declare namespace webview {
        *      192.168.1.1  host: 192.168.1.1
        *      192.168.1.1:8888  host:192.168.1.1 port: 8888
        *      [10:20:30:40:50:60:70:80]
-       * 
+       *
        * @param { string } proxyRule - The proxy rule.
        * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -8599,7 +8599,7 @@ declare namespace webview {
       /**
        * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
        * Examples: "abc", "local", "some-domain".
-       * 
+       *
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
        */
@@ -8608,17 +8608,17 @@ declare namespace webview {
        * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
        * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
        * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
-       * 
+       *
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
        */
       clearImplicitRules(): void;
       /**
        * Reverse the bypass rules.
-       * 
+       *
        * If false all URLs will use proxy settings except URLs match the bypass rules.
        * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
-       * 
+       *
        * @param { boolean } reverse - If reverse the bypass rule.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
@@ -8628,7 +8628,7 @@ declare namespace webview {
       enableReverseBypass(reverse: boolean): void;
       /**
        * Returns the bypass rules.
-       * 
+       *
        * @returns { Array<string> } The bypass rules.
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
@@ -8636,7 +8636,7 @@ declare namespace webview {
       getBypassRules(): Array<string>;
       /**
        * Returns the proxy rules.
-       * 
+       *
        * @returns { Array<ProxyRule> } The proxy rules.
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
@@ -8644,7 +8644,7 @@ declare namespace webview {
       getProxyRules(): Array<ProxyRule>;
       /**
        * Returns if reverse bypass rules.
-       * 
+       *
        * @returns { boolean } If reverse bypass enabled.
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
@@ -8654,14 +8654,14 @@ declare namespace webview {
 
   /**
    * The ProxyRule used by insertProxyRule.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
   class ProxyRule {
       /**
        * Returns the scheme filter used for this rule.
-       * 
+       *
        * @returns { ProxySchemeFilter } The scheme filter used for this rule.
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
@@ -8669,7 +8669,7 @@ declare namespace webview {
       getSchemeFilter(): ProxySchemeFilter;
       /**
        * Returns the proxy URL.
-       * 
+       *
        * @returns { string } The proxy URL.
        * @syscap SystemCapability.Web.Webview.Core
        * @since 15
@@ -8679,7 +8679,7 @@ declare namespace webview {
 
   /**
    * The callback for proxy changed.
-   * 
+   *
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
@@ -8688,7 +8688,7 @@ declare namespace webview {
 
   /**
    * This class is used for set proxy for ArkWeb.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
@@ -8698,7 +8698,7 @@ declare namespace webview {
      * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
      * the listener before loading a page. This listener will be called on the UI thread.
      * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
-     * 
+     *
      * @param { ProxyConfig } proxyConfig - The proxy config.
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -8710,7 +8710,7 @@ declare namespace webview {
     /**
      * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
      * will be called on the UI thread.
-     * 
+     *
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.

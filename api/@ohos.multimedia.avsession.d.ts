@@ -276,8 +276,6 @@ declare namespace avSession {
    * @returns { Promise<Array<AVSessionController>> } Promise for AVSessionController.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -443,8 +441,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -458,8 +454,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -2122,8 +2116,6 @@ declare namespace avSession {
      * Application should change playmode to the loopmode which is requested.
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
      * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2136,8 +2128,6 @@ declare namespace avSession {
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
      * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2871,8 +2861,6 @@ declare namespace avSession {
      * Get recommended resolution of remote player based on each decoder.
      * @param { DecoderType } decoderType - The decoder type.
      * @returns { Promise<ResolutionLevel> } ResolutionLevel returned through promise
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6713,8 +6701,6 @@ declare namespace avSession {
      * Get extra information for remote device, such as volume level, connected devices.
      * @param { string } extraEvent - the event name to get
      * @returns { Promise<ExtraInfo> } the value returned for such event
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.

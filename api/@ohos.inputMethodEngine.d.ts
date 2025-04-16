@@ -1432,6 +1432,7 @@ declare namespace inputMethodEngine {
      * Get input attachOptions.
      *
      * @returns { AttachOptions } return attach options.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 17
      */
@@ -1441,6 +1442,7 @@ declare namespace inputMethodEngine {
      *
      * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
      * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 17
      */

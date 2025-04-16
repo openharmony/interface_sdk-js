@@ -142,6 +142,7 @@ interface StackInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ?StackOptions } options - stack options
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
