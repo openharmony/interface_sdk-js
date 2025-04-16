@@ -28,7 +28,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
  * @namespace distributedBundleManager
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace distributedBundleManager {
   /**
@@ -204,7 +205,8 @@ declare namespace distributedBundleManager {
    * @typedef { _RemoteAbilityInfo }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }

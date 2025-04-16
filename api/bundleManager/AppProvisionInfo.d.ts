@@ -24,16 +24,19 @@
  * @typedef AppProvisionInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AppProvisionInfo {
   /**
    * Indicates the version code of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly versionCode: number;
 
@@ -41,9 +44,11 @@ export interface AppProvisionInfo {
    * Indicates the version name of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly versionName: string;
 
@@ -51,9 +56,11 @@ export interface AppProvisionInfo {
    * Indicates the uuid of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly uuid: string;
 
@@ -61,9 +68,11 @@ export interface AppProvisionInfo {
    * Indicates the type of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly type: string;
 
@@ -71,9 +80,11 @@ export interface AppProvisionInfo {
    * Indicates the app distribution type of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appDistributionType: string;
 
@@ -81,9 +92,11 @@ export interface AppProvisionInfo {
    * Indicates the validity of the profile file.
    *
    * @type { Validity }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly validity: Validity;
 
@@ -91,9 +104,11 @@ export interface AppProvisionInfo {
    * Indicates the developer id of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly developerId: string;
 
@@ -101,9 +116,11 @@ export interface AppProvisionInfo {
    * Indicates the distribution or development certificate of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly certificate: string;
 
@@ -111,9 +128,11 @@ export interface AppProvisionInfo {
    * Indicates the apl of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly apl: string;
 
@@ -121,9 +140,11 @@ export interface AppProvisionInfo {
    * Indicates the issuer of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly issuer: string;
 
@@ -136,7 +157,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIdentifier: string;
 
@@ -147,7 +169,8 @@ export interface AppProvisionInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly organization: string;
 }
@@ -158,16 +181,19 @@ export interface AppProvisionInfo {
  * @typedef Validity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Validity {
   /**
    * Indicates the earliest validity of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly notBefore: number;
 
@@ -175,9 +201,11 @@ export interface Validity {
    * Indicates the latest validity of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly notAfter: number;
 }

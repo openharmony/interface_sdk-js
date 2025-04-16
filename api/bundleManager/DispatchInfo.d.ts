@@ -24,16 +24,19 @@
  * @typedef DispatchInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface DispatchInfo {
   /**
    * Indicates the dispatchInfo version
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly version: string;
 
@@ -41,9 +44,11 @@ export interface DispatchInfo {
    * Indicates the free install interface version
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly dispatchAPIVersion: string;
 }
