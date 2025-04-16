@@ -18,21 +18,22 @@
  * @arkts 1.2
  */
 
-import { LinkDecoratedVariable } from '../decorators/decoratorLink';
-import { PropDecoratedVariable } from '../decorators/decoratorProp';
 import { LocalStorage } from './localStorage';
+import { AbstractProperty, SubscribedAbstractProperty } from '../base/decoratorBase';
 
 export declare class AppStorage extends LocalStorage {
-    public static link(key: string): LinkDecoratedVariable<Object> | undefined;
-    public static setAndLink(key: string, defaultValue: Object) : LinkDecoratedVariable<Object>;
-    public static prop(propName: string) : PropDecoratedVariable<Object> | undefined;
-    public static setAndProp(key: string, defaultValue: Object) : PropDecoratedVariable<Object>;
-    public static has(key: string): boolean;
-    public static get<T>(key: string): T | undefined;
-    public static set<T>(key: string, newValue: T): boolean;
-    public static setOrCreate<T>(key: string, newValue: T): void;
+    public static ref<T>(propName: string): AbstractProperty<T> | undefined;
+    public static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+    public static link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+    public static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+    public static prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+    public static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+    public static has(propName: string): boolean;
+    public static get<T>(propName: string): T | undefined;
+    public static set<T>(propName: string, newValue: T): boolean;
+    public static setOrCreate<T>(propName: string, newValue: T): void;
     public static keys(): IterableIterator<string>;
     public static size(): number;
-    public static delete(key: string): boolean;
+    public static delete(propName: string): boolean;
     public static clear(): boolean;
 }

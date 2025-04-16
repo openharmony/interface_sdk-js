@@ -33,6 +33,14 @@ export declare interface IDecoratedUpdatableVariable<T> {
     update(newValue: T): void
 }
 
+export declare interface AbstractProperty<T> extends IDecoratedMutableVariable<T> {
+    info(): string;
+}
+
+export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+    aboutToBeDeleted(): void;
+}
+
 export declare class DecoratedVariableBase<T> {
     public constructor(decorator: string, varName: string)
 }
