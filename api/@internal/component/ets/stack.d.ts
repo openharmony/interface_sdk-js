@@ -63,6 +63,17 @@ declare interface StackOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set the alignment of sub components within the container.
+   *
+   * Anonymous Object Rectification
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   alignContent?: Alignment;
 }
 
@@ -142,6 +153,7 @@ interface StackInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ?StackOptions } options - stack options
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
