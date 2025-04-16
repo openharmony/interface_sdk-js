@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { SizeT as _SizeT, PositionT as _PositionT } from '../../../arkui/Graphics'
+import { VP, ResourceStr,Dimension,ResourceColor } from './units'
+import { ImageFit, Curve } from './enums'
+import { ICurve, CommonMethod } from './common'
+/*** endif */
+
 /**
  * Defines a pair of given type for particle.
  *
@@ -30,13 +37,26 @@
 declare type ParticleTuple<T1, T2> = [T1, T2];
 
 /**
+ * Defines a pair of given type for particle.
+ *
+ * @typedef { [T1, T2] } ParticleTuple
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type ParticleTuple<T1, T2> = [T1, T2];
+
+/**
  * Defines velocity options.
  *
  * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface VelocityOptions {
   /**
@@ -52,7 +72,8 @@ declare interface VelocityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   speed: ParticleTuple<number, number>;
 
@@ -69,7 +90,8 @@ declare interface VelocityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   angle: ParticleTuple<number, number>;
 }
@@ -81,7 +103,8 @@ declare interface VelocityOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface AccelerationOptions<
   ACC_SPEED_UPDATER extends ParticleUpdater,
@@ -100,7 +123,8 @@ declare interface AccelerationOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
@@ -117,7 +141,8 @@ declare interface AccelerationOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   angle?: ParticlePropertyOptions<number, ACC_ANGLE_UPDATER>;
 }
@@ -135,7 +160,8 @@ declare interface AccelerationOptions<
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleOptions<
   PARTICLE extends ParticleType,
@@ -159,7 +185,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   emitter: EmitterOptions<PARTICLE>;
 
@@ -178,7 +205,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color?: ParticleColorPropertyOptions<COLOR_UPDATER>;
 
@@ -197,7 +225,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   opacity?: ParticlePropertyOptions<number, OPACITY_UPDATER>;
 
@@ -216,7 +245,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scale?: ParticlePropertyOptions<number, SCALE_UPDATER>;
 
@@ -244,7 +274,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   velocity?: VelocityOptions;
 
@@ -272,7 +303,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
@@ -291,7 +323,8 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spin?: ParticlePropertyOptions<number, SPIN_UPDATER>;
 }
@@ -309,7 +342,8 @@ interface ParticleOptions<
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PointParticleParameters {
   /**
@@ -325,7 +359,8 @@ interface PointParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius: VP;
 }
@@ -343,7 +378,8 @@ interface PointParticleParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ImageParticleParameters {
   /**
@@ -359,7 +395,8 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   src: ResourceStr;
 
@@ -384,7 +421,8 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size: ParticleTuple<Dimension, Dimension>;
 
@@ -403,7 +441,8 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   objectFit?: ImageFit;
 }
@@ -421,7 +460,8 @@ interface ImageParticleParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleConfigs {
   /**
@@ -460,13 +500,47 @@ interface ParticleConfigs {
 }
 
 /**
+ * Defines the particle configs.
+ * @interface ParticleConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface ParticleConfigs {
+  /**
+   * Point-like Particle.
+   * @type { PointParticleParameters } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  point: PointParticleParameters;
+
+  /**
+   * Image-like Particle.
+   * @type { ImageParticleParameters } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  image: ImageParticleParameters;
+}
+
+/**
  * Defines the emitter property.
  *
  * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface EmitterProperty {
 
@@ -477,7 +551,8 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   index: number;
 
@@ -488,7 +563,8 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   emitRate?: number;
 
@@ -499,7 +575,8 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position?: PositionT<number>;
 
@@ -510,7 +587,8 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size?: SizeT<number>;
 }
@@ -522,7 +600,8 @@ interface EmitterProperty {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
@@ -538,7 +617,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: PARTICLE;
   /**
@@ -559,6 +639,17 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   config: ParticleConfigs[PARTICLE];
 
   /**
+   * Particle config.
+   * @type { PointParticleParameters | ImageParticleParameters }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  config:  PointParticleParameters | ImageParticleParameters;
+
+  /**
    * Particle count.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -571,7 +662,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   count: number;
 
@@ -590,7 +682,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lifetime?: number;
 
@@ -602,7 +695,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lifetimeRange?: number;
 }
@@ -620,7 +714,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface EmitterOptions<PARTICLE extends ParticleType> {
   /**
@@ -644,7 +739,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   particle: EmitterParticleOptions<PARTICLE>;
 
@@ -663,7 +759,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   emitRate?: number;
 
@@ -682,7 +779,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shape?: ParticleEmitterShape;
 
@@ -716,7 +814,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position?: ParticleTuple<Dimension, Dimension>;
 
@@ -750,7 +849,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size?: ParticleTuple<Dimension, Dimension>;
 }
@@ -768,7 +868,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
@@ -834,13 +935,59 @@ interface ParticlePropertyUpdaterConfigs<T> {
 }
 
 /**
+ * Defines the particle property updater configs.
+ * @interface ParticlePropertyUpdaterConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface ParticlePropertyUpdaterConfigs<T> {
+  /**
+   * No effect of particle updater.
+   *
+   * @type { undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  none: undefined;
+
+  /**
+   * Random effect of particle updater.
+   * @type { ParticleTuple<T, T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  random: ParticleTuple<T, T>;
+
+  /**
+   * Curve effect of particle updater.
+   * @type { Array<ParticlePropertyAnimation<T>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  curve: Array<ParticlePropertyAnimation<T>>;
+}
+
+/**
  * Defines the particle updater options.
  *
  * @typedef ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
@@ -856,7 +1003,8 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: UPDATER;
 
@@ -876,6 +1024,17 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @since 11
    */
   config: ParticlePropertyUpdaterConfigs<TYPE>[UPDATER];
+
+  /**
+   * Particle updater configuration.
+   * @type { undefined | ParticleTuple<TYPE, TYPE> | Array<ParticlePropertyAnimation<TYPE>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  config: undefined | ParticleTuple<TYPE, TYPE> | Array<ParticlePropertyAnimation<TYPE>>;
 }
 
 /**
@@ -885,7 +1044,8 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleColorOptions {
   /**
@@ -901,7 +1061,8 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   r: ParticleTuple<number, number>;
 
@@ -918,7 +1079,8 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   g: ParticleTuple<number, number>;
 
@@ -935,7 +1097,8 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   b: ParticleTuple<number, number>;
 
@@ -952,7 +1115,8 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   a: ParticleTuple<number, number>;
 }
@@ -964,7 +1128,8 @@ interface ParticleColorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
@@ -980,7 +1145,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: UPDATER;
 
@@ -1000,6 +1166,17 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @since 11
    */
   config: ParticleColorPropertyUpdaterConfigs[UPDATER];
+
+  /**
+   * Color updater configuration.
+   * @type { undefined | ParticleColorOptions | Array<ParticlePropertyAnimation<ResourceColor>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  config: undefined | ParticleColorOptions | Array<ParticlePropertyAnimation<ResourceColor>>; 
 }
 
 /**
@@ -1015,7 +1192,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
@@ -1039,7 +1217,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   range: ParticleTuple<TYPE, TYPE>;
 
@@ -1067,7 +1246,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   updater?: ParticleUpdaterOptions<TYPE, UPDATER>;
 }
@@ -1153,6 +1333,52 @@ interface ParticleColorPropertyUpdaterConfigs {
 }
 
 /**
+ * Defines the particle color property updater configs.
+ * @interface ParticleColorPropertyUpdaterConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface ParticleColorPropertyUpdaterConfigs {
+  /**
+   * No effect of particle color property updater.
+   *
+   * @type { undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  none: undefined;
+
+  /**
+   * Random effect of particle color property updater.
+   * @type { ParticleColorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  random: ParticleColorOptions;
+
+  /**
+   * Curve effect of particle color property updater.
+   * 
+   * @type { Array<ParticlePropertyAnimation<ResourceColor>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  curve: Array<ParticlePropertyAnimation<ResourceColor>>;
+}
+
+/**
  * Defines the particle color property updater configs which can support generics.
  * @interface ParticleColorPropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1165,7 +1391,8 @@ interface ParticleColorPropertyUpdaterConfigs {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
@@ -1189,7 +1416,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   range: ParticleTuple<ResourceColor, ResourceColor>;
 
@@ -1200,7 +1428,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   distributionType?: DistributionType;
 
@@ -1228,7 +1457,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   updater?: ParticleColorUpdaterOptions<UPDATER>;
 }
@@ -1246,7 +1476,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticlePropertyAnimation<T> {
   /**
@@ -1262,7 +1493,8 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   from: T;
 
@@ -1279,7 +1511,8 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   to: T;
 
@@ -1296,7 +1529,8 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startMillis: number;
 
@@ -1313,7 +1547,8 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   endMillis: number;
 
@@ -1332,7 +1567,8 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   curve?: Curve | ICurve;
 }
@@ -1382,6 +1618,59 @@ interface Particles<
     >
   >;
 }
+
+/**
+ * Defines the particle array.
+ *
+ * @interface Particles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface Particles<
+  PARTICLE extends ParticleType = ParticleType,
+  COLOR_UPDATER extends ParticleUpdater = ParticleUpdater,
+  OPACITY_UPDATER extends ParticleUpdater = ParticleUpdater,
+  SCALE_UPDATER extends ParticleUpdater = ParticleUpdater,
+  ACC_SPEED_UPDATER extends ParticleUpdater = ParticleUpdater,
+  ACC_ANGLE_UPDATER extends ParticleUpdater =ParticleUpdater,
+  SPIN_UPDATER extends ParticleUpdater = ParticleUpdater
+> {
+  /**
+   * Array of particles.
+   * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  particles: Array<
+    ParticleOptions<
+      PARTICLE,
+      COLOR_UPDATER,
+      OPACITY_UPDATER,
+      SCALE_UPDATER,
+      ACC_SPEED_UPDATER,
+      ACC_ANGLE_UPDATER,
+      SPIN_UPDATER
+    >
+  >;
+}
+
+/**
+ * Defines the particle .
+ * @param { Particles } particles - Particle value
+ * @returns { ParticleAttribute } Returns the particle attribute.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type ParticleInterface = (particles: Particles) => ParticleAttribute;
 
 /**
  * Defines the particle Interface.
@@ -1460,7 +1749,8 @@ interface ParticleInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ParticleType {
   /**
@@ -1474,7 +1764,8 @@ declare enum ParticleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   POINT = 'point',
 
@@ -1489,7 +1780,8 @@ declare enum ParticleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE = 'image',
 }
@@ -1507,7 +1799,8 @@ declare enum ParticleType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ParticleEmitterShape {
   /**
@@ -1521,7 +1814,8 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RECTANGLE = 'rectangle',
 
@@ -1536,7 +1830,8 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CIRCLE = 'circle',
 
@@ -1551,7 +1846,8 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ELLIPSE = 'ellipse',
 }
@@ -1563,7 +1859,8 @@ declare enum ParticleEmitterShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum DistributionType {
   /**
@@ -1572,7 +1869,8 @@ declare enum DistributionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UNIFORM = 0,
 
@@ -1582,7 +1880,8 @@ declare enum DistributionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   GAUSSIAN = 1,
 }
@@ -1600,7 +1899,8 @@ declare enum DistributionType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ParticleUpdater {
   /**
@@ -1614,7 +1914,8 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NONE = 'none',
 
@@ -1629,7 +1930,8 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RANDOM = 'random',
 
@@ -1644,7 +1946,8 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CURVE = 'curve',
 }
@@ -1672,6 +1975,30 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
+ * Defines the SizeT type.
+ *
+ * @typedef { _SizeT<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type SizeT<T> = _SizeT<T>;
+
+/**
+ * Defines the PositionT type.
+ *
+ * @typedef { _PositionT<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PositionT<T> = _PositionT<T>;
+
+/**
  * Defines the Particle component attribute functions.
  * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1684,7 +2011,8 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
@@ -1695,7 +2023,8 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
@@ -1707,7 +2036,8 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   emitter(value : Array<EmitterProperty>) : ParticleAttribute;
 }
@@ -1747,7 +2077,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strength?: number;
 
@@ -1759,7 +2090,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shape?: DisturbanceFieldShape;
 
@@ -1771,7 +2103,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size?: SizeT<number>;
 
@@ -1783,7 +2116,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position?: PositionT<number>;
 
@@ -1799,7 +2133,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   feather?: number;
 
@@ -1811,7 +2146,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   noiseScale?: number;
 
@@ -1823,7 +2159,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   noiseFrequency?: number;
 
@@ -1835,7 +2172,8 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   noiseAmplitude?: number;
 }
@@ -1847,7 +2185,8 @@ declare interface DisturbanceFieldOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum DisturbanceFieldShape {
 
@@ -1857,7 +2196,8 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RECT,
 
@@ -1867,7 +2207,8 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CIRCLE,
 
@@ -1877,7 +2218,8 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ELLIPSE
 

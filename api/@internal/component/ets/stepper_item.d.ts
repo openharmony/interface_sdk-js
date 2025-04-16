@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common'
+/*** endif */
+
 /**
  * ItemState
  *
@@ -31,7 +35,9 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
+ * @atomicservice
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * ItemState
@@ -62,7 +68,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Normal,
 
@@ -85,7 +92,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Disabled,
 
@@ -108,7 +116,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Waiting,
 
@@ -131,7 +140,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Skip,
 }
@@ -158,7 +168,8 @@ declare enum ItemState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface StepperItemInterface {
   /**
@@ -183,7 +194,8 @@ interface StepperItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): StepperItemAttribute;
 }
@@ -210,7 +222,8 @@ interface StepperItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
@@ -238,7 +251,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -267,7 +281,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nextLabel(value: string): StepperItemAttribute;
 
@@ -296,7 +311,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   status(value?: ItemState): StepperItemAttribute;
 }
