@@ -23226,10 +23226,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient. The default value is 180;
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom; 
-   * colors: Color description for gradients.
-   * repeating: repeating. The default value is false
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -23343,12 +23340,12 @@ declare class CommonMethod<T> {
   /**
    * Angle Gradient
    * center:is the center point of the angle gradient
-   * start:Start point of angle gradient. The default value is 0
-   * end:End point of angle gradient. The default value is 0
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
    * number:number
-   * rotating:rotating. The default value is 0
+   * rotating:rotating
    * colors:Color description for gradients
-   * repeating:repeating. The default value is false
+   * repeating:repeating
    *
    * @param { object } value
    * @returns { T }
@@ -23454,9 +23451,9 @@ declare class CommonMethod<T> {
   /**
    * Radial Gradient
    * center:Center point of radial gradient
-   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * radius:Radius of Radial Gradient
    * colors:Color description for gradients
-   * repeating: Refill. The default value is false
+   * repeating: Refill
    *
    * @param { object } value
    * @returns { T }
