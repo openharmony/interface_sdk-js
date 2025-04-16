@@ -296,31 +296,11 @@ export interface TagSession {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
-   */
-  /**
-   * Writes data to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
-   * data fails to be written to the tag.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
-   * @throws { BusinessError } 3100205 - The tag leaves the field.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 18
    */
   transmit(data: number[]): Promise<number[]>;
 
@@ -353,7 +333,7 @@ export interface TagSession {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
