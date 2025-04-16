@@ -18,8 +18,13 @@
  * @kit ArkGraphics2D
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+/*** endif */
+/*** if arkts 1.2 */
+import image from './@ohos.multimedia.image';
+/*** endif */
 
 /**
  * @namespace effectKit
