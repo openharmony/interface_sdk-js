@@ -28,12 +28,12 @@ import { AsyncCallback } from './@ohos.base';
  * @arkts 1.1&1.2
  */
 declare namespace uiEffect {
-
   /**
    * The Filter for Component.
    * @typedef Filter
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Filter {
     /**
