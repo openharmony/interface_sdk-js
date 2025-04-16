@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor,Length, PX , VP , LPX, Font } from './units'
+import { Resource } from '../../global/resource';
+import { CommonMethod, Optional,ContentModifier,CommonConfiguration } from './common'
+import { LinearGradient } from './dataPanel'
+import { LengthMetrics } from '../Graphics'
+/*** endif */
+
 /**
  * Defines the option of Progress.
  *
@@ -50,7 +58,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
   /**
@@ -85,7 +94,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: number;
 
@@ -121,7 +131,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   total?: number;
 
@@ -168,7 +179,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: Type
 }
@@ -205,7 +217,8 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ProgressType {
   /**
@@ -236,7 +249,8 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Linear = 0,
 
@@ -268,7 +282,8 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Ring = 1,
 
@@ -300,7 +315,8 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Eclipse = 2,
 
@@ -332,7 +348,8 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ScaleRing = 3,
 
@@ -364,7 +381,8 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Capsule = 4
 }
@@ -383,7 +401,8 @@ declare enum ProgressType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ProgressStatus {
   /**
@@ -398,7 +417,8 @@ declare enum ProgressStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LOADING,
 
@@ -414,7 +434,8 @@ declare enum ProgressStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PROGRESSING
 }
@@ -455,7 +476,8 @@ declare enum ProgressStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
   /**
@@ -490,7 +512,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth?: Length;
 
@@ -526,7 +549,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scaleCount?: number;
 
@@ -562,7 +586,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scaleWidth?: Length;
 }
@@ -581,7 +606,8 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CommonProgressStyleOptions {
   /**
@@ -600,7 +626,8 @@ declare interface CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableSmoothEffect?: boolean;
 }
@@ -619,7 +646,8 @@ declare interface CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ScanEffectOptions {
   /**
@@ -638,7 +666,8 @@ declare interface ScanEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableScanEffect?: boolean;
 }
@@ -658,7 +687,8 @@ declare interface ScanEffectOptions {
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 
@@ -680,7 +710,8 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
   /**
@@ -697,7 +728,8 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth?: Length;
 
@@ -715,7 +747,8 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scaleWidth?: Length;
 
@@ -733,7 +766,8 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scaleCount?: number;
 }
@@ -754,7 +788,8 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -771,7 +806,8 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth?: Length;
 
@@ -789,7 +825,8 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadow?: boolean;
 
@@ -807,7 +844,8 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   status?: ProgressStatus;
 }
@@ -828,7 +866,8 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -845,7 +884,8 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth?: Length;
   /**
@@ -864,7 +904,8 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeRadius?: PX | VP | LPX | Resource;
 }
@@ -885,7 +926,8 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -902,7 +944,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderColor?: ResourceColor;
 
@@ -920,7 +963,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderWidth?: Length;
 
@@ -938,7 +982,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: string;
 
@@ -956,7 +1001,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font?: Font;
 
@@ -974,7 +1020,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: ResourceColor;
 
@@ -994,7 +1041,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showDefaultPercentage?: boolean;
 
@@ -1006,7 +1054,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderRadius?: LengthMetrics;
 }
@@ -1043,7 +1092,8 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ProgressStyle {
   /**
@@ -1074,7 +1124,8 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Linear,
 
@@ -1106,7 +1157,8 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Ring,
 
@@ -1138,7 +1190,8 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Eclipse,
 
@@ -1170,7 +1223,8 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ScaleRing,
 
@@ -1202,7 +1256,8 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Capsule,
 }
@@ -1220,7 +1275,8 @@ declare enum ProgressStyle {
  * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ProgressStyleMap {
   /**
@@ -1236,6 +1292,7 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
 
@@ -1252,6 +1309,7 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
 
@@ -1268,6 +1326,7 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
 
@@ -1284,6 +1343,7 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
 
@@ -1300,6 +1360,7 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   [ProgressType.Capsule]: CapsuleStyleOptions | ProgressStyleOptions;
 }
@@ -1336,7 +1397,8 @@ declare interface ProgressStyleMap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ProgressInterface {
   /**
@@ -1375,7 +1437,8 @@ interface ProgressInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   <Type extends keyof ProgressStyleMap>(options: ProgressOptions<Type>): ProgressAttribute<Type>;
 }
@@ -1413,6 +1476,7 @@ interface ProgressInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @arkts 1.1
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
@@ -1453,6 +1517,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   value(value: number): ProgressAttribute<Type>;
 
@@ -1493,6 +1558,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
 
@@ -1533,6 +1599,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   style(value: Style): ProgressAttribute<Type>;
 
@@ -1546,6 +1613,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 12
+   * @arkts 1.1
    */
   privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
 
@@ -1558,8 +1626,92 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @arkts 1.1
    */
   contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
+}
+
+/**
+ * Defines the progress attribute functions.
+ *
+ * @extends CommonMethod
+ * @typedef ProgressAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface ProgressAttribute extends CommonMethod {
+  /**
+   * Called when the current progress value is set.
+   *
+   * @param { number } value
+   * @returns { ProgressAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value(value: number): ProgressAttribute;
+
+  /**
+   * Called when the progress bar foreground is set.
+   *
+   * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
+   * @returns { ProgressAttribute } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  color(value: ResourceColor | LinearGradient): ProgressAttribute;
+
+  /**
+   * Called when the style of progress bar is set.
+   *
+   * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - indicates the style of the progress.
+   * @returns { ProgressAttribute } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions): ProgressAttribute;
+
+  /**
+   * Sets if mark to privacy sensitive.
+   *
+   * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
+   * @returns { ProgressAttribute } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute;
+
+  /**
+   * Set the contentModifier of progress.
+   *
+   * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+   * @returns { ProgressAttribute } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute;
 }
 
 /**
@@ -1570,7 +1722,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
   /**
@@ -1580,7 +1733,8 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: number;
 
@@ -1591,7 +1745,8 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   total: number;
 }
