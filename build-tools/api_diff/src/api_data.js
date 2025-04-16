@@ -275,6 +275,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取API Name
+   * @returns {*}
+   */
   getApiName() {
     return this.apiName;
   }
