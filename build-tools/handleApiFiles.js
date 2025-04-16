@@ -125,7 +125,6 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
     writeFile(outputPath, fileContent);
     return;
   }
-
   if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
     handleFileInSecondType(apiRelativePath, fullPath, type, output);
   } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
