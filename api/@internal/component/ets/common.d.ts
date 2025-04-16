@@ -27918,18 +27918,6 @@ declare abstract class TextContentControllerBase {
    * @since 17
    */
   clearPreviewText(): void;
-
-  /**
-   * Gets the text content of the selected range.
-   *
-   * @param { TextRange } [range] - selected range.
-   * @returns { string } text content of the selected range.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @atomicservice
-   * @since 18
-   */
-  getText(range?: TextRange): string;
 }
 
 /**
