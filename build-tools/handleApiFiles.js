@@ -29,7 +29,6 @@ const DirType = {
   'typeThree': 'noTagInEts2',
 };
 
-
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
 function isEtsFile(path) {
