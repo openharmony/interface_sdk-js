@@ -990,9 +990,7 @@ export interface Literal_Alignment_align {
     align?: Alignment;
 }
 export interface CommonMethod {
-    @memo
     width(value: Length): this;
-    @memo
     height(value: Length): this;
     @memo
     drawModifier(value: DrawModifier | undefined): this;
@@ -1002,7 +1000,6 @@ export interface CommonMethod {
     expandSafeArea(type?: Array<SafeAreaType>, edge?: Array<SafeAreaEdge>): this;
     @memo
     mouseResponseRegion(value: Array<Rectangle> | Rectangle): this;
-    @memo
     size(value: SizeOptions): this;
     @memo
     constraintSize(value: ConstraintSizeOptions): this;
@@ -1022,7 +1019,6 @@ export interface CommonMethod {
     safeAreaPadding(value: Padding | LengthMetrics | LocalizedPadding): this;
     @memo
     margin(value: Margin | Length | LocalizedMargin): this;
-    @memo
     backgroundColor(value: ResourceColor): this;
     @memo
     backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): this;
@@ -1072,7 +1068,6 @@ export interface CommonMethod {
     outlineRadius(value: Dimension | OutlineRadiuses): this;
     @memo
     foregroundColor(value: ResourceColor | ColoringStrategy): this;
-    @memo
     onClick(value: ((event: ClickEvent) => void), distanceThreshold?: number): this;
     @memo
     onHover(value: ((isHover: boolean,event: HoverEvent) => void)): this;
@@ -1168,7 +1163,6 @@ export interface CommonMethod {
     alignSelf(value: ItemAlign): this;
     @memo
     displayPriority(value: number): this;
-    @memo
     zIndex(value: number): this;
     @memo
     direction(value: Direction): this;
