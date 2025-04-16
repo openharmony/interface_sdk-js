@@ -301,7 +301,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
    static makeV1Observed<T extends object>(source: T): T;
 
@@ -314,7 +314,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 }
