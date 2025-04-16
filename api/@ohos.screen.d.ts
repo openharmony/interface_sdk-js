@@ -65,7 +65,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
 
@@ -81,7 +82,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 

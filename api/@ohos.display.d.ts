@@ -94,7 +94,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultDisplaySync(): Display;
 
@@ -121,7 +122,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDisplayByIdSync(displayId: number): Display;
 
@@ -162,7 +164,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
@@ -230,7 +233,8 @@ declare namespace display {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
@@ -253,7 +257,8 @@ declare namespace display {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -300,7 +305,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isFoldable(): boolean;
 
@@ -319,7 +325,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFoldStatus(): FoldStatus;
 
@@ -344,7 +351,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
@@ -369,7 +377,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -456,7 +465,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFoldDisplayMode(): FoldDisplayMode;
 
@@ -510,7 +520,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
@@ -535,7 +546,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
@@ -554,7 +566,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
 
@@ -1946,7 +1959,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 

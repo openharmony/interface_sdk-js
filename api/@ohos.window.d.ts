@@ -2732,7 +2732,8 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
    */
   function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
@@ -2773,7 +2774,8 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
    */
   function getLastWindow(ctx: BaseContext): Promise<Window>;
 
@@ -4563,7 +4565,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowProperties(): WindowProperties;
 
@@ -4640,7 +4643,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
@@ -4777,7 +4781,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
 
@@ -4885,7 +4890,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
@@ -4917,7 +4923,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise<void>;
 
@@ -5001,7 +5008,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
@@ -5115,7 +5123,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPreferredOrientation(orientation: Orientation): Promise<void>;
 
@@ -5156,7 +5165,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -5214,7 +5224,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -5261,7 +5272,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
@@ -5311,7 +5323,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUIContext() : UIContext;
 
@@ -5352,7 +5365,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUIContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -5535,7 +5549,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
@@ -5570,7 +5585,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -6082,7 +6098,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
@@ -6106,7 +6123,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
@@ -6133,7 +6151,8 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
@@ -6158,7 +6177,8 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
@@ -6436,7 +6456,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWindowSupportWideGamut(): Promise<boolean>;
 
@@ -6455,7 +6476,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWindowSupportWideGamut(callback: AsyncCallback<boolean>): void;
 
@@ -6520,7 +6542,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
@@ -6561,7 +6584,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
@@ -6683,7 +6707,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowBackgroundColor(color: string | ColorMetrics): void;
 
@@ -7039,7 +7064,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
@@ -7080,7 +7106,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
@@ -7182,7 +7209,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -7211,7 +7239,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -7909,7 +7938,8 @@ declare namespace window {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWaterMarkFlag(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -7940,7 +7970,8 @@ declare namespace window {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -8280,7 +8311,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(): Promise<void>;
 
@@ -8321,7 +8353,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowDecorVisible(isVisible: boolean): void;
 
@@ -8423,7 +8456,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowDecorHeight(height: number): void;
 	
@@ -8444,7 +8478,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowDecorHeight(): number;
 
@@ -8818,7 +8853,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setImmersiveModeEnabledState(enabled: boolean): void;
 
@@ -9344,7 +9380,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindow(): Promise<Window>;
     /**
@@ -9378,7 +9415,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
@@ -9630,7 +9668,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
@@ -9676,7 +9715,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
@@ -9719,7 +9759,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -9919,7 +9960,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableWindowDecor(): void;
 
@@ -9948,7 +9990,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
 
