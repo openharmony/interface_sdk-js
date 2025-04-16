@@ -18,19 +18,21 @@
  * @arkts 1.2
  */
 
-import { LinkDecoratedVariable } from '../decorators/decoratorLink';
-import { PropDecoratedVariable } from '../decorators/decoratorProp';
+import { AbstractProperty, SubscribedAbstractProperty } from '../base/decoratorBase';
 
 export declare class LocalStorage {
+    public constructor(initializingProperties?: Object);
     public static getShared(): LocalStorage | undefined;
-    public link(propName: string): LinkDecoratedVariable<Object> | undefined;
-    public setAndLink(propName: string, defaultValue: Object): LinkDecoratedVariable<Object>;
-    public prop(propName: string): PropDecoratedVariable<Object> | undefined;
-    public setAndProp(propName: string, defaultValue: Object): PropDecoratedVariable<Object>;
+    public ref<T>(propName: string): AbstractProperty<T> | undefined;
+    public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+    public link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+    public setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+    public prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+    public setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
     public has(propName: string): boolean;
-    public get<T>(key: string): T | undefined;
-    public set<T>(key: string, newValue: T): boolean;
-    public setOrCreate<T>(key: string, newValue: T): boolean;
+    public get<T>(propName: string): T | undefined;
+    public set<T>(propName: string, newValue: T): boolean;
+    public setOrCreate<T>(propName: string, newValue: T): boolean;
     public keys(): IterableIterator<string>;
     public size(): number;
     public delete(propName: string): boolean;

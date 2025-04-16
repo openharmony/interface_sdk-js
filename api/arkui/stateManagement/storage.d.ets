@@ -25,13 +25,13 @@ export interface StorageProperty {
 
 export type PersistPropsOptions = StorageProperty;
 
-export interface AbstractProperty<T> {
+interface AbstractProperty<T> {
     info(): string;
     get(): T;
     set(newValue: T): void;
 }
 
-export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
     aboutToBeDeleted(): void;
 }
 
