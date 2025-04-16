@@ -125,6 +125,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取包名
+   * @returns {string}
+   */
   getPackageName() {
     return this.packageName;
   }
