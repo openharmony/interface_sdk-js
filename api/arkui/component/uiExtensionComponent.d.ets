@@ -43,17 +43,19 @@ export enum DpiFollowStrategy {
 export interface UIExtensionOptions {
     isTransferringCaller?: boolean;
     placeholder?: ComponentContent;
-    areaChangePlaceholder?: Map<string, ComponentContent>;
+    areaChangePlaceholder?: Record<string, ComponentContent>;
     dpiFollowStrategy?: DpiFollowStrategy;
 }
 export type Callback_UIExtensionProxy_Void = (parameter: UIExtensionProxy) => void;
 export interface UIExtensionProxy {
-    send(data: Map<string, Object>): void
-    sendSync(data: Map<string, Object>): Map<string, Object>
+    send(data: Record<string, Object>): void
+    sendSync(data: Record<string, Object>): Record<string, Object>
     onAsyncReceiverRegister(callback_: ((parameter: UIExtensionProxy) => void)): void
     onSyncReceiverRegister(callback_: ((parameter: UIExtensionProxy) => void)): void
     offAsyncReceiverRegister(callback_?: ((parameter: UIExtensionProxy) => void)): void
     offSyncReceiverRegister(callback_?: ((parameter: UIExtensionProxy) => void)): void
+    on(type: 'asyncReceiverRegister' | 'syncReceiverRegister', callback_: ((parameter: UIExtensionProxy) => void)): void;
+    off(type: 'asyncReceiverRegister' | 'syncReceiverRegister', callback_: ((parameter: UIExtensionProxy) => void)): void;
 }
 export type UIExtensionComponentInterface = (want: Want, options?: UIExtensionOptions) => UIExtensionComponentAttribute;
 export interface Literal_Number_code_Want_want {
