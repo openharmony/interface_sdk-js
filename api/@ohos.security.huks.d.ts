@@ -12,13 +12,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit UniversalKeystoreKit
  */
+/*** if arkts 1.1 */
+
+/**
+ * In ArkTS 1.1, using int is equivalent to using number
+ *
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type int = number;
+
+/**
+ * In ArkTS 1.1, using long is equivalent to using number
+ * 
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type long = number;
 
 import type { AsyncCallback } from './@ohos.base';
+/*** endif */
+
+/*** if arkts 1.2 */
+import { BusinessError, AsyncCallback } from '@ohos.base';
+/*** endif */
 
 /**
  * OpenHarmony Universal KeyStore
@@ -33,7 +62,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace huks
  * @syscap SystemCapability.Security.Huks.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace huks {
   /**
@@ -109,7 +139,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
@@ -160,7 +191,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -259,7 +291,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
@@ -300,7 +333,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -432,7 +466,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
@@ -485,7 +520,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -573,7 +609,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function importWrappedKeyItem(
     keyAlias: string,
@@ -667,7 +704,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -742,7 +780,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function exportKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -822,7 +861,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function exportKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -1031,7 +1071,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
@@ -1055,7 +1096,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
@@ -1209,7 +1251,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
 
@@ -1260,7 +1303,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function initSession(keyAlias: string, options: HuksOptions): Promise<HuksSessionHandle>;
 
@@ -1353,7 +1397,7 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1375,9 +1419,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+  function updateSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
    * Update Operation.
@@ -1409,7 +1454,7 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
@@ -1432,10 +1477,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateSession(
-    handle: number,
+    handle: long,
     options: HuksOptions,
     token: Uint8Array,
     callback: AsyncCallback<HuksReturnResult>
@@ -1471,7 +1517,7 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -1494,9 +1540,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function updateSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
+  function updateSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
    * Finish Operation.
@@ -1553,7 +1600,7 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1575,9 +1622,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+  function finishSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
    * Finish Operation.
@@ -1609,7 +1657,7 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
@@ -1632,10 +1680,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function finishSession(
-    handle: number,
+    handle: long,
     options: HuksOptions,
     token: Uint8Array,
     callback: AsyncCallback<HuksReturnResult>
@@ -1671,7 +1720,7 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -1694,9 +1743,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
+  function finishSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
    * Abort Operation.
@@ -1746,7 +1796,7 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the abort operation.
    * @param { AsyncCallback<void> } callback - the callback of abortSession.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1761,9 +1811,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
+  function abortSession(handle: long, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Abort Operation.
@@ -1787,7 +1838,7 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
+   * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the abort operation.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1802,9 +1853,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function abortSession(handle: number, options: HuksOptions): Promise<void>;
+  function abortSession(handle: long, options: HuksOptions): Promise<void>;
 
   /**
    * Key Attestation. This API can be called only by system applications.
@@ -2063,7 +2115,8 @@ declare namespace huks {
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HuksParam {
     /**
@@ -2074,7 +2127,8 @@ declare namespace huks {
      * @type { HuksTag }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tag: HuksTag;
     /**
@@ -2082,12 +2136,13 @@ declare namespace huks {
      * @since 8
      */
     /**
-     * @type { boolean | number | bigint | Uint8Array }
+     * @type { boolean | int | bigint | Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    value: boolean | number | bigint | Uint8Array;
+    value: boolean | int | bigint | Uint8Array;
   }
 
   /**
@@ -2136,7 +2191,8 @@ declare namespace huks {
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HuksSessionHandle {
     /**
@@ -2144,12 +2200,13 @@ declare namespace huks {
      * @since 9
      */
     /**
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    handle: number;
+    handle: long;
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2158,7 +2215,8 @@ declare namespace huks {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     challenge?: Uint8Array;
   }
@@ -2176,7 +2234,8 @@ declare namespace huks {
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HuksOptions {
     /**
@@ -2187,7 +2246,8 @@ declare namespace huks {
      * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     properties?: Array<HuksParam>;
     /**
@@ -2198,7 +2258,8 @@ declare namespace huks {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inData?: Uint8Array;
   }
@@ -2256,7 +2317,8 @@ declare namespace huks {
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HuksReturnResult {
     /**
@@ -2267,7 +2329,8 @@ declare namespace huks {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     outData?: Uint8Array;
     /**
@@ -2278,7 +2341,8 @@ declare namespace huks {
      * @type { ?Array<HuksParam> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     properties?: Array<HuksParam>;
     /**
@@ -2289,7 +2353,8 @@ declare namespace huks {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certChains?: Array<string>;
   }
@@ -2300,7 +2365,8 @@ declare namespace huks {
    * @typedef HuksListAliasesReturnResult
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HuksListAliasesReturnResult {
 
@@ -2310,7 +2376,8 @@ declare namespace huks {
      * @type { Array<string> }
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     keyAliases: Array<string>;
   }
@@ -2742,7 +2809,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksExceptionErrCode {
     /**
@@ -2752,14 +2820,16 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_PERMISSION_FAIL = 201,
     /**
      * Non-system applications are not allowed to use system APIs.
      *
      * @syscap SystemCapability.Security.Huks.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_NOT_SYSTEM_APP = 202,
     /**
@@ -2769,7 +2839,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401,
     /**
@@ -2779,7 +2850,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
     /**
@@ -2789,7 +2861,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
     /**
@@ -2799,7 +2872,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
     /**
@@ -2809,7 +2883,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
     /**
@@ -2819,7 +2894,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
     /**
@@ -2829,7 +2905,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
     /**
@@ -2839,7 +2916,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
     /**
@@ -2849,7 +2927,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
     /**
@@ -2859,7 +2938,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
     /**
@@ -2869,7 +2949,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
     /**
@@ -2879,7 +2960,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
     /**
@@ -2889,7 +2971,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
     /**
@@ -2899,7 +2982,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
     /**
@@ -2909,7 +2993,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
     /**
@@ -2919,7 +3004,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
     /**
@@ -2929,7 +3015,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
     /**
@@ -2943,7 +3030,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016
   }
@@ -2961,7 +3049,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyPurpose {
     /**
@@ -2975,7 +3064,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
     /**
@@ -2989,7 +3079,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_DECRYPT = 2,
     /**
@@ -3001,7 +3092,8 @@ declare namespace huks {
      * Usable with RSA, EC keys.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_SIGN = 4,
     /**
@@ -3013,7 +3105,8 @@ declare namespace huks {
      * Usable with RSA, EC keys.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_VERIFY = 8,
     /**
@@ -3025,7 +3118,8 @@ declare namespace huks {
      * Usable with EC keys.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_DERIVE = 16,
     /**
@@ -3037,7 +3131,8 @@ declare namespace huks {
      * Usable with wrap key.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_WRAP = 32,
     /**
@@ -3049,7 +3144,8 @@ declare namespace huks {
      * Usable with unwrap key.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_UNWRAP = 64,
     /**
@@ -3061,7 +3157,8 @@ declare namespace huks {
      * Usable with mac.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_MAC = 128,
     /**
@@ -3073,7 +3170,8 @@ declare namespace huks {
      * Usable with agree.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_PURPOSE_AGREE = 256
   }
@@ -3091,7 +3189,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyDigest {
     /**
@@ -3101,7 +3200,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_NONE = 0,
     /**
@@ -3111,7 +3211,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_MD5 = 1,
     /**
@@ -3121,7 +3222,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SM3 = 2,
     /**
@@ -3131,7 +3233,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SHA1 = 10,
     /**
@@ -3141,7 +3244,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SHA224 = 11,
     /**
@@ -3151,7 +3255,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SHA256 = 12,
     /**
@@ -3161,7 +3266,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SHA384 = 13,
     /**
@@ -3171,7 +3277,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DIGEST_SHA512 = 14
   }
@@ -3189,7 +3296,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyPadding {
     /**
@@ -3199,7 +3307,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_NONE = 0,
     /**
@@ -3209,7 +3318,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_OAEP = 1,
     /**
@@ -3219,7 +3329,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_PSS = 2,
     /**
@@ -3229,7 +3340,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_PKCS1_V1_5 = 3,
     /**
@@ -3239,7 +3351,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_PKCS5 = 4,
     /**
@@ -3249,19 +3362,22 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_PKCS7 = 5,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_ISO_IEC_9796_2 = 6,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_PADDING_ISO_IEC_9797_1 = 7,
   }
@@ -3279,7 +3395,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksCipherMode {
     /**
@@ -3289,7 +3406,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_ECB = 1,
     /**
@@ -3299,7 +3417,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_CBC = 2,
     /**
@@ -3309,7 +3428,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_CTR = 3,
     /**
@@ -3319,7 +3439,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_OFB = 4,
     /**
@@ -3327,7 +3448,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_CFB = 5,
     /**
@@ -3337,7 +3459,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_CCM = 31,
 
@@ -3348,7 +3471,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_MODE_GCM = 32
   }
@@ -3366,7 +3490,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeySize {
     /**
@@ -3376,7 +3501,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_512 = 512,
     /**
@@ -3386,7 +3512,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_768 = 768,
     /**
@@ -3396,7 +3523,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_1024 = 1024,
     /**
@@ -3406,7 +3534,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_2048 = 2048,
     /**
@@ -3416,7 +3545,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_3072 = 3072,
     /**
@@ -3426,7 +3556,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_KEY_SIZE_4096 = 4096,
 
@@ -3437,7 +3568,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ECC_KEY_SIZE_224 = 224,
     /**
@@ -3447,7 +3579,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ECC_KEY_SIZE_256 = 256,
     /**
@@ -3457,7 +3590,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ECC_KEY_SIZE_384 = 384,
     /**
@@ -3467,7 +3601,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ECC_KEY_SIZE_521 = 521,
 
@@ -3516,7 +3651,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CURVE25519_KEY_SIZE_256 = 256,
 
@@ -3527,7 +3663,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DH_KEY_SIZE_2048 = 2048,
     /**
@@ -3537,7 +3674,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DH_KEY_SIZE_3072 = 3072,
     /**
@@ -3547,7 +3685,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DH_KEY_SIZE_4096 = 4096,
 
@@ -3558,7 +3697,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_SM2_KEY_SIZE_256 = 256,
     /**
@@ -3568,25 +3708,29 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_SM4_KEY_SIZE_128 = 128,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_DES_KEY_SIZE_64 = 64,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_3DES_KEY_SIZE_128 = 128,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_3DES_KEY_SIZE_192 = 192,
   }
@@ -3604,7 +3748,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyAlg {
     /**
@@ -3614,7 +3759,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_RSA = 1,
     /**
@@ -3624,7 +3770,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_ECC = 2,
     /**
@@ -3634,7 +3781,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_DSA = 3,
 
@@ -3645,7 +3793,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_AES = 20,
     /**
@@ -3655,7 +3804,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_HMAC = 50,
     /**
@@ -3665,7 +3815,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_HKDF = 51,
     /**
@@ -3675,7 +3826,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_PBKDF2 = 52,
 
@@ -3686,7 +3838,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_ECDH = 100,
     /**
@@ -3696,7 +3849,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_X25519 = 101,
     /**
@@ -3706,7 +3860,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_ED25519 = 102,
     /**
@@ -3716,7 +3871,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_DH = 103,
 
@@ -3727,7 +3883,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_SM2 = 150,
     /**
@@ -3737,7 +3894,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_SM3 = 151,
     /**
@@ -3747,25 +3905,29 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_SM4 = 152,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_DES = 160,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_3DES = 161,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_ALG_CMAC = 162
   }
@@ -3783,7 +3945,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksUnwrapSuite {
     /**
@@ -3793,7 +3956,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
     /**
@@ -3803,7 +3967,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2
   }
@@ -3821,7 +3986,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyGenerateType {
     /**
@@ -3831,7 +3997,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_GENERATE_TYPE_DEFAULT = 0,
     /**
@@ -3841,7 +4008,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_GENERATE_TYPE_DERIVE = 1,
     /**
@@ -3851,7 +4019,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_GENERATE_TYPE_AGREE = 2
   }
@@ -3869,7 +4038,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyFlag {
     /**
@@ -3879,7 +4049,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
     /**
@@ -3889,7 +4060,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
     /**
@@ -3899,7 +4071,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
     /**
@@ -3909,7 +4082,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_FLAG_DERIVE_KEY = 4
   }
@@ -3927,7 +4101,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksKeyStorageType {
     /**
@@ -3953,7 +4128,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
@@ -3967,7 +4143,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_STORAGE_KEY_EXPORT_ALLOWED = 3
   }
@@ -3985,7 +4162,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksImportKeyType {
     /**
@@ -3995,7 +4173,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_TYPE_PUBLIC_KEY = 0,
     /**
@@ -4005,7 +4184,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_TYPE_PRIVATE_KEY = 1,
     /**
@@ -4015,7 +4195,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_KEY_TYPE_KEY_PAIR = 2
   }
@@ -4033,7 +4214,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksRsaPssSaltLenType {
     /**
@@ -4047,7 +4229,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_PSS_SALT_LEN_DIGEST = 0,
 
@@ -4062,7 +4245,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_RSA_PSS_SALT_LEN_MAX = 1
   }
@@ -4080,7 +4264,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksUserAuthType {
     /**
@@ -4090,7 +4275,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_USER_AUTH_TYPE_FINGERPRINT = 1 << 0,
     /**
@@ -4100,7 +4286,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_USER_AUTH_TYPE_FACE = 1 << 1,
     /**
@@ -4110,7 +4297,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_USER_AUTH_TYPE_PIN = 1 << 2
   }
@@ -4128,7 +4316,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksAuthAccessType {
     /**
@@ -4138,7 +4327,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
     /**
@@ -4148,7 +4338,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
     /**
@@ -4162,7 +4353,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
@@ -4173,7 +4365,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksUserAuthMode {
     /**
@@ -4181,7 +4374,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_USER_AUTH_MODE_LOCAL = 0,
     /**
@@ -4189,7 +4383,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_USER_AUTH_MODE_COAUTH = 1,
   }
@@ -4206,7 +4401,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksAuthStorageLevel {
     /**
@@ -4218,7 +4414,8 @@ declare namespace huks {
      * Key file storage security level for device encryption standard.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_STORAGE_LEVEL_DE = 0,
     /**
@@ -4230,7 +4427,8 @@ declare namespace huks {
      * Key file storage security level for credential encryption standard.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_STORAGE_LEVEL_CE = 1,
     /**
@@ -4242,7 +4440,8 @@ declare namespace huks {
      * Key file storage security level for enhanced credential encryption standard.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AUTH_STORAGE_LEVEL_ECE = 2,
   }
@@ -4260,7 +4459,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksChallengeType {
     /**
@@ -4270,7 +4470,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_TYPE_NORMAL = 0,
     /**
@@ -4280,7 +4481,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_TYPE_CUSTOM = 1,
     /**
@@ -4290,7 +4492,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_TYPE_NONE = 2
   }
@@ -4308,7 +4511,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksChallengePosition {
     /**
@@ -4318,7 +4522,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_POS_0 = 0,
     /**
@@ -4328,7 +4533,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_POS_1,
     /**
@@ -4338,7 +4544,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_POS_2,
     /**
@@ -4348,7 +4555,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_CHALLENGE_POS_3
   }
@@ -4366,7 +4574,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksSecureSignType {
     /**
@@ -4376,7 +4585,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_SECURE_SIGN_WITH_AUTHINFO = 1
   }
@@ -4394,7 +4604,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksSendType {
     /**
@@ -4404,7 +4615,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_SEND_TYPE_ASYNC = 0,
     /**
@@ -4414,7 +4626,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_SEND_TYPE_SYNC = 1
   }
@@ -4432,7 +4645,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksTagType {
     /**
@@ -4442,7 +4656,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_INVALID = 0 << 28,
     /**
@@ -4452,7 +4667,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_INT = 1 << 28,
     /**
@@ -4462,7 +4678,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_UINT = 2 << 28,
     /**
@@ -4472,7 +4689,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_ULONG = 3 << 28,
     /**
@@ -4482,7 +4700,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_BOOL = 4 << 28,
     /**
@@ -4492,7 +4711,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_TYPE_BYTES = 5 << 28
   }
@@ -4510,7 +4730,8 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum HuksTag {
     /**
@@ -4522,7 +4743,7 @@ declare namespace huks {
      */
     HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
 
-    /* Base algorithm TAG: 1 - 200 */
+    /** Base algorithm TAG: 1 - 200 */
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
@@ -4530,7 +4751,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ALGORITHM = HuksTagType.HUKS_TAG_TYPE_UINT | 1,
     /**
@@ -4540,7 +4762,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
     /**
@@ -4550,7 +4773,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 3,
 
@@ -4561,7 +4785,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_DIGEST = HuksTagType.HUKS_TAG_TYPE_UINT | 4,
     /**
@@ -4571,7 +4796,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_PADDING = HuksTagType.HUKS_TAG_TYPE_UINT | 5,
     /**
@@ -4581,7 +4807,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
     /**
@@ -4591,7 +4818,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
     /**
@@ -4601,7 +4829,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ASSOCIATED_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 8,
 
@@ -4612,7 +4841,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
     /**
@@ -4622,7 +4852,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
@@ -4637,7 +4868,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 11,
     /**
@@ -4647,7 +4879,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_SALT = HuksTagType.HUKS_TAG_TYPE_BYTES | 12,
     /**
@@ -4663,7 +4896,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ITERATION = HuksTagType.HUKS_TAG_TYPE_UINT | 14,
 
@@ -4678,7 +4912,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_GENERATE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 15,
 
@@ -4707,7 +4942,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AGREE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 19,
     /**
@@ -4717,7 +4953,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AGREE_PUBLIC_KEY_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 20,
     /**
@@ -4727,7 +4964,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 21,
     /**
@@ -4737,7 +4975,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AGREE_PUBLIC_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 22,
     /**
@@ -4747,7 +4986,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
     /**
@@ -4757,7 +4997,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_DERIVE_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 24,
 
@@ -4772,7 +5013,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IMPORT_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 25,
 
@@ -4783,7 +5025,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
@@ -4798,7 +5041,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 29,
 
@@ -4813,7 +5057,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_RSA_PSS_SALT_LEN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 30,
 
@@ -4861,7 +5106,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ALL_USERS = HuksTagType.HUKS_TAG_TYPE_BOOL | 301,
     /**
@@ -4871,7 +5117,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_USER_ID = HuksTagType.HUKS_TAG_TYPE_UINT | 302,
     /**
@@ -4881,7 +5128,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_NO_AUTH_REQUIRED = HuksTagType.HUKS_TAG_TYPE_BOOL | 303,
     /**
@@ -4891,7 +5139,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
     /**
@@ -4901,7 +5150,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AUTH_TIMEOUT = HuksTagType.HUKS_TAG_TYPE_UINT | 305,
     /**
@@ -4911,7 +5161,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AUTH_TOKEN = HuksTagType.HUKS_TAG_TYPE_BYTES | 306,
 
@@ -4923,7 +5174,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_AUTH_ACCESS_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 307,
 
@@ -4934,7 +5186,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_SECURE_SIGN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 308,
 
@@ -4945,7 +5198,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_CHALLENGE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 309,
 
@@ -4956,7 +5210,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_CHALLENGE_POS = HuksTagType.HUKS_TAG_TYPE_UINT | 310,
 
@@ -4971,7 +5226,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_AUTH_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 311,
 
@@ -4986,7 +5242,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
 
@@ -4994,7 +5251,8 @@ declare namespace huks {
      * Authentication mode of the user authtoken, whose optional values are from enum HuksUserAuthMode.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_USER_AUTH_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 319,
 
@@ -5006,7 +5264,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ATTESTATION_CHALLENGE = HuksTagType.HUKS_TAG_TYPE_BYTES | 501,
     /**
@@ -5016,7 +5275,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ATTESTATION_APPLICATION_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 502,
     /**
@@ -5074,7 +5334,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ATTESTATION_ID_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 511,
     /**
@@ -5096,7 +5357,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 514,
     /**
@@ -5106,7 +5368,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
 
@@ -5123,7 +5386,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
     /**
@@ -5137,7 +5401,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002,
     /**
@@ -5147,7 +5412,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IS_ALLOWED_WRAP = HuksTagType.HUKS_TAG_TYPE_BOOL | 1003,
     /**
@@ -5157,7 +5423,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_WRAP_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 1004,
     /**
@@ -5167,7 +5434,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_AUTH_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1005,
     /**
@@ -5177,7 +5445,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_ROLE = HuksTagType.HUKS_TAG_TYPE_UINT | 1006,
     /**
@@ -5191,7 +5460,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007,
     /**
@@ -5201,7 +5471,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IS_ASYNCHRONIZED = HuksTagType.HUKS_TAG_TYPE_UINT | 1008,
     /**
@@ -5223,7 +5494,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
@@ -5238,7 +5510,8 @@ declare namespace huks {
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
 
@@ -5281,7 +5554,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
     /**
@@ -5344,7 +5618,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_SYMMETRIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20001,
     /**
@@ -5354,7 +5629,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20002,
     /**
@@ -5364,7 +5640,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_ASYMMETRIC_PRIVATE_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20003
   }
