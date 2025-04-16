@@ -125,6 +125,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取包名
+   * @returns {string}
+   */
   getPackageName() {
     return this.packageName;
   }
@@ -140,6 +144,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取classs Name
+   * @returns {string|string|any|string}
+   */
   getClassName() {
     if (this.className) {
       return this.className;
