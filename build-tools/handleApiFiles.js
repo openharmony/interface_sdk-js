@@ -29,13 +29,6 @@ const DirType = {
   'typeThree': 'noTagInEts2',
 };
 
-// 1.2SDK兼容行打包方案过滤文件
-const API_NO_TAGS_FILTER_LIST = [
-  '@arkts.collections.d.ets',
-  '@arkts.lang.d.ets',
-  '@arkts.utils.d.ets'
-];
-
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
 function isEtsFile(path) {
@@ -132,6 +125,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
     writeFile(outputPath, fileContent);
     return;
   }
+
   if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
     handleFileInSecondType(apiRelativePath, fullPath, type, output);
   } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
@@ -223,8 +217,8 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
     return !ts.isExpressionStatement(statement);
   });
 
-  if (firstNode && firstNode.jsDoc) {
-    const firstJsdocText = firstNode.jsDoc[0].getText();
+  if (firstNode) {
+    const firstJsdocText = getFileJsdoc(firstNode);
     // 标有1.2标签的声明文件，不拷贝
     if (secondRegx.test(firstJsdocText)) {
       return;
@@ -321,7 +315,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
       return;
     }
     // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
-    handleNoTagFileInSecondType(sourceFile, outputPath);
+    handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
     return;
   }
 
@@ -347,7 +341,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   }
 
   // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
-  handleNoTagFileInSecondType(sourceFile, outputPath);
+  handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
 }
 
 function getFileJsdoc(firstNode){
@@ -385,14 +379,14 @@ function handlehasTagFile(sourceFile, outputPath) {
  * @param {*} outputPath 
  * @returns 
  */
-function handleNoTagFileInSecondType(sourceFile, outputPath) {
+function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   dirType = DirType.typeThree;
   const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
   const fileContent = sourceFile.getFullText();
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
   if (!arktsTagRegx.test(fileContent)) {
-    if (!API_NO_TAGS_FILTER_LIST.includes(path.basename(outputPath))) {
-      writeFile(outputPath, joinFileJsdoc(fileContent, sourceFile));
+    if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
+      writeFile(outputPath, saveLatestJsDoc(fileContent));
     }
     // TODO：api未标标签，删除文件
     return;
