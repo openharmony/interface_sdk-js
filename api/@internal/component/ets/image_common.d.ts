@@ -24,7 +24,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ImageAnalyzerType {
   /**
@@ -32,7 +33,8 @@ declare enum ImageAnalyzerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SUBJECT = 0,
 
@@ -41,7 +43,8 @@ declare enum ImageAnalyzerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TEXT,
 
@@ -50,7 +53,8 @@ declare enum ImageAnalyzerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   OBJECT_LOOKUP,
 }
@@ -60,7 +64,8 @@ declare enum ImageAnalyzerType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ImageAnalyzerController {
   /**
@@ -68,7 +73,8 @@ declare class ImageAnalyzerController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -78,7 +84,8 @@ declare class ImageAnalyzerController {
    * @returns { ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
 }
@@ -90,6 +97,7 @@ declare class ImageAnalyzerController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @arkts 1.1
  */
 declare interface ImageAnalyzerConfig {
   /**
@@ -99,6 +107,7 @@ declare interface ImageAnalyzerConfig {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @arkts 1.1
    */
   types: ImageAnalyzerType[];
 }
@@ -110,6 +119,7 @@ declare interface ImageAnalyzerConfig {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @arkts 1.1
  */
 declare interface ImageAIOptions {
   /**
@@ -119,6 +129,7 @@ declare interface ImageAIOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @arkts 1.1
    */
   types?: ImageAnalyzerType[];
 
@@ -129,6 +140,63 @@ declare interface ImageAIOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @arkts 1.1
+   */
+  aiController?: ImageAnalyzerController;
+}
+
+
+/**
+ * Image analyzer config.
+ *
+ * @interface ImageAnalyzerConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface ImageAnalyzerConfig {
+  /**
+   * Image analyze types.
+   *
+   * @type { ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  types: ImageAnalyzerType[];
+}
+
+/**
+ * Image ai options.
+ *
+ * @interface ImageAIOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export interface ImageAIOptions {
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  types?: ImageAnalyzerType[];
+
+  /**
+   * Image analyze types.
+   *
+   * @type { ?ImageAnalyzerController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   aiController?: ImageAnalyzerController;
 }

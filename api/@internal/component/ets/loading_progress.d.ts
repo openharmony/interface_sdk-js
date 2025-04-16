@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod,ContentModifier,CommonConfiguration } from './common'
+import { ResourceColor } from './units'
+/*** endif */
+
 /**
  * Load style of progress bar.
  *
@@ -50,7 +55,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum LoadingProgressStyle {
   /**
@@ -81,7 +87,8 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Default,
 
@@ -113,7 +120,8 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Circular,
 
@@ -145,7 +153,8 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Orbital,
 }
@@ -182,7 +191,8 @@ declare enum LoadingProgressStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface LoadingProgressInterface {
   /**
@@ -217,7 +227,8 @@ interface LoadingProgressInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): LoadingProgressAttribute;
 }
@@ -254,7 +265,8 @@ interface LoadingProgressInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
@@ -293,7 +305,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 
@@ -314,7 +327,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableLoading(value: boolean): LoadingProgressAttribute;
 
@@ -326,7 +340,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<LoadingProgressConfiguration>): LoadingProgressAttribute;
 }
@@ -339,7 +354,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
   /**
@@ -349,7 +365,8 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableLoading: boolean;
 }
