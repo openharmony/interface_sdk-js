@@ -23,6 +23,9 @@ import { CommonMethod, GeometryInfo, Layoutable, Measurable, SizeResult } from "
 import { Theme } from '../../../api/@ohos.arkui.theme'
 import { ConstraintSizeOptions, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './units'
 import { UIContext } from './../../../api/@ohos.arkui.UIContext'
+import { WatchFuncType } from '../stateManagement/decorators/decoratorWatch'
+import { ProvideDecoratedVariable } from '../stateManagement/decorators/decoratorProvide'
+import { ConsumeDecoratedVariable } from '../stateManagement/decorators/decoratorConsume'
 
 import { 
     DrawModifier, Rectangle, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle,
@@ -78,7 +81,8 @@ export interface CustomLayout {
 }
 
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> {
-
+    public addProvidedVar<T>(varName: string, providedPropName: string, initValue: T, allowOverride: boolean = false, watchFunc?: WatchFuncType): ProvideDecoratedVariable<T>;
+    public initConsume<T>(varName: string, providedPropName: string, watchFunc?: WatchFuncType): ConsumeDecoratedVariable<T>;
     @memo
     @ComponentBuilder
     static $_instantiate<S extends CustomComponent<S, S_Options>, S_Options>(
