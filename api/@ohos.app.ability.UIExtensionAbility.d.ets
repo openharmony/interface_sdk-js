@@ -102,12 +102,22 @@ declare class UIExtensionAbility extends ExtensionAbility {
   /**
    * Called back before an UI extension is destroyed.
    *
-   * @returns { void | Promise<void> } the promise returned by the function.
+   * @returns { void } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 17
    */
-  onDestroy(): Promise<void> | undefined;
+  onDestroy(): void;
+
+  /**
+   * Called back before an UI extension is destroyed.
+   *
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 17
+   */
+  onDestroyAsync(): Promise<void>;
 }
 
 export default UIExtensionAbility;
