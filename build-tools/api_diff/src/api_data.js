@@ -189,6 +189,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取原始文本
+   * @returns {string}
+   */
   getRawText() {
     return this.rawText;
   }
