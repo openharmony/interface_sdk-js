@@ -252,6 +252,10 @@ class ApiDigestInfo {
     this.jsdocTagItem = jsdocTagItem;
   }
 
+  /**
+   * 获取tagItem
+   * @returns {*}
+   */
   getJSDocTagItem() {
     return this.jsdocTagItem;
   }
