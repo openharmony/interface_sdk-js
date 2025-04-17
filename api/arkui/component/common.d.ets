@@ -1297,6 +1297,8 @@ export interface CommonMethod {
     bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): this;
     @memo
     bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): this;
+    @memo
+    bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): this;
 }
 export interface CommonAttribute extends CommonMethod {
 }
