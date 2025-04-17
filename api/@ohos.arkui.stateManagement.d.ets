@@ -28,6 +28,7 @@ export * from './arkui/stateManagement/base/iObservedObject';
 export * from './arkui/stateManagement/base/mutableStateMeta';
 export * from './arkui/stateManagement/decorators/decoratorState';
 export * from './arkui/stateManagement/decorators/decoratorLink';
+export * from './arkui/stateManagement/decorators/decoratorObjectLink';
 export * from './arkui/stateManagement/decorators/decoratorProp';
 export * from './arkui/stateManagement/decorators/decoratorStorageLink';
 export * from './arkui/stateManagement/decorators/decoratorStorageProp';
