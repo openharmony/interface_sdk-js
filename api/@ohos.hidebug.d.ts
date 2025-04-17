@@ -840,7 +840,6 @@ declare namespace hidebug {
    *
    * @param { boolean } needGC - Whether do GC before dump, default is true.
    * @returns { Promise<string> } Returns the full path of raw heap snapshot file.
-   * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
