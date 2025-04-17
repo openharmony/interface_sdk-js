@@ -1483,8 +1483,8 @@ declare namespace update {
    * You need to implement this method in a child class.
    *
    * @typedef { function } UpgradeTaskCallback
-   * @syscap SystemCapability.Update.UpdateService
    * @param { EventInfo } eventInfo - Event information.
+   * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
    */
