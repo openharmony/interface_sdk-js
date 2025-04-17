@@ -63,6 +63,17 @@ declare interface RowOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Row spacing.
+   *
+   * Anonymous Object Rectification
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   space?: string | number;
 }
 
@@ -166,6 +177,7 @@ interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    *
+   * Anonymous Object Rectification
    * @param { ?RowOptions } options - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

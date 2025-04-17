@@ -55,6 +55,16 @@ interface FolderStackOptions {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
+   *
+   * Anonymous Object Rectification
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   upperItems?: Array<string>;
 }
 
@@ -136,6 +146,16 @@ interface OnFoldStatusChangeInfo {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Folder state.
+   *
+   * Anonymous Object Rectification
+   * @type { FoldStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   foldStatus: FoldStatus
 }
