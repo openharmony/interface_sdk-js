@@ -61,6 +61,20 @@ export function analyzeBaseClasses(classNode: ts.ClassDeclaration, sourceFile: t
     return baseTypes
 }
 
+export function getBaseClassName(classNode: ts.ClassDeclaration): string | undefined {
+    if (!classNode.heritageClauses) return undefined;
+
+    for (const heritage of classNode.heritageClauses) {
+        if (heritage.token === ts.SyntaxKind.ExtendsKeyword) {
+            for (const type of heritage.types) {
+                const baseName = type.expression.getText();
+                return baseName;
+            }
+        }
+    }
+    return undefined;
+}
+
 export function isComponentHerirage(node: ts.Node): boolean {
     if (!ts.isClassDeclaration(node) && !ts.isInterfaceDeclaration(node)) {
         return false;

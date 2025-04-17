@@ -19,7 +19,7 @@ import * as path from 'path';
 import { assert } from 'console';
 import uiconfig from './arkui_config_util'
 import { ComponentFile } from './component_file';
-import { analyzeBaseClasses, isComponentHerirage } from './lib/attribute_utils'
+import { analyzeBaseClasses, isComponentHerirage, getBaseClassName } from './lib/attribute_utils'
 
 function readLangTemplate(): string {
     return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
@@ -289,7 +289,10 @@ function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
         }
         return handleAttributeMember(member);
     }).filter((member): member is ts.MethodSignature => member !== undefined);
-    handleAttributeModifier(node, members)
+    if (uiconfig.shouldHaveAttributeModifier(node.name!.escapedText as string)) {
+        console.log(node.name!.escapedText as string)
+        handleAttributeModifier(node, members)
+    }
 
     const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
     const delcareModifier = ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword);
@@ -349,10 +352,10 @@ function addAttributeMemo(node: ts.ClassDeclaration, componentFile: ComponentFil
         updatedCode.push(l);
     })
     const attributeName = node.name!.escapedText!
-    const superInterface = uiconfig.getComponentSuperclass(attributeName)
+    const superInterface = getBaseClassName(node)
     componentFile.appendAttribute(updatedCode.join('\n')
-        .replace(`export declare interface ${attributeName}`, `export declare interface ${attributeName}UI`)
-        .replace(`extends ${superInterface}`, `extends ${superInterface}UI`)
+        .replace(`export declare interface ${attributeName}`, `export declare interface UI${attributeName}`)
+        .replace(`extends ${superInterface}`, `extends UI${superInterface}`)
     )
 }
 
