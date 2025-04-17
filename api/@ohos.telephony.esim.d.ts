@@ -34,8 +34,7 @@ declare namespace eSIM {
    *
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { boolean } Returns {@code true} if the eSIM capability is supported; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -51,8 +50,7 @@ declare namespace eSIM {
    * @returns { Promise<boolean> } Returns {@code true} if the profile is added successfully;
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -69,8 +67,7 @@ declare namespace eSIM {
    * @returns { Promise<string> } Returns the EID. When eUICC is not ready, the return value may be null.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -88,8 +85,7 @@ declare namespace eSIM {
    * @returns { Promise<OsuStatus> } Return the status of eUICC OS upgrade.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -107,8 +103,7 @@ declare namespace eSIM {
    * @returns { Promise<OsuStatus> } Return the status of OS upgrade when OS upgrade status changed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -131,8 +126,7 @@ declare namespace eSIM {
    * @returns { Promise<GetDownloadableProfileMetadataResult> } Return the metadata for profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -156,8 +150,7 @@ declare namespace eSIM {
    * available for download on this device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -179,8 +172,7 @@ declare namespace eSIM {
    * @returns { Promise<DownloadProfileResult> } Return the given downloadableProfile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -199,8 +191,7 @@ declare namespace eSIM {
    * @returns { Promise<GetEuiccProfileInfoListResult> } Return a list of eUICC profile information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -219,8 +210,7 @@ declare namespace eSIM {
    * the return value may be null.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -239,8 +229,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the response to deletes the given profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -263,8 +252,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the response to switch profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -285,8 +273,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the result of the set nickname operation.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -305,8 +292,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the result of the reset operation.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -324,8 +310,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -344,8 +329,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -363,8 +347,7 @@ declare namespace eSIM {
    * @returns { Promise<string> } Returns the default SM-DP+ address.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
@@ -386,8 +369,7 @@ declare namespace eSIM {
    * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 401 - Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
