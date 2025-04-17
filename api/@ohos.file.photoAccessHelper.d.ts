@@ -5549,7 +5549,7 @@ declare namespace photoAccessHelper {
     /**
      * Media file filtering configuration.
      *
-     * @type { ?MIMETypeFilter }
+     * @type { ?MimeTypeFilter }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19
