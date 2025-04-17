@@ -530,22 +530,6 @@ declare namespace screenLock {
    * @since 12
    */
   function getScreenLockAuthState(userId: number): AuthState;
-
-  /**
-   * Check whether the device is currently locked and the screenlock requires an identity to authenticate and unlock.
-   *
-   * @param { number } userId - Os account local userId.
-   * @returns { boolean } Whether the device is currently locked.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
-   * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
-   * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
-   * @since 15
-   */
-  function isDeviceLocked(userId: number): boolean;
 }
 
 export default screenLock;
