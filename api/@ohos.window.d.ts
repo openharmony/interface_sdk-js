@@ -27,6 +27,9 @@ import { UIContext } from './@ohos.arkui.UIContext';
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { ColorMetrics } from './@ohos.arkui.node';
+/*** if arkts 1.2 */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+/*** endif */
 
 /**
  * Defines the window callback.
