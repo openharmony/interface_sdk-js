@@ -26,8 +26,7 @@ import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/Overlay
  *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare namespace overlay {
   /**
@@ -281,8 +280,7 @@ declare namespace overlay {
    *
    * @typedef { _OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export type OverlayModuleInfo = _OverlayModuleInfo;
 }

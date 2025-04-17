@@ -19,6 +19,11 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.2 */
+import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import { BundleInfo as _BundleInfo } from './bundleManager/BundleInfo';
+/*** endif */
+/*** if arkts 1.1 */
 import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
@@ -36,6 +41,7 @@ import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependenc
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
+/*** endif */
 /**
  * This module is used to obtain package information of various applications installed on the current device.
  *
@@ -3687,8 +3693,7 @@ declare namespace bundleManager {
    * @typedef { _ModuleMetadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ModuleMetadata = _ModuleMetadata;
 
@@ -3705,8 +3710,7 @@ declare namespace bundleManager {
    * @typedef { _Metadata }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type Metadata = _Metadata;
 
@@ -3741,8 +3745,7 @@ declare namespace bundleManager {
    * @typedef { _UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type UsedScene = _UsedScene;
 
@@ -3759,8 +3762,7 @@ declare namespace bundleManager {
    * @typedef { _ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ReqPermissionDetail = _ReqPermissionDetail;
 
@@ -3777,8 +3779,7 @@ declare namespace bundleManager {
    * @typedef { _SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type SignatureInfo = _SignatureInfo;
 
@@ -3787,8 +3788,7 @@ declare namespace bundleManager {
    *
    * @typedef { _AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export type AppCloneIdentity = _AppCloneIdentity;
 
@@ -3805,8 +3805,7 @@ declare namespace bundleManager {
    * @typedef { _HapModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type HapModuleInfo = _HapModuleInfo;
 
@@ -3823,8 +3822,7 @@ declare namespace bundleManager {
    * @typedef { _PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type PreloadItem = _PreloadItem;
 
@@ -3841,8 +3839,7 @@ declare namespace bundleManager {
    * @typedef { _Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type Dependency = _Dependency;
 
@@ -3852,8 +3849,7 @@ declare namespace bundleManager {
    * @typedef { _RouterItem}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export type RouterItem = _RouterItem;
 
@@ -3863,8 +3859,7 @@ declare namespace bundleManager {
    * @typedef { _DataItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export type DataItem = _DataItem;
 
@@ -3881,8 +3876,7 @@ declare namespace bundleManager {
    * @typedef { _AbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type AbilityInfo = _AbilityInfo;
 
@@ -3899,8 +3893,7 @@ declare namespace bundleManager {
    * @typedef { _WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type WindowSize = _WindowSize;
 
@@ -3917,8 +3910,7 @@ declare namespace bundleManager {
    * @typedef { _ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
@@ -3928,8 +3920,7 @@ declare namespace bundleManager {
    * @typedef { _PermissionDef }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export type PermissionDef = _PermissionDef;
 
@@ -3946,8 +3937,7 @@ declare namespace bundleManager {
    * @typedef { _ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ElementName = _ElementName;
 
@@ -3957,8 +3947,7 @@ declare namespace bundleManager {
    * @typedef { _SharedBundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export type SharedBundleInfo = _SharedBundleInfo;
 
@@ -3968,8 +3957,7 @@ declare namespace bundleManager {
    * @typedef { _AppProvisionInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export type AppProvisionInfo = _AppProvisionInfo;
 
@@ -3979,8 +3967,7 @@ declare namespace bundleManager {
    * @typedef { _Validity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export type Validity = _Validity;
 
@@ -3990,8 +3977,7 @@ declare namespace bundleManager {
    * @typedef { _RecoverableApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
@@ -4001,8 +3987,7 @@ declare namespace bundleManager {
    * @typedef { _Skill }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export type Skill = _Skill;
 
@@ -4012,8 +3997,7 @@ declare namespace bundleManager {
    * @typedef { _SkillUri }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export type SkillUrl = _SkillUri;
 
@@ -4023,8 +4007,7 @@ declare namespace bundleManager {
    * @typedef { _PreinstalledApplicationInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 
@@ -4034,8 +4017,7 @@ declare namespace bundleManager {
    * @typedef { _PluginBundleInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export type PluginBundleInfo = _PluginBundleInfo;
 
@@ -4045,8 +4027,7 @@ declare namespace bundleManager {
    * @typedef { _PluginModuleInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export type PluginModuleInfo = _PluginModuleInfo;
 }
