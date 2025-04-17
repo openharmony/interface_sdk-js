@@ -871,8 +871,6 @@ declare namespace drawing {
      * @param { boolean } startWithMoveTo - Whether the path obtained moveTo to the starting segment.
      * @param { Path } dst - The path obtained.
      * @returns { boolean } - Returns false if the segment is zero-length or start >= stop, else return true.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1299,8 +1297,6 @@ declare namespace drawing {
      * @param { number } startAngle - Indicates the startAngle of the arc.
      * @param { number } sweepAngle - Indicates the sweepAngle of the arc.
      * @param { boolean } useCenter - If true, include the center of the oval in the arc, and close it if it is being stroked.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1470,8 +1466,6 @@ declare namespace drawing {
     /**
      * Clears a canvas by using a specified color represented by ARGB color of hexadecimal format.
      * @param { common2D.Color | number } color - Number must be ARGB color of hexadecimal format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1669,8 +1663,6 @@ declare namespace drawing {
      * Determines whether path is intersect with current clip area.
      * @param { Path } path - Path to draw.
      * @returns { boolean } Returns true if path is not intersect; returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1680,8 +1672,6 @@ declare namespace drawing {
      * Determines whether rect is intersect with current clip area.
      * @param { common2D.Rect } rect - Rectangle to determines.
      * @returns { boolean } Returns true if rect and region is not intersect; returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1872,8 +1862,6 @@ declare namespace drawing {
      * Generate typeface from Rawfile.
      * @param { Resource } rawfile - RawFile for typeface.
      * @returns { Typeface } Typeface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2233,8 +2221,6 @@ declare namespace drawing {
      * @param { number } index - the index of Glyphs.
      * @returns { Path } The path object for specified glyph, undefined if not found.
      * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2246,8 +2232,6 @@ declare namespace drawing {
      * Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
      * <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
      * <br>3. The bound rect will be snap to integral boundaries.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2627,8 +2611,6 @@ declare namespace drawing {
      * @param { number } dev - Indicates the deviation during drawing.
      * @param { number } seedAssist - Indicates generate effect pseudo-random sequence, the default value is zero.
      * @returns { PathEffect } PathEffect object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types;
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2640,8 +2622,6 @@ declare namespace drawing {
       * @param { PathEffect } outer - Indicates the path effect that takes effect later in the combination path effect.
       * @param { PathEffect } inner - Indicates the path effect of the first effect in the combination path effect.
       * @returns { PathEffect } PathEffect object.
-      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-      * <br>2. Incorrect parameter types;
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 18
@@ -2668,8 +2648,6 @@ declare namespace drawing {
       * @param { PathEffect } firstPathEffect - Indicates the first path effect.
       * @param { PathEffect } secondPathEffect - Indicates the second path effect.
       * @returns { PathEffect } PathEffect object.
-      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-      * <br>2. Incorrect parameter types.
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 18
@@ -3146,8 +3124,6 @@ declare namespace drawing {
     /**
     * Set the specified ARGB color of hexadecimal format to the pen.
     * @param { number } color - Number must be ARGB color of hexadecimal format.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 18
     */
