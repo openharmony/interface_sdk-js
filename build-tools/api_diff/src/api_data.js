@@ -314,6 +314,11 @@ class ApiDigestInfo {
     return this.parent;
   }
 
+  /**
+   * 设置 syscap
+   * @param syscap
+   * @returns {ApiDigestInfo}
+   */
   setSyscap(syscap) {
     this.syscap = syscap;
     return this;
