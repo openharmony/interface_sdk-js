@@ -55,7 +55,7 @@ function findBestInsertPosition(sourceFile: ts.SourceFile): number {
         return lastImportIndex + 1;
     }
 
-    return findFileKitCommentInsertIndex(sourceFile);
+    return 0;
 }
 
 function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node, boolean] {
@@ -64,19 +64,22 @@ function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node, boolean]
         const haveCommon = moduleText.includes("common");
         if (uiconfig.isComponentFile(moduleText)) {
             const importClause = node.importClause;
-            const uiprefixImports: string[] = []
+            const uiprefixImports: Set<string> = new Set
             if (importClause && ts.isImportClause(importClause) && importClause.namedBindings && ts.isNamedImports(importClause.namedBindings)) {
                 const namedImports = importClause.namedBindings.elements;
                 const existingImports = namedImports.map((element) => element.name.text);
                 existingImports.forEach((element) => {
                     if (uiconfig.isUIHeritage(element)) {
-                        uiprefixImports.push(`UI${element}`)
+                        uiprefixImports.add(`UI${element}`)
                     }
                 })
                 if (moduleText.includes("common")) {
-                    uiprefixImports.push('AttributeModifier')
+                    uiprefixImports.add('AttributeModifier')
+                    uiprefixImports.add('CommonMethod')
+                    uiprefixImports.add('UICommonMethod')
                 }
-                const addedImports = uiprefixImports.filter((im) => !existingImports.includes(im));
+
+                const addedImports = Array.from(uiprefixImports).filter((im) => !existingImports.includes(im));
                 const pureModule = path.basename(moduleText)
                 const updatedName = ComponentFile.snake2Camel(pureModule, true)
                 const updatedModuleSpecifier = ts.factory.createStringLiteral(moduleText.replace(pureModule, updatedName));
@@ -141,11 +144,9 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
                 false,
                 undefined,
                 ts.factory.createNamedImports([
-                    ts.factory.createImportSpecifier(
-                        false,
-                        undefined,
-                        ts.factory.createIdentifier("AttributeModifier")
-                    )
+                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("AttributeModifier")),
+                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("CommonMethod")),
+                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("UICommonMethod")),
                 ])
             ),
             ts.factory.createStringLiteral("./common"),
@@ -154,26 +155,4 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
         targetImport.push(commonImport)
     }
     return [newSource, targetImport]
-}
-
-function findFileKitCommentInsertIndex(sourceFile: ts.SourceFile): number {
-
-    for (let i = 0; i < sourceFile.statements.length; i++) {
-        const node = sourceFile.statements[i];
-        const leadingComments = ts.getLeadingCommentRanges(sourceFile.text, node.pos);
-
-        if (leadingComments) {
-            for (const comment of leadingComments) {
-                const commentText = sourceFile.text
-                    .substring(comment.pos, comment.end)
-                    .replace(/^\s*\*\s*/gm, '')
-                    .replace(/\r?\n/g, '\n');
-
-                if (commentText.includes('@kit ArkUI')) {
-                    return i + 1;
-                }
-            }
-        }
-    }
-    return sourceFile.statements.length;
 }

@@ -19,7 +19,7 @@ import * as path from 'path';
 import { assert } from 'console';
 import uiconfig from './arkui_config_util'
 import { ComponentFile } from './component_file';
-import { analyzeBaseClasses, isComponentHerirage, getBaseClassName } from './lib/attribute_utils'
+import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods } from './lib/attribute_utils'
 
 function readLangTemplate(): string {
     return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
@@ -289,9 +289,11 @@ function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
         }
         return handleAttributeMember(member);
     }).filter((member): member is ts.MethodSignature => member !== undefined);
+
+    const filetredMethos = removeDuplicateMethods(members)
+
     if (uiconfig.shouldHaveAttributeModifier(node.name!.escapedText as string)) {
-        console.log(node.name!.escapedText as string)
-        handleAttributeModifier(node, members)
+        handleAttributeModifier(node, filetredMethos)
     }
 
     const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
@@ -304,7 +306,7 @@ function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
         node.name as ts.Identifier,
         [],
         heritageClauses,
-        members
+        filetredMethos
     );
     return [noneUIAttribute]
 }

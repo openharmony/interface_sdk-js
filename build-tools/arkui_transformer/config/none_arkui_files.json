@@ -9,6 +9,10 @@
         "rich_text",
         "root_scene",
         "screen",
-        "web"
+        "web",
+        "component3d",
+        "paste_button",
+        "save_button",
+        "security_component"
     ]
 }
