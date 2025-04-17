@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkGraphics2D
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -40,7 +41,7 @@
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
  */
 declare namespace colorSpaceManager {
   /**
@@ -62,7 +63,7 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
    */
   enum ColorSpace {
     /**
@@ -81,7 +82,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     UNKNOWN = 0,
 
@@ -101,7 +102,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     ADOBE_RGB_1998 = 1,
 
@@ -121,7 +122,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     DCI_P3 = 2,
 
@@ -141,7 +142,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     DISPLAY_P3 = 3,
 
@@ -161,7 +162,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     SRGB = 4,
 
@@ -178,7 +179,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT709 = 6,
 
@@ -195,7 +196,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT601_EBU = 7,
 
@@ -212,7 +213,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT601_SMPTE_C = 8,
 
@@ -229,7 +230,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT2020_HLG = 9,
 
@@ -246,7 +247,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT2020_PQ = 10,
 
@@ -261,7 +262,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     P3_HLG = 11,
 
@@ -276,7 +277,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     P3_PQ = 12,
 
@@ -291,7 +292,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     ADOBE_RGB_1998_LIMIT = 13,
 
@@ -306,7 +307,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     DISPLAY_P3_LIMIT = 14,
 
@@ -321,7 +322,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     SRGB_LIMIT = 15,
 
@@ -336,7 +337,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT709_LIMIT = 16,
 
@@ -351,7 +352,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT601_EBU_LIMIT = 17,
 
@@ -366,7 +367,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT601_SMPTE_C_LIMIT = 18,
 
@@ -381,7 +382,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT2020_HLG_LIMIT = 19,
 
@@ -396,7 +397,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     BT2020_PQ_LIMIT = 20,
 
@@ -411,7 +412,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     P3_HLG_LIMIT = 21,
 
@@ -426,7 +427,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     P3_PQ_LIMIT = 22,
 
@@ -441,7 +442,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     LINEAR_P3 = 23,
 
@@ -456,10 +457,11 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     LINEAR_SRGB = 24,
 
+    /*** if arkts 1.1 */
     /**
      * PRIMARIES_BT709 | TRANSFUNC_LINEAR
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -474,6 +476,18 @@ declare namespace colorSpaceManager {
      * @since 12
      */
     LINEAR_BT709 = LINEAR_SRGB,
+    /*** endif */
+    /*** if arkts 1.2 */
+    /**
+     * PRIMARIES_BT709 | TRANSFUNC_LINEAR
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    LINEAR_BT709 = 24,
+    /*** endif */
 
     /**
      * PRIMARIES_BT2020 | TRANSFUNC_LINEAR
@@ -486,10 +500,11 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     LINEAR_BT2020 = 25,
 
+    /*** if arkts 1.1 */
     /**
      * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -504,7 +519,20 @@ declare namespace colorSpaceManager {
      * @since 12
      */
     DISPLAY_SRGB = SRGB,
+    /*** endif */
+    /*** if arkts 1.2 */
+    /**
+     * PRIMARIES_SRGB | TRANSFUNC_SRGB | RANGE_FULL
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    DISPLAY_SRGB = 4,
+    /*** endif */
 
+    /*** if arkts 1.1 */
     /**
      * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -519,7 +547,20 @@ declare namespace colorSpaceManager {
      * @since 12
      */
     DISPLAY_P3_SRGB = DISPLAY_P3,
+    /*** endif */
+    /*** if arkts 1.2 */
+    /**
+     * PRIMARIES_P3_D65 | TRANSFUNC_SRGB | RANGE_FULL
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    DISPLAY_P3_SRGB = 3,
+    /*** endif */
 
+    /*** if arkts 1.1 */
     /**
      * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -534,7 +575,20 @@ declare namespace colorSpaceManager {
      * @since 12
      */
     DISPLAY_P3_HLG = P3_HLG,
+    /*** endif */
+    /*** if arkts 1.2 */
+    /**
+     * PRIMARIES_P3_D65 | TRANSFUNC_HLG | RANGE_FULL
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    DISPLAY_P3_HLG = 11,
+    /*** endif */
 
+    /*** if arkts 1.1 */
     /**
      * PRIMARIES_DISPLAY_P3 | TRANSFUNC_PQ | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -549,6 +603,18 @@ declare namespace colorSpaceManager {
      * @since 12
      */
     DISPLAY_P3_PQ = P3_PQ,
+    /*** endif */
+    /*** if arkts 1.2 */
+    /**
+     * PRIMARIES_DISPLAY_P3 | TRANSFUNC_PQ | RANGE_FULL
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    DISPLAY_P3_PQ = 12,
+    /*** endif */
 
     /**
      * Indicates a customized color space.
@@ -566,7 +632,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
      */
     CUSTOM = 5,
   }
@@ -584,7 +650,7 @@ declare namespace colorSpaceManager {
    * @typedef ColorSpacePrimaries
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
    */
   interface ColorSpacePrimaries {
     /**
@@ -598,7 +664,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     redX: number;
 
@@ -613,7 +679,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     redY: number;
 
@@ -628,7 +694,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     greenX: number;
 
@@ -643,7 +709,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     greenY: number;
 
@@ -658,7 +724,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     blueX: number;
 
@@ -673,7 +739,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     blueY: number;
 
@@ -688,7 +754,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     whitePointX: number;
 
@@ -703,7 +769,7 @@ declare namespace colorSpaceManager {
      * @type { number }
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     whitePointY: number;
   }
@@ -719,7 +785,7 @@ declare namespace colorSpaceManager {
    * @interface ColorSpaceManager
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
    */
   interface ColorSpaceManager {
     /**
@@ -735,7 +801,7 @@ declare namespace colorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     getColorSpaceName(): ColorSpace;
 
@@ -752,7 +818,7 @@ declare namespace colorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     getWhitePoint(): Array<number>;
 
@@ -769,7 +835,7 @@ declare namespace colorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
      */
     getGamma(): number;
   }
@@ -793,7 +859,7 @@ declare namespace colorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
    */
   function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
@@ -818,7 +884,7 @@ declare namespace colorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
    */
   function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }
