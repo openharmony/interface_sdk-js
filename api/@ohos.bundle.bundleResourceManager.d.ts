@@ -18,9 +18,13 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
+/*** endif */
 import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
+/*** if arkts 1.1 */
 import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
+/*** endif */
 
 /**
  * This module is used to obtain bundle resource information of various applications installed on the current device.
@@ -245,8 +249,7 @@ declare namespace bundleResourceManager {
    * @typedef { _LauncherAbilityResourceInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type LauncherAbilityResourceInfo = _LauncherAbilityResourceInfo;
 }

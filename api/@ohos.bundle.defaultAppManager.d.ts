@@ -27,8 +27,7 @@ import { ElementName } from './bundleManager/ElementName';
  *
  * @namespace defaultAppManager
  * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 declare namespace defaultAppManager {
   /**
@@ -36,80 +35,70 @@ declare namespace defaultAppManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export enum ApplicationType {
     /**
      * Default browser identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BROWSER = 'Web Browser',
     /**
      * Default image identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     IMAGE = 'Image Gallery',
     /**
      * Default audio identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     AUDIO = 'Audio Player',
     /**
      * Default video identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     VIDEO = 'Video Player',
     /**
      * Default PDF identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     PDF = 'PDF Viewer',
     /**
      * Default word identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     WORD = 'Word Viewer',
     /**
      * Default excel identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     EXCEL = 'Excel Viewer',
     /**
      * Default PPT identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     PPT = 'PPT Viewer',
     /**
      * Default email identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EMAIL = 'Email'
   }

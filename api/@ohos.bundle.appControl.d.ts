@@ -28,8 +28,7 @@ import Want from './@ohos.app.ability.Want';
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 declare namespace appControl {
   /**
@@ -38,8 +37,7 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum ComponentType {
     /**
@@ -47,8 +45,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     UI_ABILITY = 1,
 
@@ -57,8 +54,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     UI_EXTENSION = 2
   }
@@ -69,8 +65,7 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export enum UninstallComponentType {
     /**
@@ -78,8 +73,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     EXTENSION = 1,
   }
@@ -90,8 +84,7 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum DisposedType {
     /**
@@ -99,8 +92,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     BLOCK_APPLICATION = 1,
     /**
@@ -108,8 +100,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     BLOCK_ABILITY = 2,
     /**
@@ -117,8 +108,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NON_BLOCK = 3
   }
@@ -129,8 +119,7 @@ declare namespace appControl {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum ControlType {
     /**
@@ -138,8 +127,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     ALLOWED_LIST = 1,
     /**
@@ -147,8 +135,7 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     DISALLOWED_LIST = 2
   }
@@ -159,8 +146,7 @@ declare namespace appControl {
    * @typedef DisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export interface DisposedRule {
     /**
@@ -169,8 +155,7 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     want: Want;
 
@@ -180,8 +165,7 @@ declare namespace appControl {
      * @type { ComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     componentType: ComponentType;
 
@@ -191,8 +175,7 @@ declare namespace appControl {
      * @type { DisposedType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     disposedType: DisposedType;
 
@@ -202,8 +185,7 @@ declare namespace appControl {
      * @type { ControlType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     controlType: ControlType;
 
@@ -213,8 +195,7 @@ declare namespace appControl {
      * @type { Array<ElementName> }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     elementList: Array<ElementName> ;
 
@@ -224,8 +205,7 @@ declare namespace appControl {
      * @type { number }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     priority: number;
   }
@@ -236,8 +216,7 @@ declare namespace appControl {
    * @typedef UninstallDisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export interface UninstallDisposedRule {
     /**
@@ -246,8 +225,7 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     want: Want;
 
@@ -257,8 +235,7 @@ declare namespace appControl {
      * @type { UninstallComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     uninstallComponentType: UninstallComponentType;
 
@@ -268,8 +245,7 @@ declare namespace appControl {
      * @type { number }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     priority: number;
   }

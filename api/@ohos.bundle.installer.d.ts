@@ -26,8 +26,7 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace installer
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 declare namespace installer {
   /**
@@ -70,8 +69,7 @@ declare namespace installer {
    * @interface BundleInstaller
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface BundleInstaller {
     /**
@@ -472,7 +470,7 @@ declare namespace installer {
      * @systemapi
      * @since 11
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -1100,7 +1098,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-     /**
+    /**
      * Uninstall an application.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
@@ -1746,7 +1744,7 @@ declare namespace installer {
      */
     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
 
-     /**
+    /**
      * Install plugin for host application.
      *
      * @permission ohos.permission.INSTALL_PLUGIN_BUNDLE
@@ -1756,7 +1754,6 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700010 - Failed to install the plugin because the plugin fails to be parsed.
@@ -1779,7 +1776,7 @@ declare namespace installer {
      */
     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
-     /**
+    /**
      * Uninstall plugin for host application.
      *
      * @permission ohos.permission.UNINSTALL_PLUGIN_BUNDLE
@@ -1789,7 +1786,6 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The user id is invalid.
      * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
@@ -1806,8 +1802,7 @@ declare namespace installer {
    * @typedef HashParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface HashParam {
     /**
@@ -1816,8 +1811,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     moduleName: string;
 
@@ -1827,8 +1821,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     hashValue: string;
   }
@@ -1872,8 +1865,7 @@ declare namespace installer {
    * @typedef PGOParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export interface PGOParam {
     /**
@@ -1882,8 +1874,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     moduleName: string;
 
@@ -1893,8 +1884,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     pgoFilePath: string;
   }
@@ -1905,8 +1895,7 @@ declare namespace installer {
    * @typedef Parameters
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export interface Parameters {
     /**
@@ -1915,8 +1904,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     key: string;
 
@@ -1926,8 +1914,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     value: string;
   }
@@ -1938,8 +1925,7 @@ declare namespace installer {
    * @typedef InstallParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface InstallParam {
     /**
@@ -1948,8 +1934,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     userId?: number;
 
@@ -1959,8 +1944,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     installFlag?: number;
 
@@ -1970,8 +1954,7 @@ declare namespace installer {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isKeepData?: boolean;
 
@@ -1981,8 +1964,7 @@ declare namespace installer {
      * @type { ?Array<HashParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     hashParams?: Array<HashParam>;
 
@@ -1992,8 +1974,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     crowdtestDeadline?: number;
 
@@ -2003,8 +1984,7 @@ declare namespace installer {
      * @type { ?Array<string> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     sharedBundleDirPaths?: Array<string>;
 
@@ -2014,8 +1994,7 @@ declare namespace installer {
      * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     specifiedDistributionType?: string;
 
@@ -2025,8 +2004,7 @@ declare namespace installer {
      * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     additionalInfo?: string;
 
@@ -2047,8 +2025,7 @@ declare namespace installer {
      * @type { ?Array<PGOParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     pgoParams?: Array<PGOParam>;
 
@@ -2058,8 +2035,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }
@@ -2070,8 +2046,7 @@ declare namespace installer {
    * @typedef UninstallParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export interface UninstallParam {
     /**
@@ -2080,8 +2055,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     bundleName: string;
 
@@ -2091,8 +2065,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     versionCode?: number;
   }
@@ -2103,8 +2076,7 @@ declare namespace installer {
    * @typedef CreateAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    export interface CreateAppCloneParam {
     /**
@@ -2113,8 +2085,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     userId?: number;
     /**
@@ -2123,8 +2094,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     appIndex?: number;
   }
@@ -2135,8 +2105,7 @@ declare namespace installer {
    * @typedef DestroyAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export interface DestroyAppCloneParam {
     /**
@@ -2145,8 +2114,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     userId?: number;
     /**
@@ -2155,8 +2123,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }
@@ -2167,8 +2134,7 @@ declare namespace installer {
    * @typedef PluginParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface PluginParam {
     /**
@@ -2177,8 +2143,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     userId?: number;
 
@@ -2188,8 +2153,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     parameters?: Array<Parameters>;
   }

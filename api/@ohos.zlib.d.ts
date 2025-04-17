@@ -254,8 +254,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export enum ParallelStrategy {
     /**
@@ -264,8 +263,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
@@ -274,8 +272,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
@@ -354,8 +351,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum CompressFlushMode {
     /**
@@ -363,8 +359,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NO_FLUSH = 0,
     /**
@@ -372,8 +367,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PARTIAL_FLUSH = 1,
     /**
@@ -381,8 +375,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SYNC_FLUSH = 2,
     /**
@@ -390,8 +383,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FULL_FLUSH = 3,
     /**
@@ -399,8 +391,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FINISH = 4,
     /**
@@ -408,8 +399,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     BLOCK = 5,
     /**
@@ -417,8 +407,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     TREES = 6
   }
@@ -429,8 +418,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum ReturnStatus {
     /**
@@ -438,8 +426,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     OK = 0,
     /**
@@ -447,8 +434,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     STREAM_END = 1,
     /**
@@ -456,8 +442,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NEED_DICT = 2,
   }
@@ -468,8 +453,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum CompressMethod {
     /**
@@ -477,8 +461,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DEFLATED = 8,
   }
@@ -489,8 +472,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum OffsetReferencePoint {
     /**
@@ -498,8 +480,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SEEK_SET = 0,
 
@@ -508,8 +489,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SEEK_CUR = 1,
   }
@@ -591,8 +571,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     parallel?: ParallelStrategy;
   }
@@ -603,8 +582,7 @@ declare namespace zlib {
    * @typedef ZStream
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ZStream {
     /**
@@ -613,8 +591,7 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     nextIn?: ArrayBuffer;
 
@@ -624,8 +601,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     availableIn?: number;
 
@@ -635,8 +611,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     totalIn?: number;
 
@@ -646,8 +621,7 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     nextOut?: ArrayBuffer;
 
@@ -657,8 +631,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     availableOut?: number;
 
@@ -668,8 +641,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     totalOut?: number;
 
@@ -679,8 +651,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     dataType?: number;
 
@@ -690,8 +661,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     adler?: number;
   }
@@ -702,8 +672,7 @@ declare namespace zlib {
    * @typedef GzHeader
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface GzHeader {
     /**
@@ -712,8 +681,7 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isText?: boolean;
 
@@ -723,8 +691,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     os?: number;
 
@@ -734,8 +701,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     time?: number;
 
@@ -745,8 +711,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     xflags?: number;
 
@@ -756,8 +721,7 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     extra?: ArrayBuffer;
 
@@ -767,8 +731,7 @@ declare namespace zlib {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     extraLen?: number;
 
@@ -778,8 +741,7 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     name?: ArrayBuffer;
 
@@ -789,8 +751,7 @@ declare namespace zlib {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     comment?: ArrayBuffer;
 
@@ -800,8 +761,7 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     hcrc?: boolean;
 
@@ -811,8 +771,7 @@ declare namespace zlib {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     done?: boolean;
   }
@@ -823,8 +782,7 @@ declare namespace zlib {
    * @typedef ZipOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ZipOutputInfo {
     /**
@@ -833,8 +791,7 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: ReturnStatus
 
@@ -844,8 +801,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     destLen: number
   }
@@ -856,8 +812,7 @@ declare namespace zlib {
    * @typedef DictionaryOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface DictionaryOutputInfo {
     /**
@@ -866,8 +821,7 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: ReturnStatus
 
@@ -877,8 +831,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     dictionaryLength: number
   }
@@ -889,8 +842,7 @@ declare namespace zlib {
    * @typedef DecompressionOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface DecompressionOutputInfo {
     /**
@@ -899,8 +851,7 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: ReturnStatus
 
@@ -910,8 +861,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     destLength: number
 
@@ -921,8 +871,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     sourceLength: number
   }
@@ -933,8 +882,7 @@ declare namespace zlib {
    * @typedef DeflatePendingOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface DeflatePendingOutputInfo {
     /**
@@ -943,8 +891,7 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: ReturnStatus
 
@@ -954,8 +901,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     pending: number
 
@@ -965,8 +911,7 @@ declare namespace zlib {
      * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     bits: number
   }
@@ -977,8 +922,7 @@ declare namespace zlib {
    * @typedef GzErrorOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface GzErrorOutputInfo {
     /**
@@ -987,8 +931,7 @@ declare namespace zlib {
      * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: ReturnStatus
 
@@ -998,8 +941,7 @@ declare namespace zlib {
      * @type { string }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     statusMsg: string
   }
@@ -1014,8 +956,7 @@ declare namespace zlib {
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type InflateBackInputCallback = (inDesc: object) => ArrayBuffer;
 
@@ -1030,8 +971,7 @@ declare namespace zlib {
    * @returns { number } Return the number of bytes output.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number;
 
@@ -1343,8 +1283,7 @@ declare namespace zlib {
    * @typedef Checksum
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface Checksum {
     /**
@@ -1446,8 +1385,7 @@ declare namespace zlib {
    * @typedef Zip
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface Zip {
     /**
@@ -2139,8 +2077,7 @@ declare namespace zlib {
    * @typedef GZip
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface GZip {
 
