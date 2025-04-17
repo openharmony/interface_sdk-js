@@ -18,18 +18,27 @@
  * @kit AbilityKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import bundleManager from './@ohos.bundle.bundleManager';
+import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
+/*** if arkts 1.1 */
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import type * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import type * as _ProcessData from './application/ProcessData';
-import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
-import bundleManager from './@ohos.bundle.bundleManager';
-import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
-
+/*** endif */
+/*** if arkts 1.2 */
+import _ApplicationStateObserver from './application/ApplicationStateObserver';
+import _AppForegroundStateObserver from './application/AppForegroundStateObserver';
+import _AbilityStateData from './application/AbilityStateData';
+import _AppStateData from './application/AppStateData';
+import _ProcessData from './application/ProcessData';
+import { AbilityFirstFrameStateObserver as _AbilityFirstFrameStateObserver } from './application/AbilityFirstFrameStateObserver';
+import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './application/AbilityFirstFrameStateData';
+/*** endif */
 /**
  * This module provides the function of app manager service.
  *
@@ -43,7 +52,8 @@ import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/Runni
  * @namespace appManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appManager {
   /**
@@ -52,7 +62,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ApplicationState {
     /**
@@ -60,7 +71,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CREATE,
 
@@ -69,7 +81,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_FOREGROUND,
 
@@ -78,7 +91,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_ACTIVE,
 
@@ -87,7 +101,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_BACKGROUND,
 
@@ -96,7 +111,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_DESTROY
   }
@@ -114,7 +130,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ProcessState {
     /**
@@ -128,7 +145,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CREATE,
 
@@ -143,7 +161,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_FOREGROUND,
 
@@ -158,7 +177,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_ACTIVE,
 
@@ -173,7 +193,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_BACKGROUND,
 
@@ -188,7 +209,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_DESTROY
   }
@@ -200,7 +222,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PreloadMode {
     /**
@@ -209,7 +232,8 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRESS_DOWN
   }
@@ -219,7 +243,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     export enum KeepAliveAppType {
       /**
@@ -227,7 +252,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       ALL = 0,
   
@@ -236,7 +262,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       THIRD_PARTY = 1,
   
@@ -245,7 +272,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SYSTEM = 2
     }
@@ -255,7 +283,8 @@ declare namespace appManager {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export enum KeepAliveSetter {
       /**
@@ -263,7 +292,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SYSTEM = 0,
   
@@ -272,7 +302,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       USER = 1
     }
@@ -283,7 +314,8 @@ declare namespace appManager {
      * @typedef KeepAliveBundleInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export interface KeepAliveBundleInfo {
       /**
@@ -292,7 +324,8 @@ declare namespace appManager {
        * @type { string }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       bundleName: string;
   
@@ -302,7 +335,8 @@ declare namespace appManager {
        * @type { KeepAliveAppType }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       type: KeepAliveAppType;
   
@@ -312,7 +346,8 @@ declare namespace appManager {
        * @type { KeepAliveSetter }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       setter: KeepAliveSetter;
     }
@@ -1058,7 +1093,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
 
@@ -1225,6 +1261,17 @@ declare namespace appManager {
   export type AbilityStateData = _AbilityStateData.default;
 
   /**
+   * The ability or extension state data.
+   *
+   * @typedef { _AbilityStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityStateData = _AbilityStateData;
+
+  /**
    * The application state data.
    *
    * @typedef { _AppStateData.default }
@@ -1233,6 +1280,17 @@ declare namespace appManager {
    * @since 9
    */
   export type AppStateData = _AppStateData.default;
+
+  /**
+   * The application state data.
+   *
+   * @typedef { _AppStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppStateData = _AppStateData;
 
   /**
    * The application state observer.
@@ -1244,6 +1302,16 @@ declare namespace appManager {
   export type ApplicationStateObserver = _ApplicationStateObserver.default;
 
   /**
+   * The application state observer.
+   *
+   * @typedef { _ApplicationStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ApplicationStateObserver = _ApplicationStateObserver;
+
+  /**
    * The application foreground state observer.
    *
    * @typedef { _AppForegroundStateObserver.default }
@@ -1252,6 +1320,17 @@ declare namespace appManager {
    * @since 11
    */
   export type AppForegroundStateObserver = _AppForegroundStateObserver.default;
+
+  /**
+   * The application foreground state observer.
+   *
+   * @typedef { _AppForegroundStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppForegroundStateObserver = _AppForegroundStateObserver;
 
   /**
    * The class of a process information.
@@ -1265,7 +1344,8 @@ declare namespace appManager {
    * @typedef { _ProcessInformation }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ProcessInformation = _ProcessInformation;
 
@@ -1280,6 +1360,17 @@ declare namespace appManager {
   export type ProcessData = _ProcessData.default;
 
   /**
+   * The class of a process information.
+   *
+   * @typedef { _ProcessData.default }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ProcessData = _ProcessData;
+
+  /**
    * The ability first frame state observer.
    *
    * @typedef { _AbilityFirstFrameStateObserver.default }
@@ -1288,6 +1379,17 @@ declare namespace appManager {
    * @since 12
    */
   export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver.default;
+
+  /**
+   * The ability first frame state observer.
+   *
+   * @typedef { _AbilityFirstFrameStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver;
 
   /**
    * The class of an ability first frame state data.
@@ -1300,12 +1402,24 @@ declare namespace appManager {
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
 
   /**
+   * The class of an ability first frame state data.
+   *
+   * @typedef { _AbilityFirstFrameStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData;
+
+  /**
    * The class of running multi app information.
    *
    * @typedef { _RunningMultiAppInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }

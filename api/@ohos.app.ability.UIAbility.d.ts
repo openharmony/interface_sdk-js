@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
+import rpc from './@ohos.rpc';
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import UIAbilityContext from './application/UIAbilityContext';
-import rpc from './@ohos.rpc';
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
@@ -47,6 +47,19 @@ export interface OnReleaseCallback {
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRelease.
+ *
+ * @typedef OnReleaseCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+export type OnReleaseCallback = (msg: string)=> void;
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
  *
  * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -64,6 +77,18 @@ export interface OnRemoteStateChangeCallback {
  */
   (msg: string): void;
 }
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRemoteStateChange.
+ * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
+ * @typedef OnRemoteStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+export type OnRemoteStateChangeCallback = (msg: string)=> void;
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
@@ -87,12 +112,26 @@ export interface CalleeCallback {
 }
 
 /**
+ * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of Callee.
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
+ * @typedef CalleeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+export type CalleeCallback = (indata: rpc.MessageSequence)=> rpc.Parcelable;
+
+/**
  * The interface of a Caller.
  *
  * @interface Caller
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Caller {
   /**
@@ -212,7 +251,8 @@ export interface Caller {
  * @interface Callee
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Callee {
   /**
@@ -270,9 +310,10 @@ export interface Callee {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class UIAbility extends Ability {
+declare class UIAbility extends Ability {
   /**
    * Indicates configuration information about an ability context.
    *
@@ -298,7 +339,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: UIAbilityContext;
 
@@ -317,7 +359,8 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   launchWant: Want;
 
@@ -336,7 +379,8 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lastRequestWant: Want;
 
@@ -346,7 +390,8 @@ export default class UIAbility extends Ability {
    * @type { Callee }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   callee: Callee;
 
@@ -378,7 +423,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -407,7 +453,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -444,7 +491,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(): void;
 
@@ -500,6 +548,38 @@ export default class UIAbility extends Ability {
   onDestroy(): void | Promise<void>;
 
   /**
+   * Called back before an ability is destroyed.
+   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be executed.
+   * You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the asynchronous function in onDestroy() finishes the execution.
+   *
+   * @returns { void } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDestroy(): void;
+
+  /**
+   * Called back before an ability is destroyed.
+   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be executed.
+   * You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the asynchronous function in onDestroy() finishes the execution.
+   *
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDestroyAsync(): Promise<void>;
+
+  /**
    * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -521,7 +601,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onForeground(): void;
 
@@ -567,7 +648,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBackground(): void;
 
@@ -654,7 +736,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -795,3 +878,5 @@ export default class UIAbility extends Ability {
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }
+
+export default UIAbility;

@@ -26,7 +26,8 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  *
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uriPermissionManager {
   /**
@@ -50,9 +51,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function grantUriPermission(
+  export function grantUriPermission(
     uri: string,
     flag: wantConstant.Flags,
     targetBundleName: string,
@@ -80,9 +82,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
+  export function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
   /**
    * Grant URI to another application
@@ -107,9 +110,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000081 - Get target application info failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  export function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
   /**
    * Revoke URI from one application
@@ -143,9 +147,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
+  export function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
   /**
    * Revoke URI from one application
@@ -179,9 +184,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
+  export function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 
   /**
    * Revoke URI from one application
@@ -199,9 +205,10 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000081 - Get target application info failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-    function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  export function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
 }
 
 export default uriPermissionManager;

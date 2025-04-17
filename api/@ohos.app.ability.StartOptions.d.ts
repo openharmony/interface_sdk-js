@@ -35,7 +35,8 @@ import bundleManager from './@ohos.bundle.bundleManager';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class StartOptions {
   /**
@@ -47,7 +48,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowMode?: number;
 
@@ -66,7 +68,8 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   displayId?: number;
 
@@ -76,7 +79,8 @@ export default class StartOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   withAnimation?: boolean;
 
@@ -86,7 +90,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowLeft?: number;
 
@@ -96,7 +101,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowTop?: number;
 
@@ -106,7 +112,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowWidth?: number;
 
@@ -116,7 +123,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowHeight?: number;
 
@@ -127,7 +135,8 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   windowFocused?: boolean;
 
@@ -139,7 +148,8 @@ export default class StartOptions {
    * @type { ?contextConstant.ProcessMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   processMode?: contextConstant.ProcessMode;
 
@@ -151,7 +161,8 @@ export default class StartOptions {
    * @type { ?contextConstant.StartupVisibility }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startupVisibility?: contextConstant.StartupVisibility;
 
@@ -161,7 +172,8 @@ export default class StartOptions {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startWindowIcon?: image.PixelMap;
 
@@ -171,7 +183,8 @@ export default class StartOptions {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startWindowBackgroundColor?: string;
 
@@ -181,7 +194,8 @@ export default class StartOptions {
    * @type { ?Array<bundleManager.SupportWindowMode> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
@@ -191,7 +205,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minWindowWidth?: number;
 
@@ -201,7 +216,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minWindowHeight?: number;
 
@@ -211,7 +227,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxWindowWidth?: number;
 
@@ -221,7 +238,8 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxWindowHeight?: number;
 }

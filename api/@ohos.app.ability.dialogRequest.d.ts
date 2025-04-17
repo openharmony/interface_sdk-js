@@ -25,7 +25,8 @@ import Want from './@ohos.app.ability.Want';
  *
  * @namespace dialogRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace dialogRequest {
   /**
@@ -34,7 +35,8 @@ declare namespace dialogRequest {
    * @typedef WindowRect
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WindowRect {
     /**
@@ -43,7 +45,8 @@ declare namespace dialogRequest {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
 
@@ -53,7 +56,8 @@ declare namespace dialogRequest {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -63,7 +67,8 @@ declare namespace dialogRequest {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -73,7 +78,8 @@ declare namespace dialogRequest {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -82,7 +88,8 @@ declare namespace dialogRequest {
    *
    * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RequestInfo {
     /**
@@ -91,7 +98,8 @@ declare namespace dialogRequest {
      * @type { ?WindowRect }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect?: WindowRect
   }
@@ -101,14 +109,16 @@ declare namespace dialogRequest {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ResultCode {
     /**
      * The modal bullet box requests succeeded.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESULT_OK = 0,
 
@@ -116,7 +126,8 @@ declare namespace dialogRequest {
      * The modal bullet box requests Failed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESULT_CANCEL = 1
   }
@@ -127,7 +138,8 @@ declare namespace dialogRequest {
    * @typedef RequestResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RequestResult {
     /**
@@ -136,7 +148,8 @@ declare namespace dialogRequest {
      * @type { ResultCode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     result: ResultCode;
 
@@ -146,7 +159,8 @@ declare namespace dialogRequest {
      * @type { ?Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     want?: Want;
   }

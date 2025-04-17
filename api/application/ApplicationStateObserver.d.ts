@@ -18,17 +18,24 @@
  * @kit AbilityKit
  */
 
+
 import AppStateData from './AppStateData';
 import AbilityStateData from './AbilityStateData';
+/*** if arkts 1.1 */
 import * as _ProcessData from './ProcessData';
+/*** endif */
+/*** if arkts 1.2 */
+import processData from './ProcessData';
+/*** endif */
 
 /**
  * The application state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class ApplicationStateObserver {
+declare class ApplicationStateObserver {
   /**
    * Will be called when foreground or background application changed.
    *
@@ -100,3 +107,14 @@ export default class ApplicationStateObserver {
  * @since 14
  */
 export type ProcessData = _ProcessData.default;
+
+/**
+ * The process data.
+ * @typedef { processData }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
+ * @arkts 1.2
+ */
+export type ProcessData = processData;
+
+export default ApplicationStateObserver;
