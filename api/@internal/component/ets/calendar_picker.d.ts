@@ -368,7 +368,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
-   * 
+   * Anonymous Object Rectification.
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -490,7 +490,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * Callback function when the dialog disappears.
-   * Anonymous Object Rectification.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -500,6 +499,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function when the dialog disappears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -532,7 +532,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * Callback function before the dialog closeAnimation starts.
-   * Anonymous Object Rectification.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -542,6 +541,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function before the dialog closeAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
