@@ -24,7 +24,8 @@
  * @typedef RunningMultiInstanceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RunningMultiInstanceInfo {
     /**
@@ -33,7 +34,8 @@ export interface RunningMultiInstanceInfo {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
      instanceKey: string;
   

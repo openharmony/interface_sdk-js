@@ -34,7 +34,9 @@ declare class TreeSet<T> {
    * A constructor used to create a TreeSet object.
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) User-defined comparison functions.
+   * comparator (Optional) User-defined comparison functions, return number type.
+   * If it returns secondValue minus firstValue, the TreeSet will be in ascending order.
+   * If it returns firstValue minus secondValue, the TreeSet will be in descending order.
    * firstValue (required) previous element.
    * secondValue (required) next element.
    * @syscap SystemCapability.Utils.Lang
@@ -42,7 +44,7 @@ declare class TreeSet<T> {
    * @atomicservice
    * @since 20
    */
-  constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
+  constructor(comparator?: (firstValue: T, secondValue: T) => number);
 
   /**
    * Gets the element number of the TreeSet.

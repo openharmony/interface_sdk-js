@@ -22,6 +22,9 @@ import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
+/*** if arkts 1.1 */
+import { int, double } from './@ohos.base';
+/*** endif */
 
 /**
  * @namespace image
@@ -538,7 +541,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Size {
     /**
@@ -568,14 +572,15 @@ declare namespace image {
     /**
      * Height
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
 
     /**
      * Width
@@ -604,14 +609,15 @@ declare namespace image {
     /**
      * Width
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
   }
 
   /**
@@ -3197,14 +3203,15 @@ declare namespace image {
     /**
      * x-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    x: number;
+    x: int;
 
     /**
      * y-coordinate at the upper left corner of the image.
@@ -3233,14 +3240,15 @@ declare namespace image {
     /**
      * y-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    y: number;
+    y: int;
   }
 
   /**
@@ -3343,14 +3351,15 @@ declare namespace image {
     /**
      * Offset for data reading.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
 
     /**
      * Number of bytes to read.
@@ -3379,14 +3388,15 @@ declare namespace image {
     /**
      * Number of bytes to read.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    stride: number;
+    stride: int;
 
     /**
      * Region to read.
@@ -3526,14 +3536,15 @@ declare namespace image {
     /**
      * Indicates image default density.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    density: number;
+    density: int;
 
     /**
      * The number of byte per row.
@@ -3546,13 +3557,14 @@ declare namespace image {
     /**
      * The number of byte per row.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    stride: number;
+    stride: int;
 
     /**
      * Indicates image format.
@@ -3562,7 +3574,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pixelFormat: PixelMapFormat;
 
@@ -3574,7 +3587,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alphaType: AlphaType;
 
@@ -3924,8 +3938,7 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface DecodingOptions {
     /**
@@ -4108,8 +4121,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     desiredSize?: Size;
 
@@ -4145,8 +4157,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     desiredRegion?: Region;
 
@@ -4574,8 +4585,7 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface SourceOptions {
     /**
@@ -4682,8 +4692,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     sourceSize?: Size;
   }
@@ -5349,8 +5358,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
@@ -6100,14 +6108,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the number of bytes in each line of the image pixel map.
      *
-     * @returns { number } Number of bytes in each line.
+     * @returns { int } Number of bytes in each line.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBytesNumberPerRow(): number;
+    getBytesNumberPerRow(): int;
 
     /**
      * Obtains the total number of bytes of the image pixel map.
@@ -6136,14 +6145,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the total number of bytes of the image pixel map.
      *
-     * @returns { number } Total number of bytes.
+     * @returns { int } Total number of bytes.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getPixelBytesNumber(): number;
+    getPixelBytesNumber(): int;
 
     /**
      * Obtains the density of the image pixel map.
@@ -6451,17 +6461,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    scaleSync(x: number, y: number): void;
+    scaleSync(x: double, y: double): void;
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
@@ -6484,8 +6495,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height with anti-aliasing.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
@@ -6493,9 +6504,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+    scaleSync(x: double, y: double, level: AntiAliasingLevel): void;
 
     /**
      * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing. This method uses a promise to return the information.
@@ -7902,26 +7914,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source.
      *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @param { int } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getImageInfo(index?: number): Promise<ImageInfo>;
+    getImageInfo(index?: int): Promise<ImageInfo>;
 
     /**
      * Get image information from image source synchronously.
      *
-     * @param { number } index - Index of sequence images. If this parameter is not specified, default value is 0.
+     * @param { int } index - Index of sequence images. If this parameter is not specified, default value is 0.
      * @returns { ImageInfo } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getImageInfoSync(index?: number): ImageInfo;
+    getImageInfoSync(index?: int): ImageInfo;
 
     /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
@@ -7963,8 +7977,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -8079,8 +8092,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
@@ -8590,6 +8602,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
 
     /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<string> } key - Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the
+     * property values. If the operation fails, the null is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    getImageProperties(key: Array<string>): Promise<Record<string, string|null>>;
+
+    /**
      * Modify the value of a property in an image with the specified key. This method uses a
      * promise to return the property value in a string.
      *
@@ -8694,6 +8725,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string|null> } records - Array of the property Records whose values are to
+     * be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    modifyImageProperties(records: Record<string, string|null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
@@ -8866,7 +8916,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImagePacker {
     /**
@@ -9214,7 +9265,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
