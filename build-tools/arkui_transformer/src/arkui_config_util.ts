@@ -53,6 +53,7 @@ export class ArkUIConfigUtil {
     // All component filename
     private componentFiles: Set<string> = new Set
     private file2Attrbiute: Map<string, string> = new Map
+    private shouldNotHaveAttributeModifier: Set<string> = new Set
 
     private getPureName(name: string): string {
         return path.basename(name).replaceAll(".d.ts", "").replaceAll(".d.ets", "")
@@ -78,8 +79,8 @@ export class ArkUIConfigUtil {
             prev = n
             this.componentHeritage.add(n)
         })
-        if (name.length > 2) {
-            console.log("addComponentAttributeHeritage", name)
+        if (name.length == 1) {
+            this.shouldNotHaveAttributeModifier.add(name[0])
         }
     }
     public getComponentSuperclass(name: string): string | undefined {
@@ -96,6 +97,9 @@ export class ArkUIConfigUtil {
     }
     public isComponentFile(name: string): boolean {
         return this.componentFiles.has(this.getPureName(name))
+    }
+    public shouldHaveAttributeModifier(name: string): boolean {
+        return !this.shouldNotHaveAttributeModifier.has(name) && this.isComponent(name, 'Attribute')
     }
 }
 

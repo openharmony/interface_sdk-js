@@ -15,6 +15,8 @@
 
 import * as ts from "typescript";
 import uiconfig from './arkui_config_util';
+import path from 'path';
+import { ComponentFile } from "./component_file";
 
 export function addImportTransformer(): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
@@ -56,41 +58,53 @@ function findBestInsertPosition(sourceFile: ts.SourceFile): number {
     return findFileKitCommentInsertIndex(sourceFile);
 }
 
-function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node | undefined, boolean] {
+function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node, boolean] {
     if (node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) {
         const moduleText = node.moduleSpecifier.text;
-        if (moduleText.includes("common")) {
+        const haveCommon = moduleText.includes("common");
+        if (uiconfig.isComponentFile(moduleText)) {
             const importClause = node.importClause;
+            const uiprefixImports: string[] = []
             if (importClause && ts.isImportClause(importClause) && importClause.namedBindings && ts.isNamedImports(importClause.namedBindings)) {
                 const namedImports = importClause.namedBindings.elements;
                 const existingImports = namedImports.map((element) => element.name.text);
-
-                if (!existingImports.includes("AttributeModifier")) {
-                    const updatedNode = ts.factory.updateImportDeclaration(
-                        node,
-                        undefined,
-                        ts.factory.updateImportClause(
-                            importClause,
-                            importClause.isTypeOnly,
-                            importClause.name,
-                            ts.factory.updateNamedImports(
-                                importClause.namedBindings,
-                                [
-                                    ...namedImports,
-                                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("AttributeModifier")),
-                                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("CommonMethodUI"))
-                                ]
-                            )
-                        ),
-                        node.moduleSpecifier,
-                        undefined
-                    );
-                    return [updatedNode, true];
+                existingImports.forEach((element) => {
+                    if (uiconfig.isUIHeritage(element)) {
+                        uiprefixImports.push(`UI${element}`)
+                    }
+                })
+                if (moduleText.includes("common")) {
+                    uiprefixImports.push('AttributeModifier')
                 }
+                const addedImports = uiprefixImports.filter((im) => !existingImports.includes(im));
+                const pureModule = path.basename(moduleText)
+                const updatedName = ComponentFile.snake2Camel(pureModule, true)
+                const updatedModuleSpecifier = ts.factory.createStringLiteral(moduleText.replace(pureModule, updatedName));
+                const updatedNode = ts.factory.updateImportDeclaration(
+                    node,
+                    undefined,
+                    ts.factory.updateImportClause(
+                        importClause,
+                        importClause.isTypeOnly,
+                        importClause.name,
+                        ts.factory.updateNamedImports(
+                            importClause.namedBindings,
+                            [
+                                ...namedImports,
+                                ...addedImports.map(im => { return ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier(im)) }),
+                            ]
+                        )
+                    ),
+                    updatedModuleSpecifier,
+                    undefined
+                );
+                return [updatedNode, haveCommon]
+            } else {
+                throw new Error("Unexpected import clause structure");
             }
         }
     }
-    return [undefined, false];
+    return [node, false];
 }
 
 function createTargetImport(sourceFile: ts.SourceFile, context: ts.TransformationContext): [ts.SourceFile, ts.ImportDeclaration[]] {
@@ -110,19 +124,17 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
     );
     targetImport.push(memoImport)
 
-    let importFlag = false;
+    let haveCommonImportFlag = false;
     const newSource = ts.visitEachChild(sourceFile, (node) => {
         if (ts.isImportDeclaration(node)) {
-            const [transNode, flag] = handleImportDeclaration(node);
-            if (flag) {
-                importFlag = flag;
-                return transNode;
-            }
+            const [transNode, flag] = handleImportDeclaration(node)!;
+            haveCommonImportFlag = flag ? flag : haveCommonImportFlag
+            return transNode
         }
         return node;
     }, context)
 
-    if (!importFlag) {
+    if (!haveCommonImportFlag) {
         const commonImport = ts.factory.createImportDeclaration(
             undefined,
             ts.factory.createImportClause(
