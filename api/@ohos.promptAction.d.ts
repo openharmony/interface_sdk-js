@@ -23,12 +23,14 @@ import { AsyncCallback } from './@ohos.base';
 /*** endif */
 
 /*** if arkts 1.2 */
-import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors,EdgeWidths, BorderRadiuses } from '../api/@internal/component/ets/units';
-import { AsyncCallback,Callback } from './@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from '../api/@internal/component/ets/common';
-import { DialogAlignment } from '../api/@internal/component/ets/alert_dialog';
-import { BorderStyle,Alignment } from '../api/@internal/component/ets/enums';
-import { Resource } from './global/resource';
+import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors,EdgeWidths, BorderRadiuses } from './arkui/component/units';
+import { AsyncCallback, Callback } from './@ohos.base';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason,
+  BackgroundBlurStyleOptions,BackgroundEffectOptions } from './arkui/component/common';
+import { DialogAlignment } from './arkui/component/alertDialog';
+import { BorderStyle,Alignment } from './arkui/component/enums';
+import { Resource } from './global/resource'
+import { LengthMetrics } from './arkui/Graphics';
 /*** endif */
 
 /**
@@ -108,7 +110,7 @@ export enum ImmersiveMode {
  * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export class LevelOrder {
+export declare class LevelOrder {
   /**
    * Generate valid level order.
    *
@@ -175,7 +177,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ShowToastOptions {
+  export interface ShowToastOptions {
 
     /**
      * Text to display.
@@ -460,7 +462,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface Button {
+  export interface Button {
 
     /**
      * The text displayed in the button.
@@ -547,7 +549,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ShowDialogSuccessResponse {
+  export interface ShowDialogSuccessResponse {
 
     /**
      * Index of the selected button, starting from 0.
@@ -596,7 +598,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ShowDialogOptions {
+  export interface ShowDialogOptions {
 
     /**
      * Title of the text to display.
@@ -985,7 +987,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  class CommonController {
+  export class CommonController {
     /**
      * The constructor.
      *
@@ -1019,7 +1021,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  class DialogController extends CommonController {}
+  export class DialogController extends CommonController {}
 
   /**
    * Dialog base options
@@ -1039,7 +1041,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface BaseDialogOptions {
+  export interface BaseDialogOptions {
     /**
      * Mask Region of dialog. The size can't exceed the main window.
      *
@@ -1423,7 +1425,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface CustomDialogOptions extends BaseDialogOptions {
+  export interface CustomDialogOptions extends BaseDialogOptions {
     /**
      * Allow developer custom dialog's content.
      *
@@ -1564,7 +1566,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  declare type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
+  export type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
 
   /**
    * Border width type of DialogOptions.
@@ -1576,7 +1578,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  declare type DialogOptionsBorderWidth = Dimension | EdgeWidths;
+  export type DialogOptionsBorderWidth = Dimension | EdgeWidths;
 
   /**
    * Border color type of DialogOptions.
@@ -1588,7 +1590,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  declare type DialogOptionsBorderColor = ResourceColor | EdgeColors;
+  export type DialogOptionsBorderColor = ResourceColor | EdgeColors;
 
   /**
    * Border style type of DialogOptions.
@@ -1600,7 +1602,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  declare type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
+  export type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
 
   /**
    * Shadow type of DialogOptions.
@@ -1612,7 +1614,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
+  export type DialogOptionsShadow = ShadowOptions | ShadowStyle;
 
   /**
    * Dialog options
@@ -1625,7 +1627,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface DialogOptions extends BaseDialogOptions {
+  export interface DialogOptions extends BaseDialogOptions {
     /**
      * Defines the dialog's background color.
      *
@@ -1755,7 +1757,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ActionMenuSuccessResponse {
+  export interface ActionMenuSuccessResponse {
     /**
      * Index of the selected button, starting from 0.
      *
@@ -1803,7 +1805,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ActionMenuOptions {
+  export interface ActionMenuOptions {
     /**
      * Title of the text to display.
      *
@@ -2017,7 +2019,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function openToast(options: ShowToastOptions): Promise<number>;
+  export function openToast(options: ShowToastOptions): Promise<number>;
 
   /**
    * Close the notification text.
@@ -2034,7 +2036,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function closeToast(toastId: number): void;
+  export function closeToast(toastId: number): void;
 
   /**
    * Displays the dialog box.
@@ -2295,7 +2297,7 @@ declare namespace promptAction {
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface DismissDialogAction {
+export declare interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *

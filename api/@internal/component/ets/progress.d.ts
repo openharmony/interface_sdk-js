@@ -58,8 +58,7 @@ import { LengthMetrics } from '../Graphics'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
   /**
@@ -94,8 +93,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value: number;
 
@@ -131,8 +129,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   total?: number;
 
@@ -179,12 +176,64 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type?: Type
 }
 
+/**
+ * Defines the option of Progress.
+ *
+ * @interface ProgressOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface ProgressOptions {
+
+  /**
+   * Sets the value of Progress.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value: number;
+
+  /**
+   * Sets the total of Progress.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  total?: number;
+
+
+  /**
+   * Sets the type of Progress.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type?: number
+}
 /**
  * Type of progress bar
  *
@@ -1292,7 +1341,6 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
 
@@ -1309,7 +1357,6 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
 
@@ -1326,7 +1373,6 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
 
@@ -1343,7 +1389,6 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
 
@@ -1360,7 +1405,6 @@ declare interface ProgressStyleMap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   [ProgressType.Capsule]: CapsuleStyleOptions | ProgressStyleOptions;
 }
@@ -1437,10 +1481,22 @@ interface ProgressInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   <Type extends keyof ProgressStyleMap>(options: ProgressOptions<Type>): ProgressAttribute<Type>;
+  /**
+   * Called when the progress bar is set.
+   *
+   * @param { ProgressOptions } options
+   * @returns { ProgressAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options: ProgressOptions): ProgressAttribute;
 }
 
 /**
@@ -1476,7 +1532,6 @@ interface ProgressInterface {
  * @form
  * @atomicservice
  * @since 11
- * @arkts 1.1
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
@@ -1517,7 +1572,6 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   value(value: number): ProgressAttribute<Type>;
 
@@ -1558,7 +1612,6 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
 
@@ -1599,7 +1652,6 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    * @atomicservice
    * @since 11
-   * @arkts 1.1
    */
   style(value: Style): ProgressAttribute<Type>;
 
@@ -1626,7 +1678,6 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
 }
@@ -1643,7 +1694,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @since 20
  * @arkts 1.2
  */
-export interface ProgressAttribute extends CommonMethod {
+export declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
    * Called when the current progress value is set.
    *

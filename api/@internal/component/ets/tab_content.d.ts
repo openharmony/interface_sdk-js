@@ -19,9 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, ComponentContent, CustomBuilder, SymbolGlyphModifier } from './common';
+import { CommonMethod, CustomBuilder } from './common';
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
+import { ComponentContent } from '../ComponentContent'
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 /*** endif */
 
 /**

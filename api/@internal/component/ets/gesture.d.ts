@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { BaseEvent, SourceTool, CallBack } from './common'
+import { BaseEvent, SourceTool, Callback } from './common'
 import { InteractionHand } from './enums'
 /*** endif */
 

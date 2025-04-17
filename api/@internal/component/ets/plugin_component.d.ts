@@ -243,17 +243,3 @@ declare const PluginComponent: PluginComponentInterface;
  */
 declare const PluginComponentInstance: PluginComponentAttribute;
 
-/**
- * Defines PluginComponent Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-@memo
-@ComponentBuilder
-export declare function PluginComponent(
-    options: PluginComponentOptions, 
-    @memo
-    content_?: () => void,
-): PluginComponentAttribute

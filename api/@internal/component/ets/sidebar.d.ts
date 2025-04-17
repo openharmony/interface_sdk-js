@@ -19,9 +19,10 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from '../../../global/resource'
+import { Resource } from '../../global/resource'
 import { Length, ResourceColor, Dimension } from './units'
 import { CommonMethod } from './common'
+import image from '../../@ohos.multimedia.image';
 /*** endif */
 
 /**
@@ -197,7 +198,8 @@ declare enum SideBarPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ButtonIconOptions {
   /**
@@ -225,7 +227,17 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   shown: string | PixelMap | Resource;
-
+  /**
+   * Defines whether an icon is shown.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  shown: string | image.PixelMap | Resource;
   /**
    * Defines whether an icon is hidden.
    *
@@ -251,6 +263,17 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   hidden: string | PixelMap | Resource;
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  hidden: string | image.PixelMap | Resource;
 
   /**
    * Defines whether an icon is switching.
@@ -277,6 +300,17 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   switching?: string | PixelMap | Resource;
+  /**
+   * Defines whether an icon is switching.
+   *
+   * @type { ?(string | image.PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  switching?: string | image.PixelMap | Resource;
 }
 
 /**

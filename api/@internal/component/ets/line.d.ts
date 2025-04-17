@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
+import { CommonShapeMethod, CommonMethod } from './common';
 import { Length } from './units';
 /*** endif */
 

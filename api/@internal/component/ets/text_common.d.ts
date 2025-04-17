@@ -23,6 +23,7 @@ import { ResourceColor, ResourceStr, Length } from './units'
 import { DecorationStyleInterface, MutableStyledString, StyledString } from './styled_string'
 import { SelectionOptions, Callback } from './common'
 import { TextDecorationType, TextDecorationStyle } from './enums'
+import text from '../../@ohos.graphics.text'
 /*** endif */
 
 /**
@@ -889,6 +890,18 @@ interface PositionWithAffinity {
 declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
 
 /**
+ * Define the Affinity type.
+ * 
+ * @typedef { text.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type Affinity = text.Affinity;
+
+/**
  * Define the LineMetrics type.
  * 
  * @typedef { import('../api/@ohos.graphics.text').default.LineMetrics } LineMetrics
@@ -898,6 +911,18 @@ declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
  * @since 12
  */
 declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
+
+/**
+ * Define the LineMetrics type.
+ * 
+ * @typedef { text.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type LineMetrics = text.LineMetrics; 
 
 /**
  * Define the RectWidthStyle type.
@@ -911,6 +936,18 @@ declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetr
 declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
 
 /**
+ * Define the RectWidthStyle type.
+ * 
+ * @typedef { text.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type RectWidthStyle = text.RectWidthStyle;
+
+/**
  * Define the RectHeightStyle type.
  * 
  * @typedef { import('../api/@ohos.graphics.text').default.RectHeightStyle } RectHeightStyle
@@ -920,6 +957,18 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
  * @since 14
  */
 declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ * 
+ * @typedef { text.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type RectHeightStyle = text.RectHeightStyle;
 
 /**
  * Define the TextBox type.
@@ -932,57 +981,18 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
  */
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
-/*** if arkts 1.2 */
-/**
- * Define the Affinity type.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-import { Affinity } from '../api/@ohos.graphics.text';
-
-/**
- * Define the LineMetrics type.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-import { LineMetrics } from '../api/@ohos.graphics.text';
-
-/**
- * Define the RectWidthStyle type.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-import { RectWidthStyle } from '../api/@ohos.graphics.text';
-
-/**
- * Define the RectHeightStyle type.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-import { RectHeightStyle } from '../api/@ohos.graphics.text';
-
 /**
  * Define the TextBox type.
  * 
+ * @typedef { text.TextBox } TextBox
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.2
  */
-import { TextBox } from '../api/@ohos.graphics.text';
-/*** endif */
+declare type TextBox = text.TextBox;
+
 
 /**
  * Defines the cursor style

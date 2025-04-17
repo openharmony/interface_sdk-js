@@ -797,8 +797,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
 

@@ -19,14 +19,16 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from "../../../global/resource";
+import { Resource } from "../../global/resource";
 import {
   VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors,
   EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses
 } from './units'
-import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, ShadowStyle } from "./common";
+import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, 
+  ShadowStyle,BackgroundBlurStyleOptions,BackgroundEffectOptions } from "./common";
 import { DialogButtonStyle, BorderStyle } from './enums';
-import { DialogAlignment } from './alert_dialog';
+import { DialogAlignment } from './alertDialog';
+import { LevelOrder,LevelMode,ImmersiveMode } from '../../@ohos.promptAction'
 /*** endif */
 
 /**
@@ -359,8 +361,7 @@ interface ActionSheetOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
@@ -371,8 +372,7 @@ declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 
@@ -1047,8 +1047,7 @@ interface ActionSheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ActionSheet {
   /**

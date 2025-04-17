@@ -19,15 +19,16 @@
  */
 
 /*** if arkts 1.2 */
-import { SystemBarStyle } from '../../../@ohos.window';
-import { Resource } from '../../../global/resource'
-import { TextModifier } from '../../../arkui/TextModifier'
-import { LengthMetrics } from '../../../arkui/Graphics'
-import { CustomBuilder, Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge} from './common'
+import window from '../../@ohos.window';
+import { Resource } from '../../global/resource';
+import { TextModifier } from '../../arkui/TextModifier';
+import { LengthMetrics } from '../../arkui/Graphics';
+import { CustomBuilder, Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge,BackgroundEffectOptions,BackgroundBlurStyleOptions} from './common'
 import { Length,ResourceStr,ResourceColor,Dimension } from './units'
 import { TitleHeight } from './enums' 
-import { SymbolGlyphModifier } from '../../../arkui/SymbolGlyphModifier'
-import { NavDestinationContext,NavDestinationMode } from './nav_destination'
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
+import { NavDestinationContext,NavDestinationMode } from './navDestination'
+import image from '../../@ohos.multimedia.image';
 /*** endif */
 
 /**
@@ -39,6 +40,18 @@ import { NavDestinationContext,NavDestinationMode } from './nav_destination'
  * @since 12
  */
 declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
+
+
+/**
+ * Import the SystemBarStyle type for Navigation.
+ *
+ * @typedef { window.SystemBarStyle } SystemBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SystemBarStyle = window.SystemBarStyle;
 
 /**
  * Defines the navigation common title.
@@ -754,7 +767,6 @@ declare class NavPathInfo {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>, isEntry?: boolean);
 
@@ -1136,7 +1148,6 @@ declare class NavPathStack {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): void;
 
@@ -1233,7 +1244,6 @@ declare class NavPathStack {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): Promise<void>;
 
@@ -2537,7 +2547,8 @@ declare interface NavigationToolbarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface NavigationMenuOptions {
 /**
@@ -2547,7 +2558,8 @@ declare interface NavigationMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
   moreButtonOptions?: MoreButtonOptions;
 }
@@ -2559,7 +2571,8 @@ declare interface NavigationMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface MoreButtonOptions {
   /**
@@ -2569,7 +2582,8 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyle?: BlurStyle;
   
@@ -2580,7 +2594,8 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2591,7 +2606,8 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
 }
@@ -2791,10 +2807,22 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
+
+  /**
+   * Sets the back button icon.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  backButtonIcon(value: string | image.PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Sets the back button icon and accessibility broadcast content.

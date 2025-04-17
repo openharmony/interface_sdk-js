@@ -20,8 +20,7 @@
 
 /*** if arkts 1.2 */
 import Want from '../../@ohos.app.ability.Want'
-import RestrictedWorker from '../../@ohos.worker'
-import { ErrorCallback } from '../../@ohos.base'
+import { ErrorCallback,BusinessError } from '../../@ohos.base'
 import { CommonMethod } from './common'
 /*** endif */
 
@@ -79,8 +78,7 @@ declare interface IsolatedOptions {
    * @type { RestrictedWorker } worker - worker which run abc
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   worker: RestrictedWorker;
 }
@@ -109,6 +107,16 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  * @arkts 1.2
  */
 interface IsolatedComponentInterface {
+  /**
+ * Provide an interface for the IsolatedComponent, which is used to render UI of other ABC
+ *
+ * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
+ * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ * @arkts 1.2
+ */
   (options: IsolatedOptions) : IsolatedComponentAttribute;
 }
 
@@ -132,7 +140,7 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
    * @arkts 1.1&1.2
    */
   onError(
-    callback: ErrorCallback
+    callback: ErrorCallback<BusinessError>
   ): IsolatedComponentAttribute;
 }
 

@@ -630,10 +630,21 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
+
+  /**
+   * Called when connecting to a grid dot.
+   * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDotConnect(callback: Callback<number>): PatternLockAttribute;
   
   /**
    * The activate circle style.

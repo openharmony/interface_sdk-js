@@ -19,14 +19,15 @@
  */
 
 /*** if arkts 1.2 */
-import { Callback, ShadowOptions, ClickEvent } from "./common";
+import { Callback, ShadowOptions, ClickEvent,Optional } from "./common";
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses } from './units';
+import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses,ColorFilter } from './units';
 import { TextBackgroundStyle } from "./span";
 import { GestureEvent } from "./gesture";
 import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image'
-import { DrawContext } from '../arkui/Graphics'
+import drawing from "../../@ohos.graphics.drawing";
+import { DrawContext } from '../../arkui/Graphics'
 /*** endif */
 
 /**
@@ -1631,10 +1632,21 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly value: PixelMap;
+    /**
+     * Get the image content of the StyledString.
+     *
+     * @type { PixelMap } - the image content of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    readonly value: image.PixelMap;
 
     /**
      * Get the imageSize of the StyledString.
@@ -1817,10 +1829,20 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     value: PixelMap;
+    /**
+     * The content of the ImageAttachment.
+     *
+     * @type { PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20}
+     * @arkts 1.2
+     */
+    value: image.PixelMap;
 
     /**
      * Image size.
@@ -1927,7 +1949,7 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  * @since 20
  * @arkts 1.2
  */
-export type ColorFilterType = ColorFilter | DrawingColorFilter;
+export type ColorFilterType = ColorFilter | drawing.ColorFilter;
 
 /**
  * Defines the  ImageAttachment Layout Style.

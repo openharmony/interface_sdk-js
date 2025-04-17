@@ -19,7 +19,13 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration,CommonMethod,ContentModifier } from './common'
+import { CommonConfiguration,CommonMethod,ContentModifier,Optional,BlurStyle } from './common'
+import { ControlSize } from './button'
+import { DividerOptions } from './textPicker'
+import { ResourceStr,Dimension,EdgeOutlineWidths,ResourceColor,EdgeColors,Resource,Font,Length,Offset,DividerStyleOptions } from './units'
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier'
+import { TextModifier } from '../TextModifier'
+import { OptionWidthMode } from './enums'
 /*** endif */
 
 /**
@@ -858,8 +864,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 

@@ -19,10 +19,12 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceStr, PixelMap, ColorFilter, DrawingColorFilter } from './units'
+import { ResourceStr, ColorFilter} from './units'
 import { BaseSpan } from './span'
 import { ImageSpanAlignment, ImageFit } from './enums'
 import { ImageErrorCallback } from './image'
+import drawing from '../../@ohos.graphics.drawing'
+import image from '../../@ohos.multimedia.image'
 /*** endif */
 
 /**
@@ -61,10 +63,21 @@ interface ImageSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (value: ResourceStr | PixelMap): ImageSpanAttribute;
+  /**
+   * Called when image is entered in span.
+   *
+   * @param { ResourceStr | PixelMap } value - The image resource.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (value: ResourceStr | image.PixelMap): ImageSpanAttribute;
 }
 
 /**
@@ -116,10 +129,22 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
+
+  /**
+   * Sets the color filter effect on the image span.
+   *
+   * @param { ColorFilter | drawing.ColorFilter } filter ColorFilter object.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  colorFilter(filter: ColorFilter | drawing.ColorFilter): ImageSpanAttribute;  
 
   /**
    * Sets the zoom type of an image.
@@ -178,10 +203,20 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   alt(value: PixelMap): ImageSpanAttribute;
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { PixelMap } value
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  alt(value: image.PixelMap): ImageSpanAttribute;
 }
 
 /**

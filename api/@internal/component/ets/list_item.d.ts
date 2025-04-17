@@ -21,6 +21,7 @@
 /*** if arkts 1.2 */
 import { CommonMethod, CustomBuilder } from './common';
 import { Length } from './units';
+import { ComponentContent } from '../ComponentContent'
 /*** endif */
 
 /**
