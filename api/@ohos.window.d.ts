@@ -28,6 +28,7 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { ColorMetrics } from './@ohos.arkui.node';
 /*** if arkts 1.2 */
+import { Callback } from './@ohos.base';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 /*** endif */
 
@@ -99,9 +100,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @FAModelOnly
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_APP,
+    TYPE_APP = 0,
     /**
      * System alert.
      *
@@ -126,45 +128,50 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_STATUS_BAR,
+    TYPE_STATUS_BAR = 3,
     /**
      * Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_PANEL,
+    TYPE_PANEL = 4,
     /**
      * Keyguard.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_KEYGUARD,
+    TYPE_KEYGUARD = 5,
     /**
      * Volume.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_VOLUME_OVERLAY,
+    TYPE_VOLUME_OVERLAY = 6,
     /**
      * Navigation bar.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_NAVIGATION_BAR,
+    TYPE_NAVIGATION_BAR = 7,
     /**
      * Float.
      *
@@ -180,72 +187,80 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT,
+    TYPE_FLOAT = 8,
     /**
      * Wallpaper.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_WALLPAPER,
+    TYPE_WALLPAPER = 9,
     /**
      * Desktop.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DESKTOP,
+    TYPE_DESKTOP = 10,
     /**
      * Recent.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_LAUNCHER_RECENT,
+    TYPE_LAUNCHER_RECENT = 11,
     /**
      * Dock.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_LAUNCHER_DOCK,
+    TYPE_LAUNCHER_DOCK = 12,
     /**
      * Voice interaction.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_VOICE_INTERACTION,
+    TYPE_VOICE_INTERACTION = 13,
     /**
      * Pointer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_POINTER,
+    TYPE_POINTER = 14,
     /**
      * Float camera.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT_CAMERA,
+    TYPE_FLOAT_CAMERA = 15,
     /**
      * Dialog.
      *
@@ -259,81 +274,90 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DIALOG,
+    TYPE_DIALOG = 16,
     /**
      * Screenshot.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SCREENSHOT,
+    TYPE_SCREENSHOT = 17,
     /**
      * System Toast.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SYSTEM_TOAST,
+    TYPE_SYSTEM_TOAST = 18,
     /**
      * Divider.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DIVIDER,
+    TYPE_DIVIDER = 19,
     /**
      * Global Search.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_GLOBAL_SEARCH,
+    TYPE_GLOBAL_SEARCH = 20,
     /**
      * Handwrite.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_HANDWRITE,
+    TYPE_HANDWRITE = 21,
     /**
      * TYPE_WALLET_SWIPE_CARD.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_WALLET_SWIPE_CARD,
+    TYPE_WALLET_SWIPE_CARD = 22,
     /**
      * Screen Control
      * 
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SCREEN_CONTROL,
+    TYPE_SCREEN_CONTROL = 23,
     /**
      * TYPE_FLOAT_NAVIGATION.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT_NAVIGATION
+    TYPE_FLOAT_NAVIGATION = 24
   }
 
   /**
@@ -1423,7 +1447,8 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WindowProperties {
     /**
@@ -1483,7 +1508,8 @@ declare namespace window {
      * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: WindowType;
 
