@@ -48,7 +48,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -62,7 +61,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -77,7 +75,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -97,7 +94,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -113,7 +109,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -130,7 +125,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -150,7 +144,6 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -171,7 +164,6 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
