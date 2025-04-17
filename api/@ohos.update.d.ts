@@ -1484,20 +1484,11 @@ declare namespace update {
    *
    * @typedef UpgradeTaskCallback
    * @syscap SystemCapability.Update.UpdateService
+   * @param { EventInfo } eventInfo - Event information.
    * @systemapi hide for inner use.
    * @since 9
    */
-  export interface UpgradeTaskCallback {
-    /**
-     * Event callback.
-     *
-     * @param { EventInfo } eventInfo - Event information.
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 9
-     */
-    (eventInfo: EventInfo): void;
-  }
+  export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
   /**
    * Enumerates business vendor type.
