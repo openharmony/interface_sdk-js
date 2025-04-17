@@ -101,18 +101,6 @@ declare namespace audio {
      */
     ERROR_TIMEOUT = 6800105,
     /**
-     * Unsupported output or input device.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 20
-     */
-    ERROR_UNSUPPORTED_DEVICE = 6800106,
-    /**
-     * Unsupported scene.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 20
-     */
-    ERROR_UNSUPPORTED_SCENE = 6800107,
-    /**
      * Audio specific errors.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 9
@@ -272,18 +260,18 @@ declare namespace audio {
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
 
   /**
-   * Obtains a {@link AudioFeedback} instance. This method uses a promise to return the audio feedback instance.
+   * Obtains a {@link AudioLoopback} instance. This method uses a promise to return the audio loopback instance.
    * The instance will build low-latency capturer and low-latency render to implement in-ear monitor.
    * @permission ohos.permission.MICROPHONE
-   * @returns { Promise<AudioFeedback> } Promise used to return the audioFeedback instance.
+   * @param   { AudioLoopbackMode } mode - The audio loopback mode.
+   * @returns { Promise<AudioLoopback> } Promise used to return the AudioLoopback instance.
    * @throws  { BusinessError } 201 - Permission denied.
-   * @throws  { BusinessError } 6800104 - Unsupported by the current system.
-   * @throws  { BusinessError } 6800106 - Unsupported by the output or input device change.
-   * @throws  { BusinessError } 6800107 - Unsupported by the audio interrupt.
-   * @syscap SystemCapability.Multimedia.Audio.Feedback
+   * @throws  { BusinessError } 801 - Unsupported API.
+   * @throws  { BusinessError } 6800101 - Parameter verification failed, the mode is unsupported.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20
    */
-  function createAudioFeedback(): Promise<AudioFeedback>;
+  function createAudioLoopback(mode: AudioLoopbackMode): Promise<AudioLoopback>;
 
   /**
    * Enumerates the audio states.
@@ -386,32 +374,51 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates audio feedback status.
+   * Enumerates audio loopback mode.
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Audio.Feedback
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20
    */
-  enum AudioFeedbackStatus {
+  enum AudioLoopbackMode {
     /**
-     * Audio feedback available.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * The hardware mode of audio loopback.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    STATUS_AVAILABLE = 0,
+    HARDWARE = 0,
+  }
 
+  /**
+   * Enumerates audio loopback status.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 20
+   */
+  enum AudioLoopbackStatus {
     /**
-     * Audio feedback not available by the output or input device change.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * Audio loopback unavailable by the output or input device. For example, the device change.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    STATUS_NOT_AVAILABLE_DEVICE = 1,
-
+    UNAVAILABLE_DEVICE = -2,
     /**
-     * Audio feedback not available by the audio interrupt.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * Audio loopback unavailable by the audio scene. For example, the audio interrupt.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    STATUS_NOT_AVAILABLE_SCENE = 2,
+    UNAVAILABLE_SCENE = -1,
+    /**
+     * Audio loopback available and idle.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    AVAILABLE_IDLE = 0,
+    /**
+     * Audio loopback available and running.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    AVAILABLE_RUNNING = 1,
   }
 
   /**
@@ -4367,13 +4374,15 @@ declare namespace audio {
     isActiveSync(volumeType: AudioVolumeType): boolean;
 
     /**
-     * Checks whether the audio feedback is supported.
-     * @returns { boolean } The value true means that the audio feedback is supported,
+     * Checks whether the audio loopback is supported.
+     * @param   { AudioLoopbackMode } mode - The audio loopback mode.
+     * @returns { boolean } The value true means that the audio loopback is supported,
      *          and false means the opposite.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @throws  { BusinessError } 6800101 - Parameter verification failed, the mode is unsupported.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    isAudioFeedbackSupported(): boolean;
+    isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean;
   }
 
   /**
@@ -10887,63 +10896,62 @@ declare namespace audio {
   }
 
   /**
-   * Provides APIs for audio feedback.
-   * @typedef AudioFeedback
-   * @syscap SystemCapability.Multimedia.Audio.Feedback
+   * Provides APIs for audio loopback.
+   * @typedef AudioLoopback
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20
    */
-  interface AudioFeedback {
+  interface AudioLoopback {
     /**
-     * Defines the current audio feedback status.
-     * @type { AudioFeedbackStatus }
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * Obtains the status of the audio loopback. This method uses a promise to return the query result.
+     * @returns { Promise<AudioLoopbackStatus> } Promise used to return the audio loopback status.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    readonly status: AudioFeedbackStatus;
+    getStatus(): Promise<AudioLoopbackStatus>;
 
     /**
-     * Sets the volume for a audio feedback. This method uses a promise to return the result.
+     * Sets the volume for a audio loopback. This method uses a promise to return the result.
      * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed, form 0.0 to 1.0.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
     setVolume(volume: number): Promise<void>;
 
     /**
-     * Subscribes audio feedback status change event callback.
+     * Subscribes audio loopback status change event callback.
      * @param { 'statusChange' } type - Type of the event to listen for. Only the statusChange event is supported.
-     * @param { Callback<AudioFeedbackStatus> } callback - Callback used to listen for the audio feedback status
+     * @param { Callback<AudioLoopbackStatus> } callback - Callback used to listen for the audio loopback status
      *        change event.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    on(type: 'statusChange', callback: Callback<AudioFeedbackStatus>): void;
+    on(type: 'statusChange', callback: Callback<AudioLoopbackStatus>): void;
 
     /**
-     * Unsubscribes audio feedback status change event callback.
+     * Unsubscribes audio loopback status change event callback.
      * @param { 'statusChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioFeedbackStatus> } callback - Callback used to listen for the audio feedback status
+     * @param { Callback<AudioLoopbackStatus> } callback - Callback used to listen for the audio loopback status
      *        change event.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    off(type: 'statusChange', callback?: Callback<AudioFeedbackStatus>): void;
+    off(type: 'statusChange', callback?: Callback<AudioLoopbackStatus>): void;
 
     /**
-     * Enable or disable audio feedback. This method uses a promise to return the result.
+     * Enable or disable audio loopback. This method uses a promise to return the result.
      * @permission ohos.permission.MICROPHONE
-     * @param { boolean } enable - Ability to set. The value true means to enable the audio feedback,
-     *        and false means the opposite.
-     * @returns { Promise<void> }Promise used to return the result.
+     * @param   { boolean } enable - Ability to set. The value true means to enable the audio loopback,
+     *          and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *          The value true means to enable successfully, and false means the opposite.
      * @throws  { BusinessError } 201 - Permission denied.
-     * @throws  { BusinessError } 6800106 - Unsupported by the output or input device change.
-     * @throws  { BusinessError } 6800107 - Unsupported by the audio interrupt.
-     * @syscap SystemCapability.Multimedia.Audio.Feedback
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
-    enable(enable: boolean): Promise<void>;
+    enable(enable: boolean): Promise<boolean>;
   }
 }
 
