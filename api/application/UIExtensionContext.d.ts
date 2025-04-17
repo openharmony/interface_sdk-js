@@ -1095,7 +1095,6 @@ export default class UIExtensionContext extends ExtensionContext {
    * Set colorMode of uiextension.
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
