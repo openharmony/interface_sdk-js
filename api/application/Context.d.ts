@@ -581,7 +581,6 @@ export default class Context extends BaseContext {
    *
    * @param { contextConstant.AreaMode } areaMode - Indicates the area mode.
    * @returns { Context } Returns the context with the specified area mode.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
