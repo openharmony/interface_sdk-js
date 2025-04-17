@@ -12,24 +12,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
+// HADWRITTEN, DO NOT REGENERATE
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
-
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { DynamicNode } from './common'
 
-export interface ForEachAttribute extends DynamicNode {
-}
+/**
+ * declare ForEachAttribute
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export interface ForEachAttribute {}
 
+/**
+ * Defines ForEach Component.
+ *
+ * @param { Array<T> } arr
+ * @param { function } itemGenerator
+ * @param { function } keyGenerator
+ * @returns { ForEachAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
-export declare function ForEach<T>(data: Array<T>,
+export declare function ForEach<T>(arr: Array<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
