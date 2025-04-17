@@ -1681,6 +1681,33 @@ export class UIObserver {
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { number } navigationUniqueId - The uniqueId of the navigation.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  on(type: 'navDestinationUpdate', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { number } navigationUniqueId - The uniqueId of the navigation.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  off(type: 'navDestinationUpdate', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
    * Registers a callback function to be called when the scroll event start or stop.
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
