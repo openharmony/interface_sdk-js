@@ -1089,6 +1089,50 @@ export class FrameNode {
    * @since 20
    */
   removeSupportedUIStates(uiStates: number): void;
+
+  /**
+   * create property animation in FrameNode.
+   *
+   * @param { AnimationPropertyType } property - enumeration of property that produces the animation.
+   * @param { Optional<number[]> } startValue - start value of animation.
+   * Undefined means that the last final value is used as the starting value of the animation,
+   * and it is recommended to set undefined if the property already has a value.
+   * @param { number[] } endValue - end value of animation.
+   * @param { AnimateParam } param - param of animation.
+   * @returns { boolean } whether the createAnimation operation is successful. For example, 
+   * if the array lengths of startValue and endValue do not match the data lengths required by type, creating animation fails.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  createAnimation(property: AnimationPropertyType, startValue: Optional<number[]>, endValue: number[], param: AnimateParam): boolean;
+
+  /**
+   * request to cancel all animations on specified properties. It blocks synchronously to wait for the cancellation result.
+   * If the cancellation is successful, the corresponding properties on the node are restored to the cancelled value.
+   *
+   * @param { AnimationPropertyType[] } properties - animation property types to cancel.
+   * @returns { boolean } whether the cancel operation is successful. For example, 
+   * if ipc fails, canceling the animation fails.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  cancelAnimations(properties: AnimationPropertyType[]): boolean;
+
+  /**
+   * get property value from node.
+   *
+   * @param { AnimationPropertyType } property - animation property type to get value.
+   * @returns { number[] } - the property value on the node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  getNodePropertyValue(property: AnimationPropertyType): number[];
 }
 
 /**

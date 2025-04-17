@@ -10479,3 +10479,54 @@ declare enum EventQueryType {
    */
   ON_CLICK = 0,
 }
+
+/**
+ * Define the property type enumeration used in animation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum AnimationPropertyType {
+  /**
+   * Rotation angle in the x, y, z direction.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ROTATION = 0,
+
+  /**
+   * Tranlation in the x and y direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TRANSLATION = 1,
+
+  /**
+   * Scale in the x and y direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SCALE = 2,
+
+  /**
+   * Opacity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  OPACITY = 3,
+}
