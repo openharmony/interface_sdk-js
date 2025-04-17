@@ -163,9 +163,6 @@ export interface SystemTonePlayer {
    * @param { Callback<number> } callback - Callback used to obtain the finished event. The callback info is the stream
    * id that is finished.
    * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -178,9 +175,6 @@ export interface SystemTonePlayer {
    * @param { 'playFinished' } type - Type of the event to listen for.
    * @param { Callback<number> } callback - Callback used to obtain the finished event.
    * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -193,9 +187,6 @@ export interface SystemTonePlayer {
    * @param { 'error'} type - Type of the event to listen for.
    * @param { ErrorCallback } callback - Error callback while receiving the error event.
    * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -208,9 +199,6 @@ export interface SystemTonePlayer {
    * @param { 'error'} type - Type of the event to listen for.
    * @param { ErrorCallback } callback - Error callback while receiving the error event.
    * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
