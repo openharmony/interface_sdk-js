@@ -328,7 +328,14 @@ declare namespace window {
      * @stagemodelonly
      * @since 17
      */
-    TYPE_FLOAT_NAVIGATION
+    TYPE_FLOAT_NAVIGATION,
+    /**
+     * Main.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 18
+     */
+    TYPE_MAIN = 32
   }
 
   /**
