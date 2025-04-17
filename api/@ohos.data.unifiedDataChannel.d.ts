@@ -1993,7 +1993,8 @@ declare namespace unifiedDataChannel {
 
   /**
    * It is used to convert the multi-entry structure.
-   * <br>When the input parameters use different records to represent various formats of a single data entry, and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
+   * <br>When the input parameters use different records to represent various formats of a single data entry,
+   * and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
    * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
    * 
    * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
