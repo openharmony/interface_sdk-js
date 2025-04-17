@@ -1282,6 +1282,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number): TextAreaAttribute;
 
   /**
+   * Define max lines of the text area, behavior can be displayed as the scrolling capability.
+   *
+   * @param { number } value
+   * @param { MaxLinesOptions } options - max lines of setting options.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maxLines(value: number, options?: MaxLinesOptions): TextAreaAttribute;
+
+  /**
    * Set the word break type.
    *
    * @param { WordBreak } value - The word break type.
