@@ -17,21 +17,25 @@
  * @file
  * @kit ArkUI
  */
-
+/*** if arkts 1.2 */
+import { CommonMethod } from './common';
+/*** endif */
 /**
  * Round rect.
  *
  * @interface RRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RRect {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   left: number;
 
@@ -39,7 +43,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   top: number;
 
@@ -47,7 +52,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: number;
 
@@ -55,7 +61,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: number;
 
@@ -63,7 +70,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius: number;
 }
@@ -74,7 +82,8 @@ interface RRect {
  * @interface WindowAnimationTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface WindowAnimationTarget {
   /**
@@ -82,7 +91,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -91,7 +101,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly abilityName: string;
 
@@ -100,7 +111,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly windowBounds: RRect;
 
@@ -109,7 +121,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly missionId: number;
 }
@@ -120,7 +133,8 @@ interface WindowAnimationTarget {
  * @interface RemoteWindowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RemoteWindowInterface {
   /**
@@ -130,7 +144,8 @@ interface RemoteWindowInterface {
    * @returns { RemoteWindowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (target: WindowAnimationTarget): RemoteWindowAttribute;
 }
@@ -141,7 +156,8 @@ interface RemoteWindowInterface {
  * @extends CommonMethod<RemoteWindowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
 

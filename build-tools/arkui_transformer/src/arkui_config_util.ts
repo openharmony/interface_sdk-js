@@ -56,7 +56,7 @@ export class ArkUIConfigUtil {
     private shouldNotHaveAttributeModifier: Set<string> = new Set
 
     private getPureName(name: string): string {
-        return path.basename(name).replaceAll(".d.ts", "").replaceAll(".d.ets", "")
+        return path.basename(name).replaceAll(".d.ts", "").replaceAll(".d.ets", "").replaceAll("_","").toLowerCase()
     }
 
     public isRelatedToComponent(name: string): boolean {
