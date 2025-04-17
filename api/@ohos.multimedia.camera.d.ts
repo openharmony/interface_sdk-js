@@ -838,9 +838,6 @@ declare namespace camera {
      * @param { CameraPosition } position - Camera position.
      * @param { CameraType } type - Camera type.
      * @returns { CameraDevice } A device queried base on position and type.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 18
@@ -853,9 +850,6 @@ declare namespace camera {
      *
      * @param { Array<CameraDevice> } cameras - Set of camera devices to be queried.
      * @returns { Array<CameraConcurrentInfo> } Set of queried concurrent information.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-     * 3. Parameter verification failed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 18
@@ -1802,7 +1796,6 @@ declare namespace camera {
      * @param { AuxiliaryStatus } auxiliaryStatus - Auxiliary status.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9759,7 +9752,6 @@ declare namespace camera {
      *
      * @param { boolean } enabled - enable auto frame rate if TRUE.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 401 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
