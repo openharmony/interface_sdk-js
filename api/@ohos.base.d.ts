@@ -315,3 +315,26 @@ export type int = number;
  * @since 20
  */
 export type double = number;
+/**
+ * In ArkTS 1.1, using float is equivalent to using number
+ *
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type float = number;
+
+/**
+ * In ArkTS 1.1, using long is equivalent to using number
+ * 
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type long = number;
