@@ -57,8 +57,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
     callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void;
@@ -78,8 +76,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>,
     callback: AsyncCallback<RemoteDeviceDriver>): void;
@@ -99,8 +95,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number;
     remote: rpc.IRemoteObject;}>;
@@ -119,8 +113,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
 
@@ -135,8 +127,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
    */
   function unbindDevice(deviceId: number, callback: AsyncCallback<number>): void;
 
@@ -152,8 +142,6 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
-   * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
    */
   function unbindDevice(deviceId: number): Promise<number>;
 
@@ -188,40 +176,6 @@ declare namespace deviceManager {
    * @since 12
    */
   function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
-
-  /**
-   * Bind the device based on the device information returned by queryDevices().
-   *
-   * @permission ohos.permission.ACCESS_DDK_DRIVERS
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
-   * success.
-   * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
-   * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-   * @throws { BusinessError } 26300002 - Service not allowed.
-   * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 18
-   */
-  function bindDriverWithDeviceId(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
-
-  /**
-   * Unbind the device based on the device information returned by queryDevices().
-   *
-   * @permission ohos.permission.ACCESS_DDK_DRIVERS
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
-   * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-   * @throws { BusinessError } 26300003 - There is no binding relationship.
-   * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 18
-   */
-  function unbindDriverWithDeviceId(deviceId: number): Promise<number>;
 
   /**
    * Enumerates the bus types.
