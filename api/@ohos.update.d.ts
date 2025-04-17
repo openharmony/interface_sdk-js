@@ -1482,7 +1482,7 @@ declare namespace update {
    * Called when upgrade task info changes.
    * You need to implement this method in a child class.
    *
-   * @typedef UpgradeTaskCallback
+   * @typedef { function } UpgradeTaskCallback
    * @syscap SystemCapability.Update.UpdateService
    * @param { EventInfo } eventInfo - Event information.
    * @systemapi hide for inner use.
