@@ -74,16 +74,6 @@ declare namespace hiTraceMeter {
    * @since 8
    */
   export function finishTrace(name: string, taskId: number): void;
-
-  /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
-   *
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
-   */
-  export function traceByValue(name: string, count: number): void;
 }
 
 export default hiTraceMeter;
