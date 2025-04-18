@@ -63,6 +63,17 @@ declare interface RatingOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Rating option.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   rating: number;
 
   /**
@@ -98,6 +109,16 @@ declare interface RatingOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   indicator?: boolean
 }
@@ -297,6 +318,7 @@ interface RatingInterface {
    */
   /**
    * Called when a score bar is created.
+   * Anonymous Object Rectification.
    *
    * @param { RatingOptions } [options] - rating options
    * @returns { RatingAttribute }
@@ -569,6 +591,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when a picture is set.
+   * Anonymous Object Rectification.
    *
    * @param { StarStyleOptions } options - star style options
    * @returns { RatingAttribute }

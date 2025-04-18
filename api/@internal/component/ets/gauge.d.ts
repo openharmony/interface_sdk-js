@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface GaugeOptions {
   /**
@@ -62,6 +62,17 @@ interface GaugeOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set current data value.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   value: number;
 
@@ -99,6 +110,17 @@ interface GaugeOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set current segment minimum value.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   min?: number;
 
   /**
@@ -134,6 +156,17 @@ interface GaugeOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set current segment maximum value.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   max?: number;
 }
@@ -221,6 +254,7 @@ interface GaugeInterface {
    */
   /**
    * Called when the gauge component is used.
+   * Anonymous Object Rectification.
    *
    * @param { GaugeOptions } options - Gauge options.
    * @returns { GaugeAttribute }
@@ -228,7 +262,7 @@ interface GaugeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options: GaugeOptions): GaugeAttribute;
 }

@@ -103,7 +103,6 @@
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.HiviewDFX.HiCollie",
-    "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiSysEvent",

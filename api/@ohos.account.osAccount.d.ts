@@ -89,6 +89,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -139,6 +140,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -159,6 +161,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -2289,23 +2292,23 @@ declare namespace osAccount {
      */
     shortName: string;
 
-     /**
+    /**
      * Indicates the bundles are disallowed to be preinstalled on the OS account.
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 19
      */
     disallowedPreinstalledBundles?: Array<string>;
 
-      /**
+    /**
      * Indicates the bundles are allowed to be preinstalled on the OS account.
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 19
      */
     allowedPreinstalledBundles?: Array<string>;
   }
@@ -2399,7 +2402,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    NORMAL,
+    NORMAL = 1,
 
     /**
      * Indicates a guest account, which is used to temporarily access the device and may be deleted at any time.
@@ -2407,7 +2410,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    GUEST,
+    GUEST = 2,
 
     /**
      * Indicates a private account.
@@ -3472,8 +3475,6 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - The new account info is invalid.
@@ -3654,8 +3655,6 @@ declare namespace osAccount {
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
@@ -3675,8 +3674,6 @@ declare namespace osAccount {
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300212 - Server config not found.
@@ -3690,13 +3687,11 @@ declare namespace osAccount {
     /**
      * Updates the target server config with the specified parameters.
      *
-     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS 
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { string } configId - Indicates the server config identifier.
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
@@ -3717,8 +3712,6 @@ declare namespace osAccount {
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<DomainServerConfig> } Returns the server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300212 - Server config not found.
@@ -3749,8 +3742,6 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
      * @returns { Promise<DomainServerConfig> } Returns the domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Domain account not found.
@@ -4183,7 +4174,7 @@ declare namespace osAccount {
      * @systemapi
      * @since 14
      */
-    QUESTION_AUTH = 3,
+    QUESTION_AUTH = 3
   }
 
   /**

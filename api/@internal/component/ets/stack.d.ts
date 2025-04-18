@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface StackOptions {
   /**
@@ -142,13 +142,14 @@ interface StackInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ?StackOptions } options - stack options
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: StackOptions): StackAttribute;
 }

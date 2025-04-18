@@ -321,6 +321,15 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
+    /**
+     * Leave all session.
+     *
+     * @param {AsyncCallback<void>} callback - The callback of setSessionId.
+     * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 20
+     */
     setSessionId(callback: AsyncCallback<void>): void;
 
     /**

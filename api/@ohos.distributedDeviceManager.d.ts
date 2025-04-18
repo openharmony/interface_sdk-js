@@ -71,14 +71,6 @@ declare namespace distributedDeviceManager {
      * @since 10
      */
     networkId?: string;
-
-    /**
-     * Device extra data.
-     * @type { ?string }
-     * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 18
-     */
-    extraData?: string;
   }
 
   /**
@@ -1132,7 +1124,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<number>;
 

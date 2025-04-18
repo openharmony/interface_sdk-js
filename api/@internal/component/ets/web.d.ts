@@ -397,7 +397,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Debug = 0,
+  Debug,
 
   /**
    * Error level.
@@ -413,7 +413,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Error = 1,
+  Error,
 
   /**
    * Info level.
@@ -429,7 +429,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Info = 2,
+  Info,
 
   /**
    * Log level.
@@ -445,7 +445,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Log = 3,
+  Log,
 
   /**
    * Warn level.
@@ -461,7 +461,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Warn = 4
+  Warn
 }
 
 /**
@@ -3303,6 +3303,30 @@ declare class WebContextMenuResult {
    * @since 11
    */
   selectAll(): void;
+
+  /**
+   * Executes the redo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  redo(): void;
+
+  /**
+   * Executes the undo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  undo(): void;
+
+  /**
+   * Executes the paste and match style operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  pasteAndMatchStyle(): void;
 }
 
 /**
@@ -6680,7 +6704,7 @@ declare enum WebResponseType {
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 18
+ * @since 20
  */
 declare interface PreviewMenuOptions {
   /**
@@ -6688,7 +6712,7 @@ declare interface PreviewMenuOptions {
    *
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -6742,7 +6766,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
@@ -7077,6 +7101,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
    * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
    * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
+   * </p>
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to arkWeb rendering framework adaptation solution,
+   * see [ArkWeb Rendering Framework Adaptation]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
@@ -9220,6 +9251,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the enable native embed mode for web.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { boolean } mode - True if it needs to enable native embed mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9243,6 +9281,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when embed lifecycle changes.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { function } callback - Function Triggered when embed lifecycle changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9263,6 +9308,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when gesture effect on embed tag.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
    *
    * @param { function } callback - Function Triggered when gesture effect on embed tag.
    * @returns { WebAttribute }
@@ -9501,6 +9553,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enableDataDetector(enable: boolean): WebAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 }
 
 /**
@@ -9519,6 +9592,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
  */
 /**
  * Defines Web Component.
+ *
+ * <p><strong>API Note</strong>:
+ *
+ * <strong>Performance Note</strong>:
+ * <p>For details about how to optimize the compilation, resource loading, and JSBridge performance,
+ * see [Optimizing Web Page Loading]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-web-develop-optimization}
+ * <p>When the white screen duration is long due to complex web page parsing,
+ * you can enable [optimizeParserBudget]{@link WebAttribute.optimizeParserBudget} to reduce the first frame rendering content.</p>
+ * </p>
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -9720,8 +9802,10 @@ declare interface NestedScrollOptionsExt {
  */
 declare interface EmbedOptions {
   /**
-   * Whether the embed element support the default intrinsic size of 300 * 150. 
-   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   * Whether the embed element support the default intrinsic size of 300 * 150, expressed in CSS pixels.
+   * <br>When CSS size is set, the embed element size is CSS size, otherwise it is intrinsic size.
+   * <br>If true, then the intrinsic size is 300 * 150.
+   * <br>If false, the embed element will not be rendered when the CSS size is not set.
    *
    * @type { ?boolean }
    * @default false

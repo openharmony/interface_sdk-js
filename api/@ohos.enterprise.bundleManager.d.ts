@@ -64,7 +64,7 @@ declare namespace bundleManager {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 18
+     * @since 19
      */
     parameters?: Record<string, string>;
   }

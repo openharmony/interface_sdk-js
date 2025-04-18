@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RowOptions {
   /**
@@ -172,12 +172,13 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RowOptions): RowAttribute;
   /**
    * Called when the layout is set in the horizontal direction.
    *
+   * Anonymous Object Rectification
    * @param { ?(RowOptions | RowOptionsV2) } options - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -477,6 +477,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
    *                                 2.Incorrect parameter types.
+   *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18
@@ -495,6 +496,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
    *                                 2.Incorrect parameter types.
+   *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18
@@ -513,6 +515,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
    *                                 2.Incorrect parameter types.
+   *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18
@@ -531,6 +534,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
    *                                 2.Incorrect parameter types.
+   *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18

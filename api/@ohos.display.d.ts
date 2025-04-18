@@ -641,6 +641,36 @@ declare namespace display {
   function makeUnique(screenId: number): Promise<void>;
 
   /**
+   * Add the list of window ids to the block list which won't display on the virtual screen
+   *
+   * @param { Array<number> } windowIds - The list of window ids that do not want to display on the virtual screen
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function addVirtualScreenBlocklist(windowIds: Array<number>): Promise<void>;
+
+  /**
+   * Remove the list of window ids from the block list which won't display on the virtual screen
+   *
+   * @param { Array<number> } windowIds - The list of window ids that want to display on the virtual screen
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function removeVirtualScreenBlocklist(windowIds: Array<number>): Promise<void>;
+
+  /**
    * The parameter for creating virtual screen.
    *
    * @interface VirtualScreenConfig

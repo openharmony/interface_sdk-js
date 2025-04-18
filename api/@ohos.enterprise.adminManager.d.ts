@@ -173,7 +173,8 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 18
+   * @systemapi
+   * @since 19
    */
   export enum RunningMode {
     /**
@@ -181,7 +182,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 18
+     * @since 19
      */
     DEFAULT = 0,
 
@@ -190,7 +191,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 18
+     * @since 19
      */
     MULTI_USER = 1,
   }
@@ -496,14 +497,10 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function setAdminRunningMode(admin: Want, mode: RunningMode): void;
 
@@ -796,13 +793,11 @@ declare namespace adminManager {
    * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
    * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
    * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.=
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

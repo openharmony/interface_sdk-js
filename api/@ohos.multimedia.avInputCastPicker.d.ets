@@ -25,7 +25,7 @@ import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
  * @struct { AVInputCastPicker }
  * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
  * @atomicservice
- * @since 18
+ * @since 20
  */
 @Component
 export declare struct AVInputCastPicker {
@@ -36,7 +36,7 @@ export declare struct AVInputCastPicker {
    * @type { ? CustomBuilder }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   @Prop
   customPicker?: CustomBuilder;
@@ -46,7 +46,7 @@ export declare struct AVInputCastPicker {
    * @type { ?OnPickerStateCallback }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onStateChange?: OnPickerStateCallback;
 }
@@ -59,6 +59,6 @@ export declare struct AVInputCastPicker {
  * @returns { void }
  * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
  * @atomicservice
- * @since 18
+ * @since 20
  */
 export type OnPickerStateCallback = (state: AVCastPickerState) => void;

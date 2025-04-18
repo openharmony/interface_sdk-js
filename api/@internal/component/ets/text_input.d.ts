@@ -233,6 +233,15 @@ declare enum InputType {
    * @since 12
    */
   URL = 13,
+
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ONE_TIME_CODE = 14,
 }
 
 /**
@@ -1212,6 +1221,7 @@ interface PasswordIcon {
 /**
  * Defines a TextInput callback when onSubmit.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnSubmitCallback
  * @param { EnterKeyType } enterKey - Input method Enter key type.
  * @param { SubmitEvent } event - The event submitted.
@@ -1225,6 +1235,7 @@ declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => 
 /**
  * Defines a TextInput callback when onTextSelectionChange.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnTextSelectionChangeCallback
  * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
  * @param { number } selectionEnd - The end location of the selected text.
@@ -1238,6 +1249,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
 /**
  * Defines a TextInput callback when onContentScroll.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnContentScrollCallback
  * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
  * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
@@ -1252,6 +1264,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
 /**
  * Defines a TextInput callback when onPaste.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnPasteCallback
  * @param { string } content - The text content of the paste.
  * @param { PasteEvent } event - User-defined paste event.
@@ -1509,6 +1522,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when judging whether the text editing change finished.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<boolean> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1548,6 +1562,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
+   * Anonymous Object Rectification.
    * @param { OnSubmitCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1618,6 +1633,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the text selection changes.
    *
+   * Anonymous Object Rectification.
    * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1649,6 +1665,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the content scrolls.
    *
+   * Anonymous Object Rectification.
    * @param { OnContentScrollCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1865,6 +1882,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the inputFilter of text is set.
    *
+   * Anonymous Object Rectification.
    * @param { ResourceStr } value
    * @param { Callback<string> } [error]
    * @returns { TextInputAttribute }
@@ -1905,6 +1923,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1944,6 +1963,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1986,6 +2006,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2448,6 +2469,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Set the cancel button style.
    *
+   * Anonymous Object Rectification.
    * @param { CancelButtonOptions } options - Indicates the style of the cancel button.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2772,7 +2794,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Set the ellipsis mode.
    *
-   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @param { Optional<EllipsisMode> } mode - The ellipsis mode.
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

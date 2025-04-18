@@ -602,7 +602,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -613,7 +613,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(): Promise<boolean>;
 
@@ -1346,7 +1346,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 17
      */
     on(type: 'setPreviewText', callback: SetPreviewTextCallback): void;
 
@@ -1356,7 +1356,7 @@ declare namespace inputMethod {
      * @param { 'setPreviewText' } type - the type of unsubscribe event.
      * @param { SetPreviewTextCallback } [callback] - optional, the callback of off('setPreviewText').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 17
      */
     off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void;
 
@@ -1369,7 +1369,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 17
      */
     on(type: 'finishTextPreview', callback: Callback<void>): void;
 
@@ -1379,7 +1379,7 @@ declare namespace inputMethod {
      * @param { 'finishTextPreview' } type - the type of unsubscribe event.
      * @param { Callback<void> } [callback] - optional, the callback of off('finishTextPreview').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
+     * @since 17
      */
     off(type: 'finishTextPreview', callback?: Callback<void>): void;
   }
@@ -2112,7 +2112,7 @@ declare namespace inputMethod {
    * @param { text } string - text to be previewed.
    * @param { range } Range - the range of the text to be replaced by the preview text.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 18
+   * @since 17
    */
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
 }

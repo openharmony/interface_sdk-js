@@ -165,6 +165,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listen to the event that the value increases.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { CounterAttribute }
@@ -172,7 +173,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onInc(event: VoidCallback): CounterAttribute;
 
@@ -216,6 +217,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listens to the number decrease event.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { CounterAttribute }
@@ -223,7 +225,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onDec(event: VoidCallback): CounterAttribute;
 

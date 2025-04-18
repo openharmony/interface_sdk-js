@@ -93,6 +93,61 @@ declare interface CrossLanguageOptions {
 }
 
 /**
+ * The interaction event binding status information on the component.
+ *
+ * @interface InteractionEventBindingInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface InteractionEventBindingInfo {
+  /**
+   * Whether to bind events declaratively.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  baseEventRegistered: boolean;
+
+  /**
+   * Whether to bind events in an imperative FrameNode mode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nodeEventRegistered: boolean;
+
+  /**
+   * Whether to bind the event as an imperative NativeNode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nativeEventRegistered: boolean;
+
+  /**
+   * Whether the component binds built-in event.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  builtInEventRegistered: boolean;
+}
+
+/**
  * Enum for the expand mode.
  * 
  * @enum { number }
@@ -806,6 +861,20 @@ export class FrameNode {
    * @since 18
    */
   reuse(): void;
+
+  /**
+   * Gets event binding information of the target node.
+   * 
+   * @param { EventQueryType } eventType - The interaction event type to be queried.
+   * @returns { InteractionEventBindingInfo | undefined } 
+   *   - Returns one InteractionEventBindingInfo object indicating the event binding details if any interaction
+   *     events binded on current node, returns undefined if no one binded on.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 }
 
 /**
@@ -1096,6 +1165,19 @@ export namespace typeNode {
   function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
+
+  /**
    * Bind the controller of FrameNode.
    * 
    * @param { FrameNode } node - the target FrameNode.
@@ -1283,6 +1365,19 @@ export namespace typeNode {
   type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
+
+  /**
    * Create a FrameNode of ListItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -1385,6 +1480,19 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
 
   /**
    * Define the FrameNode type for FlowItem.
@@ -1803,6 +1911,19 @@ export namespace typeNode {
    * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 
   /**
    * Define the FrameNode type for GridItem.

@@ -276,8 +276,6 @@ declare namespace avSession {
    * @returns { Promise<Array<AVSessionController>> } Promise for AVSessionController.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -443,8 +441,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -458,8 +454,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -2121,9 +2115,7 @@ declare namespace avSession {
      * Register setTargetLoopMode command callback
      * Application should change playmode to the loopmode which is requested.
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
-     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2135,9 +2127,7 @@ declare namespace avSession {
     /**
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
-     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2863,7 +2853,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedDecoders(): Promise<Array<DecoderType>>;
 
@@ -2871,12 +2861,10 @@ declare namespace avSession {
      * Get recommended resolution of remote player based on each decoder.
      * @param { DecoderType } decoderType - The decoder type.
      * @returns { Promise<ResolutionLevel> } ResolutionLevel returned through promise
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>;
 
@@ -2886,7 +2874,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>;
 
@@ -2896,7 +2884,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     getSupportedPlaySpeeds(): Promise<Array<number>>;
 
@@ -3985,14 +3973,14 @@ declare namespace avSession {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum DecoderType {
     /**
      * Defination of avc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
 
@@ -4000,7 +3988,7 @@ declare namespace avSession {
      * Defination of hevc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
 
@@ -4008,7 +3996,7 @@ declare namespace avSession {
      * Defination of audio vivid codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a",
   }
@@ -4018,14 +4006,14 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum ResolutionLevel {
     /**
      * Defination of 480P which typically resolution is 640*480.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_480P = 0,
 
@@ -4033,7 +4021,7 @@ declare namespace avSession {
      * Defination of 720P which typically resolution is 1280*720.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_720P = 1,
 
@@ -4041,7 +4029,7 @@ declare namespace avSession {
      * Defination of 1080P which typically resolution is 1920*1080.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_1080P = 2,
 
@@ -4049,7 +4037,7 @@ declare namespace avSession {
      * Defination of 2K which typically resolution is 2560*1440.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_2K = 3,
 
@@ -4057,7 +4045,7 @@ declare namespace avSession {
      * Defination of 4K which typically resolution is 4096*3840.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RESOLUTION_4K = 4,
   }
@@ -4345,7 +4333,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     singleLyricText?: string;
 
@@ -6713,8 +6701,6 @@ declare namespace avSession {
      * Get extra information for remote device, such as volume level, connected devices.
      * @param { string } extraEvent - the event name to get
      * @returns { Promise<ExtraInfo> } the value returned for such event
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.

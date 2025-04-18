@@ -206,14 +206,42 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
   /**
-   * Obtains an {@link AudioRenderer} instance. This method uses an asynchronous callback to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses an asynchronous callback to return the renderer instance.
+   *
+   * The AudioRenderer instance is used to play streaming audio data.
+   * When using AudioRenderer apis, there are many instructions for application
+   * to achieve better performance and lower power consumption:
+   * In music or audiobook background playback situation, you can have low power
+   * consumption by following this best practices document [Low-Power Rules in Music Playback Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-music-playback-scenarios}.
+   * And for navigation situation, you can follow [Low-Power Rules in Navigation and Positioning Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-navigation-scenarios}.
+   *
+   * Application developer should also be careful when app goes to background, please check if your audio playback
+   * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
+   *
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 8
    */
   /**
-   * Obtains an {@link AudioRenderer} instance. This method uses an asynchronous callback to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses a promise to return the renderer instance.
+   *
+   * The AudioRenderer instance is used to play streaming audio data.
+   * When using AudioRenderer apis, there are many instructions for application
+   * to achieve better performance and lower power consumption:
+   * In music or audiobook background playback situation, you can have low power
+   * consumption by following this best practices document [Low-Power Rules in Music Playback Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-music-playback-scenarios}.
+   * And for navigation situation, you can follow [Low-Power Rules in Navigation and Positioning Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-navigation-scenarios}.
+   *
+   * Application developer should also be careful when app goes to background, please check if your audio playback
+   * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
+   *
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -786,13 +814,13 @@ declare namespace audio {
     /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     HDMI = 27,
     /**
      * Line connected digital output device, such as s/pdif
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     LINE_DIGITAL = 28,
     /**
