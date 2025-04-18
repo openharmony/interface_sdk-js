@@ -21,7 +21,7 @@ export function exportAllTransformer(): ts.TransformerFactory<ts.SourceFile> {
       const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
 
       const visitor = (node: ts.Node): ts.Node => {
-        if (isTopLevelExportable(node)) {
+        if (node && isTopLevelExportable(node)) {
           const modifiers = ts.getModifiers(node as ts.HasModifiers) || [];
           if (!hasExportModifier(modifiers)) {
             const newNode = updateNodeWithExport(node, modifiers, exportModifier);

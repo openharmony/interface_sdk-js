@@ -22,23 +22,28 @@ export function addImportTransformer(): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         return (sourceFile) => {
             const [updatedSource, targetImport] = createTargetImport(sourceFile, context);
-            const insertPosition = findBestInsertPosition(updatedSource);
-
-            const newStatements = [
-                ...updatedSource.statements.slice(0, insertPosition),
-                ...targetImport,
-                ...updatedSource.statements.slice(insertPosition)
-            ];
-
-            return ts.factory.updateSourceFile(
-                updatedSource,
-                newStatements,
-                updatedSource.isDeclarationFile,
-                updatedSource.referencedFiles,
-                updatedSource.typeReferenceDirectives,
-                updatedSource.hasNoDefaultLib,
-                updatedSource.libReferenceDirectives
-            );
+            if (updatedSource) {
+                console.log('arkui transformer: updatedSource');
+                const insertPosition = findBestInsertPosition(updatedSource);
+    
+                const newStatements = [
+                    ...updatedSource.statements.slice(0, insertPosition),
+                    ...targetImport,
+                    ...updatedSource.statements.slice(insertPosition)
+                ];
+    
+                return ts.factory.updateSourceFile(
+                    updatedSource,
+                    newStatements,
+                    updatedSource.isDeclarationFile,
+                    updatedSource.referencedFiles,
+                    updatedSource.typeReferenceDirectives,
+                    updatedSource.hasNoDefaultLib,
+                    updatedSource.libReferenceDirectives
+                );
+            } else {
+                return sourceFile;
+            }
         };
     };
 }
