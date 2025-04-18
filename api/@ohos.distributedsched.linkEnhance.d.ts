@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace linkEnhance
  * @syscap SystemCapability.DistributedSched.AppCollaboration
- * @since 19
+ * @since 20
  */
 declare namespace linkEnhance {
 
@@ -34,7 +34,7 @@ declare namespace linkEnhance {
    *
    * @typedef ConnectResult
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 19
+   * @since 20
    */
   interface ConnectResult {
     /**
@@ -42,7 +42,7 @@ declare namespace linkEnhance {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     deviceId: string;
 
@@ -51,7 +51,7 @@ declare namespace linkEnhance {
      *
      * @type { boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     success: boolean;
 
@@ -64,7 +64,7 @@ declare namespace linkEnhance {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     reason: number
   }
@@ -76,7 +76,7 @@ declare namespace linkEnhance {
    *
    * @typedef Server
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 19
+   * @since 20
    */
   interface Server {
     /**
@@ -87,7 +87,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390202 - The number of servers exceeds the limit.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     start(): void;
 
@@ -97,7 +97,7 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     stop(): void;
 
@@ -107,7 +107,7 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     close(): void;
 
@@ -120,7 +120,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     on(type: 'acceptConnected', callback: Callback<Connection>): void;
 
@@ -133,7 +133,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 -  Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     off(type: 'acceptConnected', callback?: Callback<Connection>): void;
 
@@ -146,7 +146,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     on(type: 'serverStopped', callback: Callback<number>): void;
 
@@ -159,7 +159,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     off(type: 'serverStopped', callback?: Callback<number>): void;
 
@@ -175,7 +175,7 @@ declare namespace linkEnhance {
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @throws { BusinessError } 32390203	- Duplicate server name.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 19
+   * @since 20
    */
   function createServer(name: string): Server;
 
@@ -186,7 +186,7 @@ declare namespace linkEnhance {
    *
    * @typedef Connection
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 19
+   * @since 20
    */
   interface Connection {
     /**
@@ -198,7 +198,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390204 - The number of connection exceeds the limit.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     connect(): void;
 
@@ -208,7 +208,7 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     disconnect(): void;
 
@@ -219,7 +219,7 @@ declare namespace linkEnhance {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     close(): void;
 
@@ -230,7 +230,7 @@ declare namespace linkEnhance {
      * @returns { string } Returns the peer device id, return "" if operation failed.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     getPeerDeviceId(): string;
 
@@ -244,7 +244,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 32390205 - Connection is not ready.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     sendData(data: ArrayBuffer): void;
 
@@ -257,7 +257,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     on(type: 'connectResult', callback: Callback<ConnectResult>): void;
 
@@ -270,7 +270,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     off(type: 'connectResult', callback?: Callback<ConnectResult>): void;
 
@@ -283,7 +283,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     on(type: 'disconnected', callback: Callback<number>): void;
 
@@ -296,7 +296,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     off(type: 'disconnected', callback?: Callback<number>): void;
 
@@ -309,7 +309,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void;
 
@@ -322,7 +322,7 @@ declare namespace linkEnhance {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 19
+     * @since 20
      */
     off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void;
   }
@@ -337,7 +337,7 @@ declare namespace linkEnhance {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @since 19
+   * @since 20
    */
   function createConnection(deviceId: string, name: string): Connection;
 }
