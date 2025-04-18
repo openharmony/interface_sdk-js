@@ -23,7 +23,7 @@ import { Permissions } from './permissions';
 import type _Context from './application/Context';
 import type _PermissionRequestResult from './security/PermissionRequestResult';
 /*** if arkts 1.1 */
-import { int } from '@ohos.base'
+import { int } from '@ohos.base';
 /*** endif */
 
 /**

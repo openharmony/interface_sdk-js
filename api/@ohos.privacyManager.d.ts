@@ -21,7 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 /*** if arkts 1.1 */
-import { int } from '@ohos.base'
+import { int } from '@ohos.base';
 /*** endif */
 
 /**
