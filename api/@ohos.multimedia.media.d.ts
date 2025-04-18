@@ -20,7 +20,7 @@
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
-import photoAccessHelper from "./@ohos.file.photoAccessHelper";
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
@@ -314,7 +314,8 @@ declare namespace media {
   /**
    * Get the ScreenCaptureMonitor instance
    *
-   * @returns { Promise<ScreenCaptureMonitor> } A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful; returns null otherwise.
+   * @returns { Promise<ScreenCaptureMonitor> } A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful;
+   * returns null otherwise.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -2238,16 +2239,6 @@ declare namespace media {
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
     /**
-     * Get current playback position.
-     * @returns { number } return the time of current playback position - millisecond(ms)
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
-     * @since 18
-     */
-    getPlaybackPosition() : number;
-
-    /**
      * Check whether the media stream currently being played by the player supports seek continuous.
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
@@ -2257,6 +2248,16 @@ declare namespace media {
      * @since 18
      */
     isSeekContinuousSupported() : boolean;
+
+    /**
+     * Get current playback position.
+     * @returns { number } return the time of current playback position - millisecond(ms)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 18
+     */
+    getPlaybackPosition() : number;
 
     /**
      * Enable or disable super-resolution dynamically.
@@ -7236,6 +7237,7 @@ declare namespace media {
      */
     AUTO_CREATE_CAMERA_SCENE = 1,
   }
+
   /**
    * Provides the video recorder configuration definitions.
    *
@@ -7529,7 +7531,7 @@ declare namespace media {
      * @since 12
      */
     videoFrameWidth?: number;
-
+ 
     /**
      * Indicates the video height.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7543,7 +7545,7 @@ declare namespace media {
      * @since 12
      */
     videoFrameHeight?: number;
-
+ 
     /**
      * Indicates the video frame rate.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
