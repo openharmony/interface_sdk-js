@@ -22,7 +22,7 @@
 import { ButtonType } from './button';
 import { ClickEvent } from './common';
 import { SecurityComponentMethod } from './security_component';
-import { BusinessError } from './../../../@ohos.base'
+import { BusinessError } from './../../../@ohos.base';
 /*** endif */
 
 /**
