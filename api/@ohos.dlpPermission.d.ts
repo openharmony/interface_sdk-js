@@ -586,8 +586,8 @@ declare namespace dlpPermission {
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100016 - uri missing in want.
-   * @throws { BusinessError } 19100017 - displayName missing in want.
+   * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
+   * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @StageModelOnly
    * @since 11
@@ -1230,7 +1230,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
-     * @throws { BusinessError } 19100002 - Credential task error.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
      * @throws { BusinessError } 19100005 - Credential authentication server error.
@@ -1255,7 +1255,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
-     * @throws { BusinessError } 19100002 - Credential task error.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
      * @throws { BusinessError } 19100005 - Credential authentication server error.
@@ -1316,7 +1316,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential task error.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
    * @throws { BusinessError } 19100005 - Credential authentication server error.
@@ -1341,7 +1341,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential task error.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
    * @throws { BusinessError } 19100005 - Credential authentication server error.
@@ -1370,14 +1370,14 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential task error.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
    * @throws { BusinessError } 19100005 - Credential authentication server error.
    * @throws { BusinessError } 19100008 - The file is not a DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1398,14 +1398,14 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential task error.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
    * @throws { BusinessError } 19100005 - Credential authentication server error.
    * @throws { BusinessError } 19100008 - The file is not a DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1425,7 +1425,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100007 - No permission to call this API,
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
    */
@@ -1439,7 +1439,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100007 - No permission to call this API,
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
    */
@@ -1451,7 +1451,7 @@ declare namespace dlpPermission {
    * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 11
    */
