@@ -3661,7 +3661,8 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PackingOption {
     /**
@@ -3686,7 +3687,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     format: string;
 
@@ -3708,13 +3710,14 @@ declare namespace image {
     /**
      * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    quality: number;
+    quality: int;
 
     /**
      * BufferSize of the target image.
@@ -3737,20 +3740,22 @@ declare namespace image {
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    bufferSize?: number;
+    bufferSize?: int;
 
     /**
      * The desired dynamic range of the target image.
      *
      * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredDynamicRange?: PackingDynamicRange;
 
@@ -3759,7 +3764,8 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     needsPackProperties?: boolean;
   }
@@ -3938,7 +3944,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DecodingOptions {
     /**
@@ -3968,14 +3975,15 @@ declare namespace image {
     /**
      * Number of image frames.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    index?: number;
+    index?: int;
 
     /**
      * Sampling ratio of the image pixel map.
@@ -4004,14 +4012,15 @@ declare namespace image {
     /**
      * Sampling ratio of the image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    sampleSize?: number;
+    sampleSize?: int;
 
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
@@ -4040,14 +4049,15 @@ declare namespace image {
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rotate?: number;
+    rotate?: int;
 
     /**
      * Whether the image pixel map is editable.
@@ -4081,7 +4091,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     editable?: boolean;
 
@@ -4121,7 +4132,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredSize?: Size;
 
@@ -4157,7 +4169,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredRegion?: Region;
 
@@ -4193,7 +4206,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredPixelFormat?: PixelMapFormat;
 
@@ -4224,14 +4238,15 @@ declare namespace image {
     /**
      * The density for image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    fitDensity?: number;
+    fitDensity?: int;
 
     /**
      * Color space of the image pixel map.
@@ -4239,7 +4254,8 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
@@ -4248,7 +4264,8 @@ declare namespace image {
      *
      * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     desiredDynamicRange?: DecodingDynamicRange;
 
@@ -4258,7 +4275,8 @@ declare namespace image {
      * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resolutionQuality?: ResolutionQuality;
 
@@ -7977,7 +7995,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -8092,7 +8111,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
