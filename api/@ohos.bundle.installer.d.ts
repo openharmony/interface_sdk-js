@@ -1772,7 +1772,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
      installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
@@ -1791,7 +1791,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
      uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
@@ -2134,7 +2134,7 @@ declare namespace installer {
    * @typedef PluginParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   export interface PluginParam {
     /**
@@ -2143,7 +2143,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     userId?: number;
 
@@ -2153,7 +2153,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     parameters?: Array<Parameters>;
   }
