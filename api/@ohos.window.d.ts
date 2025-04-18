@@ -29,16 +29,17 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { ColorMetrics } from './@ohos.arkui.node';
 /*** if arkts 1.2 */
 import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { Callback } from './@ohos.base';
 /*** endif */
 
+/*** if arkts 1.1 */
 /**
  * Defines the window callback.
  *
  * @typedef Callback<T, V = void>
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice
- * @since arkts {'1.1':'15', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface Callback<T, V = void> {
   /**
@@ -52,6 +53,7 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+/*** endif */
 
 /**
  * Window manager.
@@ -111,7 +113,7 @@ declare namespace window {
      * @since 7
      * @deprecated since 11
      */
-    TYPE_SYSTEM_ALERT,
+    TYPE_SYSTEM_ALERT = 1,
     /**
      * Input method.
      *
@@ -121,7 +123,7 @@ declare namespace window {
      * @since 9
      * @deprecated since 13
      */
-    TYPE_INPUT_METHOD,
+    TYPE_INPUT_METHOD = 2,
     /**
      * Status bar.
      *
@@ -453,9 +455,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SYSTEM_GESTURE,
+    TYPE_SYSTEM_GESTURE = 2,
 
     /**
      * Area for keyboard
@@ -476,9 +479,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_KEYBOARD,
+    TYPE_KEYBOARD = 3,
 
     /**
      * Area for navigation indicator
@@ -606,7 +610,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNDEFINED = 0,
     /**
@@ -732,7 +737,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isStatusBarLightIcon?: boolean;
 
@@ -782,7 +788,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNavigationBarLightIcon?: boolean;
 
@@ -809,7 +816,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableStatusBarAnimation?: boolean;
 
@@ -819,7 +827,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableNavigationBarAnimation?: boolean;
   }
@@ -1122,7 +1131,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     visible: boolean;
 
@@ -1309,7 +1319,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -1393,14 +1404,15 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface WindowDensityInfo {
+  export interface WindowDensityInfo {
     /**
      * System density
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     systemDensity: number;
 
@@ -1410,7 +1422,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     defaultDensity: number;
 
@@ -1420,7 +1433,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customDensity: number;
   }
@@ -1491,7 +1505,8 @@ declare namespace window {
      * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawableRect: Rect;
     
@@ -1544,7 +1559,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isLayoutFullScreen: boolean;
 
@@ -1561,7 +1577,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     focusable: boolean;
 
@@ -1578,7 +1595,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     touchable: boolean;
 
@@ -1603,7 +1621,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     brightness: number;
 
@@ -1638,7 +1657,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isKeepScreenOn: boolean;
 
@@ -1655,7 +1675,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPrivacyMode: boolean;
 
@@ -1682,7 +1703,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isTransparent: boolean;
 
@@ -1699,7 +1721,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -1709,7 +1732,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
 
@@ -1719,7 +1743,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name?: string;
   }
@@ -2076,7 +2101,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     animationForShown(context: TransitionContext): void;
     /**
@@ -2098,7 +2124,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     animationForHidden(context: TransitionContext): void;
   }
@@ -2255,7 +2282,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxWidth?: number;
 
@@ -2272,7 +2300,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxHeight?: number;
 
@@ -2289,7 +2318,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minWidth?: number;
 
@@ -2306,7 +2336,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minHeight?: number;
   }
@@ -2447,7 +2478,8 @@ declare namespace window {
      * @type { AvoidAreaType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: AvoidAreaType,
 
@@ -2457,7 +2489,8 @@ declare namespace window {
      * @type { AvoidArea }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     area: AvoidArea
   }
@@ -3419,7 +3452,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT_INVERTED = 3,
 
@@ -3458,7 +3492,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION = 5,
 
@@ -3473,7 +3508,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT = 6,
 
@@ -3488,7 +3524,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE = 7,
 
@@ -3519,7 +3556,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
 
@@ -3534,7 +3572,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
 
@@ -3569,7 +3608,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_PORTRAIT = 13,
 
@@ -3578,7 +3618,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_LANDSCAPE = 14,
 
@@ -3587,7 +3628,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_PORTRAIT_INVERTED = 15,
 
@@ -3596,7 +3638,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_LANDSCAPE_INVERTED = 16,
 
@@ -3605,7 +3648,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_DESKTOP = 17
   }
@@ -3688,7 +3732,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_SHOWN = 1,
     /**
@@ -3719,7 +3764,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_INACTIVE = 3,
     /**
@@ -3734,7 +3780,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_HIDDEN = 4,
     /**
@@ -3742,7 +3789,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_DESTROYED = 7
   }
@@ -3803,14 +3851,15 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface MoveConfiguration {
+  export interface MoveConfiguration {
     /**
      * The display id of the screen
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
   }
@@ -4246,7 +4295,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moveWindowTo(x: number, y: number): Promise<void>;
 
@@ -4290,7 +4340,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moveWindowTo(x: number, y: number, callback: AsyncCallback<void>): void;
 
@@ -4441,7 +4492,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resize(width: number, height: number): Promise<void>;
 
@@ -4488,7 +4540,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resize(width: number, height: number, callback: AsyncCallback<void>): void;
 
@@ -5520,7 +5573,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUIContent(path: string): Promise<void>;
 
@@ -9261,9 +9315,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    INACTIVE,
+    INACTIVE = 3,
     /**
      * The window stage is running in the background.
      *
@@ -9286,9 +9341,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    HIDDEN,
+    HIDDEN = 4,
     /**
      * The window stage is interactive in the foreground.
      *
@@ -9307,9 +9363,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    PAUSED
+    PAUSED = 6
   }
 
   /**
@@ -9573,7 +9630,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindowSync(): Window;
     /**
@@ -9901,7 +9959,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -9918,7 +9977,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -9936,7 +9996,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
