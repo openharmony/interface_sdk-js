@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.1 */
-import { int } from '@ohos.base'
+import { int } from '@ohos.base';
 /*** endif */
 /**
  * The result of requestPermissionsFromUser with asynchronous callback.
