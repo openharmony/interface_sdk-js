@@ -9295,6 +9295,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     release(): Promise<void>;
   }
+
+  /**
+   * Obtains the image formats (MIME types) that can be decoded.
+   *
+   * @returns { string[] } Returns an array of the supported image formats.
+   * @syscap SystemCapability.Multimedia.ImageSource
+   * @since 20
+   * @arkts 1.2
+   */
+  function getImageSourceSupportedFormats(): string[];
+
+  /**
+   * Obtains the image formats (MIME types) that can be encoded.
+   *
+   * @returns { string[] } Returns an array of the supported image formats.
+   * @syscap SystemCapability.Multimedia.ImagePacker
+   * @since 20
+   * @arkts 1.2
+   */
+  function getImagePackerSupportedFormats(): string[];
 }
 
 export default image;
