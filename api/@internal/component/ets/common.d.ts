@@ -65,7 +65,7 @@ import { CircleAttribute } from './circle';
 import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
-import { LocalStorage } from '../stateManagement/storage'
+import { LocalStorage } from '../stateManagement/storages/localStorage'
 /*** endif */
 
 /**
@@ -13250,17 +13250,6 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @since 15
  */
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
-/**
- * Import the GetDataParams type object for ui component.
- *
- * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DataSyncOptions = unifiedDataChannel.GetDataParams;
 /** 
  * Import the UniformDataType type object for ui component.
  *
@@ -14561,8 +14550,7 @@ declare interface DragEvent {
    * @throws { BusinessError } 190003 - Operation no allowed for current pharse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   startDataLoading(options: DataSyncOptions): string;
 }
@@ -27520,8 +27508,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
 
@@ -27720,11 +27707,22 @@ declare class CommonMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
+/**
+ * CommonAttribute for ide.
+ *
+ * @typedef  { CommonMethod } CommonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type CommonAttribute = CommonMethod
 /**
  * CommonInterface for ide.
  *
@@ -29714,8 +29712,7 @@ declare type PromptActionDialogController = promptAction.DialogController;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare class CustomComponent extends BaseCustomComponent {
   /**
@@ -29737,17 +29734,6 @@ declare class CustomComponent extends BaseCustomComponent {
    */
   aboutToReuse?(params: { [key: string]: unknown }): void;
 
-  /**
-   * aboutToReuse Method
-   *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToReuse?:(params: Record<string,Object>)=> void;
 
   /**
    * Custom component override this method to layout each of its sub components.
@@ -29784,8 +29770,7 @@ declare class CustomComponent extends BaseCustomComponent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
@@ -29798,17 +29783,6 @@ declare class CustomComponentV2 extends BaseCustomComponent {
    * @since 18
    */
   aboutToReuse?(): void;
-  /**
-   * aboutToReuse Method for @ComponentV2, it is executed when fetching instance of custom component from RecyclePool.
-   * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToReuse?:()=> void;
 }
 
 /**
@@ -29819,8 +29793,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare class BaseCustomComponent extends CommonAttribute {
     /**
@@ -29860,8 +29833,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   build(): void;
 
@@ -29915,19 +29887,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   aboutToAppear?(): void;
-  /**
-   * aboutToAppear Method
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToAppear?:()=> void;
+
   /**
    * aboutToDisappear Method
    *
@@ -29978,19 +29938,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   aboutToDisappear?(): void;
-  /**
-   * aboutToDisappear Method
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToDisappear?:()=> void;
+
 
   /**
    * aboutToRecycle Method
@@ -30016,16 +29964,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   aboutToRecycle?(): void;
-  /**
-   * aboutToRecycle Method
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToRecycle?:()=>void;
+
 
   /**
    * The onWillApplyTheme function is a custom hook to get active theme object from the context
@@ -30047,17 +29986,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onWillApplyTheme?(theme: Theme): void;
 
-  /**
-   * The onWillApplyTheme function is a custom hook to get active theme object from the context
-   * 
-   * @param { Theme } theme - Custom theme init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onWillApplyTheme?:(theme: Theme)=> void;
+
 
   /**
    * Custom component override this method to layout each of its sub components.
@@ -30092,19 +30021,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
-  /**
-   * Custom component override this method to layout each of its sub components.
-   *
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Layoutable> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onPlaceChildren?:(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions)=> void;
+
 
   /**
    * Custom component override this method to measure each of its sub components.
@@ -30139,19 +30056,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
-  /**
-   * Custom component override this method to measure each of its sub components.
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Measurable> } children - indicate the measure child
-   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
-   * @returns { SizeResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onMeasureSize?:(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions)=> SizeResult;
+
 
   /**
    * onPageShow Method
@@ -30191,18 +30096,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onPageShow?(): void;
-  /**
-   * onPageShow Method
-   *
-   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onPageShow?:()=> void;
+
 
   /**
    * onPageHide Method
@@ -30242,18 +30136,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onPageHide?(): void;
-  /**
-   * onPageHide Method
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onPageHide?:()=> void;
+
   /**
    * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
    * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
@@ -30290,20 +30173,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onFormRecycle?(): string;
-  /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form
-   *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onFormRecycle?:()=> string;
+
 
   /**
    * onFormRecover Method, this is only for ArkTS form
@@ -30337,18 +30207,6 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onFormRecover?(statusData: string): void;
 
-  /**
-   * onFormRecover Method, this is only for ArkTS form
-   *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onFormRecover?:(statusData: string)=> void;
 
   /**
    * onBackPress Method
@@ -30399,21 +30257,6 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onBackPress?(): void | boolean;
 
-  /**
-   * onBackPress Method
-   *
-   * Triggered when the user clicks the back button
-   * 
-   * @returns { void | boolean } true means that the page itself processes the return logic.
-   * false means that the default return logic is used.
-   * If no value is returned, the default return logic is used.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onBackPress?:()=> undefined | boolean;
 
   /**
    * PageTransition Method.
@@ -30450,17 +30293,6 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   pageTransition?(): void;
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pageTransition?:()=> void;
 
 
   /**
@@ -30487,8 +30319,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getUIContext(): UIContext;
 
@@ -30508,8 +30339,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getUniqueId(): number;
 
@@ -30537,8 +30367,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
   
@@ -30550,8 +30379,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
 
@@ -30571,8 +30399,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   queryNavigationInfo(): NavigationInfo | undefined;
 
@@ -30592,8 +30419,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
    queryRouterPageInfo(): RouterPageInfo | undefined;
 
@@ -30618,18 +30444,6 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
    onDidBuild?(): void;
-  /**
-   * The callback method after the custom component is built.
-   *
-   * Triggered when the custom component has been built.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onDidBuild?:()=> void;
 
   /**
    * The dialog controller of the custom component.
@@ -30638,8 +30452,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getDialogController(): PromptActionDialogController | undefined;
 
@@ -30653,17 +30466,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 18
    */
   onNewParam?(param: ESObject): void;
-  /**
-   * Triggered when the Entry custom component has been pushed with singleton mode.
-   *
-   * @param { Object } param - New parameters pushed with singleton mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onNewParam?:(param: Object)=> void;
+
 }
 /**
  * View
@@ -32451,10 +32254,23 @@ declare interface UIGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
+
+  /**
+   * Add a gesture bound to the component.
+   *
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
+   * @param { GesturePriority } priority - priority indicates the gesture's priority.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
    * Add a parallel gesture bound to the component.
@@ -32464,10 +32280,22 @@ declare interface UIGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
+  /**
+   * Add a parallel gesture bound to the component.
+   *
+   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
+
 
   /**
    * Remove the gesture that is bound to the component and marked as tag.

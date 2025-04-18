@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { ResourceColor, Offset } from './units';
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType,
+   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback } from './common';
 import { DialogAlignment } from './alertDialog';
 import intl from '../../@ohos.intl';
 import { CrownSensitivity } from './enums';
@@ -643,8 +644,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
 

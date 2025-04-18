@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource'
-import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common'
+import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, 
+  BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common'
 import { Offset, VoidCallback, ResourceColor } from './units'
 /*** endif */
 

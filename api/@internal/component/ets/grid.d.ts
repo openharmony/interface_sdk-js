@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional } from './common';
-import { Length } from './units';
+import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional,CommonMethod } from './common';
+import { Length,Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { ScrollState } from './list'
 import { BarState, Color, EdgeEffect } from './enums'

@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { LengthMetrics } from './Graphics';
+import { LengthMetrics } from '../Graphics';
 import { PointLightStyle, CommonMethod } from './common';
 import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
 /*** endif */

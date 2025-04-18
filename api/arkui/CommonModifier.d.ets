@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier,CommonAttribute } from './component/common'
 
 /**
  * Defines Common Modifier
@@ -29,20 +28,7 @@ import { AttributeModifier,CommonAttribute } from './component/common'
  * @atomicservice
  * @since 12
 */
-export declare class CommonModifier extends CommonAttribute implements AttributeModifier<CommonAttribute> {
+export declare class CommonModifier {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { CommonAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute: undefined | ((instance: CommonAttribute) => void);
-  applyPressedAttribute: undefined | ((instance: CommonAttribute) => void);
-  applyFocusedAttribute: undefined | ((instance: CommonAttribute) => void);
-  applyDisabledAttribute: undefined | ((instance: CommonAttribute) => void);
-  applySelectedAttribute: undefined | ((instance: CommonAttribute) => void);
+ 
 }

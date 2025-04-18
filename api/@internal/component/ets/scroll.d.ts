@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { BarState, Edge, Color, EdgeEffect, ScrollSource } from './enums'
-import { Curve, ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions } from './common'
+import { BarState, Edge, Color, EdgeEffect, ScrollSource ,Curve} from './enums'
+import { ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions,CommonMethod } from './common'
 import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './units'
 import { ScrollSnapAlign, ScrollState } from './list'
 /*** endif */

@@ -20,8 +20,9 @@
 
 /*** if arkts 1.2 */
 import Want from '../../@ohos.app.ability.Want'
-import { Callback, ErrorCallback } from '../../@ohos.base'
+import { Callback, ErrorCallback,BusinessError } from '../../@ohos.base'
 import { CommonMethod } from './common'
+import { ComponentContent } from '../ComponentContent'
 /*** endif */
 
 /**
@@ -205,7 +206,7 @@ declare interface TerminationInfo {
    /**
    * Defines the additional termination information.
    *
-   * @type { ?import('../api/@ohos.app.ability.Want').default }
+   * @type { ?Want }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
@@ -541,7 +542,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @arkts 1.2
    */
   onError(
-    callback: ErrorCallback
+    callback: ErrorCallback<BusinessError>
   ): UIExtensionComponentAttribute;
 
   /**
@@ -585,17 +586,3 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
  */
 declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
 
-/**
- * Defines UIExtensionComponent Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-@memo
-@ComponentBuilder
-export declare function UIExtensionComponent(
-    want: Want, options?: UIExtensionOptions | undefined, 
-    @memo
-    content_?: () => void,
-): UIExtensionComponentAttribute

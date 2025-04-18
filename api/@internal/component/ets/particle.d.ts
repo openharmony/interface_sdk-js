@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { SizeT as _SizeT, PositionT as _PositionT } from '../../../arkui/Graphics'
+import { SizeT as _SizeT, PositionT as _PositionT } from '../../arkui/Graphics'
 import { VP, ResourceStr,Dimension,ResourceColor } from './units'
 import { ImageFit, Curve } from './enums'
 import { ICurve, CommonMethod } from './common'
@@ -460,8 +460,7 @@ interface ImageParticleParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ParticleConfigs {
   /**
@@ -868,8 +867,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
@@ -1662,15 +1660,27 @@ export interface Particles<
 
 /**
  * Defines the particle .
- * @param { Particles } particles - Particle value
- * @returns { ParticleAttribute } Returns the particle attribute.
+ * 
+ * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-export type ParticleInterface = (particles: Particles) => ParticleAttribute;
+export interface ParticleInterface {
+  /**
+   * Defines the particle .
+   * @param { Particles } particles - Particle value
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */  
+ (particles: Particles): ParticleAttribute;
+}
 
 /**
  * Defines the particle Interface.
@@ -2063,7 +2073,8 @@ declare const Particle: ParticleInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DisturbanceFieldOptions {
 

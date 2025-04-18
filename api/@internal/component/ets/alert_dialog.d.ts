@@ -24,7 +24,9 @@ import {
   LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles
 } from './units';
 import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
-import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason } from "./common";
+import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason,
+  BackgroundBlurStyleOptions,BackgroundEffectOptions } from './common';
+import { LevelOrder,ImmersiveMode,LevelMode } from '../../@ohos.promptAction'
 /*** endif */
 
 /**
@@ -610,8 +612,7 @@ declare interface TextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
 
@@ -1516,8 +1517,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class AlertDialog {
   /**

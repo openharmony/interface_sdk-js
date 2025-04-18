@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder, ScrollableCommonMethod, NestedScrollOptions } from './common';
-import { Length, Dimension, Margin, ConstraintSizeOptions } from './units';
+import { CustomBuilder, ScrollableCommonMethod, NestedScrollOptions,CommonMethod } from './common';
+import { Length, Dimension, Margin, ConstraintSizeOptions,Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { ScrollState } from './list'
 import { FlexDirection } from './enums'

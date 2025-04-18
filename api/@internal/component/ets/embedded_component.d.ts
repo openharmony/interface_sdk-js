@@ -20,9 +20,10 @@
 
 /*** if arkts 1.2 */
 import { TerminationInfo } from './uiExtensionComponent'
-import { Want } from '../../@ohos.app.ability.Want'
-import { Callback, ErrorCallback } from '../../@ohos.base'
+import Want from '../../@ohos.app.ability.Want'
+import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { CommonMethod } from './common'
+import { EmbeddedType } from './enums'
 /*** endif */
 
 /**
@@ -154,7 +155,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 20
    * @arkts 1.2
    */
-  onError(callback: ErrorCallback): EmbeddedComponentAttribute;
+  onError(callback: ErrorCallback<BusinessError>): EmbeddedComponentAttribute;
 }
 
 /**
@@ -174,19 +175,3 @@ declare const EmbeddedComponent: EmbeddedComponentInterface;
  * @since 12
  */
 declare const EmbeddedComponentInstance: EmbeddedComponentAttribute;
-
-/**
- * Defines EmbeddedComponent Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-@memo
-@ComponentBuilder
-export declare function EmbeddedComponent(
-    loader: Want, type: EmbeddedType, 
-    @memo
-    content_?: () => void,
-): EmbeddedComponentAttribute

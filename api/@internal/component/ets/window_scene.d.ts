@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import { Position } from './units'
+import { CommonMethod } from './common'
 /*** endif */
 
 /**

@@ -19,10 +19,10 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from './global/resource'
+import { Resource } from '../../global/resource'
 import { ResourceColor } from './units';
 import { FontWeight } from './enums';
-import { CommonMethod } from "./common";
+import { CommonMethod,Optional } from "./common";
 /*** endif */
 
 /**

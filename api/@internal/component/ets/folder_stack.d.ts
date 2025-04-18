@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { WindowStatusType } from '../../@ohos.window';
+import window from '../../@ohos.window';
 import { FoldStatus, Alignment, AppRotation } from './enums';
 import { CommonMethod } from './common';
 /*** endif */
@@ -33,6 +33,17 @@ import { CommonMethod } from './common';
  * @since 12
  */
 declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
+
+/**
+ * Import the WindowStatusType type object for onHoverStatusChange.
+ *
+ * @typedef { window.WindowStatusType } WindowStatusType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type WindowStatusType = window.WindowStatusType
 
 /**
  * FolderStack constructor options.
@@ -159,7 +170,8 @@ interface OnFoldStatusChangeInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 
@@ -170,34 +182,10 @@ declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => voi
  * @param { HoverEventParam } param - hover event param
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
-
-/**
- * Callback when onStateChangeCallback.
- *
- * @typedef { function } OnFoldStatusChangeCallback
- * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
-
-/**
- * Callback when onHoverStatusChange.
- * 
- * @typedef { function } OnHoverStatusChangeCallback
- * @param { HoverEventParam } param - hover event param
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
 
 /**
  * @extends CommonMethod<FolderStackAttribute>
