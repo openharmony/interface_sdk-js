@@ -36,7 +36,8 @@ import { ResizableOptions } from './image'
 import { FocusBoxStyle, FocusPriority } from './focus'
 import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
 // FIXME when we have a @ohos.web.webview.d.ets replace this stub
-type WebviewController = string
+import webview from './../../../api/@ohos.web.webview'
+export type WebviewController = webview.WebviewController;
 export type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 export type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 export type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentfulPaint) => void;
