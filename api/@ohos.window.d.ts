@@ -9244,7 +9244,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
