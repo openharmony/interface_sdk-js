@@ -853,6 +853,15 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines WaterFlow Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare const WaterFlow: WaterFlowInterface;
 
 /**
