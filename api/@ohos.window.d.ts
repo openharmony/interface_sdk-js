@@ -27,7 +27,12 @@ import { UIContext } from './@ohos.arkui.UIContext';
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { ColorMetrics } from './@ohos.arkui.node';
+/*** if arkts 1.2 */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { Callback } from './@ohos.base';
+/*** endif */
 
+/*** if arkts 1.1 */
 /**
  * Defines the window callback.
  *
@@ -48,6 +53,7 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+/*** endif */
 
 /**
  * Window manager.
@@ -70,7 +76,8 @@ declare interface Callback<T, V = void> {
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace window {
   /**
@@ -86,17 +93,19 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum WindowType {
+  export enum WindowType {
     /**
      * App.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @FAModelOnly
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_APP,
+    TYPE_APP = 0,
     /**
      * System alert.
      *
@@ -104,7 +113,7 @@ declare namespace window {
      * @since 7
      * @deprecated since 11
      */
-    TYPE_SYSTEM_ALERT,
+    TYPE_SYSTEM_ALERT = 1,
     /**
      * Input method.
      *
@@ -114,52 +123,57 @@ declare namespace window {
      * @since 9
      * @deprecated since 13
      */
-    TYPE_INPUT_METHOD,
+    TYPE_INPUT_METHOD = 2,
     /**
      * Status bar.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_STATUS_BAR,
+    TYPE_STATUS_BAR = 3,
     /**
      * Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_PANEL,
+    TYPE_PANEL = 4,
     /**
      * Keyguard.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_KEYGUARD,
+    TYPE_KEYGUARD = 5,
     /**
      * Volume.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_VOLUME_OVERLAY,
+    TYPE_VOLUME_OVERLAY = 6,
     /**
      * Navigation bar.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_NAVIGATION_BAR,
+    TYPE_NAVIGATION_BAR = 7,
     /**
      * Float.
      *
@@ -175,72 +189,80 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT,
+    TYPE_FLOAT = 8,
     /**
      * Wallpaper.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_WALLPAPER,
+    TYPE_WALLPAPER = 9,
     /**
      * Desktop.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DESKTOP,
+    TYPE_DESKTOP = 10,
     /**
      * Recent.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_LAUNCHER_RECENT,
+    TYPE_LAUNCHER_RECENT = 11,
     /**
      * Dock.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_LAUNCHER_DOCK,
+    TYPE_LAUNCHER_DOCK = 12,
     /**
      * Voice interaction.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_VOICE_INTERACTION,
+    TYPE_VOICE_INTERACTION = 13,
     /**
      * Pointer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_POINTER,
+    TYPE_POINTER = 14,
     /**
      * Float camera.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT_CAMERA,
+    TYPE_FLOAT_CAMERA = 15,
     /**
      * Dialog.
      *
@@ -254,81 +276,90 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DIALOG,
+    TYPE_DIALOG = 16,
     /**
      * Screenshot.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SCREENSHOT,
+    TYPE_SCREENSHOT = 17,
     /**
      * System Toast.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SYSTEM_TOAST,
+    TYPE_SYSTEM_TOAST = 18,
     /**
      * Divider.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_DIVIDER,
+    TYPE_DIVIDER = 19,
     /**
      * Global Search.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_GLOBAL_SEARCH,
+    TYPE_GLOBAL_SEARCH = 20,
     /**
      * Handwrite.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_HANDWRITE,
+    TYPE_HANDWRITE = 21,
     /**
      * TYPE_WALLET_SWIPE_CARD.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_WALLET_SWIPE_CARD,
+    TYPE_WALLET_SWIPE_CARD = 22,
     /**
      * Screen Control
      * 
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SCREEN_CONTROL,
+    TYPE_SCREEN_CONTROL = 23,
     /**
      * TYPE_FLOAT_NAVIGATION.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_FLOAT_NAVIGATION
+    TYPE_FLOAT_NAVIGATION = 24
   }
 
   /**
@@ -353,9 +384,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum AvoidAreaType {
+  export enum AvoidAreaType {
     /**
      * Default area of the system
      *
@@ -375,9 +407,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SYSTEM,
+    TYPE_SYSTEM = 0,
 
     /**
      * Notch
@@ -398,9 +431,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_CUTOUT,
+    TYPE_CUTOUT = 1,
 
     /**
      * Area for system gesture
@@ -421,9 +455,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_SYSTEM_GESTURE,
+    TYPE_SYSTEM_GESTURE = 2,
 
     /**
      * Area for keyboard
@@ -444,9 +479,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_KEYBOARD,
+    TYPE_KEYBOARD = 3,
 
     /**
      * Area for navigation indicator
@@ -461,9 +497,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TYPE_NAVIGATION_INDICATOR
+    TYPE_NAVIGATION_INDICATOR = 4
   }
   /**
    * Describes the window mode of an application
@@ -471,9 +508,10 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum WindowMode {
+  export enum WindowMode {
     /**
      * Undefined mode of the window
      *
@@ -511,9 +549,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FLOATING
+    FLOATING = 5
   }
 
   /**
@@ -524,7 +563,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  enum WindowLayoutMode {
+  export enum WindowLayoutMode {
     /**
      * CASCADE
      *
@@ -556,9 +595,10 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum WindowStatusType {
+  export enum WindowStatusType {
     /**
      * Undefined status of the window
      *
@@ -570,7 +610,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNDEFINED = 0,
     /**
@@ -584,9 +625,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FULL_SCREEN,
+    FULL_SCREEN = 1,
     /**
      * Maximize status of the window
      *
@@ -598,9 +640,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MAXIMIZE,
+    MAXIMIZE = 2,
     /**
      * Minimize status of the window
      *
@@ -612,9 +655,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MINIMIZE,
+    MINIMIZE = 3,
     /**
      * Floating status of the window
      *
@@ -626,9 +670,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    FLOATING,
+    FLOATING = 4,
     /**
      * Split screen status of the window
      *
@@ -640,9 +685,10 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    SPLIT_SCREEN
+    SPLIT_SCREEN = 5
   }
 
   /**
@@ -658,9 +704,10 @@ declare namespace window {
    * @interface SystemBarProperties
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SystemBarProperties {
+  export interface SystemBarProperties {
     /**
      * The color of the status bar.
      *
@@ -673,7 +720,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     statusBarColor?: string;
 
@@ -689,7 +737,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isStatusBarLightIcon?: boolean;
 
@@ -705,7 +754,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     statusBarContentColor?: string;
 
@@ -721,7 +771,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationBarColor?: string;
 
@@ -737,7 +788,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNavigationBarLightIcon?: boolean;
 
@@ -753,7 +805,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationBarContentColor?: string;
 
@@ -763,7 +816,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableStatusBarAnimation?: boolean;
 
@@ -773,7 +827,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableNavigationBarAnimation?: boolean;
   }
@@ -804,16 +859,18 @@ declare namespace window {
    * @interface SystemBarStyle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SystemBarStyle {
+  export interface SystemBarStyle {
     /**
      * The content color of the status bar
      *
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     statusBarContentColor?: string;
   }
@@ -826,7 +883,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  interface SystemBarRegionTint {
+  export interface SystemBarRegionTint {
     /**
      * System bar type
      *
@@ -886,7 +943,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  interface SystemBarTintState {
+  export interface SystemBarTintState {
     /**
      * Id of display
      *
@@ -929,9 +986,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface Rect {
+  export interface Rect {
 
     /**
      * The left of the Rect.
@@ -953,7 +1011,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
 
@@ -977,7 +1036,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -1001,7 +1061,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -1025,7 +1086,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -1052,9 +1114,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface AvoidArea {
+  export interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
      *
@@ -1068,7 +1131,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     visible: boolean;
 
@@ -1094,7 +1158,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     leftRect: Rect;
 
@@ -1120,7 +1185,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     topRect: Rect;
 
@@ -1146,7 +1212,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rightRect: Rect;
 
@@ -1172,7 +1239,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottomRect: Rect;
   }
@@ -1199,9 +1267,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface Size {
+  export interface Size {
     /**
      * The width of the window.
      *
@@ -1224,7 +1293,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -1249,7 +1319,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -1262,7 +1333,7 @@ declare namespace window {
    * @systemapi
    * @since 12
    */
-  interface WindowInfo {
+  export interface WindowInfo {
     /**
      * The position and size of the window
      *
@@ -1330,16 +1401,18 @@ declare namespace window {
    * @interface WindowDensityInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface WindowDensityInfo {
+  export interface WindowDensityInfo {
     /**
      * System density
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     systemDensity: number;
 
@@ -1349,7 +1422,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     defaultDensity: number;
 
@@ -1359,7 +1433,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customDensity: number;
   }
@@ -1386,9 +1461,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface WindowProperties {
+  export interface WindowProperties {
     /**
      * The position and size of the window
      *
@@ -1411,7 +1487,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect: Rect;
 
@@ -1428,7 +1505,8 @@ declare namespace window {
      * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawableRect: Rect;
     
@@ -1445,7 +1523,8 @@ declare namespace window {
      * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: WindowType;
 
@@ -1462,7 +1541,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isFullScreen: boolean;
 
@@ -1479,7 +1559,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isLayoutFullScreen: boolean;
 
@@ -1496,7 +1577,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     focusable: boolean;
 
@@ -1513,7 +1595,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     touchable: boolean;
 
@@ -1538,7 +1621,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     brightness: number;
 
@@ -1573,7 +1657,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isKeepScreenOn: boolean;
 
@@ -1590,7 +1675,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPrivacyMode: boolean;
 
@@ -1617,7 +1703,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isTransparent: boolean;
 
@@ -1634,7 +1721,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -1644,7 +1732,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
 
@@ -1654,7 +1743,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name?: string;
   }
@@ -1665,7 +1755,8 @@ declare namespace window {
    * @interface DecorButtonStyle
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DecorButtonStyle {
     /**
@@ -1731,9 +1822,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum ColorSpace {
+  export enum ColorSpace {
     /**
      * Default color space.
      *
@@ -1753,9 +1845,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    DEFAULT,
+    DEFAULT = 0,
     /**
      * Wide gamut color space. The specific wide color gamut depends on thr screen.
      *
@@ -1775,9 +1868,10 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    WIDE_GAMUT
+    WIDE_GAMUT = 1
   }
   /**
    * Describes the scale Transition Options of window
@@ -1785,9 +1879,10 @@ declare namespace window {
    * @interface ScaleOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface ScaleOptions {
+  export interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
      *
@@ -1835,9 +1930,10 @@ declare namespace window {
    * @interface RotateOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface RotateOptions {
+  export interface RotateOptions {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
@@ -1895,9 +1991,10 @@ declare namespace window {
    * @interface TranslateOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface TranslateOptions {
+  export interface TranslateOptions {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
@@ -1935,16 +2032,18 @@ declare namespace window {
    * @interface TransitionContext
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface TransitionContext {
+  export interface TransitionContext {
     /**
      * The target window with animation
      *
      * @type { Window }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toWindow: Window;
 
@@ -1967,7 +2066,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     completeTransition(isCompleted: boolean): void;
   }
@@ -1978,9 +2078,10 @@ declare namespace window {
    * @interface TransitionController
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface TransitionController {
+  export interface TransitionController {
     /**
      * Animation configuration when showing window
      *
@@ -2000,7 +2101,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     animationForShown(context: TransitionContext): void;
     /**
@@ -2022,7 +2124,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     animationForHidden(context: TransitionContext): void;
   }
@@ -2042,7 +2145,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface Configuration {
+  export interface Configuration {
     /**
      * Indicates window id.
      *
@@ -2161,9 +2264,10 @@ declare namespace window {
    * @interface WindowLimits
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface WindowLimits {
+  export interface WindowLimits {
     
     /**
      * The maximum width of the window.
@@ -2178,7 +2282,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxWidth?: number;
 
@@ -2195,7 +2300,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxHeight?: number;
 
@@ -2212,7 +2318,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minWidth?: number;
 
@@ -2229,7 +2336,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minHeight?: number;
   }
@@ -2247,9 +2355,10 @@ declare namespace window {
    * @interface TitleButtonRect
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface TitleButtonRect {
+  export interface TitleButtonRect {
 
     /**
      * The right of the Rect.
@@ -2298,7 +2407,8 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -2326,9 +2436,10 @@ declare namespace window {
    * @interface RectChangeOptions
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface RectChangeOptions {
+  export interface RectChangeOptions {
     /**
      * Rect
      *
@@ -2345,7 +2456,8 @@ declare namespace window {
      * @type { RectChangeReason }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: RectChangeReason
   }
@@ -2356,16 +2468,18 @@ declare namespace window {
    * @interface AvoidAreaOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface AvoidAreaOptions {
+  export interface AvoidAreaOptions {
     /**
      * Avoid area type
      *
      * @type { AvoidAreaType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: AvoidAreaType,
 
@@ -2375,7 +2489,8 @@ declare namespace window {
      * @type { AvoidArea }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     area: AvoidArea
   }
@@ -2386,15 +2501,17 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum RectChangeReason {
+  export enum RectChangeReason {
     /**
      * Default RectChangeReason.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNDEFINED = 0,
 
@@ -2403,54 +2520,60 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MAXIMIZE,
+    MAXIMIZE = 1,
 
     /**
      * Window recover.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    RECOVER,
+    RECOVER = 2,
 
     /**
      * Window move.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MOVE,
+    MOVE = 3,
 
     /**
      * Window drag.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    DRAG,
+    DRAG = 4,
 
     /**
      * Window drag start.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    DRAG_START,
+    DRAG_START = 5,
 
     /**
      * Window drag end.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    DRAG_END,
+    DRAG_END = 6,
   }
 
   /**
@@ -2489,7 +2612,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
+  export function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -2527,7 +2650,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function createWindow(config: Configuration): Promise<Window>;
+  export function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -2541,7 +2664,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  export function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -2555,7 +2678,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(id: string, type: WindowType): Promise<Window>;
+  export function create(id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -2569,7 +2692,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
+  export function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -2583,7 +2706,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  export function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -2595,7 +2718,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  function find(id: string, callback: AsyncCallback<Window>): void;
+  export function find(id: string, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -2607,7 +2730,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  function find(id: string): Promise<Window>;
+  export function find(id: string): Promise<Window>;
 
   /**
    * Find the window by name.
@@ -2645,7 +2768,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  function findWindow(name: string): Window;
+  export function findWindow(name: string): Window;
 
   /**
    * Get the final show window.
@@ -2657,7 +2780,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(callback: AsyncCallback<Window>): void;
+  export function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -2669,7 +2792,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(): Promise<Window>;
+  export function getTopWindow(): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -2681,7 +2804,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(ctx: BaseContext): Promise<Window>;
+  export function getTopWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -2693,7 +2816,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  export function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -2732,9 +2855,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  export function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -2773,9 +2897,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getLastWindow(ctx: BaseContext): Promise<Window>;
+  export function getLastWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Minimize all app windows.
@@ -2805,7 +2930,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+  export function minimizeAll(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
@@ -2835,7 +2960,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function minimizeAll(id: number): Promise<void>;
+  export function minimizeAll(id: number): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -2857,7 +2982,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+  export function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -2879,7 +3004,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function toggleShownStateForAllAppWindows(): Promise<void>;
+  export function toggleShownStateForAllAppWindows(): Promise<void>;
 
   /**
    * Set the layout mode of a window.
@@ -2908,7 +3033,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+  export function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
   /**
    * Set the layout mode of a window.
@@ -2937,7 +3062,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+  export function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -2953,7 +3078,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+  export function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -2969,7 +3094,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+  export function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -2985,7 +3110,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -3001,7 +3126,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
+  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
@@ -3034,7 +3159,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  export function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
    * Shift window pointer event within the same application. And the window type contains only main window and subwindow.
@@ -3065,7 +3190,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
+  export function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
@@ -3082,7 +3207,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getSnapshot(windowId: number): Promise<image.PixelMap>;
+  export function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
    * Get windows by coordinate.
@@ -3099,7 +3224,8 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
+  export function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+      Promise<Array<Window>>;
 
   /**
    * Get Layout info of all windows on the selected display.
@@ -3131,7 +3257,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
+  export function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
   /**
    * Unregister the callback of systemBarTintChange
@@ -3145,7 +3271,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+  export function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
@@ -3162,7 +3288,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
+  export function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for gesture navigation enabled changes.
@@ -3178,7 +3304,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+  export function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for watermark flag change.
@@ -3193,7 +3319,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+  export function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for watermark flag change.
@@ -3208,7 +3334,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+  export function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
   /**
    * Display orientation
    *
@@ -3231,9 +3357,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum Orientation {
+  export enum Orientation {
     /**
      * Default value. The direction mode is not clearly defined. It is determined by the system.
      *
@@ -3253,7 +3380,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSPECIFIED = 0,
 
@@ -3276,7 +3404,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT = 1,
 
@@ -3299,7 +3428,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LANDSCAPE = 2,
 
@@ -3322,7 +3452,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT_INVERTED = 3,
 
@@ -3345,7 +3476,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LANDSCAPE_INVERTED = 4,
 
@@ -3360,7 +3492,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION = 5,
 
@@ -3375,7 +3508,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT = 6,
 
@@ -3390,7 +3524,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE = 7,
 
@@ -3405,7 +3540,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_RESTRICTED = 8,
 
@@ -3420,7 +3556,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
 
@@ -3435,7 +3572,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
 
@@ -3450,7 +3588,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCKED = 11,
 
@@ -3459,7 +3598,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_UNSPECIFIED = 12,
 
@@ -3468,7 +3608,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_PORTRAIT = 13,
 
@@ -3477,7 +3618,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_LANDSCAPE = 14,
 
@@ -3486,7 +3628,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_PORTRAIT_INVERTED = 15,
 
@@ -3495,7 +3638,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_ROTATION_LANDSCAPE_INVERTED = 16,
 
@@ -3504,7 +3648,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_DESKTOP = 17
   }
@@ -3515,41 +3660,46 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum BlurStyle {
+  export enum BlurStyle {
     /**
      * Close blur.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    OFF,
+    OFF = 0,
     /**
      * Blur style thin.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    THIN,
+    THIN = 1,
     /**
      * Blur style regular.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    REGULAR,
+    REGULAR = 2,
     /**
      * Blur style thick.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    THICK
+    THICK = 3
   }
 
   /**
@@ -3566,9 +3716,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum WindowEventType {
+  export enum WindowEventType {
     /**
      * The value of window event is window show
      *
@@ -3581,7 +3732,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_SHOWN = 1,
     /**
@@ -3596,7 +3748,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_ACTIVE = 2,
     /**
@@ -3611,7 +3764,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_INACTIVE = 3,
     /**
@@ -3626,7 +3780,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_HIDDEN = 4,
     /**
@@ -3634,7 +3789,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_DESTROYED = 7
   }
@@ -3645,15 +3801,17 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum MaximizePresentation {
+  export enum MaximizePresentation {
     /**
      * The value means follow immersive state which set by app
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_APP_IMMERSIVE_SETTING = 0,
     /**
@@ -3661,7 +3819,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXIT_IMMERSIVE = 1,
     /**
@@ -3669,7 +3828,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTER_IMMERSIVE = 2,
     /**
@@ -3688,16 +3848,18 @@ declare namespace window {
    * @interface MoveConfiguration
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface MoveConfiguration {
+  export interface MoveConfiguration {
     /**
      * The display id of the screen
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
   }
@@ -3716,7 +3878,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
@@ -3754,9 +3917,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface Window {
+  export interface Window {
     /**
      * Hide window.
      *
@@ -4131,7 +4295,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moveWindowTo(x: number, y: number): Promise<void>;
 
@@ -4175,7 +4340,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moveWindowTo(x: number, y: number, callback: AsyncCallback<void>): void;
 
@@ -4326,7 +4492,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resize(width: number, height: number): Promise<void>;
 
@@ -4373,7 +4540,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resize(width: number, height: number, callback: AsyncCallback<void>): void;
 
@@ -4563,7 +4731,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowProperties(): WindowProperties;
 
@@ -4640,7 +4809,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
@@ -4777,7 +4947,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
 
@@ -4885,7 +5056,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
@@ -4917,7 +5089,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise<void>;
 
@@ -5001,7 +5174,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
@@ -5115,7 +5289,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPreferredOrientation(orientation: Orientation): Promise<void>;
 
@@ -5156,7 +5331,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -5214,7 +5390,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -5261,7 +5438,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
@@ -5311,7 +5489,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUIContext() : UIContext;
 
@@ -5352,7 +5531,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUIContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -5393,7 +5573,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUIContent(path: string): Promise<void>;
 
@@ -5535,7 +5716,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
@@ -5570,7 +5752,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -6082,7 +6265,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
@@ -6106,7 +6290,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
@@ -6133,7 +6318,8 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
@@ -6158,7 +6344,8 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
@@ -6436,7 +6623,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWindowSupportWideGamut(): Promise<boolean>;
 
@@ -6455,7 +6643,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWindowSupportWideGamut(callback: AsyncCallback<boolean>): void;
 
@@ -6520,7 +6709,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
@@ -6561,7 +6751,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
@@ -6683,7 +6874,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowBackgroundColor(color: string | ColorMetrics): void;
 
@@ -7039,7 +7231,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
@@ -7080,7 +7273,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
@@ -7182,7 +7376,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -7211,7 +7406,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -7909,7 +8105,8 @@ declare namespace window {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWaterMarkFlag(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -7940,7 +8137,8 @@ declare namespace window {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -8073,7 +8271,8 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
@@ -8280,7 +8479,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(): Promise<void>;
 
@@ -8321,7 +8521,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowDecorVisible(isVisible: boolean): void;
 
@@ -8423,7 +8624,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowDecorHeight(height: number): void;
 	
@@ -8444,7 +8646,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowDecorHeight(): number;
 
@@ -8818,7 +9021,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setImmersiveModeEnabledState(enabled: boolean): void;
 
@@ -9033,9 +9237,10 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum WindowStageEventType {
+  export enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
@@ -9058,7 +9263,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHOWN = 1,
     /**
@@ -9083,9 +9289,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    ACTIVE,
+    ACTIVE = 2,
     /**
      * The window stage loses focus.
      *
@@ -9108,9 +9315,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    INACTIVE,
+    INACTIVE = 3,
     /**
      * The window stage is running in the background.
      *
@@ -9133,9 +9341,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    HIDDEN,
+    HIDDEN = 4,
     /**
      * The window stage is interactive in the foreground.
      *
@@ -9143,9 +9352,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    RESUMED,
+    RESUMED = 5,
     /**
      * The window stage is not interactive in the foreground.
      *
@@ -9153,9 +9363,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    PAUSED
+    PAUSED = 6
   }
 
   /**
@@ -9164,15 +9375,17 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  enum ModalityType {
+  export enum ModalityType {
     /**
      * The value means window modality.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_MODALITY = 0,
     /**
@@ -9180,7 +9393,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APPLICATION_MODALITY = 1,
   }
@@ -9198,9 +9412,10 @@ declare namespace window {
    * @interface SubWindowOptions
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SubWindowOptions {
+  export interface SubWindowOptions {
     /**
      * Indicates subwindow title
      * 
@@ -9310,9 +9525,10 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface WindowStage {
+  export interface WindowStage {
     /**
      * Get main window of the stage.
      *
@@ -9344,7 +9560,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindow(): Promise<Window>;
     /**
@@ -9378,7 +9595,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
@@ -9412,7 +9630,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMainWindowSync(): Window;
     /**
@@ -9630,7 +9849,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
@@ -9676,7 +9896,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
@@ -9719,7 +9940,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -9737,7 +9959,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -9754,7 +9977,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -9772,7 +9996,8 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
@@ -9919,7 +10144,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableWindowDecor(): void;
 
@@ -9948,7 +10174,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
 
@@ -10090,18 +10317,20 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-   enum ExtensionWindowAttribute {
+  export enum ExtensionWindowAttribute {
     /**
      * System window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    SYSTEM_WINDOW,
+    SYSTEM_WINDOW = 0,
 
     /**
      * Sub window.
@@ -10109,9 +10338,10 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    SUB_WINDOW
+    SUB_WINDOW = 1
   }
 
   /**
@@ -10121,9 +10351,10 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface SystemWindowOptions {
+  export interface SystemWindowOptions {
     /**
      * Indicates window type.
      *
@@ -10131,7 +10362,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowType: WindowType;
   }
@@ -10143,9 +10375,10 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface ExtensionWindowConfig {
+  export interface ExtensionWindowConfig {
     /**
      * Window name.
      *
@@ -10153,7 +10386,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowName: string;
 
