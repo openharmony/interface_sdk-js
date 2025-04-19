@@ -33,7 +33,8 @@ export default {
             tsconfig: './tsconfig.json'
         }),
         nodeResolve({
-            extensions: ['.ts']
+            extensions: ['.ts'],
+            preferBuiltins: true
         }),
     ]
 };

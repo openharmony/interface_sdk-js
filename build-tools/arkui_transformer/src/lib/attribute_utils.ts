@@ -81,3 +81,49 @@ export function isComponentHerirage(node: ts.Node): boolean {
     }
     return uiconfig.isUIHeritage(node.name!.escapedText!)
 }
+
+export function removeDuplicateMethods(methods: ts.MethodSignature[]): ts.MethodSignature[] {
+    const seenSignatures = new Set<string>();
+
+    return methods.filter(method => {
+        const signatureKey = getMethodCharacteristic(method);
+
+        if (seenSignatures.has(signatureKey)) {
+            return false;
+        }
+
+        seenSignatures.add(signatureKey);
+        return true;
+    });
+}
+
+export function getMethodCharacteristic(
+    node: ts.MethodSignature
+): string {
+    const methodName = node.name.getText();
+
+    const params = node.parameters.map((param) => {
+        const typeNode = param.type;
+        let typeText: string;
+
+        if (typeNode) {
+            if (ts.isUnionTypeNode(typeNode)) {
+                const types = typeNode.types;
+                typeText = types.map((t) => {
+                    if (ts.isTypeReferenceNode(t)) {
+                        return t.getText();
+                    }
+                    return t.kind.toString();
+                }).join('|') || 'any';
+            } else {
+                throw new Error("UnExpected type node kind");
+            }
+        } else {
+            throw new Error("UnExpected type node kind");
+        }
+
+        return typeText;
+    });
+
+    return `${methodName}(${params.join(',')})`;
+}
