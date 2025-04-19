@@ -1327,6 +1327,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
+  
+  /**
+   * Set whether to optimize the trailing spaces at the end of each line during text layout.
+   *
+   * @param { Optional<boolean> } optimize
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  optimizeTrailingSpace(optimize: Optional<boolean>): TextAttribute;
 }
 
 /**
