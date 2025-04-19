@@ -18,7 +18,9 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import StartupConfig from './@ohos.app.appstartup.StartupConfig';
+/*** endif */
 
 /**
  * Startup task manager.
@@ -26,7 +28,8 @@ import StartupConfig from './@ohos.app.appstartup.StartupConfig';
  * @namespace startupManager
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace startupManager {
   /**

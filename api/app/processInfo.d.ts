@@ -21,7 +21,8 @@
 /**
  * @typedef ProcessInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ProcessInfo {
   /**
@@ -29,7 +30,8 @@ export interface ProcessInfo {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pid: number;
 
@@ -38,7 +40,8 @@ export interface ProcessInfo {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   processName: string;
 }

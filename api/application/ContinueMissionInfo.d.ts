@@ -24,7 +24,8 @@
  * @typedef ContinueMissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ContinueMissionInfo {
   /**
@@ -33,7 +34,8 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   srcDeviceId: string;
   /**
@@ -42,7 +44,8 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dstDeviceId: string;
   /**
@@ -51,7 +54,8 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
   /**
@@ -60,7 +64,8 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   srcBundleName?: string;
   /**
@@ -69,7 +74,8 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   continueType?: string;
   /**
@@ -86,7 +92,8 @@ export interface ContinueMissionInfo {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wantParam: Record<string, Object>;
 }

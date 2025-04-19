@@ -24,7 +24,8 @@
  * @typedef RunningAppClone
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RunningAppClone {
   /**
@@ -33,7 +34,8 @@ export interface RunningAppClone {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    appCloneIndex: number;
 
@@ -43,7 +45,8 @@ export interface RunningAppClone {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uid: number;
 
@@ -53,7 +56,8 @@ export interface RunningAppClone {
    * @type { Array<number> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pids: Array<number>;
 }

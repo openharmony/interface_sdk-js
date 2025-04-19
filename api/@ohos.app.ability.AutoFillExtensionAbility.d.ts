@@ -21,7 +21,12 @@
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
+/*** if arkts 1.1 */
 import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
+/*** if arkts 1.2 */
+import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
 
 /**
  * The class of auto fill extension ability.
@@ -30,7 +35,8 @@ import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, Save
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class AutoFillExtensionAbility extends ExtensionAbility {
   /**
@@ -40,7 +46,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AutoFillExtensionContext;
 

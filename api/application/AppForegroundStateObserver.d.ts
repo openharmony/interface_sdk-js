@@ -25,9 +25,10 @@ import type AppStateData from './AppStateData';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AppForegroundStateObserver {
+declare class AppForegroundStateObserver {
   /**
    * Will be called when foreground or background application changed.
    *
@@ -38,3 +39,5 @@ export default class AppForegroundStateObserver {
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }
+
+export default AppForegroundStateObserver;

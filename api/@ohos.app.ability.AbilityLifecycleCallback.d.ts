@@ -18,9 +18,11 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import UIAbility from './@ohos.app.ability.UIAbility';
 import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
+/*** endif */
 
 /**
  * The ability lifecycle callback.
@@ -44,7 +46,8 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class AbilityLifecycleCallback {
   /**

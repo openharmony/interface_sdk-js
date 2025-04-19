@@ -18,7 +18,9 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { AutoStartupInfo } from './AutoStartupInfo';
+/*** endif */
 
 /**
  * The class of auto startup callback.
@@ -27,7 +29,8 @@ import type { AutoStartupInfo } from './AutoStartupInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AutoStartupCallback {
   /**
@@ -53,4 +56,6 @@ export interface AutoStartupCallback {
   onAutoStartupOff(info: AutoStartupInfo): void;
 }
 
+/*** if arkts 1.1 */
 export default AutoStartupCallback;
+/*** endif */
