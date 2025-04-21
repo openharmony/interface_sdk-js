@@ -55,7 +55,7 @@ export interface SpanAttribute extends BaseSpan {
     @memo
     fontStyle(value: FontStyle): this;
     @memo
-    fontWeight(value: number | FontWeight | string): this;
+    fontWeight(value: number | FontWeight | string | undefined): this;
     @memo
     fontFamily(value: string | Resource): this;
     @memo
