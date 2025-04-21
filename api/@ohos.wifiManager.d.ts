@@ -38,6 +38,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @arkts 1.1&1.2
  */
 declare namespace wifiManager {
   /**
@@ -123,6 +124,7 @@ declare namespace wifiManager {
    * @crossplatform
    * @atomicservice
    * @since 13
+   * @arkts 1.1&1.2
    */
   function isWifiActive(): boolean;
 
