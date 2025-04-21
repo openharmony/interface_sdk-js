@@ -6782,7 +6782,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    static deleteLocalAssetsPermanently(context: Context, assetsUri: Array<string>): Promise<void>;
+    static deleteLocalAssetsPermanentlyWithUri(context: Context, assetsUri: Array<string>): Promise<void>;
   }
 
   /**
