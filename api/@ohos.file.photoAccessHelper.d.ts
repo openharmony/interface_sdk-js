@@ -6984,7 +6984,7 @@ declare namespace photoAccessHelper {
     /**
      * Move assets to the target album.
      *
-     * @param { Array<string> } uriList - Uris of assets to move
+     * @param { Array<string> } assetUris - Uris of assets to move
      * @param { Album } targetAlbum - target album
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6995,7 +6995,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    moveAssetsWithUri(uriList: Array<string>, targetAlbum: Album): void;
+    moveAssetsWithUri(assetUris: Array<string>, targetAlbum: Album): void;
 
     /**
      * Recover assets from the trash album.
@@ -7015,7 +7015,7 @@ declare namespace photoAccessHelper {
     /**
      * Recover assets from the trash album.
      *
-     * @param { Array<string> } uriList - Uris of assets to recover
+     * @param { Array<string> } assetUris - Uris of assets to recover
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7025,7 +7025,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    recoverAssetsWithUri(uriList: Array<string>): void;
+    recoverAssetsWithUri(assetUris: Array<string>): void;
 
     /**
      * Delete assets permanently from the trash album.
@@ -7045,7 +7045,7 @@ declare namespace photoAccessHelper {
     /**
      * Delete assets permanently from the trash album.
      *
-     * @param { Array<string> } uriList - Uris of assets to be deleted permanently
+     * @param { Array<string> } assetUris - Uris of assets to be deleted permanently
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7055,7 +7055,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    deleteAssetsWithUri(uriList: Array<string>): void;
+    deleteAssetsWithUri(assetUris: Array<string>): void;
 
     /**
      * Set portrait album to me
