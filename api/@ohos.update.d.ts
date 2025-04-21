@@ -1482,11 +1482,22 @@ declare namespace update {
    * Called when upgrade task info changes.
    * You need to implement this method in a child class.
    *
+   * @typedef UpgradeTaskCallback
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @since 9
+   */
+  /**
+   * UpgradeTaskCallback change form interface to type.
+   * Called when upgrade task info changes.
+   * You need to implement this method in a child class.
+   *
    * @typedef { function } UpgradeTaskCallback
    * @param { EventInfo } eventInfo - Event information.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 20
+   * @arkts 1.1&1.2
    */
   export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
