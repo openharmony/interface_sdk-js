@@ -293,16 +293,21 @@ function handleSinceInFirstType(fileContent) {
  * @returns 
  */
 function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
-  let fileContent = fs.readFileSync(fullPath, 'utf-8');
-  //删除使用/*** if arkts 1.2 */
-  fileContent = handleArktsDefinition(type, fileContent);
-  const sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
-  const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
-  // 如果是同名文件，添加use static
-
-  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/;
   const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/;
   const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/;
+  const arktsRegx = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  let fileContent = fs.readFileSync(fullPath, 'utf-8');
+  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
+  if (!secondRegx.test(fileContent) && !thirdRegx.test(fileContent) && arktsRegx.test(fileContent)) {
+    saveApiByArktsDefinition(sourceFile, fileContent, outputPath);
+    return;
+  }
+  //删除使用/*** if arkts 1.2 */
+  fileContent = handleArktsDefinition(type, fileContent);
+  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/;
+
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
@@ -399,6 +404,19 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   newContent = saveLatestJsDoc(newContent);
   newContent = deleteArktsTag(newContent);
   writeFile(outputPath, newContent);
+}
+
+function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
+  const regx = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
+  const copyrightMessage = fileContent.match(regex)[0];
+  const firstNode = sourceFile.statements.find(statement => {
+    return !ts.isExpressionStatement(statement);
+  });
+  let fileJsdoc = firstNode ? getFileJsdoc(firstNode) + '*/\n' : '';
+  let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[1]).join('\n');
+
+  writeFile(outputPath, saveLatestJsDoc(newContent));
 }
 
 /**
@@ -502,6 +520,7 @@ const transformer = (context) => {
       if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
         return undefined;
       }
+
       // 判断是否为要删除的变量声明
       if (apiNodeTypeArr.includes(node.kind) && judgeIsDeleteApi(node)) {
         collectDeletionApiName(node);
