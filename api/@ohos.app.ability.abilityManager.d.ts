@@ -519,7 +519,6 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 9
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
