@@ -62,7 +62,7 @@ export interface WebKeyboardOptions {
     enterKeyType?: number;
     customKeyboard?: CustomBuilder;
 }
-export interface WebKeyboardController {
+export declare class WebKeyboardController {
     insertText(text: string): void
     deleteForward(length: number): void
     deleteBackward(length: number): void
