@@ -8522,25 +8522,26 @@ declare namespace webview {
    * @since 15
    */
   enum ProxySchemeFilter {
-      /**
-       * This indicates all the schemes will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_ALL_SCHEMES = 0,
-      /**
-       * This indicates only the HTTP requests will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_HTTP = 1,
-      /**
-       * This indicates only the HTTPS requests will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_HTTPS = 2,
+    /**
+     * This indicates all the schemes will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    MATCH_ALL_SCHEMES = 0,
+    /**
+     * This indicates only the HTTP requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    MATCH_HTTP = 1,
+    /**
+     * This indicates only the HTTPS requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    MATCH_HTTPS = 2,
   }
+
   /**
    * The ProxyConfig used by applyProxyOverride.
    *
@@ -8548,107 +8549,115 @@ declare namespace webview {
    * @since 15
    */
   class ProxyConfig {
-      /**
-       * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
-       * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
-       * "https://www.example.com" and "http://test.example.com" will connect the server directly.
-       *
-       * @param { string } bypassRule - The bypass rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertBypassRule(bypassRule: string): void;
-      /**
-       * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
-       *
-       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
-      /**
-       * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
-       * use the proxy rule if schemeFilter is null.
-       *
-       * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
-       * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
-       * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
-       *
-       * e.g. example.com host: example.com
-       *      https://example.com  scheme: https  host: example.com
-       *      example.com:8888     host: example.com  port: 8888
-       *      https://example.com:8888  scheme:https  host: example.com  port:8888
-       *      192.168.1.1  host: 192.168.1.1
-       *      192.168.1.1:8888  host:192.168.1.1 port: 8888
-       *      [10:20:30:40:50:60:70:80]
-       *
-       * @param { string } proxyRule - The proxy rule.
-       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
-      /**
-       * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
-       * Examples: "abc", "local", "some-domain".
-       *
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      bypassHostnamesWithoutPeriod(): void;
-      /**
-       * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
-       * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
-       * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
-       *
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      clearImplicitRules(): void;
-      /**
-       * Reverse the bypass rules.
-       *
-       * If false all URLs will use proxy settings except URLs match the bypass rules.
-       * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
-       *
-       * @param { boolean } reverse - If reverse the bypass rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      enableReverseBypass(reverse: boolean): void;
-      /**
-       * Returns the bypass rules.
-       *
-       * @returns { Array<string> } The bypass rules.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getBypassRules(): Array<string>;
-      /**
-       * Returns the proxy rules.
-       *
-       * @returns { Array<ProxyRule> } The proxy rules.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getProxyRules(): Array<ProxyRule>;
-      /**
-       * Returns if reverse bypass rules.
-       *
-       * @returns { boolean } If reverse bypass enabled.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      isReverseBypassEnabled(): boolean;
-  }
+    /**
+     * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
+     * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
+     * "https://www.example.com" and "http://test.example.com" will connect the server directly.
+     *
+     * @param { string } bypassRule - The bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    insertBypassRule(bypassRule: string): void;
+
+    /**
+     * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
+     *
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
+
+    /**
+     * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
+     * use the proxy rule if schemeFilter is null.
+     *
+     * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
+     * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
+     * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
+     *
+     * e.g. example.com host: example.com
+     *      https://example.com  scheme: https  host: example.com
+     *      example.com:8888     host: example.com  port: 8888
+     *      https://example.com:8888  scheme:https  host: example.com  port:8888
+     *      192.168.1.1  host: 192.168.1.1
+     *      192.168.1.1:8888  host:192.168.1.1 port: 8888
+     *      [10:20:30:40:50:60:70:80]
+     *
+     * @param { string } proxyRule - The proxy rule.
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
+
+    /**
+     * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
+     * Examples: "abc", "local", "some-domain".
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    bypassHostnamesWithoutPeriod(): void;
+
+    /**
+     * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
+     * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
+     * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    clearImplicitRules(): void;
+
+    /**
+     * Reverse the bypass rules.
+     *
+     * If false all URLs will use proxy settings except URLs match the bypass rules.
+     * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
+     *
+     * @param { boolean } reverse - If reverse the bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    enableReverseBypass(reverse: boolean): void;
+
+    /**
+     * Returns the bypass rules.
+     *
+     * @returns { Array<string> } The bypass rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    getBypassRules(): Array<string>;
+
+    /**
+     * Returns the proxy rules.
+     *
+     * @returns { Array<ProxyRule> } The proxy rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    getProxyRules(): Array<ProxyRule>;
+
+    /**
+     * Returns if reverse bypass rules.
+     *
+     * @returns { boolean } If reverse bypass enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    isReverseBypassEnabled(): boolean;
+}
 
   /**
    * The ProxyRule used by insertProxyRule.
@@ -8657,22 +8666,23 @@ declare namespace webview {
    * @since 15
    */
   class ProxyRule {
-      /**
-       * Returns the scheme filter used for this rule.
-       *
-       * @returns { ProxySchemeFilter } The scheme filter used for this rule.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getSchemeFilter(): ProxySchemeFilter;
-      /**
-       * Returns the proxy URL.
-       *
-       * @returns { string } The proxy URL.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getUrl(): string;
+    /**
+     * Returns the scheme filter used for this rule.
+     *
+     * @returns { ProxySchemeFilter } The scheme filter used for this rule.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    getSchemeFilter(): ProxySchemeFilter;
+
+    /**
+     * Returns the proxy URL.
+     *
+     * @returns { string } The proxy URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    getUrl(): string;
   }
 
   /**
@@ -8705,6 +8715,7 @@ declare namespace webview {
      * @since 15
      */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
+
     /**
      * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
      * will be called on the UI thread.
@@ -8716,7 +8727,8 @@ declare namespace webview {
      * @since 15
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
-}
+  }
+
 }
 
 export default webview;
