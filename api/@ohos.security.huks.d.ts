@@ -3478,7 +3478,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AES_KEY_SIZE_128 = 128,
     /**
@@ -3488,7 +3489,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AES_KEY_SIZE_192 = 192,
     /**
@@ -3498,7 +3500,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_AES_KEY_SIZE_256 = 256,
 
@@ -4817,7 +4820,7 @@ declare namespace huks {
      */
     HUKS_TAG_RSA_PSS_SALT_LEN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 30,
 
-    /*
+    /**
      * Key authentication related TAG: 201 - 300
      *
      * Start of validity
@@ -4853,7 +4856,7 @@ declare namespace huks {
      */
     HUKS_TAG_CREATION_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 204,
 
-    /* Other authentication related TAG: 301 - 500 */
+    /** Other authentication related TAG: 301 - 500 */
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
@@ -4915,7 +4918,7 @@ declare namespace huks {
      */
     HUKS_TAG_AUTH_TOKEN = HuksTagType.HUKS_TAG_TYPE_BYTES | 306,
 
-    /* Key secure access control and user auth TAG */
+    /** Key secure access control and user auth TAG */
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
@@ -4998,7 +5001,7 @@ declare namespace huks {
      */
     HUKS_TAG_USER_AUTH_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 319,
 
-    /* Attestation related TAG: 501 - 600 */
+    /** Attestation related TAG: 501 - 600 */
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
@@ -5110,7 +5113,7 @@ declare namespace huks {
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
 
-    /*
+    /**
      * Other reserved TAG: 601 - 1000
      *
      * Extension TAG: 1001 - 9999
@@ -5242,7 +5245,7 @@ declare namespace huks {
      */
     HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
 
-    /* Inner-use TAG: 10001 - 10999 */
+    /** Inner-use TAG: 10001 - 10999 */
 
     /**
      * @syscap SystemCapability.Security.Huks.Core
@@ -5304,7 +5307,8 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
 
@@ -5330,7 +5334,7 @@ declare namespace huks {
      */
     HUKS_TAG_OS_PATCHLEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 10102,
 
-    /*
+    /**
      * Reserved TAGs: 11000 - 12000
      *
      * Other TAGs: 20001 - N
