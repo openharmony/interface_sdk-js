@@ -16,6 +16,7 @@
     "SystemCapability.MiscServices.ScreenLock",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.MessageDigest",
-    "SystemCapability.Security.CryptoFramework.Rand"
+    "SystemCapability.Security.CryptoFramework.Rand",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager"
   ]
 }
