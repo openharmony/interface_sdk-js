@@ -61,7 +61,7 @@ declare namespace sendablePhotoAccessHelper {
    * @StageModelOnly
    * @systemapi
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
 
