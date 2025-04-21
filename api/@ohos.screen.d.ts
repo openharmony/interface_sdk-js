@@ -364,7 +364,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
 

@@ -1143,7 +1143,7 @@ declare namespace display {
      * @enum { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
   enum DisplaySourceMode {
     /**
@@ -1151,7 +1151,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     NONE = 0,
  
@@ -1160,7 +1160,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MAIN = 1,
 
@@ -1169,7 +1169,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MIRROR = 2,
 
@@ -1178,7 +1178,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     EXTEND = 3,
 
@@ -1187,7 +1187,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     ALONE = 4
   }
@@ -1937,7 +1937,7 @@ declare namespace display {
      * @type { ?DisplaySourceMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     sourceMode?: DisplaySourceMode;
  
@@ -1947,7 +1947,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     x?: number;
   
@@ -1957,7 +1957,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     y?: number;
 
