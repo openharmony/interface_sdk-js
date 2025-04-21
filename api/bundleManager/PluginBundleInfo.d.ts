@@ -24,7 +24,7 @@
  * @typedef PluginBundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 18
+ * @since 19
  */
 export interface PluginBundleInfo {
   /**
@@ -34,7 +34,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly label: string;
 
@@ -45,7 +45,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly labelId: number;
 
@@ -56,7 +56,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly icon: string;
 
@@ -67,7 +67,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly iconId: number;
 
@@ -78,7 +78,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly pluginBundleName: string;
 
@@ -89,7 +89,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly versionCode: number;
 
@@ -100,7 +100,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly versionName: string;
 
@@ -111,7 +111,7 @@ export interface PluginBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly pluginModuleInfos: Array<PluginModuleInfo>;
 }
@@ -122,7 +122,7 @@ export interface PluginBundleInfo {
  * @typedef PluginModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 18
+ * @since 19
  */
 export interface PluginModuleInfo {
   /**
@@ -132,7 +132,7 @@ export interface PluginModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly moduleName: string;
 
@@ -143,7 +143,7 @@ export interface PluginModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly descriptionId: number;
 
@@ -154,7 +154,7 @@ export interface PluginModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   readonly description: string;
 }

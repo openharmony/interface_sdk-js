@@ -613,6 +613,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @since 18
    */
   onLoad(callback: VoidCallback): FormComponentAttribute;
+
+  /**
+   * Card has been updated.
+   *
+   * @param { Callback<FormCallbackInfo> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  onUpdate(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 }
 
 /**

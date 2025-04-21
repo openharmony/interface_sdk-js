@@ -5314,6 +5314,73 @@ declare namespace photoAccessHelper {
     MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
+  /**
+   * Enumeration type of filter operator.
+   *
+   * @enum { number } FilterOperator
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 19
+   */
+  export enum FilterOperator {
+    /**
+     * Filter operator: equal to
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    EQUAL_TO = 0,
+    /**
+     * Filter operator: not equal to
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    NOT_EQUAL_TO = 1,
+    /**
+     * Filter operator: more than
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    MORE_THAN = 2,
+    /**
+     * Filter operator: less than
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    LESS_THAN = 3,
+    /**
+     * Filter operator: more than or equal to
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    MORE_THAN_OR_EQUAL_TO = 4,
+    /**
+     * Filter operator: less than or equal to
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    LESS_THAN_OR_EQUAL_TO = 5,
+    /**
+     * Filter operator: between
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    BETWEEN = 6,
+  }
+
     /**
      * Enumeration type of single selection mode
      *
@@ -5506,6 +5573,133 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     singleSelectionMode?: SingleSelectionMode;
+
+    /**
+     * Media file filtering configuration.
+     *
+     * @type { ?MimeTypeFilter }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    mimeTypeFilter?: MimeTypeFilter;
+
+    /**
+     * Media file size filtering configuration.
+     *
+     * @type { ?FileSizeFilter }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    fileSizeFilter?: FileSizeFilter;
+
+    /**
+     * Media file video duration filtering configuration.
+     *
+     * @type { ?VideoDurationFilter }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    videoDurationFilter?: VideoDurationFilter;
+  }
+
+  /**
+   * Media file filtering configuration.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 19
+   */
+  class MimeTypeFilter {
+    /**
+     * Indicates the media file type to be filtered.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19
+     */
+    mimeTypeArray: Array<string>;
+  }
+
+  /**
+   * Media file size filtering configuration.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 19
+   */
+    class FileSizeFilter {
+      /**
+       * Specifing filter operator.
+       *
+       * @type { FilterOperator }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      filterOperator: FilterOperator;
+
+      /**
+       * Specifing the size of files to be filtered.
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      fileSize: number;
+
+      /**
+       * Specifing the upper limit of file size to be filtered.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      extraFileSize?: number;
+    }
+
+  /**
+   * Media file video duration filtering configuration.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 19
+   */
+  class VideoDurationFilter {
+      /**
+       * Specifing filter operator.
+       *
+       * @type { FilterOperator }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      filterOperator: FilterOperator;
+
+      /**
+       * Specifing the video duration of files to be filtered.
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      videoDuration: number;
+
+      /**
+       * Specifing the upper limit of video duration to be filtered.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 19
+       */
+      extraVideoDuration?: number;
   }
 
   /**
