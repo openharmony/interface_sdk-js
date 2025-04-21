@@ -693,7 +693,7 @@ declare namespace deviceInfo {
    * @enum { number }
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   export enum PerformanceClassLevel {
     /**
@@ -701,7 +701,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_HIGH,
     /**
@@ -709,7 +709,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_MEDIUM,
     /**
@@ -717,7 +717,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_LOW
   }
@@ -727,7 +727,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   const performanceClass: PerformanceClassLevel;
 }
