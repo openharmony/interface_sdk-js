@@ -53,7 +53,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice 
-  * @since arkts {'1.1':''11', '1.2':'20'}
+  * @since arkts {'1.1':'11', '1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum MatchPattern {
