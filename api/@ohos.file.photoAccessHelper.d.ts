@@ -6995,7 +6995,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    moveAssets(uriList: Array<string>, targetAlbum: Album): void;
+    moveAssetsWithUri(uriList: Array<string>, targetAlbum: Album): void;
 
     /**
      * Recover assets from the trash album.
@@ -7025,7 +7025,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    recoverAssets(uriList: Array<string>): void;
+    recoverAssetsWithUri(uriList: Array<string>): void;
 
     /**
      * Delete assets permanently from the trash album.
@@ -7055,7 +7055,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    deleteAssets(uriList: Array<string>): void;
+    deleteAssetsWithUri(uriList: Array<string>): void;
 
     /**
      * Set portrait album to me
