@@ -21,6 +21,9 @@ export class ComponentFile {
   public outFileName: string
 
   static snake2Camel(name: string, low: boolean = false): string {
+    if (!name.includes('_')) {
+      return name;
+    }
     return name
       .split('_')
       .filter(word => word !== '')

@@ -31312,8 +31312,7 @@ declare interface ItemDragEventHandler {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class DynamicNode<T> {
   /**
@@ -31324,8 +31323,7 @@ declare class DynamicNode<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onMove(handler: Optional<OnMoveHandler>): T;
 
@@ -31338,10 +31336,47 @@ declare class DynamicNode<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): T;
+}
+
+/**
+ * Define DynamicNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface DynamicNode {
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onMove(handler: Optional<OnMoveHandler>): this;
+
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @param { ItemDragEventHandler } eventHandler
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): this;
 }
 
 /**

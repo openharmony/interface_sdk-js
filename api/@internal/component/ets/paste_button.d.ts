@@ -21,8 +21,8 @@
 /*** if arkts 1.2 */
 import { ButtonType } from './button';
 import { ClickEvent } from './common';
-import { SecurityComponentMethod } from './security_component';
-import { BusinessError } from './../../../@ohos.base';
+import { SecurityComponentMethod } from './securityComponent';
+import { BusinessError } from '../../@ohos.base'
 /*** endif */
 
 /**
@@ -228,7 +228,8 @@ declare enum PasteButtonOnClickResult {
  * @interface PasteButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PasteButtonInterface {
   /**
@@ -244,7 +245,8 @@ interface PasteButtonInterface {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): PasteButtonAttribute;
 
@@ -265,23 +267,13 @@ interface PasteButtonInterface {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: PasteButtonOptions): PasteButtonAttribute;
 }
 
-/**
- * Defines the interface for setting a paste button.
- *
- * @typedef { function }
- * @param { PasteButtonOptions } options - Indicates the options of the paste button.
- * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type PasteButtonInterface = (options?: PasteButtonOptions) => PasteButtonAttribute;
+
 
 /**
  * Callback function when the paste button is clicked.
@@ -357,8 +349,7 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const PasteButton: PasteButtonInterface;
 
@@ -373,7 +364,6 @@ declare const PasteButton: PasteButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const PasteButtonInstance: PasteButtonAttribute;

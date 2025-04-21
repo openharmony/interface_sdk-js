@@ -21,8 +21,8 @@
 /*** if arkts 1.2 */
 import { ButtonType } from './button';
 import { ClickEvent } from './common';
-import { SecurityComponentMethod } from './security_component';
-import { BusinessError } from './../../../@ohos.base';
+import { SecurityComponentMethod } from './securityComponent';
+import { BusinessError } from '../../@ohos.base'
 /*** endif */
 
 /**
@@ -415,7 +415,8 @@ declare enum SaveButtonOnClickResult {
  * @interface SaveButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SaveButtonInterface {
   /**
@@ -431,7 +432,8 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): SaveButtonAttribute;
 
@@ -452,23 +454,13 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: SaveButtonOptions): SaveButtonAttribute;
 }
 
-/**
- * Defines the interface for setting a save button.
- *
- * @typedef { function }
- * @param { SaveButtonOptions } options - Indicates the options of the save button.
- * @returns { SaveButtonAttribute } Returns the attribute of the save button.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type SaveButtonInterface = (options?: SaveButtonOptions) => SaveButtonAttribute;
+
 
 /**
  * Callback function when the save button is clicked.
@@ -479,7 +471,8 @@ type SaveButtonInterface = (options?: SaveButtonOptions) => SaveButtonAttribute;
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError<void>) => void;
 
@@ -524,7 +517,8 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onClick(event: SaveButtonCallback): SaveButtonAttribute;
 }
@@ -542,8 +536,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const SaveButton: SaveButtonInterface;
 
@@ -558,7 +551,6 @@ declare const SaveButton: SaveButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const SaveButtonInstance: SaveButtonAttribute;
