@@ -6769,7 +6769,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Context } context - Hap context information
-     * @param { Array<PhotoAsset> } assetsUri - the assets to be deleted permanently
+     * @param { Array<string> } assetsUri - the assets to be deleted permanently
      * @returns { Promise<void> } - Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
