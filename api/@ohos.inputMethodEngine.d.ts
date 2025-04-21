@@ -1955,7 +1955,6 @@ declare namespace inputMethodEngine {
      *
      * @param { 'sizeUpdate' } type - the type of subscribe event.
      * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
-     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14
