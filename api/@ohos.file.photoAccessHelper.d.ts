@@ -6993,7 +6993,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 11
+     * @since 19
      */
     moveAssets(uriList: Array<string>, targetAlbum: Album): void;
 
@@ -7023,7 +7023,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 11
+     * @since 19
      */
     recoverAssets(uriList: Array<string>): void;
 
@@ -7053,7 +7053,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 11
+     * @since 19
      */
     deleteAssets(uriList: Array<string>): void;
 
