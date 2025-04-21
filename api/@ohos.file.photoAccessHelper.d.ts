@@ -6982,6 +6982,22 @@ declare namespace photoAccessHelper {
     moveAssets(assets: Array<PhotoAsset>, targetAlbum: Album): void;
 
     /**
+     * Move assets to the target album.
+     *
+     * @param { Array<string> } uriList - Uris of assets to move
+     * @param { Album } targetAlbum - target album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    moveAssets(uriList: Array<string>, targetAlbum: Album): void;
+
+    /**
      * Recover assets from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to recover
@@ -6997,6 +7013,21 @@ declare namespace photoAccessHelper {
     recoverAssets(assets: Array<PhotoAsset>): void;
 
     /**
+     * Recover assets from the trash album.
+     *
+     * @param { Array<string> } uriList - Uris of assets to recover
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    recoverAssets(uriList: Array<string>): void;
+
+    /**
      * Delete assets permanently from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to be deleted permanently
@@ -7010,6 +7041,21 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     deleteAssets(assets: Array<PhotoAsset>): void;
+
+    /**
+     * Delete assets permanently from the trash album.
+     *
+     * @param { Array<string> } uriList - Uris of assets to be deleted permanently
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    deleteAssets(uriList: Array<string>): void;
 
     /**
      * Set portrait album to me
