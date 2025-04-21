@@ -199,7 +199,7 @@ declare namespace deviceManager {
    * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-   * @throws { BusinessError } 26300002 - Service not allowed.
+   * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 18
    */
