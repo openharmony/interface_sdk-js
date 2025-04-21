@@ -6189,7 +6189,9 @@ declare namespace media {
     /**
      * Prepare video playback, it will request resource for playing.
      * 
-     * * <p>如果应用使用到多个短视频频繁切换的场景，为了提升切换性能，可以考虑创建多个AVPlayer对象，提前准备下一个视频，详情参见[在线短视频流畅切换]{@link
+     * <p>If a long delay occurs during fast switching between short videos within an application, to improve
+     * switching performance, consider creating multiple AVPlayer objects and preparing the next video in advance
+     * [Smooth Switchover Between Online Short Videos]{@link
      * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}</p>
      * 
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
