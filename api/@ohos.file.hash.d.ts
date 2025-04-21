@@ -34,7 +34,8 @@ import stream from './@ohos.util.stream';
  * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
- * @since 11
+ * @since {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hash {
   /**
@@ -58,7 +59,8 @@ declare namespace hash {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
-   * @since 11
+   * @since {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
@@ -83,7 +85,8 @@ declare namespace hash {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
-   * @since 11
+   * @since {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
@@ -92,7 +95,8 @@ declare namespace hash {
    * 
    * @extends stream.Transform
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class HashStream extends stream.Transform {
     /**
@@ -102,7 +106,8 @@ declare namespace hash {
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 12
+     * @since {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     digest(): string;
 
@@ -113,7 +118,8 @@ declare namespace hash {
      * @throws { BusinessError } 401 - Parameter error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 12
+     * @since {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     update(data: ArrayBuffer): void;
   }
