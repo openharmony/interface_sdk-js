@@ -675,7 +675,7 @@ declare namespace bundleManager {
      * Indicates extension info with type of CALLER_INFO_QUERY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
+     * @since 19
      */
     CALLER_INFO_QUERY = 25,
 
