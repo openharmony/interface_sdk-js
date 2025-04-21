@@ -1478,6 +1478,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. The default is the last 
      * index of the array. <br>If this index is negative, it is treated as array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1492,6 +1495,9 @@ declare namespace collections {
      * @param { ArrayPredicateFn<T, Array<T>> } predicate - A function that is called for each element in the array.
      * @returns { boolean } Returns true if the callback function returns a truthy value for every element;
      *	   <br>otherwise, it returns false. If the array is empty, it returns true.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1505,6 +1511,9 @@ declare namespace collections {
      * @param { ArrayPredicateFn<T, Array<T> } predicate - A function that is called for each element in the array.
      * @returns { boolean } Returns true if the callback function returns a truthy value for any element;
      *	   <br>otherwise, it returns false. If the array is empty, it returns false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3420,6 +3429,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Int8Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -4566,6 +4578,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint8ClampedArray.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -5746,6 +5761,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint8Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -6924,6 +6942,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Int16Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -8100,6 +8121,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint16Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -9278,6 +9302,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Int32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -10454,6 +10481,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -11600,6 +11630,9 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Float32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
@@ -11820,6 +11853,9 @@ declare namespace collections {
      * @param { number } toIndex - The end of the index, containing the value at that index.
      * @returns { boolean } The boolean type, if bit vector contains the specified element, return true,
                             else return false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.

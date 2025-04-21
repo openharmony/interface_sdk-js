@@ -1676,6 +1676,10 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.
    * @throws { BusinessError } 10200055 - The asyncRunner task has been canceled.
    * @syscap SystemCapability.Utils.Lang
@@ -1821,6 +1825,8 @@ declare namespace taskpool {
      * @param { Task } task - The task want to execute.
      * @param { ?Priority } priority - Task execution priority, MEDIUM is default.
      * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
