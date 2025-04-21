@@ -19,16 +19,15 @@
  */
 
 /*** if arkts 1.1 */
+import { ProcessInformation } from './ProcessInformation';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+/*** endif */
 import { AsyncCallback } from '../@ohos.base';
+import Context from './Context';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
-import { ProcessInformation } from './ProcessInformation';
-import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
-/*** endif */
-
-import Context from './Context';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -413,7 +412,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   killAllProcesses(): Promise<void>;
 
@@ -427,7 +427,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -453,6 +454,20 @@ declare class ApplicationContext extends Context {
    * @since 11
    */
   killAllProcesses(callback: AsyncCallback<void>);
+
+    /**
+   * Kill all processes of the application
+   *
+   * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    killAllProcesses(callback: AsyncCallback<void>): void;
 
   /**
    * Set colorMode of the application

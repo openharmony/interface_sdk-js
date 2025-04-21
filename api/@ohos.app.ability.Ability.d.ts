@@ -18,8 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
+/*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
 /*** endif */
 
@@ -79,7 +79,8 @@ declare class Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
