@@ -26,10 +26,10 @@ import Context from './Context';
 import { AbilityResult } from '../ability/abilityResult';
 import window from '../@ohos.window';
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
-/*** if arkts 1.1 */
 import { ConnectOptions } from '../ability/connectOptions';
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
+/*** if arkts 1.1 */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
@@ -124,7 +124,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -2907,7 +2908,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -2987,7 +2989,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 

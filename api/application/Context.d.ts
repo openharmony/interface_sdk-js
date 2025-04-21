@@ -587,7 +587,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 

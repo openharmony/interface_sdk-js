@@ -155,7 +155,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -264,7 +265,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -379,7 +381,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 

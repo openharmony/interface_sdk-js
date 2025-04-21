@@ -736,7 +736,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
@@ -765,7 +766,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getCurrentTopAbility(): Promise<UIAbility>;
 
