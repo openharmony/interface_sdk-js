@@ -837,7 +837,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 17
    */
   function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
@@ -2925,7 +2925,7 @@ declare namespace wifiManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 17
      */
     isAutoConnectAllowed?: boolean;
   }
