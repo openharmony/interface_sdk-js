@@ -6836,7 +6836,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether to enable Access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6845,7 +6850,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether to enable Access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -7493,11 +7503,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Triggered when the title of the main application document changes.
-   * <p><strong>API Note</strong>:<br>
    * Called when the document title of a web page is changed.
    * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
-   * </p>
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7505,11 +7512,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered when the title of the main application document changes.
-   * <p><strong>API Note</strong>:<br>
    * Called when the document title of a web page is changed.
    * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
-   * </p>
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
