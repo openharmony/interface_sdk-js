@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit DistributedServiceKit
+ * @arkts 1.1&1.2
  */
 
 import { Callback } from './@ohos.base';
@@ -115,27 +116,27 @@ declare namespace linkEnhance {
      * Subscribe server is connected event.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'acceptConnected' } type - Type of the server is connected event to listen for.
+     * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
      * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @since 20
      */
-    on(type: 'acceptConnected', callback: Callback<Connection>): void;
+    on(type: 'connectionAccepted', callback: Callback<Connection>): void;
 
     /**
      * Unsubscribe server is connected event.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'acceptConnected' } type - Type of the server is connected event to listen for.
+     * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
      * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
      * @throws { BusinessError } 201 -  Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @since 20
      */
-    off(type: 'acceptConnected', callback?: Callback<Connection>): void;
+    off(type: 'connectionAccepted', callback?: Callback<Connection>): void;
 
     /**
      * Subscribe server stop event, it should always rebuild the server after being called.
