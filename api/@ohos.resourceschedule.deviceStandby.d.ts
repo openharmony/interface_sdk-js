@@ -41,7 +41,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
-   * @throws { BusinessError } 9800004 - Failed to get device standby service, necessary system service is not ready. 
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -61,7 +61,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
-   * @throws { BusinessError } 9800004 - Failed to get device standby service, necessary system service is not ready. 
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -80,7 +80,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
-   * @throws { BusinessError } 9800004 - Failed to get device standby service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -99,7 +99,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
-   * @throws { BusinessError } 9800004 - Failed to get device standby service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
