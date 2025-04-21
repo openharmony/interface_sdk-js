@@ -1621,6 +1621,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
 
@@ -1674,6 +1676,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resource: Resource, num: number): Promise<string>;
 
@@ -2241,6 +2245,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
 
@@ -2291,6 +2297,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByName(resName: string, num: number): Promise<string>;
 
@@ -3008,6 +3016,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
 
@@ -3058,8 +3068,132 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resId: number, num: number): Promise<string>;
+
+    /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getIntPluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the name string corresponding to
+     * the specified number.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the name string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getIntPluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getDoublePluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the name string corresponding to
+     * the specified number.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the name string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    getDoublePluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
@@ -4302,6 +4436,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValueSync(resId: number, num: number): string;
 
@@ -4338,6 +4474,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValueSync(resource: Resource, num: number): string;
 
@@ -4430,6 +4568,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByNameSync(resName: string, num: number): string;
 

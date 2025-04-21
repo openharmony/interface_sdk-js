@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -265,6 +265,18 @@ export default class ApplicationContext extends Context {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Register applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
   /**
@@ -287,6 +299,18 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Unregister applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -436,6 +460,18 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set colorMode of the application
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 

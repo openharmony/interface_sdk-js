@@ -20,6 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
+import common from '@ohos.app.ability.common';
 
 /**
  * This module provides the capability to manage the administrator of the enterprise devices.
@@ -64,8 +65,7 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 9
+   * @since 15
    */
   export enum AdminType {
     /**
@@ -84,7 +84,15 @@ declare namespace adminManager {
      * @systemapi
      * @since 9
      */
-    ADMIN_TYPE_SUPER = 0x01
+    ADMIN_TYPE_SUPER = 0x01,
+
+    /**
+     * The value of administrator used in BYOD device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 15
+     */
+    ADMIN_TYPE_BYOD = 0x02
   }
 
   /**
@@ -139,7 +147,7 @@ declare namespace adminManager {
      * Event indicating that a system account is added.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_ADDED = 5,
 
@@ -147,7 +155,7 @@ declare namespace adminManager {
      * Event indicating that a system account is switched.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_SWITCHED = 6,
 
@@ -155,9 +163,37 @@ declare namespace adminManager {
      * Event indicating that a system account is removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_REMOVED = 7
+  }
+
+  /**
+   * Enum for admin running mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @since 19
+   */
+  export enum RunningMode {
+    /**
+     * The default mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 19
+     */
+    DEFAULT = 0,
+
+    /**
+     * Multi-user running mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 19
+     */
+    MULTI_USER = 1,
   }
 
   /**
@@ -452,6 +488,23 @@ declare namespace adminManager {
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
 
   /**
+   * Set the running mode for admin.
+   * Only the administrator app can call this method.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { RuningMode } mode - indicates the running mode for admin. 
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
+   */
+  function setAdminRunningMode(admin: Want, mode: RunningMode): void;
+
+  /**
    * Get whether the ability is enabled as super device administrator.
    *
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
@@ -703,6 +756,54 @@ declare namespace adminManager {
    * @since 14
    */
   function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
+
+  /**
+   * Starts an ability of admin provision application.
+   *
+   * @permission ohos.permission.START_PROVISIONING_MESSAGE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AdminType } type - type indicates the type of administrator to set.
+   * @param { common.Context } context - context indicates the context of application.
+   * @param { Record<string, string> } parameters - the parameters indicates the custom parameters of start an administrator provision.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function startAdminProvision(admin: Want, type: AdminType, context: common.Context, parameters: Record<string, string>): void;
+
+  /**
+   * Gets administrators of device.
+   *
+   * @returns { Promise<Array<Want>> } returns the want list indicates the administrators of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 15
+   */
+  function getAdmins(): Promise<Array<Want>>;
+
+  /**
+   * replace old admin with new admin.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
+   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
+   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 }
 
 export default adminManager;

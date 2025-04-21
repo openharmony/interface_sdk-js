@@ -21,12 +21,13 @@
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
-import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo } from '@ohos.file.AlbumPickerComponent';
+import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback } from '@ohos.file.AlbumPickerComponent';
 import {
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
-    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange
+    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 } from '@ohos.file.PhotoPickerComponent';
 import {
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
@@ -39,7 +40,8 @@ export {
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
-    AlbumPickerComponent, AlbumPickerOptions, AlbumInfo,
+    AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback,
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
-    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
+    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 };

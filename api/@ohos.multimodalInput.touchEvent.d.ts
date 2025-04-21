@@ -168,6 +168,34 @@ export declare enum SourceType {
 }
 
 /**
+ * Fixed mode of screenX and screenY.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi Hide this for inner system use.
+ * @since 19
+ */
+export declare enum FixedMode {
+  /**
+   * Not fix.
+   * 
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  NONE = 0,
+
+  /**
+   * One hand mode.
+   * 
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  AUTO = 1
+}
+
+/**
  * Touch
  *
  * @interface Touch
@@ -318,6 +346,24 @@ export declare interface Touch {
    * @since 9
    */
   toolType: ToolType;
+
+  /**
+   * fixedDisplayX - Corrected value of the screen x coordinate.
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  fixedDisplayX?: number;
+
+  /**
+   * fixedDisplayY - Corrected value of the screen y coordinate.
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  fixedDisplayY?: number;
 }
 
 /**
@@ -360,4 +406,14 @@ export declare interface TouchEvent extends InputEvent {
    * @since 9
    */
   sourceType: SourceType;
+
+  /**
+   * fixedMode - Fixed mode of Touch.
+   * 
+   * @type { FixedMode }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  fixedMode?: FixedMode;
 }

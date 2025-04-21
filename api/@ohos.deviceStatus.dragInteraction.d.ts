@@ -164,10 +164,9 @@ declare namespace dragInteraction {
    *
    * @param { boolean } enabled Switch state.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 14
+   * @since 18
    */
   function setDragSwitchState(enabled: boolean): void;
 
@@ -178,9 +177,10 @@ declare namespace dragInteraction {
    * @param { string } bundleName App bundle name.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 14
+   * @since 18
    */
   function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }

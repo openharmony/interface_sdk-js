@@ -486,6 +486,52 @@ declare namespace unifiedDataChannel {
      * @since 14
      */
     getValue(): ValueType;
+
+    /**
+     * Get the types of unified record.
+     *
+     * @returns { Array<string> } Return the types of unified record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    getTypes(): Array<string>;
+
+    /**
+     * Add an entry into unified record
+     *
+     * @param { string } type - type of entry.
+     * @param { ValueType } value - value of entry.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    addEntry(type: string, value: ValueType): void;
+
+    /**
+     * Get an entry from unified record
+     *
+     * @param { string } type - type of entry want to get.
+     * @returns { ValueType } Return the value corresponding to the type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    getEntry(type: string): ValueType;
+
+    /**
+     * Get entries from unified record
+     *
+     * @returns { Record<string, ValueType> } Return all entries in the record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    getEntries(): Record<string, ValueType>;
   }
 
   /**
@@ -1413,7 +1459,7 @@ declare namespace unifiedDataChannel {
      * Indicates the intention of drag
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 14
      */
      DRAG = 'Drag'
@@ -1464,6 +1510,236 @@ declare namespace unifiedDataChannel {
      */
     key?: string;
   };
+
+  /**
+   * Defines the types of file conflict options when getting data from the UDMF.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum FileConflictOptions {
+    /**
+     * Overwrite when destUri has file with same name.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    OVERWRITE,
+
+    /**
+     * Skip when destUri has file with same name.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    SKIP
+  }
+
+  /**
+   * Defines the types of progress indicator when getting data from the UDMF.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum ProgressIndicator {
+    /**
+     * Getting data without system default progress indicator.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    NONE,
+
+    /**
+     * Getting data with system default progress indicator.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT
+  }
+
+  /**
+   * Defines the listener status of obtaining progress and data.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum ListenerStatus {
+    /**
+     * Indicates the finished status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    FINISHED = 0,
+
+    /**
+     * Indicates that processing is still in progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    PROCESSING,
+
+    /**
+     * Indicates that the process has been canceled.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    CANCELED,
+
+    /**
+     * Indicates that an internal error has occurred.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    INNER_ERROR = 200,
+
+    /**
+     * Indicates that the GetDataParams contains invalid parameters.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    INVALID_PARAMETERS,
+
+    /**
+     * Indicates that no data is obtained.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    DATA_NOT_FOUND,
+
+    /**
+     * Indicates that an error occurred in the synchronization process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    SYNC_FAILED,
+
+    /**
+     * Indicates that an error occurred during file copying.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    COPY_FILE_FAILED,
+  }
+
+  /**
+   * Indicates the progress information.
+   *
+   * @interface ProgressInfo
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  interface ProgressInfo {
+    /**
+     * Indicates the UDMF processing progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    progress: number;
+
+    /**
+     * Indicates the status of obtaining progress and data.
+     *
+     * @type { ListenerStatus }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    status: ListenerStatus;
+  }
+
+  /**
+   * A listener callback function that fetches progress info and data.
+   *
+   * @typedef { function } DataProgressListener
+   * @param { ProgressInfo } progressInfo - the progress information.
+   * @param { UnifiedData | null } data - Data obtained when the progress reaches 100%.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | null) => void;
+
+  /**
+   * Represents the get data parameters when getting data from udmf.
+   *
+   * @interface GetDataParams
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  interface GetDataParams {
+    /**
+     * Indicates whether to use default system progress indicator.
+     *
+     * @type { ProgressIndicator }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    progressIndicator: ProgressIndicator;
+
+    /**
+     * Indicates progress and data listener when getting unified data.
+     *
+     * @type { DataProgressListener }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    dataProgressListener: DataProgressListener;
+
+    /**
+     * Indicates the dest path uri where copy file will be copied to sandbox of application.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    destUri?: string;
+
+    /**
+     * Indicates file conflict options when dest path has file with same name.
+     *
+     * @type { FileConflictOptions }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    fileConflictOptions?: FileConflictOptions;
+  }
 
   /**
    * Insert data into unified data channel by Intention
@@ -1683,7 +1959,7 @@ declare namespace unifiedDataChannel {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 20400001 - Settings already exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 14
    */
    function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
@@ -1710,10 +1986,25 @@ declare namespace unifiedDataChannel {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 14
    */
    function removeAppShareOptions(intention: Intention): void;
+
+  /**
+   * It is used to convert the multi-entry structure.
+   * <br>When the input parameters use different records to represent various formats of a single data entry,
+   * and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
+   * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
+   * 
+   * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 17
+   */
+   function convertRecordsToEntries(data: UnifiedData): void;
 }
 
 export default unifiedDataChannel;

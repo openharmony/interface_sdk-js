@@ -171,7 +171,7 @@ export interface GridObjectSortComponentItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 }

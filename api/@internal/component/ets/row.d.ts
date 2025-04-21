@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RowOptions {
   /**
@@ -63,6 +63,17 @@ declare interface RowOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Row spacing.
+   *
+   * Anonymous Object Rectification
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   space?: string | number;
 }
 
@@ -74,7 +85,7 @@ declare interface RowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface RowOptionsV2 {
   /**
@@ -85,7 +96,7 @@ interface RowOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   space?: SpaceType;
 }
@@ -166,25 +177,27 @@ interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    *
+   * Anonymous Object Rectification
    * @param { ?RowOptions } options - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RowOptions): RowAttribute;
   /**
    * Called when the layout is set in the horizontal direction.
    *
+   * Anonymous Object Rectification
    * @param { ?(RowOptions | RowOptionsV2) } options - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: RowOptions | RowOptionsV2): RowAttribute;
 }

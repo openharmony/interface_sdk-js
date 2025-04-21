@@ -475,6 +475,21 @@ declare namespace display {
   function setFoldDisplayMode(mode: FoldDisplayMode): void;
 
   /**
+   * Change the display mode of the foldable device.
+   *
+   * @param { FoldDisplayMode } mode target display mode to change.
+   * @param { string } reason set display mode reason.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
+
+  /**
    * Register the callback for fold display mode changes.
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
@@ -557,6 +572,158 @@ declare namespace display {
    */
   function setFoldStatusLocked(locked: boolean): void;
 
+    /**
+   * Create virtual screen.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { VirtualScreenConfig } config Indicates the options of the virtual screen.
+   * @returns { Promise<number> } Promise used to return the created virtual screen id
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 16
+   */
+  function createVirtualScreen(config: VirtualScreenConfig): Promise<number>;
+
+  /**
+   * Destroy virtual screen.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function destroyVirtualScreen can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 16
+   */
+  function destroyVirtualScreen(screenId: number): Promise<void>;
+  
+  /**
+   * Set surface for the virtual screen.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @param { string } surfaceId Indicates the surface id.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function setVirtualScreenSurface can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 16
+   */
+  function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
+
+  /**
+   * Make screen as unique-screen
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } screenId Indicates the unique screen id. It's type should be int.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.function makeUnique can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 16
+   */
+  function makeUnique(screenId: number): Promise<void>;
+
+  /**
+   * Add the list of window ids to the block list which won't display on the virtual screen
+   *
+   * @param { Array<number> } windowIds - The list of window ids that do not want to display on the virtual screen
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function addVirtualScreenBlocklist(windowIds: Array<number>): Promise<void>;
+
+  /**
+   * Remove the list of window ids from the block list which won't display on the virtual screen
+   *
+   * @param { Array<number> } windowIds - The list of window ids that want to display on the virtual screen
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function removeVirtualScreenBlocklist(windowIds: Array<number>): Promise<void>;
+
+  /**
+   * The parameter for creating virtual screen.
+   *
+   * @interface VirtualScreenConfig
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 16
+   */
+  interface VirtualScreenConfig {
+    /**
+     * Indicates the name of the virtual screen.
+     *
+     * @type { string }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 16
+     */
+    name: string;
+
+    /**
+     * Indicates the width of the virtual screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 16
+     */
+    width: number;
+
+    /**
+     * Indicates the height of the virtual screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 16
+     */
+    height: number;
+
+    /**
+     * Indicates the density of the virtual screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 16
+     */
+    density: number;
+
+    /**
+     * Indicates the surface id of the virtual screen.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 16
+     */
+    surfaceId: string;
+  }
+
   /**
    * Enumerates the fold status.
    *
@@ -628,7 +795,55 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
-    FOLD_STATUS_HALF_FOLDED
+    FOLD_STATUS_HALF_FOLDED,
+    /**
+     * Fold Status Expanded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11,
+    /**
+     * Fold Status Expanded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21,
+    /**
+     * Fold Status Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
+    /**
+     * Fold Status Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22,
+    /**
+     * Fold Status Half Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13,
+    /**
+     * Fold Status Half Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23
   }
 
   /**
@@ -920,6 +1135,88 @@ declare namespace display {
      * @since 12
      */
     LANDSCAPE_INVERTED = 3
+  }
+
+    /**
+     * Indicate the source mode of the display
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+  enum DisplaySourceMode {
+    /**
+     * Indicate that the display is not in use.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    NONE = 0,
+ 
+    /**
+     * Indicate that the display is the main display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    MAIN = 1,
+
+    /**
+     * Indicate that the display is in mirror mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    MIRROR = 2,
+
+    /**
+     * Indicate that the display is in extend mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    EXTEND = 3,
+
+    /**
+     * Indicate that the display stands alone.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    ALONE = 4
+  }
+
+  /**
+   * Enumerates the screen shape.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 18
+   */
+  enum ScreenShape {
+    /**
+     *The screen shape is rectangle.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    RECTANGLE = 0,
+    /**
+     *The screen shape is round.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    ROUND = 1
   }
 
   /**
@@ -1591,6 +1888,16 @@ declare namespace display {
     yDPI: number;
 
     /**
+     * The shape of screen
+     *
+     * @type { ?ScreenShape }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 18
+     */
+    screenShape?: ScreenShape;
+
+    /**
      * All supported color spaces.
      *
      * @type { Array<colorSpaceManager.ColorSpace> }
@@ -1623,6 +1930,36 @@ declare namespace display {
      * @since 12
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
+
+    /**
+     * The source mode of display
+     *
+     * @type { ?DisplaySourceMode }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    sourceMode?: DisplaySourceMode;
+ 
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    x?: number;
+  
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    y?: number;
 
     /**
      * Obtain the cutout info of the display.
@@ -1731,6 +2068,20 @@ declare namespace display {
     * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
+
+    /**
+    * Get current display capability, including foldstatus, displaymode, rotation, and orientation information.
+    *
+    * @returns { string } Indicates the current foldstatus, displaymode, rotation, and orientation information.
+    * @throws { BusinessError } 801 - Capability not supported.Function getDisplayCapability can not work correctly due to limited device capabilities.
+    * @throws { BusinessError } 1400001 - Invalid display or screen.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
+    * @since 18
+    * @test
+    */
+    getDisplayCapability(): string;
   }
 }
 

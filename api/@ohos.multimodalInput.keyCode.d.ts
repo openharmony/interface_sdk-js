@@ -1235,6 +1235,110 @@ export declare enum KeyCode {
   KEYCODE_VIRTUAL_MULTITASK = 2210,
 
   /**
+   * KEYCODE_BUTTON_A
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_A = 2301,
+
+  /**
+   * KEYCODE_BUTTON_B
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_B = 2302,
+
+  /**
+   * KEYCODE_BUTTON_X
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_X = 2304,
+
+  /**
+   * KEYCODE_BUTTON_Y
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_Y = 2305,
+
+  /**
+   * KEYCODE_BUTTON_L1
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_L1 = 2307,
+
+  /**
+   * KEYCODE_BUTTON_R1
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_R1 = 2308,
+
+  /**
+   * KEYCODE_BUTTON_L2
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_L2 = 2309,
+
+  /**
+   * KEYCODE_BUTTON_R2
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_R2 = 2310,
+
+  /**
+   * KEYCODE_BUTTON_SELECT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_SELECT = 2311,
+
+  /**
+   * KEYCODE_BUTTON_START
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_START = 2312,
+
+  /**
+   * KEYCODE_BUTTON_MODE
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_MODE = 2313,
+
+  /**
+   * KEYCODE_BUTTON_THUMBL
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_THUMBL = 2314,
+
+  /**
+   * KEYCODE_BUTTON_THUMBR
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 15
+   */
+  KEYCODE_BUTTON_THUMBR = 2315,
+
+  /**
    * KEYCODE_SLEEP
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -2742,7 +2846,7 @@ export declare enum KeyCode {
    * KEYCODE_DAGGER_CLICK
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 16
+   * @since 18
    */
   KEYCODE_DAGGER_CLICK = 3211,
 
@@ -2750,7 +2854,7 @@ export declare enum KeyCode {
    * KEYCODE_DAGGER_DOUBLE_CLICK
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 16
+   * @since 18
    */
   KEYCODE_DAGGER_DOUBLE_CLICK = 3212,
 
@@ -2758,7 +2862,7 @@ export declare enum KeyCode {
    * KEYCODE_DAGGER_LONG_PRESS
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 16
+   * @since 18
    */
   KEYCODE_DAGGER_LONG_PRESS = 3213
 }

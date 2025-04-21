@@ -614,6 +614,64 @@ declare interface ChainAnimationOptions {
 }
 
 /**
+ * Defines a UIListEvent which is used to set different common event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIListEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIListEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the List will scroll.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - The callback will be triggered when the List will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when List view did scroll.
+   *
+   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the List view did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: OnScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the start, end, or center positions of the display change.
+   *
+   * @param { OnListScrollIndexCallback | undefined } callback - callback function, triggered when the
+   *     start, end, or center positions of the display change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the list visible content changes.
+   *
+   * @param { OnScrollVisibleContentChangeCallback | undefined } callback - callback function, triggered when
+   *     the list visible content changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
+}
+
+/**
  * Defines the close swipe action options.
  *
  * @interface CloseSwipeActionOptions
@@ -705,6 +763,21 @@ declare interface VisibleListContentInfo {
  * @since 12
  */
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
+
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnListScrollIndexCallback
+ * @param {number} start - the first index in visible content.
+ * @param {number} end - the last index in visible content.
+ * @param {number} center - the center index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare type OnListScrollIndexCallback = (start: number, end: number, center: number) => void;
 
 /**
  * @extends Scroller
@@ -844,7 +917,7 @@ declare class ListScroller extends Scroller {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ListOptions {
   /**
@@ -881,6 +954,17 @@ interface ListOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set initialIndex.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   initialIndex?: number;
   /**
    * Set space.
@@ -916,6 +1000,17 @@ interface ListOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set space.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   space?: number | string;
   /**
    * Set scroller.
@@ -950,6 +1045,17 @@ interface ListOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set scroller.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Scroller }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   scroller?: Scroller;
 }
@@ -1029,6 +1135,7 @@ interface ListInterface {
    */
   /**
    * Called when interface data is called.
+   * Anonymous Object Rectification.
    *
    * @param { ListOptions } [options] - list options
    * @returns { ListAttribute }
@@ -1036,7 +1143,7 @@ interface ListInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: ListOptions): ListAttribute;
 }
@@ -1049,7 +1156,7 @@ interface ListInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface ListDividerOptions {
   /**
@@ -1086,6 +1193,17 @@ declare interface ListDividerOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set strokeWidth.
+   * Anonymous Object Rectification.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   strokeWidth: Length;
   /**
    * Set color.
@@ -1120,6 +1238,17 @@ declare interface ListDividerOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set color.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   color?: ResourceColor;
   /**
@@ -1156,6 +1285,17 @@ declare interface ListDividerOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set startMargin.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   startMargin?: Length;
   /**
    * Set endMargin.
@@ -1190,6 +1330,17 @@ declare interface ListDividerOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set endMargin.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   endMargin?: Length;
 }
@@ -1486,6 +1637,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Called when the ListItem split line style is set.
+   * Anonymous Object Rectification.
    *
    * @param { ListDividerOptions | null } value
    * @returns { ListAttribute }
@@ -1493,7 +1645,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   divider(
     value: ListDividerOptions | null,
@@ -1792,6 +1944,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 12
    */
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
+
+  /**
+   * Sets the layout of the List component from the end.
+   *
+   * @param { boolean } enabled - Indicates whether the List is layout from the end.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  stackFromEnd(enabled: boolean): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
@@ -2292,6 +2456,16 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines List Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  */
 declare const List: ListInterface;
 

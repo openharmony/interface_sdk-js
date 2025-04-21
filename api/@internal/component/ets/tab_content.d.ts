@@ -528,7 +528,7 @@ declare class TabBarSymbol {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface TabBarOptions {
   /**
@@ -555,6 +555,16 @@ declare interface TabBarOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * TabBar icon.
+   * Anonymous Object Rectification
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   icon?: string | Resource;
 
   /**
@@ -580,6 +590,16 @@ declare interface TabBarOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * TabBar text.
+   * Anonymous Object Rectification
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   text?: string | Resource
 }
@@ -1177,13 +1197,14 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    */
   /**
    * Called when tabbar is entered.
+   * Anonymous Object Rectification
    *
    * @param { string | Resource | CustomBuilder | TabBarOptions } options - TabBar options.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
@@ -1218,6 +1239,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
 
   /**
    * Set the content of the tab bar.
+   * Anonymous Object Rectification
    *
    * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
    * Set the content of the tab bar.
@@ -1225,7 +1247,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | 
     TabBarOptions): TabContentAttribute;

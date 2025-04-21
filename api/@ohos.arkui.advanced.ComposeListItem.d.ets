@@ -164,7 +164,7 @@ export declare class OperateIcon {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -189,7 +189,7 @@ export declare class OperateIcon {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -199,7 +199,7 @@ export declare class OperateIcon {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -210,7 +210,7 @@ export declare class OperateIcon {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -263,7 +263,7 @@ export declare class OperateCheck {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -273,7 +273,7 @@ export declare class OperateCheck {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -284,7 +284,7 @@ export declare class OperateCheck {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -322,7 +322,7 @@ export declare class OperateButton {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -332,7 +332,7 @@ export declare class OperateButton {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -343,7 +343,7 @@ export declare class OperateButton {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -395,7 +395,7 @@ export declare class ContentItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -567,7 +567,7 @@ export declare class OperateItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 

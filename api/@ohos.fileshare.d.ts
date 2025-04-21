@@ -159,6 +159,58 @@ declare namespace fileShare {
   }
 
   /**
+   * Policy information to manager permissions on a path.
+   *
+   * @interface PathPolicyInfo
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 15
+   */
+  export interface PathPolicyInfo {
+    /**
+     * Indicates the path of the policy information.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 15
+     */
+    path: string;
+ 
+    /**
+     * Indicates the mode of operation for the path.
+     *
+     * @type { OperationMode }
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 15
+     */
+    operationMode: OperationMode;
+  }
+
+  /**
+   * Indicates the policy type of the path.
+   *
+   * @enum { number } policyType
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 15
+   */
+  export enum PolicyType {
+    /**
+     * Indicates that the policy is temporary.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 15
+     */
+    TEMPORARY_TYPE = 0,
+ 
+    /**
+     * Indicates that the policy is persistent.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 15
+     */
+    PERSISTENT_TYPE = 1,
+  }
+
+  /**
    * Provides grant uri permission for app
    *
    * @permission ohos.permission.WRITE_MEDIA
@@ -283,7 +335,38 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 12
    */
+  /**
+   * Check persistent permissions for the URI.
+   * 
+   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
+   * @returns { Promise<Array<boolean>> } Returns the persistent state of uri permissions.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 17
+   */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
+
+  /**
+   * Check permissions for the path.
+   * 
+   * @permission ohos.permission.CHECK_SANDBOX_POLICY
+   * @param { number } tokenID - Token ID of the application.
+   * @param { Array<PathPolicyInfo> } policies - Policy information to check on paths.
+   * @param { PolicyType } policyType - Persistent or temporary type.
+   * @returns { Promise<Array<boolean>> } Returns the permission state of paths.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @since 15
+   */
+  function checkPathPermission(tokenID: number, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }
 
 export default fileShare;

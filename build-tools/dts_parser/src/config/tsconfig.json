@@ -41,6 +41,7 @@
         "Hyperlink",
         "Image",
         "ImageAnimator",
+        "LazyVGridLayout",
         "Line",
         "List",
         "ListItem",
@@ -280,6 +281,11 @@
             "name": "ImageAnimator",
             "type": "ImageAnimatorAttribute",
             "instance": "ImageAnimatorInstance"
+          },
+          {
+            "name": "LazyVGridLayout",
+            "type": "LazyVGridLayoutAttribute",
+            "instance": "LazyVGridLayoutInstance"
           },
           {
             "name": "Line",

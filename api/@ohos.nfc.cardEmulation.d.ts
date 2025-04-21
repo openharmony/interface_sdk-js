@@ -350,11 +350,10 @@ declare namespace cardEmulation {
      * @param { 'hceCmd' } type - The type to unregister event.
      * @param { AsyncCallback<number[]> } callback - The callback used to listen for the event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void;
 

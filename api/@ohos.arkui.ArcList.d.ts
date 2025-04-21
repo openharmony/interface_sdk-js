@@ -28,7 +28,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type ArcScrollIndexHandler = (start: number, end: number, center: number) => void;
 
@@ -39,7 +39,7 @@ declare type ArcScrollIndexHandler = (start: number, end: number, center: number
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface ArkListOptions {
   /**
@@ -49,7 +49,7 @@ declare interface ArkListOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   initialIndex?: number;
 
@@ -60,7 +60,7 @@ declare interface ArkListOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   scroller?: Scroller;
 
@@ -71,7 +71,7 @@ declare interface ArkListOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   header?: ComponentContent;
 }
@@ -83,7 +83,7 @@ declare interface ArkListOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface ArcListInterface {
   /**
@@ -94,7 +94,7 @@ export interface ArcListInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: ArkListOptions): ArcListAttribute;
 }
@@ -106,7 +106,7 @@ export interface ArcListInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface ArcListItemInterface {
   /**
@@ -116,7 +116,7 @@ export interface ArcListItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (): ArcListItemAttribute;
 }
@@ -128,7 +128,7 @@ export interface ArcListItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
@@ -139,7 +139,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcListAttribute;
 
@@ -151,7 +151,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   space(space: Optional<LengthMetrics>): ArcListAttribute;
 
@@ -163,7 +163,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   scrollBar(status: Optional<BarState>): ArcListAttribute;
 
@@ -175,7 +175,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   scrollBarColor(color: Optional<ColorMetrics>): ArcListAttribute;
 
@@ -187,7 +187,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   scrollBarWidth(width: Optional<LengthMetrics>): ArcListAttribute;
 
@@ -199,7 +199,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   cachedCount(count: Optional<number>): ArcListAttribute;
 
@@ -211,7 +211,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   chainAnimation(enable: Optional<boolean>): ArcListAttribute;
 
@@ -223,7 +223,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   childrenMainSize(size: Optional<ChildrenMainSize>): ArcListAttribute;
 
@@ -235,7 +235,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableScrollInteraction(enable: Optional<boolean>): ArcListAttribute;
 
@@ -247,7 +247,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fadingEdge(enable: Optional<boolean>): ArcListAttribute;
 
@@ -259,7 +259,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   friction(friction: Optional<number>): ArcListAttribute;
 
@@ -272,7 +272,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   flingSpeedLimit(speed: Optional<number>): ArcListAttribute;
 
@@ -284,7 +284,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onScrollIndex(handler: Optional<ArcScrollIndexHandler>): ArcListAttribute;
 
@@ -296,7 +296,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onReachStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
@@ -308,7 +308,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onReachEnd(handler: Optional<VoidCallback>): ArcListAttribute;
 
@@ -320,7 +320,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onScrollStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
@@ -332,7 +332,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onScrollStop(handler: Optional<VoidCallback>): ArcListAttribute;
 
@@ -344,7 +344,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillScroll(handler: Optional<OnWillScrollCallback>): ArcListAttribute;
 
@@ -357,7 +357,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidScroll(handler: Optional<OnScrollCallback>): ArcListAttribute;
 }
@@ -369,7 +369,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
   /**
@@ -380,7 +380,7 @@ export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttrib
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   autoScale(enable: Optional<boolean>): ArcListItemAttribute;
 
@@ -392,7 +392,7 @@ export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttrib
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   swipeAction(options: Optional<SwipeActionOptions>): ArcListItemAttribute;
 }
@@ -403,7 +403,7 @@ export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttrib
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare const ArcListInstance: ArcListAttribute;
 
@@ -413,7 +413,7 @@ export declare const ArcListInstance: ArcListAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare const ArcListItemInstance: ArcListItemAttribute;
 
@@ -423,7 +423,7 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare const ArcList: ArcListInterface;
 
@@ -433,6 +433,6 @@ export declare const ArcList: ArcListInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare const ArcListItem: ArcListItemInterface;

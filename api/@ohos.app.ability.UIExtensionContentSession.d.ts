@@ -116,7 +116,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   loadContentByName(name: string, storage?: LocalStorage): void;
 

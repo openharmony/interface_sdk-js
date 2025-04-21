@@ -35,6 +35,7 @@ import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
@@ -537,7 +538,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -759,7 +760,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1972,7 +1973,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2176,7 +2177,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2390,7 +2391,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -4613,7 +4614,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -4704,7 +4705,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The EDM prohibits the application from launching.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
@@ -4734,7 +4735,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000013 - The EDM prohibits the application from launching.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4759,4 +4760,52 @@ export default class UIAbilityContext extends Context {
    * @since 14
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
+
+  /**
+   * Set label and icon for current ability instance.
+   * You need to apply for permission:ohos.permission.SET_ABILITY_INSTANCE_INFO to call this function.
+   *
+   * @permission ohos.permission.SET_ABILITY_INSTANCE_INFO
+   * @param { string } label - The label of ability to be displayed in the Task Center and shortcut bar.
+   * @param { image.PixelMap } icon - The icon of ability to be displayed in the Task Center and shortcut bar.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 15
+   */
+  setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
+
+  /**
+   * Revoke delegator.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000065 - The API can be called only when the ability is running in the foreground.
+   * @throws { BusinessError } 16000084 - Only allow DelegatorAbility to call the method once.
+   * @throws { BusinessError } 16000085 - The interaction process between Ability and Window encountered an error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 17
+   */
+  revokeDelegator(): Promise<void>;
+
+  /**
+   * Set colorMode of uiability.
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

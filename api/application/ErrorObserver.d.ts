@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,6 +31,14 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * The observer will be called by system when an error occurs.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 export default class ErrorObserver {
   /**
    * Will be called when the js runtime throws an exception which doesn't caught by user.
@@ -46,6 +54,15 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { string } errMsg - the message and error stacktrace about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   onUnhandledException(errMsg: string): void;
 
@@ -63,6 +80,15 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { Error } errObject - the error object about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   onException?(errObject: Error): void;
 }

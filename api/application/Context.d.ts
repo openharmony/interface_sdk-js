@@ -387,7 +387,7 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   processName: string;
 
@@ -581,11 +581,10 @@ export default class Context extends BaseContext {
    *
    * @param { contextConstant.AreaMode } areaMode - Indicates the area mode.
    * @returns { Context } Returns the context with the specified area mode.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
@@ -599,7 +598,7 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   createDisplayContext(displayId: number): Context;
 }

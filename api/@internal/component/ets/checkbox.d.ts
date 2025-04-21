@@ -264,6 +264,7 @@ interface CheckboxInterface {
 
 /**
  * Defines a Checkbox callback when onChange.
+ * Anonymous Object Rectification.
  *
  * @typedef { function } OnCheckboxChangeCallback
  * @param { boolean } value - selected status
@@ -271,7 +272,7 @@ interface CheckboxInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
@@ -359,7 +360,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   select(isSelected: Optional<boolean>): CheckboxAttribute;
 
@@ -412,7 +413,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
@@ -448,7 +449,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   shape(shape: Optional<CheckBoxShape>): CheckboxAttribute;
 
@@ -481,7 +482,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
@@ -514,7 +515,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   mark(style: Optional<MarkStyle>): CheckboxAttribute;
 
@@ -558,6 +559,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    */
   /**
    * Called when the selection status changes.
+   * Anonymous Object Rectification.
    *
    * @param { OnCheckboxChangeCallback } callback
    * @returns { CheckboxAttribute }
@@ -565,7 +567,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 
@@ -578,7 +580,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onChange(callback: Optional<OnCheckboxChangeCallback>): CheckboxAttribute;
 
@@ -602,7 +604,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   contentModifier(modifier: Optional<ContentModifier<CheckBoxConfiguration>>): CheckboxAttribute;
 }

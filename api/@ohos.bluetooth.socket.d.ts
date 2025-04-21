@@ -86,6 +86,20 @@ declare namespace socket {
   function sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback<number>): void;
 
   /**
+   * Obtain the device id in the client socket.
+   *
+   * @param { number } clientSocket - Indicates client socket.
+   * @returns { string } Returns the connected device id
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 17
+   */
+  function getDeviceId(clientSocket: number): string;
+
+  /**
    * Disables an spp server socket and releases related resources.
    *
    * @param { number } socket - Indicates the server socket ID, returned by {@link sppListen}.
@@ -157,6 +171,33 @@ declare namespace socket {
    * @since 10
    */
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
+
+  /**
+   * Asynchronous interface for writing data to the socket.
+   *
+   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @param { ArrayBuffer } data - Indicates the data to write.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2901054 - IO error.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 18
+   */
+  function sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise<void>;
+
+  /**
+   * Asynchronous interface for reading data from the socket.
+   *
+   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @returns { Promise<ArrayBuffer> } Returns the promise object, used to get the spp read data.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2901054 - IO error.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 18
+   */
+  function sppReadAsync(clientSocket: number): Promise<ArrayBuffer>;
 
   /**
    * Describes the spp parameters.

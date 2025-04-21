@@ -828,5 +828,30 @@ declare namespace hidebug {
    * @since 14
    */
   function getGraphicsMemorySync(): number;
+
+  /**
+   * Dump the raw heap snapshot of the JavaScript Virtual Machine for the current thread.
+   *
+   * The generated file will be stored in a folder within the application directory. However, since this file is usually
+   * large, the system imposes restrictions on the frequency and number of calls to this function. Consequently, you
+   * might fail to obtain the dump file due to quota limitations. These failures will persist until the quota is
+   * regularly refreshed by the system. Therefore, it is advisable to delete the file immediately after you have
+   * finished processing it. Moreover, it is recommended that you use this function in the gray - release version.
+   *
+   * @param { boolean } needGC - Whether do GC before dump, default is true.
+   * @returns { Promise<string> } Returns the full path of raw heap snapshot file.
+   * @throws { BusinessError } 11400106 - Quota exceeded.
+   * @throws { BusinessError } 11400107 - Fork operation failed.
+   * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
+   * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
+   * @throws { BusinessError } 11400110 - Disk remaining space too low.
+   * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 18
+   */
+  function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 }
 export default hidebug;

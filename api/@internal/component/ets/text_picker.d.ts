@@ -243,7 +243,7 @@ declare interface TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   columnWidths?: LengthMetrics[];
 }
@@ -425,7 +425,7 @@ declare type TextPickerScrollStopCallback = (value: string | string[], index: nu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
 
@@ -438,7 +438,7 @@ declare type OnTextPickerChangeCallback = (selectItem: string | string[], index:
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
 
@@ -504,7 +504,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   defaultPickerItemHeight(height: Optional<number | string>): TextPickerAttribute;
 
@@ -536,7 +536,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   canLoop(isLoop: Optional<boolean>): TextPickerAttribute;
 
@@ -569,7 +569,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   disappearTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
@@ -602,7 +602,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   textStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
@@ -635,7 +635,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   selectedTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
@@ -725,7 +725,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   onChange(callback: Optional<OnTextPickerChangeCallback>): TextPickerAttribute;
 
@@ -751,7 +751,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onScrollStop(callback: Optional<TextPickerScrollStopCallback>): TextPickerAttribute;
 
@@ -764,7 +764,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback): TextPickerAttribute;
 
@@ -800,7 +800,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   selectedIndex(index: Optional<number | number[]>): TextPickerAttribute;
 
@@ -824,7 +824,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   divider(textDivider: Optional<DividerOptions | null>): TextPickerAttribute;
 
@@ -843,14 +843,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Enable or disable haptic feedback.
    *
-   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  enableHapticFeedback(enabled: boolean): TextPickerAttribute;
+  enableHapticFeedback(enable: Optional<boolean>): TextPickerAttribute;
 
   /**
    * Called when set the height of gradient
@@ -860,7 +859,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   gradientHeight(height: Optional<Dimension>): TextPickerAttribute;
 
@@ -872,7 +871,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TextPickerAttribute;
 }
@@ -1228,7 +1227,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onEnterSelectedArea?: Callback<TextPickerResult>;
 
@@ -1332,6 +1331,28 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the textPickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the textPickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Callback function when the dialog appears.
    *
    * @type { ?function }
@@ -1416,9 +1437,8 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableHapticFeedback?: boolean;
 }
@@ -1468,6 +1488,8 @@ declare class TextPickerDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#showTextPickerDialog
    */
   static show(options?: TextPickerDialogOptions);
 }

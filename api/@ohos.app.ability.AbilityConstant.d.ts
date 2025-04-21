@@ -110,7 +110,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     launchReasonMessage?: string;
 
@@ -153,6 +153,116 @@ declare namespace AbilityConstant {
      * @since 12
      */
     lastExitMessage: string;
+
+    /**
+     * Indicates process last exit details.
+     *
+     * @type { LastExitDetailInfo }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    lastExitDetailInfo?: LastExitDetailInfo;
+  }
+
+  /**
+   * The definition of detailed information of process exits
+   *
+   * @typedef LastExitDetailInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  export interface LastExitDetailInfo {
+    /**
+     * Indicates the exited process id
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    pid: number;
+
+    /**
+     * Indicates the exited process name
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    processName: string;
+
+    /**
+     * Indicates the uid of exited process
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    uid: number;
+
+    /**
+     * Indicates the exit sub-reason
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    exitSubReason: number;
+
+    /**
+     * Indicates the exit detailed reason
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    exitMsg: string;
+
+    /**
+     * Indicates the rss value when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    rss: number;
+
+    /**
+     * Indicates the pss value when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    pss: number;
+
+    /**
+     * Indicates the timestamp when process exit
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    timestamp: number;
   }
 
   /**
@@ -505,7 +615,27 @@ declare namespace AbilityConstant {
      * @atomicservice
      * @since 11
      */
-    UPGRADE = 8
+    UPGRADE = 8,
+
+    /**
+     * Exit reason : USER_REQUEST. App exit due to user request.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    USER_REQUEST = 9,
+
+    /**
+     * Exit reason : SIGNAL. App exit due to system signal.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    SIGNAL = 10
   }
 
   /**
@@ -940,7 +1070,7 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   export enum CollaborateResult {
     /**
@@ -948,7 +1078,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     ACCEPT = 0,
 
@@ -957,7 +1087,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     REJECT = 1,
   }
@@ -969,7 +1099,7 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   export enum PrepareTermination {
     /**
@@ -978,7 +1108,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     TERMINATE_IMMEDIATELY = 0,
 
@@ -988,7 +1118,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     CANCEL = 1
   }

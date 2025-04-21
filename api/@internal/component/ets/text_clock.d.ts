@@ -167,7 +167,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface TextClockOptions {
   /**
@@ -195,6 +195,17 @@ declare interface TextClockOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Time zone offset.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   timeZoneOffset?: number;
 
   /**
@@ -221,6 +232,17 @@ declare interface TextClockOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * TextClock controller.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?TextClockController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   controller?: TextClockController
 }
@@ -293,6 +315,7 @@ interface TextClockInterface {
    * Specifies the current time zone.
    * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
+   * Anonymous Object Rectification.
    *
    * @param { TextClockOptions } [options] - TextClock options.
    * @returns { TextClockAttribute }
@@ -300,7 +323,7 @@ interface TextClockInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: TextClockOptions): TextClockAttribute;
 }

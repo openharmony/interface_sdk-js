@@ -26,7 +26,7 @@ import { TextModifier as TextModifier } from '@ohos.arkui.modifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
 
@@ -37,7 +37,7 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface SubHeaderV2TitleOptions {
   /**
@@ -46,7 +46,7 @@ export interface SubHeaderV2TitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   primaryTitle?: ResourceStr;
   /**
@@ -55,7 +55,7 @@ export interface SubHeaderV2TitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   primaryTitleModifier?: TextModifier;
   /**
@@ -64,7 +64,7 @@ export interface SubHeaderV2TitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   secondaryTitle?: ResourceStr;
   /**
@@ -73,7 +73,7 @@ export interface SubHeaderV2TitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   secondaryTitleModifier?: TextModifier;
 }
@@ -83,7 +83,7 @@ export interface SubHeaderV2TitleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ObservedV2
 export declare class SubHeaderV2Title {
@@ -93,7 +93,7 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace primaryTitle?: ResourceStr;
   /**
@@ -102,7 +102,7 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace primaryTitleModifier?: TextModifier;
   /**
@@ -111,7 +111,7 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace secondaryTitle?: ResourceStr;
   /**
@@ -120,7 +120,7 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace secondaryTitleModifier?: TextModifier;
   /**
@@ -130,7 +130,7 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(options: SubHeaderV2TitleOptions);
 }
@@ -144,7 +144,7 @@ export declare class SubHeaderV2Title {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
 
@@ -155,7 +155,7 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface SubHeaderV2SelectOptions {
   /**
@@ -165,7 +165,7 @@ export interface SubHeaderV2SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   options: SelectOption[];
   /**
@@ -175,7 +175,7 @@ export interface SubHeaderV2SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedIndex?: number;
   /**
@@ -185,9 +185,18 @@ export interface SubHeaderV2SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  selectedContent?: string;
+  /**
+   * Sets the selected content of the SubHeaderV2SelectOptions.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *
@@ -195,9 +204,19 @@ export interface SubHeaderV2SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onSelect?: SubHeaderV2SelectOnSelect;
+  /**
+   * Sets the default focus state of SubHeaderV2SelectOptions.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -205,7 +224,7 @@ export interface SubHeaderV2SelectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ObservedV2
 export declare class SubHeaderV2Select {
@@ -216,7 +235,7 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace options: SelectOption[];
   /**
@@ -226,7 +245,7 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace selectedIndex?: number;
   /**
@@ -236,9 +255,18 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  @Trace selectedContent?: string;
+  /**
+   * Sets the selected content of the SubHeaderV2SelectOptions.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  @Trace selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *
@@ -246,9 +274,19 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace onSelect?: SubHeaderV2SelectOnSelect;
+  /**
+   * Sets the default focus state of SubHeaderV2SelectOptions.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  @Trace defaultFocus?: boolean;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -256,7 +294,7 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(options: SubHeaderV2SelectOptions);
 }
@@ -267,7 +305,7 @@ export declare class SubHeaderV2Select {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum SubHeaderV2OperationType {
   /**
@@ -275,7 +313,7 @@ export declare enum SubHeaderV2OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   TEXT_ARROW = 0,
   /**
@@ -283,7 +321,7 @@ export declare enum SubHeaderV2OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   BUTTON = 1,
   /**
@@ -291,7 +329,7 @@ export declare enum SubHeaderV2OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   ICON_GROUP = 2,
   /**
@@ -299,7 +337,7 @@ export declare enum SubHeaderV2OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   LOADING = 3
 }
@@ -311,7 +349,7 @@ export declare enum SubHeaderV2OperationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export type SubHeaderV2OperationItemAction = () => void;
 
@@ -322,7 +360,7 @@ export type SubHeaderV2OperationItemAction = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
 
@@ -333,7 +371,7 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface SubHeaderV2OperationItemOptions {
   /**
@@ -342,7 +380,7 @@ export interface SubHeaderV2OperationItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   content: SubHeaderV2OperationItemType;
   /**
@@ -351,7 +389,7 @@ export interface SubHeaderV2OperationItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   action?: SubHeaderV2OperationItemAction;
   /**
@@ -360,7 +398,7 @@ export interface SubHeaderV2OperationItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
   /**
@@ -369,7 +407,7 @@ export interface SubHeaderV2OperationItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
   /**
@@ -384,9 +422,19 @@ export interface SubHeaderV2OperationItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
+  /**
+   * Sets the default focus state of the text or icon.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -394,7 +442,7 @@ export interface SubHeaderV2OperationItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ObservedV2
 export declare class SubHeaderV2OperationItem {
@@ -404,7 +452,7 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace content: SubHeaderV2OperationItemType;
   /**
@@ -413,7 +461,7 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace action?: SubHeaderV2OperationItemAction;
   /**
@@ -423,7 +471,7 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(options: SubHeaderV2OperationItemOptions);
   /**
@@ -432,7 +480,7 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace accessibilityText?: ResourceStr;
   /**
@@ -441,7 +489,7 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace accessibilityDescription?: ResourceStr;
   /**
@@ -456,9 +504,19 @@ export declare class SubHeaderV2OperationItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace accessibilityLevel?: string;
+  /**
+   * Sets the default focus state of the text or icon.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  @Trace defaultFocus?: boolean;
 }
 
 /**
@@ -468,7 +526,7 @@ export declare class SubHeaderV2OperationItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export type SubHeaderV2TitleBuilder = () => void;
 
@@ -479,7 +537,7 @@ export type SubHeaderV2TitleBuilder = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct SubHeaderV2 {
@@ -491,7 +549,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   readonly icon?: SubHeaderV2IconType;
@@ -503,7 +561,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   readonly title?: SubHeaderV2Title;
@@ -515,7 +573,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   readonly select?: SubHeaderV2Select;
@@ -527,7 +585,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   readonly operationType?: SubHeaderV2OperationType;
@@ -539,7 +597,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   readonly operationItems?: SubHeaderV2OperationItem[];
@@ -549,7 +607,7 @@ export declare struct SubHeaderV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam
   titleBuilder?: SubHeaderV2TitleBuilder;

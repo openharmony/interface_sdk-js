@@ -66,10 +66,9 @@ declare namespace omapi {
    *
    * @param { 'stateChanged' } type - The type to register.
    * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
-   * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 16
+   * @since 18
    */
   function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
 
@@ -78,10 +77,9 @@ declare namespace omapi {
    *
    * @param { 'stateChanged' } type - The type to register.
    * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
-   * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 16
+   * @since 18
    */
   function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
 

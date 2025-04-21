@@ -102,6 +102,39 @@ declare namespace screenLockFileManager {
   }
 
   /**
+   * KeyStatus.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.ScreenLockFileManager
+   * @since 18
+   */
+  export enum KeyStatus {
+    /**
+     * The application is not enabled the data protection under lock screen.
+     *
+     * @syscap SystemCapability.Security.ScreenLockFileManager
+     * @since 18
+     */
+    KEY_NOT_EXIST = -2,
+
+    /**
+     * AppKey has been released.
+     *
+     * @syscap SystemCapability.Security.ScreenLockFileManager
+     * @since 18
+     */
+    KEY_RELEASED = -1,
+
+    /**
+     * AppKey exists.
+     *
+     * @syscap SystemCapability.Security.ScreenLockFileManager
+     * @since 18
+     */
+    KEY_EXIST = 0
+  }
+
+  /**
    * Acquire the access of the caller data under the lock screen.
    *
    * @returns { AccessStatus } Returns acquire the access result.
@@ -166,5 +199,34 @@ declare namespace screenLockFileManager {
    * @since 12
    */
   function releaseAccess(dataType: DataType): ReleaseStatus;
+
+  /**
+   * Query the AppKey's status of the caller.
+   *
+   * @returns { KeyStatus } Returns the AppKey status.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @syscap SystemCapability.Security.ScreenLockFileManager
+   * @since 18
+   */
+  function queryAppKeyState(): KeyStatus;
+
+  /**
+   * Query the specified AppKey's status.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_MEDIA_DATA or ohos.permission.ACCESS_SCREEN_LOCK_ALL_DATA
+   * @param { DataType } dataType - Indicates the specified data to allow access.
+   * @returns { KeyStatus } Returns the AppKey status.
+   * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 29300001 - Invalid parameter.
+   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @syscap SystemCapability.Security.ScreenLockFileManager
+   * @systemapi
+   * @since 18
+   */
+  function queryAppKeyState(dataType: DataType): KeyStatus;
 }
 export default screenLockFileManager;

@@ -156,7 +156,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   ROUNDED_RECTANGLE = 3,
 }
@@ -1261,7 +1261,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   minFontScale(scale: number | Resource): ButtonAttribute;
 
@@ -1272,7 +1272,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxFontScale(scale: number | Resource): ButtonAttribute;
 }

@@ -603,7 +603,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     static setTemperatureType(type: TemperatureType): void;
 
@@ -613,7 +613,7 @@ declare namespace i18n {
      * @returns { TemperatureType } temperature type.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getTemperatureType(): TemperatureType;
 
@@ -626,7 +626,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getTemperatureName(type: TemperatureType): string;
 
@@ -641,7 +641,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     static setFirstDayOfWeek(type: WeekDay): void;
 
@@ -651,7 +651,7 @@ declare namespace i18n {
      * @returns { WeekDay } one of week days.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getFirstDayOfWeek(): WeekDay;
   }
@@ -662,7 +662,7 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum WeekDay {
     /**
@@ -670,7 +670,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     MON = 1,
 
@@ -679,7 +679,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TUE = 2,
 
@@ -688,7 +688,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     WED = 3,
 
@@ -697,7 +697,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     THU = 4,
 
@@ -706,7 +706,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FRI = 5,
 
@@ -715,7 +715,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SAT = 6,
 
@@ -724,7 +724,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SUN = 7
   }
@@ -735,7 +735,7 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum TemperatureType {
     /**
@@ -743,7 +743,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CELSIUS = 1,
 
@@ -752,7 +752,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FAHRENHEIT = 2,
 
@@ -761,7 +761,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     KELVIN = 3
   }
@@ -958,7 +958,7 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
   }
@@ -3589,7 +3589,7 @@ declare namespace i18n {
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -3605,7 +3605,7 @@ declare namespace i18n {
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -3614,7 +3614,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export class SimpleDateTimeFormat {
     /**
@@ -3625,7 +3625,7 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     format(date: Date): string;
  }
@@ -3642,7 +3642,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
@@ -3651,7 +3651,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export class SimpleNumberFormat {
     /**
@@ -3662,7 +3662,7 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     format(value: number): string;
  }
@@ -3672,7 +3672,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export class StyledNumberFormat {
     /**
@@ -3680,9 +3680,10 @@ declare namespace i18n {
      *
      * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
      * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -3694,7 +3695,7 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     format(value: number): StyledString;
  }
@@ -3705,7 +3706,7 @@ declare namespace i18n {
    * @interface StyledNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -3714,7 +3715,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     integer?: TextStyle;
 
@@ -3724,17 +3725,17 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     decimal?: TextStyle;
 
     /**
      * Indicates the fraction part's style.
      *
-     * @type { ?FormatStyle }
+     * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fraction?: TextStyle;
 
@@ -3744,7 +3745,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     unit?: TextStyle;
  }

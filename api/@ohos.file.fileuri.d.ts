@@ -34,7 +34,7 @@ import uri from './@ohos.uri';
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
- * @since 14
+ * @since 15
  */
 declare namespace fileUri {
   /**
@@ -50,7 +50,7 @@ declare namespace fileUri {
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   class FileUri extends uri.URI {
     /**
@@ -74,7 +74,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     constructor(uriOrPath: string);
 
@@ -97,7 +97,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     readonly name: string;
 
@@ -120,7 +120,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     getFullDirectoryUri(): string;
 
@@ -139,7 +139,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     isRemoteUri(): boolean;
   }
@@ -163,7 +163,7 @@ declare namespace fileUri {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   function getUriFromPath(path: string): string;
 }

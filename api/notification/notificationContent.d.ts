@@ -24,6 +24,16 @@ import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
+ * Describes icon type.
+ *
+ * @typedef { Resource | image.PixelMap } IconType
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 18
+ */
+type IconType = Resource | image.PixelMap;
+
+/**
  * Describes a normal text notification.
  *
  * @typedef NotificationBasicContent
@@ -202,6 +212,41 @@ export enum LiveViewStatus {
    * @since 11
    */
   LIVE_VIEW_FULL_UPDATE = 3
+}
+
+/**
+ * Enum for live view notification task type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 18
+ */
+export enum LiveViewTypes {
+  /**
+   * Real-time activity live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  LIVE_VIEW_ACTIVITY = 0,
+  /**
+   * Instant Task live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  LIVE_VIEW_INSTANT = 1,
+  /**
+   * Long-term status task live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  LIVE_VIEW_LONG_TERM = 2
 }
 
 /**
@@ -410,6 +455,16 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   button?: NotificationButton;
 
   /**
+   * card button of a system live view notification.
+   *
+   * @type { ?Array<NotificationIconButton> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  cardButtons?: Array<NotificationIconButton>;
+
+  /**
    * type of a system live view notification.
    *
    * @type { ?NotificationTime }
@@ -426,6 +481,16 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @since 11
    */
   progress?: NotificationProgress;
+
+  /**
+   * task type of a system live view notification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  liveViewType?: LiveViewTypes;
 }
 
 /**
@@ -472,6 +537,76 @@ export interface NotificationCapsule {
    * @since 12
    */
   content?: string;
+
+  /**
+   * Display time of this capsule.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  time?: number;
+
+  /**
+   * Extended button of this capsule.
+   *
+   * @type { ?Array<NotificationIconButton> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  capsuleButtons?: Array<NotificationIconButton>;
+}
+
+/**
+ * Describes a system live view button with icon.
+ *
+ * @typedef NotificationIconButton
+ * @syscap SystemCapability.Notification.Notification
+ * @since 18
+ */
+export interface NotificationIconButton {
+
+  /**
+   * button unique name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  name: string;
+
+  /**
+   * button icon resource.
+   *
+   * @type { IconType }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  iconResource: IconType;
+
+  /**
+   * addition text of the icon buttion
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  text?: string;
+
+  /**
+   * hide the panel when click the icon button.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  hidePanel?: boolean;
 }
 
 /**

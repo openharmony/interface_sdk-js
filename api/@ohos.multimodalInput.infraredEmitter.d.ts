@@ -39,7 +39,7 @@ declare namespace infraredEmitter {
    *
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 16
+   * @since 15
    */
   interface InfraredFrequency {
     /**
@@ -55,7 +55,7 @@ declare namespace infraredEmitter {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 16
+     * @since 15
      */
     max: number;
 
@@ -72,7 +72,7 @@ declare namespace infraredEmitter {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 16
+     * @since 15
      */
     min: number;
   }
@@ -101,7 +101,7 @@ declare namespace infraredEmitter {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 16
+   * @since 15
    */
   function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
 
@@ -123,7 +123,7 @@ declare namespace infraredEmitter {
    * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 16
+   * @since 15
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }

@@ -336,13 +336,14 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    */
   /**
    * Called when the ListItemGroup split line style is set.
+   * Anonymous Object Rectification.
    *
    * @param { ListDividerOptions | null } value
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   divider(
     value: ListDividerOptions | null,

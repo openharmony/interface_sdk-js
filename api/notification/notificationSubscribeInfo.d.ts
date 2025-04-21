@@ -18,6 +18,8 @@
  * @kit NotificationKit
  */
 
+import type notificationManager from '../@ohos.notificationManager';
+
 /**
  * Sets filter criteria of publishers for subscribing to desired notifications.
  *
@@ -58,12 +60,22 @@ export interface NotificationSubscribeInfo {
   deviceType?: string;
 
   /**
+   * Specifies the scope of notification slots for subscription.
+   *
+   * @type { ?Array<notificationManager.SlotType> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  slotTypes?: Array<notificationManager.SlotType>;
+
+  /**
    * Filtered notification type range.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   filterLimit?: number;
 }

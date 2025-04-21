@@ -19,7 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-import { AsyncCallback } from '@kit.BasicServicesKit';
+import { AsyncCallback } from '@ohos.base';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -139,7 +139,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 13
    */
-  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback;
 
   /**
    * Callback when the video play state changed
@@ -284,7 +284,7 @@ export declare class PickerController {
    * @param { AsyncCallback<void> } callback - Returns void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
 
@@ -297,7 +297,7 @@ export declare class PickerController {
    * @param { SaveMode } [saveMode] - Mode of save
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
     configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
@@ -921,7 +921,7 @@ export declare enum PhotoBrowserUIElement {
  * @enum { number } SaveMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 14
+ * @since 15
  */
 export declare enum SaveMode {
   /**
@@ -929,7 +929,7 @@ export declare enum SaveMode {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   SAVE_AS = 0,
 
@@ -938,9 +938,9 @@ export declare enum SaveMode {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 14
+   * @since 15
    */
-   OVERWRITE = 1
+  OVERWRITE = 1
 }
 
 /**

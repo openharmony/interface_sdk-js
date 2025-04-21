@@ -73,6 +73,39 @@ interface VirtualScrollOptions {
    * @since 12
    */
   totalCount?: number;
+
+  /**
+   * Reuse or not.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  reusable?: boolean;
+
+  /**
+   * Data lazy loading
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onLazyLoading?(index: number): void;
+
+  /**
+   * The function of total data count.
+   *
+   * @returns { number } Returns the total data count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onTotalCount?(): number;
 }
 
 /**
@@ -132,7 +165,17 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @atomicservice
  * @since 12
  */
-declare class RepeatAttribute<T> {
+/**
+ * Defines the Repeat component attribute functions.
+ *
+ * @extends DynamicNode<RepeatAttribute<T>>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
    * Executes itemGenerator of each item.
    *
@@ -195,12 +238,49 @@ declare class RepeatAttribute<T> {
 }
 
 /**
+ * Indicates the type of Repeat's Data Source.
+ *
+ * @typedef { Array<T> | ReadonlyArray<T> | Readonly<Array<T>> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
+
+/**
+ * Indicates the type of Repeat.
+ *
+ * @typedef { function } RepeatInterface
+ * @param { RepeatArray<T> } arr - The Data Source
+ * @returns { RepeatAttribute<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
+
+/**
  * Defines Repeat Component.
  *
+ * @type { <T>(arr: Array<T>) => RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12
  */
-declare const Repeat: <T>(arr: Array<T>) => RepeatAttribute<T>;
+/**
+ * Defines Repeat Component, and Add More Array Type.
+ *
+ * @type { RepeatInterface }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare const Repeat: RepeatInterface;

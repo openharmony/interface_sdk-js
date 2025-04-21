@@ -55,17 +55,15 @@ export interface TypeConstructorWithArgs<T> {
 /**
  * Define  ConnectOptions class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class ConnectOptions<T extends object> {
   /**
    * @type { TypeConstructorWithArgs<T> } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type: TypeConstructorWithArgs<T>;
 
@@ -73,9 +71,8 @@ export class ConnectOptions<T extends object> {
    * Defines alias name of the key, or the function generating the default value.
    * @type { ?string } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   key?: string;
 
@@ -83,9 +80,8 @@ export class ConnectOptions<T extends object> {
    * Define the function generating the default value.
    * @type { ?StorageDefaultCreator<T>} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   defaultCreator?: StorageDefaultCreator<T>;
 
@@ -95,9 +91,8 @@ export class ConnectOptions<T extends object> {
    * 
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   areaMode?: contextConstant.AreaMode;
 }
@@ -188,9 +183,8 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @param { ConnectOptions<T> } type Application level storage parameters.                                     
    * @returns { T | undefined } the value of the existed key or the default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static globalConnect<T extends object>(
     type: ConnectOptions<T>
@@ -285,11 +279,11 @@ export declare class UIUtils {
   static getTarget<T extends object>(source: T): T;
 
    /**
-   * Make non-observed data into observed data. 
+   * Make non-observed data into V2 observed data.
    * Support non-observed class, JSON.parse Object and Sendable class.
    *
    * @param { T } source input source object data.
-   * @returns { T } proxy object from the source object data.
+   * @returns { T } V2 proxy object from the source object data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -297,4 +291,30 @@ export declare class UIUtils {
    */
    static makeObserved<T extends object>(source: T): T;
 
+  /**
+   * Make non-observed data into V1 observed data.
+   * Support JS object, interface, class (non-@Observed, non-ObservedV2).
+   *
+   * @param { T } source input source object data.
+   * @returns { T } V1 proxy object from the source object data.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 19
+   */
+   static makeV1Observed<T extends object>(source: T): T;
+
+  /**
+   * Enables V2 compatibility on given viewmodel object or nested viewmodels, which are V1 observed object already.
+   *
+   * @param {T} source - The object to be made V2-compatible.
+   * @returns {T} The processed object with V2 compatibility enabled.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 19
+   */
+   static enableV2Compatibility<T extends object>(source: T): T;
 }

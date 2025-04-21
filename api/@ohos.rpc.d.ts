@@ -1266,6 +1266,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1280,6 +1281,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @throws { BusinessError } 1900011 - Memory allocation failed.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1334,6 +1336,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1348,6 +1351,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1698,7 +1702,7 @@ declare namespace rpc {
     writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
 
     /**
-     * Reads a byte value from the {@link MessageParcel} object.
+     * Reads a byte value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a byte value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1819,7 +1823,6 @@ declare namespace rpc {
      * Reads a byte array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a byte array.
-     * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2127,7 +2130,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter is not an instance of the Ashmem object.
-     * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2137,8 +2140,7 @@ declare namespace rpc {
      * Reads the anonymous shared memory object from this {@link MessageSequence} object.
      *
      * @returns { Ashmem } Return the anonymous share object obtained.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
+     * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2624,6 +2626,7 @@ declare namespace rpc {
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
      *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900005 - Operation allowed only for the proxy object.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2653,6 +2656,7 @@ declare namespace rpc {
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
      *     3.The callback used to receive remote object death notifications is empty.
+     * @throws { BusinessError } 1900005 - Operation allowed only for the proxy object.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2761,35 +2765,39 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    TF_SYNC: number;
+    static TF_SYNC: number;
 
     /**
      * Indicates asynchronous call.
      *
      * @type { number }
      * @default 1
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    TF_ASYNC: number;
+    static TF_ASYNC: number;
 
     /**
      * Indicates the sendRequest API for returning the file descriptor.
      *
      * @type { number }
      * @default 16
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    TF_ACCEPT_FDS: number;
+    static TF_ACCEPT_FDS: number;
 
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
      * @default 4
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
@@ -2798,10 +2806,11 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 8
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11
      */
-    TF_WAIT_TIME: number;
+    static TF_WAIT_TIME: number;
 
     /**
      * A constructor used to create a MessageOption instance.
@@ -2956,9 +2965,9 @@ declare namespace rpc {
      * your own service logic when you are using IPC.
      *
      * @param { number } code - Indicates the service request code sent from the peer end.
-     * @param { MessageSequence } data - Indicates the {@link MessageParcel} object sent from the peer end.
+     * @param { MessageSequence } data - Indicates the {@link MessageSequence} object sent from the peer end.
      * @param { MessageSequence } reply - Indicates the response message object sent from the remote service.
-     * The local service writes the response data to the {@link MessageParcel} object.
+     * The local service writes the response data to the {@link MessageSequence} object.
      * @param { MessageOption } options - Indicates whether the operation is synchronous or asynchronous.
      * @returns { boolean | Promise<boolean> }
      * Return a simple boolean which is {@code true} if the operation succeeds;
@@ -3179,30 +3188,33 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1599098439
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    PING_TRANSACTION: number;
+    static PING_TRANSACTION: number;
 
     /**
      * Indicates the message code for a dump operation.
      *
      * @type { number }
      * @default 1598311760
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    DUMP_TRANSACTION: number;
+    static DUMP_TRANSACTION: number;
 
     /**
      * Indicates the message code for a transmission.
      *
      * @type { number }
      * @default 1598968902
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    INTERFACE_TRANSACTION: number;
+    static INTERFACE_TRANSACTION: number;
 
     /**
      * Indicates the minimum value of a valid message code.
@@ -3210,10 +3222,11 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0x1
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    MIN_TRANSACTION_ID: number;
+    static MIN_TRANSACTION_ID: number;
 
     /**
      * Indicates the maximum value of a valid message code.
@@ -3221,10 +3234,11 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0x00FFFFFF
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
-    MAX_TRANSACTION_ID: number;
+    static MAX_TRANSACTION_ID: number;
 
     /**
      * Queries a local interface with a specified descriptor.
@@ -3641,40 +3655,44 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 4
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      */
-    PROT_EXEC: number;
+    static PROT_EXEC: number;
 
     /**
      * The mapped memory is inaccessible.
      *
      * @type { number }
      * @default 0
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      */
-    PROT_NONE: number;
+    static PROT_NONE: number;
 
     /**
      * The mapped memory is readable.
      *
      * @type { number }
      * @default 1
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      */
-    PROT_READ: number;
+    static PROT_READ: number;
 
     /**
      * The mapped memory is writable.
      *
      * @type { number }
      * @default 2
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      */
-    PROT_WRITE: number;
+    static PROT_WRITE: number;
 
     /**
      * Creates an Ashmem object with the specified name and size.

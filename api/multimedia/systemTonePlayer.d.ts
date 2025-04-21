@@ -19,7 +19,7 @@
  */
 
 import type systemSoundManager from '../@ohos.multimedia.systemSoundManager';
-
+import { ErrorCallback, Callback } from '../@ohos.base';
 /**
  * System tone player object.
  * @typedef SystemTonePlayer
@@ -155,6 +155,56 @@ export interface SystemTonePlayer {
    * @since 11
    */
   release(): Promise<void>;
+
+  /**
+   * Subscribes the play finished events.
+   * @param { 'playFinished' } type - Type of the event to listen for.
+   * @param { number } streamId - Stream id, received from start().
+   * @param { Callback<number> } callback - Callback used to obtain the finished event. The callback info is the stream
+   * id that is finished.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18
+   */
+  on(type: 'playFinished', streamId: number, callback: Callback<number>): void;
+
+  /**
+   * Unsubscribes the play finished events.
+   * @param { 'playFinished' } type - Type of the event to listen for.
+   * @param { Callback<number> } callback - Callback used to obtain the finished event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18
+   */
+  off(type: 'playFinished', callback?: Callback<number>): void;
+
+  /**
+   * Subscribes the error events.
+   * @param { 'error'} type - Type of the event to listen for.
+   * @param { ErrorCallback } callback - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18
+   */
+  on(type: 'error', callback: ErrorCallback): void;
+
+  /**
+   * Unsubscribes the error events.
+   * @param { 'error'} type - Type of the event to listen for.
+   * @param { ErrorCallback } callback - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18
+   */
+  off(type: 'error', callback?: ErrorCallback): void
 }
 
 /**

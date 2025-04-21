@@ -405,6 +405,7 @@ interface CheckboxGroupInterface {
 
 /**
  * Defines a CheckboxGroup callback when onChange.
+ * Anonymous Object Rectification.
  *
  * @typedef { function } OnCheckboxGroupChangeCallback
  * @param { CheckboxGroupResult } value - checkbox group result
@@ -412,7 +413,7 @@ interface CheckboxGroupInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
@@ -500,7 +501,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
 
@@ -553,7 +554,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -586,7 +587,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -619,7 +620,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   mark(style: Optional<MarkStyle>): CheckboxGroupAttribute;
 
@@ -663,6 +664,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * Called when the selection status changes.
+   * Anonymous Object Rectification.
    *
    * @param { OnCheckboxGroupChangeCallback } callback
    * @returns { CheckboxGroupAttribute }
@@ -670,7 +672,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 
@@ -683,7 +685,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onChange(callback: Optional<OnCheckboxGroupChangeCallback>): CheckboxGroupAttribute;
 
@@ -709,7 +711,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   checkboxShape(shape: Optional<CheckBoxShape>): CheckboxGroupAttribute;
 }

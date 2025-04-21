@@ -125,6 +125,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取包名
+   * @returns {string}
+   */
   getPackageName() {
     return this.packageName;
   }
@@ -140,6 +144,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取classs Name
+   * @returns {string|string|any|string}
+   */
   getClassName() {
     if (this.className) {
       return this.className;
@@ -181,6 +189,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取原始文本
+   * @returns {string}
+   */
   getRawText() {
     return this.rawText;
   }
@@ -196,6 +208,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取路径
+   * @returns {string}
+   */
   getPath() {
     return this.path;
   }
@@ -213,6 +229,10 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取node
+   * @returns {collaborationEditObject.Node}
+   */
   getAstNode() {
     return this.node;
   }
@@ -228,10 +248,18 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 设置tagItem
+   * @param jsdocTagItem
+   */
   setJSDocTagItem(jsdocTagItem) {
     this.jsdocTagItem = jsdocTagItem;
   }
 
+  /**
+   * 获取tagItem
+   * @returns {*}
+   */
   getJSDocTagItem() {
     return this.jsdocTagItem;
   }
@@ -249,15 +277,28 @@ class ApiDigestInfo {
     return this;
   }
 
+  /**
+   * 获取api签名
+   * @returns {string}
+   */
   getApiSignature() {
     return this.signature;
   }
 
+  /**
+   * 设置API Name
+   * @param apiName
+   * @returns {ApiDigestInfo}
+   */
   setApiName(apiName) {
     this.apiName = apiName;
     return this;
   }
 
+  /**
+   * 获取API Name
+   * @returns {*}
+   */
   getApiName() {
     return this.apiName;
   }
@@ -277,6 +318,11 @@ class ApiDigestInfo {
     return this.parent;
   }
 
+  /**
+   * 设置 syscap
+   * @param syscap
+   * @returns {ApiDigestInfo}
+   */
   setSyscap(syscap) {
     this.syscap = syscap;
     return this;

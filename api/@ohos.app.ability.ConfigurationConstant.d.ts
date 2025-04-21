@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -248,6 +248,15 @@ declare namespace ConfigurationConstant {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Screen density
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   export enum ScreenDensity {
     /**
      * The screen pixel density is not set.
@@ -261,6 +270,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The screen pixel density is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     SCREEN_DENSITY_NOT_SET = 0,
 
@@ -277,6 +294,14 @@ declare namespace ConfigurationConstant {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Screen pixel density is 'SDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     SCREEN_DENSITY_SDPI = 120,
 
     /**
@@ -291,6 +316,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Screen pixel density is 'MDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     SCREEN_DENSITY_MDPI = 160,
 
@@ -307,6 +340,14 @@ declare namespace ConfigurationConstant {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Screen pixel density is 'LDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     SCREEN_DENSITY_LDPI = 240,
 
     /**
@@ -321,6 +362,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Screen pixel density is 'XLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     SCREEN_DENSITY_XLDPI = 320,
 
@@ -337,6 +386,14 @@ declare namespace ConfigurationConstant {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Screen pixel density is 'XXLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     SCREEN_DENSITY_XXLDPI = 480,
 
     /**
@@ -351,6 +408,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Screen pixel density is 'XXXLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     SCREEN_DENSITY_XXXLDPI = 640
   }

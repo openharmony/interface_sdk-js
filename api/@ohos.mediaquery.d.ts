@@ -345,6 +345,8 @@ declare namespace mediaquery {
    * @form
    * @atomicservice
    * @since 12
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.MediaQuery#matchMediaSync
    */
   function matchMediaSync(condition: string): MediaQueryListener;
 }

@@ -54,7 +54,7 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -102,7 +102,7 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -111,7 +111,7 @@ export declare class ComposeTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -126,7 +126,7 @@ export declare class ComposeTitleBarMenuItem {
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 }

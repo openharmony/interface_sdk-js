@@ -26,7 +26,7 @@ import Context from './application/BaseContext';
  * @namespace graphStore
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
  * @systemapi
- * @since 16
+ * @since 18
  */
 declare namespace graphStore {
   /**
@@ -35,7 +35,7 @@ declare namespace graphStore {
    * @typedef { null | number | string } ValueType
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type ValueType = null | number | string;
 
@@ -45,7 +45,7 @@ declare namespace graphStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum SecurityLevel {
     /**
@@ -54,7 +54,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S1 = 1,
     /**
@@ -63,7 +63,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S2 = 2,
     /**
@@ -72,7 +72,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S3 = 3,
     /**
@@ -81,7 +81,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S4 = 4
   }
@@ -92,7 +92,7 @@ declare namespace graphStore {
    * @interface storeConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface StoreConfig {
     /**
@@ -101,7 +101,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     name: string;
     /**
@@ -110,9 +110,18 @@ declare namespace graphStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     securityLevel: SecurityLevel;
+    /**
+     * Specifies whether the database is encrypted.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    encrypt?: boolean;
   }
 
   /**
@@ -121,7 +130,7 @@ declare namespace graphStore {
    * @interface Vertex
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Vertex {
     /**
@@ -130,7 +139,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     vid: string;
     /**
@@ -139,7 +148,7 @@ declare namespace graphStore {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     labels: Array<string>;
     /**
@@ -148,7 +157,7 @@ declare namespace graphStore {
      * @type { Record<string, ValueType> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     properties: Record<string, ValueType>;
   }
@@ -159,7 +168,7 @@ declare namespace graphStore {
    * @interface Edge
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Edge {
     /**
@@ -168,7 +177,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     eid: string;
     /**
@@ -177,7 +186,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     type: string;
     /**
@@ -186,7 +195,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     startVid: string;
     /**
@@ -195,7 +204,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     endVid: string;
     /**
@@ -204,7 +213,7 @@ declare namespace graphStore {
      * @type { Record<string, ValueType> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     properties: Record<string, ValueType>;
   }
@@ -215,7 +224,7 @@ declare namespace graphStore {
    * @interface PathSegment
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface PathSegment {
     /**
@@ -224,7 +233,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     start: Vertex;
     /**
@@ -233,7 +242,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     end: Vertex;
     /**
@@ -242,7 +251,7 @@ declare namespace graphStore {
      * @type { Edge }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     edge: Edge;
   }
@@ -253,7 +262,7 @@ declare namespace graphStore {
    * @interface Path
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Path {
     /**
@@ -262,7 +271,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     start: Vertex;
     /**
@@ -271,7 +280,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     end: Vertex;
     /**
@@ -280,7 +289,7 @@ declare namespace graphStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     length: number;
     /**
@@ -289,7 +298,7 @@ declare namespace graphStore {
      * @type { Array<PathSegment> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     segments: Array<PathSegment>;
   }
@@ -300,7 +309,7 @@ declare namespace graphStore {
    * @interface Result
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Result {
     /**
@@ -309,9 +318,105 @@ declare namespace graphStore {
      * @type { ?Array<Record<string, Object>> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     records?: Array<Record<string, Object>>;
+  }
+
+  /**
+   * Provides transactional methods for managing the graph database.
+   *
+   * @interface Transaction
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @systemapi
+   * @since 18
+   */
+  interface Transaction {
+    /**
+     * Execute a query procedure.
+     *
+     * @param { string } gql - Indicates the GQL statement to execute.
+     * @returns { Promise<Result> } The {@link Result} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
+     * @throws { BusinessError } 31300009 - The GQL statement syntax error.
+     * @throws { BusinessError } 31300010 - The GQL statement semantic error.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    read(gql: string): Promise<Result>;
+
+    /**
+     * Execute a data-modifying procedure.
+     *
+     * @param { string } gql - Indicates the GQL statement to execute.
+     * @returns { Promise<Result> } The {@link Result} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
+     * @throws { BusinessError } 31300009 - The GQL statement syntax error.
+     * @throws { BusinessError } 31300010 - The GQL statement semantic error.
+     * @throws { BusinessError } 31300012 - The number of graph names, vertex or edge types, or vertex or edge properties exceeds the limit.
+     * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    write(gql: string): Promise<Result>;
+
+    /**
+     * Commit the transaction.
+     * 
+     * @returns { Promise<void> } The Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    commit(): Promise<void>;
+
+    /**
+     * Rollback the transaction.
+     * 
+     * @returns { Promise<void> } The Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    rollback(): Promise<void>;
   }
 
   /**
@@ -320,7 +425,7 @@ declare namespace graphStore {
    * @interface GraphStore
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface GraphStore {
     /**
@@ -337,14 +442,14 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     read(gql: string): Promise<Result>;
 
@@ -362,18 +467,35 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
-     * @throws { BusinessError } 31300012 - The number of types or properties of vertex and edge exceeds the upper limit.
+     * @throws { BusinessError } 31300012 - The number of graph names, vertex or edge types, or vertex or edge properties exceeds the limit.
      * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     write(gql: string): Promise<Result>;
+
+    /**
+     * Create a transaction instance.
+     *
+     * @returns { Promise<Transaction> } The {@link Transaction} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 18
+     */
+    createTransaction(): Promise<Transaction>;
 
     /**
      * Close the GraphStore and opened transactions will be rollback.
@@ -382,7 +504,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     close(): Promise<void>;
   }
@@ -404,7 +526,7 @@ declare namespace graphStore {
    * @throws { BusinessError } 31300015 - Config changed.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getStore(context: Context, config: StoreConfig): Promise<GraphStore>;
 
@@ -421,7 +543,7 @@ declare namespace graphStore {
    * @throws { BusinessError } 31300014 - Invalid database path.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function deleteStore(context: Context, config: StoreConfig): Promise<void>;
 }

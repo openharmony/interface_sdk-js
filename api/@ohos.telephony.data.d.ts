@@ -427,6 +427,115 @@ declare namespace data {
   function getDefaultCellularDataSimId(): number;
 
   /**
+   * Query all APN info.
+   *
+   * @permission ohos.permission.MANAGE_APN_SETTING
+   * @returns { Promise<Array<ApnInfo>> } Returns all APN info of default cellular data card.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 16
+   */
+  function queryAllApns(): Promise<Array<ApnInfo>>;
+
+  /**
+   * Query APN IDs.
+   *
+   * @permission ohos.permission.MANAGE_APN_SETTING
+   * @param { ApnInfo } apnInfo - The APN information that needs to be queried.
+   * @returns { Promise<Array<number>> } Returns IDs of all APNs that meet the query conditions.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 16
+   */
+  function queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>;
+
+  /**
+   * Set preferred APN.
+   *
+   * @permission ohos.permission.MANAGE_APN_SETTING
+   * @param { number } apnId - The APN ID which is used to be set.
+   * @returns { Promise<boolean> } Returns {@code true} if preferred APN set success; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 16
+   */
+  function setPreferredApn(apnId: number): Promise<boolean>;
+
+  /**
+   * Defines the APN info.
+   *
+   * @interface ApnInfo
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 16
+   */
+  interface ApnInfo {
+    /**
+     * Indicates APN name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    apnName: string;
+    /**
+     * Indicates APN.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    apn: string;
+    /**
+     * Indicates APN mcc.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    mcc: string;
+    /**
+     * Indicates APN mcc.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    mnc: string;
+    /**
+     * Indicates APN user.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    user?: string;
+    /**
+     * Indicates APN type.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    type?: string;
+    /**
+     * Indicates APN proxy.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    proxy?: string;
+    /**
+     * Indicates APN mmsproxy.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CellularData
+     * @since 16
+     */
+    mmsproxy?: string;
+  }
+
+  /**
    * Describes the cellular data flow type.
    *
    * @enum { number }

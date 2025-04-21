@@ -79,6 +79,53 @@ export interface ToneMappingSettings {
 }
 
 /**
+ * Defines bloom parameters.
+ * 
+ * @typedef BloomSettings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 18
+ */
+export interface BloomSettings {
+  /**
+   * Bloom threshold hard.
+   * 
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  thresholdHard?: number;
+
+  /**
+   * Bloom threshold soft.
+   * 
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  thresholdSoft?: number;
+
+  /**
+   * Scaling factor. Controls the amount of scaling and bloom spread.
+   * Reduces the downscale and upscale steps.
+   * Values 0 - 1. Value of 0.5 halves the scale steps.
+   * 
+   * @type { ?number}
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  scaleFactor?: number;
+
+  /**
+   * Scatter (amount of bloom spread). (1.0 full spread / default).
+   * 
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  scatter?: number;
+}
+
+/**
  * Defines post processing settings.
  *
  * @typedef PostProcessSettings 
@@ -94,4 +141,13 @@ export interface PostProcessSettings {
    * @since 12
    */
   toneMapping?: ToneMappingSettings;
+
+  /**
+   * Bloom settings of the post processing settings
+   * 
+   * @type { ?BloomSettings }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 
+   */
+  bloom?: BloomSettings;
 }

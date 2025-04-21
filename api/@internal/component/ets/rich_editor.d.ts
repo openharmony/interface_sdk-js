@@ -142,6 +142,16 @@ declare enum RichEditorSpanType {
    * @since 12
    */
   BUILDER = 3,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 4,
 }
 
 /**
@@ -212,6 +222,16 @@ declare enum RichEditorResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -450,7 +470,7 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   halfLeading?: boolean;
 
@@ -477,7 +497,7 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   textBackgroundStyle?: TextBackgroundStyle;
 }
@@ -617,6 +637,17 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   lineBreakStrategy?: LineBreakStrategy;
+
+  /**
+   * Set paragraph spacing.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  paragraphSpacing?: number;
 }
 
 /**
@@ -1158,7 +1189,7 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   halfLeading?: boolean;
 
@@ -1185,7 +1216,7 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   textBackgroundStyle?: TextBackgroundStyle;
 }
@@ -1509,6 +1540,17 @@ declare interface RichEditorTextSpanResult {
    * @since 12
    */
   previewText?: string;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -1990,6 +2032,17 @@ declare interface RichEditorTextSpanOptions {
    * @since 12
    */
   gesture?: RichEditorGesture;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -2134,6 +2187,26 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 12
    */
   offset?: number;
+
+  /**
+   * builder span drag background color
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  dragBackgroundColor? : ColorMetrics;
+
+  /**
+   * builder span drag shadow configuration
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  isDragShadowNeeded?: boolean;
 }
 
 /**
@@ -2265,6 +2338,17 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @since 11
    */
   textStyle: RichEditorTextStyle;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+    urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -2808,6 +2892,58 @@ declare interface SelectionMenuOptions {
    * @since 13
    */
   menuType?: MenuType;
+
+  /**
+   * Callback function when the selection menu is displayed.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  onMenuShow?: MenuCallback;
+
+  /**
+   * Callback function when the selection menu is hidden.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  onMenuHide?: MenuCallback;
+
+  /**
+   * Defines the preview menu options.
+   * 
+   * @type { ?PreviewMenuOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  previewMenuOptions?: PreviewMenuOptions;
+}
+
+/**
+ * Defines the preview menu options.
+ * 
+ * @interface PreviewMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+declare interface PreviewMenuOptions {
+  /**
+   * Defines the haptic feedback mode of preview menu.
+   * 
+   * @type { ?HapticFeedbackMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  hapticFeedbackMode? : HapticFeedbackMode;
 }
 
 /**
@@ -2984,7 +3120,7 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getCaretRect(): RectResult | undefined;
 }
@@ -3866,7 +4002,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxLength(maxLength: Optional<number>): RichEditorAttribute;
 
@@ -3878,9 +4014,31 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 }
 
 /**
@@ -3926,6 +4084,27 @@ declare interface CopyEvent {
 }
 
 /**
+ * RichEditor url style.
+ * @interface RichEditorUrlStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface RichEditorUrlStyle {
+  /**
+   * uniform resoure locator.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  url?: ResourceStr;
+}
+
+/**
  * callback of the listened enter key event.
  *
  * @typedef { function } SubmitCallback
@@ -3950,6 +4129,19 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
  * @since 12
  */
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
+
+/**
+ * Callback function when the selection menu show or hide.
+ *
+ * @typedef { function } MenuCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type MenuCallback = (start: number, end: number) => void;
 
 /**
  * Callback function when a paste operation is performed.

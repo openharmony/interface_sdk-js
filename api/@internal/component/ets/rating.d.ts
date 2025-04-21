@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RatingOptions {
   /**
@@ -62,6 +62,17 @@ declare interface RatingOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Rating option.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   rating: number;
 
@@ -99,6 +110,16 @@ declare interface RatingOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   indicator?: boolean
 }
 
@@ -110,7 +131,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface StarStyleOptions {
   /**
@@ -297,6 +318,7 @@ interface RatingInterface {
    */
   /**
    * Called when a score bar is created.
+   * Anonymous Object Rectification.
    *
    * @param { RatingOptions } [options] - rating options
    * @returns { RatingAttribute }
@@ -304,7 +326,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -384,7 +406,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
   declare type OnRatingChangeCallback = (rating: number) => void;
 
@@ -472,7 +494,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   stars(starCount: Optional<number>): RatingAttribute;
 
@@ -525,7 +547,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   stepSize(size: Optional<number>): RatingAttribute;
 
@@ -569,6 +591,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when a picture is set.
+   * Anonymous Object Rectification.
    *
    * @param { StarStyleOptions } options - star style options
    * @returns { RatingAttribute }
@@ -576,7 +599,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 
@@ -589,7 +612,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
@@ -642,7 +665,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
 
@@ -666,7 +689,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }

@@ -27,15 +27,17 @@
  */
 declare namespace keyManager {
    /**
-    * Initiate the unintallation of el3, el4, and el5 level key for the specified user
+    * Initiate the deactivation of user key for the specified user when user screen is locked.
     *
     * @permission ohos.permission.STORAGE_MANAGER_CRYPT
     * @param { number } userId
     * @throws { BusinessError } 201 - Permission verification failed.
     * @throws { BusinessError } 202 - The caller is not a system application.
-    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
- parameters are left unspecified;
+    * @throws { BusinessError } 401 - The input parameter is invalid. Possible causes: Mandatory
+ parameters are left unspecified; Or input parameter has type different from the type the interface requires.
     * @throws { BusinessError } 13600001 - IPC error.
+    * @throws { BusinessError } 13600008 - No such object. Possible causes: Cannot find userkey for the specified user.
+    * @throws { BusinessError } 13600009 - User ID out of range. Possible causes: input parameter userId < 100 or userId > 10736.
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
     * @since 15

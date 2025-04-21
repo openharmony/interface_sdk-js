@@ -226,6 +226,17 @@ declare namespace formInfo {
     colorMode: ColorMode;
 
     /**
+     * Obtains the rendering mode of the form.
+     *
+     * @type { ?RenderingMode }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 18
+     */
+    readonly renderingMode?: RenderingMode;
+
+    /**
      * Checks whether this form is a default form.
      *
      * @type { boolean }
@@ -424,9 +435,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     readonly previewImages?: Array<number>;
+
+    /**
+     * Indicates whether the form uses a blur background provided by the form host.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 18
+     */
+    readonly enableBlurBackground?: boolean;
   }
 
   /**
@@ -536,6 +558,43 @@ declare namespace formInfo {
      * @since 11
      */
     MODE_LIGHT = 1
+  }
+
+  /**
+   * Rendering mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 18
+   */
+  enum RenderingMode {
+    /**
+     * Auto color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 18
+     */
+    AUTO_COLOR = 0,
+
+    /**
+     * Full color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 18
+     */
+    FULL_COLOR = 1,
+
+    /**
+     * Single color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 18
+     */
+    SINGLE_COLOR = 2
   }
 
   /**
@@ -1244,7 +1303,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 18
      */
     DIMENSION_2_3 = 8,
 
@@ -1253,9 +1312,18 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 18
      */
     DIMENSION_3_3 = 9,
+
+    /**
+     * 3 x 4 form used for tv devices
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 18
+     */
+    DIMENSION_3_4 = 10,
   }
 
    /**

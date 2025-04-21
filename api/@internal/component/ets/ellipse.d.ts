@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface EllipseOptions {
   /**
@@ -63,6 +63,17 @@ interface EllipseOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: string | number;
 
   /**
@@ -98,6 +109,17 @@ interface EllipseOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height?: string | number;
 }
@@ -177,6 +199,7 @@ interface EllipseInterface {
    */
   /**
    * use new function to set the value.
+   * Anonymous Object Rectification.
    *
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }
@@ -184,7 +207,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: EllipseOptions): EllipseAttribute;
 
@@ -228,6 +251,7 @@ interface EllipseInterface {
    */
   /**
    * Set the value.
+   * Anonymous Object Rectification.
    *
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }
@@ -235,7 +259,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: EllipseOptions): EllipseAttribute;
 }

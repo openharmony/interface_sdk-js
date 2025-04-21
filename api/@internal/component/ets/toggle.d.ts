@@ -259,7 +259,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface ToggleOptions {
   /**
@@ -296,6 +296,17 @@ declare interface ToggleOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Type of the toggle.
+   * Anonymous Object Rectification.
+   *
+   * @type { ToggleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   type: ToggleType;
 
   /**
@@ -331,6 +342,17 @@ declare interface ToggleOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Whether the toggle is on.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   isOn?: boolean
 }
@@ -410,6 +432,7 @@ interface ToggleInterface {
    */
   /**
    * Set parameters to obtain the toggle.
+   * Anonymous Object Rectification.
    *
    * @param { ToggleOptions } options - toggle options
    * @returns { ToggleAttribute }
@@ -417,7 +440,7 @@ interface ToggleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options: ToggleOptions): ToggleAttribute;
 }

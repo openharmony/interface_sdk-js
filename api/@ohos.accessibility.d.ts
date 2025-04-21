@@ -102,10 +102,24 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
+  /**
+   * The type of the accessibility event.
+   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' }
+   *
+   * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 18
+   */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
-  'announceForAccessibility';
+  'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
+  'announceForAccessibilityNotInterrupt' | 'scrolling';
 
   /**
    * The change type of the windowsChange event.
@@ -231,8 +245,8 @@ declare namespace accessibility {
   /**
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 16
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 18
    */
   function isScreenReaderOpenSync(): boolean;
 
@@ -405,8 +419,8 @@ declare namespace accessibility {
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 18
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
@@ -446,8 +460,8 @@ declare namespace accessibility {
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 18
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
@@ -872,7 +886,7 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?Resource }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 16
+     * @since 18
      */
     textResourceAnnouncedForAccessibility?: Resource;
 

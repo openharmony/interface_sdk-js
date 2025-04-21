@@ -355,12 +355,13 @@ declare class CommonTransition<T> {
   /**
    * Called when the translation effect of page transition is set.
    *
+   * Anonymous Object Rectification.
    * @param { TranslateOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   translate(value: TranslateOptions): T;
 
@@ -394,12 +395,13 @@ declare class CommonTransition<T> {
   /**
    * Called when setting the zoom effect of page transition.
    *
+   * Anonymous Object Rectification.
    * @param { ScaleOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   scale(value: ScaleOptions): T;
 
@@ -563,7 +565,7 @@ declare interface PageTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
@@ -657,12 +659,13 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * Called frame by frame to customize pageTransition animation when the page enters.
    * The incoming parameter is the normalized progress of the current incoming animation.
    *
+   * Anonymous Object Rectification.
    * @param { PageTransitionCallback } event - animation callback frame by frame
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onEnter(event: PageTransitionCallback): PageTransitionEnterInterface;
 }
@@ -757,12 +760,13 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * Called frame by frame to customize pageTransition animation when the page exits.
    * The input parameter is the normalized progress of the current exit animation.
    *
+   * Anonymous Object Rectification.
    * @param { PageTransitionCallback } event
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onExit(event: PageTransitionCallback): PageTransitionExitInterface;
 }

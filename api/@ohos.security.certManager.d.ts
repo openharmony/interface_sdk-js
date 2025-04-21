@@ -105,7 +105,7 @@ declare namespace certificateManager {
      * Indicates that the device enters advanced security mode.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007
   }
@@ -518,7 +518,7 @@ declare namespace certificateManager {
      * Indicates that key digest is SM3.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     CM_DIGEST_SM3 = 7
   }
@@ -1009,7 +1009,7 @@ declare namespace certificateManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
@@ -1060,14 +1060,14 @@ declare namespace certificateManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   export enum CertType {
     /**
      * Indicates that ca certificate that installed by HarmonyOS system.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     CA_CERT_SYSTEM = 0,
 
@@ -1075,7 +1075,7 @@ declare namespace certificateManager {
      * Indicates that ca certificate that installed by user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     CA_CERT_USER = 1
   }
@@ -1085,7 +1085,7 @@ declare namespace certificateManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   export enum CertScope {
 
@@ -1093,7 +1093,7 @@ declare namespace certificateManager {
      * Indicates that the user ca certificate for a current user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     CURRENT_USER = 1,
 
@@ -1101,7 +1101,7 @@ declare namespace certificateManager {
      * Indicates that the user ca certificate for all users.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     GLOBAL_USER = 2
   }
@@ -1111,7 +1111,7 @@ declare namespace certificateManager {
    *
    * @typedef CertStoreProperty
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   export interface CertStoreProperty {
     /**
@@ -1119,7 +1119,7 @@ declare namespace certificateManager {
      *
      * @type { CertType }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     certType: CertType;
 
@@ -1128,7 +1128,7 @@ declare namespace certificateManager {
      *
      * @type { ?CertScope }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 16
+     * @since 18
      */
     certScope?: CertScope;
   }
@@ -1142,7 +1142,7 @@ declare namespace certificateManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 
@@ -1161,9 +1161,77 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 16
+   * @since 18
    */
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
+
+  /**
+   * Uninstall the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18
+   */
+  function uninstallUserTrustedCertificateSync(certUri: string) : void;
+
+  /**
+   * Install private application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @param { AuthStorageLevel } level - Indicates the storage authentication level of key file.
+   * @returns { Promise<CMResult> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
+   * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18
+   */
+  function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
+
+  /**
+   * Enum for storage authentication level
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18
+   */
+  export enum AuthStorageLevel {
+    /**
+     * Indicates that the file can be accessed after the device is started.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18
+     */
+    EL1 = 1,
+
+    /**
+     * Indicates that the file can be accessed after the device is unlocked for the first time.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18
+     */
+    EL2 = 2,
+
+    /**
+     * Indicates that the file can be accessed when the device is unlocked.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18
+     */
+    EL4 = 4,
+  }
 }
 
 export default certificateManager;

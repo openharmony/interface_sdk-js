@@ -73,7 +73,16 @@ declare namespace certificateManagerDialog {
      * @stagemodelonly
      * @since 14
      */
-    ERROR_DEVICE_NOT_SUPPORTED = 29700004
+    ERROR_DEVICE_NOT_SUPPORTED = 29700004,
+
+    /**
+     * Indicates that the operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user..
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 18
+     */
+    ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
   }
 
 
@@ -171,13 +180,31 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateScope {
     /**
+     * Indicates the certificate scope is not specified and user can select the scope in the certificate install dialog.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 18
+     */
+    NOT_SPECIFIED = 0,
+
+    /**
      * Indicates the certificate is for current user.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14
      */
-    CURRENT_USER = 1
+    CURRENT_USER = 1,
+
+    /**
+     * Indicates the certificate is for all users.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 18
+     */
+    GLOBAL_USER = 2,
   }
 
   /**
@@ -200,8 +227,90 @@ declare namespace certificateManagerDialog {
    * @stagemodelonly
    * @since 14
    */
+  /**
+   * open install certificate dialog.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { CertificateType } certType - Indicates the type of certificate to be installed.
+   * @param { CertificateScope } certScope - Indicates the user scope of certificate to be installed.
+   * @param { Uint8Array } cert - Indicates the contents of the certificate file to be installed.
+   * @returns { Promise<string> } The uri of installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700002 - The user cancels the installation operation.
+   * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
+  /**
+   * open uninstall certificate dialog.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { CertificateType } certType - Indicates the type of certificate to be uninstalled.
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700002 - The user cancels the uninstallation operation.
+   * @throws { BusinessError } 29700003 - The user uninstall certificate failed in the certificate manager dialog, such as the certificate uri is not exist.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
+  function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>;
+
+  /**
+   * Provides the certificate dialog property.
+   *
+   * @typedef CertificateDialogProperty
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
+  export interface CertificateDialogProperty {
+    /**
+     * Indicates if the certificate dialog show install button.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 18
+     */
+    showInstallButton: boolean;
+  }
+
+  /**
+   * open certificate manager dialog and show the certificate detail page.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { Uint8Array } cert - Indicates the contents of the certificate file.
+   * @param { CertificateDialogProperty } property - the certificate dialog property.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700003 - Show the certificate detail dialog fail, such as the certificate is in an invalid format.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
+  function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 }
 
 export default certificateManagerDialog;

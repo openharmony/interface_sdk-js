@@ -20,7 +20,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import { window } from '@kit.ArkUI';
+import window  from './@ohos.window';
+import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * Provide the capabilities to use different pickers.
  *
@@ -76,7 +77,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_TYPE
      */
     IMAGE_TYPE = 'image/*',
@@ -93,7 +94,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.VIDEO_TYPE
      */
     VIDEO_TYPE = 'video/*',
@@ -110,7 +111,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
      */
     IMAGE_VIDEO_TYPE = '*/*'
@@ -146,7 +147,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.MIMEType
      */
     MIMEType?: PhotoViewMIMETypes;
@@ -165,7 +166,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.maxSelectNumber
      */
     maxSelectNumber?: number;
@@ -201,7 +202,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.photoUris
      */
     photoUris: Array<string>;
@@ -220,7 +221,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.isOriginalPhoto
      */
     isOriginalPhoto: boolean;
@@ -240,7 +241,7 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     newFileNames?: Array<string>;
   }
@@ -267,7 +268,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12
-     * @deprecated since 16
+     * @deprecated since 18
      */
     constructor();
 
@@ -277,7 +278,7 @@ declare namespace picker {
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 12
-     * @deprecated since 16
+     * @deprecated since 18
      */
     constructor(context: Context);
 
@@ -472,6 +473,61 @@ declare namespace picker {
     }
 
   /**
+   * Enumerates the picker's merge mode types.
+   *
+   * @enum { number } DocumentPickerMode
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 15
+   */
+  export enum MergeTypeMode {
+    /**
+     * Indicates common mode.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT = 0,
+
+    /**
+     * Indicates that audios are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    AUDIO = 1,
+
+    /**
+     * Indicates that videos are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    VIDEO = 2,
+
+    /**
+     * Indicates that documents are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    DOCUMENT = 3,
+
+    /**
+     * Indicates that pictures are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    PICTURE = 4,
+  }
+
+  /**
    * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -569,6 +625,58 @@ declare namespace picker {
      * @since 12
      */
     authMode?: boolean;
+
+    /**
+     * Granting Permissions to Mutl file.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    multiAuthMode?: boolean;
+
+    /**
+     * Mutl file to Granting Permissions 
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    multiUriArray?: Array<string>;  
+
+    /**
+     * Filtering by file type
+     *
+     * @type { ?MergeTypeMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    mergeMode?: MergeTypeMode;
+
+    /**
+     * Specifies whether the picker supports encryption.
+     * When its value is set to true, the picker will display a button that allows the user
+     * to encrypt files selected.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 19
+     */
+    isEncryptionSupported?: boolean;
+    
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 18
+     */
+    themeColor?: CustomColors;
   }
 
   /**
@@ -647,6 +755,16 @@ declare namespace picker {
      * @since 12
      */
     pickerMode?: DocumentPickerMode;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 18
+     */
+    themeColor?: CustomColors;
   }
 
   /**

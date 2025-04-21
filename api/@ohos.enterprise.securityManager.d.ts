@@ -180,11 +180,9 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201001 - Failed to manage the certificate.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function installUserCertificate(admin: Want, certificate: CertBlob, accountId: number): string;
 
@@ -221,11 +219,9 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function getUserCertificates(admin: Want, accountId: number): Array<string>;
 
@@ -312,6 +308,40 @@ declare namespace securityManager {
    * @since 12
    */
   function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
+
+  /**
+   * Sets the application's clipboard policy of the device by bundle and account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the name of bundle.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   * @param { ClipboardPolicy } policy - clipboard policy to be set.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 18
+   */
+  function setAppClipboardPolicy(admin: Want, bundleName: string, accountId: number, policy: ClipboardPolicy): void;
+
+  /**
+   * Gets the application's clipboard policy of the device by bundle and account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the name of bundle.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   * @returns { string } the json string of the clipboard policy for application of the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 18
+   */
+  function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
 
   /**
    * Sets the watermark image displayed during the application running.

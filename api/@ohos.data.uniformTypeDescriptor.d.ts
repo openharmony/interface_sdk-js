@@ -1631,7 +1631,23 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-    OCTET_STREAM = 'general.octet-stream'
+    OCTET_STREAM = 'general.octet-stream',
+
+    /**
+     * File uri data type.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    FILE_URI = 'general.file-uri',
+
+    /**
+     * Content form data type.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 15
+     */
+    CONTENT_FORM = 'general.content-form'
   }
 
   /**

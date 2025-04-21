@@ -23,6 +23,7 @@ import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
+import { BusinessError } from '../@ohos.base';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -67,6 +68,124 @@ declare interface LayoutConstraint {
    * @since 12
    */
   percentReference: Size;
+}
+
+/**
+ * Defines the cross-language options.
+ * 
+ * @interface CrossLanguageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface CrossLanguageOptions {
+  /**
+   * Defines if it enables setting attributes cross-language. Default value is false.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  attributeSetting?: boolean
+}
+
+/**
+ * The interaction event binding status information on the component.
+ *
+ * @interface InteractionEventBindingInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface InteractionEventBindingInfo {
+  /**
+   * Whether to bind events declaratively.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  baseEventRegistered: boolean;
+
+  /**
+   * Whether to bind events in an imperative FrameNode mode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nodeEventRegistered: boolean;
+
+  /**
+   * Whether to bind the event as an imperative NativeNode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nativeEventRegistered: boolean;
+
+  /**
+   * Whether the component binds built-in event.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  builtInEventRegistered: boolean;
+}
+
+/**
+ * Enum for the expand mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+export enum ExpandMode {
+  /**
+   * Do not expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  NOT_EXPAND = 0,
+
+  /**
+   * Expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  EXPAND = 1,
+
+  /**
+   * Expand the children of node if needed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  LAZY_EXPAND = 2,
 }
 
 /**
@@ -195,6 +314,41 @@ export class FrameNode {
   getChild(index: number): FrameNode | null;
 
   /**
+   * Get a child of the current FrameNode by index.
+   *
+   * @param { number } index - The index of the desired node in the children of FrameNode.
+   * @param { ExpandMode } expandMode - The expand mode. Default value is ExpandMode.EXPAND.
+   * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getChild(index: number, expandMode?: ExpandMode): FrameNode | null;
+
+  /**
+   * Get the index of the current FrameNode's first child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's first child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getFirstChildIndexWithoutExpand(): number;
+
+  /**
+   * Get the index of the current FrameNode's last child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's last child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getLastChildIndexWithoutExpand(): number;
+
+  /**
    * Get the first child of the current FrameNode.
    *
    * @returns {  FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode. If current FrameNode does not have child node, returns null.
@@ -249,6 +403,20 @@ export class FrameNode {
    * @since 12
    */
   getChildrenCount(): number;
+
+  /**
+   * Move node to the target Framenode as child.
+   * 
+   * @param { FrameNode } targetParent - The target parent node.
+   * @param { number } index - The index which the node is moved to. If the value is a negative number or invalid,
+   * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  moveTo(targetParent: FrameNode, index?: number): void;
 
   /**
    * Dispose the FrameNode immediately.
@@ -416,9 +584,9 @@ export class FrameNode {
   isClipToFrame(): boolean;
 
   /**
-   * Get if the FrameNode is attached.
+   * Get if the FrameNode is attached to the root node tree.
    *
-   * @returns { boolean } - Returns if the FrameNode is attached.
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -650,6 +818,63 @@ export class FrameNode {
    * @since 12
    */
   addComponentContent<T>(content: ComponentContent<T>): void;
+
+  /**
+   * Set the cross-language options of the target FrameNode.
+   * 
+   * @param { CrossLanguageOptions } options - The cross-language options.
+   * @throws { BusinessError } 100022 - The FrameNode cannot be set whether to support cross-language common attribute setting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  setCrossLanguageOptions(options: CrossLanguageOptions): void;
+
+  /**
+   * Get the cross-language options of the target FrameNode.
+   * 
+   * @returns { CrossLanguageOptions } - Returns the cross-language options of the target FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getCrossLanguageOptions(): CrossLanguageOptions;
+
+  /**
+   * Recycle current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  recycle(): void;
+
+  /**
+   * Reuse current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  reuse(): void;
+
+  /**
+   * Gets event binding information of the target node.
+   * 
+   * @param { EventQueryType } eventType - The interaction event type to be queried.
+   * @returns { InteractionEventBindingInfo | undefined } 
+   *   - Returns one InteractionEventBindingInfo object indicating the event binding details if any interaction
+   *     events binded on current node, returns undefined if no one binded on.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 }
 
 /**
@@ -927,6 +1152,47 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
+   * 2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
+
+  /**
    * Define the FrameNode type for RelativeContainer.
    * 
    * @typedef { TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute> } RelativeContainer
@@ -1099,6 +1365,19 @@ export namespace typeNode {
   type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
+
+  /**
    * Create a FrameNode of ListItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -1203,6 +1482,19 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
 
   /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
+
+  /**
    * Define the FrameNode type for FlowItem.
    *
    * @typedef { TypedFrameNode<FlowItemInterface, FlowItemAttribute> } FlowItem
@@ -1262,13 +1554,26 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
+   * Create a FrameNode of XComponent type with options for native developing.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { NativeXComponentParameters } parameters - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
+
+  /**
    * Define the FrameNode type for Checkbox.
    *
    * @typedef { TypedFrameNode<CheckboxInterface, CheckboxAttribute> } Checkbox
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Checkbox = TypedFrameNode<CheckboxInterface, CheckboxAttribute>;
 
@@ -1280,7 +1585,7 @@ export namespace typeNode {
    * @returns { Checkbox } - Return Checkbox type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
@@ -1291,7 +1596,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type CheckboxGroup = TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute>;
 
@@ -1303,7 +1608,7 @@ export namespace typeNode {
    * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
@@ -1314,7 +1619,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Radio = TypedFrameNode<RadioInterface, RadioAttribute>;
 
@@ -1326,7 +1631,7 @@ export namespace typeNode {
    * @returns { Radio } - Return Radio type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Radio'): Radio;
 
@@ -1337,7 +1642,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Rating = TypedFrameNode<RatingInterface, RatingAttribute>;
 
@@ -1349,7 +1654,7 @@ export namespace typeNode {
    * @returns { Rating } - Return Rating type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Rating'): Rating;
 
@@ -1360,7 +1665,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Select = TypedFrameNode<SelectInterface, SelectAttribute>;
 
@@ -1372,7 +1677,7 @@ export namespace typeNode {
    * @returns { Select } - Return Select type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Select'): Select;
 
@@ -1383,7 +1688,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Slider = TypedFrameNode<SliderInterface, SliderAttribute>;
 
@@ -1395,7 +1700,7 @@ export namespace typeNode {
    * @returns { Slider } - Return Slider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
@@ -1406,7 +1711,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
 
@@ -1419,7 +1724,7 @@ export namespace typeNode {
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
 
@@ -1606,6 +1911,19 @@ export namespace typeNode {
    * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Get the event instance of Scroll node.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 
   /**
    * Define the FrameNode type for GridItem.

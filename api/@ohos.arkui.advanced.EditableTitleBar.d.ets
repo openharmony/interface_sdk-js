@@ -54,7 +54,7 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -102,7 +102,7 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -111,7 +111,7 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -121,7 +121,7 @@ export declare class EditableTitleBarMenuItem {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 
@@ -131,7 +131,7 @@ export declare class EditableTitleBarMenuItem {
    * @default { false }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   defaultFocus?: boolean;
 }
@@ -390,7 +390,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   leftIconDefaultFocus?: boolean;
 
@@ -401,7 +401,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   saveIconDefaultFocus?: boolean;
 }

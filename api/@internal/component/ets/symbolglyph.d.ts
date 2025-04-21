@@ -666,6 +666,28 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 12
    */
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
+
+  /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 }
 
 /**

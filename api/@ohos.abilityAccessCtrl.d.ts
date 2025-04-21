@@ -518,7 +518,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     on(
       type: 'selfPermissionStateChange',
@@ -567,7 +567,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(
       type: 'selfPermissionStateChange',
@@ -618,14 +618,13 @@ declare namespace abilityAccessCtrl {
      *
      * @param { number } tokenID - Token ID of the application.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     requestPermissionOnApplicationSetting(tokenID: number): Promise<void>;
   }
@@ -707,7 +706,7 @@ declare namespace abilityAccessCtrl {
    * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum PermissionStateChangeType {
     /**
@@ -715,7 +714,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
@@ -723,7 +722,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -761,7 +760,7 @@ declare namespace abilityAccessCtrl {
    * @interface PermissionStateChangeInfo
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since 16
+   * @since 18
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -771,7 +770,7 @@ declare namespace abilityAccessCtrl {
      * @type { PermissionStateChangeType }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     change: PermissionStateChangeType;
 
@@ -781,7 +780,7 @@ declare namespace abilityAccessCtrl {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     tokenID: number;
 
@@ -791,7 +790,7 @@ declare namespace abilityAccessCtrl {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     permissionName: Permissions;
   }

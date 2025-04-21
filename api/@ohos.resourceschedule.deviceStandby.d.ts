@@ -39,9 +39,9 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
+   * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -59,9 +59,9 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
+   * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -78,9 +78,9 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
+   * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
@@ -97,9 +97,9 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
+   * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
+   * @throws { BusinessError } 9800004 - Failed to get device standby service. Possible cause: A necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.

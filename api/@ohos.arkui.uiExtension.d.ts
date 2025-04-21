@@ -204,6 +204,23 @@ declare namespace uiExtension {
      */
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
+     /**
+      * Set events that only need to be handled by the UIExtension provider
+      *
+      * @param { EventFlag } eventFlags - The events to be set.
+      * @returns { Promise<void> } - The promise returned by the function
+      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+      * <br> 1. Mandatory parameters are left unspecified.
+      * <br> 2. Incorrect parameters types.
+      * <br> 3. Parameter verification failed.
+      * @throws { BusinessError } 1300002 - This window state is abnormal.
+      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @atomicservice
+      * @since 18
+      */
+     occupyEvents(eventFlags: number): Promise<void>;
+
     /**
      * The properties of the UIExtension window
      *
@@ -213,6 +230,73 @@ declare namespace uiExtension {
      * @since 14
      */
     properties: WindowProxyProperties;
+  }
+
+  /**
+   * Gesture event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  enum EventFlag {
+    /**
+     * None gesture event
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_NONE = 0x00000000,
+    /**
+     * Pan gesture left events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_PAN_GESTURE_LEFT = 0x00000001,
+    /**
+     * Pan gesture right events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_PAN_GESTURE_RIGHT = 0x00000002,
+    /**
+     * Pan gesture up events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_PAN_GESTURE_UP = 0x00000004,
+    /**
+     * Pan gesture down events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_PAN_GESTURE_DOWN = 0x00000008,
+    /**
+     * Click gesture events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_CLICK = 0x00000100,
+    /**
+     * Long press gesture events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    EVENT_LONG_PRESS = 0x00000200,
   }
 
   /**

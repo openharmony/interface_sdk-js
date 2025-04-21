@@ -21,12 +21,13 @@
 /**
  * Defines Marquee constructor options.
  *
+ * Anonymous Object Rectification.
  * @interface MarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface MarqueeOptions {
   /**
@@ -62,6 +63,17 @@ interface MarqueeOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Control whether the running lamp enters the playing state.
+   *
+   * Anonymous Object Rectification.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   start: boolean;
 
@@ -99,6 +111,17 @@ interface MarqueeOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   step?: number;
 
   /**
@@ -134,6 +157,17 @@ interface MarqueeOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   loop?: number;
 
@@ -171,6 +205,17 @@ interface MarqueeOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set text to scroll from the beginning or backward.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   fromStart?: boolean;
 
   /**
@@ -206,6 +251,17 @@ interface MarqueeOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Text that needs scrolling.
+   *
+   * Anonymous Object Rectification.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   src: string;
 }
@@ -286,13 +342,14 @@ interface MarqueeInterface {
   /**
    * Create marquee.
    *
+   * Anonymous Object Rectification.
    * @param { MarqueeOptions } options - Marquee options.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options: MarqueeOptions): MarqueeAttribute;
 }

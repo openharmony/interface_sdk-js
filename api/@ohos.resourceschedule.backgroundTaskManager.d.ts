@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit BackgroundTasksKit
+ * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -105,7 +106,7 @@ declare namespace backgroundTaskManager {
      * The continuous task id.
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     continuousTaskId?: number;
   }
@@ -115,7 +116,7 @@ declare namespace backgroundTaskManager {
    *
    * @interface ContinuousTaskCancelInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   interface ContinuousTaskCancelInfo {
     /**
@@ -123,7 +124,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { ContinuousTaskCancelReason }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     reason: ContinuousTaskCancelReason;
 
@@ -132,7 +133,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     id: number;
   }
@@ -144,9 +145,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -162,9 +164,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -180,9 +183,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -199,9 +203,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -246,9 +251,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -295,9 +301,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -320,9 +327,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -343,9 +351,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -390,6 +399,24 @@ declare namespace backgroundTaskManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice
+   * @since 17
+   */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
   /**
@@ -427,6 +454,24 @@ declare namespace backgroundTaskManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800003 - Internal transaction failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice
+   * @since 17
+   */
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
@@ -438,9 +483,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -455,9 +501,10 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -475,7 +522,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -489,7 +536,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -764,28 +811,28 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   export enum ContinuousTaskCancelReason {
     /**
      * User cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     USER_CANCEL = 1,
     /**
      * System cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL = 2,
     /**
      * User remove notification.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
 
@@ -793,7 +840,7 @@ declare namespace backgroundTaskManager {
      * Low network speed when request data transfer mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
 
@@ -801,7 +848,7 @@ declare namespace backgroundTaskManager {
      *  Not use avsession when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
 
@@ -809,7 +856,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
 
@@ -817,7 +864,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio recording mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
 
@@ -825,7 +872,7 @@ declare namespace backgroundTaskManager {
      * Not use location when request location mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
 
@@ -833,7 +880,7 @@ declare namespace backgroundTaskManager {
      * Not use bluetooth when request bluetooth interaction mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
 
@@ -841,7 +888,7 @@ declare namespace backgroundTaskManager {
      * Not use multi device when request multi-device connection mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
 
@@ -849,9 +896,43 @@ declare namespace backgroundTaskManager {
      * Use some mode illegally.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
+  }
+
+  /**
+   * Supported background submode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundSubMode {
+    /**
+     * bluetooth car key mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    CAR_KEY = 1
+  }
+
+  /**
+   * Supported background mode type.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundModeType {
+    /**
+     * subMode type
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    SUB_MODE = 'subMode'
   }
 }
 

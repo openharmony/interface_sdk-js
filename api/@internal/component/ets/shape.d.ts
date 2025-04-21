@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface ViewportRect {
   /**
@@ -62,6 +62,17 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Viewport X coordinate.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   x?: number | string;
 
@@ -99,6 +110,17 @@ declare interface ViewportRect {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Viewport Y coordinate.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   y?: number | string;
 
   /**
@@ -135,6 +157,17 @@ declare interface ViewportRect {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Viewport width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: number | string;
 
   /**
@@ -170,6 +203,17 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Viewport height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height?: number | string
 }
@@ -365,6 +409,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Viewport of shape
+   * Anonymous Object Rectification.
    *
    * @param { ViewportRect } value
    * @returns { ShapeAttribute }
@@ -372,7 +417,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   viewPort(value: ViewportRect): ShapeAttribute;
 

@@ -233,6 +233,15 @@ declare enum InputType {
    * @since 12
    */
   URL = 13,
+
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ONE_TIME_CODE = 14,
 }
 
 /**
@@ -431,7 +440,115 @@ declare enum ContentType {
    * @atomicservice
    * @since 12
    */
-  FORMAT_ADDRESS = 25
+  FORMAT_ADDRESS = 25,
+
+  /**
+   * Passport number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  PASSPORT_NUMBER = 26,
+
+  /**
+   * Passport validity content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  VALIDITY = 27,
+
+  /**
+   * Place of issue content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  ISSUE_AT = 28,
+
+  /**
+   * Invoice organization content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  ORGANIZATION = 29,
+
+  /**
+   * Invoice tax id content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  TAX_ID = 30,
+
+  /**
+   * Address city and state content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  ADDRESS_CITY_AND_STATE = 31,
+
+  /**
+   * Airline flight number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  FLIGHT_NUMBER = 32,
+
+  /**
+   * License number for drivers content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  LICENSE_NUMBER = 33,
+
+  /**
+   * License file number for drivers content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  LICENSE_FILE_NUMBER = 34,
+
+  /**
+   * License plate for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  LICENSE_PLATE = 35,
+
+  /**
+   * Engine number for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  ENGINE_NUMBER = 36,
+
+  /**
+   * License chassis number for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  LICENSE_CHASSIS_NUMBER = 37
 }
 
 /**
@@ -1104,39 +1221,42 @@ interface PasswordIcon {
 /**
  * Defines a TextInput callback when onSubmit.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnSubmitCallback
  * @param { EnterKeyType } enterKey - Input method Enter key type.
  * @param { SubmitEvent } event - The event submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
  * Defines a TextInput callback when onTextSelectionChange.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnTextSelectionChangeCallback
  * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
  * @param { number } selectionEnd - The end location of the selected text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 
 /**
  * Defines a TextInput callback when onContentScroll.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnContentScrollCallback
  * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
  * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 
@@ -1144,13 +1264,14 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
 /**
  * Defines a TextInput callback when onPaste.
  *
+ * Anonymous Object Rectification.
  * @typedef { function } OnPasteCallback
  * @param { string } content - The text content of the paste.
  * @param { PasteEvent } event - User-defined paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
@@ -1401,12 +1522,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when judging whether the text editing change finished.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<boolean> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onEditChange(callback: Callback<boolean>): TextInputAttribute;
 
@@ -1440,12 +1562,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
+   * Anonymous Object Rectification.
    * @param { OnSubmitCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onSubmit(callback: OnSubmitCallback): TextInputAttribute;
 
@@ -1510,12 +1633,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the text selection changes.
    *
+   * Anonymous Object Rectification.
    * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): TextInputAttribute;
 
@@ -1541,12 +1665,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the content scrolls.
    *
+   * Anonymous Object Rectification.
    * @param { OnContentScrollCallback } callback - Callback of the listened event.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
@@ -1757,13 +1882,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the inputFilter of text is set.
    *
+   * Anonymous Object Rectification.
    * @param { ResourceStr } value
    * @param { Callback<string> } [error]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   inputFilter(value: ResourceStr, error?: Callback<string>): TextInputAttribute;
 
@@ -1797,12 +1923,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onCopy(callback: Callback<string>): TextInputAttribute;
 
@@ -1836,12 +1963,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { Callback<string> } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onCut(callback: Callback<string>): TextInputAttribute;
 
@@ -1878,12 +2006,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu.
    *
+   * Anonymous Object Rectification.
    * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onPaste(callback: OnPasteCallback): TextInputAttribute;
 
@@ -2340,12 +2469,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Set the cancel button style.
    *
+   * Anonymous Object Rectification.
    * @param { CancelButtonOptions } options - Indicates the style of the cancel button.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   cancelButton(options: CancelButtonOptions): TextInputAttribute;
 
@@ -2356,7 +2486,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
@@ -2408,24 +2538,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the minimum font scale of the font is set.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+  minFontScale(scale: Optional<number | Resource>): TextInputAttribute;
 
   /**
    * Called when the maximum font scale of the font is set.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number | Resource> } scale
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+  maxFontScale(scale: Optional<number | Resource>): TextInputAttribute;
   
   /**
    * Called when the height adaptive policy is set.
@@ -2638,6 +2768,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
   /**
+   * Set text mode of automatic case mode switching.
+   *
+   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
+
+  /**
    * Set the text with half leading.
    *
    * @param { Optional<boolean> } halfLeading
@@ -2645,19 +2787,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
   
   /**
    * Set the ellipsis mode.
    *
-   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @param { Optional<EllipsisMode> } mode - The ellipsis mode.
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 
@@ -2668,9 +2810,33 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Get text value information when about to change.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 }
 
 /**

@@ -42,29 +42,26 @@ import { AsyncCallback, Callback } from './@ohos.base';
 declare namespace wifiManager {
   /**
    * Enable Wi-Fi.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
+   *  ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501003 - Operation failed because the service is being closed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function enableWifi(): void;
 
   /**
    * Disable Wi-Fi.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 16
    */
   function disableWifi(): void;
 
@@ -271,15 +268,13 @@ declare namespace wifiManager {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
   
@@ -289,15 +284,13 @@ declare namespace wifiManager {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @param { AsyncCallback<number> } callback - Indicates call back of addDeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
@@ -518,18 +511,16 @@ declare namespace wifiManager {
 
   /**
    * Connect to Wi-Fi hotspot by networkId.
-   * @permission ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.MANAGE_WIFI_CONNECTION or ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
    * @param { number } networkId - ID of the connected network. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function connectToNetwork(networkId: number): void;
 
@@ -553,15 +544,14 @@ declare namespace wifiManager {
 
   /**
    * Disconnect connection between sta and Wi-Fi hotspot.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
+   * ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function disconnect(): void;
 
@@ -609,6 +599,21 @@ declare namespace wifiManager {
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
   /**
+   * Obtain multiple Wi-Fi connection information when Wi-Fi linked in MLO(Muti-Link Operation) state.
+   * If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid. 
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Array<WifiLinkedInfo> } Returns Wi-Fi multiple link information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 18
+   */
+  function getMultiLinkedInfo(): Array<WifiLinkedInfo>;
+  
+  /**
    * Obtain connection information about the Wi-Fi connection.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
@@ -647,7 +652,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    function getLinkedInfoSync(): WifiLinkedInfo;
 
@@ -712,13 +717,11 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
    * @returns { string[] } Returns the MAC address of the Wi-Fi device.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function getDeviceMacAddress(): string[];
 
@@ -790,27 +793,13 @@ declare namespace wifiManager {
 
   /**
    * Obtain the list of all existed Wi-Fi configurations.
-   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.GET_WIFI_CONFIG
-   * @returns { Array<WifiDeviceConfig> } Returns the list of all existing Wi-Fi configurations you created on your application.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  /**
-   * Obtain the list of all existed Wi-Fi configurations.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
    * @returns { Array<WifiDeviceConfig> } Returns the list of all existing Wi-Fi configurations you created on your application.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 15
    */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
@@ -848,7 +837,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 17
    */
   function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
@@ -889,18 +878,17 @@ declare namespace wifiManager {
    * After a Wi-Fi DeviceConfig is removed, its configuration will be deleted from the list of Wi-Fi configurations.
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
+   * ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3.Parameter verification failed. 
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function removeDevice(id: number): void;
 
@@ -1057,7 +1045,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   function isOpenSoftApAllowed(): boolean;
 
@@ -1072,6 +1060,16 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Check whether Wi-Fi hotspot is active on a device.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @since 15
    */
   function isHotspotActive(): boolean;
 
@@ -2489,16 +2487,59 @@ declare namespace wifiManager {
     /**
      * Wifi7.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 15
      */
     WIFI7 = 4,
 
     /**
      * Wifi7+.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 15
      */
     WIFI7_PLUS = 5
+  }
+
+  /**
+   * Wi-Fi link type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 18
+   */
+  enum WifiLinkType {
+    /**
+     * Default link.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    DEFAULT_LINK = 0,
+
+    /**
+     * Wi-Fi7 single link.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    WIFI7_SINGLE_LINK = 1,
+
+    /**
+     * Wi-Fi7 MLSR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    WIFI7_MLSR = 2,
+
+    /**
+     * Wi-Fi7 EMLSR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    WIFI7_EMLSR = 3,
+
+    /**
+     * Wi-Fi7 STR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    WIFI7_STR = 4
   }
 
   /**
@@ -2884,7 +2925,7 @@ declare namespace wifiManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 17
      */
     isAutoConnectAllowed?: boolean;
   }
@@ -3701,6 +3742,14 @@ declare namespace wifiManager {
      * @since 12
      */
     isHiLinkNetwork: boolean;
+
+    /**
+     * Wi-Fi link type
+     * @type { ?WifiLinkType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 18
+     */
+    wifiLinkType?: WifiLinkType;
   }
 
   /**

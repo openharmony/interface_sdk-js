@@ -27,6 +27,7 @@ import audio from './@ohos.multimedia.audio';
 import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * @namespace avSession
@@ -269,6 +270,21 @@ declare namespace avSession {
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
   /**
+   * Get distributed avsession controller
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { DistributedSessionType } distributedSessionType - Specifies the distributed session type.
+   * @returns { Promise<Array<AVSessionController>> } Promise for AVSessionController.
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600109 - The remote connection is not established.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 18
+   */
+  function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
+
+  /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -420,6 +436,32 @@ declare namespace avSession {
   function off(type: 'sessionServiceDie', callback?: () => void): void;
 
   /**
+   * Register distributed   session changed callback
+   * @param { 'distributedSessionChange' } type - Registration Type, distributed session change
+   * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
+   * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 18
+   */
+  function on(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback: Callback<Array<AVSessionController>>): void;
+
+  /**
+   * Unregister distributed session changed callback
+   * @param { 'distributedSessionChange' } type - Registration Type, distributed session change
+   * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
+   * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 18
+   */
+  function off(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback?: Callback<Array<AVSessionController>>): void;
+
+  /**
    * Send system media key event.The system automatically selects the recipient.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { KeyEvent } event - The key event to be sent
@@ -549,6 +591,39 @@ declare namespace avSession {
      * @since 12
      */
     TYPE_DLNA = 4,
+  }
+
+  /**
+   * Define different distributed session type
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 18
+   */
+  enum DistributedSessionType {
+    /**
+     * Remote session sensed from remote device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 18
+     */
+    TYPE_SESSION_REMOTE = 0,
+
+    /**
+     * Migrated session from remote device to this device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 18
+     */
+    TYPE_SESSION_MIGRATE_IN = 1,
+
+    /**
+     * Migrated session from this device to remote device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 18
+     */
+    TYPE_SESSION_MIGRATE_OUT = 2,
   }
 
   /**
@@ -2037,6 +2112,31 @@ declare namespace avSession {
     off(type: 'setLoopMode', callback?: (mode: LoopMode) => void): void;
 
     /**
+     * Register setTargetLoopMode command callback
+     * Application should change playmode to the loopmode which is requested.
+     * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'setTargetLoopMode', callback: Callback<LoopMode>): void;
+
+    /**
+     * Unregister setTargetLoopMode command callback
+     * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'setTargetLoopMode', callback?: Callback<LoopMode>): void;
+
+    /**
      * Register toggle favorite command callback
      * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
@@ -2746,6 +2846,47 @@ declare namespace avSession {
      * @since 12
      */
     getAVPlaybackState(): Promise<AVPlaybackState>;
+
+    /**
+     * Get supported decoders of remote player.
+     * @returns { Promise<Array<DecoderType>> } (DecoderType) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    getSupportedDecoders(): Promise<Array<DecoderType>>;
+
+    /**
+     * Get recommended resolution of remote player based on each decoder.
+     * @param { DecoderType } decoderType - The decoder type.
+     * @returns { Promise<ResolutionLevel> } ResolutionLevel returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>;
+
+    /**
+     * Get supported hdr capabilities of remote player.
+     * @returns { Promise<Array<hdrCapability.HDRFormat>> } HDRFormat returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>;
+
+    /**
+     * Get supported speed of remote player.
+     * @returns { Promise<Array<number>> } supported speed returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    getSupportedPlaySpeeds(): Promise<Array<number>>;
 
     /**
      * Send control commands to remote player
@@ -3593,6 +3734,9 @@ declare namespace avSession {
      * The constructor used to create a AVCastPickerHelper object.
      *
      * @param { Context } context - represents the context.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3604,8 +3748,8 @@ declare namespace avSession {
      *
      * @param { AVCastPickerOptions } [options] - represents the options provided to  the picker.
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3616,8 +3760,9 @@ declare namespace avSession {
      * Register picker state change callback.
      * @param { 'pickerStateChange' } type - 'pickerStateChange'
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3628,8 +3773,9 @@ declare namespace avSession {
      * Unregister picker state change callback.
      * @param { 'pickerStateChange' } type - 'pickerStateChange'
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3820,6 +3966,88 @@ declare namespace avSession {
      * @since 11
      */
     TAG_AUDIO_VIVID = 1,
+  }
+
+  /**
+   * The defination of decoder type.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 19
+   */
+  enum DecoderType {
+    /**
+     * Defination of avc codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
+
+    /**
+     * Defination of hevc codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
+
+    /**
+     * Defination of audio vivid codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a",
+  }
+
+  /**
+   * The defination of suggested resolution.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 19
+   */
+  enum ResolutionLevel {
+    /**
+     * Defination of 480P which typically resolution is 640*480.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    RESOLUTION_480P = 0,
+
+    /**
+     * Defination of 720P which typically resolution is 1280*720.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    RESOLUTION_720P = 1,
+
+    /**
+     * Defination of 1080P which typically resolution is 1920*1080.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    RESOLUTION_1080P = 2,
+
+    /**
+     * Defination of 2K which typically resolution is 2560*1440.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    RESOLUTION_2K = 3,
+
+    /**
+     * Defination of 4K which typically resolution is 4096*3840.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 19
+     */
+    RESOLUTION_4K = 4,
   }
 
   /**
@@ -4046,6 +4274,15 @@ declare namespace avSession {
     mediaImage?: image.PixelMap | string;
 
     /**
+     * The image of the bundle icon as a {@link PixelMap}, no need to be set by application.
+     * @type { ?image.PixelMap }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 18
+     */
+    readonly bundleIcon?: image.PixelMap;
+
+    /**
      * The publishDate of the media
      * @type { ?Date }
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4090,6 +4327,15 @@ declare namespace avSession {
      * @since 10
      */
     lyric?: string;
+
+    /**
+     * The single lyric text of the media, not including time prefix
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 17
+     */
+    singleLyricText?: string;
 
     /**
      * The previous playable media id.
@@ -5686,6 +5932,15 @@ declare namespace avSession {
   }
 
   /**
+   * The extra info object.
+   *
+   * @typedef { object } ExtraInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 18
+   */
+  type ExtraInfo = { [key: string]: Object; };
+
+  /**
    * Session controller,used to control media playback and get media information
    * @interface AVSessionController
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6443,6 +6698,19 @@ declare namespace avSession {
     getExtras(): Promise<{[key: string]: Object}>;
 
     /**
+     * Get extra information for remote device, such as volume level, connected devices.
+     * @param { string } extraEvent - the event name to get
+     * @returns { Promise<ExtraInfo> } the value returned for such event
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 18
+     */
+    getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
+
+    /**
      * Register metadata changed callback
      * @param { 'metadataChange' } type 
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
@@ -7127,8 +7395,17 @@ declare namespace avSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' |
+  *     'toggleCallMute' | 'setTargetLoopMode' } AVControlCommandType
+  * @syscap SystemCapability.Multimedia.AVSession.Core
+  * @atomicservice
+  * @since 18
+  */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
   /**
    * The definition of command to be sent to the session
