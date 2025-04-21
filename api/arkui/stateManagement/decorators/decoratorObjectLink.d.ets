@@ -17,12 +17,13 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { int32 } from '@koalaui.runtime.common';
 
-export declare interface IObservedObject {
-    _permissibleAddRefDepth: int32;
+import { DecoratedV1VariableBase, IDecoratedImmutableVariable, IDecoratedUpdatableVariable } from '../base/decoratorBase';
+import { WatchFuncType } from './decoratorWatch';
+
+export declare class ObjectLinkDecoratedVariable<T> extends DecoratedV1VariableBase<T>
+    implements IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T> {
+    public constructor(varName: string, parentInitValue: T, watchFunc?: WatchFuncType)
+    public get(): T 
+    public update(newValue: T): void 
 }
-
-export declare function castToIObservedObject<T>(obj: T): T | undefined;
-
-export declare function setObservationDepth<T>(obj: T, depth: int32): void;
