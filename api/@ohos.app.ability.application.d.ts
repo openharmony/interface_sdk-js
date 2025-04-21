@@ -70,7 +70,6 @@ declare namespace application {
    * @param { string } pluginBundleName - Indicates the bundle name of plugin.
    * @param { string } pluginModuleName - Indicates the module name of plugin.
    * @returns { Promise<Context> } Returns the module context of plugin.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18
