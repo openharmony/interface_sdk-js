@@ -25,7 +25,7 @@
   *
   * @throws { BusinessError } 17000001 - Initialization failed.
   * @syscap SystemCapability.Test.UiTest
-  * @since arkts {'1.2':'20'}
+  * @since 20
   * @arkts 1.2
   * @test
   */
@@ -3238,7 +3238,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':'20'}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3391,7 +3391,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':'20'}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3470,7 +3470,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':'20'}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3522,7 +3522,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':'20'}
+    * @since 20
     * @arkts 1.2
     * @test
     */
