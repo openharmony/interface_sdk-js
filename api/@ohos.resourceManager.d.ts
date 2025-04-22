@@ -23,6 +23,10 @@ import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 
+/*** if arkts 1.2 */
+import { Resource as _Resource } from './global/resource';
+/*** endif */
+
 /**
  * Provides resource related APIs.
  *
@@ -2386,7 +2390,7 @@ declare namespace resourceManager {
      * Obtains string resources associated with a specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @param { FixedArray<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2400,7 +2404,7 @@ declare namespace resourceManager {
      * @arkts 1.2
 
      */
-    getStringSync(resId: number, args: Array<string | number>): string;
+    getStringSync(resId: number, ...args: FixedArray<string | number>): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -2486,7 +2490,7 @@ declare namespace resourceManager {
      * Obtains string resources associated with a specified resource object.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @param { FixedArray<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2500,7 +2504,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getStringSync(resource: Resource, args: Array<string | number>): string;
+    getStringSync(resource: Resource, ...args: FixedArray<string | number>): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
@@ -4917,7 +4921,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type Resource = _Resource;
 }
