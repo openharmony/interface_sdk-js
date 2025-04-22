@@ -65,7 +65,7 @@ declare namespace uiEffect {
      * @param { number } x - Represents the X-axis position of center point  where the water ripple first appears on the screen.
      * @param { number } y - Represents the Y-axis position of center point  where the water ripple first appears on the screen.
      * @param { WaterRippleMode } rippleMode - Set the mode of water ripple,
-     * 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile.
+     * 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile, 3 for cross platform.
      * @returns { Filter } - Returns  water ripple Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
@@ -185,6 +185,15 @@ declare namespace uiEffect {
      * @since 12
      */
     SMALL2SMALL = 2,
+
+    /**
+     * MINI_RECV mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 17
+     */
+    MINI_RECV = 3,
   }
 
   /**
