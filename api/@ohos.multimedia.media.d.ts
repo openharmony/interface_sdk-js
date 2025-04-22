@@ -1755,6 +1755,11 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * 
+     * <p>If a long delay occurs during fast switching between short videos within an application, to improve switching performance, consider creating
+     * multiple AVPlayer objects and preparing the next video in advance [Smooth Switchover Between Online Short Videos]{@link
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}</p>
+     * 
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
@@ -6188,12 +6193,6 @@ declare namespace media {
     prepare(callback: AsyncCallback<void>): void;
     /**
      * Prepare video playback, it will request resource for playing.
-     * 
-     * <p>If a long delay occurs during fast switching between short videos within an application, to improve
-     * switching performance, consider creating multiple AVPlayer objects and preparing the next video in advance
-     * [Smooth Switchover Between Online Short Videos]{@link
-     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}</p>
-     * 
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
