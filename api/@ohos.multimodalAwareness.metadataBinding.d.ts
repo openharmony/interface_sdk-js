@@ -26,7 +26,7 @@ import type { Callback } from './@ohos.base';
  * @namespace metadataBinding
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
- * @since 15
+ * @since 18
  */
 declare namespace metadataBinding {
   /**
@@ -35,12 +35,11 @@ declare namespace metadataBinding {
    * @param { string } metadata - Coded metadata
    * @returns { Promise<image.PixelMap> } encoded image
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 32100001 - Internal handling failed. File creation failed
    * @throws { BusinessError } 32100002 - Encode process fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
   function encodeImage(srcImage: image.PixelMap, metadata: string): Promise<image.PixelMap>;
 
@@ -48,13 +47,12 @@ declare namespace metadataBinding {
    * MetadataBinding provides decode capabilities
    * @param { image.PixelMap } encodedImage - Encoded image
    * @returns { Promise<string> } decode result
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 32100001 - Internal handling failed. File read failed.
    * @throws { BusinessError } 32100003 - Decode process fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
    function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
@@ -63,22 +61,20 @@ declare namespace metadataBinding {
    * @param { string } bundleName - Bundle name of a third-party application
    * @returns { Promise<string> } third-party app callback the meta data
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 32100001 - Internal handling failed. Obtain metadata failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
   /**
    * set the Metadata to the screenshot app
    * @param { string } metadata - the Metadata of a Third-Party App
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 32100001 - Internal handling failed. Set Meta data to screenshot app fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function submitMetadata(metadata: string): void;
 
@@ -87,12 +83,11 @@ declare namespace metadataBinding {
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<number> } callback - Call back the screenshot event
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
    * @throws { BusinessError } 32100004 - Subscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<number>): void;
  
@@ -101,14 +96,13 @@ declare namespace metadataBinding {
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<number> } callback - Call back the screenshot event
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
    * @throws { BusinessError } 32100005 - Unsubscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<number>): void;
 }
 
-export default metadataBinding
+export default metadataBinding;
