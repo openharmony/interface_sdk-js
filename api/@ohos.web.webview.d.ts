@@ -4988,6 +4988,8 @@ declare namespace webview {
      *
      * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
      *                               in ram.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 18
      */
