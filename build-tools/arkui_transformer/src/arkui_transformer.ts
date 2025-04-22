@@ -73,11 +73,7 @@ function main() {
     const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
     printResult(transformedSource, componentFile)
   })
-  convertedFile.forEach((f) => {
-    if (fs.existsSync(f)) {
-      fs.unlinkSync(f);
-    }
-  });
+  convertedFile.forEach(f => fs.unlinkSync(f));
 }
 
 const options = program
