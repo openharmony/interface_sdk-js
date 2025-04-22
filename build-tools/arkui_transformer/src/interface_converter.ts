@@ -19,7 +19,7 @@ import * as path from 'path';
 import { assert } from 'console';
 import uiconfig from './arkui_config_util'
 import { ComponentFile } from './component_file';
-import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods } from './lib/attribute_utils'
+import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods, mergeUniqueOrdered } from './lib/attribute_utils'
 
 function readLangTemplate(): string {
     return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
@@ -49,32 +49,67 @@ interface ComponnetFunctionInfo {
     comment: string
 }
 
-function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCode: ts.SourceFile): Array<ComponnetFunctionInfo> {
+interface ComponentPram {
+    name: string,
+    type: string[],
+    isOptional: boolean,
+}
+
+function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCode: ts.SourceFile, mergeCallSig: boolean = false): Array<ComponnetFunctionInfo> {
     const signatureParams: Array<string[]> = [];
     const comments: string[] = []
+    const paramList: Array<ComponentPram[]> = []
 
     node.members.forEach(member => {
         if (ts.isCallSignatureDeclaration(member)) {
             const currentSignature: string[] = [];
+            const currentParam: ComponentPram[] = []
             const comment = extractSignatureComment(member, originalCode);
             comments.push(comment);
 
             member.parameters.forEach(param => {
                 currentSignature.push(param.getText(originalCode));
+                currentParam.push({ name: (param.name as ts.Identifier).escapedText as string, type: [param.type!.getText(originalCode)], isOptional: !!param.questionToken });
             });
             signatureParams.push(currentSignature)
+            paramList.push(currentParam)
         }
     });
 
     const result: Array<ComponnetFunctionInfo> = new Array
-    for (let i = 0; i < signatureParams.length; i++) {
-        result.push({ sig: signatureParams[i], comment: comments[i] })
+
+    if (mergeCallSig) {
+        const mergedParamList: Array<ComponentPram> = []
+        paramList.forEach((params, _) => {
+            params.forEach((param, index) => {
+                if (!mergedParamList[index]) {
+                    mergedParamList.push(param)
+                    if (index > 0) {
+                        (mergedParamList[index] as ComponentPram).isOptional = true;
+                    }
+                } else {
+                    mergedParamList[index] = { name: param.name, type: mergeUniqueOrdered(mergedParamList[index].type, param.type), isOptional: mergedParamList[index].isOptional || param.isOptional }
+                }
+            })
+        })
+        const mergedSignature: string[] = [];
+        mergedParamList.forEach((param, index) => {
+            mergedSignature.push(`${param.name}${param.isOptional ? '?' : ''}: ${param.type.join(' | ')}`)
+        })
+        result.push({
+            sig: mergedSignature,
+            comment: ''
+        })
+    } else {
+        for (let i = 0; i < signatureParams.length; i++) {
+            result.push({ sig: signatureParams[i], comment: comments[i] })
+        }
     }
     return result;
 }
 
 function handleComponentInterface(node: ts.InterfaceDeclaration, file: ComponentFile) {
-    const result = getAllInterfaceCallSignature(node, file.sourceFile)
+    const result = getAllInterfaceCallSignature(node, file.sourceFile, true)
     const declPattern = readLangTemplate()
     const declComponentFunction: string[] = []
     result.forEach(p => {
