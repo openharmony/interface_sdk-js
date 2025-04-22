@@ -9298,15 +9298,6 @@ declare namespace window {
      */
     windowRect?: Rect;
     /**
-     * Indicates whether subwindow support fullscreen
-     * 
-     * @type { ?boolean }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    maximizeSupported?: boolean;
-    /**
      * Indicates zlevel of subwindow
      * 
      * @type { ?number }
