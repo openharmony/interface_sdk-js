@@ -6989,7 +6989,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -7019,7 +7020,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -7049,7 +7051,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
