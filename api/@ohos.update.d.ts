@@ -943,6 +943,7 @@ declare namespace update {
      * @type { ?OtaMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
+     * @throws202
      * @since 20
      */
     otaMode?: OtaMode
