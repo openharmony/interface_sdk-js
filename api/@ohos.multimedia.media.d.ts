@@ -1726,6 +1726,12 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * 
+     * <p>If a long delay occurs during fast switching between short videos within an application, 
+     * to improve switching performance, consider creating multiple AVPlayer objects and preparing 
+     * the next video in advance [Smooth Switchover Between Online Short Videos]{@link 
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}.</p>
+     * 
      * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
@@ -1756,9 +1762,10 @@ declare namespace media {
     /**
      * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
      * 
-     * <p>If a long delay occurs during fast switching between short videos within an application, to improve switching performance, consider creating
-     * multiple AVPlayer objects and preparing the next video in advance [Smooth Switchover Between Online Short Videos]{@link
-     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}</p>
+     * <p>If a long delay occurs during fast switching between short videos within an application, 
+     * to improve switching performance, consider creating multiple AVPlayer objects and preparing 
+     * the next video in advance [Smooth Switchover Between Online Short Videos]{@link 
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}.</p>
      * 
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
