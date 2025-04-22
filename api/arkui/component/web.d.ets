@@ -206,8 +206,9 @@ export interface FileSelectorParam {
     getMode(): FileSelectorMode
     getAcceptType(): Array<string>
     isCapture(): boolean
+    getMimeTypes(): Array<string>
 }
-export interface JsResult {
+export declare class JsResult {
     handleCancel(): void
     handleConfirm(): void
     handlePromptConfirm(result: string): void
@@ -215,16 +216,16 @@ export interface JsResult {
 export interface FileSelectorResult {
     handleFileList(fileList: Array<string>): void
 }
-export interface HttpAuthHandler {
+export declare class HttpAuthHandler {
     confirm(userName: string, password: string): boolean
     cancel(): void
     isHttpAuthInfoSaved(): boolean
 }
-export interface SslErrorHandler {
+export declare class SslErrorHandler {
     handleConfirm(): void
     handleCancel(): void
 }
-export interface ClientAuthenticationHandler {
+export declare class ClientAuthenticationHandler {
     confirm(priKeyFile: string, certChainFile: string): void
 
     cancel(): void
@@ -248,7 +249,7 @@ export interface ScreenCaptureHandler {
     grant(config: ScreenCaptureConfig): void
     deny(): void
 }
-export interface DataResubmissionHandler {
+export declare class DataResubmissionHandler {
     resend(): void
     cancel(): void
 }
@@ -337,13 +338,13 @@ export interface WebContextMenuResult {
     cut(): void
     selectAll(): void
 }
-export interface ConsoleMessage {
+export declare class ConsoleMessage {
     getMessage(): string
     getSourceId(): string
     getLineNumber(): number
     getMessageLevel(): MessageLevel
 }
-export interface WebResourceRequest {
+export declare class WebResourceRequest {
     getRequestHeader(): Array<Header>
     getRequestUrl(): string
     isRequestGesture(): boolean
@@ -351,7 +352,7 @@ export interface WebResourceRequest {
     isRedirect(): boolean
     getRequestMethod(): string
 }
-export interface WebResourceResponse {
+export declare class WebResourceResponse {
     getResponseData(): string
     getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined
     getResponseEncoding(): string
@@ -372,14 +373,14 @@ export interface Header {
     headerKey: string;
     headerValue: string;
 }
-export interface WebResourceError {
+export declare class WebResourceError {
     getErrorInfo(): string
     getErrorCode(): number
 }
 export interface JsGeolocation {
     invoke(origin: string, allow: boolean, retain: boolean): void
 }
-export interface WebCookie {
+export declare class WebCookie {
     setCookie(): undefined
     saveCookie(): undefined
 }
