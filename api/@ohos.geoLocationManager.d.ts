@@ -2173,6 +2173,16 @@ declare namespace geoLocationManager {
      * @since 18
      */
     sportsType?: SportsType;
+
+    /**
+     * Indicates whether to obtain POI information near the current location.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    needPoi?: boolean;
   }
 
   /**
@@ -2203,6 +2213,16 @@ declare namespace geoLocationManager {
      * @since 12
      */
     locatingTimeoutMs: number;
+
+    /**
+     * Indicates whether to obtain POI information near the current location.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    needPoi?: boolean;
   }
 
   /**
@@ -2468,6 +2488,16 @@ declare namespace geoLocationManager {
      * @since 12
      */
     sourceType?: LocationSourceType;
+
+    /**
+     * Indicates the poi information.
+     *
+     * @type { ?PoiInfo }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    poi?: PoiInfo;
   }
 
   /**
@@ -2711,6 +2741,147 @@ declare namespace geoLocationManager {
      * @since 16
      */
     connectable: boolean;
+  }
+
+  /**
+   * Describes the information about a single POI.
+   *
+   * @typedef Poi
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 19
+   */
+  export interface Poi {
+    /**
+     * Indicates the ID of a POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    id: string;
+
+    /**
+     * Indicates the confidence of POI information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    confidence: number;
+
+    /**
+     * Indicates the name of the POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    name: string;
+
+    /**
+     * Indicates the latitude of POI.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    latitude: number;
+
+    /**
+     * Indicates the longitude of POI.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    longitude: number;
+
+    /**
+     * Indicates administrative region name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    administrativeArea: string;
+
+    /**
+     * Indicates sub-administrative region name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    subAdministrativeArea: string;
+
+    /**
+     * Indicates locality information.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    locality: string;
+
+    /**
+     * Indicates sub-locality information.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    subLocality: string;
+
+    /**
+     * Indicates the detailed address of the POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    address: string;
+  }
+
+
+  /**
+   * Describes the POI information struct.
+   *
+   * @typedef PoiInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 19
+   */
+  export interface PoiInfo {
+    /**
+     * Indicates POI information list.
+     *
+     * @type { Array<Poi> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    poiArray: Array<Poi>;
+
+    /**
+     * Indicates the timestamp when the POI information is obtained.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    timestamp: number;
   }
 
   /**
