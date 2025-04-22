@@ -393,12 +393,11 @@ declare namespace connection {
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>;
  
@@ -409,12 +408,11 @@ declare namespace connection {
    * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void;
      
@@ -425,12 +423,11 @@ declare namespace connection {
    * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
    * @returns { Promise<string> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function getNetExtAttribute(netHandle: NetHandle): Promise<string>;
      
@@ -441,12 +438,11 @@ declare namespace connection {
    * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
    * @returns { string } The netExtAttribute string returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function getNetExtAttributeSync(netHandle: NetHandle): string;
     
