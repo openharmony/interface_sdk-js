@@ -3692,6 +3692,33 @@ declare namespace drawing {
     constructor();
 
     /**
+     * Creates a deep copy of the specified matrix object.
+     * @param { Matrix } matrix - The matrix object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(matrix: Matrix);
+
+    /**
+     * Query whether the current matrix is affine or not.
+     * @returns { boolean } Returns true if the matrix is affine; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isAffine(): boolean;
+
+    /**
+     * Query whether a rectangle will map to another rectangle after applying this matrix.
+     * @returns { boolean } Returns true if the transformation keeps rectangles as rectangles; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    rectStaysRect(): boolean;
+
+    /**
      * Sets matrix to rotate by degrees about a pivot point at (px, py).
      * @param { number } degree - Indicates the angle of axes relative to upright axes.
      * @param { number } px - Indicates the pivot on x-axis.
@@ -3728,6 +3755,30 @@ declare namespace drawing {
     setTranslation(dx: number, dy: number): void;
 
     /**
+     * Sets the skew transformation with a pivot point.
+     * @param { number } kx - The skew factor along the x-axis.
+     * @param { number } ky - The skew factor along the y-axis.
+     * @param { number } px - The x-coordinate of the point around which to apply the skew.
+     * @param { number } py - The y-coordinate of the point around which to apply the skew.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setSkew(kx: number, ky: number, px: number, py: number): void;
+
+    /**
+     * Sets the sine and cosine values for a rotation transformation around a point.
+     * @param { number } sinValue - The sine of the angle of rotation.
+     * @param { number } cosValue - The cosine of the angle of rotation.
+     * @param { number } px - The x-coordinate of the point around which to rotate.
+     * @param { number } py - The y-coordinate of the point around which to rotate.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setSinCos(sinValue: number, cosValue: number, px: number, py: number): void;
+
+    /**
      * Sets the params for a matrix.
      * @param { Array<number> } values - Each value in the array represents the following parameters:
      * values[0] - horizontal scale factor to store.
@@ -3745,6 +3796,34 @@ declare namespace drawing {
      * @since 12
      */
     setMatrix(values: Array<number>): void;
+
+    /**
+     * Sets matrix to the copy of anther matrix object.
+     * @param { Array<number> | Matrix } matrix - Indicates the Matrix object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setMatrix(matrix: Array<number> | Matrix): void;
+
+    /**
+     * Sets matrix to the product of matrix A and matrix B.
+     * @param { Matrix } matrixA - Indicates the MatrixA object.
+     * @param { Matrix } matrixB - Indicates the MatrixB object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setConcat(matrixA: Matrix, matrixB: Matrix): void;
+
+    /**
+     * Sets matrix to the product of 'this' and another.
+     * @param { Matrix } matrix - Indicates the other Matrix object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    postConcat(matrix: Matrix): void;
 
     /**
      * Sets matrix total to matrix a multiplied by matrix b.
@@ -3844,6 +3923,20 @@ declare namespace drawing {
      * @since 12
      */
     preRotate(degree: number, px: number, py: number): void;
+
+    /**
+     * Sets matrix to matrix constructed from skewing by (kx, ky) about pivot point (px, py), multiplied by matrix.
+     * This can be thought of as skewing relative to a pivot point after applying matrix.
+     * @param { number } kx - Indicates the horizontal skew factor.
+     * @param { number } ky - Indicates the vertical skew factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    postSkew(kx: number, ky: number, px: number, py: number): void;
+
     /**
      * Sets matrix to matrix multiplied by matrix constructed from scaling by (sx, sy) relative to pivot point (px, py).
      * This can be thought of as scaling relative to a pivot point before applying matrix.
@@ -3868,6 +3961,20 @@ declare namespace drawing {
      * @since 12
      */
     preTranslate(dx: number, dy: number): void;
+
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
+     * This can be thought of as scaling relative to a pivot point before applying matrix.
+     * @param { number } kx - Indicates the horizontal skew factor.
+     * @param { number } ky - Indicates the vertical skew factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    preSkew(kx: number, ky: number, px: number, py: number): void;
+
     /**
      * Reset matrix to identity.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3885,6 +3992,18 @@ declare namespace drawing {
      * @since 12
      */
     mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
+
+    /**
+     * Forms a circle by radius and maps it to a ellipse, returns the average radius of the ellipse.
+     * The average radius is equal to the square root of the product of the major axis length and the minor axis length.
+     * @param { number } radius - circle size to map.
+     * @returns { number } Return average mapped radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    mapRadius(radius: number): number;
+
     /**
      * Return nine scalar values contained by Matrix.
      * @returns { Array<number> } nine scalar values contained by Matrix.
@@ -3975,6 +4094,82 @@ declare namespace drawing {
    */
   class Region {
     /**
+     * Creates an empty region.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor();
+
+    /**
+     * Creates a deep copy of the specified region object.
+     * @param { Region } region - The region object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(region: Region);
+
+    /**
+     * Creates a region with a rectangle.
+     * @param { number } left - Indicates the left edge of the rectangle.
+     * @param { number } top - Indicates the top edge of the rectangle.
+     * @param { number } right - Indicates the right edge of the rectangle.
+     * @param { number } bottom - Indicates the bottom edge of the rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(left: number, top: number, right: number, bottom: number);
+
+    /**
+     * Query whether this region is equal to the other region.
+     * @param { Region } other - Indicates the region object for comparasion.
+     * @returns { boolean } Returns compare result.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isEqual(other: Region): boolean;
+
+    /**
+     * Query whether the region contains multiple rectangles.
+     * @returns { boolean } Returns true if the region contains more than one rectangle;
+     * <br>returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isComplex(): boolean;
+
+    /**
+     * Query whether the region is empty .
+     * @returns { boolean } Returns true if the region is empty; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isEmpty(): boolean;
+
+    /**
+     * Gets the bounds of the region.
+     * @returns { common2D.Rect } Returns Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getBounds(): common2D.Rect;
+
+    /** Gets the boundary of the region, which represents by a path.
+     * Gets the bounds of the region.
+     * @returns { Path } Returns Path object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getBoundaryPath(): Path;
+
+    /**
      * Determines whether the test point is in the region.
      * @param { number } x - Indicates the x coordinate of the point. The parameter must be an integer.
      * @param { number } y - Indicates the y coordinate of the point. The parameter must be an integer.
@@ -4011,6 +4206,16 @@ declare namespace drawing {
     op(region: Region, regionOp: RegionOp): boolean;
 
     /**
+     * Offsets the region by adding dx along the x-axis and dy along the y-axis.
+     * @param { number } dx - Indicates the x coordinate of the point. The parameter must be an integer.
+     * @param { number } dy - Indicates the y coordinate of the point. The parameter must be an integer.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    offset(dx: number, dy: number): void;
+
+    /**
      * Determines whether rect and region does not intersect.
      * @param { number } left - Left position of rectangle. The parameter must be an integer.
      * @param { number } top - Top position of rectangle. The parameter must be an integer.
@@ -4023,6 +4228,17 @@ declare namespace drawing {
      * @since 12
      */
     quickReject(left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Determines whether region is intersect with another.
+     * @param { Region } region - Indicates the other region for comparasion.
+     * @returns { boolean } Returns true if the region dose not intersect the other, or the region is empty;
+     * <br>returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    quickRejectRegion(region: Region): boolean;
 
     /**
      * Sets the region to match outline of path within clip.
@@ -4049,6 +4265,23 @@ declare namespace drawing {
      * @since 12
      */
     setRect(left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Sets the region to the specified region.
+     * @param { Region } region - Region object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setRegion(region: Region): void;
+
+    /**
+     * Sets the region to empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setEmpty(): void;
   }
 
   /**
@@ -4181,6 +4414,298 @@ declare namespace drawing {
      * @since 15
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
+  }
+
+  /**
+   * This class offers a comprehensive set of operations to handle for common2D Rect object.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  class RectUtils {
+    /**
+     * Makes an uninitialized 2D rectangular object with zero dimensions and origin at (0, 0).
+     *
+     * @returns { common2D.Rect } - Returns an empty Rect object with all coordinates (left, top, right, bottom) set to 0.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeEmpty() : common2D.Rect;
+
+    /**
+     * Makes a 2D rectangular object from boundary coordinates.
+     * @param { number } left - Indicates the X-coordinate of the left edge.
+     * @param { number } top - Indicates the Y-coordinate of the top edge.
+     * @param { number } right - Indicates the X-coordinate of the right edge.
+     * @param { number } bottom - Indicates the Y-coordinate of the bottom edge.
+     * @returns { common2D.Rect } - Returns an Rect object with the specific coordinates (left, top, right, bottom).
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeLtrb(left: number, top: number, right: number, bottom: number) : common2D.Rect;
+
+    /**
+     * Makes a deep copy of a 2D rectangular object.
+     * @param { common2D.Rect } src - Indicates the source rectangle to copy.
+     * @returns { common2D.Rect } - Returns an Rect object has the same boundary coordinates with the source.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeCopy(src: common2D.Rect) : common2D.Rect;
+
+    /**
+     * Gets the width of a 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the width.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static getWidth(rect: common2D.Rect): number;
+
+    /**
+     * Gets the height of a 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the height.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static getHeight(rect: common2D.Rect): number;
+
+    /**
+     * Calculates the x-coordinate of the center point of the 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the center X coordinate.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static centerX(rect: common2D.Rect): number;
+
+    /**
+     * Calculates the y-coordinate of the center point of the 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the center Y coordinate.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static centerY(rect: common2D.Rect): number;
+
+    /**
+     * Checks if one 2D rectangular object fully contains another.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { common2D.Rect } other - The Rect object to check for containment.
+     * @returns { boolean } - Returns true if 'rect' fully contains 'other'; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Checks if one 2D rectangular object fully contains the specified boundary coordinates.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { number } left - Indicates the left boundary of the target region.
+     * @param { number } top - Indicates the top boundary of the target region.
+     * @param { number } right - Indicates the right boundary of the target region.
+     * @param { number } bottom - Indicates the bottom boundary of the target region.
+     * @returns { boolean } - Returns true if 'rect' fully contains the specified boundary coordinates; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Checks if one 2D rectangular object contains a specific point.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { number } x - Indicates the X-coordinate of the point to check.
+     * @param { number } y - Indicates the Y-coordinate of the point to check.
+     * @returns { boolean } - Returns true if 'rect' contains the specified point; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, x: number, y: number): boolean;
+
+    /**
+     * Modifies a 2D rectangular's boundaries by inward offsets.
+     *
+     * @param { common2D.Rect } rect - The Rect object to adjust.
+     * @param { number } left - Indicates the amount to add from the left boundary.
+     * @param { number } top - Indicates the amount to add from the top boundary.
+     * @param { number } right - Indicates the amount to substract from the right boundary.
+     * @param { number } bottom - Indicates the amount to substract from the bottom boundary.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static inset(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void;
+
+    /**
+     * Relpace a 2D rectangular object by the intersection of itself and another.
+     * If the intersection is empty, nothing is done.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @returns { boolean } - Returns true if have area in common and 'rect' will be replaced by the intersection;
+     * returns false if the intersection is empty and 'rect' will not be modified.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Checks if two 2D rectangular objects intersect.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @returns { boolean } - Returns true if have area in common, otherwise return false.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isIntersect(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Sets a 2D rectangular object to the union of itself and another.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static union(rect: common2D.Rect, other: common2D.Rect): void;
+
+    /**
+     * Checks if the 2D rectangular object is empty.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom); returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isEmpty(rect: common2D.Rect): boolean;
+
+    /**
+     * Offsets the 2D rectangular object by adding dx to its left and right coordinates,
+     * and adding dy to its top and bottom coordinates.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { number } dx - Indicates the amount to add to the rectangle's left and right coordinates.
+     * @param { number } dy - Indicates the amount to add to the rectangle's top and bottom coordinates.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static offset(rect: common2D.Rect, dx: number, dy: number): void;
+
+    /**
+     * Offsets the rectangle to a specific position and kepps the width and height unchanged.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { number } newLeft - Indicates the new left coordinates.
+     * @param { number } newTop - Indicates the new top coordinates.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static offsetTo(rect: common2D.Rect, newLeft: number, newTop: number): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object with that of another.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @param { common2D.Rect } other - Indicates the source rectangle to copy.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setRect(rect: common2D.Rect, other: common2D.Rect): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object with that of specific value.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @param { number } left - Indicates the X-coordinate of the left edge.
+     * @param { number } top - Indicates the Y-coordinate of the top edge.
+     * @param { number } right - Indicates the X-coordinate of the right edge.
+     * @param { number } bottom - Indicates the Y-coordinate of the bottom edge.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setLtrb(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object to zero.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setEmpty(rect: common2D.Rect): void;
+
+    /**
+     * Normalizes the 2D rectangular object to ensuer validity.
+     * Swaps the left and right if the left is greater than right;
+     * and swaps top and bottom if the top is greater than bottom.
+     * If the edges are already valid, then nothing is done.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static sort(rect: common2D.Rect): void;
+
+    /**
+     * Checks if the 2D rectangular object has the same coordinates value with another.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object for comparison.
+     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }
 }
 
