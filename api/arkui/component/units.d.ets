@@ -44,6 +44,13 @@ export type DrawingCanvas = _drawing.Canvas
 export type DrawingColorFilter = _drawing.ColorFilter 
 export type DrawingLattice = _drawing.Lattice 
 export type PixelMap = _image.PixelMap
+/**
+ * Defines the resolutionQuality.
+ * @typedef { _image.ResolutionQuality } ResolutionQuality
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
 export type ResolutionQuality = _image.ResolutionQuality
 export type PointerStyle = _pointer.PointerStyle
 export type UnifiedData = _unifieddatachannel.UnifiedData
@@ -54,6 +61,13 @@ export type NavigationInfo = _observer.NavigationInfo
 export type RouterPageInfo = _observer.RouterPageInfo
 export type VisualEffect = _uieffect.VisualEffect
 export type Filter = _uieffect.Filter
+/**
+ * Defines the blending effect.
+ * @typedef { _uieffect.Blender } Blender
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
 export type Blender = _uieffect.Blender
 export type DateTimeOptions = _intl.DateTimeOptions
 export type WindowStatusType = _window.WindowStatusType
