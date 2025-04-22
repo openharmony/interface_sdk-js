@@ -2417,7 +2417,8 @@ declare namespace photoAccessHelper {
      * Dynamic range type of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
