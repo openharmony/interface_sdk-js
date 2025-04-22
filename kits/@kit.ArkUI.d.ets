@@ -22,3 +22,5 @@
 import promptAction from '@ohos.promptAction';
 import { ComponentContent } from '@ohos.arkui.node';
 export { promptAction, ComponentContent };
+export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.stateManagement';
