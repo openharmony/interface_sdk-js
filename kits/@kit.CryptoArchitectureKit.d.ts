@@ -16,10 +16,17 @@
 /**
  * @file
  * @kit CryptoArchitectureKit
- * @arkts 1.1&1.2
  */
 
+/*** if arkts 1.1 */
 import cryptoFramework from '@ohos.security.cryptoFramework';
 import Cipher, { CipherAesOptions, CipherResponse, CipherRsaOptions } from '@system.cipher';
 
 export { Cipher, CipherAesOptions, CipherResponse, CipherRsaOptions, cryptoFramework };
+/*** endif */
+
+/*** if arkts 1.2 */
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+export { cryptoFramework };
+/*** endif */
