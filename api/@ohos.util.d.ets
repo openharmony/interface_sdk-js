@@ -918,5 +918,17 @@ declare namespace util {
      */
     encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
+
+  /**
+   * Get the hash code of an object.
+   *
+   * @param { object } [object] - The object that need to get hash code.
+   * @returns { number } Return a hash code of an object.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function getHash(object: object): number;
 }
 export default util;
