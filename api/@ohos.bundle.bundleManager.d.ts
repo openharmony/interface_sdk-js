@@ -703,6 +703,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * PermissionGrantState
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export enum PermissionGrantState {
     /**
      * PERMISSION_DENIED
@@ -716,6 +725,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * PERMISSION_DENIED
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     PERMISSION_DENIED = -1,
 
@@ -731,6 +748,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * PERMISSION_GRANTED
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     PERMISSION_GRANTED = 0
   }
