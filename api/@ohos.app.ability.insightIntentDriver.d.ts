@@ -214,6 +214,412 @@ declare namespace insightIntentDriver {
    * @since 11
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * The insight intent information.
+   *
+   * @interface InsightIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface InsightIntentInfo {
+    /**
+     * The bundle name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly bundleName: string;
+
+    /**
+     * The module name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly moduleName: string;
+
+    /**
+     * The intent name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly intentName: string;
+
+    /**
+     * The intent domain.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly domain: string;
+
+    /**
+     * The intent version.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly intentVersion: string;
+
+    /**
+     * The intent display name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly displayName: string;
+
+    /**
+     * The intent display description.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly displayDescription: string;
+
+    /**
+     * The intent schema.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly schema: string;
+
+    /**
+     * The intent icon.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly icon: string;
+
+    /**
+     * The intent large language model description.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly llmDescription: string;
+
+    /**
+     * The intent keywords.
+     *
+     * @type { string[] }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly keywords: string[];
+
+    /**
+     * The intent type, including "link", "page", "function", "form", "entry".
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly intentType: string;
+
+    /**
+     * The sub intent information.
+     * If the intentType is "link", subIntentInfo is a LinkIntentInfo.
+     * If the intentType is "page", subIntentInfo is a PageIntentInfo.
+     * If the intentType is "function", subIntentInfo is a FunctionIntentInfo.
+     * If the intentType is "form", subIntentInfo is a FormIntentInfo.
+     * If the intentType is "entry", subIntentInfo is a EntryIntentInfo.
+     *
+     * @type { LinkIntentInfo | PageIntentInfo | FunctionIntentInfo | FormIntentInfo | EntryIntentInfo }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly subIntentInfo: LinkIntentInfo | PageIntentInfo | FunctionIntentInfo | FormIntentInfo | EntryIntentInfo;
+
+    /**
+     * The insight intent parameters.
+     *
+     * @type { Record<string, Object> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly parameters: Record<string, Object>;
+  }
+
+  /**
+   * The link intent information.
+   *
+   * @interface LinkIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface LinkIntentInfo {
+    /**
+     * The uri.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly uri: string;
+  }
+
+  /**
+   * The page intent information.
+   *
+   * @interface LinkIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface PageIntentInfo {
+    /**
+     * The uiability.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly uiAbility: string;
+
+    /**
+     * The pageRouterName.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly pageRouterName: string;
+
+    /**
+     * The navigationId.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly navigationId: string;
+
+    /**
+     * The navigation destination.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly navDestination: string;
+  }
+
+  /**
+   * The function intent information.
+   *
+   * @interface FunctionIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface FunctionIntentInfo {}
+
+  /**
+   * The form intent information.
+   *
+   * @interface FormIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface FormIntentInfo {}
+
+  /**
+   * The form intent information.
+   *
+   * @interface EntryIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface EntryIntentInfo {
+    /**
+     * The ability name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly abilityName: string;
+
+    /**
+     * The execute mode.
+     *
+     * @type { insightIntent.ExecuteMode[] }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly executeMode: insightIntent.ExecuteMode[];
+  }
+
+  /**
+   * Enum for get insight intent flag.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  enum GetInsightIntentFlag {
+    /**
+     * Get full insight intent.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    GET_FULL_INSIGHT_INTENT = 0x00000001,
+
+    /**
+     * Get summary insight intent.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    GET_SUMMARY_INSIGHT_INTENT = 0x00000002,
+  }
+
+  /**
+   * Get all insight intent information.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } intentFlags - The flags of get insight intent information.
+   * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function getAllInsightIntentInfo(intentFlags: number): Promise<Array<InsightIntentInfo>>;
+
+  /**
+   * Get insight intent information by bundle name.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - The specified bundle name.
+   * @param { number } intentFlags - The flags of get insight intent information.
+   * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInsightIntentInfoByBundleName(bundleName: string, intentFlags: number): Promise<Array<InsightIntentInfo>>;
+
+  /**
+   * Get insight intent information by intent name.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - The specified bundle name.
+   * @param { string } moduleName - The specified module name.
+   * @param { string } intentName - The specified intent name.
+   * @param { number } intentFlags - The flags of get insight intent information.
+   * @returns { Promise<InsightIntentInfo> } Returns the insight intent information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInsightIntentInfoByIntentName(bundleName: string, moduleName: string, intentName: string, intentFlags: number): Promise<InsightIntentInfo>;
 }
 
 export default insightIntentDriver;
