@@ -1295,6 +1295,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number, options?: MaxLinesOptions): TextAreaAttribute;
 
   /**
+   * Define min lines of the text area.
+   *
+   * @param { Optional<number> } lines - Min lines of the node
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  minLines(lines: Optional<number>): TextAreaAttribute;
+
+  /**
    * Set the word break type.
    *
    * @param { WordBreak } value - The word break type.
