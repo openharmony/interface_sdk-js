@@ -302,6 +302,15 @@ declare namespace screenshot {
      * @since 14
      */
     isNotificationNeeded?: boolean;
+    /**
+     * The capture action is need pointer.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    isPointerNeeded?: boolean;
   }
 }
 
