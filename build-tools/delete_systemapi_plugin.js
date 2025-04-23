@@ -20,6 +20,7 @@ const commander = require('commander');
 let sourceFile = null;
 let lastNoteStr = '';
 let lastNodeName = '';
+let etsType = 'ets';
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
 const kitFileNeedDeleteMap = new Map();
@@ -46,10 +47,12 @@ function start() {
     .version('0.0.1');
   program
     .option('--input <string>', 'path name')
-    .option('--output <>string>', 'output path')
+    .option('--output <string>', 'output path')
+    .option('--type <string>', 'ets type')
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
+      etsType = opts.type;
       collectDeclaration(opts.input);
     });
   program.parse(process.argv);
@@ -230,6 +233,9 @@ function processFileNameWithoutExt(filePath) {
     .replace(/\.ets$/g, '');
 }
 
+function isArkTsSpecialSyntax(content) {
+  return /\@memo|(?<!\*\s*)\s*\@interface/.test(content);
+}
 /**
  * 遍历所有文件进行处理
  * @param {Array} utFiles 所有文件
@@ -239,6 +245,12 @@ function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+    if (isArkTsSpecialSyntax(content)) {
+      if (!/\@systemapi/.test(content)) {
+        writeFile(url, content);
+      }
+      return;
+    }
     if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || !/\@systemapi/.test(content)) {
       // 特殊类型文件处理
       writeFile(url, content);
