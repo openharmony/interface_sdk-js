@@ -100,7 +100,7 @@ import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
   Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, ShapeMask, ShapeClip,
-  NodeAdapter, Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode
+  NodeAdapter, Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, UIState
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -298,5 +298,5 @@ export {
   SegmentButtonV2ItemOptions, OnSelectedIndexChange, OnSelectedIndexesChange, SegmentButtonV2Item, SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options, ExpandMode,
-  HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo,
+  HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState
 };
