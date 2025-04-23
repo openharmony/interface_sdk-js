@@ -1998,6 +1998,30 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
 
   /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): SearchAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): SearchAttribute;
+
+  /**
    * Whether to enable automatic spacing between Chinese and Latin characters.
    *
    * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
