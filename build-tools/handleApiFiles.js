@@ -133,7 +133,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
 }
 
 /**
- * 处理文件过滤 if arkts 1.1|1.2 定义
+ * 处理文件过滤 if arkts 1.1|1.2|1.1&1.2 定义
  * 
  * @param {*} type 
  * @param {*} fileContent 
@@ -142,6 +142,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
 function handleArktsDefinition(type, fileContent) {
   let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  let regx3 = /\/\*\*\* if arkts 1\.1\&1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
     return type === 'ets' ? p1 : '';
   });
@@ -150,6 +151,13 @@ function handleArktsDefinition(type, fileContent) {
       return p1.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
     } else {
       return '';
+    }
+  });
+  fileContent = fileContent.replace(regx3, (substring, p1) => {
+    if (type === 'ets') {
+      return p1;
+    } else {
+      return p1.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
     }
   });
   return fileContent;
@@ -294,7 +302,7 @@ function handleSinceInFirstType(fileContent) {
 function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/;
   const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/;
-  const arktsRegx = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const arktsRegx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
   let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
@@ -418,15 +426,21 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   writeFile(outputPath, newContent);
 }
 
+/**
+ * 没有arkts标签，但有if arkts 1.2和1.1&1.2的情况
+ * @param {*} sourceFile 
+ * @param {*} fileContent 
+ * @param {*} outputPath 
+ */
 function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
-  const regx = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const regx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
   const copyrightMessage = fileContent.match(regex)[0];
   const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);
   });
   let fileJsdoc = firstNode ? getFileJsdoc(firstNode) + '*/\n' : '';
-  let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[1]).join('\n');
+  let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[2]).join('\n');
 
   writeFile(outputPath, saveLatestJsDoc(newContent));
 }
