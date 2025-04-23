@@ -16,19 +16,35 @@
 /**
  * @file
  * @kit TestKit
- * @arkts 1.1
  */
 
-import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
-import TestRunner from '@ohos.application.testRunner';
-import {
-  Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
-  Rect, TouchPadSwipeOptions, UiComponent, UiDriver, BY, By
-} from '@ohos.UiTest';
-
-export {
-  BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
-  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions
-};
+ /*** if arkts 1.1 & 1.2 */
+ import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
+ import TestRunner from '@ohos.application.testRunner';
+ import {
+   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+   UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
+   Rect, TouchPadSwipeOptions
+ } from '@ohos.UiTest';
+ 
+ /*** endif */
+ import {
+   UiComponent, UiDriver, BY, By
+ } from '@ohos.UiTest';
+ export {
+   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
+   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions
+ };
+ 
+ /*** if arkts 1.2 */
+ import {
+  loadAndSetupUiTest
+ } from '@ohos.UiTest';
+ export {
+   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow,
+   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, loadAndSetupUiTest
+ };
+ /*** endif */
+ 
