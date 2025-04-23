@@ -25,149 +25,25 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace systemDateTime
  * @syscap SystemCapability.MiscServices.Time
- * @since 9
+ * @since 20
  */
 declare namespace systemDateTime {
-  /**
-   * Sets the system time.
-   *
-   * @permission ohos.permission.SET_TIME
-   * @param { number } time - Indicates the target timestamp(in milliseconds)
-   * @param { AsyncCallback<void> } callback - The callback of setTime
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 9
-   */
-  function setTime(time: number, callback: AsyncCallback<void>): void;
-  /**
-   * Sets the system time.
-   *
-   * @permission ohos.permission.SET_TIME
-   * @param { number } time - Indicates the target timestamp(in milliseconds)
-   * @returns { Promise<void> } The promise returned by the function
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 9
-   */
-  function setTime(time: number): Promise<void>;
-
   /**
    * Obtains the number of timestamp that have elapsed since the Unix epoch.
    *
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { number } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 10
+   * @since 20
    */
   function getTime(isNanoseconds?: boolean): number;
 
   /**
-   * Indicates time type.
-   *
-   * @enum { number } TimeType
-   * @syscap SystemCapability.MiscServices.Time
-   * @since 10
-   */
-  enum TimeType {
-    /**
-     * Indicates the time elapsed since the system was booted, including deep sleep time.
-     *
-     * @syscap SystemCapability.MiscServices.Time
-     * @since 10
-     */
-    STARTUP,
-
-    /**
-     * Indicates the time elapsed since the system was booted, not including deep sleep time.
-     *
-     * @syscap SystemCapability.MiscServices.Time
-     * @since 10
-     */
-    ACTIVE
-  }
-
-  /**
-   * Obtains the number of milliseconds since the system has been running.
-   *
-   * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
-   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
-   * @returns { number } The timestamp returned of getUpTime.
-   * @syscap SystemCapability.MiscServices.Time
-   * @since 10
-   */
-  /**
-   * Obtains the number of milliseconds since the system has been running.
-   *
-   * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
-   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
-   * @returns { number } The timestamp returned of getUpTime.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed. This error code was added due to missing issues.
-   * @syscap SystemCapability.MiscServices.Time
-   * @since 12
-   */
-  function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
-
-  /**
-   * Sets the system time zone.
-   *
-   * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - The system time zone
-   * @param { AsyncCallback<void> } callback - The callback of setTimezone
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 9
-   */
-  function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
-
-  /**
-   * Sets the system time zone.
-   *
-   * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone -  The system time zone
-   * @returns { Promise<void> } The promise returned by the function
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 9
-   */
-  function setTimezone(timezone: string): Promise<void>;
-
-  /**
-   * Obtains the system time zone.
-   *
-   * @param { AsyncCallback<string> } callback - The callback of getTimezone
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.System error.
-   * @syscap SystemCapability.MiscServices.Time
-   * @since 9
-   */
-  /**
    * Obtains the system time zone.
    *
    * @param { AsyncCallback<string> } callback - The callback of getTimezone
    * @syscap SystemCapability.MiscServices.Time
-   * @since 12
+   * @since 20
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -175,16 +51,8 @@ declare namespace systemDateTime {
    * Obtains the system time zone.
    *
    * @returns { Promise<string> } The promise returned by the function
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.System error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 9
-   */
-  /**
-   * Obtains the system time zone.
-   *
-   * @returns { Promise<string> } The promise returned by the function
-   * @syscap SystemCapability.MiscServices.Time
-   * @since 12
+   * @since 20
    */
   function getTimezone(): Promise<string>;
 
@@ -193,33 +61,9 @@ declare namespace systemDateTime {
    *
    * @returns { string } The timezone returned of getTimezoneSync.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 10
+   * @since 20
    */
   function getTimezoneSync(): string;
-
-  /**
-   * Updates the NTP time from the ntp server. This method will only update NTP time once within an hour.
-   *
-   * @returns { Promise<void> } The promise returned by the function
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 13000001 - Network connection error or OS error.
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 14
-   */
-  function updateNtpTime(): Promise<void>;
-
-  /**
-   * Obtains the current time of milliseconds since the Unix epoch calculated based on the last updated NTP time.
-   *
-   * @returns { number } The current NTP time returned of getNtpTime.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 14
-   */
-  function getNtpTime(): number;
 }
 
 export default systemDateTime;
