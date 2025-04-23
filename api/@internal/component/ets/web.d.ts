@@ -7390,7 +7390,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   u @since 11
+   * @since 11
    */
   /**
    * Triggered at the end of web page loading.
@@ -9147,7 +9147,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order, not the array order.
+   * The script is executed in the lexicographic order instead of array sequence.
    * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
    * </p>
