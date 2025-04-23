@@ -18,7 +18,7 @@
  * @kit TestKit
  */
 
-/*** if arkts 1.1 & 1.2 */
+/*** if arkts 1.1&1.2 */
 import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import TestRunner from '@ohos.application.testRunner';
 import {
