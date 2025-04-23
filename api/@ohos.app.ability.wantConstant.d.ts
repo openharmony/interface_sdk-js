@@ -335,6 +335,15 @@ declare namespace wantConstant {
     CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
 
     /**
+    * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 17
+    */
+    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
+
+    /**
     * Indicates the key of launch reason message.
     * If the caller needs to set the launch reason through this field when initiating the callee, the caller must
     * be a system application and have applied for the ohos.permission.SET_LAUNCH_REASON_MESSAGE permission.
