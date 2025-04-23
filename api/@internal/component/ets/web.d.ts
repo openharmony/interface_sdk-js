@@ -7065,12 +7065,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Injects the JavaScript object into window and invoke the function in window.
-   * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
-   * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
@@ -7079,12 +7073,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Injects the JavaScript object into window and invoke the function in window.
-   * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
-   * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
@@ -7093,12 +7081,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Injects the JavaScript object into window and invoke the function in window.
-   * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
-   * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
@@ -7108,12 +7090,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Injects the JavaScript object into window and invoke the function in window.
-   * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
-   * </p>
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
