@@ -1706,6 +1706,8 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
+    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+
     /**
      * Destroy clone instance for an application.
      *
@@ -1723,8 +1725,29 @@ declare namespace installer {
      * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
+     */
+    destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
+
+    /**
+     * Destroy clone instance for an application.
+     *
+     * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName of clone app.
+     * @param { number } appIndex - Indicates the clone application's index.
+     * @param { number | DestroyAppCloneParam } [options] - Indicates other parameters required for the uninstallation.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+     * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
      */
     destroyAppClone(bundleName: string, appIndex: number, options?: number | DestroyAppCloneParam): Promise<void>;
 
@@ -1777,7 +1800,6 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700010 - Failed to install the plugin because the plugin fails to be parsed.
@@ -1796,8 +1818,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
@@ -1811,14 +1832,12 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The user id is invalid.
      * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
