@@ -4348,12 +4348,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. The photoCreationConfigs is empty;
+     * <br>2. Incorrect photoCreationConfigs format.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     createAssetsForApp(bundleName: string, appName: string, tokenId: number, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
@@ -4577,12 +4577,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of grant permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
@@ -4596,12 +4596,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of grant permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     grantPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
@@ -4614,12 +4614,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of cancel permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     cancelPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
