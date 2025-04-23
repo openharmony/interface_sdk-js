@@ -1997,7 +1997,7 @@ declare namespace inputMethod {
     /**
      * Indicates the capitalize mode of the edit box.
      *
-     * @type { ?number }
+     * @type { ?CapitalizeMode }
      * @default CapitalizeMode.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
