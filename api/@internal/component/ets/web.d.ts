@@ -4448,7 +4448,7 @@ declare class WebController {
    * This interface must be used on the UI thread, and the callback will also be executed on the UI thread.
    * The state of JavaScript is no longer persisted across navigations like loadUrl.
    * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
-   * It is recommended that aoolications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+   * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
