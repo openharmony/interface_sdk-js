@@ -174,7 +174,7 @@ declare namespace uiExtensionHost {
      * @StageModelOnly
      * @since 12
      */
-        /**
+    /**
      * Create sub window.
      *
      * @param { string } name - window name of sub window
