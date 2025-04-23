@@ -1680,6 +1680,17 @@ declare namespace media {
   type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
 
   /**
+   * Defines the OnPlaybackRateDone callback.
+   *
+   * @typedef { function } OnPlaybackRateDone
+   * @param { number } rate - playback rate.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 20
+   */
+  type OnPlaybackRateDone = (rate: number) => void;
+
+  /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
    *
@@ -2578,6 +2589,18 @@ declare namespace media {
     setSpeed(speed: PlaybackSpeed): void;
 
     /**
+     * Set playback rate.
+     * Supported states: prepared/playing/paused/completed.
+     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    setPlaybackRate(rate: number): void;
+
+    /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
      * player will select the appropriate bitrate according to the network connection speed. The
      * available bitrate list reported by {@link #on('availableBitrates')}. Set it to select
@@ -2863,6 +2886,25 @@ declare namespace media {
      * @since 12
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
+    /**
+     * Register listens for media playbackRateDone event.
+     * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
+     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'playbackRateDone', callback: OnPlaybackRateDone): void;
+
+    /**
+     * Unregister listens for media playbackRateDone event.
+     * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
+     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'playbackRateDone', callback?: OnPlaybackRateDone): void;
     /**
      * Register listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
