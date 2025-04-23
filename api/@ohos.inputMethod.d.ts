@@ -2206,7 +2206,6 @@ declare namespace inputMethod {
    */
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
 
-
  /**
   * Enumerates the capitalization mode.
   *
