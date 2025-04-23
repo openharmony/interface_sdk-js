@@ -9161,7 +9161,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * Injects a JavaScript script into the Web component. When the specified page or document has been loaded,
+   * the script is executed on any page whose source matches scriptRules.
+   * <p><strong>API NOTE</strong>:<br>
+   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
+   * The script is excuted in the lexicographic order, not the array order.
+   * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
+   * <p>
+   *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
