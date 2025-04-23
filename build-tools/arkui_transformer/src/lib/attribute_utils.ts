@@ -127,3 +127,23 @@ export function getMethodCharacteristic(
 
     return `${methodName}(${params.join(',')})`;
 }
+
+export function mergeUniqueOrdered(arr1: string[], arr2: string[]): string[] {
+    const seen = new Set<string>();
+    const result: string[] = [];
+    for (const item of arr1) {
+        if (!seen.has(item)) {
+            seen.add(item);
+            result.push(item);
+        }
+    }
+
+    for (const item of arr2) {
+        if (!seen.has(item)) {
+            seen.add(item);
+            result.push(item);
+        }
+    }
+
+    return result;
+}
