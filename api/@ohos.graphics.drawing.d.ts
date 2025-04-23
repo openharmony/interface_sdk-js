@@ -1843,6 +1843,31 @@ declare namespace drawing {
   }
 
   /**
+   * Provides an interface to the drawing, and describe the arguments for a font.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  class TypefaceArguments {
+    /**
+     * Constructor for the TypefaceArguments.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor();
+    /**
+     * Adds variation axis for the TypefaceArguments.
+     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
+     * @param { number } value  - Indicates the value of the axis field.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    addVariation(axis: string, value: number);
+  }
+
+  /**
    * The Typeface class specifies the typeface and intrinsic style of a font.
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -1856,6 +1881,16 @@ declare namespace drawing {
      * @since 11
      */
     getFamilyName(): string;
+
+    /**
+     * Generate typeface from current typeface and TypefaceArguments.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
 
     /**
      * Generate typeface from file.
@@ -1878,6 +1913,30 @@ declare namespace drawing {
      * @since 18
      */
     static makeFromRawFile(rawfile: Resource): Typeface;
+
+    /**
+     * Generate typeface from file and TypefaceArguments.
+     * @param { string } filePath - file path for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Generate typeface from Rawfile and TypefaceArguments.
+     * @param { Resource } rawfile - RawFile for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
   }
 
   /**
