@@ -4074,17 +4074,6 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    /**
-     * Unsubscribes to audio renderer change events.
-     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @crossplatform
-     * @since 18
-     */
     off(type: 'audioRendererChange'): void;
 
     /**
