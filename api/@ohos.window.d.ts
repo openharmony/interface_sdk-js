@@ -3223,6 +3223,20 @@ declare namespace window {
    * @atomicservice
    * @since 15
    */
+  /**
+   * Get Layout info of all windows on the selected display.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @returns { Promise<Array<WindowLayoutInfo>> } Promise used to return the WindowLayoutInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. function getAllWindowLayoutInfo can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 19
+   */
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
 
   /**
