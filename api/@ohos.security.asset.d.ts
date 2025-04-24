@@ -824,6 +824,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @throws { BusinessError } 24000014 - The file operation failed.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
+   * @syscap SystemCapability.Security.Asset
+   * @since 20
    */
   function querySyncResult(query: AssetMap): Promise<SyncResult>;
 
