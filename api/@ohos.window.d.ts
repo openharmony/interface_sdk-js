@@ -3892,6 +3892,66 @@ declare namespace window {
   }
 
   /**
+   * The policy of key frame.
+   *
+   * @interface KeyFramePolicy
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface KeyFramePolicy {
+    /**
+     * Whether to use key frame.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    enable: boolean;
+
+    /**
+     * Set the drag interval to notify rect change in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    interval?: number;
+
+    /**
+     * Set the drag distance to notify rect change in px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    distance?: number;
+
+    /**
+     * Set the rect change animation duration in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDuration?: number;
+
+    /**
+     * Set then rect change animation delay in millisecond
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDelay?: number;
+  }
+
+  /**
    * Window
    *
    * @interface Window
@@ -9279,6 +9339,24 @@ declare namespace window {
      * @since 18
      */
     getSubWindowZLevel(): number;
+
+    /**
+     * Set the policy of key frame when resize by dragging.
+     *
+     * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
+     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
   }
 
   /**
