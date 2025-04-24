@@ -633,6 +633,17 @@ export declare interface CustomTheme {
     * @since 12
     */
     colors?: CustomColors;
+
+    /**
+    * Define tokens associated with dark mode color resources.
+    *
+    * @type { ?CustomDarkModeColors }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    colorsDark?: CustomDarkColors;
 }
 
 /**
@@ -645,6 +656,17 @@ export declare interface CustomTheme {
  * @since 12
  */
 export declare type CustomColors = Partial<Colors>;
+
+/**
+ * Defines the struct of CustomDarkColors.
+ *
+ * @typedef { Partial<Colors> } CustomDarkColors
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type CustomDarkColors = Partial<Colors>;
 
 /**
  * Class ThemeControl provides the Theme management for whole Ability and pages.
