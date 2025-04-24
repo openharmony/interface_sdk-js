@@ -1304,7 +1304,7 @@ export interface CommonAttribute extends CommonMethod {
 }
 export type CommonInterface = () => CommonAttribute;
 export type CustomBuilder = 
-/** @memo */
+@memo
 () => void;
 export interface OverlayOptions {
     align?: Alignment;
