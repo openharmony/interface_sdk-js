@@ -300,6 +300,15 @@ declare namespace wantConstant {
      * @since 12
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
+
+    /**
+    * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 17
+    */
+    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList'
   }
 
   /**
