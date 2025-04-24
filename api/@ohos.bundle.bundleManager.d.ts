@@ -74,6 +74,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   enum BundleFlag {
     /**
      * Used to obtain the default bundleInfo. The obtained bundleInfo does not contain information of
@@ -89,6 +98,15 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Used to obtain the default bundleInfo. The obtained bundleInfo does not contain information of
+     * signatureInfo, applicationInfo, hapModuleInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     GET_BUNDLE_INFO_DEFAULT = 0x00000000,
     /**
@@ -106,6 +124,15 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Used to obtain the bundleInfo containing applicationInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, hapModuleInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
     /**
      * Used to obtain the bundleInfo containing hapModuleInfo. The obtained bundleInfo does not
@@ -121,6 +148,15 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Used to obtain the bundleInfo containing hapModuleInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
     /**
@@ -139,6 +175,16 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
     /**
@@ -174,6 +220,15 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Used to obtain the bundleInfo containing permission. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, hapModuleInfo, extensionAbility and ability.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
@@ -191,6 +246,16 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
@@ -210,6 +275,16 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Used to obtain the default bundleInfo containing disabled application and ability.
+     * The obtained bundleInfo does not contain information of signatureInfo, applicationInfo,
+     * hapModuleInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
      * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
@@ -225,6 +300,15 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
+     * contain the information of applicationInfo, hapModuleInfo, extensionAbility, ability and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
     /**
@@ -775,6 +859,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Support window mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export enum SupportWindowMode {
     /**
      * Indicates supported window mode of full screen mode
@@ -788,6 +881,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates supported window mode of full screen mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FULL_SCREEN = 0,
     /**
@@ -803,6 +904,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates supported window mode of split mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     SPLIT = 1,
     /**
      * Indicates supported window mode of floating mode
@@ -816,6 +925,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates supported window mode of floating mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FLOATING = 2
   }
@@ -904,6 +1021,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates that the ability can have specified instances
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     SPECIFIED = 2
   }
 
@@ -959,6 +1084,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Display orientation
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export enum DisplayOrientation {
     /**
      * Indicates that the system automatically determines the display orientation
@@ -972,6 +1106,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates that the system automatically determines the display orientation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     UNSPECIFIED,
 
@@ -988,6 +1130,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the landscape orientation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     LANDSCAPE,
 
     /**
@@ -1002,6 +1152,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the portrait orientation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     PORTRAIT,
 
@@ -1018,6 +1176,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FOLLOW_RECENT,
 
     /**
@@ -1032,6 +1198,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the inverted landscape orientation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     LANDSCAPE_INVERTED,
 
@@ -1048,6 +1222,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the inverted portrait orientation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     PORTRAIT_INVERTED,
 
     /**
@@ -1062,6 +1244,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the orientation can be auto-rotated
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     AUTO_ROTATION,
 
@@ -1078,6 +1268,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the landscape orientation rotated with sensor
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     AUTO_ROTATION_LANDSCAPE,
 
     /**
@@ -1092,6 +1290,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the portrait orientation rotated with sensor
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     AUTO_ROTATION_PORTRAIT,
 
@@ -1108,6 +1314,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the sensor restricted mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     AUTO_ROTATION_RESTRICTED,
 
     /**
@@ -1122,6 +1336,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the sensor landscape restricted mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED,
 
@@ -1138,6 +1360,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the sensor portrait restricted mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     AUTO_ROTATION_PORTRAIT_RESTRICTED,
 
     /**
@@ -1152,6 +1382,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the locked orientation mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     LOCKED,
 
@@ -1189,6 +1427,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates module type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export enum ModuleType {
     /**
      * Indicates entry type
@@ -1202,6 +1449,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates entry type
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     ENTRY = 1,
     /**
@@ -1217,6 +1472,14 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates feature type
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FEATURE = 2,
     /**
      * Indicates shared type
@@ -1230,6 +1493,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates shared type
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     SHARED = 3
   }
@@ -1497,6 +1768,17 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains own bundleInfo.
+   *
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @returns { Promise<BundleInfo> } The result of getting the bundle info.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
 
   /**
@@ -1518,6 +1800,17 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains own bundleInfo.
+   *
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
@@ -1538,6 +1831,17 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Obtains own bundleInfo.
+   *
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @returns { BundleInfo } The result of getting the bundle info.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
@@ -3551,6 +3855,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains configuration information about an application.
+   *
+   * @typedef { _ApplicationInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export type ApplicationInfo = _ApplicationInfo;
 
   /**
@@ -3567,6 +3880,15 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the metadata information about a module.
+   *
+   * @typedef { _ModuleMetadata }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   export type ModuleMetadata = _ModuleMetadata;
 
@@ -3585,6 +3907,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the Metadata.
+   *
+   * @typedef { _Metadata }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export type Metadata = _Metadata;
 
   /**
@@ -3601,6 +3932,15 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Obtains configuration information about a bundle.
+   *
+   * @typedef { _BundleInfo.BundleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   export type BundleInfo = _BundleInfo.BundleInfo;
 
@@ -3619,6 +3959,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The scene which is used.
+   *
+   * @typedef { _BundleInfo.UsedScene }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export type UsedScene = _BundleInfo.UsedScene;
 
   /**
@@ -3636,6 +3985,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the required permissions details defined in file config.json.
+   *
+   * @typedef { _BundleInfo.ReqPermissionDetail }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
   /**
@@ -3652,6 +4010,15 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the SignatureInfo.
+   *
+   * @typedef { _BundleInfo.SignatureInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
@@ -3678,6 +4045,15 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Obtains configuration information about a module.
+   *
+   * @typedef { _HapModuleInfo.HapModuleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
 
@@ -3750,6 +4126,15 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains configuration information about an ability.
+   *
+   * @typedef { _AbilityInfo.AbilityInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   export type AbilityInfo = _AbilityInfo.AbilityInfo;
 
   /**
@@ -3766,6 +4151,15 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Contains basic Ability information. Indicates the window size..
+   *
+   * @typedef { _AbilityInfo.WindowSize }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   export type WindowSize = _AbilityInfo.WindowSize;
 
