@@ -1201,23 +1201,23 @@ declare namespace asset {
      */
     readonly resultCode: number;
     /**
-     * The total number of synchronization.
+     * The total count of synchronization.
      *
      * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Security.Asset
      * @since 20
      */
-    readonly totalNum?: number;
+    readonly totalCount?: number;
     /**
-     * The number of Assets that fail to synchronize.
+     * The count of Assets that fail to synchronize.
      *
      * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Security.Asset
      * @since 20
      */
-    readonly failedNum?: number;
+    readonly failedCount?: number;
   }
 
   /**
