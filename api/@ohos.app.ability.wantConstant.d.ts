@@ -344,6 +344,15 @@ declare namespace wantConstant {
     * @since 18
     */
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
+
+    /**
+    * Indicates the key of the page route upon sharing atomic service.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 20
+    */
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
   }
 
   /**
