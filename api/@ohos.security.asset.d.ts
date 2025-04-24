@@ -2003,7 +2003,7 @@ declare namespace asset {
      */
     UNSUPPORTED = 24000017,
     /**
-     * The error code indicates that verifying parameter failed.
+     * The error code indicates that verifying the parameter failed.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
