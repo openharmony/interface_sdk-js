@@ -55,7 +55,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    /**
    * Called back when an UI extension is started for initialization.
    *
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the LaunchParam information about UIExtensionAbility.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the LaunchParam information about
+   *     UIExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since arkts {'1.1':'12', '1.2':'20'}
