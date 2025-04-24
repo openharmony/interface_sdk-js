@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions,BorderRadiuses } from './units';
-import { FontStyle, FontWeight, BorderStyle,TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
-import { ChainStyle ,LocalizedAlignRuleOptions, AlignRuleOption} from './common'
+import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';
+import { FontStyle, FontWeight, BorderStyle, TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
+import { ChainStyle, LocalizedAlignRuleOptions, AlignRuleOption } from './common';
 import { Resource } from '../../global/resource';
 /*** endif */
 
