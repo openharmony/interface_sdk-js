@@ -9226,6 +9226,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
       options?: SelectionMenuOptionsExt): WebAttribute;
 
   /**
+   * Sets whether to optimize parser budget to reduce FCP time
+   *
+   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
+
+  /**
    * Sets whether to follow the system font weight.
    *
    * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
@@ -9244,16 +9254,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 18
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
-
-  /**
-   * Sets whether to optimize parser budget to reduce FCP time
-   *
-   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 15
-   */
-  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
   /**
    * Injects the JavaScripts that will be run just after document object has been created.
