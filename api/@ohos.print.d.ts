@@ -1324,7 +1324,7 @@ declare namespace print {
     /**
      * Print file uploading exception.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
 
@@ -1416,7 +1416,7 @@ declare namespace print {
     /**
      * Number of files exceeding the upper limit.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     E_PRINT_TOO_MANY_FILES = 13100010,
   }
@@ -2141,7 +2141,7 @@ declare namespace print {
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   function getAddedPrinters(): Promise<Array<string>>;
 
@@ -2288,7 +2288,7 @@ declare namespace print {
      * Printer preferences.
      * @type { ?PrinterPreferences }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     preferences?: PrinterPreferences;
 
@@ -2296,7 +2296,7 @@ declare namespace print {
      * Printer alias.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     alias?: string;
 
@@ -2478,14 +2478,14 @@ declare namespace print {
    * defines printer preferences.
    * @typedef PrinterPreferences
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   interface PrinterPreferences {
     /**
      * Default duplex mode.
      * @type { ?PrintDuplexMode }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     defaultDuplexMode?: PrintDuplexMode;
 
@@ -2493,7 +2493,7 @@ declare namespace print {
      * Default quality.
      * @type { ?PrintQuality }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     defaultPrintQuality?: PrintQuality;
 
@@ -2501,7 +2501,7 @@ declare namespace print {
      * Default media type.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     defaultMediaType?: string;
 
@@ -2509,7 +2509,7 @@ declare namespace print {
      * Default page size id.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     defaultPageSizeId?: string;
 
@@ -2517,7 +2517,7 @@ declare namespace print {
      * Default orientation mode.
      * @type { ?PrintOrientationMode }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     defaultOrientation?: PrintOrientationMode;
 
@@ -2525,7 +2525,7 @@ declare namespace print {
      * Default margins.
      * @type { ?boolean }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     borderless?: boolean;
 
@@ -2533,7 +2533,7 @@ declare namespace print {
      * Detailed printer preferences in json format.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     options?: string;
   }
@@ -2542,48 +2542,48 @@ declare namespace print {
    * Enumeration of Printer Change Events.
    * @enum { number } PrinterEvent
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   enum PrinterEvent {
     /**
      * Printer added.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_ADDED = 0,
 
     /**
      * Printer deleted.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_DELETED = 1,
 
     /**
      * Printer state changed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_STATE_CHANGED = 2,
 
     /**
      * Printer info changed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_INFO_CHANGED = 3,
 
     /**
      * Printer preference changed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_PREFERENCE_CHANGED = 4,
 
     /**
      * Last used printer changed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     PRINTER_EVENT_LAST_USED_PRINTER_CHANGED = 5,
   }
@@ -2592,20 +2592,20 @@ declare namespace print {
    * Enumeration of default printer type.
    * @enum { number } DefaultPrinterType
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   enum DefaultPrinterType {
     /**
      * Default printer set by user.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     DEFAULT_PRINTER_TYPE_SET_BY_USER = 0,
 
     /**
      * The last used printer is used as the default printer.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 18
+     * @since 19
      */
     DEFAULT_PRINTER_TYPE_LAST_USED_PRINTER = 1,
   }
@@ -2620,7 +2620,7 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
 
@@ -2635,7 +2635,7 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
 
@@ -2647,7 +2647,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function discoverUsbPrinters(): Promise<Array<PrinterInformation>>;
 
@@ -2662,7 +2662,7 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
 
@@ -2677,7 +2677,7 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
 
@@ -2690,7 +2690,7 @@ declare namespace print {
    * @param { PrinterEvent } event - the information of PrinterEvent
    * @param { PrinterInformation } printerInformation - the information of the latest printer
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void;
 
@@ -2702,7 +2702,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   function on(type: 'printerChange', callback: PrinterChangeCallback): void;
 
@@ -2714,7 +2714,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 18
+   * @since 19
    */
   function off(type: 'printerChange', callback?: PrinterChangeCallback): void;
 }
