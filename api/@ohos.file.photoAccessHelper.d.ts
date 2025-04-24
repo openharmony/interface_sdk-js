@@ -6773,7 +6773,6 @@ declare namespace photoAccessHelper {
      * @returns { Promise<void> } - Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
