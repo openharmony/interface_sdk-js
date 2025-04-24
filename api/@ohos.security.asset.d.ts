@@ -812,6 +812,22 @@ declare namespace asset {
   function postQuerySync(handle: AssetMap): void;
 
   /**
+   * Query the result of synchronization.
+   *
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be synchronized.
+   * @returns { Promise<SyncResult> } the promise object returned by the function.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000018 - Parameter verification failed.
+   */
+  function querySyncResult(query: AssetMap): Promise<SyncResult>;
+
+  /**
    * A Map type containing tag-value pairs that describe the attributes of an Asset.
    *
    * @typedef { Map<Tag, Value> }
@@ -1163,6 +1179,43 @@ declare namespace asset {
      * @since 12
      */
     NEED_LOGOUT = 1,
+  }
+
+  /**
+   * Interface of synchronization result.
+   *
+   * @typedef SyncResult
+   * @syscap SystemCapability.Security.Asset
+   * @since 20
+   */
+  interface SyncResult {
+    /**
+     * The result code of synchronization.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly resultCode: number;
+    /**
+     * The total number of synchronization.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly totalNum?: number;
+    /**
+     * The number of Assets that fail to synchronize.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly failedNum?: number;
   }
 
   /**
@@ -1947,6 +2000,14 @@ declare namespace asset {
      * @since 14
      */
     UNSUPPORTED = 24000017,
+    /**
+     * The error code indicates that verifying parameter failed.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @atomicservice
+     * @since 20
+     */
+    PARAM_VERIFICATION_FAILED = 24000018,
   }
 }
 
