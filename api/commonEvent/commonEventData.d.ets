@@ -130,5 +130,5 @@ export interface CommonEventData {
    * @atomicservice
    * @since 11
    */
-  parameters?: Record<string,Object>;
+  parameters?: Record<string, Object>;
 }
