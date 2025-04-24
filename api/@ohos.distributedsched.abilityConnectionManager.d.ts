@@ -254,14 +254,6 @@ declare namespace abilityConnectionManager {
         sessionId: number;
 
         /**
-         * The type of event returned is consistent with the type registered in function 'on'.
-         * @type { string }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
-         */
-        eventType: string;
-
-        /**
          * Indicates the reason of ability disconnection.
          * @type { ?DisconnectReason }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -302,14 +294,6 @@ declare namespace abilityConnectionManager {
      * @since 18
      */
     interface CollaborateEventInfo {
-        /**
-         * Ability connection Session id.
-         * @type { number }
-         * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
-         */
-        sessionId: number;
-
         /**
          * Indicates the type of collaborate event.
          * @type { CollaborateEventType }
