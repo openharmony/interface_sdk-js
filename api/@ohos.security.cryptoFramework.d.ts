@@ -132,6 +132,15 @@ declare namespace cryptoFramework {
      * @since 12
      */
     ERR_RUNTIME_ERROR = 17620002,
+    /**
+     * Indicates that parameter check failed.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ERR_PARAMETER_CHECK_FAILED = 17620003,
 
     /**
      * Indicates that crypto operation error.
@@ -9013,10 +9022,10 @@ declare namespace cryptoFramework {
      *
      * @param { Uint8Array } data - indicates the signature in DER format.
      * @returns { EccSignatureSpec } the ECC signature spec.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The length of the data parameter is 0 or too large.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Signature
@@ -9031,10 +9040,10 @@ declare namespace cryptoFramework {
      *
      * @param { EccSignatureSpec } spec - indicates the ECC signature spec.
      * @returns { Uint8Array } the signature in DER format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The r or s value of the spec parameter is 0 or too large.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework.Signature
