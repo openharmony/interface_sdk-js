@@ -1059,6 +1059,14 @@ declare namespace text {
      * @since 18
      */
     tab?: TextTab;
+
+    /**
+     * Whether to optimize white spaces at the end of each line.
+     * @type { ?boolean } Boolean type data.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    trailingSpaceOptimized?: boolean;
   }
 
   /**
