@@ -2447,6 +2447,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. conditions are empty;
      * <br>2. missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
      */
     having(conditions:string, args?: Array<ValueType>): RdbPredicates;
