@@ -308,6 +308,16 @@ declare namespace drawing {
    * @since 12
    */
   class RoundRect {
+
+    /**
+     * Creates a deep copy of the specified round rect object.
+     * @param { RoundRect } roundRect - The round rect object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(roundRect: RoundRect);
+
     /**
      * Creates a simple round rect with the same four corner radii.
      * @param { common2D.Rect } rect - Indicates the Rect object.
@@ -531,6 +541,15 @@ declare namespace drawing {
      * @since 12
      */
     constructor(path: Path);
+
+    /**
+     * Sets the Path with the same content of another.
+     * @param { Path } src - the path to copy content from.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    set(src: Path): void;
 
     /**
      * Sets the start point of a path
@@ -794,6 +813,17 @@ declare namespace drawing {
      */
     contains(x: number, y: number): boolean;
 
+
+    /**
+     * Changes the last point of the path to specific value.
+     * @param { number } x - Indicates the new x-axis value for the last point.
+     * @param { number } y - Indicates the new y-axis value for the last point.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setLastPoint(x: number, y: number): void;
+
     /**
      * Sets fill type, the rule used to fill path.
      * @param { PathFillType } pathFillType - Indicates the enum path fill type.
@@ -803,6 +833,15 @@ declare namespace drawing {
      * @since 12
      */
     setFillType(pathFillType: PathFillType): void;
+
+    /**
+     * Gets fill type, the rule used to fill path.
+     * @returns { PathFillType } Returns the pathFillType.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getFillType(): PathFillType;
 
     /**
      * Gets the smallest bounding box that contains the path.
@@ -837,6 +876,32 @@ declare namespace drawing {
      * @since 11
      */
     reset(): void;
+
+    /**
+     * Clears any lines and curves from the path but keeps the internal storage for faster reuse.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    rewind(): void;
+
+    /**
+     * Check if the path is empty (has no line or curve).
+     *
+     * @returns { boolean } Returns true if the path is empty; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    isEmpty(): boolean;
+
+    /**
+     * Check if the path represents a rectangle.
+     *
+     * @param { common2D.Rect | null } rect - Indicates the Rect object.
+     * @returns { boolean } Returns true if the path represents a rectangle; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    isRect(rect: common2D.Rect | null): boolean;
 
     /**
      * Get path length.
