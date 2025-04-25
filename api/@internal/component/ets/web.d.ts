@@ -7480,7 +7480,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notifies the application that the title has changed..
-   * If the page being loaded does not specify a title via, the corresponding URL is returned.
+   * If the page being loaded does not specify a title via the <title> tage,
+   * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
