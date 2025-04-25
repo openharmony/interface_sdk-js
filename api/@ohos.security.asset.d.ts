@@ -1201,7 +1201,7 @@ declare namespace asset {
      */
     readonly resultCode: number;
     /**
-     * The total count of synchronization.
+     * The total count of synchronized Assets.
      *
      * @type { ?number }
      * @readonly
