@@ -481,6 +481,21 @@ declare namespace pointer {
      * @since 10
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
+    /**
+     * Touchpad two fingers tap or right button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
+
+      /**
+     * Touchpad two fingers tap or left button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
 
   /**
