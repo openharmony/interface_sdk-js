@@ -785,13 +785,13 @@ declare enum CacheMode {
    * @since 11
    */
   /**
-  * Load online and not cache.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @crossplatform
-  * @atomicservice
-  * @since 18
-  */
+   * Load online and not cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   Online = 2,
 
   /**
