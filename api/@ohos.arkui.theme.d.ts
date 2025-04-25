@@ -643,7 +643,7 @@ export declare interface CustomTheme {
     * @atomicservice
     * @since 20
     */
-    colorsDark?: CustomDarkColors;
+    darkColors?: CustomDarkColors;
 }
 
 /**
