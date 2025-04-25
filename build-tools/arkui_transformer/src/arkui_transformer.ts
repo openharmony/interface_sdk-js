@@ -65,19 +65,19 @@ function main() {
   })
   const { printFile } = ts.createPrinter({ removeComments: false });
   convertedFile.forEach(f => {
-    const sourceFile = program.getSourceFile(f)!;
-    const componentFile = componentFileMap.get(f)!;
-    const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
-    const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
-    const addMemoResult = ts.transform(transformedFile, [addMemoTransformer(componentFile)]);
-    const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
-    printResult(transformedSource, componentFile)
-  })
-  convertedFile.forEach((f) => {
-    if (fs.existsSync(f)) {
-      fs.unlinkSync(f);
+    try {
+      const sourceFile = program.getSourceFile(f)!;
+      const componentFile = componentFileMap.get(f)!;
+      const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+      const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
+      const addMemoResult = ts.transform(transformedFile, [addMemoTransformer(componentFile)]);
+      const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
+      printResult(transformedSource, componentFile)
+      fs.unlinkSync(f)
+    } catch (e) {
+      console.log("Error transforming file:", f, e);
     }
-  });
+  })
 }
 
 const options = program

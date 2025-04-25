@@ -21,6 +21,7 @@ let sourceFile = null;
 let lastNoteStr = '';
 let lastNodeName = '';
 let etsType = 'ets';
+let componentEtsFiles = [];
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
 const kitFileNeedDeleteMap = new Map();
@@ -64,6 +65,7 @@ function collectDeclaration(inputDir) {
     const arktsPath = path.resolve(inputDir, '../arkts');
     const kitPath = path.resolve(inputDir, '../kits');
     const utFiles = [];
+    collectComponentEtsFiles();
     readFile(inputDir, utFiles); // 读取文件
     readFile(arktsPath, utFiles); // 读取文件
     tsTransform(utFiles, deleteSystemApi);
@@ -71,6 +73,18 @@ function collectDeclaration(inputDir) {
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
   }
+}
+
+function collectComponentEtsFiles() {
+  const ComponentDir = path.resolve(inputDir, '@internal', 'component', 'ets');
+  readFile(ComponentDir, componentEtsFiles); // 读取文件
+  componentEtsFiles = componentEtsFiles.map(item => {
+    return getPureName(item);
+  });
+}
+
+function getPureName(name) {
+  return path.basename(name).replace('.d.ts', '').replace('.d.ets', '').replace(/_/g, '').toLowerCase();
 }
 
 /**
@@ -123,10 +137,10 @@ function getKitNewSourceFile(sourceFile, kitName) {
         copyrightMessage = sourceFile.getFullText().replace(sourceFile.getText(), '');
       }
     } else if (ts.isExportDeclaration(statement)) {
-      const exportSpecifiers = statement.exportClause.elements.filter((item) => {
+      const exportSpecifiers = statement.exportClause?.elements?.filter((item) => {
         return !needDeleteExportName.has(item.name.escapedText.toString());
       });
-      if (exportSpecifiers.length !== 0) {
+      if (exportSpecifiers && exportSpecifiers.length !== 0) {
         statement.exportClause = factory.updateNamedExports(statement.exportClause, exportSpecifiers);
         newStatements.push(statement);
       }
@@ -152,7 +166,7 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
   if (kitFileNeedDeleteMap === undefined || !kitFileNeedDeleteMap.has(importPath)) {
-    const hasFilePath = hasFileByImportPath(importPath);
+    const hasFilePath = hasFileByImportPath(importPath, inputDir);
     return hasFilePath ? statement : undefined;
   }
   const currImportInfo = kitFileNeedDeleteMap.get(importPath);
@@ -198,18 +212,33 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
 /**
  * 判断文件路径对应的文件是否存在
  * @param {string} importPath kit文件import
+ * @param {string} apiDir 引用接口所在目录
  * @returns {boolean} importPath是否存在
  */
-function hasFileByImportPath(importPath) {
-  let fileDir = inputDir;
+function hasFileByImportPath(importPath, apiDir) {
+  let fileDir = path.resolve(apiDir);
+  const isComponentDir = fileDir.indexOf(path.join('@internal', 'component', 'ets')) !== -1;
   if (importPath.startsWith('@arkts')) {
     fileDir = path.resolve(inputDir, '../arkts');
+  } else if (isComponentDir) {
+    return isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath);
   }
-  const flag = ['.d.ts', '.d.ets'].some(ext => {
-    const filePath = path.resolve(fileDir, `${importPath}${ext}`);
-    return fs.existsSync(filePath);
+  return isExistImportFile(fileDir, importPath);
+}
+
+function isExistArkUIFile(resolvedPath, importPath) {
+  const filePath = path.resolve(resolvedPath, importPath);
+  if (filePath.includes('component')) {
+    const fileName = getPureName(filePath);
+    return componentEtsFiles.includes(fileName);
+  }
+  return isExistImportFile(resolvedPath, importPath);
+}
+
+function isExistImportFile(fileDir, importPath) {
+  return ['.d.ts', '.d.ets'].some(ext => {
+    return path.resolve(fileDir, `${importPath}${ext}`);
   });
-  return flag;
 }
 
 /**
@@ -551,9 +580,8 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
     }
   }
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-  const dtsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
-  const detsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ets`); // import 文件路径判断
-  let hasImportSpecifierFile = fs.existsSync(dtsImportSpecifierPath) || fs.existsSync(detsImportSpecifierPath);
+  const fileDir = path.dirname(url);
+  let hasImportSpecifierFile = hasFileByImportPath(importSpecifier, fileDir);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
   if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
     let currModule = [];
