@@ -213,6 +213,7 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * if no slotId is provided, the default is the slotId of the current data card.
    * @returns { Promise<NetworkState> } Returns the NetworkState object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
