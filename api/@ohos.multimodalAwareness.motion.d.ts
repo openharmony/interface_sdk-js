@@ -70,8 +70,10 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 15
    */
@@ -87,8 +89,10 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 15
    */
@@ -102,7 +106,8 @@ declare namespace motion {
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 15
    */
