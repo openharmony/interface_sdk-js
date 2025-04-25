@@ -3989,7 +3989,12 @@ declare namespace media {
      */
     preferredHeight?: number;
     /**
-     * Choose a preferred buffer duration.
+     * Chooses a preferred buffer duration.
+     * 
+     * <p>The preferred buffer duration in the playback policy, is used to set the buffer size. For details,
+     * see [Online Video Frame Freezing Optimization Practice]{@link
+     * https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-online-video-playback-lags-practice}.</p>
+     * 
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
