@@ -33,7 +33,8 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  * @namespace camera
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace camera {
   /**
@@ -44,7 +45,8 @@ declare namespace camera {
    * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
    * @throws { BusinessError } 7400201 - Camera service fatal error.
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCameraManager(context: Context): CameraManager;
 
@@ -53,14 +55,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraStatus {
     /**
      * Appear status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_STATUS_APPEAR = 0,
 
@@ -68,7 +72,8 @@ declare namespace camera {
      * Disappear status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_STATUS_DISAPPEAR = 1,
 
@@ -76,7 +81,8 @@ declare namespace camera {
      * Available status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_STATUS_AVAILABLE = 2,
 
@@ -84,7 +90,8 @@ declare namespace camera {
      * Unavailable status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_STATUS_UNAVAILABLE = 3
   }
@@ -94,14 +101,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FoldStatus {
     /**
      * Non-foldable status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NON_FOLDABLE = 0,
 
@@ -109,7 +118,8 @@ declare namespace camera {
      * Expanded status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPANDED = 1,
 
@@ -117,7 +127,8 @@ declare namespace camera {
      * Folded status.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLDED = 2
   }
@@ -381,7 +392,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RestoreParamType {
     /**
@@ -389,7 +401,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_NEED_RESTORE_PARAM = 0,
 
@@ -398,7 +411,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRESISTENT_DEFAULT_PARAM = 1,
 
@@ -407,7 +421,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSIENT_ACTIVE_PARAM = 2
   }
@@ -418,7 +433,8 @@ declare namespace camera {
    * @typedef SettingParam
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SettingParam {
     /**
@@ -427,7 +443,8 @@ declare namespace camera {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     skinSmoothLevel: number;
 
@@ -437,7 +454,8 @@ declare namespace camera {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     faceSlender: number;
 
@@ -447,7 +465,8 @@ declare namespace camera {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     skinTone: number;
   }
@@ -507,7 +526,8 @@ declare namespace camera {
    *
    * @interface CameraManager
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CameraManager {
     /**
@@ -982,7 +1002,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prelaunch(): void;
 
@@ -1148,14 +1169,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TorchMode {
     /**
      * The device torch is always off.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OFF = 0,
 
@@ -1163,7 +1186,8 @@ declare namespace camera {
      * The device torch is always on.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON = 1,
 
@@ -1171,7 +1195,8 @@ declare namespace camera {
      * The device continuously monitors light levels and uses the torch when necessary.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO = 2
   }
@@ -1245,7 +1270,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraPosition {
     /**
@@ -1259,7 +1285,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_POSITION_UNSPECIFIED = 0,
 
@@ -1274,7 +1301,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_POSITION_BACK = 1,
 
@@ -1289,7 +1317,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_POSITION_FRONT = 2,
 
@@ -1315,14 +1344,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraType {
     /**
      * Default camera type
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_TYPE_DEFAULT = 0,
 
@@ -1330,7 +1361,8 @@ declare namespace camera {
      * Wide camera
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_TYPE_WIDE_ANGLE = 1,
 
@@ -1338,7 +1370,8 @@ declare namespace camera {
      * Ultra wide camera
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_TYPE_ULTRA_WIDE = 2,
 
@@ -1346,7 +1379,8 @@ declare namespace camera {
      * Telephoto camera
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_TYPE_TELEPHOTO = 3,
 
@@ -1354,7 +1388,8 @@ declare namespace camera {
      * True depth camera
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_TYPE_TRUE_DEPTH = 4
   }
@@ -1364,14 +1399,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ConnectionType {
     /**
      * Built-in camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_CONNECTION_BUILT_IN = 0,
 
@@ -1379,7 +1416,8 @@ declare namespace camera {
      * Camera connected using USB
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_CONNECTION_USB_PLUGIN = 1,
 
@@ -1387,7 +1425,8 @@ declare namespace camera {
      * Remote camera
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_CONNECTION_REMOTE = 2
   }
@@ -1405,7 +1444,8 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HostDeviceType {
     /**
@@ -1419,7 +1459,8 @@ declare namespace camera {
      * Indicates an unknown device camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN_TYPE = 0,
 
@@ -1434,7 +1475,8 @@ declare namespace camera {
      * Indicates a smartphone camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHONE = 0x0E,
 
@@ -1449,7 +1491,8 @@ declare namespace camera {
      * Indicates a tablet camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TABLET = 0x11
   }
@@ -1567,7 +1610,8 @@ declare namespace camera {
    *
    * @typedef Size
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Size {
     /**
@@ -1575,7 +1619,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
 
@@ -1584,7 +1629,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
   }
@@ -1594,7 +1640,8 @@ declare namespace camera {
    *
    * @typedef Point
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Point {
     /**
@@ -1602,7 +1649,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x: number;
 
@@ -1611,7 +1659,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y: number;
   }
@@ -1764,14 +1813,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SceneMode {
     /**
      * Normal photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORMAL_PHOTO = 1,
 
@@ -1779,7 +1830,8 @@ declare namespace camera {
      * Normal video mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORMAL_VIDEO = 2,
 
@@ -1788,7 +1840,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PORTRAIT_PHOTO = 3,
 
@@ -1797,7 +1850,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NIGHT_PHOTO = 4,
 
@@ -1806,7 +1860,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PROFESSIONAL_PHOTO = 5,
 
@@ -1815,7 +1870,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PROFESSIONAL_VIDEO = 6,
 
@@ -1824,7 +1880,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SLOW_MOTION_VIDEO = 7,
 
@@ -1833,7 +1890,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MACRO_PHOTO = 8,
 
@@ -1842,7 +1900,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MACRO_VIDEO = 9,
 
@@ -1851,7 +1910,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LIGHT_PAINTING_PHOTO = 10,
 
@@ -1860,7 +1920,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH_RESOLUTION_PHOTO = 11,
 
@@ -1868,7 +1929,8 @@ declare namespace camera {
      * Secure camera mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECURE_PHOTO = 12,
 
@@ -1877,7 +1939,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     QUICK_SHOT_PHOTO = 13,
 
@@ -1886,7 +1949,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APERTURE_VIDEO = 14,
 
@@ -1895,7 +1959,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PANORAMA_PHOTO = 15,
 
@@ -1904,7 +1969,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TIME_LAPSE_PHOTO = 16,
 
@@ -1913,7 +1979,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLUORESCENCE_PHOTO = 17
   }
@@ -1923,14 +1990,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraFormat {
     /**
      * RGBA 8888 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_RGBA_8888 = 3,
 
@@ -1939,7 +2008,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_DNG = 4,
 
@@ -1947,7 +2017,8 @@ declare namespace camera {
      * YUV 420 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_YUV_420_SP = 1003,
 
@@ -1955,7 +2026,8 @@ declare namespace camera {
      * JPEG Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_JPEG = 2000,
 
@@ -1963,7 +2035,8 @@ declare namespace camera {
      * YCBCR P010 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_YCBCR_P010,
 
@@ -1971,7 +2044,8 @@ declare namespace camera {
      * YCRCB P010 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_YCRCB_P010,
 
@@ -1979,7 +2053,8 @@ declare namespace camera {
      * HEIC Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_HEIC = 2003,
 
@@ -1988,7 +2063,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_DEPTH_16 = 3000,
 
@@ -1997,7 +2073,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_DEPTH_32 = 3001
   }
@@ -2007,14 +2084,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FlashMode {
     /**
      * Close mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH_MODE_CLOSE = 0,
 
@@ -2022,7 +2101,8 @@ declare namespace camera {
      * Open mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH_MODE_OPEN = 1,
 
@@ -2030,7 +2110,8 @@ declare namespace camera {
      * Auto mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH_MODE_AUTO = 2,
 
@@ -2038,7 +2119,8 @@ declare namespace camera {
      * Always open mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLASH_MODE_ALWAYS_OPEN = 3
   }
@@ -2183,14 +2265,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ExposureMode {
     /**
      * Lock exposure mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_MODE_LOCKED = 0,
 
@@ -2198,7 +2282,8 @@ declare namespace camera {
      * Auto exposure mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_MODE_AUTO = 1,
 
@@ -2206,7 +2291,8 @@ declare namespace camera {
      * Continuous automatic exposure.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_MODE_CONTINUOUS_AUTO = 2,
 
@@ -2215,7 +2301,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXPOSURE_MODE_MANUAL = 3
   }
@@ -2439,14 +2526,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FocusMode {
     /**
      * Manual mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_MODE_MANUAL = 0,
 
@@ -2454,7 +2543,8 @@ declare namespace camera {
      * Continuous auto mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_MODE_CONTINUOUS_AUTO = 1,
 
@@ -2462,7 +2552,8 @@ declare namespace camera {
      * Auto mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_MODE_AUTO = 2,
 
@@ -2470,7 +2561,8 @@ declare namespace camera {
      * Locked mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_MODE_LOCKED = 3
   }
@@ -2480,14 +2572,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FocusState {
     /**
      * Scan state.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_STATE_SCAN = 0,
 
@@ -2495,7 +2589,8 @@ declare namespace camera {
      * Focused state.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_STATE_FOCUSED = 1,
 
@@ -2503,7 +2598,8 @@ declare namespace camera {
      * Unfocused state.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOCUS_STATE_UNFOCUSED = 2
   }
@@ -3289,14 +3385,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VideoStabilizationMode {
     /**
      * Turn off video stablization.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OFF = 0,
 
@@ -3304,7 +3402,8 @@ declare namespace camera {
      * LOW mode provides basic stabilization effect.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW = 1,
 
@@ -3312,7 +3411,8 @@ declare namespace camera {
      * MIDDLE mode means algorithms can achieve better effects than LOW mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE = 2,
 
@@ -3320,7 +3420,8 @@ declare namespace camera {
      * HIGH mode means algorithms can achieve better effects than MIDDLE mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH = 3,
 
@@ -3328,7 +3429,8 @@ declare namespace camera {
      * Camera HDF can select mode automatically.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO = 4
   }
@@ -3436,7 +3538,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum BeautyType {
     /**
@@ -3444,7 +3547,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO = 0,
 
@@ -3453,7 +3557,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SKIN_SMOOTH = 1,
 
@@ -3462,7 +3567,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_SLENDER = 2,
 
@@ -3471,7 +3577,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SKIN_TONE = 3
   }
@@ -7868,7 +7975,8 @@ declare namespace camera {
    * @typedef SketchStatusData
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SketchStatusData {
     /**
@@ -7878,7 +7986,8 @@ declare namespace camera {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: number;
 
@@ -7888,7 +7997,8 @@ declare namespace camera {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sketchRatio: number;
   }
@@ -8275,14 +8385,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ImageRotation {
     /**
      * The capture image rotates 0 degrees.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROTATION_0 = 0,
 
@@ -8290,7 +8402,8 @@ declare namespace camera {
      * The capture image rotates 90 degrees.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROTATION_90 = 90,
 
@@ -8298,7 +8411,8 @@ declare namespace camera {
      * The capture image rotates 180 degrees.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROTATION_180 = 180,
 
@@ -8306,7 +8420,8 @@ declare namespace camera {
      * The capture image rotates 270 degrees.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROTATION_270 = 270
   }
@@ -8316,7 +8431,8 @@ declare namespace camera {
    *
    * @typedef Location
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Location {
     /**
@@ -8324,7 +8440,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     latitude: number;
 
@@ -8333,7 +8450,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longitude: number;
 
@@ -8342,7 +8460,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     altitude: number;
   }
@@ -8352,14 +8471,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum QualityLevel {
     /**
      * High image quality.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     QUALITY_LEVEL_HIGH = 0,
 
@@ -8367,7 +8488,8 @@ declare namespace camera {
      * Medium image quality.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     QUALITY_LEVEL_MEDIUM = 1,
 
@@ -8375,7 +8497,8 @@ declare namespace camera {
      * Low image quality.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     QUALITY_LEVEL_LOW = 2
   }
@@ -8385,7 +8508,8 @@ declare namespace camera {
    *
    * @typedef PhotoCaptureSetting
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PhotoCaptureSetting {
     /**
@@ -8393,7 +8517,8 @@ declare namespace camera {
      *
      * @type { ?QualityLevel }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     quality?: QualityLevel;
 
@@ -8402,7 +8527,8 @@ declare namespace camera {
      *
      * @type { ?ImageRotation }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rotation?: ImageRotation;
 
@@ -8411,7 +8537,8 @@ declare namespace camera {
      *
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     location?: Location;
 
@@ -8420,7 +8547,8 @@ declare namespace camera {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mirror?: boolean;
   }
@@ -8431,7 +8559,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeferredDeliveryImageType {
     /**
@@ -8439,7 +8568,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -8448,7 +8578,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHOTO = 1,
 
@@ -8457,7 +8588,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO = 2
   }
@@ -8546,14 +8678,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VideoCodecType {
     /**
      * Codec type AVC.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVC = 0,
 
@@ -8561,7 +8695,8 @@ declare namespace camera {
      * Codec type HEVC.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HEVC = 1
   }
@@ -9258,7 +9393,8 @@ declare namespace camera {
    *
    * @typedef FrameShutterInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FrameShutterInfo {
     /**
@@ -9266,7 +9402,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     captureId: number;
     /**
@@ -9274,7 +9411,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timestamp: number;
   }
@@ -9284,7 +9422,8 @@ declare namespace camera {
    *
    * @typedef FrameShutterEndInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FrameShutterEndInfo {
     /**
@@ -9292,7 +9431,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     captureId: number;
   }
@@ -9302,7 +9442,8 @@ declare namespace camera {
    *
    * @typedef CaptureStartInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CaptureStartInfo {
     /**
@@ -9310,7 +9451,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     captureId: number;
     /**
@@ -9318,7 +9460,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     time: number;
   }
@@ -9328,7 +9471,8 @@ declare namespace camera {
    *
    * @typedef CaptureEndInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CaptureEndInfo {
     /**
@@ -9336,7 +9480,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     captureId: number;
     /**
@@ -9344,7 +9489,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frameCount: number;
   }
@@ -9748,14 +9894,16 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MetadataObjectType {
     /**
      * Face detection type.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_DETECTION = 0,
 
@@ -9764,7 +9912,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUMAN_BODY = 1,
 
@@ -9773,7 +9922,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAT_FACE = 2,
 
@@ -9782,7 +9932,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAT_BODY = 3,
 
@@ -9791,7 +9942,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOG_FACE = 4,
 
@@ -9800,7 +9952,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOG_BODY = 5,
 
@@ -9809,7 +9962,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SALIENT_DETECTION = 6,
 
@@ -9818,7 +9972,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BAR_CODE_DETECTION = 7
   }
@@ -9874,7 +10029,8 @@ declare namespace camera {
    *
    * @typedef Rect
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
@@ -9882,7 +10038,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     topLeftX: number;
     /**
@@ -9890,7 +10047,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     topLeftY: number;
     /**
@@ -9898,7 +10056,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
     /**
@@ -9906,7 +10065,8 @@ declare namespace camera {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -10772,7 +10932,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DepthDataAccuracy {
     /**
@@ -10780,7 +10941,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_DATA_ACCURACY_RELATIVE = 0,
 
@@ -10789,7 +10951,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_DATA_ACCURACY_ABSOLUTE = 1
   }
@@ -10800,7 +10963,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DepthDataQualityLevel {
     /**
@@ -10808,7 +10972,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_DATA_QUALITY_BAD = 0,
 
@@ -10817,7 +10982,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_DATA_QUALITY_FAIR = 1,
 
@@ -10826,7 +10992,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEPTH_DATA_QUALITY_GOOD = 2
   }
