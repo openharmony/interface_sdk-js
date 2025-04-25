@@ -81,7 +81,6 @@
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
     "SystemCapability.PowerManager.DisplayPowerManager",
-    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Notification.Notification",
@@ -108,7 +107,6 @@
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.HiviewDFX.HiCollie",
-    "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiSysEvent",
@@ -142,7 +140,6 @@
     "SystemCapability.Communication.NetStack",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.Account.OsAccount",
-    "SystemCapability.MiscServices.Pasteboard",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.Multimedia.Media.AVImageGenerator",
@@ -199,6 +196,7 @@
     "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
-    "SystemCapability.Test.UiTest"
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager"
   ]
 }

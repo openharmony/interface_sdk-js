@@ -1190,7 +1190,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1210,7 +1210,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1230,8 +1230,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1248,13 +1248,13 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
-  */
+   */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1319,7 +1319,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getTopOrder(): LevelOrder
+  getTopOrder(): LevelOrder;
 
   /**
    * Get order value of bottom dialog.
@@ -1330,7 +1330,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getBottomOrder(): LevelOrder
+  getBottomOrder(): LevelOrder;
 
   /**
    * Open popup with frameNode.
@@ -1343,10 +1343,10 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The content is incorrect.
-   * @throws { BusinessError } 103302 - The content already exists.
-   * @throws { BusinessError } 103304 - The target does not exist.
-   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - The ComponentContent already exists.
+   * @throws { BusinessError } 103304 - The targetId does not exist.
+   * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1367,8 +1367,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1385,8 +1385,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1405,10 +1405,10 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The content is incorrect.
-   * @throws { BusinessError } 103302 - The content already exists.
-   * @throws { BusinessError } 103304 - The target does not exist.
-   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - The ComponentContent already exists.
+   * @throws { BusinessError } 103304 - The targetId does not exist.
+   * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1429,8 +1429,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1447,8 +1447,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1564,7 +1564,7 @@ export interface OverlayManagerOptions {
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
@@ -4053,25 +4053,27 @@ export class UIContext {
 
   /**
    * Create a UI instance singleton without window and get its UIContext object.
-   * 
+   *
    * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
    * @returns { UIContext | undefined } object UIContext, or undefined when failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. The number of parameters is incorrect.
    * <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
 
   /**
    * Destroy the UI instance singleton without window.
    *
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   static destroyUIContextWithoutWindow(): void;
 }
@@ -4192,6 +4194,7 @@ export class TextMenuController {
   /**
    * Set text menu options.
    *
+   * @param { TextMenuOptions } options - the options of the text menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

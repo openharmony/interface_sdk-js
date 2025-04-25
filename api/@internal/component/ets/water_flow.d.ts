@@ -336,6 +336,65 @@ declare interface WaterFlowOptions {
 }
 
 /**
+ * Defines a UIWaterFlowEvent which is used to set event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIWaterFlowEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the WaterFlow will scroll.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the WaterFlow will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when WaterFlow view did scroll.
+   *
+   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the WaterFlow did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: OnScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the start and end positions of the display change.
+   *
+   * @param { OnWaterFlowScrollIndexCallback | undefined } callback - callback function, triggered when start or
+   *     end positions of the display change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
+}
+
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnWaterFlowScrollIndexCallback
+ * @param {number} first - the first index in visible content.
+ * @param {number} last - the last index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void;
+
+/**
  * Defines the water flow interface.
  *
  * @interface WaterFlowInterface
@@ -793,6 +852,15 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
  * @crossplatform
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines WaterFlow Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  */
 declare const WaterFlow: WaterFlowInterface;
 

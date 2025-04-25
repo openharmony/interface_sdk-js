@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,6 +29,13 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare component SwipeRefresher
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @Component
 export declare struct SwipeRefresher {
   /**
@@ -44,7 +51,15 @@ export declare struct SwipeRefresher {
    * @atomicservice
    * @since 11
    */
-  @Prop content?: string;
+  /**
+   * Sets the content when loading.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  @Prop content?: ResourceStr;
 
   /**
    * Whether the component is loading.
@@ -58,6 +73,14 @@ export declare struct SwipeRefresher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Whether the component is loading.
+   * type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   @Prop isLoading: boolean;
 }

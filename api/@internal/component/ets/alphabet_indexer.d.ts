@@ -144,6 +144,16 @@ interface AlphabetIndexerOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Alphabetical index string array.
+   * Anonymous Object Rectification.
+   * 
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   arrayValue: Array<string>;
   /**
    * ID of the selected item.
@@ -168,6 +178,16 @@ interface AlphabetIndexerOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * ID of the selected item.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   selected: number;
 }
@@ -230,6 +250,7 @@ interface AlphabetIndexerInterface {
   /**
    * Construct the alphabet indexer component.
    * Called when the alphabet indexer component is used.
+   * Anonymous Object Rectification.
    *
    * @param { AlphabetIndexerOptions } options - alphabet indexer options
    * @returns { AlphabetIndexerAttribute }
@@ -754,6 +775,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    */
   /**
    * Index bar selection callback.
+   * Anonymous Object Rectification.
    *
    * @param { OnAlphabetIndexerSelectCallback } callback
    * @returns { AlphabetIndexerAttribute }
@@ -793,6 +815,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    */
   /**
    * Index bar selection callback and return the strings which display on pop-up.
+   * Anonymous Object Rectification.
    *
    * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
    * @returns { AlphabetIndexerAttribute }
@@ -832,6 +855,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    */
   /**
    * Pop-up selection callback.
+   * Anonymous Object Rectification.
    *
    * @param { OnAlphabetIndexerPopupSelectCallback } callback
    * @returns { AlphabetIndexerAttribute }

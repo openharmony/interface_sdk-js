@@ -19,8 +19,9 @@
  */
 
 import { SceneResource, Mesh } from './SceneResources';
-import { Position3, Quaternion, Scale3, Color } from './SceneTypes';
+import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
+import { RaycastParameters, RaycastResult } from './Scene';
 
 /**
  * Defines the layer mask of the node.
@@ -448,4 +449,15 @@ export interface Camera extends Node {
    * @since 12
    */
   clearColor: Color | null;
+
+  /**
+   * Cast a ray to a position on the screen and list what it hits.
+   * 
+   * @param { Vec2 } viewPosition - a position in normalized viewport coordiantes towards which to cast
+   * @param { RaycastParameters } params - options for performing the ray cast
+   * @returns { Promise<RaycastResult[]> } an array of hit results, sorted from closest to farthest, possibly empty
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 }

@@ -397,7 +397,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Debug = 0,
+  Debug,
 
   /**
    * Error level.
@@ -413,7 +413,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Error = 1,
+  Error,
 
   /**
    * Info level.
@@ -429,7 +429,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Info = 2,
+  Info,
 
   /**
    * Log level.
@@ -445,7 +445,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Log = 3,
+  Log,
 
   /**
    * Warn level.
@@ -461,7 +461,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Warn = 4
+  Warn
 }
 
 /**
@@ -3303,6 +3303,30 @@ declare class WebContextMenuResult {
    * @since 11
    */
   selectAll(): void;
+
+  /**
+   * Executes the redo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  redo(): void;
+
+  /**
+   * Executes the undo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  undo(): void;
+
+  /**
+   * Executes the paste and match style operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  pasteAndMatchStyle(): void;
 }
 
 /**
@@ -4420,7 +4444,11 @@ declare class WebController {
   clearHistory(): void;
 
   /**
-   * Loads a piece of code and execute JS code in the context of the currently displayed page.
+   * Executes a JavaScript script. This API uses an asynchronous callback to return the script execution result.
+   * This interface must be used on the UI thread, and the callback will also be executed on the UI thread.
+   * The state of JavaScript is no longer persisted across navigations like loadUrl.
+   * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
+   * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
@@ -4473,7 +4501,18 @@ declare class WebController {
   stop();
 
   /**
-   * Registers the JavaScript object and method list.
+   * Registers a proxy for interaction between the application and web pages loaded by the Web component.
+   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
+   * After this API is called, call refresh for the registration to take effect.
+   * <p><strong>API Note</strong>:<br>
+   * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memony leak.
+   * It is recommended that registerJavaScriptProxy be used only with trusted URLs and over secure HTTPS connections.
+   * Injecting JavaScript objects into untrused web commponents can expose your application to malicious attacks.
+   * After registerJavaScriptProxy is called, the application exposes the registered JavaScript object to all page frames.
+   * If a registerJavaScriptProxy is both registered in the synchronous and asynchronous list, it is called asynchronously by default.
+   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.
+   * Otherwise, this API fails to be registered.
+   * <p>
    *
    * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
@@ -6672,7 +6711,7 @@ declare enum WebResponseType {
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 18
+ * @since 20
  */
 declare interface PreviewMenuOptions {
   /**
@@ -6680,7 +6719,7 @@ declare interface PreviewMenuOptions {
    *
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -6734,7 +6773,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
@@ -6797,7 +6836,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether to enable Access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6806,7 +6850,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether to enable Access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6816,7 +6865,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether to enable Access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is false.
@@ -6924,7 +6978,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets how to load HTTP and HTTPS content.
+   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
+   * By default, this features is disabled.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6932,7 +6987,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets how to load HTTP and HTTPS content.
+   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
+   * By default, this features is disabled.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6941,7 +6997,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-  * Sets how to load HTTP and HTTPS content.
+  * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
+  * By default, this features is disabled.
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7033,6 +7090,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about the arkweb rendering framework adaptation solution,
+   * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
+   * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
@@ -7300,26 +7363,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 10
    */
   /**
    * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7327,9 +7393,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7338,7 +7405,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
   /**
-   * Triggered at the begin of web page loading.
+   * Called when the web page starts to be loaded.
+   * This API is called only for the main frame content, and not for the iframe or frameset content.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7346,7 +7414,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered at the begin of web page loading.
+   * Called when the web page starts to be loaded. 
+   * This API is called only for the main frame content, and not for the iframe or frameset content.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7355,7 +7424,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Triggered at the begin of web page loading.
+   * Called when the web page starts to be loaded.
+   * This API is called only for the main frame content, and not for the iframe or frameset content.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7365,7 +7435,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered at the begin of web page loading.
+   * Called when the web page starts to be loaded.
+   * This API is called only for the main frame content, and not for the iframe or frameset content.
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7407,7 +7478,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Triggered when the title of the main application document changes.
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7415,7 +7487,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered when the title of the main application document changes.
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7425,7 +7498,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the title of the main application document changes.
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -8273,7 +8347,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8281,7 +8356,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8290,7 +8366,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
    * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8301,7 +8378,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
+   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -9064,7 +9142,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
   /**
-   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * Injects a JavaScript script into the Web component.
+   * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
+   * <p><strong>API Note</strong>:<br>
+   * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
+   * The script is executed in the lexicographic order instead of array sequence.
+   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * You are not advised to use this API together with runJavaScriptOnDocumentStart.
+   * </p>
+   *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9074,7 +9160,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * Injects a JavaScript script into the Web component. When the specified page or document has been loaded,
+   * the script is executed on any page whose source matches scriptRules.
+   * <p><strong>API NOTE</strong>:<br>
+   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
+   * The script is excuted in the lexicographic order, not the array order.
+   * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
+   * <p>
+   *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9117,6 +9210,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the enable native embed mode for web.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { boolean } mode - True if it needs to enable native embed mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9140,6 +9239,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when embed lifecycle changes.
    *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
+   *
    * @param { function } callback - Function Triggered when embed lifecycle changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9160,6 +9265,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when gesture effect on embed tag.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to rendering native components on the Web using same-layer rendering,
+   * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
+   * </p>
    *
    * @param { function } callback - Function Triggered when gesture effect on embed tag.
    * @returns { WebAttribute }
@@ -9241,6 +9352,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
+   * @deprecated since 20
+   * @useinstead ohos.web.WebAttribute#editMenuOptions
    */
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
@@ -9328,6 +9441,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
       options?: SelectionMenuOptionsExt): WebAttribute;
 
   /**
+   * Sets whether to optimize parser budget to reduce FCP time
+   *
+   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
+
+  /**
    * Sets whether to follow the system font weight.
    *
    * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
@@ -9346,16 +9469,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 18
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
-
-  /**
-   * Sets whether to optimize parser budget to reduce FCP time
-   *
-   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 15
-   */
-  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
   /**
    * Injects the JavaScripts that will be run just after document object has been created.
@@ -9396,6 +9509,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enableDataDetector(enable: boolean): WebAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 }
 
 /**
@@ -9414,6 +9548,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
  */
 /**
  * Defines Web Component.
+ *
+ * <p><strong>API Note</strong>:
+ *
+ * <strong>Performance Note</strong>:
+ * <p>For details about how to optimize the compilation, resource loading, and JSBridge performance,
+ * see [Optimizing Web Page Loading]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-web-develop-optimization}
+ * <p>When the white screen duration is long due to complex web page parsing,
+ * you can enable [optimizeParserBudget]{@link WebAttribute.optimizeParserBudget} to reduce the first frame rendering content.</p>
+ * </p>
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -9524,6 +9667,7 @@ declare interface SslErrorEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ * @deprecated since 20
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -9533,6 +9677,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   content: ResourceStr;
 
@@ -9543,6 +9688,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   startIcon?: ResourceStr;
 
@@ -9553,6 +9699,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   action: (selectedText: {plainText: string}) => void;
 }
@@ -9611,8 +9758,10 @@ declare interface NestedScrollOptionsExt {
  */
 declare interface EmbedOptions {
   /**
-   * Whether the embed element support the default intrinsic size of 300 * 150. 
-   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   * Whether the embed element support the default intrinsic size of 300 * 150, expressed in CSS pixels.
+   * <br>When CSS size is set, the embed element size is CSS size, otherwise it is intrinsic size.
+   * <br>If true, then the intrinsic size is 300 * 150.
+   * <br>If false, the embed element will not be rendered when the CSS size is not set.
    *
    * @type { ?boolean }
    * @default false

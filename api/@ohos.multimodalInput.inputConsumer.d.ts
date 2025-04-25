@@ -292,7 +292,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */
-  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
+  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
    * Unsubscribe from hotkey event changes.
@@ -306,7 +306,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */
-  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
+  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
    * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
@@ -321,7 +321,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void
+  function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
   /**
    * Cancels consumption of key events.
@@ -334,7 +334,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void
+  function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }
 
 export default inputConsumer;

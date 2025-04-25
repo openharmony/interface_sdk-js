@@ -532,7 +532,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidAppear?: Callback<void>;
 
@@ -543,7 +543,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidDisappear?: Callback<void>;
 
@@ -554,7 +554,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillAppear?: Callback<void>;
 
@@ -565,7 +565,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillDisappear?: Callback<void>;
 

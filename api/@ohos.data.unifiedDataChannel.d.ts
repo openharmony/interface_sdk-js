@@ -1990,6 +1990,21 @@ declare namespace unifiedDataChannel {
    * @since 14
    */
    function removeAppShareOptions(intention: Intention): void;
+
+  /**
+   * It is used to convert the multi-entry structure.
+   * <br>When the input parameters use different records to represent various formats of a single data entry,
+   * and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
+   * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
+   * 
+   * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 17
+   */
+   function convertRecordsToEntries(data: UnifiedData): void;
 }
 
 export default unifiedDataChannel;

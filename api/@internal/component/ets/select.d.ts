@@ -319,6 +319,40 @@ declare enum AvoidanceMode {
  * @since 18
  */
 declare type OnSelectCallback = (index: number, selectStr: string) => void;
+
+/**
+ * The declare of menuOutlineOptions.
+ *
+ * @interface MenuOutlineOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface MenuOutlineOptions {
+  /**
+   * the width of the menu outline.
+   *
+   * @type { ?(Dimension | EdgeOutlineWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  width?: Dimension | EdgeOutlineWidths;
+ 
+  /**
+   * the color of the menu outline.
+   *
+   * @type { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  color?: ResourceColor | EdgeColors;
+ }
+ 
 /**
  * The commonMethod of select.
  *
@@ -1096,7 +1130,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   textModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1108,7 +1142,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
   
@@ -1120,7 +1154,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1132,7 +1166,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1159,6 +1193,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 18
    */
   avoidance(mode: AvoidanceMode): SelectAttribute;
+
+  /**
+   * Sets the outline of menu.
+   *
+   * @param { MenuOutlineOptions } outline Set the outline of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  menuOutline(outline: MenuOutlineOptions): SelectAttribute;
 }
 
 /**

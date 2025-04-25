@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import window  from "./@ohos.window"
+import window  from './@ohos.window';
 import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * Provide the capabilities to use different pickers.
@@ -77,7 +77,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_TYPE
      */
     IMAGE_TYPE = 'image/*',
@@ -94,7 +94,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.VIDEO_TYPE
      */
     VIDEO_TYPE = 'video/*',
@@ -111,7 +111,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
      */
     IMAGE_VIDEO_TYPE = '*/*'
@@ -147,7 +147,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.MIMEType
      */
     MIMEType?: PhotoViewMIMETypes;
@@ -166,7 +166,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.maxSelectNumber
      */
     maxSelectNumber?: number;
@@ -202,7 +202,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.photoUris
      */
     photoUris: Array<string>;
@@ -221,7 +221,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.isOriginalPhoto
      */
     isOriginalPhoto: boolean;
@@ -241,7 +241,7 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     newFileNames?: Array<string>;
   }
@@ -268,7 +268,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12
-     * @deprecated since 16
+     * @deprecated since 18
      */
     constructor();
 
@@ -278,7 +278,7 @@ declare namespace picker {
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 12
-     * @deprecated since 16
+     * @deprecated since 18
      */
     constructor(context: Context);
 
@@ -664,7 +664,7 @@ declare namespace picker {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     isEncryptionSupported?: boolean;
     

@@ -64,6 +64,19 @@ declare namespace application {
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
   /**
+   * Create a module context of plugin.
+   * 
+   * @param { Context } context - Indicates current context.
+   * @param { string } pluginBundleName - Indicates the bundle name of plugin.
+   * @param { string } pluginModuleName - Indicates the module name of plugin.
+   * @returns { Promise<Context> } Returns the module context of plugin.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
+
+  /**
    * Create a bundle context
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED

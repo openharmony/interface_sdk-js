@@ -868,7 +868,7 @@ declare namespace text {
      * @param { string | Resource } path - The path of the font file.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1338,7 +1338,7 @@ declare namespace text {
      * @param { number } width - Control how wide the text is allowed to be.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1550,7 +1550,7 @@ declare namespace text {
      * @param { number } width - The requested line-break width.
      * @returns { number } A count of the characters from startIndex that would cause the line break.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1562,7 +1562,7 @@ declare namespace text {
      * @param { number } count - The characters count of the text range.
      * @returns { TextLine } Text line object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1886,8 +1886,6 @@ declare namespace text {
      * @param { EllipsisMode } ellipsisMode - Text ellipsis mode, EllipsisMode:MIDDLE is not supported.
      * @param { string } ellipsis - Text ellipsis.
      * @returns { TextLine } Truncated text line object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1921,8 +1919,6 @@ declare namespace text {
      * Gets the string index of the given position.
      * @param { common2D.Point } point - The given position.
      * @returns { number } The string index for a given position.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1932,8 +1928,6 @@ declare namespace text {
      * Gets the offset of the given string index.
      * @param { number } index - The given string index.
      * @returns { number } The offset for a given string index.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1942,8 +1936,6 @@ declare namespace text {
     /**
      * Enumerate caret offset and index in text lines.
      * @param { CaretOffsetsCallback } callback - User-defined callback functions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1957,8 +1949,6 @@ declare namespace text {
      * @param { number } alignmentWidth - The width of the text to be aligned.
      *                                    Returns 0 if it is less than the actual width of the text.
      * @returns { number } The offset of the aligned text.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1992,8 +1982,6 @@ declare namespace text {
      * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
      * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
      * @returns { Array<number> } Glyph identifier or undefined.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2012,8 +2000,6 @@ declare namespace text {
      * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
      * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
      * @returns { Array<common2D.Point> } The position of the font in the layout or undefined.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2050,8 +2036,6 @@ declare namespace text {
      * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
      * range.end is run length, if range.start range.and end are set to 0, then get all of the current run.
      * @returns { Array<number> } The glyph indices or undefined.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2235,7 +2219,7 @@ declare namespace text {
    * @returns { Promise<Array<FontDescriptor>> } List of font descriptors, and an empty array will be returned
    * if the matching fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */

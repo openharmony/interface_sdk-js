@@ -25,6 +25,6 @@ import type ExtensionContext from './application/ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
- * @since 18
+ * @since 20
  */
 export default class DistributedExtensionContext extends ExtensionContext {}

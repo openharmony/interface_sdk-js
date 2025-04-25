@@ -187,7 +187,16 @@ export interface SubHeaderV2SelectOptions {
    * @atomicservice
    * @since 18
    */
-  selectedContent?: string;
+  /**
+   * Sets the selected content of the SubHeaderV2SelectOptions.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *
@@ -248,7 +257,16 @@ export declare class SubHeaderV2Select {
    * @atomicservice
    * @since 18
    */
-  @Trace selectedContent?: string;
+  /**
+   * Sets the selected content of the SubHeaderV2SelectOptions.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  @Trace selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *

@@ -1387,6 +1387,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when the tab is switched.
+   * Anonymous Object Rectification
    *
    * @param { Callback<number> } event
    * @returns { TabsAttribute }
@@ -1430,6 +1431,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when the tab is clicked.
+   * Anonymous Object Rectification
    *
    * @param { Callback<number> } event
    * @returns { TabsAttribute }
@@ -1479,6 +1481,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when the tab content flip animation start.
+   * Anonymous Object Rectification
    *
    * @param { OnTabsAnimationStartCallback } handler
    * @returns { TabsAttribute }
@@ -1514,6 +1517,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when the tab content flip animation end.
+   * Anonymous Object Rectification
    *
    * @param { OnTabsAnimationEndCallback } handler
    * @returns { TabsAttribute }
@@ -1549,6 +1553,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when swiping the tab content with the gesture.
+   * Anonymous Object Rectification
    *
    * @param { OnTabsGestureSwipeCallback } handler
    * @returns { TabsAttribute }
@@ -1688,6 +1693,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Custom tab content transition animation.
    * When undefined is set, this interface does not take effect.
+   * Anonymous Object Rectification
    *
    * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
    * @returns { TabsAttribute } The attribute of the tabs.
@@ -1709,31 +1715,6 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
-
-  /**
-   * Set the BlurStyle of the tab bar.
-   *
-   * @param { BlurStyle } style - style indicate the blur style for the tab bar
-   * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
-   * @returns { TabsAttribute } the attribute of the tabs
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 15
-   */
-  barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
-
-  /**
-   * Set the BackgroundEffect of the tab bar.
-   *
-   * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
-   * @returns { TabsAttribute } the attribute of the tabs
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 15
-   */
-  barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
 
   /**
    * Setting page flip mode on mouse wheel event.
@@ -1763,6 +1744,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when content will change.
+   * Anonymous Object Rectification
    *
    * @param { OnTabsContentWillChangeCallback } handler
    * @returns { TabsAttribute }
@@ -1853,6 +1835,7 @@ declare interface TabContentAnimatedTransition {
    */
   /**
    * Called when custom content transition animation start.
+   * Anonymous Object Rectification
    *
    * @type { Callback<TabContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

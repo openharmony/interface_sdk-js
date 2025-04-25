@@ -373,6 +373,17 @@ declare interface AlertDialogButtonBaseOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable switch of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   enabled?: boolean;
 
   /**
@@ -393,6 +404,17 @@ declare interface AlertDialogButtonBaseOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Default focus switch of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   defaultFocus?: boolean;
 
@@ -415,6 +437,17 @@ declare interface AlertDialogButtonBaseOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Style of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?DialogButtonStyle }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   style?: DialogButtonStyle;
 
   /**
@@ -433,6 +466,16 @@ declare interface AlertDialogButtonBaseOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Text content of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   value: ResourceStr;
 
@@ -453,6 +496,16 @@ declare interface AlertDialogButtonBaseOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Text color of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   fontColor?: ResourceColor;
 
   /**
@@ -471,6 +524,16 @@ declare interface AlertDialogButtonBaseOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Background color of button.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   backgroundColor?: ResourceColor;
 
@@ -493,6 +556,7 @@ declare interface AlertDialogButtonBaseOptions {
    */
   /**
    * Method executed by the callback.
+   * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -541,6 +605,16 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Define whether the button responds to Enter/Space key by default.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   primary?: boolean;
 }
@@ -724,6 +798,7 @@ declare interface AlertDialogParam {
    */
   /**
    * Execute Cancel Function.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1075,7 +1150,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidAppear?: Callback<void>;
 
@@ -1086,7 +1161,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidDisappear?: Callback<void>;
 
@@ -1097,7 +1172,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillAppear?: Callback<void>;
 
@@ -1108,7 +1183,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillDisappear?: Callback<void>;
 
@@ -1214,6 +1289,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    */
   /**
    * Invoke the commit function.
+   * Anonymous Object Rectification.
    *
    * @type { ?AlertDialogButtonBaseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1311,6 +1387,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    */
   /**
    * First button.
+   * Anonymous Object Rectification.
    *
    * @type { AlertDialogButtonBaseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1346,6 +1423,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    */
   /**
    * Second button.
+   * Anonymous Object Rectification.
    *
    * @type { AlertDialogButtonBaseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

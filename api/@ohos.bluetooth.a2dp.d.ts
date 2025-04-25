@@ -306,6 +306,25 @@ declare namespace a2dp {
     disableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
 
     /**
+     * Get the full codec capabilities negotiated between the active device and the local device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { CodecInfoList[] } Returns the CodecInfoList.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2902008 - Current device is not an active device.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 19
+     */
+    getCurrentFullCodecInfo(deviceId: string): CodecInfoList[];
+
+    /**
      * Get codec information.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -448,6 +467,80 @@ declare namespace a2dp {
      * @since 11
      */
     codecSampleRate: CodecSampleRate;
+    /**
+     * codec bit rate.
+     *
+     * @type { ?CodecBitRate }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecBitRate?: CodecBitRate;
+    /**
+     * codec frame length.
+     *
+     * @type { ?CodecFrameLength }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecFrameLength?: CodecFrameLength;
+  }
+
+  /**
+   * Describes the codec information.
+   *
+   * @typedef CodecInfoList
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 19
+   */
+  interface CodecInfoList {
+    /**
+     * codec type
+     *
+     * @type { CodecType }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecType: CodecType;
+    /**
+     * codec bits per sample list.
+     *
+     * @type { CodecBitsPerSample[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecBitsPerSampleArray: CodecBitsPerSample[];
+    /**
+     * codec channel mode list.
+     *
+     * @type { CodecChannelMode[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecChannelModeArray: CodecChannelMode[];
+    /**
+     * codec sample rate list.
+     *
+     * @type { CodecSampleRate[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecSampleRateArray: CodecSampleRate[];
+    /**
+     * codec bit rate list.
+     *
+     * @type { CodecBitRate[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecBitRateArray: CodecBitRate[];
+    /**
+     * codec frame length list.
+     *
+     * @type { CodecFrameLength[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    codecFrameLengthArray: CodecFrameLength[];
   }
 
   /**
@@ -652,6 +745,101 @@ declare namespace a2dp {
      * @since 11
      */
     CODEC_SAMPLE_RATE_192000 = 6
+  }
+  /**
+     * Describes the codec bit rate.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+  enum CodecBitRate {
+    /**
+     * Codec bit rate 96k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_96000 = 0,
+    /**
+     * Codec bit rate 128k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_128000 = 1,
+    /**
+     * Codec bit rate 192k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_192000 = 2,
+    /**
+     * Codec bit rate 256k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_256000 = 3,
+    /**
+     * Codec bit rate 320k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_320000 = 4,
+    /**
+     * Codec bit rate 480k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_480000 = 5,
+    /**
+     * Codec bit rate 640k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_640000 = 6,
+    /**
+     * Codec bit rate 960k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_960000 = 7,
+    /**
+     * Codec bit rate adaptive bitrate streaming.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_BIT_RATE_ABR = 8
+    }
+  /**
+   * Describes the codec frame length.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 19
+   */
+  enum CodecFrameLength {
+    /**
+     * Codec frame length 5ms.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_FRAME_LENGTH_5MS = 0,
+    /**
+     * Codec frame length 10ms.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 19
+     */
+    CODEC_FRAME_LENGTH_10MS = 1
   }
 }
 

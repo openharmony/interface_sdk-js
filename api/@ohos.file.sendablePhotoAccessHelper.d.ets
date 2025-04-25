@@ -47,6 +47,25 @@ declare namespace sendablePhotoAccessHelper {
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
   /**
+   * Returns an instance of PhotoAccessHelper
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Context } context - Hap context information
+   * @param { number } userId - Target userId
+   * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Called by non-system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @systemapi
+   * @crossplatform
+   * @since 18
+   */
+  function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
+
+  /**
    * Enumeration of different types of photos
    *
    * @enum { number } PhotoType

@@ -198,10 +198,8 @@ declare namespace deviceManager {
    * success.
    * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-   * @throws { BusinessError } 26300002 - Service not allowed.
+   * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 18
    */
@@ -214,8 +212,6 @@ declare namespace deviceManager {
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300003 - There is no binding relationship.
    * @syscap SystemCapability.Driver.ExternalDevice

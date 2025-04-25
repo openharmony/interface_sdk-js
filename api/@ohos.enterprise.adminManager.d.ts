@@ -169,6 +169,34 @@ declare namespace adminManager {
   }
 
   /**
+   * Enum for admin running mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @since 19
+   */
+  export enum RunningMode {
+    /**
+     * The default mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 19
+     */
+    DEFAULT = 0,
+
+    /**
+     * Multi-user running mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 19
+     */
+    MULTI_USER = 1,
+  }
+
+  /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
@@ -460,6 +488,23 @@ declare namespace adminManager {
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
 
   /**
+   * Set the running mode for admin.
+   * Only the administrator app can call this method.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { RuningMode } mode - indicates the running mode for admin. 
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
+   */
+  function setAdminRunningMode(admin: Want, mode: RunningMode): void;
+
+  /**
    * Get whether the ability is enabled as super device administrator.
    *
    * @param { String } bundleName - bundleName indicates the administrator bundle information.
@@ -748,13 +793,11 @@ declare namespace adminManager {
    * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
    * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
    * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.=
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

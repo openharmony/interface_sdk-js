@@ -1322,6 +1322,13 @@ declare namespace print {
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
+     * Print file uploading exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
+
+    /**
      * Print unknown issue.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14
@@ -1405,6 +1412,13 @@ declare namespace print {
      * @since 14
      */
     E_PRINT_FILE_IO = 13100007,
+
+    /**
+     * Number of files exceeding the upper limit.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    E_PRINT_TOO_MANY_FILES = 13100010,
   }
 
   /**
@@ -2123,13 +2137,11 @@ declare namespace print {
 
   /**
    * Get all added printers.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 19
    */
   function getAddedPrinters(): Promise<Array<string>>;
 
@@ -2271,6 +2283,22 @@ declare namespace print {
      * @since 14
      */
     printerMake?: string;
+
+    /**
+     * Printer preferences.
+     * @type { ?PrinterPreferences }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    preferences?: PrinterPreferences;
+
+    /**
+     * Printer alias.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    alias?: string;
 
     /**
      * Detail information in json format.
@@ -2446,6 +2474,249 @@ declare namespace print {
     PRINTER_UNAVAILABLE = 2,
   }
 
+  /**
+   * defines printer preferences.
+   * @typedef PrinterPreferences
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  interface PrinterPreferences {
+    /**
+     * Default duplex mode.
+     * @type { ?PrintDuplexMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    defaultDuplexMode?: PrintDuplexMode;
+
+    /**
+     * Default quality.
+     * @type { ?PrintQuality }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    defaultPrintQuality?: PrintQuality;
+
+    /**
+     * Default media type.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    defaultMediaType?: string;
+
+    /**
+     * Default page size id.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    defaultPageSizeId?: string;
+
+    /**
+     * Default orientation mode.
+     * @type { ?PrintOrientationMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    defaultOrientation?: PrintOrientationMode;
+
+    /**
+     * Default margins.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    borderless?: boolean;
+
+    /**
+     * Detailed printer preferences in json format.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    options?: string;
+  }
+
+  /**
+   * Enumeration of Printer Change Events.
+   * @enum { number } PrinterEvent
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  enum PrinterEvent {
+    /**
+     * Printer added.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_ADDED = 0,
+
+    /**
+     * Printer deleted.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_DELETED = 1,
+
+    /**
+     * Printer state changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_STATE_CHANGED = 2,
+
+    /**
+     * Printer info changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_INFO_CHANGED = 3,
+
+    /**
+     * Printer preference changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_PREFERENCE_CHANGED = 4,
+
+    /**
+     * Last used printer changed.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    PRINTER_EVENT_LAST_USED_PRINTER_CHANGED = 5,
+  }
+
+  /**
+   * Enumeration of default printer type.
+   * @enum { number } DefaultPrinterType
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  enum DefaultPrinterType {
+    /**
+     * Default printer set by user.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    DEFAULT_PRINTER_TYPE_SET_BY_USER = 0,
+
+    /**
+     * The last used printer is used as the default printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 19
+     */
+    DEFAULT_PRINTER_TYPE_LAST_USED_PRINTER = 1,
+  }
+
+  /**
+   * Update the information of the specific added printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
+
+  /**
+   * Save the preferences set by the user.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates the printer to be updated.
+   * @param { PrinterPreferences } printerPreferences - Indicates the printer preferences set by the user.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
+
+  /**
+   * Discover all usb printers.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @returns { Promise<Array<PrinterInformation>> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  function discoverUsbPrinters(): Promise<Array<PrinterInformation>>;
+
+  /**
+   * Save the default printer set by the user.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates the printer to be set as the default printer.
+   * @param { DefaultPrinterType } type - Indicates the default printer type.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
+
+  /**
+   * Notify print service of application event.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { ApplicationEvent } event - Indicates the event to be notified.
+   * @param { string } jobId - Indicates the job id.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 19
+   */
+  function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
+
+  /**
+   * Defines the callback type used in registering to listen for PrinterEvent.
+   * The value of event indicates the information of PrinterEvent.
+   * The value of printerInformation indicates the latest printer information.
+   *
+   * @typedef { function } PrinterChangeCallback
+   * @param { PrinterEvent } event - the information of PrinterEvent
+   * @param { PrinterInformation } printerInformation - the information of the latest printer
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void;
+
+  /**
+   * Register event callback for the change of printer.
+   * @permission ohos.permission.PRINT
+   * @param { 'printerChange' } type - Indicates change of printer.
+   * @param { PrinterChangeCallback } callback - The callback function for change of printer.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  function on(type: 'printerChange', callback: PrinterChangeCallback): void;
+
+  /**
+   * Unregister event callback for the change of printer.
+   * @permission ohos.permission.PRINT
+   * @param { 'printerChange' } type - Indicates change of printer.
+   * @param { PrinterChangeCallback } [callback] - The callback function for change of printer.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 19
+   */
+  function off(type: 'printerChange', callback?: PrinterChangeCallback): void;
 }
 
 export default print;

@@ -959,7 +959,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000013 - The EDM prohibits the application from launching.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
@@ -988,7 +988,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000013 - The EDM prohibits the application from launching.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1095,7 +1095,6 @@ export default class UIExtensionContext extends ExtensionContext {
    * Set colorMode of uiextension.
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

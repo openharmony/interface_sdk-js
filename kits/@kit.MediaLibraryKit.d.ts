@@ -26,7 +26,8 @@ import {
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
-    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange
+    SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 } from '@ohos.file.PhotoPickerComponent';
 import {
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
@@ -41,5 +42,6 @@ export {
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback,
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
-    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
+    RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
+    PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 };

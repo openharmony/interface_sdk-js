@@ -63,6 +63,17 @@ declare interface RectOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Rectangle width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: number | string;
 
   /**
@@ -99,6 +110,17 @@ declare interface RectOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Rectangle height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   height?: number | string;
 
   /**
@@ -134,6 +156,17 @@ declare interface RectOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Corner radius of the rectangle.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string | Array<any>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   radius?: number | string | Array<any>;
 }
@@ -183,6 +216,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Rectangle width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: number | string;
 
   /**
@@ -218,6 +262,17 @@ declare interface RoundedRectOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Rectangle height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height?: number | string;
 
@@ -255,6 +310,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Width of the corner radius.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   radiusWidth?: number | string;
 
   /**
@@ -290,6 +356,17 @@ declare interface RoundedRectOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Height of the corner radius.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   radiusHeight?: number | string;
 }
@@ -369,6 +446,7 @@ interface RectInterface {
    */
   /**
    * Use new function to create Rect.
+   * Anonymous Object Rectification.
    *
    * @param { RectOptions | RoundedRectOptions } [options] - Rect options
    * @returns { RectAttribute }
@@ -426,6 +504,7 @@ interface RectInterface {
    */
   /**
    * Called when a rectangle is created.
+   * Anonymous Object Rectification.
    *
    * @param { RectOptions | RoundedRectOptions } [options] - Rect options
    * @returns { RectAttribute }

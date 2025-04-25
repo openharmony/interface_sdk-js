@@ -121,6 +121,7 @@ interface SheetInfo {
    */
   /**
    * Callback method after the operation.
+   * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -191,6 +192,17 @@ interface ActionSheetButtonOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable switch of confirmation button
+   * Anonymous Object Rectification.
+   * 
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   enabled?: boolean;
 
   /**
@@ -210,6 +222,17 @@ interface ActionSheetButtonOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Default focus switch of confirmation button
+   * Anonymous Object Rectification.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   defaultFocus?: boolean;
 
   /**
@@ -228,6 +251,17 @@ interface ActionSheetButtonOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Style of confirmation button.
+   * Anonymous Object Rectification.
+   * 
+   * @type { ?DialogButtonStyle }
+   * @default DialogButtonStyle.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   style?: DialogButtonStyle;
 
@@ -254,6 +288,16 @@ interface ActionSheetButtonOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Text content of the confirmation button.
+   * Anonymous Object Rectification.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   value: string | Resource;
 
@@ -283,6 +327,7 @@ interface ActionSheetButtonOptions {
    */
   /**
    * Method executed by the callback.
+   * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -305,6 +350,7 @@ interface ActionSheetButtonOptions {
 interface ActionSheetOffset {
   /**
    * Dx of the pop-up window relative to the alignment position.
+   * Anonymous Object Rectification.
    *
    * @type { number | string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -315,6 +361,7 @@ interface ActionSheetOffset {
   dx: number | string | Resource;
   /**
    * Dy of the pop-up window relative to the alignment position.
+   * Anonymous Object Rectification.
    *
    * @type { number | string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -468,6 +515,7 @@ interface ActionSheetOptions
    */
   /**
    * Invoke the commit function.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -503,6 +551,7 @@ interface ActionSheetOptions
    */
   /**
    * Execute Cancel Function.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -616,6 +665,7 @@ interface ActionSheetOptions
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -878,7 +928,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidAppear?: Callback<void>;
 
@@ -889,7 +939,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidDisappear?: Callback<void>;
 
@@ -900,7 +950,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillAppear?: Callback<void>;
 
@@ -911,7 +961,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillDisappear?: Callback<void>;
 

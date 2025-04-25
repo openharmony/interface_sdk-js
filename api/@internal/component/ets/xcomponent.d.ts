@@ -465,6 +465,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    */
   /**
    * Called when judging whether the xcomponent surface is created.
+   * Anonymous Object Rectification.
    *
    * @param { OnNativeLoadCallback } callback - Called when judging whether the xcomponent surface is created.
    * @returns { XComponentAttribute }
@@ -495,6 +496,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    */
   /**
    * Called when judging whether the xcomponent is destroyed.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event - Called when judging whether the xcomponent is destroyed.
    * @returns { XComponentAttribute }
@@ -535,6 +537,15 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 14
+   */
+  /**
+   * Set hdrBrightness for XComponent.
+   *
+   * @param { number } brightness - control the brightness of HDR video
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
    */
   hdrBrightness(brightness: number): XComponentAttribute;
   

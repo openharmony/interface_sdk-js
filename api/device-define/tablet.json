@@ -110,7 +110,6 @@
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
     "SystemCapability.HiviewDFX.HiChecker",
-    "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
@@ -224,6 +223,7 @@
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.Ability.AppStartup",
-    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager"
   ]
 }

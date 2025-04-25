@@ -374,6 +374,70 @@ interface FormCallbackInfo {
 }
 
 /**
+ * Defines the size of Form.
+ *
+ * @typedef FormSize
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 18
+ */
+interface FormSize {
+  /**
+   * The width of the form.
+   * Anonymous Object Rectification
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  width: number;
+
+  /**
+   * The height of the form.
+   * Anonymous Object Rectification
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  height: number;
+}
+
+/**
+ * Defines error information for card loading.
+ *
+ * @typedef ErrorInformation
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 18
+ */
+interface ErrorInformation {
+  /**
+   * Error code.
+   * Anonymous Object Rectification
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  errcode: number;
+
+  /**
+   * Error information.
+   * Anonymous Object Rectification
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  msg: string;
+}
+
+/**
  * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -389,7 +453,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  size(value: { width: number; height: number }): FormComponentAttribute;
+  /**
+   * Sets the display area size of the card.
+   * Anonymous Object Rectification
+   *
+   * @param { FormSize } formSize - The size of Form.
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  size(formSize: FormSize): FormComponentAttribute;
 
   /**
    * Card module name.
@@ -466,7 +540,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
+  /**
+   * Card loading error.
+   * Anonymous Object Rectification
+   *
+   * @param { Callback<ErrorInformation> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  onError(callback: Callback<ErrorInformation>): FormComponentAttribute;
 
   /**
    * Card to be redirected.
@@ -477,7 +561,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onRouter(callback: (info: any) => void): FormComponentAttribute;
+  /**
+   * Card to be redirected.
+   * Anonymous Object Rectification
+   *
+   * @param { Callback<object> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  onRouter(callback: Callback<object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
@@ -508,7 +602,28 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 10
    */
-  onLoad(callback: () => void): FormComponentAttribute;
+  /**
+   * Card to be loaded.
+   * Anonymous Object Rectification
+   *
+   * @param { VoidCallback } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  onLoad(callback: VoidCallback): FormComponentAttribute;
+
+  /**
+   * Card has been updated.
+   *
+   * @param { Callback<FormCallbackInfo> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  onUpdate(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 }
 
 /**

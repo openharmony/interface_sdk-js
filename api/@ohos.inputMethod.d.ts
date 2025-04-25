@@ -602,7 +602,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -613,7 +613,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
-     * @deprecated since 16
+     * @deprecated since 18
      */
     showOptionalInputMethods(): Promise<boolean>;
 
@@ -1336,6 +1336,52 @@ declare namespace inputMethod {
      * @since 10
      */
     off(type: 'getTextIndexAtCursor', callback?: () => number): void;
+
+    /**
+     * <p>Subscribe 'setPreviewText' event.</p>
+     * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+     *
+     * @param { 'setPreviewText' } type - the type of subscribe event.
+     * @param { SetPreviewTextCallback } callback - the callback of on('setPreviewText').
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    on(type: 'setPreviewText', callback: SetPreviewTextCallback): void;
+
+    /**
+     * Unsubscribe 'setPreviewText' event.
+     *
+     * @param { 'setPreviewText' } type - the type of unsubscribe event.
+     * @param { SetPreviewTextCallback } [callback] - optional, the callback of off('setPreviewText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void;
+
+    /**
+     * <p>Subscribe 'finishTextPreview' event.</p>
+     * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+     *
+     * @param { 'finishTextPreview' } type - the type of subscribe event.
+     * @param { Callback<void> } callback - the callback of on('finishTextPreview').
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    on(type: 'finishTextPreview', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe 'finishTextPreview' event.
+     *
+     * @param { 'finishTextPreview' } type - the type of unsubscribe event.
+     * @param { Callback<void> } [callback] - optional, the callback of off('finishTextPreview').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 17
+     */
+    off(type: 'finishTextPreview', callback?: Callback<void>): void;
   }
 
   /**
@@ -2058,6 +2104,17 @@ declare namespace inputMethod {
      */
     OTHER = 20
   }
+
+  /**
+   * The callback of 'setPreviewText' event.
+   *
+   * @typedef { function } SetPreviewTextCallback.
+   * @param { text } string - text to be previewed.
+   * @param { range } Range - the range of the text to be replaced by the preview text.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 17
+   */
+  export type SetPreviewTextCallback = (text: string, range: Range) => void;
 }
 
 export default inputMethod;

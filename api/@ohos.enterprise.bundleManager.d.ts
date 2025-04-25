@@ -57,6 +57,16 @@ declare namespace bundleManager {
      * @since 12
      */
     installFlag?: number;
+
+    /**
+     * Indicates parameters
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 19
+     */
+    parameters?: Record<string, string>;
   }
 
   /**

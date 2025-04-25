@@ -246,9 +246,9 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "center": The text is centered.
  * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * "left": The text is left-aligned.
+ * "left": (Default) The text is left-aligned.
  * "right": The text is right-aligned.
- * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
+ * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
  * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
@@ -260,9 +260,9 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "center": The text is centered.
  * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * "left": The text is left-aligned.
+ * "left": (Default) The text is left-aligned.
  * "right": The text is right-aligned.
- * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
+ * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
  * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
@@ -275,9 +275,9 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "center": The text is centered.
  * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * "left": The text is left-aligned.
+ * "left": (Default) The text is left-aligned.
  * "right": The text is right-aligned.
- * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
+ * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
  * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
@@ -291,9 +291,9 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "center": The text is centered.
  * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * "left": The text is left-aligned.
+ * "left": (Default) The text is left-aligned.
  * "right": The text is right-aligned.
- * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
+ * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
  * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
@@ -4719,7 +4719,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
-   * @default start
+   * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4727,7 +4727,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
-   * @default start
+   * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -4736,7 +4736,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
-   * @default start
+   * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4746,7 +4746,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
-   * @default start
+   * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form

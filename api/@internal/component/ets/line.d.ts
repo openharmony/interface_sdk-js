@@ -63,6 +63,17 @@ interface LineOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Width of the rectangle where the line resides.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: string | number;
 
   /**
@@ -98,6 +109,17 @@ interface LineOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Height of the rectangle where the line resides.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height?: string | number;
 }
@@ -185,6 +207,7 @@ interface LineInterface {
    */
   /**
    * Uses new to create the line.
+   * Anonymous Object Rectification.
    *
    * @param { LineOptions } [options] - Line options
    * @returns { LineAttribute }
@@ -244,6 +267,7 @@ interface LineInterface {
    */
   /**
    * The return value of the parameter is Line.
+   * Anonymous Object Rectification.
    *
    * @param { LineOptions } [options] - Line options
    * @returns { LineAttribute }

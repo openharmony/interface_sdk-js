@@ -59,6 +59,17 @@ declare interface PathOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Width option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: number | string;
 
   /**
@@ -91,6 +102,17 @@ declare interface PathOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Height option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   height?: number | string;
 
   /**
@@ -122,6 +144,17 @@ declare interface PathOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Commands option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   commands?: string
 }
@@ -201,6 +234,7 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
+   * Annonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }
@@ -252,6 +286,7 @@ interface PathInterface {
    */
   /**
    * Called when drawing path.
+   * Anonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }

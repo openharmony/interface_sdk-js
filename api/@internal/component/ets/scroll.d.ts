@@ -365,6 +365,41 @@ declare interface OffsetOptions {
 }
 
 /**
+ * Defines a UIScrollableCommonEvent which is used to set different common event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIScrollEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIScrollEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the Scroll will scroll.
+   *
+   * @param { ScrollOnWillScrollCallback | undefined } callback - callback function, triggered when
+   *     the Scroll will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the Scroll did scroll.
+   *
+   * @param { ScrollOnScrollCallback | undefined } callback - callback function, triggered when the Scroll did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void;
+}
+
+/**
  * Scroller
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -435,6 +470,7 @@ declare class Scroller {
    */
   /**
    * Called when the setting slides to the specified position.
+   * Anonymous Object Rectification.
    *
    * @param { ScrollOptions } options - scroll options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -734,6 +770,16 @@ declare interface ScrollOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The X-axis offset.
+   * Anonymous Object Rectification.
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   xOffset: number | string;
 
   /**
@@ -752,6 +798,16 @@ declare interface ScrollOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The Y-axis offset.
+   * Anonymous Object Rectification.
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   yOffset: number | string;
 
@@ -783,6 +839,17 @@ declare interface ScrollOptions {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Descriptive animation.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?( ScrollAnimationOptions | boolean) } The ScrollAnimationOptions type provides custom animation parameters
+   * and the boolean type enables default spring animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   animation?: ScrollAnimationOptions | boolean;
 }
@@ -1015,6 +1082,16 @@ interface OnScrollFrameBeginHandlerResult {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Actual sliding amount, unit vp.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   offsetRemain: number;
 }
 
@@ -1172,6 +1249,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling to the edge of the container.
+   * Anonymous Object Rectification.
    *
    * @param { OnScrollEdgeCallback } event
    * @returns { ScrollAttribute }
@@ -1211,6 +1289,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling start.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { ScrollAttribute }
@@ -1262,6 +1341,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling has stopped.
+   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } event
    * @returns { ScrollAttribute }
@@ -1418,6 +1498,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling begin each frame.
+   * Anonymous Object Rectification.
    *
    * @param { OnScrollFrameBeginCallback } event
    * @returns { ScrollAttribute }

@@ -332,6 +332,20 @@ declare namespace access {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Unsubscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
   /**
@@ -342,7 +356,8 @@ declare namespace access {
    * @param { string } deviceId - the randomized address of remote device.
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900010 - The number of supported device addresses has reached the upper limit.
@@ -360,7 +375,8 @@ declare namespace access {
    * @param { string } deviceId - the randomized address of remote device.
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - delete persistent device address failed.
@@ -392,7 +408,8 @@ declare namespace access {
    * @param { string } deviceId - the randomized address of remote device.
    * @returns { boolean } Returns whether the randomized device address is valid.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Check persistent device address failed.

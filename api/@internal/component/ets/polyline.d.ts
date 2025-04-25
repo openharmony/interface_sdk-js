@@ -63,6 +63,17 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Polyline width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   width?: string | number;
 
   /**
@@ -98,6 +109,17 @@ declare interface PolylineOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Polyline height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   height?: string | number
 }
@@ -169,6 +191,7 @@ interface PolylineInterface {
    */
   /**
    * Uses new to create Polyline.
+   * Anonymous Object Rectification.
    *
    * @param { PolylineOptions } [options] - Poly line options
    * @returns { PolylineAttribute }
@@ -220,6 +243,7 @@ interface PolylineInterface {
    */
   /**
    * Called when using the draw fold.
+   * Anonymous Object Rectification.
    *
    * @param { PolylineOptions } [options] - Poly line options
    * @returns { PolylineAttribute }

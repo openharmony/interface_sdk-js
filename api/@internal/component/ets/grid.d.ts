@@ -385,6 +385,65 @@ declare interface ComputedBarAttribute {
 }
 
 /**
+ * Defines a UIGridEvent which is used to set event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIGridEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIGridEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the Grid will scroll.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the Grid did scroll.
+   *
+   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: OnScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the start and end positions of the display change.
+   *
+   * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
+   *     end positions of the display change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
+}
+
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnGridScrollIndexCallback
+ * @param {number} first - the first index in visible content.
+ * @param {number} last - the last index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
+
+/**
  * Defines the grid attribute functions.
  *
  * @extends CommonMethod<GridAttribute>
@@ -1319,6 +1378,15 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines Grid Component.
+ * It is recommended to use LazyForEach or Repeat to generate child components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  */
 declare const Grid: GridInterface;
 

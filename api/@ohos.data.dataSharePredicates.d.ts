@@ -58,6 +58,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
      * This method is similar to = of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
@@ -70,6 +71,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
      * This method is similar to = of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
@@ -85,6 +87,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
      * a specified value.
      * This method is similar to != of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
@@ -99,6 +102,7 @@ declare namespace dataSharePredicates {
     /**
      * Adds a left parenthesis to the DataSharePredicates.
      * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
+     * Currently only used for RDB.
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -112,6 +116,7 @@ declare namespace dataSharePredicates {
      * Adds a right parenthesis to the DataSharePredicates.
      * This method is similar to ) of the SQL statement and needs to be used together
      * with beginWrap().
+     * Currently only used for RDB.
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -124,6 +129,7 @@ declare namespace dataSharePredicates {
     /**
      * Adds an or condition to the DataSharePredicates.
      * This method is similar to or of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the or condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -136,6 +142,7 @@ declare namespace dataSharePredicates {
     /**
      * Adds an and condition to the DataSharePredicates.
      * This method is similar to and of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -145,6 +152,7 @@ declare namespace dataSharePredicates {
     /**
      * Adds an and condition to the DataSharePredicates.
      * This method is similar to and of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -158,6 +166,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is string and value
      * contains a specified value.
      * This method is similar to contains of the SQL statement.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with the DataSharePredicates.
@@ -173,6 +182,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is string and value starts
      * with a specified string.
      * This method is similar to value% of the SQL statement.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with the DataSharePredicates.
@@ -188,6 +198,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the field whose data type is string and value
      * ends with a specified string.
      * This method is similar to %value of the SQL statement.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with the DataSharePredicates.
@@ -202,6 +213,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -215,6 +227,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -229,6 +242,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to like of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
@@ -245,6 +259,7 @@ declare namespace dataSharePredicates {
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
      * not similar to a specified string.
      * This method is similar to unlike of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
@@ -261,6 +276,7 @@ declare namespace dataSharePredicates {
      * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
      * a wildcard.
      * Different from like, the input parameters of this method are case-sensitive.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with DataSharePredicates.
@@ -274,6 +290,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts the value of the field to the range between low value and high value.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name.
      * @param { ValueType } low - Indicates the minimum value.
@@ -289,6 +306,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure DataSharePredicates to match the specified field whose data type is int and value is
      * out of a given range.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { ValueType } low - Indicates the minimum value to match with DataSharePredicates.
@@ -303,6 +321,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts the value of the field to be greater than the specified value.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name.
      * @param { ValueType } value - Indicates the String field.
@@ -316,6 +335,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts the value of the field to be smaller than the specified value.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name.
      * @param { ValueType } value - Indicates the String field.
@@ -329,6 +349,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts the value of the field to be greater than or equal to the specified value.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name.
      * @param { ValueType } value - Indicates the String field.
@@ -342,6 +363,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts the value of the field to be smaller than or equal to the specified value.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name.
      * @param { ValueType } value - Indicates the String field.
@@ -356,6 +378,7 @@ declare namespace dataSharePredicates {
     /**
      * Restricts the ascending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
@@ -366,6 +389,7 @@ declare namespace dataSharePredicates {
     /**
      * Restricts the ascending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
@@ -379,6 +403,7 @@ declare namespace dataSharePredicates {
     /**
      * Restricts the descending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
@@ -389,6 +414,7 @@ declare namespace dataSharePredicates {
     /**
      * Restricts the descending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
@@ -401,6 +427,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Restricts each row of the query result to be unique.
+     * Currently only used for RDB.
      *
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -412,6 +439,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Construct a query object to specify the number of results and the starting position.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { number } total - Represents the specified number of results.
      * @param { number } offset - Indicates the starting position.
@@ -422,6 +450,7 @@ declare namespace dataSharePredicates {
      */
     /**
      * Construct a query object to specify the number of results and the starting position.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { number } total - Represents the specified number of results.
      * @param { number } offset - Indicates the starting position.
@@ -435,6 +464,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Configure {@code DataSharePredicates} to group query results by specified columns.
+     * Currently only used for RDB.
      *
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the specified columns by which query results are grouped.
@@ -448,6 +478,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure {@code DataSharePredicates} to specify the index column.
      * Before using this method, you need to create an index column.
+     * Currently only used for RDB.
      *
      * @param { string } field - Indicates the name of the index column.
      * @returns { DataSharePredicates } Returns DataSharePredicates with the specified index column.
@@ -461,6 +492,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
@@ -472,6 +504,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
@@ -486,6 +519,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
      * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
@@ -499,6 +533,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
+     * Currently only used for KVDB.
      *
      * @param { string } prefix - Represents the specified key prefix.
      * @returns { DataSharePredicates } Returns the query object.
@@ -511,6 +546,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Configure {@code DataSharePredicates} to match the specified value whose key is within a given range.
+     * Currently only used for KVDB.
      *
      * @param { Array<string> } keys - Represents the key names.
      * @returns { DataSharePredicates } Returns the query object.

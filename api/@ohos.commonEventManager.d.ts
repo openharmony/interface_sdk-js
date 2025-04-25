@@ -48,7 +48,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -62,7 +61,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -77,7 +75,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -85,6 +82,22 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 19
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -97,7 +110,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -113,7 +125,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -130,7 +141,6 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
@@ -138,6 +148,24 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 19
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -150,13 +178,29 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 19
    */
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -171,13 +215,31 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
+   */
+    /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 19
    */
   function publishAsUser(
     event: string,
@@ -289,6 +351,22 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Subscribe an ordered, sticky, or standard common event.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500010 - The count of subscriber exceed system specification.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 19
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 

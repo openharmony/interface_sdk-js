@@ -27,7 +27,7 @@ import type DistributedExtensionContext from './@ohos.application.DistributedExt
  *
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
- * @since 18
+ * @since 20
  */
  
 export default class DistributedExtensionAbility {
@@ -38,7 +38,7 @@ export default class DistributedExtensionAbility {
    * @type { DistributedExtensionContext }
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 18
+   * @since 20
    */
   context: DistributedExtensionContext;
  
@@ -48,7 +48,7 @@ export default class DistributedExtensionAbility {
    * @param { Want } want Indicates the want info of ability.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 18
+   * @since 20
    */
   onCreate(want: Want): void;
  
@@ -57,7 +57,7 @@ export default class DistributedExtensionAbility {
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 18
+   * @since 20
    */
   onDestroy(): void;
  
@@ -68,7 +68,7 @@ export default class DistributedExtensionAbility {
    * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 18
+   * @since 20
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }
