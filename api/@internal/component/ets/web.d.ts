@@ -4444,11 +4444,14 @@ declare class WebController {
   clearHistory(): void;
 
   /**
-   * Executes a JavaScript script. This API uses an asynchronous callback to return the script execution result.
-   * This interface must be used on the UI thread, and the callback will also be executed on the UI thread.
+   * Asynchronously execute JavaScript in the context of the currently displayed page.
+   * The result of the script execution will be returned through an asynchronous callback.
+   * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+   * <p><strong>API Note</strong>:<br>
    * The state of JavaScript is no longer persisted across navigations like loadUrl.
    * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
    * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+   * <p>
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
@@ -4501,18 +4504,7 @@ declare class WebController {
   stop();
 
   /**
-   * Registers a proxy for interaction between the application and web pages loaded by the Web component.
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * After this API is called, call refresh for the registration to take effect.
-   * <p><strong>API Note</strong>:<br>
-   * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memony leak.
-   * It is recommended that registerJavaScriptProxy be used only with trusted URLs and over secure HTTPS connections.
-   * Injecting JavaScript objects into untrused web commponents can expose your application to malicious attacks.
-   * After registerJavaScriptProxy is called, the application exposes the registered JavaScript object to all page frames.
-   * If a registerJavaScriptProxy is both registered in the synchronous and asynchronous list, it is called asynchronously by default.
-   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.
-   * Otherwise, this API fails to be registered.
-   * <p>
+   * Registers the JavaScript object and method list.
    *
    * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
@@ -6836,12 +6828,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
-   * </p> 
+   * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6850,12 +6837,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
-   * </p> 
+   * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6869,7 +6851,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
+   * directory can still be accessed through the file protocol.
    * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
@@ -6978,8 +6961,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-   * By default, this features is disabled.
+   * Sets how to load HTTP and HTTPS content.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6987,8 +6969,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-   * By default, this features is disabled.
+   * Sets how to load HTTP and HTTPS content.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6997,8 +6978,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-  * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-  * By default, this features is disabled.
+  * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
+  * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
+  * 
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7089,7 +7071,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7097,7 +7081,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7405,8 +7390,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
   /**
-   * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7414,8 +7398,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Called when the web page starts to be loaded. 
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading. 
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7424,8 +7407,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7436,7 +7418,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * This API is called only for the main frame, and not for the iframe or frameset content.
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7478,8 +7460,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Triggered when the title of the main application document changes.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7487,8 +7468,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Triggered when the title of the main application document changes.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7498,8 +7478,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Notifies the application that the title has changed..
+   * If the page being loaded does not specify a title via the <title> element,
+   * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -9142,7 +9123,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
   /**
-   * Injects a JavaScript script into the Web component.
+   * Injects the JavaScripts script into the Web component.
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
@@ -9160,7 +9141,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects a JavaScript script into the Web component. When the specified page or document has been loaded,
+   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
    * the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
    * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.

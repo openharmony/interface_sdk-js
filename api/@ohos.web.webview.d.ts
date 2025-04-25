@@ -4338,7 +4338,17 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Registers the JavaScript object and method list.
+     * Registers the supplied ArkTs object into this Web component.
+     * The object is registered into all frames of the web page, including all iframes, using the specified name.
+     * This allows the methods of the ArkTs object to be accessed from JavaScript.
+     * <p><strong>API Note</strong>:<br>
+     * Registed objects will not appear in JavaScript until the page is next (re)load.
+     * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
+     * To avoid security risks, it is recommended that registerJavaScriptProxy be used with trusted web components.
+     * If the same method is registered repeatedly in both synchronous and asynchronous list, it will default to an asynchronous method.
+     * The synchronous function list and asynchronous function list cannot be empty at the same time.<br>
+     * otherwise, this registration will fail.
+     *  <p>
      *
      * @param { object } object - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
