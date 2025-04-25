@@ -19,8 +19,8 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import image from "./@ohos.multimedia.image";
-import Want from "./@ohos.app.ability.Want";
+import image from './@ohos.multimedia.image';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Provide methods for sharing data between different applications across unified data channels.

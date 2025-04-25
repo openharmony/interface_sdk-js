@@ -18,7 +18,7 @@
  * @kit InputKit
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * Events for input devices
