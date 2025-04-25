@@ -7071,7 +7071,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7080,7 +7082,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7477,7 +7480,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notifies the application that the title has changed..
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * If the page being loaded does not specify a title via, the corresponding URL is returned.
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
