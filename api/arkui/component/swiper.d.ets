@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,181 +19,1655 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { VoidCallback, Length, ResourceColor, VP, Font, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { LengthMetrics } from './../Graphics'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, ICurve, Optional } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, EdgeEffect, Curve, PageFlipMode } from './enums'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { IndicatorComponentController } from './indicatorcomponent'
-import { Callback_Number_Void } from './alphabetIndexer'
+import { IndicatorComponentController } from "./indicatorcomponent";
+import { CommonMethod, Callback, ICurve, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { EdgeEffect, Curve, PageFlipMode } from "./enums";
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Provides methods for switching components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare class SwiperController {
-    showNext(): undefined
-    showPrevious(): undefined
-    changeIndex(index: number, useAnimation?: boolean): undefined
-    finishAnimation(callback_?: VoidCallback): undefined
-    preloadItems(indices: Optional<Array<number>>): undefined
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Called when the next child component is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showNext(): void;
+    /**
+     * Called when the previous subcomponent is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showPrevious(): void;
+    /**
+     * Controlling Swiper to change to the specified subcomponent.
+     *
+     * @param { number } index - the index of item to be redirected.
+     * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
+     * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean): void;
+    /**
+     * Called when need to stop the swiper animation.
+     *
+     * @param { ?VoidCallback } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    finishAnimation(callback?: VoidCallback): void;
+    /**
+     * Called when need to preload specified child.
+     *
+     * @param { Optional<Array<number>> } indices - Indices of swiper child to be preloaded.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
+     * <br> 1. The parameter type is not Array<number>.
+     * <br> 2. The parameter is an empty array.
+     * <br> 3. The parameter contains an invalid index.
+     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    preloadItems(indices: Optional<Array<number>>): Promise<void>;
 }
+/**
+ * Defines the indicator class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare class Indicator<T> {
-    left(value: Length): T
-    top(value: Length): T
-    right(value: Length): T
-    bottom(value: Length): T
-    start(value: LengthMetrics): T
-    end(value: LengthMetrics): T
-    dot(): DotIndicator
-    digit(): DigitIndicator
+    /**
+     * Set the indicator to the left.
+     *
+     * @param { Length } value - the indicator to the left.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    left(value: Length): T;
+    /**
+     * Set the indicator to the top.
+     *
+     * @param { Length } value - the indicator to the top.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    top(value: Length): T;
+    /**
+     * Set the indicator to the right.
+     *
+     * @param { Length } value - the indicator to the right.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    right(value: Length): T;
+    /**
+     * Set the indicator to the bottom.
+     *
+     * @param { Length } value - the indicator to the bottom.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    bottom(value: Length): T;
+    /**
+     * Set the indicator to the left in LTR
+     * Set the indicator to the right in RTL
+     *
+     * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    start(value: LengthMetrics): T;
+    /**
+     * Set the indicator to the left in RTL
+     * Set the indicator to the right in LTR
+     *
+     * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    end(value: LengthMetrics): T;
+    /**
+     * DotIndicator class object.
+     *
+     * @returns { DotIndicator }
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    static dot(): DotIndicator;
+    /**
+     * DigitIndicator class object.
+     *
+     * @returns { DigitIndicator }
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    static digit(): DigitIndicator;
 }
+/**
+ * Define DotIndicator, the indicator type is dot.
+ *
+ * @extends Indicator<DotIndicator>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare class DotIndicator extends Indicator<DotIndicator> {
-    itemWidth(value: Length): DotIndicator
-    itemHeight(value: Length): DotIndicator
-    selectedItemWidth(value: Length): DotIndicator
-    selectedItemHeight(value: Length): DotIndicator
-    mask(value: boolean): DotIndicator
-    color(value: ResourceColor): DotIndicator
-    selectedColor(value: ResourceColor): DotIndicator
-    maxDisplayCount(maxDisplayCount: number): DotIndicator
+    /**
+     * Constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Set the indicator item width.
+     *
+     * @param { Length } value - the indicator item width.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    itemWidth(value: Length): DotIndicator;
+    /**
+     * Set the indicator item height.
+     *
+     * @param { Length } value - the indicator item height.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    itemHeight(value: Length): DotIndicator;
+    /**
+     * Set the indicator item width when selected.
+     *
+     * @param { Length } value - the indicator item width when selected.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedItemWidth(value: Length): DotIndicator;
+    /**
+     * Set the indicator item height when selected.
+     *
+     * @param { Length } value - the indicator item height when selected.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedItemHeight(value: Length): DotIndicator;
+    /**
+     * Setting indicator style mask.
+     *
+     * @param { boolean } value - the indicator item mask.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    mask(value: boolean): DotIndicator;
+    /**
+     * Set the indicator color.
+     *
+     * @param { ResourceColor } value - the indicator item color.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    color(value: ResourceColor): DotIndicator;
+    /**
+     * Set the navigation point color.
+     *
+     * @param { ResourceColor } value - the indicator item when selected.
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor): DotIndicator;
+    /**
+     * Set the Indicator maxDisplayCount when selected.
+     *
+     * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+     * @returns { DotIndicator } return the DotIndicator
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    maxDisplayCount(maxDisplayCount: number): DotIndicator;
+    /**
+     * Set the space between dots.
+     *
+     * @param { LengthMetrics } space - the space between dots
+     * @returns { DotIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    space(space: LengthMetrics): DotIndicator;
 }
-export interface SwiperAutoFill {
+/**
+ * Set Swiper column count adaptation.
+ *
+ * @typedef SwiperAutoFill
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwiperAutoFill {
+    /**
+     * Set minSize size.
+     *
+     * @type { VP }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     * @form
+     */
     minSize: VP;
 }
+/**
+ * Define DigitIndicator, the indicator type is digit.
+ *
+ * @extends Indicator<DigitIndicator>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare class DigitIndicator extends Indicator<DigitIndicator> {
-    fontColor(value: ResourceColor): DigitIndicator
-    selectedFontColor(value: ResourceColor): DigitIndicator
-    digitFont(value: Font): DigitIndicator
-    selectedDigitFont(value: Font): DigitIndicator
+    /**
+     * Constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Set font color of the digital indicator.
+     *
+     * @param { ResourceColor } value - the indicator font color.
+     * @returns { DigitIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor): DigitIndicator;
+    /**
+     * Set font color of the digital indicator when selected.
+     *
+     * @param { ResourceColor } value - the indicator font color when selected.
+     * @returns { DigitIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedFontColor(value: ResourceColor): DigitIndicator;
+    /**
+     * Set the digital indicator font (just support font size and weight).
+     *
+     * @param { Font } value - the indicator font size and weight.
+     * @returns { DigitIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    digitFont(value: Font): DigitIndicator;
+    /**
+     * Set the digital indicator font (just support font size and weight).
+     *
+     * @param { Font } value - the indicator font size and weight when selected.
+     * @returns { DigitIndicator }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedDigitFont(value: Font): DigitIndicator;
 }
-export interface ArrowStyle {
+/**
+ * Arrow object.
+ *
+ * @interface ArrowStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ArrowStyle {
+    /**
+     * Is show the arrow background or not.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     showBackground?: boolean;
+    /**
+     * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.
+     * The arrow is displayed on side of the indicator, if the value is false.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     isSidebarMiddle?: boolean;
+    /**
+     * The arrow background size.
+     * The size of the arrow is three-quarters of the background size, when the background is displayed.
+     *
+     * @type { ?Length }
+     * @default When isSidebarMiddle is false, the default value is 24vp, Otherwise,the default value is 32vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundSize?: Length;
+    /**
+     * The arrow background background color.
+     *
+     * @type { ?ResourceColor }
+     * @default When isSidebarMiddle is false, the default value is #00000000, Otherwise, the default value is #19182431
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundColor?: ResourceColor;
+    /**
+     * The arrow size.
+     * The arrow size can be set, when the background is not displayed.
+     * The size of the arrow is three-quarters of the background size, when the background is displayed.
+     *
+     * @type { ?Length }
+     * @default When isSidebarMiddle is false, the default value is 18vp, Otherwise, the default value is 24vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     arrowSize?: Length;
+    /**
+     * The arrow color.
+     *
+     * @type { ?ResourceColor }
+     * @default #182431
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     arrowColor?: ResourceColor;
 }
-export enum SwiperDisplayMode {
-    LEGACY_STRETCH = 0,
-    Stretch = 0,
-    LEGACY_AUTO_LINEAR = 1,
-    AutoLinear = 1,
-    STRETCH = 2,
-    AUTO_LINEAR = 3
+/**
+ * Declare the size of the swiper on the spindle.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SwiperDisplayMode {
+    /**
+     * Carousel map extension.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    STRETCH
 }
-export interface AutoPlayOptions {
-  stopWhenTouched: boolean;
-}
-export type SwiperInterface = (controller?: SwiperController) => SwiperAttribute;
-export interface IndicatorStyle {
-    left?: Length;
-    top?: Length;
-    right?: Length;
-    bottom?: Length;
-    size?: Length;
-    mask?: boolean;
-    color?: ResourceColor;
-    selectedColor?: ResourceColor;
-}
-export interface SwiperAnimationEvent {
+/**
+ * Provides an interface for swiper animation.
+ *
+ * @interface SwiperAnimationEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwiperAnimationEvent {
+    /**
+     * Offset of the current page to the start position of the swiper main axis. The unit is vp.
+     *
+     * @type { number }
+     * @default 0.0 vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     currentOffset: number;
+    /**
+     * Offset of the target page to the start position of the swiper main axis. The unit is vp.
+     *
+     * @type { number }
+     * @default 0.0 vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     targetOffset: number;
+    /**
+     * Start speed of the page-turning animation. The unit is vp/s.
+     *
+     * @type { number }
+     * @default 0.0 vp/s
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     velocity: number;
 }
-export enum SwiperNestedScrollMode {
+/**
+ * Define autoPlay related options.
+ *
+ * @interface AutoPlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface AutoPlayOptions {
+    /**
+     * Set whether to stop autoplay immediately on touch down event.
+     *
+     * @type { boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    stopWhenTouched: boolean;
+}
+/**
+ * Swiper nested scroll nested mode
+
+ * @enum { number } SwiperNestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SwiperNestedScrollMode {
+    /**
+     * Only Self response scrolling.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     SELF_ONLY = 0,
+    /**
+     * Self priority response scrolling.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     SELF_FIRST = 1
 }
-export type OnSwiperAnimationStartCallback = (index: number, targetIndex: number,
-    extraInfo: SwiperAnimationEvent) => void;
+/**
+ * Declare the animation mode of SwiperController's changeIndex method.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SwiperAnimationMode {
+    /**
+     * Jump to target index without animation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    NO_ANIMATION = 0,
+    /**
+     * Scroll to target index with animation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    DEFAULT_ANIMATION = 1,
+    /**
+     * Jump to some index near the target index without animation,
+     * then scroll to target index with animation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    FAST_ANIMATION = 2
+}
+/**
+ * Defines a swiper callback when onAnimationStart.
+ *
+ * @typedef { function } OnSwiperAnimationStartCallback
+ * @param { number } index - The index value of the swiper page that when animation start.
+ * @param { number } targetIndex - The target index value of the swiper page that when animation start.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void;
+/**
+ * Defines a swiper callback when onAnimationEnd.
+ *
+ * @typedef { function } OnSwiperAnimationEndCallback
+ * @param { number } index - The index value of the swiper page that when animation end.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
+/**
+ * Defines a swiper callback when onGestureSwipe.
+ *
+ * @typedef { function } OnSwiperGestureSwipeCallback
+ * @param { number } index - The index value of the swiper page before gesture swipe.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
-export interface SwiperAttribute extends CommonMethod {
-    @memo
-    index(value: number): this;
-    @memo
-    autoPlay(value: boolean): this;
-    @memo
-    interval(value: number): this;
-    @memo
-    indicator(value: DotIndicator | DigitIndicator | boolean): this;
-
-    @memo
-    loop(value: boolean): this;
-    @memo
-    duration(value: number): this;
-    @memo
-    vertical(value: boolean): this;
-    @memo
-    itemSpace(value: number | string): this;
-    @memo
-    displayMode(value: SwiperDisplayMode): this;
-    @memo
-    cachedCount(value: number): this;
-    @memo
-    effectMode(value: EdgeEffect): this;
-    @memo
-    disableSwipe(value: boolean): this;
-    @memo
-    curve(value: Curve | string | ICurve): this;
-    @memo
-    onChange(value: ((index: number) => void)): this;
-    @memo
-    indicatorStyle(value: IndicatorStyle): this;
-    @memo
-    prevMargin(value: Length, ignoreBlank?: boolean): this;
-    @memo
-    nextMargin(value: Length, ignoreBlank?: boolean): this;
-    @memo
-    displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean): this;
-    @memo
-    autoPlay(autoPlay: boolean, options: AutoPlayOptions): this;
-    @memo
-    cachedCount(count: number, isShown: boolean): this;
-    @memo
-    displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): this;
-    @memo
-    pageFlipMode(mode: Optional<PageFlipMode>): this;
-
-    @memo
-    onAnimationStart(value: OnSwiperAnimationStartCallback): this;
-    @memo
-    onAnimationEnd(value: OnSwiperAnimationEndCallback): this;
-    @memo
-    onGestureSwipe(value: OnSwiperGestureSwipeCallback): this;
-    @memo
-    nestedScroll(value: SwiperNestedScrollMode): this;
-    @memo
-    customContentTransition(value: SwiperContentAnimatedTransition): this;
-    @memo
-    onContentDidScroll(value: ContentDidScrollCallback): this;
-    @memo
-    indicatorInteractive(value: boolean): this;
+export declare interface SwiperAttribute extends CommonMethod {
+    /**
+     * Called when the index value of the displayed subcomponent is set in the container.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    index(value: number | undefined): this;
+    /**
+     * Set whether the subcomponent plays automatically.
+     *
+     * @param { boolean } autoPlay - whether the subcomponent plays automatically
+     * @param { AutoPlayOptions } options - autoPlay related options
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
+    /**
+     * Called when the time interval for automatic playback is set.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    interval(value: number | undefined): this;
+    /**
+     * Use indicator component controller.
+     *
+     * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean } indicator -
+     * the style value or show indicator of the swiper indicator.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
+    /**
+     * Set arrow is enabled, or set the arrow style.
+     *
+     * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
+     * @param { boolean } isHoverShow - arrow is display when mouse hover in indicator hotspot.
+     * @returns { SwiperAttribute } return the component attribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
+    /**
+     * Called when setting whether to turn on cyclic sliding.
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    loop(value: boolean | undefined): this;
+    /**
+     * Called when the animation duration of the switch is set.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    duration(value: number | undefined): this;
+    /**
+     * Called when setting whether to slide vertically.
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    vertical(value: boolean | undefined): this;
+    /**
+     * Sets the space between child components.
+     *
+     * @param { number | string } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    itemSpace(value: number | string | undefined): this;
+    /**
+     * Called when setting the size of the swiper container on the spindle.
+     *
+     * @param { SwiperDisplayMode } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    displayMode(value: SwiperDisplayMode | undefined): this;
+    /**
+     * Sets the number of child components to be preloaded(cached).
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(value: number | undefined): this;
+    /**
+     * Sets the number of child components to be preloaded(cached).
+     *
+     * @param { number } count - Number of child components to be preloaded (cached).
+     * @param { boolean } isShown - whether to show the nodes in the cache.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(count: number | undefined, isShown: boolean | undefined): this;
+    /**
+     * Sets the number of elements to display per page.
+     *
+     * If swipeByGroup is set to true:
+     * 1、All sub-items are grouped from index 0.
+     * 2、The number of sub-items in each group is the value of displayCount.
+     * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
+     * 4、Placeholder items do not display any content and are only used as placeholders.
+     * 5、When turning pages, turn pages by group.
+     *
+     * @param { number | string | SwiperAutoFill } value
+     * @param { boolean } [swipeByGroup] - if swipe by group.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
+    /**
+     * Invoked when setting the sliding effect
+     *
+     * @param { EdgeEffect } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    effectMode(value: EdgeEffect | undefined): this;
+    /**
+     * Sets whether to disable the swipe feature
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    disableSwipe(value: boolean | undefined): this;
+    /**
+     * Sets the animation curve
+     * Curve is an enumeration type for common curves
+     * ICurve is a curve object
+     *
+     * @param { Curve | string | ICurve } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    curve(value: Curve | string | ICurve | undefined): this;
+    /**
+     * Called when the index value changes.
+     *
+     * @param { Callback<number> } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onChange(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new index becomes selected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been selected
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onSelected(event: Callback<number> | undefined): this;
+    /**
+     * The previous margin which can be used to expose a small portion of the previous item.
+     * When the previous item is empty, do not display blank space.
+     *
+     * @param { Length } value - The length of previous margin.
+     * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
+     * @returns { SwiperAttribute } The attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+    /**
+     * The next margin which can be used to expose a small portion of the latter item.
+     * When the next item is empty, do not display blank space.
+     *
+     * @param { Length } value - The length of next margin.
+     * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
+     * @returns { SwiperAttribute } The attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+    /**
+     * Called when a new index becomes unselected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been unselected
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onUnselected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the swiper animation start.
+     *
+     * @param { OnSwiperAnimationStartCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
+    /**
+     * Called when the swiper animation end.
+     *
+     * @param { OnSwiperAnimationEndCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
+    /**
+     * Called when the swiper swipe with the gesture.
+     *
+     * @param { OnSwiperGestureSwipeCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
+    /**
+     * Called to setting the nested scroll mode.
+     *
+     * @param { SwiperNestedScrollMode } value - mode for nested scrolling.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    nestedScroll(value: SwiperNestedScrollMode | undefined): this;
+    /**
+     * Custom swiper content transition animation.
+     *
+     * @param { SwiperContentAnimatedTransition } transition - custom content transition animation.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
+    /**
+     * Called when the swiper content did scroll.
+     *
+     * @param { ContentDidScrollCallback } handler - callback of scroll,
+     * selectedIndex is the index value of the swiper content selected before animation start.
+     * index is the index value of the swiper content.
+     * position is the moving ratio of the swiper content from the start position of the swiper main axis.
+     * mainAxisLength is the swiper main axis length for calculating position.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
+    /**
+     * Setting whether the indicator is interactive.
+     *
+     * @param { boolean } value - Whether the indicator is interactive.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    indicatorInteractive(value: boolean | undefined): this;
+    /**
+     * Setting page flip mode on mouse wheel event.
+     *
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    pageFlipMode(mode: PageFlipMode | undefined): this;
+    /**
+     * Called when the swiper content will scroll.
+     *
+     * @param { ContentWillScrollCallback } handler - callback of will scroll.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export type Callback_SwiperContentTransitionProxy_Void = (parameter: SwiperContentTransitionProxy) => void;
-export interface SwiperContentAnimatedTransition {
+/**
+ * Defines the swiper content animated transition options.
+ *
+ * @interface SwiperContentAnimatedTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwiperContentAnimatedTransition {
+    /**
+     * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is ms.
+     * If SwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+     *
+     * @type { ?number }
+     * @default 0 ms
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     timeout?: number;
-    transition: ((parameter: SwiperContentTransitionProxy) => void);
+    /**
+     * Called when custom content transition animation start.
+     *
+     * @type { Callback<SwiperContentTransitionProxy> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    transition: Callback<SwiperContentTransitionProxy>;
 }
-export interface SwiperContentTransitionProxy {
+/**
+ * The proxy of SwiperContentAnimatedTransition.
+ *
+ * @interface SwiperContentTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwiperContentTransitionProxy {
+    /**
+     * the index value of the swiper content selected before animation start.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selectedIndex: number;
+    /**
+     * The index value of the swiper content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     index: number;
+    /**
+     * the moving ratio of the swiper content from the start position of the swiper main axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     position: number;
+    /**
+     * the swiper main axis length for calculating position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     mainAxisLength: number;
-    finishTransition(): void
+    /**
+     * Notifies Swiper page the custom content transition animation is complete.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    finishTransition(): void;
 }
-export type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number,
-    mainAxisLength: number) => void;
+/**
+ * The result of swiper ContentWillScrollCallback.
+ *
+ * @interface SwiperContentWillScrollResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwiperContentWillScrollResult {
+    /**
+     * the index value of the current child page.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    currentIndex: number;
+    /**
+     * the index value of the child page that will display.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    comingIndex: number;
+    /**
+     * the sliding offset of each frame. Positive numbers indicating slide backward(e.g. from index=1 to index=0),
+     * negative numbers indicating slide forward(e.g. from index=0 to index=1).
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    offset: number;
+}
+/**
+ * The callback of onContentDidScroll.
+ *
+ * @typedef { function } ContentDidScrollCallback
+ * @param { number } selectedIndex - the index value of the swiper content selected before animation start.
+ * @param { number } index - the index value of the swiper content.
+ * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.
+ * @param { number } mainAxisLength - the swiper main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
+/**
+ * The callback of onContentWillScroll.
+ *
+ * @typedef { function } ContentWillScrollCallback
+ * @param { SwiperContentWillScrollResult } result - the result of swiper ContentWillScrollCallback.
+ * @returns { boolean } whether to allow scroll, true indicating can scroll and false indicating can not scroll.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
+export declare interface UISwiperAttribute extends UICommonMethod {
+    /**
+     * Called when the index value of the displayed subcomponent is set in the container.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    index(value: number | undefined): this;
+    /**
+     * Set whether the subcomponent plays automatically.
+     *
+     * @param { boolean } autoPlay - whether the subcomponent plays automatically
+     * @param { AutoPlayOptions } options - autoPlay related options
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
+    /**
+     * Called when the time interval for automatic playback is set.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    interval(value: number | undefined): this;
+    /**
+     * Use indicator component controller.
+     *
+     * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean } indicator -
+     * the style value or show indicator of the swiper indicator.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
+    /**
+     * Set arrow is enabled, or set the arrow style.
+     *
+     * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
+     * @param { boolean } isHoverShow - arrow is display when mouse hover in indicator hotspot.
+     * @returns { SwiperAttribute } return the component attribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
+    /**
+     * Called when setting whether to turn on cyclic sliding.
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    loop(value: boolean | undefined): this;
+    /**
+     * Called when the animation duration of the switch is set.
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    duration(value: number | undefined): this;
+    /**
+     * Called when setting whether to slide vertically.
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    vertical(value: boolean | undefined): this;
+    /**
+     * Sets the space between child components.
+     *
+     * @param { number | string } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    itemSpace(value: number | string | undefined): this;
+    /**
+     * Called when setting the size of the swiper container on the spindle.
+     *
+     * @param { SwiperDisplayMode } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    displayMode(value: SwiperDisplayMode | undefined): this;
+    /**
+     * Sets the number of child components to be preloaded(cached).
+     *
+     * @param { number } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    cachedCount(value: number | undefined): this;
+    /**
+     * Sets the number of child components to be preloaded(cached).
+     *
+     * @param { number } count - Number of child components to be preloaded (cached).
+     * @param { boolean } isShown - whether to show the nodes in the cache.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    cachedCount(count: number | undefined, isShown: boolean | undefined): this;
+    /**
+     * Sets the number of elements to display per page.
+     *
+     * If swipeByGroup is set to true:
+     * 1、All sub-items are grouped from index 0.
+     * 2、The number of sub-items in each group is the value of displayCount.
+     * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
+     * 4、Placeholder items do not display any content and are only used as placeholders.
+     * 5、When turning pages, turn pages by group.
+     *
+     * @param { number | string | SwiperAutoFill } value
+     * @param { boolean } [swipeByGroup] - if swipe by group.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
+    /**
+     * Invoked when setting the sliding effect
+     *
+     * @param { EdgeEffect } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    effectMode(value: EdgeEffect | undefined): this;
+    /**
+     * Sets whether to disable the swipe feature
+     *
+     * @param { boolean } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    disableSwipe(value: boolean | undefined): this;
+    /**
+     * Sets the animation curve
+     * Curve is an enumeration type for common curves
+     * ICurve is a curve object
+     *
+     * @param { Curve | string | ICurve } value
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    curve(value: Curve | string | ICurve | undefined): this;
+    /**
+     * Called when the index value changes.
+     *
+     * @param { Callback<number> } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new index becomes selected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been selected
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSelected(event: Callback<number> | undefined): this;
+    /**
+     * The previous margin which can be used to expose a small portion of the previous item.
+     * When the previous item is empty, do not display blank space.
+     *
+     * @param { Length } value - The length of previous margin.
+     * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
+     * @returns { SwiperAttribute } The attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+    /**
+     * The next margin which can be used to expose a small portion of the latter item.
+     * When the next item is empty, do not display blank space.
+     *
+     * @param { Length } value - The length of next margin.
+     * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
+     * @returns { SwiperAttribute } The attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+    /**
+     * Called when a new index becomes unselected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been unselected
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onUnselected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the swiper animation start.
+     *
+     * @param { OnSwiperAnimationStartCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
+    /**
+     * Called when the swiper animation end.
+     *
+     * @param { OnSwiperAnimationEndCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
+    /**
+     * Called when the swiper swipe with the gesture.
+     *
+     * @param { OnSwiperGestureSwipeCallback } event
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
+    /**
+     * Called to setting the nested scroll mode.
+     *
+     * @param { SwiperNestedScrollMode } value - mode for nested scrolling.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    nestedScroll(value: SwiperNestedScrollMode | undefined): this;
+    /**
+     * Custom swiper content transition animation.
+     *
+     * @param { SwiperContentAnimatedTransition } transition - custom content transition animation.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
+    /**
+     * Called when the swiper content did scroll.
+     *
+     * @param { ContentDidScrollCallback } handler - callback of scroll,
+     * selectedIndex is the index value of the swiper content selected before animation start.
+     * index is the index value of the swiper content.
+     * position is the moving ratio of the swiper content from the start position of the swiper main axis.
+     * mainAxisLength is the swiper main axis length for calculating position.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
+    /**
+     * Setting whether the indicator is interactive.
+     *
+     * @param { boolean } value - Whether the indicator is interactive.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    indicatorInteractive(value: boolean | undefined): this;
+    /**
+     * Setting page flip mode on mouse wheel event.
+     *
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pageFlipMode(mode: PageFlipMode | undefined): this;
+    /**
+     * Called when the swiper content will scroll.
+     *
+     * @param { ContentWillScrollCallback } handler - callback of will scroll.
+     * @returns { SwiperAttribute } the attribute of the swiper.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Swiper(
-    controller?: SwiperController | undefined, 
+    controller?: SwiperController, 
     @memo
     content_?: () => void,
-): SwiperAttribute
+): UISwiperAttribute

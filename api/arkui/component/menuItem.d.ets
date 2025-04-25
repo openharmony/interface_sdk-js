@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,52 +19,274 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { ResourceStr, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, Font, PixelMap } from './units'
-import { SymbolGlyphModifier } from './../../../api/arkui/SymbolGlyphModifier'
-import { CustomBuilder, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Boolean_Void } from './checkbox'
-export interface MenuItemOptions {
+import { ResourceStr, Font, ResourceColor } from "./units";
+import { CustomBuilder, CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the option of MenuItem.
+ *
+ * @interface MenuItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface MenuItemOptions {
+    /**
+     * Defines the start display image info.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     startIcon?: ResourceStr;
+    /**
+     * Defines the start display symbol info.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     symbolStartIcon?: SymbolGlyphModifier;
+    /**
+     * Defines the content string display info.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     content?: ResourceStr;
+    /**
+     * Defines the end display image info.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     endIcon?: ResourceStr;
+    /**
+     * Defines the end display symbol info.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     symbolEndIcon?: SymbolGlyphModifier;
+    /**
+     * Defines the end label info like shortcut.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     labelInfo?: ResourceStr;
+    /**
+     * Create the submenu.
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     builder?: CustomBuilder;
 }
-export type MenuItemInterface = (value?: MenuItemOptions | CustomBuilder) => MenuItemAttribute;
-export interface MenuItemAttribute extends CommonMethod {
-    @memo
-    selected(value: boolean): this;
-    @memo
-    selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): this;
-    @memo
-    onChange(value: ((parameter: boolean) => void)): this;
-    @memo
-    contentFont(value: Font): this;
-    @memo
-    contentFontColor(value: ResourceColor): this;
-    @memo
-    labelFont(value: Font): this;
-    @memo
-    labelFontColor(value: ResourceColor): this;
+export declare interface MenuItemAttribute extends CommonMethod {
+    /**
+     * Setting whether menuItem is selected.
+     *
+     * @param { boolean } value
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selected(value: boolean | undefined): this;
+    /**
+     * Whether the relevant check icon is displayed when a menu item is selected.
+     * Use type ResourceStr or SymbolGlyphModifier to specify icon instead of the default check mark.
+     *
+     * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Indicates whether to display icon when selected.
+     * <br>true: displays the default check mark when selected.
+     * <br>false: does not displays icon when selected.
+     * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier | undefined): this;
+    /**
+     * Triggers a callback when a menu item is selected or unchecked.
+     *
+     * @param { function } callback
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: ((selected: boolean) => void) | undefined): this;
+    /**
+     * Sets the content font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of content text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentFont(value: Font | undefined): this;
+    /**
+     * Sets the font color of content text.
+     *
+     * @param { ResourceColor } value - Indicates the font color of content text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the label info font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of label info text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    labelFont(value: Font | undefined): this;
+    /**
+     * Sets the font color of label info text.
+     *
+     * @param { ResourceColor } value - Indicates the font color of label info text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    labelFontColor(value: ResourceColor | undefined): this;
+    attributeModifier(modifier: AttributeModifier<MenuItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIMenuItemAttribute extends UICommonMethod {
+    /**
+     * Setting whether menuItem is selected.
+     *
+     * @param { boolean } value
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selected(value: boolean | undefined): this;
+    /**
+     * Whether the relevant check icon is displayed when a menu item is selected.
+     * Use type ResourceStr or SymbolGlyphModifier to specify icon instead of the default check mark.
+     *
+     * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Indicates whether to display icon when selected.
+     * <br>true: displays the default check mark when selected.
+     * <br>false: does not displays icon when selected.
+     * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier | undefined): this;
+    /**
+     * Triggers a callback when a menu item is selected or unchecked.
+     *
+     * @param { function } callback
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: ((selected: boolean) => void) | undefined): this;
+    /**
+     * Sets the content font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of content text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentFont(value: Font | undefined): this;
+    /**
+     * Sets the font color of content text.
+     *
+     * @param { ResourceColor } value - Indicates the font color of content text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the label info font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of label info text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    labelFont(value: Font | undefined): this;
+    /**
+     * Sets the font color of label info text.
+     *
+     * @param { ResourceColor } value - Indicates the font color of label info text.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    labelFontColor(value: ResourceColor | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<MenuItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function MenuItem(
-    value?: MenuItemOptions | CustomBuilder | undefined, 
+    value?: MenuItemOptions | CustomBuilder, 
     @memo
     content_?: () => void,
-): MenuItemAttribute
+): UIMenuItemAttribute

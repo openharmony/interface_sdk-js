@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,64 +19,362 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { Curve, AnimationStatus, FillMode, PlayMode } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Customize spring properties.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class SpringProp {
+    /**
+     * Constructor parameters
+     *
+     * @param { number } mass
+     * @param { number } stiffness
+     * @param { number } damping
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(mass: number, stiffness: number, damping: number);
+}
+/**
+ * Spring animation model. You can build a spring animation based on the start point, end point, initial speed, and spring attributes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class SpringMotion {
+    /**
+     * Constructor parameters
+     *
+     * @param { number } start
+     * @param { number } end
+     * @param { number } velocity
+     * @param { SpringProp } prop
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(start: number, end: number, velocity: number, prop: SpringProp);
+}
+/**
+ * Friction animation model. You can build friction animation by friction force, initial position, and initial velocity.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class FrictionMotion {
+    /**
+     * Constructor parameters
+     *
+     * @param { number } friction
+     * @param { number } position
+     * @param { number } velocity
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(friction: number, position: number, velocity: number);
+}
+/**
+ * Rolling animation model: You can build rolling animation based on the initial position, initial speed, boundary position, and spring attributes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class ScrollMotion {
+    /**
+     * Constructor parameters
+     *
+     * @param { number } position
+     * @param { number } velocity
+     * @param { number } min
+     * @param { number } max
+     * @param { SpringProp } prop
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
+}
+export declare interface AnimatorAttribute extends CommonMethod {
+    /**
+     * Controls the playback status. The default value is the initial state.
+     *
+     * @param { AnimationStatus } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    state(value: AnimationStatus | undefined): this;
+    /**
+     * Animation duration, in milliseconds.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    duration(value: number | undefined): this;
+    /**
+     * Animation curve, default to linear curve
+     *
+     * @param { Curve } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    curve(value: Curve | undefined): this;
+    /**
+     * Delayed animation playback duration, in milliseconds. By default, the animation is not delayed.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    delay(value: number | undefined): this;
+    /**
+     * Sets the state before and after the animation starts.
+     *
+     * @param { FillMode } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    fillMode(value: FillMode | undefined): this;
+    /**
+     * The default playback is once. If the value is -1, the playback is unlimited.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    iterations(value: number | undefined): this;
+    /**
+     * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
+     *
+     * @param { PlayMode } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    playMode(value: PlayMode | undefined): this;
+    /**
+     * Configure the physical animation algorithm.
+     *
+     * @param { SpringMotion | FrictionMotion | ScrollMotion } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    motion(value: SpringMotion | FrictionMotion | ScrollMotion | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation starts to play.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation pauses.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onPause(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation is replayed.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onRepeat(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation is canceled.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onCancel(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation playback is complete.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onFinish(event: (() => void) | undefined): this;
+    /**
+     * The callback input parameter is the interpolation during animation playback.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onFrame(event: ((value: number) => void) | undefined): this;
+    attributeModifier(modifier: AttributeModifier<AnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIAnimatorAttribute extends UICommonMethod {
+    /**
+     * Controls the playback status. The default value is the initial state.
+     *
+     * @param { AnimationStatus } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    state(value: AnimationStatus | undefined): this;
+    /**
+     * Animation duration, in milliseconds.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    duration(value: number | undefined): this;
+    /**
+     * Animation curve, default to linear curve
+     *
+     * @param { Curve } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    curve(value: Curve | undefined): this;
+    /**
+     * Delayed animation playback duration, in milliseconds. By default, the animation is not delayed.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    delay(value: number | undefined): this;
+    /**
+     * Sets the state before and after the animation starts.
+     *
+     * @param { FillMode } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    fillMode(value: FillMode | undefined): this;
+    /**
+     * The default playback is once. If the value is -1, the playback is unlimited.
+     *
+     * @param { number } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    iterations(value: number | undefined): this;
+    /**
+     * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
+     *
+     * @param { PlayMode } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    playMode(value: PlayMode | undefined): this;
+    /**
+     * Configure the physical animation algorithm.
+     *
+     * @param { SpringMotion | FrictionMotion | ScrollMotion } value
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    motion(value: SpringMotion | FrictionMotion | ScrollMotion | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation starts to play.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation pauses.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onPause(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation is replayed.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onRepeat(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation is canceled.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onCancel(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation playback is complete.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onFinish(event: (() => void) | undefined): this;
+    /**
+     * The callback input parameter is the interpolation during animation playback.
+     *
+     * @param { function } event
+     * @returns { AnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onFrame(event: ((value: number) => void) | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<AnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, AnimationStatus, Curve, FillMode, PlayMode } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Void } from './alphabetIndexer'
-export interface SpringProp {
-}
-export interface SpringMotion {
-}
-export interface FrictionMotion {
-}
-export interface ScrollMotion {
-}
-export type AnimatorInterface = (value: string) => AnimatorAttribute;
-export interface AnimatorAttribute extends CommonMethod {
-    @memo
-    state(value: AnimationStatus): this;
-    @memo
-    duration(value: number): this;
-    @memo
-    curve(value: Curve): this;
-    @memo
-    delay(value: number): this;
-    @memo
-    fillMode(value: FillMode): this;
-    @memo
-    iterations(value: number): this;
-    @memo
-    playMode(value: PlayMode): this;
-    @memo
-    motion(value: SpringMotion): this;
-    @memo
-    onStart(value: (() => void)): this;
-    @memo
-    onPause(value: (() => void)): this;
-    @memo
-    onRepeat(value: (() => void)): this;
-    @memo
-    onCancel(value: (() => void)): this;
-    @memo
-    onFinish(value: (() => void)): this;
-    @memo
-    onFrame(value: ((index: number) => void)): this;
-}
 @memo
 @ComponentBuilder
 export declare function Animator(
     value: string, 
     @memo
     content_?: () => void,
-): AnimatorAttribute
+): UIAnimatorAttribute

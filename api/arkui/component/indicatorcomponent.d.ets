@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,46 +19,225 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
+import { CommonMethod, Callback, UICommonMethod, AttributeModifier } from "./common";
+import { DotIndicator, DigitIndicator } from "./swiper";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Provides methods for switching components.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class IndicatorComponentController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Called when the next child component is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showNext(): void;
+    /**
+     * Called when the previous subcomponent is displayed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showPrevious(): void;
+    /**
+    * Controlling IndicatorComponent to change to the specified subcomponent.
+    *
+    * @param { number } index - The index of item to be redirected.
+    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
+    *      The default value is false.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 20
+    */
+    changeIndex(index: number, useAnimation?: boolean): void;
+}
+export declare interface IndicatorComponentAttribute extends CommonMethod {
+    /**
+      * Called when the index value of the displayed subcomponent is set in the container.
+      *
+      * @param { number } index
+      * @returns { IndicatorComponentAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @form
+      * @atomicservice
+      * @since 20
+      */
+    initialIndex(index: number | undefined): this;
+    /**
+     * Sets the total number of indicator.
+     *
+     * @param { number } totalCount
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    count(totalCount: number | undefined): this;
+    /**
+     * Sets the indicator style.
+     *
+     * @param { DotIndicator | DigitIndicator } indicatorStyle - the style value
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
+    /**
+     * Called when setting whether to turn on cyclic sliding.
+     *
+     * @param { boolean } isLoop
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    loop(isLoop: boolean | undefined): this;
+    /**
+     * Called when setting whether to slide vertically.
+     *
+     * @param { boolean } isVertical
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    vertical(isVertical: boolean | undefined): this;
+    /**
+     * Called when the index value changes.
+     *
+     * @param { Callback<number> } event
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onChange(event: Callback<number> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<IndicatorComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIIndicatorComponentAttribute extends UICommonMethod {
+    /**
+      * Called when the index value of the displayed subcomponent is set in the container.
+      *
+      * @param { number } index
+      * @returns { IndicatorComponentAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @form
+      * @atomicservice
+      * @since 20
+      */
+    @memo
+    initialIndex(index: number | undefined): this;
+    /**
+     * Sets the total number of indicator.
+     *
+     * @param { number } totalCount
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    count(totalCount: number | undefined): this;
+    /**
+     * Sets the indicator style.
+     *
+     * @param { DotIndicator | DigitIndicator } indicatorStyle - the style value
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
+    /**
+     * Called when setting whether to turn on cyclic sliding.
+     *
+     * @param { boolean } isLoop
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    loop(isLoop: boolean | undefined): this;
+    /**
+     * Called when setting whether to slide vertically.
+     *
+     * @param { boolean } isVertical
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    vertical(isVertical: boolean | undefined): this;
+    /**
+     * Called when the index value changes.
+     *
+     * @param { Callback<number> } event
+     * @returns { IndicatorComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(event: Callback<number> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<IndicatorComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { DotIndicator, DigitIndicator } from './swiper'
-import { Callback_Number_Void } from './alphabetIndexer'
-export interface IndicatorComponentController {
-    showNext(): void
-    showPrevious(): void
-    changeIndex(index: number, useAnimation?: boolean): void
-}
-export type IndicatorComponentInterface = (controller?: IndicatorComponentController) => IndicatorComponentAttribute;
-export interface IndicatorComponentAttribute extends CommonMethod {
-    @memo
-    initialIndex(value: number): this;
-    @memo
-    count(value: number): this;
-    @memo
-    style(value: DotIndicator | DigitIndicator): this;
-    @memo
-    loop(value: boolean): this;
-    @memo
-    vertical(value: boolean): this;
-    @memo
-    onChange(value: ((index: number) => void)): this;
-}
 @memo
 @ComponentBuilder
 export declare function IndicatorComponent(
-    controller?: IndicatorComponentController | undefined, 
+    controller?: IndicatorComponentController, 
     @memo
     content_?: () => void,
-): IndicatorComponentAttribute
+): UIIndicatorComponentAttribute

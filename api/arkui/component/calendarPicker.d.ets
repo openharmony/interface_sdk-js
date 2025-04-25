@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,60 +19,403 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, PickerTextStyle, PickerDialogButtonStyle, HoverModeAreaType } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, Offset, PixelMap, VoidCallback } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum CalendarAlign {
+import { Resource } from '../../global/resource';
+import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { Offset, VoidCallback, ResourceColor } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The type of alignment between entry and calendar.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum CalendarAlign {
+    /**
+     * The value of calendar align type start.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     START = 0,
+    /**
+     * The value of calendar align type center.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     CENTER = 1,
+    /**
+     * The value of calendar align type end.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     END = 2
 }
-export interface CalendarOptions {
+/**
+ * Defines the options of CalendarPicker.
+ * @interface CalendarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CalendarOptions {
+    /**
+     * Specifies the radius of the background of the day in calendar.
+     * @type { ?(number | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     hintRadius?: number | Resource;
+    /**
+     * Specifies the date selector check date.
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected?: Date;
+    /**
+     * Defines the start date of the calendar date.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    start?: Date;
+    /**
+     * Defines the end date of the calendar date.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    end?: Date;
+    /**
+     * Defines the disabled date range for the calendar picker.
+     *
+     * @type { ?DateRange[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    disabledDateRange?: DateRange[];
 }
-export type CalendarPickerInterface = (options?: CalendarOptions) => CalendarPickerAttribute;
-export type Callback_Date_Void = (parameter: Date) => void;
-export interface CalendarPickerAttribute extends CommonMethod {
-    @memo
-    textStyle(value: PickerTextStyle): this;
-    @memo
-    onChange(value: ((parameter: Date) => void)): this;
+export declare interface CalendarPickerAttribute extends CommonMethod {
+    /**
+     * Set the alignment between entry and calendar dialog.
+     * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
+     * @param { Offset } offset - The offset between entry and calendar dialog.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset | undefined): this;
+    /**
+     * Sets the text style of entry
+     * @param { PickerTextStyle } value - indicates the text style of entry.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Callback for selected date changed.
+     * @param { Callback<Date> } callback - callback for selected date changed.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: Callback<Date> | undefined): this;
+    /**
+     * Defines whether the calendar picker marks today.
+     *
+     * @param { boolean } enabled - whether the calendar picker marks today.
+     * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    markToday(enabled: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export interface CalendarDialogOptions extends CalendarOptions {
-    onAccept?: ((parameter: Date) => void);
+/**
+ * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @extends CalendarOptions
+ * @interface CalendarDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CalendarDialogOptions extends CalendarOptions {
+    /**
+     * Called when the OK button in the dialog is clicked.
+     * @type { ?Callback<Date> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onAccept?: Callback<Date>;
+    /**
+     * Called when the Cancel button in the dialog is clicked.
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onCancel?: VoidCallback;
-    onChange?: ((parameter: Date) => void);
+    /**
+     * This event is triggered when a date is selected in dialog.
+     * @type { ?Callback<Date> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange?: Callback<Date>;
+    /**
+     * Defines the calendarPickerDialog's background color
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundColor?: ResourceColor;
+    /**
+     * Defines the calendarPickerDialog's background blur Style
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundBlurStyle?: BlurStyle;
+    /**
+     * Defines the calendarPickerDialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the calendarPickerDialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Style of accept button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     acceptButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Style of cancel button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     cancelButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Callback function when the dialog appears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onDidAppear?: VoidCallback;
+    /**
+     * Callback function when the dialog disappears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onDidDisappear?: VoidCallback;
+    /**
+     * Callback function before the dialog openAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onWillAppear?: VoidCallback;
+    /**
+     * Callback function before the dialog closeAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onWillDisappear?: VoidCallback;
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     shadow?: ShadowOptions | ShadowStyle;
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableHoverMode?: boolean;
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     hoverModeArea?: HoverModeAreaType;
+    /**
+     * Defines the calendar picker marks today.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    markToday?: boolean;
 }
-export interface CalendarPickerDialog {
-    show(options?: CalendarDialogOptions): void
+/**
+ * Defines CalendarPickerDialog which uses show method to show CalendarPicker dialog.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class CalendarPickerDialog {
+    /**
+     * Invoking method display.
+     * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static show(options?: CalendarDialogOptions): void;
 }
+export declare interface UICalendarPickerAttribute extends UICommonMethod {
+    /**
+     * Set the alignment between entry and calendar dialog.
+     * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
+     * @param { Offset } offset - The offset between entry and calendar dialog.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset | undefined): this;
+    /**
+     * Sets the text style of entry
+     * @param { PickerTextStyle } value - indicates the text style of entry.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Callback for selected date changed.
+     * @param { Callback<Date> } callback - callback for selected date changed.
+     * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: Callback<Date> | undefined): this;
+    /**
+     * Defines whether the calendar picker marks today.
+     *
+     * @param { boolean } enabled - whether the calendar picker marks today.
+     * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    markToday(enabled: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function CalendarPicker(
-    options?: CalendarOptions | undefined, 
+    options?: CalendarOptions, 
     @memo
     content_?: () => void,
-): CalendarPickerAttribute
+): UICalendarPickerAttribute

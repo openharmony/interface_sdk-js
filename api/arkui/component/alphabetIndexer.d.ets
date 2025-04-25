@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,95 +19,736 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, Font, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum IndexerAlign {
-    LEFT = 0,
-    Left = 0,
-    RIGHT = 1,
-    Right = 1,
-    START = 2,
-    END = 3
+import { CommonMethod, BlurStyle, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, Length, Position } from "./units";
+import { Font } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * indexer align property.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum IndexerAlign {
+    /**
+     * A dialog box is displayed on the right of the index bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Left,
+    /**
+     * A dialog box is displayed on the left of the index bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Right,
+    /**
+     * A dialog box is displayed on the start of the index bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    START,
+    /**
+     * A dialog box is displayed on the end of the index bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    END
 }
+/**
+ * AlphabetIndexer constructor options.
+ *
+ * @interface AlphabetIndexerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface AlphabetIndexerOptions {
+    /**
+     * Alphabetical index string array.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     arrayValue: Array<string>;
+    /**
+     * ID of the selected item.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected: number;
 }
-export type AlphabetIndexerInterface = (options: AlphabetIndexerOptions) => AlphabetIndexerAttribute;
+/**
+ * Defines an AlphabetIndexer callback when onSelect.
+ *
+ * @typedef { function } OnAlphabetIndexerSelectCallback
+ * @param { number } index - selected index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnAlphabetIndexerSelectCallback = (index: number) => void;
+/**
+ * Defines an AlphabetIndexer callback when onPopupSelect.
+ *
+ * @typedef { function } OnAlphabetIndexerPopupSelectCallback
+ * @param { number } index - selected index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
+/**
+ * Defines an AlphabetIndexer callback when onRequestPopupData.
+ *
+ * @typedef { function } OnAlphabetIndexerRequestPopupDataCallback
+ * @param { number } index - selected index
+ * @returns { Array<string> } string array corresponding to the index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
-export type Callback_Number_Void = (index: number) => void;
-export interface AlphabetIndexerAttribute extends CommonMethod {
-    @memo
-    onSelected(value: ((index: number) => void)): this;
-    @memo
-    color(value: ResourceColor): this;
-    @memo
-    selectedColor(value: ResourceColor): this;
-    @memo
-    popupColor(value: ResourceColor): this;
-    @memo
-    selectedBackgroundColor(value: ResourceColor): this;
-    @memo
-    popupBackground(value: ResourceColor): this;
-    @memo
-    popupSelectedColor(value: ResourceColor): this;
-    @memo
-    popupUnselectedColor(value: ResourceColor): this;
-    @memo
-    popupItemBackgroundColor(value: ResourceColor): this;
-    @memo
-    usingPopup(value: boolean): this;
-    @memo
-    selectedFont(value: Font): this;
-    @memo
-    popupFont(value: Font): this;
-    @memo
-    popupItemFont(value: Font): this;
-    @memo
-    itemSize(value: string | number): this;
-    @memo
-    font(value: Font): this;
-    @memo
-    onSelect(value: OnAlphabetIndexerSelectCallback): this;
-    @memo
-    onRequestPopupData(value: OnAlphabetIndexerRequestPopupDataCallback): this;
-    @memo
-    onPopupSelect(value: OnAlphabetIndexerPopupSelectCallback): this;
-    @memo
-    selected(value: number): this;
-    @memo
-    popupPosition(value: Position): this;
-    @memo
-    autoCollapse(value: boolean): this;
-    @memo
-    popupItemBorderRadius(value: number): this;
-    @memo
-    itemBorderRadius(value: number): this;
-    @memo
-    popupBackgroundBlurStyle(value: BlurStyle): this;
-    @memo
-    popupTitleBackground(value: ResourceColor): this;
-    @memo
-    enableHapticFeedback(value: boolean): this;
+export declare interface AlphabetIndexerAttribute extends CommonMethod {
+    /**
+     * Definitions color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    color(value: ResourceColor | undefined): this;
+    /**
+     * Select the text color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Font color of the pop-up prompt text.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupColor(value: ResourceColor | undefined): this;
+    /**
+     * Select the text background color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Background color of the pop-up window index.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupBackground(value: ResourceColor | undefined): this;
+    /**
+     * Set the selected font color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of the selected font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupSelectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the unselected font color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of the unselected font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupUnselectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the background color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of background.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupItemBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Whether to use pop-up index hints.
+     *
+     * @param { boolean } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    usingPopup(value: boolean | undefined): this;
+    /**
+     * Select the text text style,
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedFont(value: Font | undefined): this;
+    /**
+     * Select the text background color.
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupFont(value: Font | undefined): this;
+    /**
+     * Set the font style of non-alphabetic part of the prompt pop-up window.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - indicates the style of the font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupItemFont(value: Font | undefined): this;
+    /**
+     * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+     *
+     * @param { string | number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    itemSize(value: string | number | undefined): this;
+    /**
+     * Definitions fonts.
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    font(value: Font | undefined): this;
+    /**
+     * Alphabet index bar alignment style. The left and right alignment styles are supported,
+     * which affects the pop-up position of the pop-up window.
+     *
+     * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+     * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    alignStyle(value: IndexerAlign | undefined, offset?: Length | undefined): this;
+    /**
+     * Index bar selection callback.
+     *
+     * @param { OnAlphabetIndexerSelectCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onSelect(callback: OnAlphabetIndexerSelectCallback | undefined): this;
+    /**
+     * Index bar selection callback and return the strings which display on pop-up.
+     *
+     * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback | undefined): this;
+    /**
+     * Pop-up selection callback.
+     *
+     * @param { OnAlphabetIndexerPopupSelectCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback | undefined): this;
+    /**
+     * Sets the selected index.
+     *
+     * @param { number } index
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selected(index: number | undefined): this;
+    /**
+     * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+     *
+     * @param { Position } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupPosition(value: Position | undefined): this;
+    /**
+     * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+     *
+     * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    autoCollapse(value: boolean | undefined): this;
+    /**
+     * Set the radius of the item of the pop-up window.
+     *
+     * @param { number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupItemBorderRadius(value: number | undefined): this;
+    /**
+     * Set the radius of the item of the indexer.
+     *
+     * @param { number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    itemBorderRadius(value: number | undefined): this;
+    /**
+     * Set the background blurStyle of title of the pop-up window.
+     *
+     * @param { BlurStyle } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Set the background color of title of the pop-up window.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    popupTitleBackground(value: ResourceColor | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } value - Default value is true, set false to disable haptic feedback.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback(value: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIAlphabetIndexerAttribute extends UICommonMethod {
+    /**
+     * Definitions color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    color(value: ResourceColor | undefined): this;
+    /**
+     * Select the text color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Font color of the pop-up prompt text.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupColor(value: ResourceColor | undefined): this;
+    /**
+     * Select the text background color.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Background color of the pop-up window index.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupBackground(value: ResourceColor | undefined): this;
+    /**
+     * Set the selected font color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of the selected font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupSelectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the unselected font color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of the unselected font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupUnselectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the background color of non-alphabetic part of the pop-up window.
+     *
+     * @param { ResourceColor } value - indicates the color of background.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupItemBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Whether to use pop-up index hints.
+     *
+     * @param { boolean } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    usingPopup(value: boolean | undefined): this;
+    /**
+     * Select the text text style,
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedFont(value: Font | undefined): this;
+    /**
+     * Select the text background color.
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupFont(value: Font | undefined): this;
+    /**
+     * Set the font style of non-alphabetic part of the prompt pop-up window.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - indicates the style of the font.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupItemFont(value: Font | undefined): this;
+    /**
+     * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+     *
+     * @param { string | number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    itemSize(value: string | number | undefined): this;
+    /**
+     * Definitions fonts.
+     *
+     * @param { Font } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    font(value: Font | undefined): this;
+    /**
+     * Alphabet index bar alignment style. The left and right alignment styles are supported,
+     * which affects the pop-up position of the pop-up window.
+     *
+     * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+     * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    alignStyle(value: IndexerAlign | undefined, offset?: Length | undefined): this;
+    /**
+     * Index bar selection callback.
+     *
+     * @param { OnAlphabetIndexerSelectCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSelect(callback: OnAlphabetIndexerSelectCallback | undefined): this;
+    /**
+     * Index bar selection callback and return the strings which display on pop-up.
+     *
+     * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback | undefined): this;
+    /**
+     * Pop-up selection callback.
+     *
+     * @param { OnAlphabetIndexerPopupSelectCallback } callback
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback | undefined): this;
+    /**
+     * Sets the selected index.
+     *
+     * @param { number } index
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selected(index: number | undefined): this;
+    /**
+     * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+     *
+     * @param { Position } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupPosition(value: Position | undefined): this;
+    /**
+     * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+     *
+     * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    autoCollapse(value: boolean | undefined): this;
+    /**
+     * Set the radius of the item of the pop-up window.
+     *
+     * @param { number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupItemBorderRadius(value: number | undefined): this;
+    /**
+     * Set the radius of the item of the indexer.
+     *
+     * @param { number } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    itemBorderRadius(value: number | undefined): this;
+    /**
+     * Set the background blurStyle of title of the pop-up window.
+     *
+     * @param { BlurStyle } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Set the background color of title of the pop-up window.
+     *
+     * @param { ResourceColor } value
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    popupTitleBackground(value: ResourceColor | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } value - Default value is true, set false to disable haptic feedback.
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableHapticFeedback(value: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function AlphabetIndexer(
     options: AlphabetIndexerOptions, 
     @memo
     content_?: () => void,
-): AlphabetIndexerAttribute
+): UIAlphabetIndexerAttribute

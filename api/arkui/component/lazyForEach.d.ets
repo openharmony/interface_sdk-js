@@ -18,6 +18,8 @@
  * @arkts 1.2
  */
 
+
+
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 
 /**
@@ -618,6 +620,16 @@ export interface IDataSource<T> {
 export interface LazyForEachAttribute {}
 
 /**
+ * declare UILazyForEachAttribute
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface UILazyForEachAttribute {}
+
+/**
  * Enter the value to obtain the LazyForEach.
  *
  * @param { IDataSource } dataSource
@@ -635,4 +647,4 @@ export declare function LazyForEach<T>(dataSource: IDataSource<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
-): LazyForEachAttribute
+): UILazyForEachAttribute

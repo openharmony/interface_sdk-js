@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,86 +19,700 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { DateTimeOptions, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap, Offset } from './units'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, PickerTextStyle, PickerDialogButtonStyle, HoverModeAreaType } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Date_Void } from './calendarPicker'
-import { DialogAlignment } from './alertDialog'
-export interface TimePickerResult {
+import { ResourceColor, Offset } from "./units";
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, UICommonMethod, AttributeModifier } from "./common";
+import { DialogAlignment } from "./alertDialog";
+import intl from '../../@ohos.intl';
+import { CrownSensitivity } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the struct of TimePickerResult.
+ *
+ * @interface TimePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TimePickerResult {
+    /**
+     * Hour portion of the selected time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     hour: number;
+    /**
+     * Minute portion of the selected time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     minute: number;
+    /**
+     * Second portion of the selected time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     second: number;
 }
-export enum TimePickerFormat {
-    HOUR_MINUTE = 0,
-    HOUR_MINUTE_SECOND = 1
+/**
+ * Type of the TimePicker that need to be displayed.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum TimePickerFormat {
+    /**
+     * Hour and minute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    HOUR_MINUTE,
+    /**
+     * Hour and minute and second
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    HOUR_MINUTE_SECOND
 }
-export interface TimePickerOptions {
+/**
+ * Defines the options of TimePicker.
+ *
+ * @interface TimePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TimePickerOptions {
+    /**
+     * Specifies the time selector check time.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected?: Date;
+    /**
+     * Specifies the format of the TimePicker that need to be displayed.
+     *
+     * @type { ?TimePickerFormat }
+     * @default HOUR_MINUTE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     format?: TimePickerFormat;
+    /**
+     * Defines the start time of the time picker.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    start?: Date;
+    /**
+     * Defines the end time of the time picker.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    end?: Date;
 }
-export type TimePickerInterface = (options?: TimePickerOptions) => TimePickerAttribute;
-export type Callback_TimePickerResult_Void = (value: TimePickerResult) => void;
-export interface TimePickerAttribute extends CommonMethod {
-    @memo
-    useMilitaryTime(value: boolean): this;
-    @memo
-    loop(value: boolean): this;
-    @memo
-    disappearTextStyle(value: PickerTextStyle): this;
-    @memo
-    textStyle(value: PickerTextStyle): this;
-    @memo
-    selectedTextStyle(value: PickerTextStyle): this;
-    @memo
-    dateTimeOptions(value: DateTimeOptions): this;
-    @memo
-    onChange(value: ((value: TimePickerResult) => void)): this;
-    @memo
-    enableHapticFeedback(value: boolean): this;
+/**
+ * Callback of the timePicker time is selected event.
+ *
+ * @typedef {function} OnTimePickerChangeCallback
+ * @param { TimePickerResult } result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
+export declare interface TimePickerAttribute extends CommonMethod {
+    /**
+     * Time Selector: indicates whether to display the 24-hour clock.
+     *
+     * @param { boolean } value
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    useMilitaryTime(value: boolean | undefined): this;
+    /**
+     * Sets whether to enable the wheel mode.
+     * @param { boolean } value - indicates whether to enable the wheel mode.
+     * @returns { TimePickerAttribute } the attribute of the time picker
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    loop(value: boolean | undefined): this;
+    /**
+     * Sets the text style of disappearing items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of normal items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of selected items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of selected items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Set time format
+     *
+     * @param { intl.DateTimeOptions } value - indicates the format of the time display.
+     * @returns { TimePickerAttribute } the attribute of the time picker
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    dateTimeOptions(value: intl.DateTimeOptions | undefined): this;
+    /**
+     * This event is triggered when a TimePicker time is selected.
+     *
+     * @param { Optional<OnTimePickerChangeCallback> } callback
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: OnTimePickerChangeCallback | undefined): this;
+    /**
+     * This event is triggered when an item enters the selected area.
+     *
+     * @param { Callback<TimePickerResult> } callback
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onEnterSelectedArea(callback: Callback<TimePickerResult> | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback(enable: boolean | undefined): this;
+    /**
+     * If the attribute is set, the crown rotation sensitivity can be changed.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+     *
+     * @param { boolean } enabled - Default value is false, set true to enable.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableCascade(enabled: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export interface TimePickerDialogOptions extends TimePickerOptions {
+/**
+ * Defines the TimePickerDialogOptions for Data Picker Dialog.
+ *
+ * @extends TimePickerOptions
+ * @interface TimePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TimePickerDialogOptions extends TimePickerOptions {
+    /**
+     * Time Selector: indicates whether to display the 24-hour clock.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     useMilitaryTime?: boolean;
+    /**
+     * Text style of disappearing items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     disappearTextStyle?: PickerTextStyle;
+    /**
+     * Text style of normal items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     textStyle?: PickerTextStyle;
+    /**
+     * Style of accept button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     acceptButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Style of cancel button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     cancelButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Text style of selected items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selectedTextStyle?: PickerTextStyle;
+    /**
+     * Mask Region of dialog. The size cannot exceed the main window.
+     *
+     * @type { ?Rectangle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     maskRect?: Rectangle;
+    /**
+     * Defines the dialog alignment of the screen.
+     *
+     * @type { ?DialogAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     alignment?: DialogAlignment;
+    /**
+     * Defines the dialog offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     offset?: Offset;
-    onAccept?: ((value: TimePickerResult) => void);
-    onCancel?: (() => void);
-    onChange?: ((value: TimePickerResult) => void);
+    /**
+     * Called when the OK button in the dialog is clicked.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onAccept?: (value: TimePickerResult) => void;
+    /**
+     * Called when the Cancel button in the dialog is clicked.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onCancel?: () => void;
+    /**
+     * This event is triggered when a TimePicker Time or time is selected in dialog.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange?: (value: TimePickerResult) => void;
+    /**
+     * This event is triggered when an item enters the selected area in dialog.
+     *
+     * @type { ?Callback<TimePickerResult> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onEnterSelectedArea?: Callback<TimePickerResult>;
+    /**
+     * Defines the timePickerDialog's background color
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundColor?: ResourceColor;
+    /**
+     * Defines the timePickerDialog's background blur Style
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundBlurStyle?: BlurStyle;
-    onDidAppear?: (() => void);
-    onDidDisappear?: (() => void);
-    onWillAppear?: (() => void);
-    onWillDisappear?: (() => void);
+    /**
+     * Defines the timePickerDialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the timePickerDialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableCascade?: boolean;
+    /**
+     * Callback function when the dialog appears.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDidAppear?: () => void;
+    /**
+     * Callback function when the dialog disappears.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDidDisappear?: () => void;
+    /**
+     * Callback function before the dialog openAnimation starts.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillAppear?: () => void;
+    /**
+     * Callback function before the dialog closeAnimation starts.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillDisappear?: () => void;
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     shadow?: ShadowOptions | ShadowStyle;
-    dateTimeOptions?: DateTimeOptions;
+    /**
+     * Set time format
+     *
+     * @type { ?intl.DateTimeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    dateTimeOptions?: intl.DateTimeOptions;
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableHoverMode?: boolean;
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     hoverModeArea?: HoverModeAreaType;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback?: boolean;
 }
-export interface TimePickerDialog {
-    show(options?: TimePickerDialogOptions): undefined
+/**
+ * Defines TimePickerDialog which uses show method to show TimePicker dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class TimePickerDialog {
 }
+export declare interface UITimePickerAttribute extends UICommonMethod {
+    /**
+     * Time Selector: indicates whether to display the 24-hour clock.
+     *
+     * @param { boolean } value
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    useMilitaryTime(value: boolean | undefined): this;
+    /**
+     * Sets whether to enable the wheel mode.
+     * @param { boolean } value - indicates whether to enable the wheel mode.
+     * @returns { TimePickerAttribute } the attribute of the time picker
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    loop(value: boolean | undefined): this;
+    /**
+     * Sets the text style of disappearing items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of normal items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of selected items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of selected items.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Set time format
+     *
+     * @param { intl.DateTimeOptions } value - indicates the format of the time display.
+     * @returns { TimePickerAttribute } the attribute of the time picker
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    dateTimeOptions(value: intl.DateTimeOptions | undefined): this;
+    /**
+     * This event is triggered when a TimePicker time is selected.
+     *
+     * @param { Optional<OnTimePickerChangeCallback> } callback
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: OnTimePickerChangeCallback | undefined): this;
+    /**
+     * This event is triggered when an item enters the selected area.
+     *
+     * @param { Callback<TimePickerResult> } callback
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onEnterSelectedArea(callback: Callback<TimePickerResult> | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableHapticFeedback(enable: boolean | undefined): this;
+    /**
+     * If the attribute is set, the crown rotation sensitivity can be changed.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+     *
+     * @param { boolean } enabled - Default value is false, set true to enable.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableCascade(enabled: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function TimePicker(
-    options?: TimePickerOptions | undefined, 
+    options?: TimePickerOptions, 
     @memo
     content_?: () => void,
-): TimePickerAttribute
+): UITimePickerAttribute

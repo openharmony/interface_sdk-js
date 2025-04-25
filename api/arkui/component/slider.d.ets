@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,123 +19,956 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Axis, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { ResourceStr, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, PixelMap } from './units'
-import { CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { LinearGradient } from './dataPanel'
-import { Callback_Number_Void } from './alphabetIndexer'
-export enum SliderStyle {
-    OUT_SET = 0,
-    OutSet = 0,
-    IN_SET = 1,
-    InSet = 1,
-    NONE = 2
+import { CommonMethod, CommonConfiguration, ContentModifier, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { Axis, CrownSensitivity } from "./enums";
+import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from "./units";
+import { CircleAttribute, UICircleAttribute } from "./circle";
+import { RectAttribute, UIRectAttribute } from "./rect";
+import { PathAttribute, UIPathAttribute } from "./path";
+import { EllipseAttribute, UIEllipseAttribute } from "./ellipse";
+import { LinearGradient } from "./dataPanel";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Declare sliderstyle
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SliderStyle {
+    /**
+     * The slider is on the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    OutSet,
+    /**
+     * The slider is in the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    InSet,
+    /**
+     * No slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    NONE
 }
-export enum SliderChangeMode {
-    BEGIN = 0,
-    Begin = 0,
-    MOVING = 1,
-    Moving = 1,
-    END = 2,
-    End = 2,
-    CLICK = 3,
-    Click = 3
+/**
+ * Declare SliderChangeMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SliderChangeMode {
+    /**
+     * Start dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Begin,
+    /**
+     * Drag the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Moving,
+    /**
+     * End dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    End,
+    /**
+     * Click the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Click
 }
-export enum SliderInteraction {
-    SLIDE_AND_CLICK = 0,
-    SLIDE_ONLY = 1,
+/**
+ * Declare SliderInteraction
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SliderInteraction {
+    /**
+     * Allow user to slide the block and click track to move the block
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    SLIDE_AND_CLICK,
+    /**
+     * Only allow user to slide the block
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    SLIDE_ONLY,
+    /**
+     * Allow user to slide the block and click track to move the block, but click value only change when touch up.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     SLIDE_AND_CLICK_UP = 2
 }
-export interface SlideRange {
+/**
+ * Defines the valid slidable range. If and only if MIN <= from <= to <= MAX, sliding range can be set successfully.
+ *
+ * @interface SlideRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SlideRange {
+    /**
+     * Set the start point of sliding range.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     from?: number;
+    /**
+     * Set the end point of sliding range.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     to?: number;
 }
-export interface SliderOptions {
+/**
+ * Defines the options of Slider.
+ *
+ * @interface SliderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SliderOptions {
+    /**
+     * Current value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     value?: number;
+    /**
+     * Sets the min value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     min?: number;
+    /**
+     * Sets the max value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     max?: number;
+    /**
+     * Sets the step of each slide value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     step?: number;
+    /**
+     * Sets the slider style.
+     *
+     * @type { ?SliderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     style?: SliderStyle;
+    /**
+     * Sets the slider direction style.
+     *
+     * @type { ?Axis }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     direction?: Axis;
+    /**
+     * Set whether the direction of the slider needs to be reversed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     reverse?: boolean;
 }
-export enum SliderBlockType {
-    DEFAULT = 0,
-    IMAGE = 1,
-    SHAPE = 2
+/**
+ * Declare SliderBlockType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SliderBlockType {
+    /**
+     * Use the default block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    DEFAULT,
+    /**
+     * Use an image as the slider block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    IMAGE,
+    /**
+     * Use a shape as the slider block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    SHAPE
 }
-export interface SliderBlockStyle {
+/**
+ * Defines the style of slider block.
+ *
+ * @interface SliderBlockStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SliderBlockStyle {
+    /**
+     * Sets the type of slider block.
+     *
+     * @type { SliderBlockType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     type: SliderBlockType;
+    /**
+     * Sets the image of slider block while the type is set to SliderBlockType.Image.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     image?: ResourceStr;
-    shape?: string;
+    /**
+     * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
+     *
+     * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
 }
+/**
+ * Defines the callback type used in SliderConfiguration.
+ *
+ * @typedef {function} SliderTriggerChangeCallback
+ * @param { number } value - The value of slider.
+ * @param { SliderChangeMode } mode - The changeMode of slider.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
-export interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
+/**
+ * SliderConfiguration used by slider content modifier
+ *
+ * @extends CommonConfiguration<SliderConfiguration>
+ * @interface SliderConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
+    /**
+     * Current progress value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     value: number;
+    /**
+     * Minimum value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     min: number;
+    /**
+     * Maximum value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     max: number;
+    /**
+     * The sliding step size of Slider.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     step: number;
+    /**
+     * Trigger slider change
+     *
+     * @type { SliderTriggerChangeCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     triggerChange: SliderTriggerChangeCallback;
 }
-export type SliderInterface = (options?: SliderOptions) => SliderAttribute;
-export type Callback_Number_SliderChangeMode_Void = (value: number, mode: SliderChangeMode) => void;
-export interface SliderAttribute extends CommonMethod {
-    @memo
-    blockColor(value: ResourceColor): this;
-    @memo
-    trackColor(value: ResourceColor | LinearGradient): this;
-    @memo
-    selectedColor(value: ResourceColor): this;
-    @memo
-    minLabel(value: string): this;
-    @memo
-    maxLabel(value: string): this;
-    @memo
-    showSteps(value: boolean): this;
-    @memo
-    trackThickness(value: Length): this;
-    @memo
-    onChange(value: ((value: number,mode: SliderChangeMode) => void)): this;
-    @memo
-    blockBorderColor(value: ResourceColor): this;
-    @memo
-    blockBorderWidth(value: Length): this;
-    @memo
-    stepColor(value: ResourceColor): this;
-    @memo
-    trackBorderRadius(value: Length): this;
-    @memo
-    selectedBorderRadius(value: Dimension): this;
-    @memo
-    blockSize(value: SizeOptions): this;
-    @memo
-    blockStyle(value: SliderBlockStyle): this;
-    @memo
-    stepSize(value: Length): this;
-    @memo
-    sliderInteractionMode(value: SliderInteraction): this;
-    @memo
-    minResponsiveDistance(value: number): this;
-    @memo
-    contentModifier(value: ContentModifier<SliderConfiguration>): this;
-    @memo
-    slideRange(value: SlideRange): this;
+export declare interface SliderAttribute extends CommonMethod {
+    /**
+     * Called when the slider color of the slider bar is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    blockColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the track color of the slider is set.
+     *
+     * @param { ResourceColor | LinearGradient } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    trackColor(value: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when the slider of the slider bar is set to slide over the area color.
+     *
+     * @param { ResourceColor } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the slider of the slider bar is set to slide over the area color.
+     *
+     * @param { ResourceColor | LinearGradient } selectedColor
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when setting whether to display step size.
+     *
+     * @param { boolean } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showSteps(value: boolean | undefined): this;
+    /**
+     * Called when the percentage of bubble prompt is set when sliding.
+     *
+     * @param { boolean } value - Whether to display the bubble.
+     * @param { ResourceStr } content - Text content in the bubble. If the content is not specified, the current
+     *                                  percentage is displayed by default.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    showTips(value: boolean | undefined, content?: ResourceStr | undefined): this;
+    /**
+     * Called when the thickness of track is set.
+     *
+     * @param { Length } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    trackThickness(value: Length | undefined): this;
+    /**
+     * Called when the selection value changes.
+     *
+     * @param { function } callback
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
+    /**
+     * Called when the border color of block is set.
+     *
+     * @param { ResourceColor } value - the border color of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    blockBorderColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the border width of block is set.
+     *
+     * @param { Length } value - the border width of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    blockBorderWidth(value: Length | undefined): this;
+    /**
+     * Called when the color of step is set.
+     *
+     * @param { ResourceColor } value - the color of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    stepColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the radius of track border is set.
+     *
+     * @param { Length } value - the radius of track border.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    trackBorderRadius(value: Length | undefined): this;
+    /**
+     * Called when the radius of selected part is set.
+     *
+     * @param { Dimension } value - the radius of selected part.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedBorderRadius(value: Dimension | undefined): this;
+    /**
+     * Called when the size of block is set.
+     *
+     * @param { SizeOptions } value - the size of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    blockSize(value: SizeOptions | undefined): this;
+    /**
+     * Called when the style of block is set.
+     *
+     * @param { SliderBlockStyle } value - the style of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    blockStyle(value: SliderBlockStyle | undefined): this;
+    /**
+     * Called when the diameter of step is set.
+     *
+     * @param { Length } value - the diameter of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    stepSize(value: Length | undefined): this;
+    /**
+     * Sets the interaction mode of the slider.
+     *
+     * @param { SliderInteraction } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    sliderInteractionMode(value: SliderInteraction | undefined): this;
+    /**
+     * Sets the min value when Slider response to drag event.
+     *
+     * @param { number } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    minResponsiveDistance(value: number | undefined): this;
+    /**
+     * Set the content modifier of slider.
+     *
+     * @param { ContentModifier<SliderConfiguration> } modifier - The content modifier of slider.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<SliderConfiguration> | undefined): this;
+    /**
+     * Set the valid slidable range.
+     *
+     * @param { SlideRange } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    slideRange(value: SlideRange | undefined): this;
+    /**
+     * Set the sensitivity of rotating crown.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback(enabled: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UISliderAttribute extends UICommonMethod {
+    /**
+     * Called when the slider color of the slider bar is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    blockColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the track color of the slider is set.
+     *
+     * @param { ResourceColor | LinearGradient } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackColor(value: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when the slider of the slider bar is set to slide over the area color.
+     *
+     * @param { ResourceColor } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the slider of the slider bar is set to slide over the area color.
+     *
+     * @param { ResourceColor | LinearGradient } selectedColor
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when setting whether to display step size.
+     *
+     * @param { boolean } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    showSteps(value: boolean | undefined): this;
+    /**
+     * Called when the percentage of bubble prompt is set when sliding.
+     *
+     * @param { boolean } value - Whether to display the bubble.
+     * @param { ResourceStr } content - Text content in the bubble. If the content is not specified, the current
+     *                                  percentage is displayed by default.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    showTips(value: boolean | undefined, content?: ResourceStr | undefined): this;
+    /**
+     * Called when the thickness of track is set.
+     *
+     * @param { Length } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackThickness(value: Length | undefined): this;
+    /**
+     * Called when the selection value changes.
+     *
+     * @param { function } callback
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
+    /**
+     * Called when the border color of block is set.
+     *
+     * @param { ResourceColor } value - the border color of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    blockBorderColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the border width of block is set.
+     *
+     * @param { Length } value - the border width of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    blockBorderWidth(value: Length | undefined): this;
+    /**
+     * Called when the color of step is set.
+     *
+     * @param { ResourceColor } value - the color of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    stepColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the radius of track border is set.
+     *
+     * @param { Length } value - the radius of track border.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackBorderRadius(value: Length | undefined): this;
+    /**
+     * Called when the radius of selected part is set.
+     *
+     * @param { Dimension } value - the radius of selected part.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedBorderRadius(value: Dimension | undefined): this;
+    /**
+     * Called when the size of block is set.
+     *
+     * @param { SizeOptions } value - the size of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    blockSize(value: SizeOptions | undefined): this;
+    /**
+     * Called when the style of block is set.
+     *
+     * @param { SliderBlockStyle } value - the style of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    blockStyle(value: SliderBlockStyle | undefined): this;
+    /**
+     * Called when the diameter of step is set.
+     *
+     * @param { Length } value - the diameter of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    stepSize(value: Length | undefined): this;
+    /**
+     * Sets the interaction mode of the slider.
+     *
+     * @param { SliderInteraction } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    sliderInteractionMode(value: SliderInteraction | undefined): this;
+    /**
+     * Sets the min value when Slider response to drag event.
+     *
+     * @param { number } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    minResponsiveDistance(value: number | undefined): this;
+    /**
+     * Set the content modifier of slider.
+     *
+     * @param { ContentModifier<SliderConfiguration> } modifier - The content modifier of slider.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<SliderConfiguration> | undefined): this;
+    /**
+     * Set the valid slidable range.
+     *
+     * @param { SlideRange } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    slideRange(value: SlideRange | undefined): this;
+    /**
+     * Set the sensitivity of rotating crown.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableHapticFeedback(enabled: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Slider(
-    options?: SliderOptions | undefined, 
+    options?: SliderOptions, 
     @memo
     content_?: () => void,
-): SliderAttribute
+): UISliderAttribute

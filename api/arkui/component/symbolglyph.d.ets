@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,76 +19,599 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { Resource } from './../../../api/global/resource'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, FontWeight } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-declare interface SymbolEffect {
-}
-declare enum EffectScope {
-  LAYER = 0,
-  WHOLE = 1,
-}
-declare enum EffectDirection {
-  DOWN = 0,
-  UP = 1,
-}
-export type SymbolGlyphInterface = (value?: Resource) => SymbolGlyphAttribute;
-export enum SymbolRenderingStrategy {
+import { Resource } from '../../global/resource';
+import { ResourceColor } from "./units";
+import { FontWeight } from "./enums";
+import { CommonMethod, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The symbol rendering strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SymbolRenderingStrategy {
+    /**
+     * The single rendering strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     SINGLE = 0,
+    /**
+     * The multiple color rendering strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     MULTIPLE_COLOR = 1,
+    /**
+     * The multiple opacity rendering strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     MULTIPLE_OPACITY = 2
 }
-export enum SymbolEffectStrategy {
+/**
+ * The symbol effect strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SymbolEffectStrategy {
+    /**
+     * There is no effect strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     NONE = 0,
+    /**
+     * The scale effect strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     SCALE = 1,
+    /**
+     * The hierarchical effect strategy.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     HIERARCHICAL = 2
 }
-export enum EffectFillStyle {
+/**
+ * The direction type of symbol effect
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum EffectDirection {
+    /**
+     * The scale down animation of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    DOWN = 0,
+    /**
+     * The scale up animation of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    UP = 1
+}
+/**
+ * Declare scope type of the symbol effect
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum EffectScope {
+    /**
+     * The layered animation of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    LAYER = 0,
+    /**
+     * The whole animation of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    WHOLE = 1
+}
+/**
+ * Declare fill style of symbol
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum EffectFillStyle {
+    /**
+     * The cumulative fill style of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     CUMULATIVE = 0,
+    /**
+     * The iterative fill style of symbol
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     ITERATIVE = 1
 }
-export interface HierarchicalSymbolEffect extends SymbolEffect {
-    fillStyle?: EffectFillStyle;
+/**
+ * Defines SymbolEffect class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class SymbolEffect {
 }
-export interface AppearSymbolEffect extends SymbolEffect {
+/**
+ * Defines ScaleSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class ScaleSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @param { EffectDirection } [direction] - The direction of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(scope?: EffectScope, direction?: EffectDirection);
+    /**
+     * The scope type of symbol effect
+     *
+     * @type { ?EffectScope }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scope?: EffectScope;
-}
-export interface DisappearSymbolEffect extends SymbolEffect {
-    scope?: EffectScope;
-}
-export interface BounceSymbolEffect extends SymbolEffect {
-    scope?: EffectScope;
+    /**
+     * The direction of symbol effect
+     *
+     * @type { ?EffectDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     direction?: EffectDirection;
 }
-export interface PulseSymbolEffect extends SymbolEffect {
+/**
+ * Defines HierarchicalSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class HierarchicalSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectFillStyle } [fillStyle] -  The fill style of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(fillStyle?: EffectFillStyle);
+    /**
+     * The fill style of symbol effect
+     *
+     * @type { ?EffectFillStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fillStyle?: EffectFillStyle;
 }
-export interface SymbolGlyphAttribute extends CommonMethod {
-    @memo
-    fontSize(value: number | string | Resource): this;
-    @memo
-    fontColor(value: Array<ResourceColor>): this;
-    @memo
-    fontWeight(value: number | FontWeight | string): this;
-    @memo
-    effectStrategy(value: SymbolEffectStrategy): this;
-    @memo
-    renderingStrategy(value: SymbolRenderingStrategy): this;
+/**
+ * Defines AppearSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class AppearSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(scope?: EffectScope);
+    /**
+     * The scope type of symbol effect
+     *
+     * @type { ?EffectScope }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    scope?: EffectScope;
 }
+/**
+ * Defines DisappearSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class DisappearSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(scope?: EffectScope);
+    /**
+     * The scope type of symbol effect
+     *
+     * @type { ?EffectScope }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    scope?: EffectScope;
+}
+/**
+ * Defines BounceSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class BounceSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @param { EffectDirection } [direction] - The direction of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(scope?: EffectScope, direction?: EffectDirection);
+    /**
+     * The scope type of symbol effect
+     *
+     * @type { ?EffectScope }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    scope?: EffectScope;
+    /**
+     * The direction of symbol effect
+     *
+     * @type { ?EffectDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    direction?: EffectDirection;
+}
+/**
+ * Defines ReplaceSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class ReplaceSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(scope?: EffectScope);
+    /**
+     * The scope type of symbol effect
+     *
+     * @type { ?EffectScope }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    scope?: EffectScope;
+}
+/**
+ * Defines PulseSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class PulseSymbolEffect extends SymbolEffect {
+}
+export declare interface SymbolGlyphAttribute extends CommonMethod {
+    /**
+     * Called when the SymbolGlyph size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the SymbolGlyph color is set.
+     *
+     * @param { Array<ResourceColor> } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: Array<ResourceColor> | undefined): this;
+    /**
+     * Called when the font symbolGlyph weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the symbolGlyph effect is set.
+     *
+     * @param { SymbolEffectStrategy } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    effectStrategy(value: SymbolEffectStrategy | undefined): this;
+    /**
+     * Called when the symbolGlyph rendering strategy is set.
+     *
+     * @param { SymbolRenderingStrategy } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     *  Define effect options for SymbolGlyph.
+     *
+     * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+     * @param { boolean | number } [triggerValue] - The trigger of the effect
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | number | undefined): this;
+    /**
+     * Called when the minimum font scale of the font is set.
+     *
+     * @param { Optional<number|Resource> } scale
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    minFontScale(scale: number | Resource | undefined): this;
+    /**
+     * Called when the maximum font scale of the font is set.
+     *
+     * @param { Optional<number|Resource> } scale
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    maxFontScale(scale: number | Resource | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UISymbolGlyphAttribute extends UICommonMethod {
+    /**
+     * Called when the SymbolGlyph size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the SymbolGlyph color is set.
+     *
+     * @param { Array<ResourceColor> } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: Array<ResourceColor> | undefined): this;
+    /**
+     * Called when the font symbolGlyph weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the symbolGlyph effect is set.
+     *
+     * @param { SymbolEffectStrategy } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    effectStrategy(value: SymbolEffectStrategy | undefined): this;
+    /**
+     * Called when the symbolGlyph rendering strategy is set.
+     *
+     * @param { SymbolRenderingStrategy } value
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     *  Define effect options for SymbolGlyph.
+     *
+     * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+     * @param { boolean | number } [triggerValue] - The trigger of the effect
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | number | undefined): this;
+    /**
+     * Called when the minimum font scale of the font is set.
+     *
+     * @param { Optional<number|Resource> } scale
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    minFontScale(scale: number | Resource | undefined): this;
+    /**
+     * Called when the maximum font scale of the font is set.
+     *
+     * @param { Optional<number|Resource> } scale
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    maxFontScale(scale: number | Resource | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function SymbolGlyph(
-    value?: Resource | undefined, 
+    value?: Resource, 
     @memo
     content_?: () => void,
-): SymbolGlyphAttribute
+): UISymbolGlyphAttribute

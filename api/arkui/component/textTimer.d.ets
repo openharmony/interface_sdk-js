@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,62 +19,398 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, FontStyle, FontWeight } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Number_Void } from './grid'
-export interface TextTimerController {
-    start(): undefined
-    pause(): undefined
-    reset(): undefined
+import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, Length, ResourceStr } from "./units";
+import { FontStyle, FontWeight } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Provides a way to control the process.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class TextTimerController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Provides a start event for timer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    start(): void;
+    /**
+     * Provides a pause event for timer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    pause(): void;
+    /**
+     * Provides an event to reset timer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    reset(): void;
 }
-export interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
+/**
+ * TextTimerConfiguration used by content modifier.
+ *
+ * @extends CommonConfiguration<TextTimerConfiguration>
+ * @interface TextTimerConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
+    /**
+     * Specifies the timer range.
+     * In the non-countDown scenario, a negative value indicates that the timer is not limited.
+     * The unit is millisecond.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     count: number;
+    /**
+     * Texttimer is isCountDown or not.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     isCountDown: boolean;
+    /**
+     * Texttimer is started or not.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     started: boolean;
+    /**
+     * Elapsed time of the timer, readonly.
+     * The unit is millisecond.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     elapsedTime: number;
 }
+/**
+ * Defines the options of TextTimer.
+ *
+ * @interface TextTimerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export interface TextTimerOptions {
+    /**
+     * Sets whether to countdown.The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     isCountDown?: boolean;
+    /**
+     * Specifies the timer range.
+     * In the non-countDown scenario, a negative value indicates that the timer is not limited.
+     * The unit is millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     count?: number;
+    /**
+     * Controller of Texttimer.
+     *
+     * @type { ?TextTimerController }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     controller?: TextTimerController;
 }
-export type TextTimerInterface = (options?: TextTimerOptions) => TextTimerAttribute;
-export interface TextTimerAttribute extends CommonMethod {
-    @memo
-    format(value: string): this;
-    @memo
-    fontColor(value: ResourceColor): this;
-    @memo
-    fontSize(value: Length): this;
-    @memo
-    fontStyle(value: FontStyle): this;
-    @memo
-    fontWeight(value: number | FontWeight | string): this;
-    @memo
-    fontFamily(value: ResourceStr): this;
-    @memo
-    onTimer(value: ((first: number,last: number) => void)): this;
-    @memo
-    textShadow(value: ShadowOptions | Array<ShadowOptions>): this;
-    @memo
-    contentModifier(value: ContentModifier<TextTimerConfiguration>): this;
+export declare interface TextTimerAttribute extends CommonMethod {
+    /**
+     * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
+     * The time format string can be hh, mm, ss, or ms.
+     *
+     * @param { string } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    format(value: string | undefined): this;
+    /**
+     * Called when the font color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the font size is set.
+     *
+     * @param { Length } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontSize(value: Length | undefined): this;
+    /**
+     * Called when the fontStyle is set
+     *
+     * @param { FontStyle } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontStyle(value: FontStyle | undefined): this;
+    /**
+     * Called when the fontWeight is set
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the fontFamily is set
+     *
+     * @param { ResourceStr } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontFamily(value: ResourceStr | undefined): this;
+    /**
+     * Called when the timer value is returned.
+     *
+     * @param { function } event
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onTimer(event: ((utc: number, elapsedTime: number) => void) | undefined): this;
+    /**
+     * Called when the text shadow is set.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
+    /**
+     * Set the content modifier of texttimer.
+     *
+     * @param { ContentModifier<TextTimerConfiguration> } modifier - The content modifier of texttimer.
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<TextTimerConfiguration> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UITextTimerAttribute extends UICommonMethod {
+    /**
+     * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
+     * The time format string can be hh, mm, ss, or ms.
+     *
+     * @param { string } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    format(value: string | undefined): this;
+    /**
+     * Called when the font color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the font size is set.
+     *
+     * @param { Length } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontSize(value: Length | undefined): this;
+    /**
+     * Called when the fontStyle is set
+     *
+     * @param { FontStyle } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontStyle(value: FontStyle | undefined): this;
+    /**
+     * Called when the fontWeight is set
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the fontFamily is set
+     *
+     * @param { ResourceStr } value
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontFamily(value: ResourceStr | undefined): this;
+    /**
+     * Called when the timer value is returned.
+     *
+     * @param { function } event
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onTimer(event: ((utc: number, elapsedTime: number) => void) | undefined): this;
+    /**
+     * Called when the text shadow is set.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
+    /**
+     * Set the content modifier of texttimer.
+     *
+     * @param { ContentModifier<TextTimerConfiguration> } modifier - The content modifier of texttimer.
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<TextTimerConfiguration> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function TextTimer(
-    options?: TextTimerOptions | undefined, 
+    options?: TextTimerOptions, 
     @memo
     content_?: () => void,
-): TextTimerAttribute
+): UITextTimerAttribute

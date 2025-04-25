@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,175 +19,1184 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Length, ResourceColor, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, LengthConstrain, PixelMap } from './units'
-import { Callback_Void } from './abilityComponent'
-import { Scroller, ScrollOptions, ScrollEdgeOptions, ScrollPageOptions, Literal_Boolean_next_Axis_direction, OffsetResult, ScrollAlign, ScrollToIndexOptions, ScrollOnWillScrollCallback, ScrollOnScrollCallback } from './scroll'
-import { Edge, Axis, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, ResponseType, FunctionKey, ModifierKey, BarState, EdgeEffect } from './enums'
-import { RectResult, ScrollableCommonMethod, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, NestedScrollOptions, ContentClipMode, EdgeEffectOptions, FadingEdgeOptions, ChildrenMainSize, ItemDragInfo } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Number_Void, Callback_ItemDragInfo_Void, Callback_ItemDragInfo_Number_Number_Void, Callback_ItemDragInfo_Number_Void, Callback_ItemDragInfo_Number_Number_Boolean_Void, Callback_Number_ScrollState_Literal_Number_offsetRemain, Literal_Number_offsetRemain } from './grid'
-import { OnScrollFrameBeginCallback, OnScrollFrameBeginHandlerResult } from './scroll'
-import { onItemDragStart_event_type } from './type-replacements'
-export enum ScrollState {
-    IDLE = 0,
-    Idle = 0,
-    SCROLL = 1,
-    Scroll = 1,
-    FLING = 2,
-    Fling = 2
+import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, UIScrollableCommonMethod, AttributeModifier, CommonMethod, UICommonMethod } from "./common";
+import { Axis } from "./enums";
+import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
+import { Dimension, Length, LengthConstrain, ResourceColor } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Declare scroll status
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ScrollState {
+    /**
+     * Not activated.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Idle,
+    /**
+     * Scrolling status.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Scroll,
+    /**
+     * Drag status.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Fling
 }
-export enum ListItemAlign {
-    START = 0,
-    Start = 0,
-    CENTER = 1,
-    Center = 1,
-    END = 2,
-    End = 2
+/**
+ * Declare list item alignment status
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ListItemAlign {
+    /**
+     * Start position in the direction of cross axis.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Start,
+    /**
+     * Center position in the direction of cross axis.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Center,
+    /**
+     * End position in the direction of cross axis
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    End
 }
-export enum ListItemGroupArea {
+/**
+ * Declare list item group area
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ListItemGroupArea {
+    /**
+     * List item group area is none
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     NONE = 0,
+    /**
+     * List item group area is list item
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     IN_LIST_ITEM_AREA = 1,
+    /**
+     * List item group area is header
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     IN_HEADER_AREA = 2,
+    /**
+     * List item group area is footer
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     IN_FOOTER_AREA = 3
 }
-export enum StickyStyle {
-    NONE = 0,
+/**
+ * Declare item group sticky style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum StickyStyle {
+    /**
+     * The header and footer of each item group will not be pinned.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     None = 0,
-    HEADER = 1,
+    /**
+     * The header of each item group will be pinned.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Header = 1,
-    FOOTER = 2,
+    /**
+     * The footer of each item group will be pinned.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Footer = 2
 }
-export enum ChainEdgeEffect {
-    DEFAULT = 0,
-    STRETCH = 1
+/**
+ * Declare edge effect of chain animation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum ChainEdgeEffect {
+    /**
+     * Default edge effect. Compress the space in the drag direction
+     * and stretch the space in the opposite drag direction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    DEFAULT,
+    /**
+     * Stretch all space.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    STRETCH
 }
-export enum ScrollSnapAlign {
-    NONE = 0,
-    START = 1,
-    CENTER = 2,
-    END = 3
+/**
+ * Declare limited position when scroll end.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ScrollSnapAlign {
+    /**
+     * Default no item scroll snap alignment effect. When scroll end,
+     * list item will stop without limit.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    NONE,
+    /**
+     * The first item in view will be aligned at the start of list.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    START,
+    /**
+     * The middle item in view will be aligned at the center of list.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CENTER,
+    /**
+     * The last item in view will be aligned at the end of list.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    END
 }
-export interface ChainAnimationOptions {
+/**
+ * Defines the chain animation options.
+ *
+ * @interface ChainAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface ChainAnimationOptions {
+    /**
+     * Minimum space for chain animation.
+     *
+     * @type { Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     minSpace: Length;
+    /**
+     * Maximum space for chain animation.
+     *
+     * @type { Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     maxSpace: Length;
+    /**
+     * Conductivity of chain animation.
+     *
+     * @type { ?number }
+     * @default 0.7
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     conductivity?: number;
+    /**
+     * Intensity of chain animation.
+     *
+     * @type { ?number }
+     * @default 0.3
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     intensity?: number;
+    /**
+     * Edge effect of chain animation.
+     *
+     * @type { ?ChainEdgeEffect }
+     * @default ChainEdgeEffect.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     edgeEffect?: ChainEdgeEffect;
+    /**
+     * Stiffness of chain spring.
+     *
+     * @type { ?number }
+     * @default 228
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     stiffness?: number;
+    /**
+     * Damping of chain spring.
+     *
+     * @type { ?number }
+     * @default 30
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     damping?: number;
 }
-export interface CloseSwipeActionOptions {
-    onFinish?: (() => void);
+/**
+ * Defines the close swipe action options.
+ *
+ * @interface CloseSwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CloseSwipeActionOptions {
+    /**
+     * Called after collapse animation completed.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onFinish?: () => void;
 }
-export interface VisibleListContentInfo {
+/**
+ * Defines the visible list content info.
+ *
+ * @interface VisibleListContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface VisibleListContentInfo {
+    /**
+     * Index number of a child in the list.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     index: number;
+    /**
+     * Area of the ListItemGroup.
+     *
+     * @type { ?ListItemGroupArea }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     itemGroupArea?: ListItemGroupArea;
+    /**
+     * Index number of a ListItem in ListItemGroup.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     itemIndexInGroup?: number;
 }
+/**
+ * Callback of scroll visible content, using in onScrollVisibleContentChange.
+ *
+ * @typedef {function} OnScrollVisibleContentChangeCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
+/**
+ * @extends Scroller
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ListScroller extends Scroller {
-    getItemRectInGroup(index: number, indexInGroup: number): RectResult
-    scrollToItemInGroup(index: number, indexInGroup: number, smooth?: boolean, align?: ScrollAlign): void
-    closeAllSwipeActions(options?: CloseSwipeActionOptions): void
-    getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo
+    /**
+     * Gets the size and position of a ListItem in a ListItemGroup.
+     *
+     * @param { number } index - Index of the ListItemGroup in List.
+     * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+     * @returns { RectResult } Returns the size and position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getItemRectInGroup(index: number, indexInGroup: number): RectResult;
+    /**
+     * Called when sliding to the specified index in specified ListItemGroup.
+     *
+     * @param { number } index - Index of the ListItemGroup in List.
+     * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+     * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+     * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scrollToItemInGroup(index: number, indexInGroup: number, smooth?: boolean, align?: ScrollAlign): void;
+    /**
+     * Collapse all listItem.
+     *
+     * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
+    /**
+     * Get visible list content info by position.
+     *
+     * @param { number } x - X coordinate relative to the upper left corner of the list's original area, in vp.
+     * @param { number } y - Y coordinate relative to the upper left corner of the list's original area, in vp.
+     * @returns { VisibleListContentInfo } Visible list content info of the position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 100004 - The controller not bound to component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo;
 }
+/**
+ * Defines List constructor options.
+ *
+ * @interface ListOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export interface ListOptions {
+    /**
+     * Set initialIndex.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     initialIndex?: number;
+    /**
+     * Set space.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     space?: number | string;
+    /**
+     * Set scroller.
+     *
+     * @type { ?Scroller }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scroller?: Scroller;
 }
-export type ListInterface = (options?: ListOptions) => ListAttribute;
-export interface ListDividerOptions {
+/**
+ * Defines List divider opotions.
+ *
+ * @interface ListDividerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ListDividerOptions {
+    /**
+     * Set strokeWidth.
+     *
+     * @type { Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth: Length;
+    /**
+     * Set color.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     color?: ResourceColor;
+    /**
+     * Set startMargin.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     startMargin?: Length;
+    /**
+     * Set endMargin.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     endMargin?: Length;
 }
-export type Callback_Number_Number_Number_Void = (start: number, end: number, center: number) => void;
-export type Callback_Number_Boolean = (index: number) => boolean;
-export type Callback_Number_Number_Boolean = (from: number, to: number) => boolean;
-export interface ListAttribute extends ScrollableCommonMethod {
-    @memo
-    alignListItem(value: ListItemAlign): this;
-    @memo
-    listDirection(value: Axis): this;
-    @memo
-    scrollBar(value: BarState): this;
-    @memo
-    contentStartOffset(value: number): this;
-    @memo
-    contentEndOffset(value: number): this;
-    @memo
-    divider(value: ListDividerOptions | undefined): this;
-    @memo
-    editMode(value: boolean): this;
-    @memo
-    multiSelectable(value: boolean): this;
-    @memo
-    cachedCount(value: number): this;
-    @memo
-    chainAnimation(value: boolean): this;
-    @memo
-    chainAnimationOptions(value: ChainAnimationOptions): this;
-    @memo
-    sticky(value: StickyStyle): this;
-    @memo
-    scrollSnapAlign(value: ScrollSnapAlign): this;
-    @memo
-    nestedScroll(value: NestedScrollOptions): this;
-    @memo
-    enableScrollInteraction(value: boolean): this;
-    @memo
-    friction(value: number | Resource): this;
-    @memo
-    childrenMainSize(value: ChildrenMainSize): this;
-    @memo
-    maintainVisibleContentPosition(value: boolean): this;
-    @memo
-    onScroll(value: ((first: number,last: number) => void)): this;
-    @memo
-    onScrollIndex(value: ((start: number,end: number,center: number) => void)): this;
-    @memo
-    onScrollVisibleContentChange(value: OnScrollVisibleContentChangeCallback): this;
-    @memo
-    onReachStart(value: (() => void)): this;
-    @memo
-    onReachEnd(value: (() => void)): this;
-    @memo
-    onScrollStart(value: (() => void)): this;
-    @memo
-    onScrollStop(value: (() => void)): this;
-    @memo
-    onItemDelete(value: ((index: number) => boolean)): this;
-    @memo
-    onItemMove(value: ((from: number,to: number) => boolean)): this;
-    @memo
-    onItemDragStart(value: ((event: ItemDragInfo,itemIndex: number) => CustomBuilder)): this;
-    @memo
-    onItemDragEnter(value: ((event: ItemDragInfo) => void)): this;
-    @memo
-    onItemDragMove(value: ((event: ItemDragInfo,itemIndex: number,insertIndex: number) => void)): this;
-    @memo
-    onItemDragLeave(value: ((event: ItemDragInfo,itemIndex: number) => void)): this;
-    @memo
-    onItemDrop(value: ((event: ItemDragInfo,itemIndex: number,insertIndex: number,isSuccess: boolean) => void)): this;
-    @memo
-    onScrollFrameBegin(value: ((offset: number,state: ScrollState) => OnScrollFrameBeginHandlerResult)): this;
+export declare interface ListAttribute extends ScrollableCommonMethod {
+    /**
+     * Called when need to decide how much lanes the list will show.
+     *
+     * @param { number | LengthConstrain } value
+     * @param { Dimension } gutter
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    lanes(value: number | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
+    /**
+     * Called when need to decide how to align lanes in the direction of the cross axis.
+     *
+     * @param { ListItemAlign } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    alignListItem(value: ListItemAlign | undefined): this;
+    /**
+     * Called when the arrangement direction of the list component is set.
+     *
+     * @param { Axis } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    listDirection(value: Axis | undefined): this;
+    /**
+     * Called when need to decide contentStartOffset the list will show.
+     * @param { number } value - the value Of startOffset.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentStartOffset(value: number | undefined): this;
+    /**
+     * Called when need to decide contentEndOffset the list will show.
+     * @param { number } value - the value Of endOffset.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentEndOffset(value: number | undefined): this;
+    /**
+     * Called when the ListItem split line style is set.
+     *
+     * @param { ListDividerOptions | null } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    divider(value: ListDividerOptions | null | undefined): this;
+    /**
+     * Called when judging whether it is multiSelectable.
+     *
+     * @param { boolean } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    multiSelectable(value: boolean | undefined): this;
+    /**
+     * Called when the minimum number of list item caches is set for long list deferred loading.
+     *
+     * @param { number } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(value: number | undefined): this;
+    /**
+     * Called when the minimum number of list item caches is set for long list deferred loading.
+     *
+     * @param { number } count - cached count.
+     * @param { boolean } show - whether to show the nodes in the cache.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(count: number | undefined, show: boolean | undefined): this;
+    /**
+     * Called when setting whether to enable chain linkage dynamic effect.
+     *
+     * @param { boolean } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    chainAnimation(value: boolean | undefined): this;
+    /**
+     * Called to setting chain linkage dynamic effect options.
+     *
+     * @param { ChainAnimationOptions } value - options of the chain animation.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    chainAnimationOptions(value: ChainAnimationOptions | undefined): this;
+    /**
+     * Called when header or footer of item group will be pinned.
+     *
+     * @param { StickyStyle } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    sticky(value: StickyStyle | undefined): this;
+    /**
+     * Called to set list item scroll end alignment effect.
+     *
+     * @param { ScrollSnapAlign } value - options of the list alignment effect.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scrollSnapAlign(value: ScrollSnapAlign | undefined): this;
+    /**
+     * Set children main size for List.
+     *
+     * @param { ChildrenMainSize } value - children main size for List
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    childrenMainSize(value: ChildrenMainSize | undefined): this;
+    /**
+     * Set maintain visible content position List.
+     *
+     * @param { boolean } enabled - maintain visible content position.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    maintainVisibleContentPosition(enabled: boolean | undefined): this;
+    /**
+     * Sets the layout of the List component from the end.
+     *
+     * @param { boolean } enabled - Indicates whether the List is layout from the end.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    stackFromEnd(enabled: boolean | undefined): this;
+    /**
+     * Called when the start and end positions of the display change.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onScrollIndex(event: ((start: number, end: number, center: number) => void) | undefined): this;
+    /**
+     * Called when the list visible content changes.
+     *
+     * @param { OnScrollVisibleContentChangeCallback } handler - Callback of Scroll Visible.
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback | undefined): this;
+    /**
+     * Called when a list item is moved.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemMove(event: ((from: number, to: number) => boolean) | undefined): this;
+    /**
+     * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+     * (To be triggered, press and hold for 170 milliseconds (ms))
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragStart(event: ((event: ItemDragInfo, itemIndex: number) => ((() => Object) | undefined)) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged to the range of the component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragMove(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged out of the component range.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: number) => void) | undefined): this;
+    /**
+     * The component bound to this event can be used as the drag release target.
+     * This callback is triggered when the drag behavior is stopped within the scope of the component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDrop(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void) | undefined): this;
+    /**
+     * Called when scrolling begin each frame.
+     *
+     * @param { OnScrollFrameBeginCallback } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIListAttribute extends UIScrollableCommonMethod {
+    /**
+     * Called when need to decide how much lanes the list will show.
+     *
+     * @param { number | LengthConstrain } value
+     * @param { Dimension } gutter
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    lanes(value: number | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
+    /**
+     * Called when need to decide how to align lanes in the direction of the cross axis.
+     *
+     * @param { ListItemAlign } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    alignListItem(value: ListItemAlign | undefined): this;
+    /**
+     * Called when the arrangement direction of the list component is set.
+     *
+     * @param { Axis } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    listDirection(value: Axis | undefined): this;
+    /**
+     * Called when need to decide contentStartOffset the list will show.
+     * @param { number } value - the value Of startOffset.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentStartOffset(value: number | undefined): this;
+    /**
+     * Called when need to decide contentEndOffset the list will show.
+     * @param { number } value - the value Of endOffset.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentEndOffset(value: number | undefined): this;
+    /**
+     * Called when the ListItem split line style is set.
+     *
+     * @param { ListDividerOptions | null } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    divider(value: ListDividerOptions | null | undefined): this;
+    /**
+     * Called when judging whether it is multiSelectable.
+     *
+     * @param { boolean } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    multiSelectable(value: boolean | undefined): this;
+    /**
+     * Called when the minimum number of list item caches is set for long list deferred loading.
+     *
+     * @param { number } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    cachedCount(value: number | undefined): this;
+    /**
+     * Called when the minimum number of list item caches is set for long list deferred loading.
+     *
+     * @param { number } count - cached count.
+     * @param { boolean } show - whether to show the nodes in the cache.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    cachedCount(count: number | undefined, show: boolean | undefined): this;
+    /**
+     * Called when setting whether to enable chain linkage dynamic effect.
+     *
+     * @param { boolean } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    chainAnimation(value: boolean | undefined): this;
+    /**
+     * Called to setting chain linkage dynamic effect options.
+     *
+     * @param { ChainAnimationOptions } value - options of the chain animation.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    chainAnimationOptions(value: ChainAnimationOptions | undefined): this;
+    /**
+     * Called when header or footer of item group will be pinned.
+     *
+     * @param { StickyStyle } value
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    sticky(value: StickyStyle | undefined): this;
+    /**
+     * Called to set list item scroll end alignment effect.
+     *
+     * @param { ScrollSnapAlign } value - options of the list alignment effect.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    scrollSnapAlign(value: ScrollSnapAlign | undefined): this;
+    /**
+     * Set children main size for List.
+     *
+     * @param { ChildrenMainSize } value - children main size for List
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    childrenMainSize(value: ChildrenMainSize | undefined): this;
+    /**
+     * Set maintain visible content position List.
+     *
+     * @param { boolean } enabled - maintain visible content position.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    maintainVisibleContentPosition(enabled: boolean | undefined): this;
+    /**
+     * Sets the layout of the List component from the end.
+     *
+     * @param { boolean } enabled - Indicates whether the List is layout from the end.
+     * @returns { ListAttribute } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    stackFromEnd(enabled: boolean | undefined): this;
+    /**
+     * Called when the start and end positions of the display change.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onScrollIndex(event: ((start: number, end: number, center: number) => void) | undefined): this;
+    /**
+     * Called when the list visible content changes.
+     *
+     * @param { OnScrollVisibleContentChangeCallback } handler - Callback of Scroll Visible.
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback | undefined): this;
+    /**
+     * Called when a list item is moved.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemMove(event: ((from: number, to: number) => boolean) | undefined): this;
+    /**
+     * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+     * (To be triggered, press and hold for 170 milliseconds (ms))
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemDragStart(event: ((event: ItemDragInfo, itemIndex: number) => ((() => Object) | undefined)) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged to the range of the component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemDragMove(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged out of the component range.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: number) => void) | undefined): this;
+    /**
+     * The component bound to this event can be used as the drag release target.
+     * This callback is triggered when the drag behavior is stopped within the scope of the component.
+     *
+     * @param { function } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onItemDrop(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void) | undefined): this;
+    /**
+     * Called when scrolling begin each frame.
+     *
+     * @param { OnScrollFrameBeginCallback } event
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function List(
-    options?: ListOptions | undefined, 
+    options?: ListOptions, 
     @memo
     content_?: () => void,
-): ListAttribute
+): UIListAttribute

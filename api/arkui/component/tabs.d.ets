@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,145 +19,1312 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { TranslateOptions, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { Length, ResourceColor, Dimension, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, EdgeEffect } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Void } from './alphabetIndexer'
-export enum BarMode {
-    SCROLLABLE = 0,
+import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, UICommonMethod, AttributeModifier } from "./common";
+import { EdgeEffect, PageFlipMode } from "./enums";
+import { Dimension, Length, ResourceColor } from "./units";
+import { CommonModifier } from "../CommonModifier";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Declare the graphic format of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum BarMode {
+    /**
+     * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     Scrollable = 0,
-    FIXED = 1,
+    /**
+     * The width of all TabBars is evenly allocated.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     Fixed = 1
 }
-export enum AnimationMode {
+/**
+ * Declare the animation mode of tab content.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum AnimationMode {
+    /**
+     * Start animation after tabcontent is fully measured.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     CONTENT_FIRST = 0,
+    /**
+     * Start animation before tabcontent is fully measured.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     ACTION_FIRST = 1,
-    NO_ANIMATION = 2
+    /**
+     * Disable default animation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    NO_ANIMATION = 2,
+    /**
+     * Jump to some index near the target without animation, then start animation after tabcontent is fully measured.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONTENT_FIRST_WITH_JUMP = 3,
+    /**
+     * Jump to some index near the target without animation, then start animation before tabcontent is fully measured.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ACTION_FIRST_WITH_JUMP = 4
 }
-export enum BarPosition {
-    START = 0,
-    Start = 0,
-    END = 1,
-    End = 1
+/**
+ * Declare the location of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum BarPosition {
+    /**
+     * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Start,
+    /**
+     * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    End
 }
-export enum LayoutStyle {
+/**
+ * Declare the layout style of the tab bar items.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum LayoutStyle {
+    /**
+     * The tab bar items are laid in the center of the tab bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     ALWAYS_CENTER = 0,
+    /**
+     * The tab bar items are laid in the tab bar by an average split.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     ALWAYS_AVERAGE_SPLIT = 1,
+    /**
+     * The tab bar items are laid in the center of the bar when their total length is more than half of the tab bar.
+     * Otherwise, they are laid in the center half of the tab bar with the same space between them.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     SPACE_BETWEEN_OR_CENTER = 2
 }
-export interface TabsController {
-    changeIndex(value: number): void
-    preloadItems(indices: Array<number> | undefined): Promise<void>
-    setTabBarTranslate(translate: TranslateOptions): void
-    setTabBarOpacity(opacity: number): void
+/**
+ * Declare the cache mode of the child components.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum TabsCacheMode {
+    /**
+     * Caches the child components on both sides of the current child components.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CACHE_BOTH_SIDE = 0,
+    /**
+     * Caches the latest switched child components.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CACHE_LATEST_SWITCHED = 1
 }
-export interface TabsOptions {
+/**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class TabsController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Called when the tab is switched.
+     *
+     * @param { number } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    changeIndex(value: number): void;
+    /**
+     * Called when need to preload specified tab content.
+     *
+     * @param { Optional<Array<number>> } indices - Indices of tab content to be preloaded.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
+     * <br> 1. The parameter type is not Array<number>.
+     * <br> 2. The parameter is an empty array.
+     * <br> 3. The parameter contains an invalid index.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    preloadItems(indices: Optional<Array<number>>): Promise<void>;
+    /**
+     * Set tab bar translate.
+     *
+     * @param { TranslateOptions } translate - translate options
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setTabBarTranslate(translate: TranslateOptions): void;
+    /**
+     * Set tab bar opacity.
+     *
+     * @param { number } opacity - opacity
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setTabBarOpacity(opacity: number): void;
+}
+/**
+ * Options used to create Tabs.
+ *
+ * @typedef TabsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabsOptions {
+    /**
+     * Set the tab location for Tabs.
+     *
+     * @type { ?BarPosition }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     barPosition?: BarPosition;
+    /**
+     * Set the index of the currently displayed tab.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     index?: number;
+    /**
+     * Set the Tabs controller.
+     *
+     * @type { ?TabsController }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     controller?: TabsController;
+    /**
+     * Set common attributes to tabbar.
+     *
+     * @type { ?CommonModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barModifier?: CommonModifier;
 }
-export type TabsInterface = (options?: TabsOptions) => TabsAttribute;
+/**
+ * Provides an interface for the style of an divider including stroke width, color, start margin
+ * and end margin
+ *
+ * @interface DividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface DividerStyle {
+    /**
+     * Define the stroke width of the divider
+     *
+     * @type { Length }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth: Length;
+    /**
+     * Define the color of the divider
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     color?: ResourceColor;
+    /**
+     * Define the start margin of the divider
+     *
+     * @type { ?Length }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     startMargin?: Length;
+    /**
+     * Define the end margin of the divider
+     *
+     * @type { ?Length }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     endMargin?: Length;
 }
-export interface TabsAnimationEvent {
+/**
+ * Provides an interface for tabs animation.
+ *
+ * @interface TabsAnimationEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabsAnimationEvent {
+    /**
+     * Offset of the current page to the start position of the tabs main axis. The unit is vp.
+     *
+     * @type { number }
+     * @default 0.0 vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     currentOffset: number;
+    /**
+     * Offset of the target page to the start position of the tabs main axis. The unit is vp.
+     *
+     * @type { number }
+     * @default 0.0 vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     targetOffset: number;
+    /**
+     * Start speed of the page-turning animation. The unit is vp/s.
+     *
+     * @type { number }
+     * @default 0.0 vp/s
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     velocity: number;
 }
+/**
+ * Provides an interface for the grid column options of an tab bar including sm, md, lg, margin and gutter.
+ *
+ * @interface BarGridColumnOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface BarGridColumnOptions {
+    /**
+     * Define the occupied column number when the screen is of small size
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     sm?: number;
+    /**
+     * Define the occupied column number when the screen is of middle size
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     md?: number;
+    /**
+     * Define the occupied column number when the screen is of large size
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     lg?: number;
+    /**
+     * Define the margin size of the columns
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     margin?: Dimension;
+    /**
+     * Define the gutter size of the columns
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     gutter?: Dimension;
 }
+/**
+ * Provides an interface for the options for the scrollable bar mode including margin and nonScrollableLayoutStyle.
+ *
+ * @interface ScrollableBarModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface ScrollableBarModeOptions {
+    /**
+     * Define the margin size of the bar items when the tab bar is scrollable.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     margin?: Dimension;
+    /**
+     * Define the layout style of the bar items when the tab bar is not scrollable.
+     *
+     * @type { ?LayoutStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     nonScrollableLayoutStyle?: LayoutStyle;
 }
+/**
+ * Defines a tabs callback when onAnimationStart.
+ *
+ * @typedef { function } OnTabsAnimationStartCallback
+ * @param { number } index - The index value of the tab that when animation start.
+ * @param { number } targetIndex - The target index value of the tab that when animation start.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnTabsAnimationStartCallback = (index: number, targetIndex: number, extraInfo: TabsAnimationEvent) => void;
+/**
+ * Defines a tabs callback when onAnimationEnd.
+ *
+ * @typedef { function } OnTabsAnimationEndCallback
+ * @param { number } index - The index value of the tab that when animation end.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
+/**
+ * Defines a tabs callback when onGestureSwipe.
+ *
+ * @typedef { function } OnTabsGestureSwipeCallback
+ * @param { number } index - The index value of the tab before gesture swipe.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
-export type TabsCustomContentTransitionCallback = (from: number,
-    to: number) => TabContentAnimatedTransition | undefined;
+/**
+ * Defines a tabs callback when customContentTransition.
+ *
+ * @typedef { function } TabsCustomContentTransitionCallback
+ * @param { number } from - The index value of the current tab when the animation begins.
+ * @param { number } to - The index value of the target tab when the animation begins.
+ * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export type TabsCustomContentTransitionCallback = (from: number, to: number) => TabContentAnimatedTransition | undefined;
+/**
+ * Defines a tabs callback when onContentWillChange.
+ *
+ * @typedef { function } OnTabsContentWillChangeCallback
+ * @param { number } currentIndex - The index value of the current tab.
+ * @param { number } comingIndex - The index value of the tab that will change.
+ * @returns { boolean }
+ * Tabs can change from currentIndex to comingIndex if function return true.
+ * Tabs can not change from currentIndex to comingIndex if function return false.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
-export interface TabsAttribute extends CommonMethod {
-    @memo
-    vertical(value: boolean): this;
-    @memo
-    barPosition(value: BarPosition): this;
-    @memo
-    scrollable(value: boolean): this;
-    @memo
-    barMode(value: BarMode): this;
-    @memo
-    barWidth(value: Length): this;
-    @memo
-    barHeight(value: Length): this;
-    @memo
-    animationDuration(value: number): this;
-    @memo
-    animationMode(value: AnimationMode | undefined): this;
-    @memo
-    edgeEffect(value: EdgeEffect | undefined): this;
-    @memo
-    onChange(value: ((index: number) => void)): this;
-    @memo
-    onTabBarClick(value: ((index: number) => void)): this;
-    @memo
-    onAnimationStart(value: OnTabsAnimationStartCallback): this;
-    @memo
-    onAnimationEnd(value: OnTabsAnimationEndCallback): this;
-    @memo
-    onGestureSwipe(value: OnTabsGestureSwipeCallback): this;
-    @memo
-    fadingEdge(value: boolean): this;
-    @memo
-    divider(value: DividerStyle | undefined): this;
-    @memo
-    barOverlap(value: boolean): this;
-    @memo
-    barBackgroundColor(value: ResourceColor): this;
-    @memo
-    barGridAlign(value: BarGridColumnOptions): this;
-    @memo
-    customContentTransition(value: TabsCustomContentTransitionCallback): this;
-    @memo
-    barBackgroundBlurStyle(value: BlurStyle): this;
-    @memo
-    barBackgroundEffect(value: BackgroundEffectOptions): this;
-    @memo
-    onContentWillChange(value: OnTabsContentWillChangeCallback): this;
+export declare interface TabsAttribute extends CommonMethod {
+    /**
+     * Called when determining whether the tab is vertical.
+     *
+     * @param { boolean } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    vertical(value: boolean | undefined): this;
+    /**
+     * Called when determining the location of the bar chart.
+     *
+     * @param { BarPosition } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barPosition(value: BarPosition | undefined): this;
+    /**
+     * Called when judging whether page switching can be performed by sliding left and right.
+     *
+     * @param { boolean } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scrollable(value: boolean | undefined): this;
+    /**
+     * Called when the graphic format of the bar chart is selected.
+     *
+     * @param { BarMode } value
+     * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barMode(value: BarMode | undefined, options?: ScrollableBarModeOptions | undefined): this;
+    /**
+     * Called when the width of the bar graph is set.
+     * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+     *
+     * @param { Length } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barWidth(value: Length | undefined): this;
+    /**
+     * Called when the height of the bar graph is set.
+     * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+     *
+     * @param { Length } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barHeight(value: Length | undefined): this;
+    /**
+     * Called when the animation duration of the bar graph is set.
+     *
+     * @param { number } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    animationDuration(value: number | undefined): this;
+    /**
+     * Set animation mode.
+     *
+     * @param { Optional<AnimationMode> } mode - animation mode for tabs switch animation
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    animationMode(mode: AnimationMode | undefined): this;
+    /**
+     * Set the effect used when the component is at one of the edges.
+     *
+     * @param { Optional<EdgeEffect> } edgeEffect - the effect used when the component is at one of the edges
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    edgeEffect(edgeEffect: EdgeEffect | undefined): this;
+    /**
+     * Called when the tab is switched.
+     *
+     * @param { Callback<number> } event
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new tab becomes selected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been selected
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onSelected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the tab is clicked.
+     *
+     * @param { Callback<number> } event
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onTabBarClick(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new tab becomes unselected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been unselected
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onUnselected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the tab content flip animation start.
+     *
+     * @param { OnTabsAnimationStartCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onAnimationStart(handler: OnTabsAnimationStartCallback | undefined): this;
+    /**
+     * Called when the tab content flip animation end.
+     *
+     * @param { OnTabsAnimationEndCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onAnimationEnd(handler: OnTabsAnimationEndCallback | undefined): this;
+    /**
+     * Called when swiping the tab content with the gesture.
+     *
+     * @param { OnTabsGestureSwipeCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onGestureSwipe(handler: OnTabsGestureSwipeCallback | undefined): this;
+    /**
+     * Set whether the edges of tab bar are fading.
+     *
+     * @param { boolean } value - indicates whether the edges of tab bar are fading.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    fadingEdge(value: boolean | undefined): this;
+    /**
+     * Set the divider between tab bar and tab content.
+     *
+     * @param { DividerStyle | null } value - indicates the style of the indicator.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    divider(value: DividerStyle | null | undefined): this;
+    /**
+     * Set whether the tab bar overlaps with the tab content.
+     *
+     * @param { boolean } value - indicates whether the tab bar overlaps with the tab content.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barOverlap(value: boolean | undefined): this;
+    /**
+     * Set the background color of the tab bar.
+     *
+     * @param { ResourceColor } value - indicates the background color of the tab bar.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the grid alignment options of the tab bar.
+     *
+     * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barGridAlign(value: BarGridColumnOptions | undefined): this;
+    /**
+     * Custom tab content transition animation.
+     * When undefined is set, this interface does not take effect.
+     *
+     * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
+     * @returns { TabsAttribute } The attribute of the tabs.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    customContentTransition(delegate: TabsCustomContentTransitionCallback | undefined): this;
+    /**
+     * Set the BlurStyle of the tab bar.
+     *
+     * @param { BlurStyle } value - indicates the  BlurStyle of the tab bar.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Set the BlurStyle of the tab bar.
+     *
+     * @param { BlurStyle } style - style indicate the blur style for the tab bar
+     * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barBackgroundBlurStyle(style: BlurStyle | undefined, options: BackgroundBlurStyleOptions | undefined): this;
+    /**
+     * Set the BackgroundEffect of the tab bar.
+     *
+     * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    barBackgroundEffect(options: BackgroundEffectOptions | undefined): this;
+    /**
+     * Setting page flip mode on mouse wheel event.
+     *
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pageFlipMode(mode: PageFlipMode | undefined): this;
+    /**
+     * Called when content will change.
+     *
+     * @param { OnTabsContentWillChangeCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onContentWillChange(handler: OnTabsContentWillChangeCallback | undefined): this;
+    /**
+     * Sets the maximum number of child components to be cached.
+     *
+     * @param { number } count - the maximum number of child components to be cached.
+     * @param { TabsCacheMode } mode - the mode of caching child components.
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cachedMaxCount(count: number | undefined, mode: TabsCacheMode | undefined): this;
+    attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export type Callback_TabContentTransitionProxy_Void = (parameter: TabContentTransitionProxy) => void;
-export interface TabContentAnimatedTransition {
+/**
+ * Defines the Tab Content animated transition options.
+ *
+ * @interface TabContentAnimatedTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabContentAnimatedTransition {
+    /**
+     * Defines the timeout of custom content transition animation. The unit is ms.
+     * If TabContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+     *
+     * @type { ?number }
+     * @default 1000 ms
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     timeout?: number;
-    transition: ((parameter: TabContentTransitionProxy) => void);
+    /**
+     * Called when custom content transition animation start.
+     *
+     * @type { Callback<TabContentTransitionProxy> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    transition: Callback<TabContentTransitionProxy>;
 }
-export interface TabContentTransitionProxy {
+/**
+ *  The proxy of TabContentAnimatedTransition.
+ *
+ * @interface TabContentTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabContentTransitionProxy {
+    /**
+     * The index of current tab content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     from: number;
+    /**
+     * The index of target tab content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     to: number;
-    finishTransition(): void
+    /**
+     * Notifies Tabs component the custom content transition animation is complete.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    finishTransition(): void;
 }
+export declare interface UITabsAttribute extends UICommonMethod {
+    /**
+     * Called when determining whether the tab is vertical.
+     *
+     * @param { boolean } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    vertical(value: boolean | undefined): this;
+    /**
+     * Called when determining the location of the bar chart.
+     *
+     * @param { BarPosition } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barPosition(value: BarPosition | undefined): this;
+    /**
+     * Called when judging whether page switching can be performed by sliding left and right.
+     *
+     * @param { boolean } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    scrollable(value: boolean | undefined): this;
+    /**
+     * Called when the graphic format of the bar chart is selected.
+     *
+     * @param { BarMode } value
+     * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barMode(value: BarMode | undefined, options?: ScrollableBarModeOptions | undefined): this;
+    /**
+     * Called when the width of the bar graph is set.
+     * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+     *
+     * @param { Length } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barWidth(value: Length | undefined): this;
+    /**
+     * Called when the height of the bar graph is set.
+     * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+     *
+     * @param { Length } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barHeight(value: Length | undefined): this;
+    /**
+     * Called when the animation duration of the bar graph is set.
+     *
+     * @param { number } value
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    animationDuration(value: number | undefined): this;
+    /**
+     * Set animation mode.
+     *
+     * @param { Optional<AnimationMode> } mode - animation mode for tabs switch animation
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    animationMode(mode: AnimationMode | undefined): this;
+    /**
+     * Set the effect used when the component is at one of the edges.
+     *
+     * @param { Optional<EdgeEffect> } edgeEffect - the effect used when the component is at one of the edges
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    edgeEffect(edgeEffect: EdgeEffect | undefined): this;
+    /**
+     * Called when the tab is switched.
+     *
+     * @param { Callback<number> } event
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new tab becomes selected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been selected
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSelected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the tab is clicked.
+     *
+     * @param { Callback<number> } event
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onTabBarClick(event: Callback<number> | undefined): this;
+    /**
+     * Called when a new tab becomes unselected. Animation is not necessarily complete.
+     *
+     * @param { Callback<number> } event - callback to notify which index has been unselected
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onUnselected(event: Callback<number> | undefined): this;
+    /**
+     * Called when the tab content flip animation start.
+     *
+     * @param { OnTabsAnimationStartCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onAnimationStart(handler: OnTabsAnimationStartCallback | undefined): this;
+    /**
+     * Called when the tab content flip animation end.
+     *
+     * @param { OnTabsAnimationEndCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onAnimationEnd(handler: OnTabsAnimationEndCallback | undefined): this;
+    /**
+     * Called when swiping the tab content with the gesture.
+     *
+     * @param { OnTabsGestureSwipeCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onGestureSwipe(handler: OnTabsGestureSwipeCallback | undefined): this;
+    /**
+     * Set whether the edges of tab bar are fading.
+     *
+     * @param { boolean } value - indicates whether the edges of tab bar are fading.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fadingEdge(value: boolean | undefined): this;
+    /**
+     * Set the divider between tab bar and tab content.
+     *
+     * @param { DividerStyle | null } value - indicates the style of the indicator.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    divider(value: DividerStyle | null | undefined): this;
+    /**
+     * Set whether the tab bar overlaps with the tab content.
+     *
+     * @param { boolean } value - indicates whether the tab bar overlaps with the tab content.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barOverlap(value: boolean | undefined): this;
+    /**
+     * Set the background color of the tab bar.
+     *
+     * @param { ResourceColor } value - indicates the background color of the tab bar.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the grid alignment options of the tab bar.
+     *
+     * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barGridAlign(value: BarGridColumnOptions | undefined): this;
+    /**
+     * Custom tab content transition animation.
+     * When undefined is set, this interface does not take effect.
+     *
+     * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
+     * @returns { TabsAttribute } The attribute of the tabs.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    customContentTransition(delegate: TabsCustomContentTransitionCallback | undefined): this;
+    /**
+     * Set the BlurStyle of the tab bar.
+     *
+     * @param { BlurStyle } value - indicates the  BlurStyle of the tab bar.
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Set the BlurStyle of the tab bar.
+     *
+     * @param { BlurStyle } style - style indicate the blur style for the tab bar
+     * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barBackgroundBlurStyle(style: BlurStyle | undefined, options: BackgroundBlurStyleOptions | undefined): this;
+    /**
+     * Set the BackgroundEffect of the tab bar.
+     *
+     * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+     * @returns { TabsAttribute } the attribute of the tabs
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    barBackgroundEffect(options: BackgroundEffectOptions | undefined): this;
+    /**
+     * Setting page flip mode on mouse wheel event.
+     *
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pageFlipMode(mode: PageFlipMode | undefined): this;
+    /**
+     * Called when content will change.
+     *
+     * @param { OnTabsContentWillChangeCallback } handler
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onContentWillChange(handler: OnTabsContentWillChangeCallback | undefined): this;
+    /**
+     * Sets the maximum number of child components to be cached.
+     *
+     * @param { number } count - the maximum number of child components to be cached.
+     * @param { TabsCacheMode } mode - the mode of caching child components.
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    cachedMaxCount(count: number | undefined, mode: TabsCacheMode | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Tabs(
-    options?: TabsOptions | undefined, 
+    options?: TabsOptions, 
     @memo
     content_?: () => void,
-): TabsAttribute
+): UITabsAttribute
