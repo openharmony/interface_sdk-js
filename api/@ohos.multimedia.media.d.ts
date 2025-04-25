@@ -19,7 +19,7 @@
  */
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
-import audio from "./@ohos.multimedia.audio";
+import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
