@@ -71,16 +71,6 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
-  /**
-   * Cancel a reminder.
-   *
-   * @param { number } reminderId - Indicates the reminder id.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 1700003 - The reminder does not exist.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
-   */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -94,16 +84,6 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
-  /**
-   * Cancel a reminder.
-   *
-   * @param { number } reminderId - Indicates the reminder id.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 1700003 - The reminder does not exist.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
-   */
   function cancelReminder(reminderId: number): Promise<void>;
 
   /**
@@ -114,14 +94,6 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
-   */
-  /**
-   * Obtains all the valid reminders of current application.
-   *
-   * @param { AsyncCallback<Array<ReminderRequest>> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -134,14 +106,6 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
-  /**
-   * Obtains all the valid reminders of current application.
-   *
-   * @returns { Promise<Array<ReminderRequest>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
-   */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
   /**
@@ -153,14 +117,6 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
-  /**
-   * Cancel all the reminders of current application.
-   *
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
-   */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
   /**
@@ -171,14 +127,6 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
-   */
-  /**
-   * Cancel all the reminders of current application.
-   *
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 17
    */
   function cancelAllReminders(): Promise<void>;
 
@@ -273,6 +221,21 @@ declare namespace reminderAgentManager {
    * @since 12
    */
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
+
+  /**
+   * Updates a scheduled reminder.
+   *
+   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
+   * @param { reminderId } number - Indicates the reminder id.
+   * @param { ReminderRequest } reminderReq - Indicates the reminder.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 1700003 - The reminder does not exist.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   */
+  function updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise<void>;
 
   /**
    * Declares action button type.
