@@ -135,6 +135,18 @@ declare namespace unifiedDataChannel {
      * @since 20
      */
     constructor();
+    /**
+     * Add a record into unified data
+     *
+     * @param { UnifiedRecord } record - Record will add into unified data.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect Parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    addRecord(record: UnifiedRecord): void;
      /**
      * Get all records of unified data
      *
