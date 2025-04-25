@@ -23012,6 +23012,19 @@ declare class CommonMethod<T> {
   align(value: Alignment): T;
 
   /**
+   * align
+   *
+   * @param { Alignment | LocalizedAlignment } alignment
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  align(alignment: Alignment | LocalizedAlignment): T;
+
+  /**
    * position
    *
    * @param { Position } value
