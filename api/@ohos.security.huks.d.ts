@@ -64,10 +64,14 @@ declare namespace huks {
 
   /**
    * Generate Key.
-   *
+   * 
+   * @description Generates a key. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -89,9 +93,13 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -116,8 +124,12 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content. 
+   * It returns only the information indicating whether the API is successfully called.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -140,8 +152,12 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content. 
+   * It returns only the information indicating whether the API is successfully called.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
