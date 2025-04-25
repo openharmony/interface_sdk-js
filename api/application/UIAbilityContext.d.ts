@@ -4788,7 +4788,6 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-
    * @throws { BusinessError } 16000065 - The API can be called only when the ability is running in the foreground.
    * @throws { BusinessError } 16000084 - Only allow DelegatorAbility to call the method once.
    * @throws { BusinessError } 16000085 - The interaction process between Ability and Window encountered an error.
