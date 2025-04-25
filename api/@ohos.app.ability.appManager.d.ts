@@ -18,7 +18,8 @@
  * @kit AbilityKit
  */
 
-import { AsyncCallback } from './@ohos.base';import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import { AsyncCallback } from './@ohos.base';
+import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
 /*** if arkts 1.1 */
