@@ -7679,11 +7679,12 @@ declare namespace relationalStore {
     /**
      * Changes the key used to encrypt the database.
      *
-     * @param { CryptoParam } cryptoParam - The Crypto parameters to rekey. 
+     * @param { CryptoParam } cryptoParam - Specifies the crypto parameters used to rekey.
      * If valid cryptoParam passed, the cryptoParam is used to rekey.
-     * If cryptoParam not passed, the default cryptoParam is used.
+     * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid args.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
