@@ -1305,6 +1305,20 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   barHeight(value: Length): TabsAttribute;
 
+    /**
+   * Called when the height of the bar graph is set.
+   * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } height - the height of the tabBar.
+   * @param { boolean } noMinHeightLimit - indicates whether there is a minimum limit on the height of the tabBar when height is set to auto.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+    barHeight(height: Length, noMinHeightLimit: boolean): TabsAttribute;
+
   /**
    * Sets the animation curve
    *
