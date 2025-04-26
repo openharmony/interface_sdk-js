@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,46 +19,201 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, Font, DividerStyleOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export type MenuInterface = () => MenuAttribute;
-export enum SubMenuExpandingMode {
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Declare SubMenuExpandingMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SubMenuExpandingMode {
+    /**
+     * Sub-menu will expand besides main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     SIDE_EXPAND = 0,
+    /**
+     * Sub-menu will expand embedded in main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     EMBEDDED_EXPAND = 1,
+    /**
+     * Sub-menu will expand over main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     STACK_EXPAND = 2
 }
-export interface MenuAttribute extends CommonMethod {
-    @memo
-    fontSize(value: Length): this;
-    @memo
-    font(value: Font): this;
-    @memo
-    fontColor(value: ResourceColor): this;
-    @memo
-    radius(value: Dimension | BorderRadiuses): this;
-    @memo
-    menuItemDivider(value: DividerStyleOptions | undefined): this;
-    @memo
-    menuItemGroupDivider(value: DividerStyleOptions | undefined): this;
-    @memo
-    subMenuExpandingMode(value: SubMenuExpandingMode): this;
+export declare interface MenuAttribute extends CommonMethod {
+    /**
+     * Sets the font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    font(value: Font | undefined): this;
+    /**
+     * Sets the Menu font color.
+     *
+     * @param { ResourceColor } value - Indicates the font color of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the radius of the corner around the menu.
+     * When the radius is less than the menu width, the default border radius is used.
+     *
+     * @param { Dimension | BorderRadiuses } value - the border radius.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    radius(value: Dimension | BorderRadiuses | undefined): this;
+    /**
+     * Set the divider of menu item
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuItemDivider(options: DividerStyleOptions | undefined): this;
+    /**
+     * Set the divider of menu item group
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuItemGroupDivider(options: DividerStyleOptions | undefined): this;
+    /**
+     * Set the expanding mode of sub-menu
+     *
+     * @param { SubMenuExpandingMode } mode
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
+    attributeModifier(modifier: AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIMenuAttribute extends UICommonMethod {
+    /**
+     * Sets the font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    font(value: Font | undefined): this;
+    /**
+     * Sets the Menu font color.
+     *
+     * @param { ResourceColor } value - Indicates the font color of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the radius of the corner around the menu.
+     * When the radius is less than the menu width, the default border radius is used.
+     *
+     * @param { Dimension | BorderRadiuses } value - the border radius.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    radius(value: Dimension | BorderRadiuses | undefined): this;
+    /**
+     * Set the divider of menu item
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuItemDivider(options: DividerStyleOptions | undefined): this;
+    /**
+     * Set the divider of menu item group
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuItemGroupDivider(options: DividerStyleOptions | undefined): this;
+    /**
+     * Set the expanding mode of sub-menu
+     *
+     * @param { SubMenuExpandingMode } mode
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Menu(
     
     @memo
     content_?: () => void,
-): MenuAttribute
+): UIMenuAttribute

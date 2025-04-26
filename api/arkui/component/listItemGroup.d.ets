@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,44 +19,168 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CustomBuilder, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, ChildrenMainSize } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { ListDividerOptions } from './list'
-export enum ListItemGroupStyle {
+import { ChildrenMainSize, CommonMethod, CustomBuilder, UICommonMethod, AttributeModifier } from "./common";
+import { ComponentContent } from '../ComponentContent';
+import { ListDividerOptions } from "./list";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the list item group style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ListItemGroupStyle {
+    /**
+     * Show custom style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     NONE = 0,
+    /**
+     * Show default style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     CARD = 1
 }
-export interface ListItemGroupOptions {
+/**
+ * Defines the list item group options.
+ *
+ * @interface ListItemGroupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ListItemGroupOptions {
+    /**
+     * Describes the ListItemGroup header.
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     header?: CustomBuilder;
+    /**
+      * Describes the ListItemGroup headerComponent.
+      *
+      * @type { ?ComponentContent }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 20
+      */
     headerComponent?: ComponentContent;
+    /**
+     * Describes the ListItemGroup footer.
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     footer?: CustomBuilder;
+    /**
+      * Describes the ListItemGroup footerComponent.
+      *
+      * @type { ?ComponentContent }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 20
+      */
     footerComponent?: ComponentContent;
+    /**
+     * Describes the ListItemGroup space.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     space?: number | string;
+    /**
+     * Describes the ListItemGroup style.
+     *
+     * @type { ?ListItemGroupStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     style?: ListItemGroupStyle;
 }
-export type ListItemGroupInterface = (options?: ListItemGroupOptions) => ListItemGroupAttribute;
-export interface ListItemGroupAttribute extends CommonMethod {
-    @memo
-    divider(value: ListDividerOptions | undefined): this;
-    @memo
-    childrenMainSize(value: ChildrenMainSize): this;
+export declare interface ListItemGroupAttribute extends CommonMethod {
+    /**
+     * Called when the ListItemGroup split line style is set.
+     *
+     * @param { ListDividerOptions | null } value
+     * @returns { ListItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    divider(value: ListDividerOptions | null | undefined): this;
+    /**
+     * Set children main size for ListItemGroup.
+     *
+     * @param { ChildrenMainSize } value - children main size for ListItemGroup
+     * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    childrenMainSize(value: ChildrenMainSize | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIListItemGroupAttribute extends UICommonMethod {
+    /**
+     * Called when the ListItemGroup split line style is set.
+     *
+     * @param { ListDividerOptions | null } value
+     * @returns { ListItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    divider(value: ListDividerOptions | null | undefined): this;
+    /**
+     * Set children main size for ListItemGroup.
+     *
+     * @param { ChildrenMainSize } value - children main size for ListItemGroup
+     * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    childrenMainSize(value: ChildrenMainSize | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function ListItemGroup(
-    options?: ListItemGroupOptions | undefined, 
+    options?: ListItemGroupOptions, 
     @memo
     content_?: () => void,
-): ListItemGroupAttribute
+): UIListItemGroupAttribute

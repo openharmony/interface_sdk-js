@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,52 +19,264 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { LengthMetrics, ColorMetrics } from './../Graphics'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export interface LinearIndicatorController {
-    setProgress(index: number, progress: number): void
-    start(options?: LinearIndicatorStartOptions): void
-    pause(): void
-    stop(): void
+import { CommonMethod, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { ColorMetrics, LengthMetrics } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the LinearIndicator Controller.
+ *
+ * @interface LinearIndicatorController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class LinearIndicatorController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Sets the progress of indicator.
+     *
+     * @param { number } index - the index of current indicator,  value range: [0, count - 1].
+     * If index value is out of range, do nothing.
+     * @param { number } progress - current indicator progress value, value range: [0, 100].
+     * If the progress value is out of range, do nothing.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setProgress(index: number, progress: number): void;
+    /**
+     * Start indicator auto play.
+     *
+     * @param { LinearIndicatorStartOptions } [options] - the options of indicator auto play.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    start(options?: LinearIndicatorStartOptions): void;
+    /**
+     * Pause indicator auto play.
+     * Start auto play will be resumed from this paused position.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pause(): void;
+    /**
+     * Stop indicator auto play.
+     * Start auto play will restart from the very beginning.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    stop(): void;
 }
-export interface LinearIndicatorStartOptions {
+/**
+ * Provides options of indicator auto play.
+ *
+ * @interface LinearIndicatorAutoPlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface LinearIndicatorStartOptions {
+    /**
+     * The interval between twice auto play. The unit is ms.
+     *
+     * @type { ?number }
+     * @default The default value is 0. if value is less than 0, the value will be 0.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     interval?: number;
+    /**
+     * The animation curve duration. The unit is ms.
+     *
+     * @type { ?number }
+     * @default 4000
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     duration?: number;
 }
-export interface LinearIndicatorStyle {
+/**
+ * Provides linear indicator style.
+ *
+ * @interface LinearIndicatorStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface LinearIndicatorStyle {
+    /**
+     * The space of two linear indicator.
+     *
+     * @type { ?LengthMetrics }
+     * @default The default value is 4.0vp. if value is less than 0, the value will be 4.0vp.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     space?: LengthMetrics;
+    /**
+     * Stroke width of the progress indicator.
+     *
+     * @type { ?LengthMetrics }
+     * @default The default value is 2.0vp. if value is less than 0, the value will be 2.0vp.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth?: LengthMetrics;
+    /**
+     * The stroke radius of linear indicator.
+     *
+     * @type { ?LengthMetrics }
+     * @default The default value is 1.0vp. if value is more than strokeWidth/2, the value will be strokeWidth/2.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeRadius?: LengthMetrics;
+    /**
+     * The track background color of linear indicator.
+     *
+     * @type { ?ColorMetrics }
+     * @default comp_background_tertiary
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     trackBackgroundColor?: ColorMetrics;
+    /**
+     * The track color of linear indicator.
+     *
+     * @type { ?ColorMetrics }
+     * @default comp_background_emphasize
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     trackColor?: ColorMetrics;
 }
-export type LinearIndicatorInterface = (count?: number,
-    controller?: LinearIndicatorController) => LinearIndicatorAttribute;
-export interface LinearIndicatorAttribute extends CommonMethod {
-    @memo
-    indicatorStyle(value: LinearIndicatorStyle | undefined): this;
-    @memo
-    indicatorLoop(value: boolean | undefined): this;
-    @memo
-    onChange(value: OnLinearIndicatorChangeCallback | undefined): this;
+export declare interface LinearIndicatorAttribute extends CommonMethod {
+    /**
+     * Sets the indicator style.
+     *
+     * @param { Optional<LinearIndicatorStyle> } style - the style of LinearIndicator
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    indicatorStyle(style: LinearIndicatorStyle | undefined): this;
+    /**
+     * Sets whether indicator supports loop, default is true.
+     *
+     * @param { Optional<boolean> } loop - indicate whether loop playback is supported
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    indicatorLoop(loop: boolean | undefined): this;
+    /**
+     * Called when progress value update.
+     *
+     * @param { Optional<OnLinearIndicatorChangeCallback> } callback - callback of the progress change event.
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: OnLinearIndicatorChangeCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<LinearIndicatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+/**
+ * Defines the callback type used in  the indicator progress change event.
+ *
+ * @typedef { function } OnLinearIndicatorChangeCallback
+ * @param { number } index - index of current indicator.
+ * @param { number } progress - current indicator progress value.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnLinearIndicatorChangeCallback = (index: number, progress: number) => void;
+export declare interface UILinearIndicatorAttribute extends UICommonMethod {
+    /**
+     * Sets the indicator style.
+     *
+     * @param { Optional<LinearIndicatorStyle> } style - the style of LinearIndicator
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    indicatorStyle(style: LinearIndicatorStyle | undefined): this;
+    /**
+     * Sets whether indicator supports loop, default is true.
+     *
+     * @param { Optional<boolean> } loop - indicate whether loop playback is supported
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    indicatorLoop(loop: boolean | undefined): this;
+    /**
+     * Called when progress value update.
+     *
+     * @param { Optional<OnLinearIndicatorChangeCallback> } callback - callback of the progress change event.
+     * @returns { LinearIndicatorAttribute } return the instance of the LinearIndicatorAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: OnLinearIndicatorChangeCallback | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<LinearIndicatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function LinearIndicator(
-    count?: number | undefined, controller?: LinearIndicatorController | undefined, 
+    count?: number, controller?: LinearIndicatorController, 
     @memo
     content_?: () => void,
-): LinearIndicatorAttribute
+): UILinearIndicatorAttribute

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,40 +19,160 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { Resource } from './../../../api/global/resource'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, FontWeight } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph'
-export type SymbolSpanInterface = (value: Resource) => SymbolSpanAttribute;
-export interface SymbolSpanAttribute extends CommonMethod {
-    @memo
-    fontSize(value: number | string | Resource): this;
-    @memo
-    fontColor(value: Array<ResourceColor>): this;
-    @memo
-    fontWeight(value: number | FontWeight | string): this;
-    @memo
-    effectStrategy(value: SymbolEffectStrategy): this;
-    @memo
-    renderingStrategy(value: SymbolRenderingStrategy): this;
-    @memo
-    attributeModifier(value: AttributeModifier<SymbolSpanAttribute>): this;
+import { Resource } from './../../../api/global/resource';
+import { CommonMethod, AttributeModifier, UICommonMethod } from "./common";
+import { ResourceColor } from "./units";
+import { FontWeight } from "./enums";
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from "./symbolglyph";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+export declare interface SymbolSpanAttribute extends CommonMethod {
+    /**
+     * Called when the SymbolSpan size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the SymbolSpan color is set.
+     *
+     * @param { Array<ResourceColor> } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: Array<ResourceColor> | undefined): this;
+    /**
+     * Called when the font SymbolSpan weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the SymbolSpan effect is set.
+     *
+     * @param { SymbolEffectStrategy } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    effectStrategy(value: SymbolEffectStrategy | undefined): this;
+    /**
+     * Called when the SymbolSpan rendering strategy is set.
+     *
+     * @param { SymbolRenderingStrategy } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     * Sets the attribute modifier.
+     *
+     * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
+     * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UISymbolSpanAttribute extends UICommonMethod {
+    /**
+     * Called when the SymbolSpan size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the SymbolSpan color is set.
+     *
+     * @param { Array<ResourceColor> } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: Array<ResourceColor> | undefined): this;
+    /**
+     * Called when the font SymbolSpan weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the SymbolSpan effect is set.
+     *
+     * @param { SymbolEffectStrategy } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    effectStrategy(value: SymbolEffectStrategy | undefined): this;
+    /**
+     * Called when the SymbolSpan rendering strategy is set.
+     *
+     * @param { SymbolRenderingStrategy } value
+     * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     * Sets the attribute modifier.
+     *
+     * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
+     * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function SymbolSpan(
     value: Resource, 
     @memo
     content_?: () => void,
-): SymbolSpanAttribute
+): UISymbolSpanAttribute

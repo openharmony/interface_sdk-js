@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,62 +19,270 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ResourceStr, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, PixelMap } from './units'
-import { CustomBuilder, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Void } from './alphabetIndexer'
-import { Callback_Boolean_Void } from './checkbox'
-export enum RefreshStatus {
-    INACTIVE = 0,
-    Inactive = 0,
-    DRAG = 1,
-    Drag = 1,
-    OVER_DRAG = 2,
-    OverDrag = 2,
-    REFRESH = 3,
-    Refresh = 3,
-    DONE = 4,
-    Done = 4
+import { Callback, CustomBuilder, Optional, CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceStr } from "./units";
+import { ComponentContent } from '../ComponentContent';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The refresh status of the drop-down refresh.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum RefreshStatus {
+    /**
+     * The refresh status of the drop-down refresh.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Inactive,
+    /**
+     * Drop down, but the drop-down distance is less than the refresh distance.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Drag,
+    /**
+     * The pull-down exceeds the refresh distance.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    OverDrag,
+    /**
+     * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Refresh,
+    /**
+     * After refresh, return to the initial state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Done
 }
+/**
+ * Defines the options of refresh component.
+ *
+ * @interface RefreshOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface RefreshOptions {
+    /**
+     * Whether the current component is being refreshed.
+     * This parameter supports $$ for two-way binding of variables.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     refreshing: boolean;
-    offset?: number | string;
-    friction?: number | string;
+    /**
+     * The text displayed during refreshing
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     promptText?: ResourceStr;
+    /**
+     * Custom component to display during dragging.
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     builder?: CustomBuilder;
+    /**
+     * Custom component to display during dragging.
+     *
+     * @type { ?ComponentContent }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     refreshingContent?: ComponentContent;
 }
-export type RefreshInterface = (value: RefreshOptions) => RefreshAttribute;
-export type Callback_RefreshStatus_Void = (state: RefreshStatus) => void;
-export interface RefreshAttribute extends CommonMethod {
-    @memo
-    onStateChange(value: ((state: RefreshStatus) => void)): this;
-    @memo
-    onRefreshing(value: (() => void)): this;
-    @memo
-    refreshOffset(value: number): this;
-    @memo
-    pullToRefresh(value: boolean): this;
-    @memo
-    onOffsetChange(value: ((index: number) => void)): this;
-    @memo
-    pullDownRatio(value: number | undefined): this;
+export declare interface RefreshAttribute extends CommonMethod {
+    /**
+     * Called when the refresh state changes.
+     *
+     * @param { function } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onStateChange(callback: ((state: RefreshStatus) => void) | undefined): this;
+    /**
+     * Called when the refresh state is entered.
+     *
+     * @param { function } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onRefreshing(callback: (() => void) | undefined): this;
+    /**
+     * The pull-down offset to trigger refresh.
+     *
+     * @param { number } value
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    refreshOffset(value: number | undefined): this;
+    /**
+     * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
+     *
+     * @param { boolean } value
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pullToRefresh(value: boolean | undefined): this;
+    /**
+     * Called when the refresh offset changed.
+     * The unit is vp.
+     *
+     * @param { Callback<number> } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onOffsetChange(callback: Callback<number> | undefined): this;
+    /**
+     * Pull-down follow ratio for Refresh.
+     *
+     * @param { Optional<number> } ratio - Pull-down follow ratio for Refresh.
+     * @returns { RefreshAttribute } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pullDownRatio(ratio: number | undefined): this;
+    attributeModifier(modifier: AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIRefreshAttribute extends UICommonMethod {
+    /**
+     * Called when the refresh state changes.
+     *
+     * @param { function } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onStateChange(callback: ((state: RefreshStatus) => void) | undefined): this;
+    /**
+     * Called when the refresh state is entered.
+     *
+     * @param { function } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onRefreshing(callback: (() => void) | undefined): this;
+    /**
+     * The pull-down offset to trigger refresh.
+     *
+     * @param { number } value
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    refreshOffset(value: number | undefined): this;
+    /**
+     * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
+     *
+     * @param { boolean } value
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pullToRefresh(value: boolean | undefined): this;
+    /**
+     * Called when the refresh offset changed.
+     * The unit is vp.
+     *
+     * @param { Callback<number> } callback
+     * @returns { RefreshAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onOffsetChange(callback: Callback<number> | undefined): this;
+    /**
+     * Pull-down follow ratio for Refresh.
+     *
+     * @param { Optional<number> } ratio - Pull-down follow ratio for Refresh.
+     * @returns { RefreshAttribute } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pullDownRatio(ratio: number | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Refresh(
     value: RefreshOptions, 
     @memo
     content_?: () => void,
-): RefreshAttribute
+): UIRefreshAttribute

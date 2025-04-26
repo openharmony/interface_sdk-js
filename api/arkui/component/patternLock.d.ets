@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+  * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  *     http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
 /**
  * @file
  * @kit ArkUI
@@ -19,65 +19,433 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ResourceColor, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { LengthMetrics } from './../Graphics'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Void } from './alphabetIndexer'
-export enum PatternLockChallengeResult {
+import { ResourceColor, Length } from "./units";
+import { LengthMetrics } from '../Graphics';
+import { CommonMethod, Callback, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The challenge result based on input pattern for control pattern lock component.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum PatternLockChallengeResult {
+    /**
+     * The challenge result is correct.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     CORRECT = 1,
+    /**
+     * The challenge result is wrong.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     WRONG = 2
 }
-export interface CircleStyleOptions {
+/**
+ * Defines the options of active circle style.
+ *
+ * @interface CircleStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CircleStyleOptions {
+    /**
+     * The circle color when cell is active state.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     color?: ResourceColor;
+    /**
+     * The circle radius when cell is active state.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     radius?: LengthMetrics;
+    /**
+     * Enable the wave effect when cell is active.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableWaveEffect?: boolean;
+    /**
+     * Enable the activity circle style displayed in the foreground.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableForeground?: boolean;
 }
-export interface PatternLockController {
-    reset(): undefined
-    setChallengeResult(result: PatternLockChallengeResult): void
+/**
+ * Provides methods for control pattern lock component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class PatternLockController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Reset pattern lock.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    reset(): void;
+    /**
+     * Set challenge result.
+     * @param { PatternLockChallengeResult } result - The challenge result based on input pattern.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setChallengeResult(result: PatternLockChallengeResult): void;
 }
-export type PatternLockInterface = (controller?: PatternLockController) => PatternLockAttribute;
-export type Callback_Array_Number_Void = (input: Array<number>) => void;
-export interface PatternLockAttribute extends CommonMethod {
-    @memo
-    sideLength(value: Length): this;
-    @memo
-    circleRadius(value: Length): this;
-    backgroundColor(value: ResourceColor): this;
-    @memo
-    regularColor(value: ResourceColor): this;
-    @memo
-    selectedColor(value: ResourceColor): this;
-    @memo
-    activeColor(value: ResourceColor): this;
-    @memo
-    pathColor(value: ResourceColor): this;
-    @memo
-    pathStrokeWidth(value: number | string): this;
-    @memo
-    onPatternComplete(value: ((input: Array<number>) => void)): this;
-    @memo
-    autoReset(value: boolean): this;
-    @memo
-    onDotConnect(value: ((index: number) => void)): this;
-    @memo
-    activateCircleStyle(value: CircleStyleOptions | undefined): this;
+export declare interface PatternLockAttribute extends CommonMethod {
+    /**
+     * The square side length of pattern lock component.
+     *
+     * @param { Length } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    sideLength(value: Length | undefined): this;
+    /**
+     * Circle radius.
+     *
+     * @param { Length } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    circleRadius(value: Length | undefined): this;
+    /**
+     * The background color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Regular color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    regularColor(value: ResourceColor | undefined): this;
+    /**
+     * The color when cell is selected.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * The color when cell is active state.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    activeColor(value: ResourceColor | undefined): this;
+    /**
+     * The path line color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pathColor(value: ResourceColor | undefined): this;
+    /**
+     * The path line stroke width.
+     *
+     * @param { number | string } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pathStrokeWidth(value: number | string | undefined): this;
+    /**
+     * Called when the pattern input completed.
+     *
+     * @param { function } callback
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPatternComplete(callback: ((input: Array<number>) => void) | undefined): this;
+    /**
+     * Called when judging whether the input state can be reset by touch pattern lock.
+     *
+     * @param { boolean } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    autoReset(value: boolean | undefined): this;
+    /**
+     * Called when connecting to a grid dot.
+     * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDotConnect(callback: Callback<number> | undefined): this;
+    /**
+     * The activate circle style.
+     *
+     * @param { Optional<CircleStyleOptions> } options - the circle style setting options
+     * @returns { PatternLockAttribute } PatternLockAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    activateCircleStyle(options: CircleStyleOptions | undefined): this;
+    /**
+     * Skip unselected point that the path passes through.
+     *
+     * @param { boolean } skipped
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    skipUnselectedPoint(skipped: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIPatternLockAttribute extends UICommonMethod {
+    /**
+     * The square side length of pattern lock component.
+     *
+     * @param { Length } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    sideLength(value: Length | undefined): this;
+    /**
+     * Circle radius.
+     *
+     * @param { Length } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    circleRadius(value: Length | undefined): this;
+    /**
+     * The background color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    backgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Regular color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    regularColor(value: ResourceColor | undefined): this;
+    /**
+     * The color when cell is selected.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * The color when cell is active state.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    activeColor(value: ResourceColor | undefined): this;
+    /**
+     * The path line color.
+     *
+     * @param { ResourceColor } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pathColor(value: ResourceColor | undefined): this;
+    /**
+     * The path line stroke width.
+     *
+     * @param { number | string } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    pathStrokeWidth(value: number | string | undefined): this;
+    /**
+     * Called when the pattern input completed.
+     *
+     * @param { function } callback
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onPatternComplete(callback: ((input: Array<number>) => void) | undefined): this;
+    /**
+     * Called when judging whether the input state can be reset by touch pattern lock.
+     *
+     * @param { boolean } value
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    autoReset(value: boolean | undefined): this;
+    /**
+     * Called when connecting to a grid dot.
+     * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onDotConnect(callback: Callback<number> | undefined): this;
+    /**
+     * The activate circle style.
+     *
+     * @param { Optional<CircleStyleOptions> } options - the circle style setting options
+     * @returns { PatternLockAttribute } PatternLockAttribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    activateCircleStyle(options: CircleStyleOptions | undefined): this;
+    /**
+     * Skip unselected point that the path passes through.
+     *
+     * @param { boolean } skipped
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    skipUnselectedPoint(skipped: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function PatternLock(
-    controller?: PatternLockController | undefined, 
+    controller?: PatternLockController, 
     @memo
     content_?: () => void,
-): PatternLockAttribute
+): UIPatternLockAttribute

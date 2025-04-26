@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,52 +19,313 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, FontWeight, MarqueeUpdateStrategy } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
+import { ResourceColor, Length } from "./units";
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { FontWeight, MarqueeUpdateStrategy } from "./enums";
+import { Resource } from './../../../api/global/resource';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines Marquee constructor options.
+ *
+ * @interface MarqueeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export interface MarqueeOptions {
+    /**
+     * Control whether the running lamp enters the playing state.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     start: boolean;
+    /**
+     * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     step?: number;
+    /**
+     * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     loop?: number;
+    /**
+     * Set text to scroll from the beginning or backward.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     fromStart?: boolean;
+    /**
+     * Text that needs scrolling.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     src: string;
 }
-export type MarqueeInterface = (options: MarqueeOptions) => MarqueeAttribute;
-export interface MarqueeAttribute extends CommonMethod {
-    @memo
-    fontColor(value: ResourceColor): this;
-    @memo
-    fontSize(value: Length): this;
-    @memo
-    allowScale(value: boolean): this;
-    @memo
-    fontWeight(value: number | FontWeight | string): this;
-    @memo
-    fontFamily(value: string | Resource): this;
-    @memo
-    marqueeUpdateStrategy(value: MarqueeUpdateStrategy): this;
-    @memo
-    onStart(value: (() => void)): this;
-    @memo
-    onBounce(value: (() => void)): this;
-    @memo
-    onFinish(value: (() => void)): this;
+export declare interface MarqueeAttribute extends CommonMethod {
+    /**
+     * Set marquee font Color.
+     *
+     * @param { ResourceColor } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Set marquee font size.
+     *
+     * @param { Length } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontSize(value: Length | undefined): this;
+    /**
+     * Set marquee allow scale.
+     *
+     * @param { boolean } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    allowScale(value: boolean | undefined): this;
+    /**
+     * Set marquee font weight.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Set marquee font family.
+     *
+     * @param { string | Resource } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontFamily(value: string | Resource | undefined): this;
+    /**
+     * Marquee scrolling strategy after text update.
+     *
+     * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    marqueeUpdateStrategy(value: MarqueeUpdateStrategy | undefined): this;
+    /**
+     * Called when scrolling starts.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Called when scrolling to the bottom.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onBounce(event: (() => void) | undefined): this;
+    /**
+     * Called when scrolling is complete.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onFinish(event: (() => void) | undefined): this;
+    attributeModifier(modifier: AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIMarqueeAttribute extends UICommonMethod {
+    /**
+     * Set marquee font Color.
+     *
+     * @param { ResourceColor } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Set marquee font size.
+     *
+     * @param { Length } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontSize(value: Length | undefined): this;
+    /**
+     * Set marquee allow scale.
+     *
+     * @param { boolean } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    allowScale(value: boolean | undefined): this;
+    /**
+     * Set marquee font weight.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Set marquee font family.
+     *
+     * @param { string | Resource } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontFamily(value: string | Resource | undefined): this;
+    /**
+     * Marquee scrolling strategy after text update.
+     *
+     * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    marqueeUpdateStrategy(value: MarqueeUpdateStrategy | undefined): this;
+    /**
+     * Called when scrolling starts.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Called when scrolling to the bottom.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onBounce(event: (() => void) | undefined): this;
+    /**
+     * Called when scrolling is complete.
+     *
+     * @param { function } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onFinish(event: (() => void) | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Marquee(
     options: MarqueeOptions, 
     @memo
     content_?: () => void,
-): MarqueeAttribute
+): UIMarqueeAttribute

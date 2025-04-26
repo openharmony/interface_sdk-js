@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,61 +19,419 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Resource } from './../../../api/global/resource'
-import { PixelMap, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions } from './units'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, AnimationStatus, FillMode } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export type ImageAnimatorInterface = () => ImageAnimatorAttribute;
+import { Resource } from "../../global/resource";
+import image from '../../@ohos.multimedia.image';
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { AnimationStatus, FillMode } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the ImageFrameInfo Interface.
+ *
+ * @interface ImageFrameInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export interface ImageFrameInfo {
-    src: string | Resource | PixelMap;
+    /**
+     * Image path
+     *
+     * @type { string | Resource | image.PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    src: string | Resource | image.PixelMap;
+    /**
+     * Image width
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     width?: number | string;
+    /**
+     * Image height
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     height?: number | string;
+    /**
+     * Vertical coordinate of the image relative to the upper left corner of the component
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     top?: number | string;
+    /**
+     * Horizontal coordinate of the image relative to the upper left corner of the component
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     left?: number | string;
+    /**
+     * Playback duration of this image frame, in milliseconds.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     duration?: number;
 }
-export interface ImageAnimatorAttribute extends CommonMethod {
-    @memo
-    images(value: Array<ImageFrameInfo>): this;
-    @memo
-    state(value: AnimationStatus): this;
-    @memo
-    duration(value: number): this;
-    @memo
-    reverse(value: boolean): this;
-    @memo
-    fixedSize(value: boolean): this;
-    @memo
-    preDecode(value: number): this;
-    @memo
-    fillMode(value: FillMode): this;
-    @memo
-    iterations(value: number): this;
-    @memo
-    onStart(value: (() => void)): this;
-    @memo
-    onPause(value: (() => void)): this;
-    @memo
-    onRepeat(value: (() => void)): this;
-    @memo
-    onCancel(value: (() => void)): this;
-    @memo
-    onFinish(value: (() => void)): this;
+export declare interface ImageAnimatorAttribute extends CommonMethod {
+    /**
+     * list images
+     *
+     * @param { Array<ImageFrameInfo> } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    images(value: Array<ImageFrameInfo> | undefined): this;
+    /**
+     * The default value is the initial state, which is used to control the playback status.
+     *
+     * @param { AnimationStatus } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    state(value: AnimationStatus | undefined): this;
+    /**
+     * The unit is millisecond.
+     *
+     * @param { number } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    duration(value: number | undefined): this;
+    /**
+     * Set the playback sequence.
+     *
+     * @param { boolean } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    reverse(value: boolean | undefined): this;
+    /**
+     * Sets whether the image size is fixed to the component size.
+     *
+     * @param { boolean } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fixedSize(value: boolean | undefined): this;
+    /**
+     * Sets the state before and after the animation starts
+     *
+     * @param { FillMode } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fillMode(value: FillMode | undefined): this;
+    /**
+     * Played once by default
+     *
+     * @param { number } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    iterations(value: number | undefined): this;
+    /**
+     * Determines whether to use the system onVisibleAreaChange callback to control pause and play.
+     *
+     * @param { boolean } monitorInvisibleArea
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation starts to play.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation pauses.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onPause(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation is replayed
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onRepeat(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation is canceled.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onCancel(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation playback is complete.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onFinish(event: (() => void) | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIImageAnimatorAttribute extends UICommonMethod {
+    /**
+     * list images
+     *
+     * @param { Array<ImageFrameInfo> } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    images(value: Array<ImageFrameInfo> | undefined): this;
+    /**
+     * The default value is the initial state, which is used to control the playback status.
+     *
+     * @param { AnimationStatus } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    state(value: AnimationStatus | undefined): this;
+    /**
+     * The unit is millisecond.
+     *
+     * @param { number } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    duration(value: number | undefined): this;
+    /**
+     * Set the playback sequence.
+     *
+     * @param { boolean } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    reverse(value: boolean | undefined): this;
+    /**
+     * Sets whether the image size is fixed to the component size.
+     *
+     * @param { boolean } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fixedSize(value: boolean | undefined): this;
+    /**
+     * Sets the state before and after the animation starts
+     *
+     * @param { FillMode } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fillMode(value: FillMode | undefined): this;
+    /**
+     * Played once by default
+     *
+     * @param { number } value
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    iterations(value: number | undefined): this;
+    /**
+     * Determines whether to use the system onVisibleAreaChange callback to control pause and play.
+     *
+     * @param { boolean } monitorInvisibleArea
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation starts to play.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onStart(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation pauses.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onPause(event: (() => void) | undefined): this;
+    /**
+     * Status callback, triggered when the animation is replayed
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onRepeat(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation is canceled.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onCancel(event: (() => void) | undefined): this;
+    /**
+     * Status callback, which is triggered when the animation playback is complete.
+     *
+     * @param { function } event
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onFinish(event: (() => void) | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function ImageAnimator(
     
     @memo
     content_?: () => void,
-): ImageAnimatorAttribute
+): UIImageAnimatorAttribute

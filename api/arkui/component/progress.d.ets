@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,113 +19,689 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Length, PX, VP, LPX, ResourceColor, Font, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, ContentModifier, CommonConfiguration } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { LinearGradient } from './dataPanel'
-export interface ProgressOptions {
+import { ResourceColor, Length, PX, VP, LPX, Font } from "./units";
+import { Resource } from '../../global/resource';
+import { CommonMethod, Optional, ContentModifier, CommonConfiguration, UICommonMethod, AttributeModifier } from "./common";
+import { LinearGradient } from "./dataPanel";
+import { LengthMetrics } from '../Graphics';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the option of Progress.
+ *
+ * @interface ProgressOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ProgressOptions {
+    /**
+     * Sets the value of Progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     value: number;
+    /**
+     * Sets the total of Progress.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     total?: number;
-    style?: ProgressStyle;
-    type?: ProgressType;
+    /**
+     * Sets the type of Progress.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    type?: number;
 }
-export enum ProgressType {
-    LINEAR = 0,
+/**
+ * Type of progress bar
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ProgressType {
+    /**
+     * Linear progress bar style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Linear = 0,
-    RING = 1,
+    /**
+     * Ring progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Ring = 1,
-    ECLIPSE = 2,
+    /**
+     * Eclipse progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Eclipse = 2,
-    SCALE_RING = 3,
+    /**
+     * ScaleRing progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     ScaleRing = 3,
-    CAPSULE = 4,
+    /**
+     * Capsule progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     Capsule = 4
 }
-export enum ProgressStatus {
-    LOADING = 0,
-    PROGRESSING = 1
+/**
+ * Current status of progress bar.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ProgressStatus {
+    /**
+     * Loading status.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    LOADING,
+    /**
+     * Processing status.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    PROGRESSING
 }
-export interface ProgressStyleOptions extends CommonProgressStyleOptions {
+/**
+ * Defines style options for progress component.
+ *
+ * @extends CommonProgressStyleOptions
+ * @interface ProgressStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
+    /**
+     * Defines the strokeWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth?: Length;
+    /**
+     * Defines the scaleCount property.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scaleCount?: number;
+    /**
+     * Defines the scaleWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scaleWidth?: Length;
 }
-export interface CommonProgressStyleOptions {
+/**
+ * Progress common style options.
+ *
+ * @interface CommonProgressStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CommonProgressStyleOptions {
+    /**
+     * Enable smooth effect.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableSmoothEffect?: boolean;
 }
-export interface ScanEffectOptions {
+/**
+ * Defines the enable scan effect.
+ *
+ * @interface ScanEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ScanEffectOptions {
+    /**
+     * Enable scan effect.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableScanEffect?: boolean;
 }
-export interface EclipseStyleOptions extends CommonProgressStyleOptions {
+/**
+ * Defines the Eclipse style Options.
+ *
+ * @extends CommonProgressStyleOptions
+ * @interface EclipseStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 }
-export interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
+/**
+ * Defines the ScaleRing style Options.
+ *
+ * @extends CommonProgressStyleOptions
+ * @interface ScaleRingStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
+    /**
+     * Defines the strokeWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth?: Length;
+    /**
+     * Defines the scaleWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     scaleWidth?: Length;
+    /**
+     * Defines the scaleCount property.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     scaleCount?: number;
 }
-export interface RingStyleOptions extends ScanEffectOptions {
+/**
+ * Defines the ring style Options.
+ *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
+ * @interface RingStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+    /**
+     * Defines the strokeWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth?: Length;
+    /**
+     * Enables progress shadow.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     shadow?: boolean;
+    /**
+     * The status of progress, default is PROGRESSING. Set to LOADING status will trigger the loading animation.
+     *
+     * @type { ?ProgressStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     status?: ProgressStatus;
 }
-export interface LinearStyleOptions extends ScanEffectOptions {
+/**
+ * Defines the linear style Options.
+ *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
+ * @interface LinearStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+    /**
+     * Defines the strokeWidth property.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeWidth?: Length;
+    /**
+     * Defines the stroke radius property.
+     *
+     * @type { ?(PX | VP | LPX | Resource) }
+     * @default strokeWidth / 2
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeRadius?: PX | VP | LPX | Resource;
 }
-export interface CapsuleStyleOptions extends ScanEffectOptions {
+/**
+ * Defines the capsule style Options.
+ *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
+ * @interface CapsuleStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+    /**
+     * Set the inner border color.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     borderColor?: ResourceColor;
+    /**
+     * Set the border width.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     borderWidth?: Length;
+    /**
+     * Set the text content.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     content?: string;
+    /**
+     * Set the text style.
+     *
+     * @type { ?Font }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     font?: Font;
+    /**
+     * Set the text fontColor.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     fontColor?: ResourceColor;
+    /**
+     * show default percentage.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     showDefaultPercentage?: boolean;
+    /**
+     * Set border rounded corner radius.
+     *
+     * @type { ?LengthMetrics }
+     * @default height / 2
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    borderRadius?: LengthMetrics;
 }
-export enum ProgressStyle {
-    LINEAR = 0,
-    Linear = 0,
-    RING = 1,
-    Ring = 1,
-    ECLIPSE = 2,
-    Eclipse = 2,
-    SCALE_RING = 3,
-    ScaleRing = 3,
-    CAPSULE = 4,
-    Capsule = 4
+/**
+ * Type of progress bar
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ProgressStyle {
+    /**
+     * Linear progress bar style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Linear,
+    /**
+     * Ring progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Ring,
+    /**
+     * Eclipse progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Eclipse,
+    /**
+     * ScaleRing progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    ScaleRing,
+    /**
+     * Capsule progress bar.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Capsule
 }
-export interface ProgressStyleMap {
+/**
+ * Defines the map for progress type and style.
+ *
+ * @interface ProgressStyleMap
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ProgressStyleMap {
 }
-export type ProgressInterface = (options: ProgressOptions) => ProgressAttribute;
-export interface ProgressAttribute extends CommonMethod {
-    @memo
-    value(value: number): this;
-    @memo
-    color(value: ResourceColor | LinearGradient): this;
-    @memo
-    style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions): this;
-    @memo
-    privacySensitive(value: boolean | undefined): this;
-    @memo
-    contentModifier(value: ContentModifier<ProgressConfiguration>): this;
+export declare interface ProgressAttribute extends CommonMethod {
+    /**
+     * Called when the current progress value is set.
+     *
+     * @param { number } value
+     * @returns { ProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    value(value: number | undefined): this;
+    /**
+     * Called when the progress bar foreground is set.
+     *
+     * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    color(value: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when the style of progress bar is set.
+     *
+     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - indicates the style of the progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined): this;
+    /**
+     * Sets if mark to privacy sensitive.
+     *
+     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    /**
+     * Set the contentModifier of progress.
+     *
+     * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<ProgressConfiguration> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
+/**
+ * ProgressConfiguration used by progress contentModifier
+ *
+ * @extends CommonConfiguration<ProgressConfiguration>
+ * @interface ProgressConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
+    /**
+     * The value of Progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     value: number;
+    /**
+     * The total of Progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     total: number;
 }
+export declare interface UIProgressAttribute extends UICommonMethod {
+    /**
+     * Called when the current progress value is set.
+     *
+     * @param { number } value
+     * @returns { ProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    value(value: number | undefined): this;
+    /**
+     * Called when the progress bar foreground is set.
+     *
+     * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    color(value: ResourceColor | LinearGradient | undefined): this;
+    /**
+     * Called when the style of progress bar is set.
+     *
+     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - indicates the style of the progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined): this;
+    /**
+     * Sets if mark to privacy sensitive.
+     *
+     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    /**
+     * Set the contentModifier of progress.
+     *
+     * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+     * @returns { ProgressAttribute } the attribute of the progress.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<ProgressConfiguration> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Progress(
     options: ProgressOptions, 
     @memo
     content_?: () => void,
-): ProgressAttribute
+): UIProgressAttribute

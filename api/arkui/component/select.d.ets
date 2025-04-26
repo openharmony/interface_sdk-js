@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,95 +19,922 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { ResourceStr, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, Font, Offset, PixelMap } from './units'
-import { SymbolGlyphModifier } from './../../../api/arkui/SymbolGlyphModifier'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, ContentModifier, CommonConfiguration } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, OptionWidthMode } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { ControlSize } from './button'
-import { DividerOptions } from './textPicker'
-export interface SelectOption {
+import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, UICommonMethod, AttributeModifier } from "./common";
+import { ControlSize } from "./button";
+import { DividerOptions } from "./textPicker";
+import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from "./units";
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { TextModifier } from '../TextModifier';
+import { OptionWidthMode } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The declare of selectOption.
+ *
+ * @interface SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SelectOption {
+    /**
+     * Option string.
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     value: ResourceStr;
+    /**
+     * Option icon.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     icon?: ResourceStr;
+    /**
+     * Indicates the symbol icon of this menu item.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     symbolIcon?: SymbolGlyphModifier;
 }
-export type SelectInterface = (options: Array<SelectOption>) => SelectAttribute;
-export enum ArrowPosition {
+/**
+ * The enum for arrow position in the select
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ArrowPosition {
+    /**
+     * The value of arrow position end
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     END = 0,
+    /**
+     * The value of arrow position start
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     START = 1
 }
-export enum MenuAlignType {
-    START = 0,
-    CENTER = 1,
-    END = 2
+/**
+ * The type of alignment between select and menu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum MenuAlignType {
+    /**
+     * The value of menu align type start.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    START,
+    /**
+     * The value of menu align type center.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CENTER,
+    /**
+     * The value of menu align type end.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    END
 }
-export type Callback_Number_String_Void = (index: number, value: string) => void;
-export type Callback_Union_Number_Resource_Void = (selected: number | Resource) => void;
-export type Callback_ResourceStr_Void = (value: ResourceStr) => void;
-export interface SelectAttribute extends CommonMethod {
-    @memo
-    selected(value: number | Resource): this;
-    @memo
-    value(value: ResourceStr): this;
-    @memo
-    font(value: Font): this;
-    @memo
-    fontColor(value: ResourceColor): this;
-    @memo
-    selectedOptionBgColor(value: ResourceColor): this;
-    @memo
-    selectedOptionFont(value: Font): this;
-    @memo
-    selectedOptionFontColor(value: ResourceColor): this;
-    @memo
-    optionBgColor(value: ResourceColor): this;
-    @memo
-    optionFont(value: Font): this;
-    @memo
-    optionFontColor(value: ResourceColor): this;
-    @memo
-    onSelect(value: ((index: number,value: string) => void)): this;
-    @memo
-    space(value: Length): this;
-    @memo
-    arrowPosition(value: ArrowPosition): this;
-    @memo
-    optionWidth(value: Dimension | OptionWidthMode): this;
-    @memo
-    optionHeight(value: Dimension): this;
-    @memo
-    menuBackgroundColor(value: ResourceColor): this;
-    @memo
-    menuBackgroundBlurStyle(value: BlurStyle): this;
-    @memo
-    controlSize(value: ControlSize): this;
-    @memo
-    menuItemContentModifier(value: ContentModifier<MenuItemConfiguration>): this;
-    @memo
-    divider(value: DividerOptions | undefined): this;
+/**
+ * Enumeration of avoidance modes for the Select dropdown menu
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum AvoidanceMode {
+    /**
+     * The value covers the target component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    COVER_TARGET,
+    /**
+     * This value is displayed in the maximum space.(Compress the scrollbar)
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    AVOID_AROUND_TARGET
 }
-export interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration> {
+/**
+ * Callback of selecting an item from the select event.
+ *
+ * @typedef {function} OnSelectCallback
+ * @param {number} index - The index of the selected item.
+ * @param {string} selectStr - The value of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export type OnSelectCallback = (index: number, selectStr: string) => void;
+/**
+ * The declare of menuOutlineOptions.
+ *
+ * @interface MenuOutlineOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface MenuOutlineOptions {
+    /**
+     * the width of the menu outline.
+     *
+     * @type { ?(Dimension | EdgeOutlineWidths) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    width?: Dimension | EdgeOutlineWidths;
+    /**
+     * the color of the menu outline.
+     *
+     * @type { ?(ResourceColor | EdgeColors) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    color?: ResourceColor | EdgeColors;
+}
+export declare interface SelectAttribute extends CommonMethod {
+    /**
+     * Sets the serial number of the select item, starting from 0.
+     *
+     * @param { number | Resource } value - the serial number of the select item.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selected(value: number | Resource | undefined): this;
+    /**
+     * Sets the text display of the select button itself.
+     *
+     * @param { ResourceStr } value - the text display of the select button itself.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    value(value: ResourceStr | undefined): this;
+    /**
+     * Sets the text properties of the select button itself.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    font(value: Font | undefined): this;
+    /**
+     * Sets the text color of the select button itself.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the background color of the selected items in the select.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedOptionBgColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the text style of the selected items in the select.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedOptionFont(value: Font | undefined): this;
+    /**
+     * Sets the text color of the selected item in the select.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedOptionFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the background color of the select item.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionBgColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the text style for select items.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionFont(value: Font | undefined): this;
+    /**
+     * Sets the text color for select items.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Callback for selecting an item from the select.
+     *
+     * @param { Optional<OnSelectCallback> } callback
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onSelect(callback: OnSelectCallback | undefined): this;
+    /**
+     * Set the space for text and icon in select
+     *
+     * @param { Length } value - indicates the length of the space
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    space(value: Length | undefined): this;
+    /**
+     * Set the layout direction for text and arrow in select
+     *
+     * @param { ArrowPosition } value - indicates the arrow position in the select
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    arrowPosition(value: ArrowPosition | undefined): this;
+    /**
+     * Set the alignment between select and menu.
+     *
+     * @param { MenuAlignType } alignType - The type of alignment between select and menu.
+     * @param { Offset } offset - The offset between select and menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuAlign(alignType: MenuAlignType | undefined, offset?: Offset | undefined): this;
+    /**
+     * Set the width of each option and set whether the option width fit the trigger.
+     *
+     * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionWidth(value: Dimension | OptionWidthMode | undefined): this;
+    /**
+     * Set the height of each option.
+     *
+     * @param { Dimension } value - The length of option height.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionHeight(value: Dimension | undefined): this;
+    /**
+     * set the menu's background color
+     *
+     * @param { ResourceColor } value - The backgroundColor of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * set menu background blur Style
+     *
+     * @param { BlurStyle } value - The BackgroundBlurStyle of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Sets the size for controls within Select Component.
+     *
+     * @param { ControlSize } value - control size
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    controlSize(value: ControlSize | undefined): this;
+    /**
+     * Register a ContentModifier for each menu item.
+     *
+     * @param { ContentModifier<MenuItemConfiguration> } modifier - The content modifier of select menu item.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration> | undefined): this;
+    /**
+     * Set the divider of select.
+     *
+     * @param { Optional<DividerOptions> | null } options Set custom and hidden divider.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    divider(options: Optional<DividerOptions> | null | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of select.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of select.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the arrow symbol of select.
+     *
+     * @param { Optional<SymbolGlyphModifier> } modifier Set modifier for the arrow symbol of select.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    arrowModifier(modifier: SymbolGlyphModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of each option.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of each option.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    optionTextModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of selected option.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of selected option.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedOptionTextModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Set the divider style of option
+     *
+     * @param { Optional<DividerStyleOptions> } style
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    dividerStyle(style: DividerStyleOptions | undefined): this;
+    /**
+     * Set the select menu avoidance mode
+     *
+     * @param { AvoidanceMode } mode - Enumeration value of the avoidance mode
+     * @returns { SelectAttribute } Returns the chained object of Select component attributes
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    avoidance(mode: AvoidanceMode | undefined): this;
+    /**
+     * Sets the outline of menu.
+     *
+     * @param { MenuOutlineOptions } outline Set the outline of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    menuOutline(outline: MenuOutlineOptions | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+/**
+ * MenuItemConfiguration used by menu item content modifier.
+ *
+ * @extends CommonConfiguration<MenuItemConfiguration>
+ * @interface MenuItemConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration> {
+    /**
+     * Indicates the text of this menu item.
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     value: ResourceStr;
+    /**
+     * Indicates the icon of this menu item.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     icon?: ResourceStr;
+    /**
+     * Indicates the symbol icon of this menu item.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     symbolIcon?: SymbolGlyphModifier;
+    /**
+     * Indicates whether this menu item is selected or not.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected: boolean;
+    /**
+     * Indicates the index of the menu item.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     index: number;
-    triggerSelect(index: number, value: string): void
+    /**
+     * Select this menu item.
+     *
+     * @param { number } index - The value of menu item index.
+     * @param { string } value - The value of menu item text.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    triggerSelect(index: number, value: string): void;
 }
+export declare interface UISelectAttribute extends UICommonMethod {
+    /**
+     * Sets the serial number of the select item, starting from 0.
+     *
+     * @param { number | Resource } value - the serial number of the select item.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selected(value: number | Resource | undefined): this;
+    /**
+     * Sets the text display of the select button itself.
+     *
+     * @param { ResourceStr } value - the text display of the select button itself.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    value(value: ResourceStr | undefined): this;
+    /**
+     * Sets the text properties of the select button itself.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    font(value: Font | undefined): this;
+    /**
+     * Sets the text color of the select button itself.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the background color of the selected items in the select.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedOptionBgColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the text style of the selected items in the select.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedOptionFont(value: Font | undefined): this;
+    /**
+     * Sets the text color of the selected item in the select.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedOptionFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the background color of the select item.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionBgColor(value: ResourceColor | undefined): this;
+    /**
+     * Sets the text style for select items.
+     *
+     * @param { Font } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionFont(value: Font | undefined): this;
+    /**
+     * Sets the text color for select items.
+     *
+     * @param { ResourceColor } value
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionFontColor(value: ResourceColor | undefined): this;
+    /**
+     * Callback for selecting an item from the select.
+     *
+     * @param { Optional<OnSelectCallback> } callback
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSelect(callback: OnSelectCallback | undefined): this;
+    /**
+     * Set the space for text and icon in select
+     *
+     * @param { Length } value - indicates the length of the space
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    space(value: Length | undefined): this;
+    /**
+     * Set the layout direction for text and arrow in select
+     *
+     * @param { ArrowPosition } value - indicates the arrow position in the select
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    arrowPosition(value: ArrowPosition | undefined): this;
+    /**
+     * Set the alignment between select and menu.
+     *
+     * @param { MenuAlignType } alignType - The type of alignment between select and menu.
+     * @param { Offset } offset - The offset between select and menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuAlign(alignType: MenuAlignType | undefined, offset?: Offset | undefined): this;
+    /**
+     * Set the width of each option and set whether the option width fit the trigger.
+     *
+     * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionWidth(value: Dimension | OptionWidthMode | undefined): this;
+    /**
+     * Set the height of each option.
+     *
+     * @param { Dimension } value - The length of option height.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionHeight(value: Dimension | undefined): this;
+    /**
+     * set the menu's background color
+     *
+     * @param { ResourceColor } value - The backgroundColor of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * set menu background blur Style
+     *
+     * @param { BlurStyle } value - The BackgroundBlurStyle of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    /**
+     * Sets the size for controls within Select Component.
+     *
+     * @param { ControlSize } value - control size
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    controlSize(value: ControlSize | undefined): this;
+    /**
+     * Register a ContentModifier for each menu item.
+     *
+     * @param { ContentModifier<MenuItemConfiguration> } modifier - The content modifier of select menu item.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration> | undefined): this;
+    /**
+     * Set the divider of select.
+     *
+     * @param { Optional<DividerOptions> | null } options Set custom and hidden divider.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    divider(options: Optional<DividerOptions> | null | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of select.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of select.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the arrow symbol of select.
+     *
+     * @param { Optional<SymbolGlyphModifier> } modifier Set modifier for the arrow symbol of select.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    arrowModifier(modifier: SymbolGlyphModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of each option.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of each option.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    optionTextModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Sets the attribute modifier for the text of selected option.
+     *
+     * @param { Optional<TextModifier> } modifier Set modifier for the text of selected option.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedOptionTextModifier(modifier: TextModifier | undefined): this;
+    /**
+     * Set the divider style of option
+     *
+     * @param { Optional<DividerStyleOptions> } style
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    dividerStyle(style: DividerStyleOptions | undefined): this;
+    /**
+     * Set the select menu avoidance mode
+     *
+     * @param { AvoidanceMode } mode - Enumeration value of the avoidance mode
+     * @returns { SelectAttribute } Returns the chained object of Select component attributes
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    avoidance(mode: AvoidanceMode | undefined): this;
+    /**
+     * Sets the outline of menu.
+     *
+     * @param { MenuOutlineOptions } outline Set the outline of menu.
+     * @returns { SelectAttribute } the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    menuOutline(outline: MenuOutlineOptions | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Select(
     options: Array<SelectOption>, 
     @memo
     content_?: () => void,
-): SelectAttribute
+): UISelectAttribute

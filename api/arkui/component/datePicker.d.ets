@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,90 +19,670 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, PickerTextStyle, PickerDialogButtonStyle, HoverModeAreaType } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap, Offset, VoidCallback, DateTimeOptions } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Date_Void } from './calendarPicker'
-import { DialogAlignment } from './alertDialog'
-export interface DatePickerResult {
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, Offset, VoidCallback } from "./units";
+import { DialogAlignment } from "./alertDialog";
+import intl from '../../@ohos.intl';
+import { CrownSensitivity } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the struct of DatePickerResult.
+ *
+ * @interface DatePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DatePickerResult {
+    /**
+     * Application year
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     year?: number;
+    /**
+     * Application month
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     month?: number;
+    /**
+     * Application day
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     day?: number;
 }
-export interface DatePickerOptions {
+/**
+ * Defines the mode of the date picker.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum DatePickerMode {
+    /**
+     * Defines a mode that displays the date in months, days of month, and years.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    DATE = 0,
+    /**
+     * Defines a mode that displays the date in months and years.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    YEAR_AND_MONTH = 1,
+    /**
+     * Defines a mode that displays the date in months and days of the month.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    MONTH_AND_DAY = 2
+}
+/**
+ * Defines the options of DatePicker.
+ *
+ * @interface DatePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DatePickerOptions {
+    /**
+     * Specifies the start date of the date selector.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     start?: Date;
+    /**
+     * Specifies the end date for the date selector.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     end?: Date;
+    /**
+     * Specifies the date selector check date or time selector check time.
+     *
+     * @type { ?Date }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected?: Date;
+    /**
+     * Defines the mode of the date picker.
+     *
+     * @type { ?DatePickerMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    mode?: DatePickerMode;
 }
-export type DatePickerInterface = (options?: DatePickerOptions) => DatePickerAttribute;
-export type Callback_DatePickerResult_Void = (value: DatePickerResult) => void;
-export interface DatePickerAttribute extends CommonMethod {
-    @memo
-    lunar(value: boolean): this;
-    @memo
-    disappearTextStyle(value: PickerTextStyle): this;
-    @memo
-    textStyle(value: PickerTextStyle): this;
-    @memo
-    selectedTextStyle(value: PickerTextStyle): this;
-    @memo
-    onChange(value: ((value: DatePickerResult) => void)): this;
-    @memo
-    onDateChange(value: ((parameter: Date) => void)): this;
+export declare interface DatePickerAttribute extends CommonMethod {
+    /**
+     * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+     *
+     * @param { boolean } value
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    lunar(value: boolean | undefined): this;
+    /**
+     * Sets the text style of disappearing items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of normal items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of selected items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of selected items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * This event is triggered when a DatePicker date or time is selected.
+     *
+     * @param { Callback<Date> } callback
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDateChange(callback: Callback<Date> | undefined): this;
+    /**
+     * If the attribute is set, the crown rotation sensitivity can be changed.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback(enable: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export interface LunarSwitchStyle {
+/**
+ * Provide an interface for the lunar switch style of DatePickerDialog
+ *
+ * @interface LunarSwitchStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface LunarSwitchStyle {
+    /**
+     * Define the selected color of lunar switch.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selectedColor?: ResourceColor;
+    /**
+     * Define the unselected color of lunar switch.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     unselectedColor?: ResourceColor;
+    /**
+     * Define the stroke color of lunar switch.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     strokeColor?: ResourceColor;
 }
-export interface DatePickerDialogOptions extends DatePickerOptions {
+/**
+ * Defines the DatePickerDialogOptions for Data Picker Dialog.
+ *
+ * @extends DatePickerOptions
+ * @interface DatePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DatePickerDialogOptions extends DatePickerOptions {
+    /**
+     * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     lunar?: boolean;
+    /**
+     * Whether to show the switch to display the lunar.
+     *
+     * @type { ?boolean } value - indicates whether to show the switch to display the lunar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     lunarSwitch?: boolean;
+    /**
+     * Describes the lunar switch color.
+     *
+     * @type { ?LunarSwitchStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     lunarSwitchStyle?: LunarSwitchStyle;
+    /**
+     * Indicates whether to show the time selector.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     showTime?: boolean;
+    /**
+     * Indicates whether to display the 24-hour clock.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     useMilitaryTime?: boolean;
+    /**
+     * Text style of disappearing items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     disappearTextStyle?: PickerTextStyle;
+    /**
+     * Text style of normal items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     textStyle?: PickerTextStyle;
+    /**
+     * Style of accept button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     acceptButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Style of cancel button.
+     *
+     * @type { ?PickerDialogButtonStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     cancelButtonStyle?: PickerDialogButtonStyle;
+    /**
+     * Text style of selected items
+     *
+     * @type { ?PickerTextStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selectedTextStyle?: PickerTextStyle;
+    /**
+     * Mask Region of dialog. The size cannot exceed the main window.
+     *
+     * @type { ?Rectangle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     maskRect?: Rectangle;
+    /**
+     * Defines the dialog alignment of the screen.
+     *
+     * @type { ?DialogAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     alignment?: DialogAlignment;
+    /**
+     * Defines the dialog offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     offset?: Offset;
-    onAccept?: ((value: DatePickerResult) => void);
+    /**
+     * Called when the Cancel button in the dialog is clicked.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onCancel?: VoidCallback;
-    onChange?: ((value: DatePickerResult) => void);
-    onDateAccept?: ((parameter: Date) => void);
-    onDateChange?: ((parameter: Date) => void);
+    /**
+     * Called when the OK button in the dialog is clicked.
+     *
+     * @type { ?Callback<Date> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDateAccept?: Callback<Date>;
+    /**
+     * This event is triggered when a DatePicker date or time is selected in dialog.
+     *
+     * @type { ?Callback<Date> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDateChange?: Callback<Date>;
+    /**
+     * Defines the datePickerDialog's background color
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundColor?: ResourceColor;
+    /**
+     * Defines the datePickerDialog's background blur Style
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     backgroundBlurStyle?: BlurStyle;
+    /**
+     * Defines the datePickerDialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
+     * Defines the datePickerDialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Callback function when the dialog appears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onDidAppear?: VoidCallback;
+    /**
+     * Callback function when the dialog disappears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onDidDisappear?: VoidCallback;
+    /**
+     * Callback function before the dialog openAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onWillAppear?: VoidCallback;
+    /**
+     * Callback function before the dialog closeAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     onWillDisappear?: VoidCallback;
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     shadow?: ShadowOptions | ShadowStyle;
-    dateTimeOptions?: DateTimeOptions;
+    /**
+     * Set time format
+     *
+     * @type { ?intl.DateTimeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    dateTimeOptions?: intl.DateTimeOptions;
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enableHoverMode?: boolean;
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     hoverModeArea?: HoverModeAreaType;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableHapticFeedback?: boolean;
 }
-export interface DatePickerDialog {
-    show(options?: DatePickerDialogOptions): undefined
+/**
+ * Defines DatePickerDialog which uses show method to show DatePicker dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class DatePickerDialog {
 }
+export declare interface UIDatePickerAttribute extends UICommonMethod {
+    /**
+     * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+     *
+     * @param { boolean } value
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    lunar(value: boolean | undefined): this;
+    /**
+     * Sets the text style of disappearing items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of normal items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * Sets the text style of selected items
+     *
+     * @param { PickerTextStyle } value - indicates the text style of selected items.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    /**
+     * This event is triggered when a DatePicker date or time is selected.
+     *
+     * @param { Callback<Date> } callback
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onDateChange(callback: Callback<Date> | undefined): this;
+    /**
+     * If the attribute is set, the crown rotation sensitivity can be changed.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableHapticFeedback(enable: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function DatePicker(
-    options?: DatePickerOptions | undefined, 
+    options?: DatePickerOptions, 
     @memo
     content_?: () => void,
-): DatePickerAttribute
+): UIDatePickerAttribute

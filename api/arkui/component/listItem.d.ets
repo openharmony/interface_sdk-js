@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,93 +19,373 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CustomBuilder, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { Length, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { Callback_Void } from './abilityComponent'
-import { Callback_Number_Void } from './alphabetIndexer'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Boolean_Void } from './checkbox'
-export enum Sticky {
-    NONE = 0,
-    None = 0,
-    NORMAL = 1,
-    Normal = 1,
-    OPACITY = 2,
-    Opacity = 2
+import { CommonMethod, CustomBuilder, UICommonMethod, AttributeModifier } from "./common";
+import { Length } from "./units";
+import { ComponentContent } from '../ComponentContent';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Sliding effect
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SwipeEdgeEffect {
+    /**
+     * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Spring,
+    /**
+     * Sliding to the edge has no effect.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    None
 }
-export enum EditMode {
-    NONE = 0,
-    None = 0,
-    DELETABLE = 1,
-    Deletable = 1,
-    MOVABLE = 2,
-    Movable = 2
+/**
+ * Declare enum SwipeActionState.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SwipeActionState {
+    /**
+     * Collapsed type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    COLLAPSED,
+    /**
+     * EXPANDED type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    EXPANDED,
+    /**
+     * Action type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    ACTIONING
 }
-export enum SwipeEdgeEffect {
-    SPRING = 0,
-    Spring = 0,
-    NONE = 1,
-    None = 1
-}
-export enum SwipeActionState {
-    COLLAPSED = 0,
-    EXPANDED = 1,
-    ACTIONING = 2
-}
-export type Callback_SwipeActionState_Void = (state: SwipeActionState) => void;
-export interface SwipeActionItem {
+/**
+ * Defines the swipe action item for SwipeActionOptions.
+ *
+ * @interface SwipeActionItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwipeActionItem {
+    /**
+     * An action item that appears when a list item slides right (when list direction is Vertical) or
+     * slides down (when list direction Horizontal).
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     builder?: CustomBuilder;
+    /**
+      * An action item that appears when a list item slides right (when list direction is Vertical) or
+      * slides down (when list direction Horizontal).
+      *
+      * @type { ?ComponentContent }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 20
+      */
+    builderComponent?: ComponentContent;
+    /**
+     * Defines distance for the delete area.
+     *
+     * @type { ?Length }
+     * @default 56vp
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     actionAreaDistance?: Length;
-    onAction?: (() => void);
-    onEnterActionArea?: (() => void);
-    onExitActionArea?: (() => void);
-    onStateChange?: ((state: SwipeActionState) => void);
+    /**
+     * Called when ListItem need to be deleted.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onAction?: () => void;
+    /**
+     * Called when swipe entry delete area.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onEnterActionArea?: () => void;
+    /**
+     * Called when swipe exit delete area.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onExitActionArea?: () => void;
+    /**
+     * Called when component swipe action state changed.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onStateChange?: (state: SwipeActionState) => void;
 }
-export interface SwipeActionOptions {
+/**
+ * Defines the SwipeActionOption of swipeAction attribute method.
+ *
+ * @interface SwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwipeActionOptions {
+    /**
+     * An action item that appears when a list item slides right (when list direction is Vertical) or
+     * slides down (when list direction Horizontal).
+     *
+     * @type { ?(CustomBuilder | SwipeActionItem) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     start?: CustomBuilder | SwipeActionItem;
+    /**
+     * An action item that appears when a list item slides left (when list direction is Vertical) or
+     * slides up (when list direction Horizontal).
+     *
+     * @type { ?(CustomBuilder | SwipeActionItem) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     end?: CustomBuilder | SwipeActionItem;
+    /**
+     * Sets whether sliding to a boundary has a spring effect.
+     *
+     * @type { ?SwipeEdgeEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     edgeEffect?: SwipeEdgeEffect;
-    onOffsetChange?: ((index: number) => void);
+    /**
+     * Called when swipe action offset changed.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onOffsetChange?: (offset: number) => void;
 }
-export enum ListItemStyle {
+/**
+ * Defines the list item style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ListItemStyle {
+    /**
+     * Show custom style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     NONE = 0,
+    /**
+     * Show default style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     CARD = 1
 }
-export interface ListItemOptions {
+/**
+ * Defines the list item options.
+ *
+ * @interface ListItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ListItemOptions {
+    /**
+     * Describes the ListItem style.
+     *
+     * @type { ?ListItemStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     style?: ListItemStyle;
 }
-export interface ListItemInterface {
-    invoke(value?: ListItemOptions): ListItemAttribute;
+export declare interface ListItemAttribute extends CommonMethod {
+    /**
+     * Called when judging whether it is selectable.
+     *
+     * @param { boolean } value
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectable(value: boolean | undefined): this;
+    /**
+     * Called when judging whether it is selected.
+     * This parameter supports $$ for two-way binding of variables.
+     *
+     * @param { boolean } value - if the listItem is selected.
+     * @returns { ListItemAttribute } the attribute of the listItem.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selected(value: boolean | undefined): this;
+    /**
+     * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+     *
+     * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    swipeAction(value: SwipeActionOptions | undefined): this;
+    /**
+     * Called when the listItem is selected.
+     *
+     * @param { function } event
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onSelect(event: ((isSelected: boolean) => void) | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIListItemAttribute extends UICommonMethod {
+    /**
+     * Called when judging whether it is selectable.
+     *
+     * @param { boolean } value
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectable(value: boolean | undefined): this;
+    /**
+     * Called when judging whether it is selected.
+     * This parameter supports $$ for two-way binding of variables.
+     *
+     * @param { boolean } value - if the listItem is selected.
+     * @returns { ListItemAttribute } the attribute of the listItem.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selected(value: boolean | undefined): this;
+    /**
+     * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+     *
+     * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    swipeAction(value: SwipeActionOptions | undefined): this;
+    /**
+     * Called when the listItem is selected.
+     *
+     * @param { function } event
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSelect(event: ((isSelected: boolean) => void) | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-}
-export interface ListItemAttribute extends CommonMethod {
-    @memo
-    sticky(value: Sticky): this;
-    @memo
-    editable(value: boolean | EditMode): this;
-    @memo
-    selectable(value: boolean): this;
-    @memo
-    selected(value: boolean): this;
-    @memo
-    swipeAction(value: SwipeActionOptions): this;
-    @memo
-    onSelect(value: ((parameter: boolean) => void)): this;
-}
 @memo
 @ComponentBuilder
 export declare function ListItem(
-    value?: ListItemOptions | undefined | string | undefined | undefined, 
+    value?: ListItemOptions, 
     @memo
     content_?: () => void,
-): ListItemAttribute
+): UIListItemAttribute

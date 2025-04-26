@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,52 +19,280 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { ResourceStr, PixelMap, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ColorFilter, DrawingColorFilter } from './units'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { BaseSpan, TextBackgroundStyle } from './span'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, ImageSpanAlignment, ImageFit } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions, ImageErrorCallback } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export type ImageSpanInterface = (value: ResourceStr | PixelMap) => ImageSpanAttribute;
-export interface ImageSpanAttribute extends BaseSpan {
-    @memo
-    verticalAlign(value: ImageSpanAlignment): this;
-    @memo
-    colorFilter(value: ColorFilter | DrawingColorFilter): this;
-    @memo
-    objectFit(value: ImageFit): this;
-    @memo
-    onComplete(value: ImageCompleteCallback): this;
-    @memo
-    onError(value: ImageErrorCallback): this;
-    @memo
-    alt(value: PixelMap): this;
+import { ResourceStr, ColorFilter } from "./units";
+import { BaseSpan, UIBaseSpan } from "./span";
+import { ImageSpanAlignment, ImageFit } from "./enums";
+import { ImageErrorCallback } from "./image";
+import drawing from '../../@ohos.graphics.drawing';
+import image from '../../@ohos.multimedia.image';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier, CommonMethod, UICommonMethod } from "./common";
+export declare interface ImageSpanAttribute extends BaseSpan {
+    /**
+     * Called when the alignment of image span is set.
+     *
+     * @param { ImageSpanAlignment } value - The alignment type of image span.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    verticalAlign(value: ImageSpanAlignment | undefined): this;
+    /**
+     * Sets the color filter effect on the image span.
+     *
+     * @param { ColorFilter | drawing.ColorFilter } filter ColorFilter object.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    colorFilter(filter: ColorFilter | drawing.ColorFilter | undefined): this;
+    /**
+     * Sets the zoom type of an image.
+     *
+     * @param { ImageFit } value - Image display mode.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    objectFit(value: ImageFit | undefined): this;
+    /**
+     * Sets a callback which is triggered when the image is successfully loaded.
+     * The size of the image source that is successfully loaded is returned, in pixels.
+     *
+     * @param { ImageCompleteCallback } callback - Triggered when the image is successfully loaded.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onComplete(callback: ImageCompleteCallback | undefined): this;
+    /**
+     * Sets a callback which is triggered when an exception occurs during image loading.
+     * The field of "message" returned in the callback carries the detailed information of failed image loading.
+     *
+     * @param { ImageErrorCallback } callback - Triggered when an exception occurs during image loading.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onError(callback: ImageErrorCallback | undefined): this;
+    /**
+     * Placeholder displayed on load
+     *
+     * @param { PixelMap } value
+     * @returns { ImageSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    alt(value: image.PixelMap | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+/**
+ * Callback function triggered when the image is successfully loaded.
+ *
+ * @typedef { function } ImageCompleteCallback
+ * @param { ImageLoadResult } result - the information about the successfully loaded image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type ImageCompleteCallback = (result: ImageLoadResult) => void;
-export interface ImageLoadResult {
+/**
+ * The information about the successfully loaded image.
+ *
+ * @interface ImageLoadResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ImageLoadResult {
+    /**
+     * The width of the image source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     width: number;
+    /**
+     * The height of the image source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     height: number;
+    /**
+     * The width of the component source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     componentWidth: number;
+    /**
+     * The height of the component source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     componentHeight: number;
+    /**
+     * The value of the status of the image being loaded successfully.
+     * If the returned status value is 0, the image data is successfully loaded.
+     * If the returned status value is 1, the image is successfully decoded.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     loadingStatus: number;
+    /**
+     * The width of the picture that is actually drawn.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     contentWidth: number;
+    /**
+     * The height of the picture that is actually drawn.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     contentHeight: number;
+    /**
+     * The offset between image content and image component on the X-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     contentOffsetX: number;
+    /**
+     * The offset between image content and image component on the Y-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     contentOffsetY: number;
 }
+export declare interface UIImageSpanAttribute extends UIBaseSpan {
+    /**
+     * Called when the alignment of image span is set.
+     *
+     * @param { ImageSpanAlignment } value - The alignment type of image span.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    verticalAlign(value: ImageSpanAlignment | undefined): this;
+    /**
+     * Sets the color filter effect on the image span.
+     *
+     * @param { ColorFilter | drawing.ColorFilter } filter ColorFilter object.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    colorFilter(filter: ColorFilter | drawing.ColorFilter | undefined): this;
+    /**
+     * Sets the zoom type of an image.
+     *
+     * @param { ImageFit } value - Image display mode.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    objectFit(value: ImageFit | undefined): this;
+    /**
+     * Sets a callback which is triggered when the image is successfully loaded.
+     * The size of the image source that is successfully loaded is returned, in pixels.
+     *
+     * @param { ImageCompleteCallback } callback - Triggered when the image is successfully loaded.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onComplete(callback: ImageCompleteCallback | undefined): this;
+    /**
+     * Sets a callback which is triggered when an exception occurs during image loading.
+     * The field of "message" returned in the callback carries the detailed information of failed image loading.
+     *
+     * @param { ImageErrorCallback } callback - Triggered when an exception occurs during image loading.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onError(callback: ImageErrorCallback | undefined): this;
+    /**
+     * Placeholder displayed on load
+     *
+     * @param { PixelMap } value
+     * @returns { ImageSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    alt(value: image.PixelMap | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function ImageSpan(
-    value: ResourceStr | PixelMap, 
+    value: ResourceStr | image.PixelMap, 
     @memo
     content_?: () => void,
-): ImageSpanAttribute
+): UIImageSpanAttribute

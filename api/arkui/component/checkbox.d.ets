@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,53 +19,289 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { CustomBuilder, CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, MarkStyle, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, CheckBoxShape } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export interface CheckboxOptions {
+import { CustomBuilder, CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, MarkStyle } from "./units";
+import { CheckBoxShape } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the options of Checkbox.
+ *
+ * @interface CheckboxOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CheckboxOptions {
+    /**
+     * Current name of Checkbox.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     name?: string;
+    /**
+     * Sets the group of Checkbox.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     group?: string;
+    /**
+     * Custom builder function.
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     indicatorBuilder?: CustomBuilder;
 }
-export type Callback_Boolean_Void = (parameter: boolean) => void;
-export interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
+/**
+ * CheckBoxConfiguration used by content modifier.
+ *
+ * @extends CommonConfiguration<CheckBoxConfiguration>
+ * @interface CheckBoxConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
+    /**
+     * Current name of checkbox.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     name: string;
+    /**
+     * Indicates whether the checkbox is selected.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selected: boolean;
-    triggerChange: ((parameter: boolean) => void);
+    /**
+     * Trigger checkbox select change.
+     *
+     * @type { Callback<boolean> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    triggerChange: Callback<boolean>;
 }
-export type CheckboxInterface = (options?: CheckboxOptions) => CheckboxAttribute;
+/**
+ * Defines a Checkbox callback when onChange.
+ *
+ * @typedef { function } OnCheckboxChangeCallback
+ * @param { boolean } value - selected status
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export type OnCheckboxChangeCallback = (value: boolean) => void;
-export interface CheckboxAttribute extends CommonMethod {
-    @memo
-    select(value: boolean): this;
-    @memo
-    selectedColor(value: ResourceColor): this;
-    @memo
-    shape(value: CheckBoxShape): this;
-    @memo
-    unselectedColor(value: ResourceColor): this;
-    @memo
-    mark(value: MarkStyle): this;
-    @memo
-    onChange(value: OnCheckboxChangeCallback): this;
-    @memo
-    contentModifier(value: ContentModifier<CheckBoxConfiguration>): this;
+export declare interface CheckboxAttribute extends CommonMethod {
+    /**
+     * setting whether checkbox is selected.
+     *
+     * @param { boolean } value
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    select(value: boolean | undefined): this;
+    /**
+     * setting the display color of checkbox.
+     *
+     * @param { ResourceColor } value
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+    * setting the shape of checkbox.
+    *
+    * @param { CheckBoxShape } value - The configuration of checkbox shape.
+    * @returns { CheckboxAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 20
+    */
+    shape(value: CheckBoxShape | undefined): this;
+    /**
+     * Set the display border color of unselected checkbox.
+     *
+     * @param { ResourceColor } value - The color of border when checkbox unselected.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    unselectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the mark style of checkbox.
+     *
+     * @param { MarkStyle } value - The style configuration of checkbox mark.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    mark(value: MarkStyle | undefined): this;
+    /**
+     * Called when the selection status changes.
+     *
+     * @param { OnCheckboxChangeCallback } callback
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: OnCheckboxChangeCallback | undefined): this;
+    /**
+     * Set the content modifier of checkbox.
+     *
+     * @param { ContentModifier<CheckBoxConfiguration> } modifier - The content modifier of checkbox.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<CheckBoxConfiguration> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<CheckboxAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UICheckboxAttribute extends UICommonMethod {
+    /**
+     * setting whether checkbox is selected.
+     *
+     * @param { boolean } value
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    select(value: boolean | undefined): this;
+    /**
+     * setting the display color of checkbox.
+     *
+     * @param { ResourceColor } value
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+    * setting the shape of checkbox.
+    *
+    * @param { CheckBoxShape } value - The configuration of checkbox shape.
+    * @returns { CheckboxAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 20
+    */
+    @memo
+    shape(value: CheckBoxShape | undefined): this;
+    /**
+     * Set the display border color of unselected checkbox.
+     *
+     * @param { ResourceColor } value - The color of border when checkbox unselected.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    unselectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the mark style of checkbox.
+     *
+     * @param { MarkStyle } value - The style configuration of checkbox mark.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    mark(value: MarkStyle | undefined): this;
+    /**
+     * Called when the selection status changes.
+     *
+     * @param { OnCheckboxChangeCallback } callback
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: OnCheckboxChangeCallback | undefined): this;
+    /**
+     * Set the content modifier of checkbox.
+     *
+     * @param { ContentModifier<CheckBoxConfiguration> } modifier - The content modifier of checkbox.
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<CheckBoxConfiguration> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<CheckboxAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Checkbox(
-    options?: CheckboxOptions | undefined, 
+    options?: CheckboxOptions, 
     @memo
     content_?: () => void,
-): CheckboxAttribute
+): UICheckboxAttribute

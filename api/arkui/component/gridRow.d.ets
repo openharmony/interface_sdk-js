@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,74 +19,416 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { Length, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export interface GridRowSizeOption {
+import { ItemAlign } from "./enums";
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { Length } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the option in length unit of grid-row component.
+ *
+ * @interface GridRowSizeOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GridRowSizeOption {
+    /**
+     * Grid Row Size Option xs, select xs gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xs?: Length;
+    /**
+     * Grid Row Size Option sm, select sm gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     sm?: Length;
+    /**
+     * Grid Row Size Option md, select md gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     md?: Length;
+    /**
+     * Grid Row Size Option lg, select lg gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     lg?: Length;
+    /**
+     * Grid Row Size Option xl, select xl gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xl?: Length;
+    /**
+     * Grid Row Size Option xxl, select xxl gutter size based on gridRow current breakpoint
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xxl?: Length;
 }
-export interface GridRowColumnOption {
+/**
+ * Defines the option in number unit of grid-container component.
+ *
+ * @interface GridRowColumnOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GridRowColumnOption {
+    /**
+     * Grid Row Column Option xs, select xs column num based on gridRow current breakpoint
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xs?: number;
+    /**
+     * Grid Row Column Option sm, select sm column num based on gridRow current breakpoint
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     sm?: number;
+    /**
+     * Grid Row Column Option md
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     md?: number;
+    /**
+     * Grid Row Column Option lg, select lg column num based on gridRow current breakpoint
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     lg?: number;
+    /**
+     * Grid Row Column Option xl, select xl column num based on gridRow current breakpoint
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xl?: number;
+    /**
+     * Grid Row Column Option xxl, select xxl column num based on gridRow current breakpoint
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     xxl?: number;
 }
-export interface GutterOption {
+/**
+ * Defines the gutter of grid-row component.
+ *
+ * @interface GutterOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GutterOption {
+    /**
+     * Define x in GutterOption
+     *
+     * @type { ?(Length | GridRowSizeOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     x?: Length | GridRowSizeOption;
+    /**
+     * Define y in GutterOption
+     *
+     * @type { ?(Length | GridRowSizeOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     y?: Length | GridRowSizeOption;
 }
-export enum BreakpointsReference {
-    WINDOW_SIZE = 0,
-    WindowSize = 0,
-    COMPONENT_SIZE = 1,
-    ComponentSize = 1
+/**
+ * Defines the breakpoint reference of grid-container component.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum BreakpointsReference {
+    /**
+     * Respond to breakpoint changes according to window width
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    WindowSize,
+    /**
+     * Respond to breakpoint changes according to component width
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    ComponentSize
 }
-export enum GridRowDirection {
-    ROW = 0,
-    Row = 0,
-    ROW_REVERSE = 1,
-    RowReverse = 1
+/**
+ * Defines the direction of grid-container component.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum GridRowDirection {
+    /**
+     * The elements in the grid component are arranged in rows
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Row,
+    /**
+     * The elements in the grid component are arranged in reverse order of rows
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    RowReverse
 }
-export interface BreakPoints {
+/**
+ * Defines the breakpoints of grid-row component.
+ *
+ * @interface BreakPoints
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface BreakPoints {
+    /**
+     * Breakpoint array
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     value?: Array<string>;
+    /**
+     * Set breakpoint reference
+     *
+     * @type { ?BreakpointsReference }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     reference?: BreakpointsReference;
 }
-export interface GridRowOptions {
+/**
+ * Defines the options of grid-row component.
+ *
+ * @interface GridRowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GridRowOptions {
+    /**
+     * layout spacing between sub-components
+     *
+     * @type { ?(Length | GutterOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     gutter?: Length | GutterOption;
+    /**
+     * Sets the total number of columns in the current layout.
+     *
+     * @type { ?(number | GridRowColumnOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     columns?: number | GridRowColumnOption;
+    /**
+     * grid-row layout breakpoints.
+     *
+     * @type { ?BreakPoints }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     breakpoints?: BreakPoints;
+    /**
+     * grid-row layout direction.
+     *
+     * @type { ?GridRowDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     direction?: GridRowDirection;
 }
-export type GridRowInterface = (option?: GridRowOptions) => GridRowAttribute;
-export type Callback_String_Void = (breakpoints: string) => void;
-export interface GridRowAttribute extends CommonMethod {
-    @memo
-    onBreakpointChange(value: ((breakpoints: string) => void)): this;
-    @memo
-    alignItems(value: ItemAlign): this;
+export declare interface GridRowAttribute extends CommonMethod {
+    /**
+     * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
+     *
+     * @param { function } callback
+     * @returns { GridRowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onBreakpointChange(callback: ((breakpoints: string) => void) | undefined): this;
+    /**
+     * Cross axis alignment of each line in GridRow.
+     *
+     * @param { ItemAlign } value - element alignment
+     * @returns { GridRowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    alignItems(value: ItemAlign | undefined): this;
+    attributeModifier(modifier: AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIGridRowAttribute extends UICommonMethod {
+    /**
+     * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
+     *
+     * @param { function } callback
+     * @returns { GridRowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onBreakpointChange(callback: ((breakpoints: string) => void) | undefined): this;
+    /**
+     * Cross axis alignment of each line in GridRow.
+     *
+     * @param { ItemAlign } value - element alignment
+     * @returns { GridRowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    alignItems(value: ItemAlign | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function GridRow(
-    option?: GridRowOptions | undefined, 
+    option?: GridRowOptions, 
     @memo
     content_?: () => void,
-): GridRowAttribute
+): UIGridRowAttribute

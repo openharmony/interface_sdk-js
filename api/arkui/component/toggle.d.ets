@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,61 +19,312 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Resource } from './../../../api/global/resource'
-import { ResourceColor, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { Callback_Boolean_Void } from './checkbox'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum ToggleType {
-    CHECKBOX = 0,
-    Checkbox = 0,
-    SWITCH = 1,
-    Switch = 1,
-    BUTTON = 2,
-    Button = 2
+import { Resource } from '../../global/resource';
+import { ResourceColor } from "./units";
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Declare the type of status button
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ToggleType {
+    /**
+     * Checkbox
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Checkbox,
+    /**
+     * Switch
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Switch,
+    /**
+     * Button
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Button
 }
-export interface SwitchStyle {
+/**
+ * Defines the switch style.
+ *
+ * @interface SwitchStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface SwitchStyle {
+    /**
+     * Set the radius of the point of the switch.
+     *
+     * @type { ?(number | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     pointRadius?: number | Resource;
+    /**
+     * Set the color of the unselected switch.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     unselectedColor?: ResourceColor;
+    /**
+     * Set the color of the point of the switch.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     pointColor?: ResourceColor;
+    /**
+     * Set the border radius of the track of the switch.
+     *
+     * @type { ?(number | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     trackBorderRadius?: number | Resource;
 }
-export interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
+/**
+ * ToggleConfiguration used by toggle Modifier
+ *
+ * @extends CommonConfiguration<ToggleConfiguration>
+ * @interface ToggleConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
+    /**
+     * Indicates whether the Toggle is on.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     isOn: boolean;
+    /**
+     * Indicates whether the Toggle is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     enabled: boolean;
-    triggerChange: ((parameter: boolean) => void);
+    /**
+     * Trigger toggle select change
+     *
+     * @type { Callback<boolean> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    triggerChange: Callback<boolean>;
 }
-export interface ToggleOptions {
+/**
+ * Defines the toggle options.
+ *
+ * @interface ToggleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ToggleOptions {
+    /**
+     * Type of the toggle.
+     *
+     * @type { ToggleType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     type: ToggleType;
+    /**
+     * Whether the toggle is on.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     isOn?: boolean;
 }
-export type ToggleInterface = (options: ToggleOptions) => ToggleAttribute;
-export interface ToggleAttribute extends CommonMethod {
-    @memo
-    onChange(value: ((parameter: boolean) => void)): this;
-    @memo
-    contentModifier(value: ContentModifier<ToggleConfiguration>): this;
-    @memo
-    selectedColor(value: ResourceColor): this;
-    @memo
-    switchPointColor(value: ResourceColor): this;
-    @memo
-    switchStyle(value: SwitchStyle): this;
+export declare interface ToggleAttribute extends CommonMethod {
+    /**
+     * Called when the selected state of the component changes.
+     *
+     * @param { function } callback
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    onChange(callback: ((isOn: boolean) => void) | undefined): this;
+    /**
+     * Set the content modifier of toggle.
+     *
+     * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
+    /**
+     * Called when the color of the selected button is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the color of the selected button is set.
+     *
+     * @param { ResourceColor } color
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    switchPointColor(color: ResourceColor | undefined): this;
+    /**
+     * Set the style of the switch.
+     *
+     * @param { SwitchStyle } value
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    switchStyle(value: SwitchStyle | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIToggleAttribute extends UICommonMethod {
+    /**
+     * Called when the selected state of the component changes.
+     *
+     * @param { function } callback
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onChange(callback: ((isOn: boolean) => void) | undefined): this;
+    /**
+     * Set the content modifier of toggle.
+     *
+     * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
+    /**
+     * Called when the color of the selected button is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    selectedColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the color of the selected button is set.
+     *
+     * @param { ResourceColor } color
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    switchPointColor(color: ResourceColor | undefined): this;
+    /**
+     * Set the style of the switch.
+     *
+     * @param { SwitchStyle } value
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    switchStyle(value: SwitchStyle | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Toggle(
     options: ToggleOptions, 
     @memo
     content_?: () => void,
-): ToggleAttribute
+): UIToggleAttribute

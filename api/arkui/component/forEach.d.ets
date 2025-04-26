@@ -18,6 +18,8 @@
  * @arkts 1.2
  */
 
+
+
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 
 /**
@@ -30,6 +32,17 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './.
  * @since 20
  */
 export interface ForEachAttribute {}
+
+/**
+ * declare UIForEachAttribute
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export interface UIForEachAttribute {}
 
 /**
  * Defines ForEach Component.
@@ -50,4 +63,4 @@ export declare function ForEach<T>(arr: Array<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
-): ForEachAttribute
+): UIForEachAttribute

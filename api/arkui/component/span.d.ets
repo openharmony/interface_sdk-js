@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,60 +19,375 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { ResourceColor, Dimension, BorderRadiuses, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap, Font } from './units'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, FontStyle, FontWeight, TextCase } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { DecorationStyleInterface } from './styledString'
-export interface TextBackgroundStyle {
+import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from "./units";
+import { CommonMethod, ShadowOptions, UICommonMethod, AttributeModifier } from "./common";
+import { LengthMetrics } from './../Graphics';
+import { Resource } from './../../../api/global/resource';
+import { FontStyle, FontWeight, TextCase } from "./enums";
+import { DecorationStyleInterface } from "./styledString";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Define the background style of span.
+ *
+ * @interface TextBackgroundStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TextBackgroundStyle {
+    /**
+     * Background color of span.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     color?: ResourceColor;
+    /**
+     * Background radius of span.
+     *
+     * @type { ?(Dimension | BorderRadiuses) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     radius?: Dimension | BorderRadiuses;
 }
-export interface BaseSpan extends CommonMethod {
-    @memo
-    textBackgroundStyle(value: TextBackgroundStyle): this;
-    @memo
-    baselineOffset(value: LengthMetrics): this;
+export declare interface BaseSpan extends CommonMethod {
+    /**
+     * Span background style.
+     *
+     * @param { TextBackgroundStyle } style - The background style of span.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
+    /**
+     * Base line offset of the Span.
+     *
+     * @param { LengthMetrics } value - The base line offset of the Span.
+     * @returns { T } The attribute of the Span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    baselineOffset(value: LengthMetrics | undefined): this;
 }
-export type SpanInterface = (value: string | Resource) => SpanAttribute;
-export interface SpanAttribute extends BaseSpan {
+export declare interface SpanAttribute extends BaseSpan {
+    /**
+     * Called when the font is set.
+     *
+     * @param { Font } value - the span font size and weight and family and style.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    font(value: Font | undefined): this;
+    /**
+     * Called when the font color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the font size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the font style of a font is set.
+     *
+     * @param { FontStyle } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontStyle(value: FontStyle | undefined): this;
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the font list of text is set.
+     *
+     * @param { string | Resource } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fontFamily(value: string | Resource | undefined): this;
+    /**
+     * Called when the text decoration of the text is set.
+     *
+     * @param { DecorationStyleInterface } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    decoration(value: DecorationStyleInterface | undefined): this;
+    /**
+     * Called when the distance between text fonts is set.
+     *
+     * @param { number | string } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    letterSpacing(value: number | string | undefined): this;
+    /**
+     * Called when the type of letter in the text font is set.
+     *
+     * @param { TextCase } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    textCase(value: TextCase | undefined): this;
+    /**
+     * Called when the line height of the span is set.
+     *
+     * @param { Length } value - The line height of the span.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    lineHeight(value: Length | undefined): this;
+    /**
+     * Called when the text shadow is set.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIBaseSpan extends UICommonMethod {
+    /**
+     * Span background style.
+     *
+     * @param { TextBackgroundStyle } style - The background style of span.
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    font(value: Font): this;
+    textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
+    /**
+     * Base line offset of the Span.
+     *
+     * @param { LengthMetrics } value - The base line offset of the Span.
+     * @returns { T } The attribute of the Span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    fontColor(value: ResourceColor): this;
+    baselineOffset(value: LengthMetrics | undefined): this;
+}
+export declare interface UISpanAttribute extends UIBaseSpan {
+    /**
+     * Called when the font is set.
+     *
+     * @param { Font } value - the span font size and weight and family and style.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    fontSize(value: number | string | Resource): this;
+    font(value: Font | undefined): this;
+    /**
+     * Called when the font color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    fontStyle(value: FontStyle): this;
+    fontColor(value: ResourceColor | undefined): this;
+    /**
+     * Called when the font size is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontSize(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the font style of a font is set.
+     *
+     * @param { FontStyle } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fontStyle(value: FontStyle | undefined): this;
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { number | FontWeight | string } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
     fontWeight(value: number | FontWeight | string | undefined): this;
+    /**
+     * Called when the font list of text is set.
+     *
+     * @param { string | Resource } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    fontFamily(value: string | Resource): this;
+    fontFamily(value: string | Resource | undefined): this;
+    /**
+     * Called when the text decoration of the text is set.
+     *
+     * @param { DecorationStyleInterface } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    decoration(value: DecorationStyleInterface): this;
+    decoration(value: DecorationStyleInterface | undefined): this;
+    /**
+     * Called when the distance between text fonts is set.
+     *
+     * @param { number | string } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    letterSpacing(value: number | string): this;
+    letterSpacing(value: number | string | undefined): this;
+    /**
+     * Called when the type of letter in the text font is set.
+     *
+     * @param { TextCase } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    textCase(value: TextCase): this;
+    textCase(value: TextCase | undefined): this;
+    /**
+     * Called when the line height of the span is set.
+     *
+     * @param { Length } value - The line height of the span.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    lineHeight(value: Length): this;
+    lineHeight(value: Length | undefined): this;
+    /**
+     * Called when the text shadow is set.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    textShadow(value: ShadowOptions | Array<ShadowOptions>): this;
+    textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
 @memo
 @ComponentBuilder
 export declare function Span(
     value: string | Resource, 
     @memo
     content_?: () => void,
-): SpanAttribute
+): UISpanAttribute

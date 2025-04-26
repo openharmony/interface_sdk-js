@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,63 +19,341 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ResourceColor, Length, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { MultiShadowOptions, CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { Resource } from './../../../api/global/resource'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum DataPanelType {
-    LINE = 0,
-    Line = 0,
-    CIRCLE = 1,
-    Circle = 1
+import { ResourceColor, Length } from "./units";
+import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * DataPanelType enum
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare enum DataPanelType {
+    /**
+     * Line Type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Line,
+    /**
+     * Line Rainbow
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    Circle
 }
-export interface ColorStop {
+/**
+ * ColorStop type
+ * @typedef { object } ColorStop
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ColorStop {
+    /**
+     * Color property.
+     * @type { ResourceColor } color - the color value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     color: ResourceColor;
+    /**
+     * Offset property.
+     * @type { Length } offset - the color offset.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     offset: Length;
 }
-export interface LinearGradient {
+/**
+ * LinearGradient class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class LinearGradient {
+    /**
+     * Constructor.
+     *
+     * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(colorStops: ColorStop[]);
 }
-export interface DataPanelShadowOptions extends MultiShadowOptions {
+/**
+ * Defines the options of Shadow.
+ *
+ * @extends MultiShadowOptions
+ * @interface DataPanelShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DataPanelShadowOptions extends MultiShadowOptions {
+    /**
+     * Current shadow colors.
+     *
+     * @type { ?Array<ResourceColor | LinearGradient> }
+     * @default Consistent with valueColors
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     colors?: Array<ResourceColor | LinearGradient>;
 }
-export interface DataPanelOptions {
-    values: Array<number>;
+/**
+ * Defines the options of DataPanel.
+ *
+ * @interface DataPanelOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DataPanelOptions {
+    /**
+     * Current data value. the max length is 9.
+     *
+     * @type { number[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    values: number[];
+    /**
+     * Maximum value of the current data.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     max?: number;
+    /**
+     * DataPanel Type
+     *
+     * @type { ?DataPanelType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     type?: DataPanelType;
 }
-export type DataPanelInterface = (options: DataPanelOptions) => DataPanelAttribute;
-export interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
-    values: Array<number>;
+/**
+ * DataPanelConfiguration used by dataPanel content modifier
+ *
+ * @extends CommonConfiguration<DataPanelConfiguration>
+ * @interface DataPanelConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
+    /**
+     * Current data value. the max length is 9.
+     *
+     * @type { number[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    values: number[];
+    /**
+     * Maximum value of the current data.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     maxValue: number;
 }
-export interface DataPanelAttribute extends CommonMethod {
-    @memo
-    closeEffect(value: boolean): this;
-    @memo
-    valueColors(value: Array<ResourceColor | LinearGradient>): this;
-    @memo
-    trackBackgroundColor(value: ResourceColor): this;
-    @memo
-    strokeWidth(value: Length): this;
-    @memo
-    trackShadow(value: DataPanelShadowOptions): this;
-    @memo
-    contentModifier(value: ContentModifier<DataPanelConfiguration>): this;
+export declare interface DataPanelAttribute extends CommonMethod {
+    /**
+     * Disable the special effect of the data ratio chart.
+     *
+     * @param { boolean } value
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    closeEffect(value: boolean | undefined): this;
+    /**
+     * Set the value colors of the data ratio chart.
+     *
+     * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
+    /**
+     * Set track background color of the data ratio chart.
+     *
+     * @param { ResourceColor } value - track background color of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    trackBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the stroke width of the data ratio chart.
+     *
+     * @param { Length } value - the stroke width of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth(value: Length | undefined): this;
+    /**
+     * Set the shadow width of the data ratio chart.
+     *
+     * @param { DataPanelShadowOptions } value - the track shadow width of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    trackShadow(value: DataPanelShadowOptions | undefined): this;
+    /**
+     * Set the content modifier of data panel.
+     *
+     * @param { ContentModifier<DataPanelConfiguration> } modifier - The content modifier of data panel.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIDataPanelAttribute extends UICommonMethod {
+    /**
+     * Disable the special effect of the data ratio chart.
+     *
+     * @param { boolean } value
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    closeEffect(value: boolean | undefined): this;
+    /**
+     * Set the value colors of the data ratio chart.
+     *
+     * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
+    /**
+     * Set track background color of the data ratio chart.
+     *
+     * @param { ResourceColor } value - track background color of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackBackgroundColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the stroke width of the data ratio chart.
+     *
+     * @param { Length } value - the stroke width of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeWidth(value: Length | undefined): this;
+    /**
+     * Set the shadow width of the data ratio chart.
+     *
+     * @param { DataPanelShadowOptions } value - the track shadow width of the data ratio chart.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackShadow(value: DataPanelShadowOptions | undefined): this;
+    /**
+     * Set the content modifier of data panel.
+     *
+     * @param { ContentModifier<DataPanelConfiguration> } modifier - The content modifier of data panel.
+     * @returns { DataPanelAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function DataPanel(
     options: DataPanelOptions, 
     @memo
     content_?: () => void,
-): DataPanelAttribute
+): UIDataPanelAttribute

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,51 +19,253 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { WindowStatusType, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { FoldStatus, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, AppRotation } from './enums'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
+import window from '../../@ohos.window';
+import { FoldStatus, Alignment, AppRotation } from "./enums";
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Import the WindowStatusType type object for onHoverStatusChange.
+ *
+ * @typedef { window.WindowStatusType } WindowStatusType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export type WindowStatusType = window.WindowStatusType;
+/**
+ * FolderStack constructor options.
+ *
+ * @interface FolderStackOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface FolderStackOptions {
+    /**
+     * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     upperItems?: Array<string>;
 }
-export type FolderStackInterface = (options?: FolderStackOptions) => FolderStackAttribute;
+/**
+ * Information when onFolderStateChange.
+ *
+ * @interface OnFoldStatusChangeInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface OnFoldStatusChangeInfo {
+    /**
+     * Folder state.
+     *
+     * @type { FoldStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     foldStatus: FoldStatus;
 }
+/**
+ * Callback when onStateChangeCallback.
+ *
+ * @typedef { function } OnFoldStatusChangeCallback
+ * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
+/**
+ * Callback when onHoverStatusChange.
+ *
+ * @typedef { function } OnHoverStatusChangeCallback
+ * @param { HoverEventParam } param - hover event param
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
 export type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
-export interface FolderStackAttribute extends CommonMethod {
-    @memo
-    alignContent(value: Alignment): this;
-    @memo
-    onFolderStateChange(value: OnFoldStatusChangeCallback): this;
-    @memo
-    onHoverStatusChange(value: OnHoverStatusChangeCallback): this;
-    @memo
-    enableAnimation(value: boolean): this;
-    @memo
-    autoHalfFold(value: boolean): this;
+export declare interface FolderStackAttribute extends CommonMethod {
+    /**
+     * Set the alignment of folderStack.
+     *
+     * @param { Alignment } value - align of children
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    alignContent(value: Alignment | undefined): this;
+    /**
+    * Callback folderState when the folderState changes
+    *
+    * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
+    * @returns { FolderStackAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
+    /**
+     * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
+     *
+     * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
+    /**
+     * Enable the animation of folderStack.
+     *
+     * @param { boolean } value - enable the animation of folderStatus changed
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableAnimation(value: boolean | undefined): this;
+    /**
+     * Enable auto halfFolder when orientation.
+     *
+     * @param { boolean } value - enable auto halfFold
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    autoHalfFold(value: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export interface HoverEventParam {
+/**
+ * Defines the Embed Data info.
+ *
+ * @interface HoverEventParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare interface HoverEventParam {
+    /**
+     * Folder state.
+     *
+     * @type { FoldStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     foldStatus: FoldStatus;
+    /**
+     * Is hover mode
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     isHoverMode: boolean;
+    /**
+     * App rotation
+     *
+     * @type { AppRotation }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     appRotation: AppRotation;
+    /**
+     * Window status type
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     windowStatusType: WindowStatusType;
 }
+export declare interface UIFolderStackAttribute extends UICommonMethod {
+    /**
+     * Set the alignment of folderStack.
+     *
+     * @param { Alignment } value - align of children
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    alignContent(value: Alignment | undefined): this;
+    /**
+    * Callback folderState when the folderState changes
+    *
+    * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
+    * @returns { FolderStackAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    @memo
+    onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
+    /**
+     * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
+     *
+     * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
+    /**
+     * Enable the animation of folderStack.
+     *
+     * @param { boolean } value - enable the animation of folderStatus changed
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableAnimation(value: boolean | undefined): this;
+    /**
+     * Enable auto halfFolder when orientation.
+     *
+     * @param { boolean } value - enable auto halfFold
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    autoHalfFold(value: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function FolderStack(
-    options?: FolderStackOptions | undefined, 
+    options?: FolderStackOptions, 
     @memo
     content_?: () => void,
-): FolderStackAttribute
+): UIFolderStackAttribute

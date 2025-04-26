@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,41 +19,151 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { FlexDirection, FlexWrap, FlexAlign, ItemAlign, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { LengthMetrics } from './../Graphics'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, PointLightStyle } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export interface FlexOptions {
+import { LengthMetrics } from '../Graphics';
+import { PointLightStyle, CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines the options of Flex.
+ *
+ * @interface FlexOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface FlexOptions {
+    /**
+     * Sets the horizontal layout of elements.
+     *
+     * @type { ?FlexDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     direction?: FlexDirection;
+    /**
+     * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+     *
+     * @type { ?FlexWrap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     wrap?: FlexWrap;
+    /**
+     * The alignment format of the subassembly on the Flex container spindle.
+     *
+     * @type { ?FlexAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     justifyContent?: FlexAlign;
+    /**
+     * Alignment Format for Subassembly on Flex Container Cross Axis.
+     *
+     * @type { ?ItemAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     alignItems?: ItemAlign;
+    /**
+     * The alignment of multiple lines of content when there is extra space in the cross axis.
+     *
+     * @type { ?FlexAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     alignContent?: FlexAlign;
+    /**
+     * The space to be inserted, either horizontally or vertically,
+     * between two adjacent components in the Flex container.
+     *
+     * @type { ?FlexSpaceOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     space?: FlexSpaceOptions;
 }
-export interface FlexSpaceOptions {
+/**
+ * The space to be inserted, either horizontally or vertically,
+ * between two adjacent components in the Flex container.
+ *
+ * @interface FlexSpaceOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface FlexSpaceOptions {
+    /**
+     * Defines the main space property.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     main?: LengthMetrics;
+    /**
+     * Defines the cross space property.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     cross?: LengthMetrics;
 }
-export type FlexInterface = (value?: FlexOptions) => FlexAttribute;
-export interface FlexAttribute extends CommonMethod {
-    @memo
-    pointLight(value: PointLightStyle): this;
+export declare interface FlexAttribute extends CommonMethod {
+    /**
+     * Defines the PointLight
+     *
+     * @param { PointLightStyle } value - The point light style.
+     * @returns { FlexAttribute } The attribute of the flex.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    pointLight(value: PointLightStyle | undefined): this;
+    attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIFlexAttribute extends UICommonMethod {
+    /**
+     * Defines the PointLight
+     *
+     * @param { PointLightStyle } value - The point light style.
+     * @returns { FlexAttribute } The attribute of the flex.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    pointLight(value: PointLightStyle | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Flex(
-    value?: FlexOptions | undefined, 
+    value?: FlexOptions, 
     @memo
     content_?: () => void,
-): FlexAttribute
+): UIFlexAttribute
