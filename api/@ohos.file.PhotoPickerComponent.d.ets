@@ -450,6 +450,16 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 13
    */
   photoBrowserCheckboxPosition?: [number, number];
+
+  /**
+   * Support to set single line display mode
+   *
+   * @type { ?SingleLineConfig }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  singleLineConfig?: SingleLineConfig;
 }
 
 /**
@@ -606,6 +616,46 @@ export declare class MaxSelected {
    * @since 12
    */
   data?: Map<MaxCountType, number>;
+}
+
+
+/**
+ * SingleLineConfig
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 20
+ */
+export declare class SingleLineConfig {
+  /**
+   * item display ratio
+   *
+   * @type { ?ItemDisplayRatio }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemDisplayRatio?: ItemDisplayRatio;
+
+  /**
+   * item display border radius
+   *
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemBorderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+
+  /**
+   * item gap
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemGap?: Length;  
 }
 
 /**
@@ -996,4 +1046,32 @@ export declare enum VideoPlayerState {
    * @since 14
    */
   SEEK_FINISH = 4
+}
+
+/**
+ * ItemDisplayRatio. include SQUARE_RATIO and ORIGINAL_SIZE_RATIO
+ *
+ * @enum { number } ItemDisplayRatio
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ItemDisplayRatio {
+  /**
+   * Square ratio item
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  SQUARE_RATIO = 0,
+
+  /**
+   * original size ratio item
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  ORIGINAL_SIZE_RATIO = 1
 }
