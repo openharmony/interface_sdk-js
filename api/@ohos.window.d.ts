@@ -23,12 +23,16 @@ import BaseContext from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
+/*** if arkts 1.1 */
 import { UIContext } from './@ohos.arkui.UIContext';
+import { ColorMetrics } from './@ohos.arkui.node';
+/*** endif */
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
-import { ColorMetrics } from './@ohos.arkui.node';
 /*** if arkts 1.2 */
 import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { UIContext } from '@ohos.arkui.UIContext';
+import { ColorMetrics } from '@ohos.arkui.node';
 import { Callback } from './@ohos.base';
 /*** endif */
 
