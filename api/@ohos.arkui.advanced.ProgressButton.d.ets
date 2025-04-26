@@ -59,7 +59,15 @@ export declare struct ProgressButton {
    * @atomicservice
    * @since 11
    */
-  @Prop content: string;
+  /**
+   * Sets the ProgressButton content.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  @Prop content: ResourceStr;
 
   /**
    * Sets the ProgressButton progressButtonWidth.
