@@ -117,7 +117,7 @@ export interface TriggerInfo {
    * @atomicservice
    * @since 12
    */
-  extraInfo?: Record<string,Object>;
+  extraInfo?: Record<string, Object>;
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
