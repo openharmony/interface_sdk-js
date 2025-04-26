@@ -13223,7 +13223,7 @@ export type Filter = uiEffect.Filter;
  * @form
  * @since 20
  */
-export type Blender = uiEffect.Blender;
+export type Blender = NullishType;
 /**
  * Import the DialogController type from promptAction.
  *
