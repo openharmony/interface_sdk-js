@@ -241,9 +241,14 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @description Deletes a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -260,9 +265,14 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @description Deletes a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -282,8 +292,12 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @description Deletes a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -301,8 +315,12 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @description Deletes a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -2069,6 +2087,7 @@ declare namespace huks {
   /**
    * Interface of huks param.
    *
+   * @description Defines the param field in the properties array of options used in the APIs.
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
@@ -2076,6 +2095,7 @@ declare namespace huks {
   /**
    * Interface of huks param.
    *
+   * @description Defines the param field in the properties array of options used in the APIs.
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2142,6 +2162,7 @@ declare namespace huks {
   /**
    * Interface of huks handle.
    *
+   * @description Defines the struct for a HUKS handle.
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -2149,6 +2170,7 @@ declare namespace huks {
   /**
    * Interface of huks handle.
    *
+   * @description Defines the struct for a HUKS handle.
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2182,6 +2204,7 @@ declare namespace huks {
   /**
    * Interface of huks option.
    *
+   * @description Defines options used in the APIs.
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
@@ -2189,6 +2212,7 @@ declare namespace huks {
   /**
    * Interface of huks option.
    *
+   * @description Defines options used in the APIs.
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2262,6 +2286,7 @@ declare namespace huks {
   /**
    * Interface of huks result.
    *
+   * @description Represents the result returned.
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -2269,6 +2294,7 @@ declare namespace huks {
   /**
    * Interface of huks result.
    *
+   * @description Represents the result returned.
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2313,6 +2339,7 @@ declare namespace huks {
     /**
    * Interface of huks ListAliases result.
    *
+   * @description Represents an array of key aliases.
    * @typedef HuksListAliasesReturnResult
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
