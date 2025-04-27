@@ -147,6 +147,7 @@ export * from './arkui/component/uiExtensionComponent';
 export * from './arkui/component/units';
 export * from './arkui/component/video';
 export * from './arkui/component/waterFlow';
+export * from './arkui/component/web';
 export * from './arkui/component/windowScene';
 export * from './arkui/component/withTheme';
 export * from './arkui/component/xcomponent';
