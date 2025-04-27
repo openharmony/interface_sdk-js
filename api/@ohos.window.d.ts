@@ -4182,6 +4182,16 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Destroy the window.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     destroyWindow(callback: AsyncCallback<void>): void;
 
     /**
@@ -4213,6 +4223,16 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Destroy the window.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     destroyWindow(): Promise<void>;
 
@@ -5374,6 +5394,24 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
@@ -5429,6 +5467,24 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
@@ -5523,6 +5579,19 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     setUIContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -5563,6 +5632,19 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     setUIContent(path: string): Promise<void>;
 
@@ -9715,6 +9797,19 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     createSubWindow(name: string): Promise<Window>;
     /**
      * Create sub window of the stage.
@@ -9754,6 +9849,19 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
@@ -9816,6 +9924,17 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get sub window of the stage.
+     *
+     * @returns { Promise<Array<Window>> }
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     getSubWindow(): Promise<Array<Window>>;
     /**
      * Get sub window of the stage.
@@ -9846,6 +9965,17 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get sub window of the stage.
+     *
+     * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
@@ -9902,6 +10032,24 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     *
+     * @param { string } path Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
@@ -9957,6 +10105,24 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     *
+     * @param { string } path of the page to which the content will be loaded
+     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
@@ -10006,6 +10172,22 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     *
+     * @param { string } path of the page to which the content will be loaded
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -10024,6 +10206,21 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
+     */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
@@ -10040,6 +10237,20 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -10058,6 +10269,21 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 19
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
