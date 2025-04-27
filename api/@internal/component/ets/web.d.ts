@@ -8209,7 +8209,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the Web page receives an ssl Error.
    * Called to notify users when an SSL error occurs with a request for the main frame.
    * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
