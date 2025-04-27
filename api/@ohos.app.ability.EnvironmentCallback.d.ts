@@ -73,7 +73,8 @@ declare class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

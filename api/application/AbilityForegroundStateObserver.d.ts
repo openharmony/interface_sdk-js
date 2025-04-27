@@ -25,7 +25,8 @@ import AbilityStateData from './AbilityStateData';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class AbilityForegroundStateObserver {
 
@@ -35,7 +36,8 @@ declare class AbilityForegroundStateObserver {
    * @param { AbilityStateData } abilityStateData State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }

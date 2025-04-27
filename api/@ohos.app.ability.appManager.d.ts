@@ -18,7 +18,8 @@
  * @kit AbilityKit
  */
 
-import { AsyncCallback } from './@ohos.base';import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import { AsyncCallback } from './@ohos.base';
+import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
 /*** if arkts 1.1 */
@@ -32,12 +33,9 @@ import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameSta
 /*** endif */
 /*** if arkts 1.2 */
 import _ApplicationStateObserver from './application/ApplicationStateObserver';
-import _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 import _AppStateData from './application/AppStateData';
 import _ProcessData from './application/ProcessData';
-import { AbilityFirstFrameStateObserver as _AbilityFirstFrameStateObserver } from './application/AbilityFirstFrameStateObserver';
-import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './application/AbilityFirstFrameStateData';
 /*** endif */
 /**
  * This module provides the function of app manager service.
@@ -364,9 +362,10 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'applicationState', observer: ApplicationStateObserver): number;
+  export function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
   /**
    * Register application state observer.
@@ -432,9 +431,10 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
+  export function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister application state observer.
@@ -448,9 +448,10 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'applicationState', observerId: number): Promise<void>;
+  export function off(type: 'applicationState', observerId: number): Promise<void>;
 
   /**
    * Unregister app foreground or background state observer.
@@ -498,7 +499,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
@@ -512,7 +514,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundApplications(): Promise<Array<AppStateData>>;
 
@@ -1119,7 +1122,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
 
@@ -1328,17 +1332,6 @@ declare namespace appManager {
   export type AppForegroundStateObserver = _AppForegroundStateObserver.default;
 
   /**
-   * The application foreground state observer.
-   *
-   * @typedef { _AppForegroundStateObserver }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AppForegroundStateObserver = _AppForegroundStateObserver;
-
-  /**
    * The class of a process information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1387,17 +1380,6 @@ declare namespace appManager {
   export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver.default;
 
   /**
-   * The ability first frame state observer.
-   *
-   * @typedef { _AbilityFirstFrameStateObserver }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver;
-
-  /**
    * The class of an ability first frame state data.
    *
    * @typedef { _AbilityFirstFrameStateData.default }
@@ -1406,17 +1388,6 @@ declare namespace appManager {
    * @since 12
    */
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
-
-  /**
-   * The class of an ability first frame state data.
-   *
-   * @typedef { _AbilityFirstFrameStateData }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData;
 
   /**
    * The class of running multi app information.

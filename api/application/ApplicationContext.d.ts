@@ -21,10 +21,10 @@
 /*** if arkts 1.1 */
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 /*** endif */
 import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
-import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import Want from '../@ohos.app.ability.Want';
@@ -130,7 +130,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since  11
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -193,7 +193,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'environment', callback: EnvironmentCallback): number;
 
@@ -218,7 +219,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -243,7 +245,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'environment', callbackId: number): Promise<void>;
 
@@ -278,7 +281,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -313,7 +317,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -455,7 +460,7 @@ declare class ApplicationContext extends Context {
    */
   killAllProcesses(callback: AsyncCallback<void>);
 
-    /**
+  /**
    * Kill all processes of the application
    *
    * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
@@ -467,7 +472,7 @@ declare class ApplicationContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-    killAllProcesses(callback: AsyncCallback<void>): void;
+  killAllProcesses(callback: AsyncCallback<void>): void;
 
   /**
    * Set colorMode of the application
@@ -565,7 +570,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 1arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
