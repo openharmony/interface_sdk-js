@@ -5543,6 +5543,16 @@ declare interface OnBeforeUnloadEvent {
    * @since 18
    */
   result: JsResult;
+
+  /**
+   * The isReload parameter is set to true when the page is refreshed;
+   * otherwise, it remains false. Default is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  isReload?: boolean;
 }
 
 /**
