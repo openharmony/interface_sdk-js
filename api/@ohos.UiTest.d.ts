@@ -1090,7 +1090,7 @@ declare interface Point {
    * @atomicservice
    * @since 20
    */
-  displayId: number; 
+  displayId?: number; 
 }
 
 /**
