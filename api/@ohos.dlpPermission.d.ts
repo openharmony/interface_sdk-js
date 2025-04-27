@@ -1526,7 +1526,7 @@ declare namespace dlpPermission {
    * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
    * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
    * @param { DLPProperty } property - Indicates the property of the DLP file.
-   * @param { CustomProperty } CustomProperty - Indicates the custom property of the DLP file.
+   * @param { CustomProperty } customProperty - Indicates the custom property of the DLP file.
    * @returns { Promise<void> }.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
