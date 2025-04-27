@@ -130,7 +130,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since  11
+   * @since 11
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
