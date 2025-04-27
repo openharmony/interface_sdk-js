@@ -1085,7 +1085,7 @@ declare interface Point {
   /**
    * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20
