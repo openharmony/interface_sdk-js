@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,16 +26,8 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @namespace dataSharePredicates
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @StageModelOnly
- * @since 10
- */
-/**
- * This module provides data share services based on the ExtensionAbility.
- *
- * @namespace dataSharePredicates
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelOnly
  * @crossplatform
- * @since 12
+ * @since 20
  */
 declare namespace dataSharePredicates {
   /**
@@ -43,15 +35,8 @@ declare namespace dataSharePredicates {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Manages relational database configurations.
-   *
-   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @since 20
    */
   export class DataSharePredicates {
     /**
@@ -64,20 +49,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -92,7 +65,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     notEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -104,7 +77,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     beginWrap(): DataSharePredicates;
 
@@ -117,7 +90,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     endWrap(): DataSharePredicates;
 
@@ -129,7 +102,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     or(): DataSharePredicates;
 
@@ -140,21 +113,12 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Adds an and condition to the DataSharePredicates.
-     * This method is similar to and of the SQL statement.
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     and(): DataSharePredicates;
 
-    /**
+        /**
      * Configure the DataSharePredicates to match the field whose data type is string and value
      * contains a specified value.
      * This method is similar to contains of the SQL statement.
@@ -170,62 +134,6 @@ declare namespace dataSharePredicates {
     contains(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the field whose data type is string and value starts
-     * with a specified string.
-     * This method is similar to value% of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    beginsWith(field: string, value: string): DataSharePredicates;
-
-    /**
-     * Configure the DataSharePredicates to match the field whose data type is string and value
-     * ends with a specified string.
-     * This method is similar to %value of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    endsWith(field: string, value: string): DataSharePredicates;
-
-    /**
-     * Configure the DataSharePredicates to match the fields whose value is null.
-     * This method is similar to is null of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    isNull(field: string): DataSharePredicates;
-
-    /**
-     * Configure the DataSharePredicates to match the specified fields whose value is not null.
-     * This method is similar to is not null of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    isNotNull(field: string): DataSharePredicates;
-
-    /**
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to like of the SQL statement.
@@ -237,69 +145,9 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     like(field: string, value: string): DataSharePredicates;
-
-    /**
-     * Configure the DataSharePredicates to match the fields whose data type is string and value is
-     * not similar to a specified string.
-     * This method is similar to unlike of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
-     * is a wildcard (like * in a regular expression).
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    unlike(field: string, value: string): DataSharePredicates;
-
-    /**
-     * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.
-     * Different from like, the input parameters of this method are case-sensitive.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the SQL statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    glob(field: string, value: string): DataSharePredicates;
-
-    /**
-     * Restricts the value of the field to the range between low value and high value.
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
-
-    /**
-     * Configure DataSharePredicates to match the specified field whose data type is int and value is
-     * out of a given range.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value to match with DataSharePredicates.
-     * @param { ValueType } high - Indicates the maximum value to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
      * Restricts the value of the field to be greater than the specified value.
@@ -310,7 +158,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     greaterThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -323,7 +171,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     lessThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -336,33 +184,10 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
-    /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
-
-    /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 10
-     */
     /**
      * Restricts the ascending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
@@ -372,7 +197,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     orderByAsc(field: string): DataSharePredicates;
 
@@ -384,43 +209,12 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     orderByDesc(field: string): DataSharePredicates;
 
     /**
-     * Restricts each row of the query result to be unique.
-     *
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    distinct(): DataSharePredicates;
-
-    /**
-     * Construct a query object to specify the number of results and the starting position.
-     *
-     * @param { number } total - Represents the specified number of results.
-     * @param { number } offset - Indicates the starting position.
-     * @returns { DataSharePredicates } Returns the query object.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    /**
      * Construct a query object to specify the number of results and the starting position.
      *
      * @param { number } total - Represents the specified number of results.
@@ -429,7 +223,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     limit(total: number, offset: number): DataSharePredicates;
 
@@ -441,34 +235,10 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     groupBy(fields: Array<string>): DataSharePredicates;
 
-    /**
-     * Configure {@code DataSharePredicates} to specify the index column.
-     * Before using this method, you need to create an index column.
-     *
-     * @param { string } field - Indicates the name of the index column.
-     * @returns { DataSharePredicates } Returns DataSharePredicates with the specified index column.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    indexedBy(field: string): DataSharePredicates;
-
-    /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
-     * are within a given range.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 10
-     */
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
@@ -479,7 +249,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 
@@ -493,33 +263,9 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 20
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
-
-    /**
-     * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
-     *
-     * @param { string } prefix - Represents the specified key prefix.
-     * @returns { DataSharePredicates } Returns the query object.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    prefixKey(prefix: string): DataSharePredicates;
-
-    /**
-     * Configure {@code DataSharePredicates} to match the specified value whose key is within a given range.
-     *
-     * @param { Array<string> } keys - Represents the key names.
-     * @returns { DataSharePredicates } Returns the query object.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    inKeys(keys: Array<string>): DataSharePredicates;
   }
 }
 
