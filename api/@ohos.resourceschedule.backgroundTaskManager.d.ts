@@ -312,6 +312,80 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * Efficiency Resources information.
+   *
+   * @interface EfficiencyResourcesInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface EfficiencyResourcesInfo {
+    /**
+     * The set of resource types that app wants to apply.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    resourceTypes: number;
+    /**
+     * The duration that the resource can be used most.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    timeout: number;
+    /**
+     * True if the apply action is persistent, else false. Default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isPersistent: boolean;
+    /**
+     * True if apply action is for process, false is for package. Default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isForProcess: boolean;
+    /**
+     * The apply reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    reason: string;
+   /**
+     * The uid of apply efficiency resources.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    uid: number;
+   /**
+     * The pid of apply efficiency resources.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    pid: number;
+  }
+
+  /**
    * Cancels delayed transition to the suspended state.
    *
    * @param { number } requestId - The identifier of the delay request.
@@ -659,6 +733,17 @@ declare namespace backgroundTaskManager {
    * @since 9
    */
   function resetAllEfficiencyResources(): void;
+
+  /**
+   * Obtains all the efficiency resources of current application.
+   *
+   * @returns { Promise<EfficiencyResourcesInfo[]> } The promise returns the efficiency resources info.
+   * @throws { BusinessError } 202 - Not System App.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi
+   * @since 20
+   */
+  function getAllEfficiencyResources(): Promise<EfficiencyResourcesInfo[]>;
 
   /**
    * Register continuous task cancel callback.
