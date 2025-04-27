@@ -5402,12 +5402,9 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -5476,12 +5473,9 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -5584,8 +5578,6 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -5638,8 +5630,6 @@ declare namespace window {
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9802,10 +9792,9 @@ declare namespace window {
      *
      * @param { string } name window name of sub window
      * @returns { Promise<Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -9855,10 +9844,9 @@ declare namespace window {
      *
      * @param { string } name window name of sub window
      * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -9930,7 +9918,7 @@ declare namespace window {
      * @returns { Promise<Array<Window>> }
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -9972,7 +9960,7 @@ declare namespace window {
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -10040,12 +10028,9 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -10113,12 +10098,9 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -10178,12 +10160,9 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 19
@@ -10212,8 +10191,6 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -10243,8 +10220,6 @@ declare namespace window {
      *
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -10276,8 +10251,6 @@ declare namespace window {
      * @param { string } name - name of the page to which the content will be loaded.
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
