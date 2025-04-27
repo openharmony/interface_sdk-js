@@ -489,7 +489,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 12
    */
-  fontWeight(weight: number | FontWeight | string, options?: FontSettingOptions): TextAttribute;
+   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } weight
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions): TextAttribute;
 
   /**
    * Set font line spacing.
