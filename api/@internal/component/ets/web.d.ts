@@ -7241,7 +7241,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Called when the web page starts to be loaded.
+   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
