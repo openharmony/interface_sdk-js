@@ -27,7 +27,8 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @namespace userFileManager
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace userFileManager {
   /**
@@ -38,7 +39,8 @@ declare namespace userFileManager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserFileMgr(context: Context): UserFileManager;
 
@@ -48,7 +50,8 @@ declare namespace userFileManager {
    * @enum { number } FileType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FileType {
     /**
@@ -56,7 +59,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE = 1,
     /**
@@ -64,7 +68,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO,
     /**
@@ -72,7 +77,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO
   }
@@ -163,7 +169,8 @@ declare namespace userFileManager {
    * @typedef { 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange' } ChangeEvent
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ChangeEvent =
     'deviceChange'
@@ -179,7 +186,8 @@ declare namespace userFileManager {
    * @interface FileAsset
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FileAsset {
     /**
@@ -513,7 +521,8 @@ declare namespace userFileManager {
    * @enum { string } ImageVideoKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ImageVideoKey {
     /**
@@ -521,7 +530,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     URI,
     /**
@@ -529,7 +539,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILE_TYPE,
     /**
@@ -537,7 +548,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISPLAY_NAME,
     /**
@@ -545,7 +557,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_ADDED,
     /**
@@ -553,7 +566,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_MODIFIED,
     /**
@@ -561,7 +575,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TITLE,
     /**
@@ -569,7 +584,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DURATION,
     /**
@@ -577,7 +593,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH,
     /**
@@ -585,7 +602,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HEIGHT,
     /**
@@ -593,7 +611,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_TAKEN,
     /**
@@ -601,7 +620,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ORIENTATION,
     /**
@@ -609,7 +629,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAVORITE,
     /**
@@ -617,7 +638,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     POSITION,
     /**
@@ -625,7 +647,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_TRASHED,
     /**
@@ -633,7 +656,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIDDEN,
     /**
@@ -641,7 +665,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_COMMENT,
     /**
@@ -649,7 +674,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_SHOT_KEY
   }
@@ -660,7 +686,8 @@ declare namespace userFileManager {
    * @enum { string } AlbumKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AlbumKey {
     /**
@@ -668,7 +695,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     URI,
     /**
@@ -676,7 +704,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILE_TYPE,
     /**
@@ -684,7 +713,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALBUM_NAME,
     /**
@@ -692,7 +722,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_ADDED,
     /**
@@ -700,7 +731,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_MODIFIED
   }
@@ -711,7 +743,8 @@ declare namespace userFileManager {
    * @interface FetchOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FetchOptions {
     /**
@@ -720,7 +753,8 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fetchColumns: Array<string>;
     /**
@@ -729,7 +763,8 @@ declare namespace userFileManager {
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -789,7 +824,8 @@ declare namespace userFileManager {
    * @interface FetchResult
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FetchResult<T> {
     /**
@@ -1259,7 +1295,8 @@ declare namespace userFileManager {
    * @interface UserFileManager
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UserFileManager {
     /**
@@ -1271,7 +1308,8 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1283,7 +1321,8 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1679,7 +1718,8 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -1688,7 +1728,8 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -1861,7 +1902,8 @@ declare namespace userFileManager {
    * @enum { string } PrivateAlbumType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PrivateAlbumType {
     /**
@@ -1869,7 +1911,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_FAVORITE,
     /**
@@ -1877,7 +1920,8 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_TRASH
   }

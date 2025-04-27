@@ -18,6 +18,7 @@
  * @kit CoreFileKit
  */
 
+/*** if arkts 1.1 */
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
 import backup from '@ohos.file.backup';
@@ -50,3 +51,10 @@ export {
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import userFileManager from '@ohos.filemanagement.userFileManager';
+
+export { userFileManager };
+/*** endif */
