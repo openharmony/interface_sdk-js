@@ -180,9 +180,6 @@ declare namespace uiExtensionHost {
      * @param { string } name - window name of sub window
      * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.function createSubWindowWithOptions can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
