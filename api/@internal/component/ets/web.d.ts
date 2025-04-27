@@ -5373,6 +5373,42 @@ declare interface OnPageBeginEvent {
 }
 
 /**
+ * Defines the triggered function at the begin of web page loading.
+ *
+ * @typedef OnLoadStartedEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare interface OnLoadStartedEvent {
+  /**
+   * The url to be loaded.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  url: string;
+}
+
+/**
+ * Defines the triggered function at the end of web page loading.
+ *
+ * @typedef OnLoadFinishedEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare interface OnLoadFinishedEvent {
+  /**
+   * The url to be loaded.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  url: string;
+}
+
+/**
  * Defines the triggered function when the page loading progress changes.
  *
  * @typedef OnProgressChangeEvent
@@ -7409,6 +7445,37 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
+
+  /**
+   * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
+   * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
+   * will not trigger this callback.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
+   * before the page is completely loaded. OnPageBegin is triggered every navigation.
+   * </p>
+   *
+   * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
+
+  /**
+   * Notify the host application that a page has finished loading. This method is called only for main frame.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
+   * </p>
+   *
+   * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 
   /**
    * Triggered when the page loading progress changes.
