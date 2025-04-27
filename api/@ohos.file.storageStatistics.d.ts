@@ -223,7 +223,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9
@@ -237,7 +237,7 @@ May need permission ohos.permission.STORAGE_MANAGER
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9
@@ -446,7 +446,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
@@ -473,7 +473,7 @@ parameters are left unspecified;
    *
    * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
@@ -500,7 +500,7 @@ parameters are left unspecified;
    *
    * @returns { number } return the total size
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
@@ -529,7 +529,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
@@ -556,7 +556,7 @@ parameters are left unspecified;
    *
    * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
@@ -583,7 +583,7 @@ parameters are left unspecified;
    *
    * @returns { number } return the free size
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER
+May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15
