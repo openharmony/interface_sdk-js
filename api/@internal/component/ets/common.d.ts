@@ -17082,6 +17082,40 @@ declare enum HapticFeedbackMode {
 }
 
 /**
+ * Menu mask type
+ *
+ * @interface MenuMaskType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface MenuMaskType {
+  /**
+   * Mask color of menu.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  color?: ResourceColor;
+
+  /**
+   * Set menu mask background blur Style.
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.BACKGROUND_THIN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundBlurStyle?: BlurStyle;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -17450,6 +17484,18 @@ declare interface ContextMenuOptions {
    * @since 18
    */
   hapticFeedbackMode?: HapticFeedbackMode;
+
+  /**
+   * Whether it is a menu without mask.
+   *
+   * @type { ?(boolean | MenuMaskType) }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  mask?: boolean | MenuMaskType;
 }
 
 /**
