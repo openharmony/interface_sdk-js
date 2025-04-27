@@ -125,3 +125,16 @@ export {
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application, UIServiceExtensionAbility
 };
+
+/*** if arkts 1.2 */
+import bundleManager from '@ohos.bundle.bundleManager';
+import bundleMonitor from '@ohos.bundle.bundleMonitor';
+import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import installer from '@ohos.bundle.installer';
+import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import shortcutManager from '@ohos.bundle.shortcutManager';
+
+export {
+  bundleManager, bundleMonitor, bundleResourceManager, installer, launcherBundleManager, shortcutManager
+};
+/*** endif */
