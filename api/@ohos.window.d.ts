@@ -329,7 +329,7 @@ declare namespace window {
      * @since 16
      */
     TYPE_FLOAT_NAVIGATION,
-   /**
+    /**
      * TYPE_MUTISCREEN_COLLABORATION.
      *
      * @syscap SystemCapability.Window.SessionManager
