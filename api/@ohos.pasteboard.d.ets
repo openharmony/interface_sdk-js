@@ -40,6 +40,42 @@ declare namespace pasteboard {
   const MIMETYPE_TEXT_URI: string;
 
   /**
+   * Indicates MIME types of HTML text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 20
+   */
+  const MIMETYPE_TEXT_HTML: string;
+
+  /**
+   * Indicates MIME types of plain text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 20
+   */
+  const MIMETYPE_TEXT_PLAIN: string;
+
+  /**
+   * Indicates MIME type of PixelMap.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 20
+   */
+  const MIMETYPE_PIXELMAP: string;
+
+  /**
+   * Indicates MIME types of wants.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 20
+   */
+  const MIMETYPE_TEXT_WANT: string;
+
+  /**
    * Indicates type of value.
    * @typedef { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -150,6 +186,23 @@ declare namespace pasteboard {
    * @since 20
    */
   export interface PasteDataProperty {
+     /**
+     * the user-defined tag of a PasteData object.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 20
+     */
+    tag: string;
+    /**
+     * a timestamp, which indicates when data is written to the system pasteboard.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 20
+     */
+    readonly timestamp: number;
     /**
      * Indicates the scope of clipboard data which can be pasted.
      * If it is not set or is incorrectly set, The default value is CrossDevice.
@@ -158,8 +211,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 20
      */
-    // shareOption: ShareOption;
-    shareOption: number;
+    shareOption: ShareOption;
   }
 
   /**
@@ -170,6 +222,22 @@ declare namespace pasteboard {
    * @since 20
    */
   export interface PasteDataRecord {
+    /**
+     * MIME types of a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 20
+     */
+    mimeType: string;
+    /**
+     * plain text in a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 20
+     */
+    plainText: string;
     /**
      * an URI in a record.
      * @type { string }
