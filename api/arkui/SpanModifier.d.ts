@@ -19,6 +19,7 @@
  */
 
 /*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
 import { SpanAttribute } from './component/span'
 /*** endif */
 
@@ -35,6 +36,75 @@ import { SpanAttribute } from './component/span'
  * @arkts 1.2
  */
 declare type SpanApplyNormalFunction = (spanAttribute: SpanAttribute) => void;
+
+/**
+ * Defines Span Modifier
+ *
+ * @extends SpanAttribute
+ * @implements AttributeModifier<SpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class SpanModifier extends SpanAttribute implements AttributeModifier<SpanAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: SpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: SpanAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: SpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: SpanAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: SpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: SpanAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: SpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: SpanAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: SpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: SpanAttribute) => void);
+}
 /*** endif */
 
 
@@ -45,8 +115,7 @@ declare type SpanApplyNormalFunction = (spanAttribute: SpanAttribute) => void;
  * @implements AttributeModifier<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class SpanModifier extends SpanAttribute implements AttributeModifier<SpanAttribute> {
 
@@ -60,18 +129,4 @@ export declare class SpanModifier extends SpanAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: SpanAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: SpanApplyNormalFunction;
-  /*** endif */
 }

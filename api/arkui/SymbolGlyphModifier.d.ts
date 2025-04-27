@@ -20,6 +20,8 @@
 
 /*** if arkts 1.2 */
 import { SymbolGlyphAttribute } from './component/symbolglyph'
+import { AttributeModifier } from './component/common'
+import { Resource } from '../global/resource'
 /*** endif */
 
 /*** if arkts 1.2 */
@@ -35,6 +37,73 @@ import { SymbolGlyphAttribute } from './component/symbolglyph'
  * @arkts 1.2
  */
 declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyphAttribute) => void;
+/**
+ * Defines SymbolGlyph Modifier
+ *
+ * @extends SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute>
+ * @typedef SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare interface SymbolGlyphModifier extends SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: SymbolGlyphAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: SymbolGlyphAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: SymbolGlyphAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: SymbolGlyphAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: SymbolGlyphAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -44,8 +113,7 @@ declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyph
  * @implements AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
     /**
@@ -54,8 +122,7 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @param { Resource } src
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(src?: Resource);
 
@@ -68,18 +135,4 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @since 12
      */
     applyNormalAttribute?(instance: SymbolGlyphAttribute): void;
-
-    /*** if arkts 1.2 */
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    applyNormalAttribute?: SymbolGlyphApplyNormalFunction;
-    /*** endif */
-  }
+}

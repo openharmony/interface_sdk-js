@@ -19,6 +19,7 @@
  */
 
 /*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
 import { ContainerSpanAttribute } from './component/containerSpan'
 /*** endif */
 
@@ -35,6 +36,75 @@ import { ContainerSpanAttribute } from './component/containerSpan'
  * @arkts 1.2
  */
 declare type ContainerSpanApplyNormalFunction = (containerSpanAttribute: ContainerSpanAttribute) => void;
+/**
+ * Defines ContainerSpan modifier, the base class for quick use modifier ability
+ * 
+ * @extends ContainerSpanAttribute
+ * @implements AttributeModifier<ContainerSpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: ContainerSpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: ContainerSpanAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: ContainerSpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: ContainerSpanAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: ContainerSpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: ContainerSpanAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: ContainerSpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: ContainerSpanAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: ContainerSpanAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: ContainerSpanAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,8 +115,7 @@ declare type ContainerSpanApplyNormalFunction = (containerSpanAttribute: Contain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
 
@@ -60,18 +129,4 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @since 12
    */
   applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ContainerSpanApplyNormalFunction;
-  /*** endif */
 }
