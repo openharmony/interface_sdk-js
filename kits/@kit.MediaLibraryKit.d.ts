@@ -18,6 +18,7 @@
  * @kit MediaLibraryKit
  */
 
+/*** if arkts 1.1 */
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
@@ -45,3 +46,10 @@ export {
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import photoAccessHelper from '@ohos.file.photoAccessHelper';
+
+export { photoAccessHelper };
+/*** endif */
