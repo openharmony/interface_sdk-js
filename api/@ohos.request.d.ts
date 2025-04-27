@@ -2805,6 +2805,17 @@ declare namespace request {
        * @since 15
        */
       text?: string;
+      /**
+       * Disables the notification.
+       * If the value is false, a notification will be displayed, otherwise nothing will be displayed.
+       * If not specified, the value is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      disable?: boolean;
     }
 
     /**
@@ -4341,6 +4352,44 @@ declare namespace request {
     }
 
     /**
+     * Reason for task waiting.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    enum WaitingReason {
+      /**
+       * Indicates the task is waiting for running queue to be free.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      TASK_QUEUE_FULL = 0x00,
+      /**
+       * Indicates the task is waiting for network to recover.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      NETWORK_NOT_MATCH = 0x01,
+      /**
+       * Indicates the task is waiting for app to return to the foreground.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      APP_BACKGROUND = 0x02,
+      /**
+       * Indicates the task is waiting for user to become activated.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      USER_INACTIVATED = 0x03,
+    }
+
+    /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
      * Can `start` a initialized task.
@@ -4639,6 +4688,54 @@ declare namespace request {
        * @since 12
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
+      /**
+       * Enables the 'fault' callback.
+       * This callback is triggered when the task failed.
+       * The returned `Fault` will contain the reason why the task failed.
+       *
+       * @param { 'fault' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'fault', callback: Callback<Faults>): void;
+      /**
+       * Disables the 'fault' callback.
+       *
+       * @param { 'fault' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'fault', callback?: Callback<Faults>): void;
+      /**
+       * Enables the wait callback.
+       * This callback is triggered when the task changes from other states to the waiting state.
+       * The returned `WaitingReason` will contain the reason why the task enters waiting state.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'wait', callback: Callback<WaitingReason>): void;
+      /**
+       * Disables the wait callback.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'wait', callback?: Callback<WaitingReason>): void;
       /**
        * Starts the task.
        *
