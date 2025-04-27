@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,35 +19,100 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Dimension, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export type ColumnSplitInterface = () => ColumnSplitAttribute;
+import { Dimension } from "./units";
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Provides an interface for the style of a divider including start margin and end margin
+ *
+ * @interface ColumnSplitDividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface ColumnSplitDividerStyle {
+    /**
+     * Define the start margin of the divider
+     *
+     * @type { ?Dimension }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     startMargin?: Dimension;
+    /**
+     * Define the end margin of the divider
+     *
+     * @type { ?Dimension }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     endMargin?: Dimension;
 }
-export interface ColumnSplitAttribute extends CommonMethod {
-    @memo
-    resizeable(value: boolean): this;
-    @memo
-    divider(value: ColumnSplitDividerStyle | undefined): this;
+export declare interface ColumnSplitAttribute extends CommonMethod {
+    /**
+     * Indicates whether the split line can be dragged. The default value is false.
+     *
+     * @param { boolean } value
+     * @returns { ColumnSplitAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    resizeable(value: boolean | undefined): this;
+    /**
+     * Called when the ColumnSplit split line style is set.
+     * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+     * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
+     * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    divider(value: ColumnSplitDividerStyle | null | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIColumnSplitAttribute extends UICommonMethod {
+    /**
+     * Indicates whether the split line can be dragged. The default value is false.
+     *
+     * @param { boolean } value
+     * @returns { ColumnSplitAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    resizeable(value: boolean | undefined): this;
+    /**
+     * Called when the ColumnSplit split line style is set.
+     * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+     * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
+     * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    divider(value: ColumnSplitDividerStyle | null | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function ColumnSplit(
     
     @memo
     content_?: () => void,
-): ColumnSplitAttribute
+): UIColumnSplitAttribute

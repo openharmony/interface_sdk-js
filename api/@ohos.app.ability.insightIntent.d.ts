@@ -60,8 +60,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     UI_ABILITY_BACKGROUND = 1,
 
@@ -70,8 +69,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     UI_EXTENSION_ABILITY = 2,
 
@@ -81,8 +79,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVICE_EXTENSION_ABILITY = 3,
   }
@@ -129,8 +126,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     uris?: Array<string>;
 
@@ -145,8 +141,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     flags?: number;
   }

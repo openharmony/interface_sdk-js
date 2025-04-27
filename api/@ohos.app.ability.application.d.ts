@@ -42,7 +42,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -60,7 +61,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -77,7 +79,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 

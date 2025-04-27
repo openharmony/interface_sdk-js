@@ -20,9 +20,10 @@
 
 /*** if arkts 1.2 */
 import webview from '../../@ohos.web.webview';
+import image from '../../@ohos.multimedia.image';
 import { CustomBuilder, CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent } from './common';
 import { Resource } from '../../global/resource';
-import { Position, ResourceStr, PixelMap } from './units';
+import { Position, ResourceStr } from './units';
 import { MenuType, EditMenuOptions } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
@@ -6817,10 +6818,20 @@ declare interface OnFaviconReceivedEvent {
    * @type { PixelMap }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   favicon: PixelMap;
+
+  /**
+   * Received the Favicon icon for the image.PixelMap object.
+   *
+   * @type { image.PixelMap }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  favicon: image.PixelMap;
 }
 
 /**
@@ -7663,7 +7674,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * @returns { WebAttribute }
     * @syscap SystemCapability.Web.Webview.Core
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':'11', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
   overScrollMode(mode: OverScrollMode): WebAttribute;
 

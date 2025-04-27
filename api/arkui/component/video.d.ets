@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,113 +19,808 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Resource } from './../../../api/global/resource'
-import { PixelMap, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, VoidCallback } from './units'
-import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, ImageFit } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum SeekMode {
-    PREVIOUS_KEYFRAME = 0,
-    PreviousKeyframe = 0,
-    NEXT_KEYFRAME = 1,
-    NextKeyframe = 1,
-    CLOSEST_KEYFRAME = 2,
-    ClosestKeyframe = 2,
-    ACCURATE = 3,
-    Accurate = 3
+import { Resource } from '../../global/resource';
+import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
+import { ImageFit } from "./enums";
+import { CommonMethod, Callback, PixelMap, UICommonMethod, AttributeModifier } from "./common";
+import { VoidCallback, ColorMetrics } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Seek mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SeekMode {
+    /**
+     * Sync to keyframes before the time point.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    PreviousKeyframe,
+    /**
+     * Sync to keyframes after the time point.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    NextKeyframe,
+    /**
+     * Sync to closest keyframes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ClosestKeyframe,
+    /**
+     * Seek to frames closest the time point.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Accurate
 }
-export enum PlaybackSpeed {
-    SPEED_FORWARD_0_75_X = 0,
-    Speed_Forward_0_75_X = 0,
-    SPEED_FORWARD_1_00_X = 1,
-    Speed_Forward_1_00_X = 1,
-    SPEED_FORWARD_1_25_X = 2,
-    Speed_Forward_1_25_X = 2,
-    SPEED_FORWARD_1_75_X = 3,
-    Speed_Forward_1_75_X = 3,
-    SPEED_FORWARD_2_00_X = 4,
-    Speed_Forward_2_00_X = 4
+/**
+ * playback speed.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum PlaybackSpeed {
+    /**
+     * 0.75x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Speed_Forward_0_75_X,
+    /**
+     * 1.00x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Speed_Forward_1_00_X,
+    /**
+     * 1.25x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Speed_Forward_1_25_X,
+    /**
+     * 1.75x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Speed_Forward_1_75_X,
+    /**
+     * 2.00x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Speed_Forward_2_00_X
 }
+/**
+ * Fullscreen information of the video.
+ *
+ * @typedef FullscreenInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface FullscreenInfo {
+    /**
+     * The flag whether play in full screen.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     fullscreen: boolean;
 }
+/**
+ * Prepared information of the video.
+ *
+ * @typedef PreparedInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface PreparedInfo {
+    /**
+     * The duration of the current video, in seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     duration: number;
 }
+/**
+ * Playback information of the video.
+ *
+ * @typedef PlaybackInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface PlaybackInfo {
+    /**
+     * The current video playback progress, expressed in seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     time: number;
 }
-export interface VideoOptions {
+/**
+ * Defines the video poster options.
+ *
+ * @interface PosterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare interface PosterOptions {
+    /**
+     * Whether to display the first frame of video on prepared status of AVPlayer.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    showFirstFrame?: boolean;
+}
+/**
+ * Defines the video options.
+ *
+ * @interface VideoOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface VideoOptions {
+    /**
+     * src of video.
+     *
+     * @type { ?(string | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     src?: string | Resource;
+    /**
+     * playback rate of video.
+     *
+     * @type { ?(number | string | PlaybackSpeed) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     currentProgressRate?: number | string | PlaybackSpeed;
+    /**
+     * preview uri of video.
+     *
+     * @type { ?(string | PixelMap | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     previewUri?: string | PixelMap | Resource;
+    /**
+     * controller of video.
+     *
+     * @type { ?VideoController }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     controller?: VideoController;
+    /**
+     * image ai options of video.
+     *
+     * @type { ?ImageAIOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     imageAIOptions?: ImageAIOptions;
+    /**
+     * poster options of video.
+     *
+     * @type { ?PosterOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    posterOptions?: PosterOptions;
 }
-export interface VideoController {
-    start(): undefined
-    pause(): undefined
-    stop(): undefined
-    setCurrentTime(value: number): undefined
-    requestFullscreen(value: boolean): undefined
-    exitFullscreen(): undefined
+export declare interface VideoAttribute extends CommonMethod {
+    /**
+     * Called when judging whether the video is muted.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    muted(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the video is played automatically.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    autoPlay(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the control bar is displayed.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    controls(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the video is played circular.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    loop(value: boolean | undefined): this;
+    /**
+     * Called when determining the zoom type of the video source.
+     *
+     * @param { ImageFit } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    objectFit(value: ImageFit | undefined): this;
+    /**
+     * Called when the video is played.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onStart(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video is paused.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPause(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video playback ends.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onFinish(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video enters and exits the full screen.
+     *
+     * @param { Callback<FullscreenInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onFullscreenChange(callback: Callback<FullscreenInfo> | undefined): this;
+    /**
+     * Called when the video preparation is complete.
+     *
+     * @param { Callback<PreparedInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPrepared(callback: Callback<PreparedInfo> | undefined): this;
+    /**
+     * Called when the time information is reported when the progress bar process is operated.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onSeeking(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when the playback time information is reported after the operation progress bar is completed.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onSeeked(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when the playback progress changes.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onUpdate(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when playback fails.
+     *
+     * @param { function } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onError(event: (() => void) | undefined): this;
+    /**
+     * Called when the video is stopped.
+     *
+     * @param { Callback<void> } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onStop(event: Callback<void> | undefined): this;
+    /**
+     * Enable image analyzer.
+     *
+     * @param { boolean } enable
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableAnalyzer(enable: boolean | undefined): this;
+    /**
+     * Set image analyzer with config.
+     *
+     * @param { ImageAnalyzerConfig } config
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
+    /**
+     * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+     *
+     * @param { ColorMetrics } color
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    surfaceBackgroundColor(color: ColorMetrics | undefined): this;
+    /**
+     * Indicates whether to response shortcut key. The default value is false.
+     * If the value is true, video will respond to the shortcut keys as follows:
+     * Space key: play/pause the video.
+     * Up/Down arrow key: turn up/down volume of the video.
+     * Right/Left arrow key: fast forward/backward the video.
+     *
+     * @param { boolean } enabled
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    enableShortcutKey(enabled: boolean | undefined): this;
+    attributeModifier(modifier: AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+/**
+ * Defines the video controller.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class VideoController {
+    /**
+     * constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Provides events to play.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    start(): void;
+    /**
+     * Provides a pause event for playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pause(): void;
+    /**
+     * Provides an event to stop playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    stop(): void;
+    /**
+     * Provide the progress method of video playback.
+     *
+     * @param { number } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setCurrentTime(value: number): void;
+    /**
+     * Provides a full screen playback method.
+     *
+     * @param { boolean } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    requestFullscreen(value: boolean): void;
+    /**
+     * Provides a method to exit full screen playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    exitFullscreen(): void;
+    /**
+     * Provide the progress method of video playback.
+     *
+     * @param { number } value
+     * @param { SeekMode } seekMode
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setCurrentTime(value: number, seekMode: SeekMode): void;
+    /**
+     * Provide the reset method of video playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    reset(): void;
+}
+export declare interface UIVideoAttribute extends UICommonMethod {
+    /**
+     * Called when judging whether the video is muted.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    muted(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the video is played automatically.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    autoPlay(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the control bar is displayed.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    controls(value: boolean | undefined): this;
+    /**
+     * Called when judging whether the video is played circular.
+     *
+     * @param { boolean } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    loop(value: boolean | undefined): this;
+    /**
+     * Called when determining the zoom type of the video source.
+     *
+     * @param { ImageFit } value
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    objectFit(value: ImageFit | undefined): this;
+    /**
+     * Called when the video is played.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onStart(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video is paused.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onPause(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video playback ends.
+     *
+     * @param { VoidCallback } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onFinish(event: VoidCallback | undefined): this;
+    /**
+     * Called when the video enters and exits the full screen.
+     *
+     * @param { Callback<FullscreenInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onFullscreenChange(callback: Callback<FullscreenInfo> | undefined): this;
+    /**
+     * Called when the video preparation is complete.
+     *
+     * @param { Callback<PreparedInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onPrepared(callback: Callback<PreparedInfo> | undefined): this;
+    /**
+     * Called when the time information is reported when the progress bar process is operated.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSeeking(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when the playback time information is reported after the operation progress bar is completed.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onSeeked(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when the playback progress changes.
+     *
+     * @param { Callback<PlaybackInfo> } callback
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onUpdate(callback: Callback<PlaybackInfo> | undefined): this;
+    /**
+     * Called when playback fails.
+     *
+     * @param { function } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onError(event: (() => void) | undefined): this;
+    /**
+     * Called when the video is stopped.
+     *
+     * @param { Callback<void> } event
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onStop(event: Callback<void> | undefined): this;
+    /**
+     * Enable image analyzer.
+     *
+     * @param { boolean } enable
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableAnalyzer(enable: boolean | undefined): this;
+    /**
+     * Set image analyzer with config.
+     *
+     * @param { ImageAnalyzerConfig } config
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
+    /**
+     * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+     *
+     * @param { ColorMetrics } color
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    surfaceBackgroundColor(color: ColorMetrics | undefined): this;
+    /**
+     * Indicates whether to response shortcut key. The default value is false.
+     * If the value is true, video will respond to the shortcut keys as follows:
+     * Space key: play/pause the video.
+     * Up/Down arrow key: turn up/down volume of the video.
+     * Right/Left arrow key: fast forward/backward the video.
+     *
+     * @param { boolean } enabled
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    enableShortcutKey(enabled: boolean | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-    reset(): void
-}
-export type VideoInterface = (value: VideoOptions) => VideoAttribute;
-export type Callback_FullscreenInfo_Void = (parameter: FullscreenInfo) => void;
-export type Callback_PreparedInfo_Void = (parameter: PreparedInfo) => void;
-export type Callback_PlaybackInfo_Void = (parameter: PlaybackInfo) => void;
-export interface VideoAttribute extends CommonMethod {
-    @memo
-    muted(value: boolean): this;
-    @memo
-    autoPlay(value: boolean): this;
-    @memo
-    controls(value: boolean): this;
-    @memo
-    loop(value: boolean): this;
-    @memo
-    objectFit(value: ImageFit): this;
-    @memo
-    onStart(value: VoidCallback): this;
-    @memo
-    onPause(value: VoidCallback): this;
-    @memo
-    onFinish(value: VoidCallback): this;
-    @memo
-    onFullscreenChange(value: ((parameter: FullscreenInfo) => void)): this;
-    @memo
-    onPrepared(value: ((parameter: PreparedInfo) => void)): this;
-    @memo
-    onSeeking(value: ((parameter: PlaybackInfo) => void)): this;
-    @memo
-    onSeeked(value: ((parameter: PlaybackInfo) => void)): this;
-    @memo
-    onUpdate(value: ((parameter: PlaybackInfo) => void)): this;
-    @memo
-    onError(value: (() => void)): this;
-    @memo
-    onStop(value: (() => void)): this;
-    @memo
-    enableAnalyzer(value: boolean): this;
-    @memo
-    analyzerConfig(value: ImageAnalyzerConfig): this;
-}
 @memo
 @ComponentBuilder
 export declare function Video(
     value: VideoOptions, 
     @memo
     content_?: () => void,
-): VideoAttribute
+): UIVideoAttribute

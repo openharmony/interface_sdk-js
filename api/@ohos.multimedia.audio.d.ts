@@ -29,7 +29,8 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Multimedia.Audio.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace audio {
   /**
@@ -1467,7 +1468,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum StreamUsage {
     /**
@@ -1480,7 +1482,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_UNKNOWN = 0,
     /**
@@ -1504,7 +1507,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_MUSIC = 1,
     /**
@@ -1517,7 +1521,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
@@ -1530,7 +1535,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
@@ -1543,7 +1549,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ALARM = 4,
     /**
@@ -1555,7 +1562,8 @@ declare namespace audio {
      * Voice message usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_MESSAGE = 5,
     /**
@@ -1576,7 +1584,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_RINGTONE = 6,
     /**
@@ -1589,7 +1598,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_NOTIFICATION = 7,
     /**
@@ -1602,7 +1612,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ACCESSIBILITY = 8,
     /**
@@ -1622,7 +1633,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_MOVIE = 10,
     /**
@@ -1635,7 +1647,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_GAME = 11,
     /**
@@ -1648,7 +1661,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_AUDIOBOOK = 12,
     /**
@@ -1661,7 +1675,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_NAVIGATION = 13,
     /**
@@ -1689,14 +1704,16 @@ declare namespace audio {
      * Video call usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VIDEO_COMMUNICATION = 17,
     /**
      * Voice call assistant type. This type is only used for call assistant functionalities.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
   }
@@ -1834,7 +1851,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRendererInfo {
     /**
@@ -1864,7 +1882,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     usage: StreamUsage;
     /**
@@ -1879,7 +1898,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rendererFlags: number;
   }
@@ -2029,7 +2049,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptMode {
     /**
@@ -2042,7 +2063,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARE_MODE = 0,
     /**
@@ -2055,7 +2077,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INDEPENDENT_MODE = 1
   }
@@ -4073,17 +4096,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
-     */
-    /**
-     * Unsubscribes to audio renderer change events.
-     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @crossplatform
-     * @since 18
      */
     off(type: 'audioRendererChange'): void;
 

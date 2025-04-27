@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,43 +19,136 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * ItemState
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ItemState {
+    /**
+     * Default State
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Normal,
+    /**
+     * Disabled State
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Disabled,
+    /**
+     * Waiting State
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Waiting,
+    /**
+     * Skip State
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Skip
+}
+export declare interface StepperItemAttribute extends CommonMethod {
+    /**
+     * Called when the value of stepperItem prevLabel is set
+     *
+     * @param { string } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    prevLabel(value: string | undefined): this;
+    /**
+     * Called when the value of stepperItem nextLabel is set
+     *
+     * @param { string } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    nextLabel(value: string | undefined): this;
+    /**
+     * Called when the value of stepperItem status is set
+     *
+     * @param { ItemState } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    status(value?: ItemState | undefined): this;
+    attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIStepperItemAttribute extends UICommonMethod {
+    /**
+     * Called when the value of stepperItem prevLabel is set
+     *
+     * @param { string } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    prevLabel(value: string | undefined): this;
+    /**
+     * Called when the value of stepperItem nextLabel is set
+     *
+     * @param { string } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    nextLabel(value: string | undefined): this;
+    /**
+     * Called when the value of stepperItem status is set
+     *
+     * @param { ItemState } value
+     * @returns { StepperItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    status(value?: ItemState | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum ItemState {
-    NORMAL = 0,
-    Normal = 0,
-    DISABLED = 1,
-    Disabled = 1,
-    WAITING = 2,
-    Waiting = 2,
-    SKIP = 3,
-    Skip = 3
-}
-export type StepperItemInterface = () => StepperItemAttribute;
-export interface StepperItemAttribute extends CommonMethod {
-    @memo
-    prevLabel(value: string): this;
-    @memo
-    nextLabel(value: string): this;
-    @memo
-    status(value: ItemState): this;
-}
 @memo
 @ComponentBuilder
 export declare function StepperItem(
     
     @memo
     content_?: () => void,
-): StepperItemAttribute
+): UIStepperItemAttribute

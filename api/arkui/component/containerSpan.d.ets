@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,22 +19,64 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { TextBackgroundStyle } from './span'
-import { AttributeModifier } from './common'
-export type ContainerSpanInterface = () => ContainerSpanAttribute;
-export interface ContainerSpanAttribute {
-    @memo
-    textBackgroundStyle(value: TextBackgroundStyle): this;
-    @memo
-    attributeModifier(value: AttributeModifier<ContainerSpanAttribute>): this;
+import { TextBackgroundStyle } from "./span";
+import { AttributeModifier, CommonMethod, UICommonMethod } from "./common";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+export declare interface ContainerSpanAttribute {
+    /**
+     * Span background style.
+     *
+     * @param { TextBackgroundStyle } style - The background style of span.
+     * @returns { ContainerSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
+    /**
+     * Sets the attribute modifier.
+     *
+     * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
+     * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute> | undefined): this;
 }
+export declare interface UIContainerSpanAttribute {
+    /**
+     * Span background style.
+     *
+     * @param { TextBackgroundStyle } style - The background style of span.
+     * @returns { ContainerSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
+    /**
+     * Sets the attribute modifier.
+     *
+     * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
+     * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function ContainerSpan(
     
     @memo
     content_?: () => void,
-): ContainerSpanAttribute
+): UIContainerSpanAttribute

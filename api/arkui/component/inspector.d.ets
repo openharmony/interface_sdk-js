@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,22 +12,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier, CommonMethod, UICommonMethod } from "./common";
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-declare function getInspectorNodes(): Object
-declare function getInspectorNodeById(arg0: number): Object
+/**
+ * Profiler tools for inspectors.
+ *
+ * @namespace Profiler
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @test
+ */
 export declare namespace Profiler {
-    function registerVsyncCallback(arg0: ((info: string) => void)): void
+    /**
+     * Registers vsync callback for profiler.
+     *
+     * @param { function } callback - the callback info is json string with ui update info.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     * @test
+     */
+    function registerVsyncCallback(callback: (info: string) => void): void;
+    /**
+     * Unregisters vsync callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     * @test
+     */
+    function unregisterVsyncCallback(): void;
 }
-export declare namespace Profiler {
-    function unregisterVsyncCallback(): void
-}
-declare function setAppBgColor(arg0: string): void
+/**
+ * Set app background color.
+ *
+ * @param { string } value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @test
+ */
+export declare function setAppBgColor(value: string): void;

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,60 +19,408 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { PixelMap, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions } from './units'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, LineCapStyle, LineJoinStyle } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export interface ViewportRect {
+import { CommonMethod, PixelMap, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, Length } from "./units";
+import { Resource } from '../../global/resource';
+import { LineCapStyle, LineJoinStyle } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Viewport bounding box.
+ *
+ * @interface ViewportRect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ViewportRect {
+    /**
+     * Viewport X coordinate.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     x?: number | string;
+    /**
+     * Viewport Y coordinate.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     y?: number | string;
+    /**
+     * Viewport width.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     width?: number | string;
+    /**
+     * Viewport height.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     height?: number | string;
 }
-export interface ShapeInterface {
-    invoke(value: PixelMap): ShapeAttribute;
+export declare interface ShapeAttribute extends CommonMethod {
+    /**
+     * Viewport of shape
+     *
+     * @param { ViewportRect } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    viewPort(value: ViewportRect | undefined): this;
+    /**
+     * Called when the border color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    stroke(value: ResourceColor | undefined): this;
+    /**
+     * Called when the fill color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fill(value: ResourceColor | undefined): this;
+    /**
+     * Called when the offset of the starting point of border drawing is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeDashOffset(value: number | string | undefined): this;
+    /**
+     * Called when the gap of the border is set.
+     *
+     * @param { Array<Length> } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeDashArray(value: Array<Length> | undefined): this;
+    /**
+     * Called when the path endpoint drawing style is set.
+     *
+     * @param { LineCapStyle } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeLineCap(value: LineCapStyle | undefined): this;
+    /**
+     * Called when the border corner drawing style is set.
+     *
+     * @param { LineJoinStyle } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeLineJoin(value: LineJoinStyle | undefined): this;
+    /**
+     * Called when the limit value for drawing acute angles as oblique angles is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeMiterLimit(value: number | string | undefined): this;
+    /**
+     * Called when the opacity of the border is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeOpacity(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the transparency of the border is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fillOpacity(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the width of the border is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth(value: number | string | undefined): this;
+    /**
+     * Called when setting whether anti aliasing is on.
+     *
+     * @param { boolean } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    antiAlias(value: boolean | undefined): this;
+    /**
+     * Called when shape mesh.
+     *
+     * @param { Array<number> } value
+     * @param { number } column
+     * @param { number } row
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    mesh(value: Array<number> | undefined, column: number | undefined, row: number | undefined): this;
+    attributeModifier(modifier: AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIShapeAttribute extends UICommonMethod {
+    /**
+     * Viewport of shape
+     *
+     * @param { ViewportRect } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    viewPort(value: ViewportRect | undefined): this;
+    /**
+     * Called when the border color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    stroke(value: ResourceColor | undefined): this;
+    /**
+     * Called when the fill color is set.
+     *
+     * @param { ResourceColor } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fill(value: ResourceColor | undefined): this;
+    /**
+     * Called when the offset of the starting point of border drawing is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeDashOffset(value: number | string | undefined): this;
+    /**
+     * Called when the gap of the border is set.
+     *
+     * @param { Array<Length> } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeDashArray(value: Array<Length> | undefined): this;
+    /**
+     * Called when the path endpoint drawing style is set.
+     *
+     * @param { LineCapStyle } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeLineCap(value: LineCapStyle | undefined): this;
+    /**
+     * Called when the border corner drawing style is set.
+     *
+     * @param { LineJoinStyle } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeLineJoin(value: LineJoinStyle | undefined): this;
+    /**
+     * Called when the limit value for drawing acute angles as oblique angles is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeMiterLimit(value: number | string | undefined): this;
+    /**
+     * Called when the opacity of the border is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeOpacity(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the transparency of the border is set.
+     *
+     * @param { number | string | Resource } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    fillOpacity(value: number | string | Resource | undefined): this;
+    /**
+     * Called when the width of the border is set.
+     *
+     * @param { number | string } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeWidth(value: number | string | undefined): this;
+    /**
+     * Called when setting whether anti aliasing is on.
+     *
+     * @param { boolean } value
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    antiAlias(value: boolean | undefined): this;
+    /**
+     * Called when shape mesh.
+     *
+     * @param { Array<number> } value
+     * @param { number } column
+     * @param { number } row
+     * @returns { ShapeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    mesh(value: Array<number> | undefined, column: number | undefined, row: number | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-}
-export interface ShapeAttribute extends CommonMethod {
-    @memo
-    viewPort(value: ViewportRect): this;
-    @memo
-    stroke(value: ResourceColor): this;
-    @memo
-    fill(value: ResourceColor): this;
-    @memo
-    strokeDashOffset(value: number | string): this;
-    @memo
-    strokeDashArray(value: Array<Length>): this;
-    @memo
-    strokeLineCap(value: LineCapStyle): this;
-    @memo
-    strokeLineJoin(value: LineJoinStyle): this;
-    @memo
-    strokeMiterLimit(value: number | string): this;
-    @memo
-    strokeOpacity(value: number | string | Resource): this;
-    @memo
-    fillOpacity(value: number | string | Resource): this;
-    @memo
-    strokeWidth(value: number | string): this;
-    @memo
-    antiAlias(value: boolean): this;
-}
 @memo
 @ComponentBuilder
 export declare function Shape(
-    value?: PixelMap | undefined, 
+    value: PixelMap, 
     @memo
     content_?: () => void,
-): ShapeAttribute
+): UIShapeAttribute

@@ -124,8 +124,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     displayId?: number;
 
@@ -136,8 +135,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     uris?: Array<string>;
 
@@ -152,8 +150,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     flags?: number;
   }
@@ -188,7 +185,8 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
 
@@ -222,7 +220,8 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
 }

@@ -32,7 +32,8 @@
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace deviceInfo {
   /**
@@ -63,7 +64,8 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const deviceType: string;
 
@@ -80,7 +82,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const manufacture: string;
 
@@ -123,7 +126,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const marketName: string;
 
@@ -140,7 +144,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const productSeries: string;
 
@@ -166,7 +171,8 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const productModel: string;
 
@@ -176,7 +182,8 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const productModelAlias: string;
 
@@ -193,7 +200,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const softwareModel: string;
 
@@ -210,7 +218,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const hardwareModel: string;
 
@@ -230,7 +239,8 @@ declare namespace deviceInfo {
    * @permission ohos.permission.sec.ACCESS_UDID
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const serial: string;
 
@@ -247,7 +257,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const bootloaderVersion: string;
 
@@ -264,7 +275,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const abiList: string;
 
@@ -281,7 +293,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const securityPatchTag: string;
 
@@ -298,7 +311,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const displayVersion: string;
 
@@ -315,7 +329,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const incrementalVersion: string;
 
@@ -336,7 +351,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const osReleaseType: string;
 
@@ -362,7 +378,8 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const osFullName: string;
 
@@ -381,7 +398,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const majorVersion: number;
 
@@ -402,7 +420,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const seniorVersion: number;
 
@@ -421,7 +440,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const featureVersion: number;
 
@@ -440,7 +460,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildVersion: number;
 
@@ -466,7 +487,8 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const sdkApiVersion: number;
 
@@ -483,7 +505,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const firstApiVersion: number;
 
@@ -500,7 +523,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const versionId: string;
 
@@ -517,7 +541,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildType: string;
 
@@ -534,7 +559,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildUser: string;
 
@@ -551,7 +577,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildHost: string;
 
@@ -568,7 +595,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildTime: string;
 
@@ -585,7 +613,8 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const buildRootHash: string;
 
@@ -595,7 +624,8 @@ declare namespace deviceInfo {
    * @permission ohos.permission.sec.ACCESS_UDID
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const udid: string;
 
@@ -607,7 +637,8 @@ declare namespace deviceInfo {
    *
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const distributionOSName: string;
 
@@ -619,7 +650,8 @@ declare namespace deviceInfo {
    *
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const distributionOSVersion: string;
 
@@ -631,7 +663,8 @@ declare namespace deviceInfo {
    *
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const distributionOSApiVersion: number;
 
@@ -641,7 +674,8 @@ declare namespace deviceInfo {
    * distributionOSApiName will return the ISV OS api name
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const distributionOSApiName: string;
 
@@ -653,7 +687,8 @@ declare namespace deviceInfo {
    *
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const distributionOSReleaseType: string;
 
@@ -674,7 +709,8 @@ declare namespace deviceInfo {
    *
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const ODID: string;
 
@@ -683,7 +719,8 @@ declare namespace deviceInfo {
    *
    * @permission ohos.permission.ACCESS_DISK_PHY_INFO
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const diskSN: string;
 }

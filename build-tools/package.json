@@ -4,7 +4,8 @@
   "description": "",
   "main": "delete_systemapi_plugin.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd arkui_transformer && npm install"
   },
   "author": "",
   "license": "ISC",

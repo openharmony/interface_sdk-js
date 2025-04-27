@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,68 +19,402 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { MultiShadowOptions, CommonConfiguration, ContentModifier, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { Resource } from './../../../api/global/resource'
-import { ResourceStr, Dimension, ResourceColor, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, PixelMap } from './units'
-import { LinearGradient } from './dataPanel'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
+import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions, CustomBuilder, Optional, UICommonMethod, AttributeModifier } from "./common";
+import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
+import { LinearGradient } from "./dataPanel";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Defines Gauge constructor options.
+ *
+ * @interface GaugeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export interface GaugeOptions {
+    /**
+     * Set current data value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     value: number;
+    /**
+     * Set current segment minimum value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     min?: number;
+    /**
+     * Set current segment maximum value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     max?: number;
 }
-export type GaugeInterface = (options: GaugeOptions) => GaugeAttribute;
-export interface GaugeShadowOptions extends MultiShadowOptions {
+/**
+ * Defines the options of gauge track shadow.
+ *
+ * @extends MultiShadowOptions
+ * @interface GaugeShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GaugeShadowOptions extends MultiShadowOptions {
 }
-export interface GaugeIndicatorOptions {
+/**
+ * Defines the options of gauge indicator.
+ *
+ * @interface GaugeIndicatorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GaugeIndicatorOptions {
+    /**
+     * Current indicator icon path.
+     *
+     * @type { ?ResourceStr } option type - the current option type.
+     * @default system style.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     icon?: ResourceStr;
+    /**
+     * Current indicator space.
+     *
+     * @type { ?Dimension } indicator space - the current indicator space.
+     * @default 8
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     space?: Dimension;
 }
-export interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
+/**
+ * GaugeConfiguration used by content modifier
+ *
+ * @extends CommonConfiguration<GaugeConfiguration>
+ * @interface GaugeConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
+    /**
+     * Current data value.
+     *
+     * @type { number } data value - the current data value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     value: number;
+    /**
+     * Current Segment Minimum Value.
+     *
+     * @type { number } segment minimum value - the current segment minimum value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     min: number;
+    /**
+     * Current Segment Maximum Value.
+     *
+     * @type { number } segment maximum value - the current segment maximum value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     max: number;
 }
-export type Tuple_Union_ResourceColor_LinearGradient_Number = [
-    ResourceColor | LinearGradient,
-    number
-]
-export interface GaugeAttribute extends CommonMethod {
-    @memo
-    value(value: number): this;
-    @memo
-    startAngle(value: number): this;
-    @memo
-    endAngle(value: number): this;
-    @memo
-    colors(value: ResourceColor | LinearGradient | Array<[ ResourceColor | LinearGradient, number ]>): this;
-    @memo
-    strokeWidth(value: Length): this;
-    @memo
-    description(value: CustomBuilder): this;
-    @memo
-    trackShadow(value: GaugeShadowOptions): this;
-    @memo
-    indicator(value: GaugeIndicatorOptions): this;
-    @memo
-    privacySensitive(value: boolean | undefined): this;
-    @memo
-    contentModifier(value: ContentModifier<GaugeConfiguration>): this;
+export declare interface GaugeAttribute extends CommonMethod {
+    /**
+     * Sets the value for the current profile.
+     *
+     * @param { number } value
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    value(value: number | undefined): this;
+    /**
+     * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+     *
+     * @param { number } angle
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    startAngle(angle: number | undefined): this;
+    /**
+     * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+     *
+     * @param { number } angle
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    endAngle(angle: number | undefined): this;
+    /**
+     * Set the color of the chart. You can set the solid color and segmented gradient color.
+     *
+     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - section colors of gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    colors(colors: ResourceColor | LinearGradient | Array<[
+        ResourceColor | LinearGradient,
+        number
+    ]> | undefined): this;
+    /**
+     * Sets the thickness of the ring chart.
+     *
+     * @param { Length } length
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth(length: Length | undefined): this;
+    /**
+     * Sets description content of the ring chart.
+     *
+     * @param { CustomBuilder } value - description content builder of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    description(value: CustomBuilder | undefined): this;
+    /**
+     * Sets track shadow of the ring chart.
+     *
+     * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    trackShadow(value: GaugeShadowOptions | undefined): this;
+    /**
+     * Sets indicator options of the ring chart.
+     *
+     * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    indicator(value: GaugeIndicatorOptions | undefined): this;
+    /**
+     * Sets if mark to privacy sensitive.
+     *
+     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    /**
+     * Set the content modifier of gauge.
+     *
+     * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+export declare interface UIGaugeAttribute extends UICommonMethod {
+    /**
+     * Sets the value for the current profile.
+     *
+     * @param { number } value
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    value(value: number | undefined): this;
+    /**
+     * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+     *
+     * @param { number } angle
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    startAngle(angle: number | undefined): this;
+    /**
+     * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+     *
+     * @param { number } angle
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    endAngle(angle: number | undefined): this;
+    /**
+     * Set the color of the chart. You can set the solid color and segmented gradient color.
+     *
+     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - section colors of gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    colors(colors: ResourceColor | LinearGradient | Array<[
+        ResourceColor | LinearGradient,
+        number
+    ]> | undefined): this;
+    /**
+     * Sets the thickness of the ring chart.
+     *
+     * @param { Length } length
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    strokeWidth(length: Length | undefined): this;
+    /**
+     * Sets description content of the ring chart.
+     *
+     * @param { CustomBuilder } value - description content builder of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    description(value: CustomBuilder | undefined): this;
+    /**
+     * Sets track shadow of the ring chart.
+     *
+     * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    trackShadow(value: GaugeShadowOptions | undefined): this;
+    /**
+     * Sets indicator options of the ring chart.
+     *
+     * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    indicator(value: GaugeIndicatorOptions | undefined): this;
+    /**
+     * Sets if mark to privacy sensitive.
+     *
+     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
+     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    /**
+     * Set the content modifier of gauge.
+     *
+     * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function Gauge(
     options: GaugeOptions, 
     @memo
     content_?: () => void,
-): GaugeAttribute
+): UIGaugeAttribute

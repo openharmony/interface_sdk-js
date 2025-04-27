@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @since 14
+ * @since 20
  */
 declare namespace inputConsumer {
   /**
@@ -34,7 +34,7 @@ declare namespace inputConsumer {
    * @interface KeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since 8
+   * @since 20
    */
   interface KeyOptions {
     /**
@@ -43,7 +43,7 @@ declare namespace inputConsumer {
      * @type { Array<number> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 8
+     * @since 20
      */
     preKeys: Array<number>;
 
@@ -53,7 +53,7 @@ declare namespace inputConsumer {
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 8
+     * @since 20
      */
     finalKey: number;
 
@@ -63,7 +63,7 @@ declare namespace inputConsumer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 8
+     * @since 20
      */
     isFinalKeyDown: boolean;
 
@@ -73,7 +73,7 @@ declare namespace inputConsumer {
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 8
+     * @since 20
      */
     finalKeyDownDuration: number;
 
@@ -83,78 +83,11 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 14
+     * @since 20
      */
     isRepeat?: boolean;
   }
 
-  /**
-   * Defines the shortcut key structure.
-   *
-   * @typedef HotkeyOptions
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
-   */
-  interface HotkeyOptions {
-    /**
-     * Defines modifier keys. One or two modifier keys are supported.
-     *
-     * @type { Array<number> }
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
-     */
-    preKeys: Array<number>;
-
-    /**
-     * Defines modified keys.
-     *
-     * @type { number }
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
-     */
-    finalKey: number;
-
-    /**
-     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
-     */
-    isRepeat?: boolean;
-  }
-
-  /**
-   * Shield mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @since 11
-   */
-  enum ShieldMode {
-    /**
-     * Factory mode shield all key events
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @systemapi hide for inner use
-     * @since 11
-     */
-    FACTORY_MODE
-  }
-
-  /**
-   * Subscribe system keys.
-   *
-   * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @since 8
-   */
   /**
    * Subscribe system keys.
    *
@@ -166,7 +99,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 20
    */
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
@@ -176,99 +109,14 @@ declare namespace inputConsumer {
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @since 8
-   */
-  /**
-   * Subscribe system keys.
-   *
-   * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 20
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
-
-  /**
-   * Sets whether shield key event interception, only support shield key event.
-   *
-   * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
-   * @param { ShieldMode } shieldMode - According the shield mode select shield key event range.
-   * @param { boolean } isShield - Indicates whether control key event dispatch. The value <b>true</b> indicates
-   * all key events directly dispatch to window, if the value <b>false</b> indicates not shield shortcut key.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use.
-   * @since 11
-   */
-  function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
-
-  /**
-   * Gets shield event interception status corresponding to shield mode
-   *
-   * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
-   * @param { ShieldMode } shieldMode - According the shield mode select shield key event range.
-   * @returns { boolean } Returns true if shield event interception, returns false otherwise.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use.
-   * @since 11
-   */
-  function getShieldStatus(shieldMode: ShieldMode): boolean;
-
-  /**
-   * Obtains all system hotkeys. This API uses a promise to return the result.
-   *
-   * @returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
-   */
-  function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
-
-  /**
-   * Listening for hotkey event changes.
-   *
-   * @param { 'hotkeyChange' } type - Type of the hotkey events.
-   * @param { HotkeyOptions } hotkeyOptions - hotkey events.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
-   * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
-   */
-  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
-
-  /**
-   * Unsubscribe from hotkey event changes.
-   *
-   * @param { 'hotkeyChange' } type - Type of the hotkey events.
-   * @param { HotkeyOptions } hotkeyOptions - Hotkey events.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
-   */
-  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
 }
 
 export default inputConsumer;

@@ -55,7 +55,8 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -69,7 +70,8 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -83,7 +85,8 @@ declare class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -96,7 +99,8 @@ declare class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;

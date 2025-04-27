@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,141 +19,715 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { Tuple_Number_Number, ItemDragInfo, ScrollableCommonMethod, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, NestedScrollOptions, ContentClipMode, EdgeEffectOptions, FadingEdgeOptions } from './common'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Scroller, ScrollOnWillScrollCallback, ScrollOnScrollCallback, OnScrollFrameBeginCallback, OnScrollFrameBeginHandlerResult } from './scroll'
-import { ScrollState } from './list'
-import { VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { ComponentContent } from './../ComponentContent'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, BarState, EdgeEffect } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { onItemDragStart_event_type } from './type-replacements'
-export type Callback_Number_Tuple_Number_Number = (index: number) => [ number, number ];
-export type Tuple_Number_Number_Number_Number = [
-    number,
-    number,
-    number,
-    number
-]
-export type Callback_Number_Tuple_Number_Number_Number_Number = (index: number) => [ number, number, number, number ];
-export interface GridLayoutOptions {
-    regularSize: [ number, number ];
-    irregularIndexes?: Array<number>;
-    onGetIrregularSizeByIndex?: ((index: number) => [ number, number ]);
-    onGetRectByIndex?: ((index: number) => [ number, number, number, number ]);
+import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional, CommonMethod, UIScrollableCommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { Length, Resource } from "./units";
+import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
+import { ScrollState } from "./list";
+import { BarState, Color, EdgeEffect } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * The options to help grid layout
+ *
+ * @interface GridLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface GridLayoutOptions {
+    /**
+     * The size of most grid items, in [rows, columns], generally [1, 1]
+     *
+     * @type { [number, number] } regularSize
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    regularSize: [
+        number,
+        number
+    ];
+    /**
+     * The indexes of grid items with irregular size.
+     *
+     * @type { ?number[] } irregularIndexes
+     * @default number[] no irregular grid item
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    irregularIndexes?: number[];
+    /**
+     * Called to return the size of the irregular grid items with the specified index in [rows, columns].
+     *
+     * @type { ?function } onGetIrregularSizeByIndex,
+     * all irregular grid items will occupy an entire line if not set
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onGetIrregularSizeByIndex?: (index: number) => [
+        number,
+        number
+    ];
+    /**
+     * Called to return the size of the grid items with the specified index in
+     * [rowStart, columnStart, rowSpan, columnSpan].
+     *
+     * @type { ?function } onGetRectByIndex
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onGetRectByIndex?: (index: number) => [
+        number,
+        number,
+        number,
+        number
+    ];
 }
-export type GridInterface = (scroller?: Scroller, layoutOptions?: GridLayoutOptions) => GridAttribute;
-export enum GridDirection {
-    ROW = 0,
-    Row = 0,
-    COLUMN = 1,
-    Column = 1,
-    ROW_REVERSE = 2,
-    RowReverse = 2,
-    COLUMN_REVERSE = 3,
-    ColumnReverse = 3
+/**
+ * The enum of property layoutDirection
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum GridDirection {
+    /**
+     * The row direction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Row,
+    /**
+     * The column direction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    Column,
+    /**
+     * The row reverse direction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    RowReverse,
+    /**
+     * The column reverse direction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ColumnReverse
 }
-export enum GridItemAlignment {
+/**
+ * Declare grid item alignment status
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum GridItemAlignment {
+    /**
+     * Use the default alignment of the Grid.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     DEFAULT = 0,
+    /**
+     * The height of the tallest grid item in the current line
+     * will be used as the height for the other items in the same line
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     STRETCH = 1
 }
-export interface ComputedBarAttribute {
+/**
+ * The attribute of scrollbar to compute scrollbar position and height.
+ *
+ * @interface ComputedBarAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface ComputedBarAttribute {
+    /**
+     * The offset of the grid.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     totalOffset: number;
+    /**
+     * The range of the grid.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     totalLength: number;
 }
-export type Callback_Number_Number_ComputedBarAttribute = (index: number, offset: number) => ComputedBarAttribute;
-export type Callback_Number_Number_Void = (first: number, last: number) => void;
-export type Callback_ItemDragInfo_Void = (event: ItemDragInfo) => void;
-export type Callback_ItemDragInfo_Number_Number_Void = (event: ItemDragInfo, itemIndex: number,
-    insertIndex: number) => void;
-export type Callback_ItemDragInfo_Number_Void = (event: ItemDragInfo, itemIndex: number) => void;
-export type Callback_ItemDragInfo_Number_Number_Boolean_Void = (event: ItemDragInfo, itemIndex: number,
-    insertIndex: number, isSuccess: boolean) => void;
-export interface Literal_Number_offsetRemain {
-    offsetRemain: number;
+export declare interface GridAttribute extends ScrollableCommonMethod {
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @param { string } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    columnsTemplate(value: string | undefined): this;
+    /**
+     * Lets you set the number of rows in the current grid layout,
+     *
+     * @param { string } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    rowsTemplate(value: string | undefined): this;
+    /**
+     * Allows you to set the spacing between columns.
+     *
+     * @param { Length } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    columnsGap(value: Length | undefined): this;
+    /**
+     * Lets you set the spacing between rows.
+     *
+     * @param { Length } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    rowsGap(value: Length | undefined): this;
+    /**
+     * Set scrollbar position.
+     *
+     * @param { function } event - callback of grid scroll,
+     * index is the current first displayed item, offset is the grid offset,
+     * return ComputedBarAttribute to update scrollbar position and height.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onScrollBarUpdate(event: ((index: number, offset: number) => ComputedBarAttribute) | undefined): this;
+    /**
+     * Called when the first or last item displayed in the grid changes.
+     *
+     * @param { function } event - of grid scroll,
+     * first is the index of the first item displayed in the grid,
+     * last is the index of the last item displayed in the grid.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onScrollIndex(event: ((first: number, last: number) => void) | undefined): this;
+    /**
+     * cached Count
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(value: number | undefined): this;
+    /**
+     * Called to set number of GridItems to be preloaded (cached) in LazyForEach / Repeat.
+     * @param { number } count - number of GridItems to be preloaded (cached).
+     * @param { boolean } show - if true, cached items are displayed when clip is disabled.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cachedCount(count: number | undefined, show: boolean | undefined): this;
+    /**
+     * editMode
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    editMode(value: boolean | undefined): this;
+    /**
+     * Called when judging whether it is multiSelectable.
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    multiSelectable(value: boolean | undefined): this;
+    /**
+     * maxCount
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    maxCount(value: number | undefined): this;
+    /**
+     * minCount
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    minCount(value: number | undefined): this;
+    /**
+     * cellLength
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cellLength(value: number | undefined): this;
+    /**
+     * Control GridDirection of the grid.
+     *
+     * @param { GridDirection } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    layoutDirection(value: GridDirection | undefined): this;
+    /**
+     * Control if the grid supports animation.
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    supportAnimation(value: boolean | undefined): this;
+    /**
+    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+    * (To be triggered, press and hold for 170 milliseconds (ms))
+    *
+    * @param { function } event
+    * @returns { GridAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    onItemDragStart(event: ((event: ItemDragInfo, itemIndex: number) => (() => Object) | undefined) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged to the range of the component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragMove(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged out of the component range.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: number) => void) | undefined): this;
+    /**
+     * The component bound to this event can be used as the drag release target.
+     * This callback is triggered when the drag behavior is stopped within the scope of the component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onItemDrop(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void) | undefined): this;
+    /**
+     * Set the alignment of grid items.
+     *
+     * @param { Optional<GridItemAlignment> } alignment - Items alignment
+     * @returns { GridAttribute } The attribute of the grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    alignItems(alignment: GridItemAlignment | undefined): this;
+    /**
+     * Called when scrolling begin each frame.
+     *
+     * @param { OnScrollFrameBeginCallback } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export type Callback_Number_ScrollState_Literal_Number_offsetRemain = (offset: number,
-    state: ScrollState) => Literal_Number_offsetRemain;
-export interface GridAttribute extends ScrollableCommonMethod {
+export declare interface UIGridAttribute extends UIScrollableCommonMethod {
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @param { string } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    columnsTemplate(value: string): this;
+    columnsTemplate(value: string | undefined): this;
+    /**
+     * Lets you set the number of rows in the current grid layout,
+     *
+     * @param { string } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    rowsTemplate(value: string): this;
+    rowsTemplate(value: string | undefined): this;
+    /**
+     * Allows you to set the spacing between columns.
+     *
+     * @param { Length } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    columnsGap(value: Length): this;
+    columnsGap(value: Length | undefined): this;
+    /**
+     * Lets you set the spacing between rows.
+     *
+     * @param { Length } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    rowsGap(value: Length): this;
+    rowsGap(value: Length | undefined): this;
+    /**
+     * Set scrollbar position.
+     *
+     * @param { function } event - callback of grid scroll,
+     * index is the current first displayed item, offset is the grid offset,
+     * return ComputedBarAttribute to update scrollbar position and height.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    scrollBarWidth(value: number | string): this;
+    onScrollBarUpdate(event: ((index: number, offset: number) => ComputedBarAttribute) | undefined): this;
+    /**
+     * Called when the first or last item displayed in the grid changes.
+     *
+     * @param { function } event - of grid scroll,
+     * first is the index of the first item displayed in the grid,
+     * last is the index of the last item displayed in the grid.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    scrollBarColor(value: Color | number | string): this;
+    onScrollIndex(event: ((first: number, last: number) => void) | undefined): this;
+    /**
+     * cached Count
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    scrollBar(value: BarState): this;
+    cachedCount(value: number | undefined): this;
+    /**
+     * Called to set number of GridItems to be preloaded (cached) in LazyForEach / Repeat.
+     * @param { number } count - number of GridItems to be preloaded (cached).
+     * @param { boolean } show - if true, cached items are displayed when clip is disabled.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onScrollBarUpdate(value: ((index: number,offset: number) => ComputedBarAttribute)): this;
+    cachedCount(count: number | undefined, show: boolean | undefined): this;
+    /**
+     * editMode
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onScrollIndex(value: ((first: number,last: number) => void)): this;
+    editMode(value: boolean | undefined): this;
+    /**
+     * Called when judging whether it is multiSelectable.
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    cachedCount(value: number): this;
+    multiSelectable(value: boolean | undefined): this;
+    /**
+     * maxCount
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    editMode(value: boolean): this;
+    maxCount(value: number | undefined): this;
+    /**
+     * minCount
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    multiSelectable(value: boolean): this;
+    minCount(value: number | undefined): this;
+    /**
+     * cellLength
+     *
+     * @param { number } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    maxCount(value: number): this;
+    cellLength(value: number | undefined): this;
+    /**
+     * Control GridDirection of the grid.
+     *
+     * @param { GridDirection } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    minCount(value: number): this;
+    layoutDirection(value: GridDirection | undefined): this;
+    /**
+     * Control if the grid supports animation.
+     *
+     * @param { boolean } value
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    cellLength(value: number): this;
+    supportAnimation(value: boolean | undefined): this;
+    /**
+    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+    * (To be triggered, press and hold for 170 milliseconds (ms))
+    *
+    * @param { function } event
+    * @returns { GridAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
     @memo
-    layoutDirection(value: GridDirection): this;
+    onItemDragStart(event: ((event: ItemDragInfo, itemIndex: number) => (() => Object) | undefined) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged to the range of the component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    supportAnimation(value: boolean): this;
+    onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onItemDragStart(value: ((event: ItemDragInfo,itemIndex: number) => CustomBuilder)): this;
+    onItemDragMove(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number) => void) | undefined): this;
+    /**
+     * After binding, a callback is triggered when the component is dragged out of the component range.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onItemDragEnter(value: ((event: ItemDragInfo) => void)): this;
+    onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: number) => void) | undefined): this;
+    /**
+     * The component bound to this event can be used as the drag release target.
+     * This callback is triggered when the drag behavior is stopped within the scope of the component.
+     *
+     * @param { function } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onItemDragMove(value: ((event: ItemDragInfo,itemIndex: number,insertIndex: number) => void)): this;
+    onItemDrop(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void) | undefined): this;
+    /**
+     * Set the alignment of grid items.
+     *
+     * @param { Optional<GridItemAlignment> } alignment - Items alignment
+     * @returns { GridAttribute } The attribute of the grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onItemDragLeave(value: ((event: ItemDragInfo,itemIndex: number) => void)): this;
+    alignItems(alignment: GridItemAlignment | undefined): this;
+    /**
+     * Called when scrolling begin each frame.
+     *
+     * @param { OnScrollFrameBeginCallback } event
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onItemDrop(value: ((event: ItemDragInfo,itemIndex: number,insertIndex: number,isSuccess: boolean) => void)): this;
+    onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
     @memo
-    nestedScroll(value: NestedScrollOptions): this;
-    @memo
-    enableScrollInteraction(value: boolean): this;
-    @memo
-    friction(value: number | Resource): this;
-    @memo
-    alignItems(value: GridItemAlignment | undefined): this;
-    @memo
-    onScroll(value: ((first: number,last: number) => void)): this;
-    @memo
-    onReachStart(value: (() => void)): this;
-    @memo
-    onReachEnd(value: (() => void)): this;
-    @memo
-    onScrollStart(value: (() => void)): this;
-    @memo
-    onScrollStop(value: (() => void)): this;
-    @memo
-    onScrollFrameBegin(value: OnScrollFrameBeginCallback): this;
-    @memo
-    edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): this;
+    attributeModifier(modifier: AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
 @memo
 @ComponentBuilder
 export declare function Grid(
-    scroller?: Scroller | undefined, layoutOptions?: GridLayoutOptions | undefined, 
+    scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
     @memo
     content_?: () => void,
-): GridAttribute
+): UIGridAttribute

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,22 +19,168 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { LengthMetricsUnit } from './../Graphics'
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-export interface Matrix2D {
+import { LengthMetricsUnit } from '../Graphics';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier, CommonMethod, UICommonMethod } from "./common";
+/**
+ * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare class Matrix2D {
+    /**
+     * Horizontal Zoom
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scaleX?: number;
+    /**
+     * Vertical Tilt
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     rotateY?: number;
+    /**
+     * Horizontal Tilt
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     rotateX?: number;
+    /**
+     * Vertical Zoom
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     scaleY?: number;
+    /**
+     * Horizontal movement
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     translateX?: number;
+    /**
+     * Vertical movement
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
     translateY?: number;
-    identity(): Matrix2D
-    invert(): Matrix2D
-    multiply(other?: Matrix2D): Matrix2D
-    rotate(rx?: number, ry?: number): Matrix2D
-
-    translate(tx?: number, ty?: number): Matrix2D
-    scale(sx?: number, sy?: number): Matrix2D
+    /**
+     * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
+     * translation scaling effect)
+     *
+     * @returns { Matrix2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    identity(): Matrix2D;
+    /**
+     * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
+     * is the opposite effect of the original)
+     *
+     * @returns { Matrix2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    invert(): Matrix2D;
+    /**
+     * Adds the rotation effect of the X and Y axes to the current matrix.
+     *
+     * @param { number } degree - The rotation angle, clockwise in radians.
+     * @param { number } rx - Rotation effect of the X-axis
+     * @param { number } ry - Rotation effect of the Y-axis
+     * @returns { Matrix2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    rotate(degree: number, rx?: number, ry?: number): Matrix2D;
+    /**
+     * Adds the translation effect of the X and Y axes to the current matrix.
+     *
+     * @param { number } tx - X-axis translation effect
+     * @param { number } ty - Y-axis translation effect
+     * @returns { Matrix2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    translate(tx?: number, ty?: number): Matrix2D;
+    /**
+     * Adds the scaling effect of the X and Y axes to the current matrix.
+     *
+     * @param { number } sx - X-axis scaling effect
+     * @param { number } sy - Y-axis scaling effect
+     * @returns { Matrix2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    scale(sx?: number, sy?: number): Matrix2D;
+    /**
+     * Constructs a 2D change matrix object. The default value is the unit matrix.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+    /**
+     * Constructs a 2D change matrix object. The default value is the unit matrix.
+     *
+     * @param { LengthMetricsUnit } [unit] - the unit mode
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    constructor(unit: LengthMetricsUnit);
 }

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,44 +19,155 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ButtonType } from './button'
-import { ClickEvent } from './common'
-import { SecurityComponentMethod, SecurityComponentLayoutDirection } from './securityComponent'
-import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from './units'
-import { FontStyle, FontWeight, BorderStyle } from './enums'
-import { Resource } from './../../../api/global/resource'
-export enum PasteIconStyle {
+import { ButtonType } from "./button";
+import { ClickEvent, AttributeModifier, CommonMethod, UICommonMethod } from "./common";
+import { SecurityComponentMethod, UISecurityComponentMethod } from "./securityComponent";
+import { BusinessError } from '../../@ohos.base';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Enumerates the icon styles.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare enum PasteIconStyle {
+    /**
+     * Icon rendered as lines.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     LINES = 0
 }
-export enum PasteDescription {
+/**
+ * Enumerates the text that can be displayed on the paste button.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare enum PasteDescription {
+    /**
+     * Paste
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     PASTE = 0
 }
-export interface PasteButtonOptions {
+/**
+ * Declares the interface for setting the paste button options.
+ *
+ * @interface PasteButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare interface PasteButtonOptions {
+    /**
+     * Style of the icon to be drawn.
+     *
+     * @type { ?PasteIconStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     icon?: PasteIconStyle;
+    /**
+     * Text to be displayed on the button.
+     *
+     * @type { ?PasteDescription }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     text?: PasteDescription;
+    /**
+     * Type of the button.
+     *
+     * @type { ?ButtonType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     buttonType?: ButtonType;
 }
-export enum PasteButtonOnClickResult {
+/**
+ * Enumerates the click event results of the paste button.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare enum PasteButtonOnClickResult {
+    /**
+     * Success.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     SUCCESS = 0,
+    /**
+     * Failure because the application is not temporarily authorized for accessing the current pasteboard data.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     TEMPORARY_AUTHORIZATION_FAILED = 1
 }
-export interface PasteButtonInterface {
-    invoke(): PasteButtonAttribute;
-
+/**
+ * Callback function when the paste button is clicked.
+ *
+ * @typedef { function } PasteButtonCallback
+ * @param { ClickEvent } event - The click event.
+ * @param { PasteButtonOnClickResult } result - The result of click event.
+ * @param { BusinessError<void> } [error] - The error code and message of click event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError<void>) => void;
+export declare interface PasteButtonAttribute extends SecurityComponentMethod {
+    /**
+     * Called when the paste button is clicked.
+     *
+     * @param { PasteButtonCallback } event
+     * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    onClick(event: PasteButtonCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<PasteButtonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-export type Callback_ClickEvent_PasteButtonOnClickResult_Void = (event: ClickEvent,
-    result: PasteButtonOnClickResult) => void;
-export interface PasteButtonAttribute extends SecurityComponentMethod {
+export declare interface UIPasteButtonAttribute extends UISecurityComponentMethod {
+    /**
+     * Called when the paste button is clicked.
+     *
+     * @param { PasteButtonCallback } event
+     * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    onClick(value: ((event: ClickEvent,result: PasteButtonOnClickResult) => void)): this;
+    onClick(event: PasteButtonCallback | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<PasteButtonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
 @memo
 @ComponentBuilder
 export declare function PasteButton(
-    options?: PasteButtonOptions | undefined, 
+    options: PasteButtonOptions, 
     @memo
     content_?: () => void,
-): PasteButtonAttribute
+): UIPasteButtonAttribute

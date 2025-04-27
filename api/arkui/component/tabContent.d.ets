@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,82 +19,667 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { Length, ResourceColor, ResourceStr, Padding, Dimension, LocalizedPadding, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, VoidCallback, PixelMap } from './units'
-import { SymbolGlyphModifier } from './../../../api/arkui/SymbolGlyphModifier'
-import { Resource } from './../../../api/global/resource'
-import { ComponentContent } from './../ComponentContent'
-import { IndicatorStyle } from './swiper'
-import { LabelStyle } from './button'
-import { VerticalAlign, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ResizableOptions } from './image'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-export enum SelectedMode {
-    INDICATOR = 0,
-    BOARD = 1
+import { CommonMethod, CustomBuilder, UICommonMethod, AttributeModifier } from "./common";
+import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from "./enums";
+import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from "./units";
+import { ComponentContent } from '../ComponentContent';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Enum for the mode of the tab bar when selected.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum SelectedMode {
+    /**
+     * The value of indicator
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    INDICATOR,
+    /**
+     * The value of board
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    BOARD
 }
-export enum LayoutMode {
+/**
+ * Enum for the layout mode of the content in the tab bar.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare enum LayoutMode {
+    /**
+     * The the content is laid vertically or horizontally, according to its width.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     AUTO = 0,
+    /**
+     * The the content is laid vertically
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     VERTICAL = 1,
+    /**
+     * The the content is laid horizontally
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     HORIZONTAL = 2
 }
+/**
+ * Provide an interface for the style of an indicator including color, height, width, border radius
+ * and margin top
+ *
+ * @interface SubTabBarIndicatorStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface SubTabBarIndicatorStyle {
+    /**
+     * Define the color of the indicator
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    color?: ResourceColor;
+    /**
+     * Define the height of the indicator
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    height?: Length;
+    /**
+     * Define the width of the indicator.
+     * If it is 0, the width will be equal to the width of the content
+     *
+     * @type { ?Length }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    width?: Length;
+    /**
+     * Define the border radius of the indicator
+     *
+     * @type { ?Length }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    borderRadius?: Length;
+    /**
+     * Define the margin top of the indicator
+     *
+     * @type { ?Length }
+     * @default 8
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    marginTop?: Length;
+}
+/**
+ * Provide an interface for the style of an indicator including border radius
+ *
+ * @interface BoardStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export interface BoardStyle {
+    /**
+     * Define the border radius of the board
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     borderRadius?: Length;
 }
-export interface TabBarIconStyle {
+/**
+ * TabBarLabelStyle object.
+ *
+ * @interface TabBarLabelStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabBarLabelStyle {
+    /**
+     * overflow mode.
+     *
+     * @type { ?TextOverflow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    overflow?: TextOverflow;
+    /**
+     * Label max lines.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    maxLines?: number;
+    /**
+     * Min font size for adapted height.
+     *
+     * @type { ?(number | ResourceStr) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    minFontSize?: number | ResourceStr;
+    /**
+     * Max font size for adapted height.
+     *
+     * @type { ?(number | ResourceStr) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    maxFontSize?: number | ResourceStr;
+    /**
+     * Adapt text height option.
+     *
+     * @type { ?TextHeightAdaptivePolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    heightAdaptivePolicy?: TextHeightAdaptivePolicy;
+    /**
+     * Font style.
+     *
+     * @type { ?Font }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    font?: Font;
+    /**
+     * The text color of the selected tab bar.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     selectedColor?: ResourceColor;
+    /**
+     * The text color of the unselected tab bar.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     unselectedColor?: ResourceColor;
 }
-export interface TabBarSymbol {
+/**
+ * TabBarIconStyle object.
+ *
+ * @interface TabBarIconStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabBarIconStyle {
+    /**
+     * The icon color of the selected tab bar.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedColor?: ResourceColor;
+    /**
+     * The icon color of the unselected tab bar.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    unselectedColor?: ResourceColor;
+}
+/**
+ * TabBarSymbol object.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+export declare class TabBarSymbol {
+    /**
+     * The properties of the symbol icon in the tab bar need to be unselected.
+     *
+     * @type { SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     normal: SymbolGlyphModifier;
+    /**
+     * The properties of the symbol icon in the tab bar need to be selected.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     selected?: SymbolGlyphModifier;
 }
-export interface TabBarOptions {
+/**
+ * Icon and text for TabBar.
+ *
+ * @typedef TabBarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare interface TabBarOptions {
+    /**
+     * TabBar icon.
+     *
+     * @type { ?(string | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     icon?: string | Resource;
+    /**
+     * TabBar text.
+     *
+     * @type { ?(string | Resource) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     text?: string | Resource;
 }
-export interface SubTabBarStyle {
-    of(content: ResourceStr): SubTabBarStyle
-
-    indicator(value: IndicatorStyle): SubTabBarStyle
-    selectedMode(value: SelectedMode): SubTabBarStyle
-    board(value: BoardStyle): SubTabBarStyle
-    labelStyle(value: LabelStyle): SubTabBarStyle
-    padding(value: Padding | Dimension): SubTabBarStyle
-
-    id(value: string): SubTabBarStyle
+/**
+ * Define SubTabBarStyle, the style is text and underline.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class SubTabBarStyle {
+    /**
+     * constructor.
+     *
+     * @param { ResourceStr } content - indicates the content of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(content: ResourceStr);
+    /**
+     * constructor.
+     *
+     * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(content: ResourceStr | ComponentContent);
+    /**
+     * constructor
+     *
+     * @param { ResourceStr } content - indicates the content of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static of(content: ResourceStr): SubTabBarStyle;
+    /**
+     * Create a content object of the sub tab bar
+     *
+     * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
+    /**
+     * Set the style of the indicator when selected
+     *
+     * @param { SubTabBarIndicatorStyle } value - indicates the indicator style of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    indicator(value: SubTabBarIndicatorStyle): SubTabBarStyle;
+    /**
+     * Set the mode of the indicator when selected
+     *
+     * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    selectedMode(value: SelectedMode): SubTabBarStyle;
+    /**
+     * Set the style of the board when selected
+     *
+     * @param { BoardStyle } value - indicates the board style of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    board(value: BoardStyle): SubTabBarStyle;
+    /**
+     * Set the label style of the indicator
+     *
+     * @param { TabBarLabelStyle } value - indicates the label style of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    labelStyle(value: TabBarLabelStyle): SubTabBarStyle;
+    /**
+     * Set the padding of the sub tab bar
+     *
+     * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    padding(value: Padding | Dimension): SubTabBarStyle;
+    /**
+     * Set the padding of the sub tab bar
+     *
+     * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    padding(padding: LocalizedPadding): SubTabBarStyle;
+    /**
+     * Set an id to the sub tab bar to identify it
+     *
+     * @param { string } value - id of the sub tab bar to identify it
+     * @returns { SubTabBarStyle } the style of the sub tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    id(value: string): SubTabBarStyle;
 }
-export interface BottomTabBarStyle {
-    of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle
-    labelStyle(value: LabelStyle): BottomTabBarStyle
-    padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle
-    layoutMode(value: LayoutMode): BottomTabBarStyle
-    verticalAlign(value: VerticalAlign): BottomTabBarStyle
-    symmetricExtensible(value: boolean): BottomTabBarStyle
-    id(value: string): BottomTabBarStyle
-    iconStyle(style: TabBarIconStyle): BottomTabBarStyle
+/**
+ * Define BottomTabBarStyle, the style is icon and text.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class BottomTabBarStyle {
+    /**
+     * constructor.
+     *
+     * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
+     * @param { ResourceStr } text - indicates the text of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
+    /**
+     * of.
+     *
+     * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
+     * @param { ResourceStr } text - indicates the text of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
+    /**
+     * Set the label style of the indicator
+     *
+     * @param { TabBarLabelStyle } value - indicates the label style of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    labelStyle(value: TabBarLabelStyle): BottomTabBarStyle;
+    /**
+     * Set the padding of the bottom tab bar
+     *
+     * @param { Padding | Dimension | LocalizedPadding } value - indicates the padding of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
+    /**
+     * Set the layout mode of the bottom tab bar
+     *
+     * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    layoutMode(value: LayoutMode): BottomTabBarStyle;
+    /**
+     * Set the vertical alignment style of the bottom tab bar
+     *
+     * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    verticalAlign(value: VerticalAlign): BottomTabBarStyle;
+    /**
+     * Set the symmetric extensible of the bottom tab bar
+     *
+     * @param { boolean } value - indicates whether the bottom tab bar is extensible
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    symmetricExtensible(value: boolean): BottomTabBarStyle;
+    /**
+     * Set an id to the bottom tab bar to identify it
+     *
+     * @param { string } value - id of the bottom tab bar to identify it
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    id(value: string): BottomTabBarStyle;
+    /**
+     * Set the icon style of the bottom tab bar
+     *
+     * @param { TabBarIconStyle } style - indicates the icon style of the bottom tab bar
+     * @returns { BottomTabBarStyle } the style of the bottom tab bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
 }
-export type TabContentInterface = () => TabContentAttribute;
-export interface TabContentAttribute extends CommonMethod {
+export declare interface TabContentAttribute extends CommonMethod {
+    /**
+     * Set the content of the tab bar.
+     *
+     * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
+     * Set the content of the tab bar.
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
+    /**
+     * Called when the tab content will show.
+     * @param { VoidCallback  } event
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillShow(event: VoidCallback | undefined): this;
+    /**
+     * Called when the tab content will hide.
+     * @param { VoidCallback  } event
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillHide(event: VoidCallback | undefined): this;
+    attributeModifier(modifier: AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UITabContentAttribute extends UICommonMethod {
+    /**
+     * Set the content of the tab bar.
+     *
+     * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
+     * Set the content of the tab bar.
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @memo
-    tabBar(value: string | Resource | CustomBuilder | TabBarOptions): this;
+    tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
+    /**
+     * Called when the tab content will show.
+     * @param { VoidCallback  } event
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onWillShow(event: VoidCallback | undefined): this;
+    /**
+     * Called when the tab content will hide.
+     * @param { VoidCallback  } event
+     * @returns { TabContentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @memo
+    onWillHide(event: VoidCallback | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
-    @memo
-    onWillShow(value: VoidCallback): this;
-    @memo
-    onWillHide(value: VoidCallback): this;
-}
 @memo
 @ComponentBuilder
 export declare function TabContent(
     
     @memo
     content_?: () => void,
-): TabContentAttribute
+): UITabContentAttribute

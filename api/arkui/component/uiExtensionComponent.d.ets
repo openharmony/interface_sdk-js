@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,68 +19,262 @@
  */
 
 
-// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { ComponentContent } from './../ComponentContent'
-import { Want, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, PixelMap } from './units'
-import { CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, CustomBuilder, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
-import { HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
-import { LengthMetrics } from './../Graphics'
-import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
-import { ErrorCallback, BusinessError, Callback } from './../../../api/@ohos.base'
-import { ResizableOptions } from './image'
-import { Resource } from './../../../api/global/resource'
-import { Callback_Void } from './abilityComponent'
-import { FocusBoxStyle, FocusPriority } from './focus'
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Void } from './alphabetIndexer'
-import { Callback_TerminationInfo_Void, TerminationInfo } from './embeddedComponent'
-export enum DpiFollowStrategy {
+import Want from '../../@ohos.app.ability.Want';
+import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
+import { CommonMethod, UICommonMethod, AttributeModifier } from "./common";
+import { ComponentContent } from '../ComponentContent';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+/**
+ * Enumeration of different types of DpiFollowStrategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum DpiFollowStrategy {
+    /**
+     * Followed the host DPI.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     FOLLOW_HOST_DPI = 0,
+    /**
+     * Followed the UIExtensionAbility.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
-export interface UIExtensionOptions {
+/**
+ * This interface is used to set the options for UIExtensionComponentAttribute during construction
+ *
+ * @interface UIExtensionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface UIExtensionOptions {
+    /**
+     * Set whether the current capability is used as a Caller.<br/>
+     * If set to true, as a Caller, the current token of UIExtensionComponent is set to rootToken.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     isTransferringCaller?: boolean;
+    /**
+     * Set placeholder.
+     * If set placeholder ComponentContent, show placeholder node when connection is not established.
+     *
+     * @type { ?ComponentContent }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     placeholder?: ComponentContent;
+    /**
+     * Set Areachange placeholder.
+     * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
+     * the UIExtensionComponent size change is complete.
+     *
+     * @type { ?Record<string, ComponentContent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     areaChangePlaceholder?: Record<string, ComponentContent>;
+    /**
+     * Set UIExtensionComponent Content Dpi Follow Strategy.
+     *
+     * @type { ?DpiFollowStrategy }
+     * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     dpiFollowStrategy?: DpiFollowStrategy;
 }
-export type Callback_UIExtensionProxy_Void = (parameter: UIExtensionProxy) => void;
-export interface UIExtensionProxy {
-    send(data: Record<string, Object>): void
-    sendSync(data: Record<string, Object>): Record<string, Object>
-    onAsyncReceiverRegister(callback_: ((parameter: UIExtensionProxy) => void)): void
-    onSyncReceiverRegister(callback_: ((parameter: UIExtensionProxy) => void)): void
-    offAsyncReceiverRegister(callback_?: ((parameter: UIExtensionProxy) => void)): void
-    offSyncReceiverRegister(callback_?: ((parameter: UIExtensionProxy) => void)): void
-    on(type: 'asyncReceiverRegister' | 'syncReceiverRegister', callback_: ((parameter: UIExtensionProxy) => void)): void;
-    off(type: 'asyncReceiverRegister' | 'syncReceiverRegister', callback_: ((parameter: UIExtensionProxy) => void)): void;
-}
-export type UIExtensionComponentInterface = (want: Want, options?: UIExtensionOptions) => UIExtensionComponentAttribute;
-export interface Literal_Number_code_Want_want {
+/**
+ * Indicates the information when the provider of the embedded UI is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface TerminationInfo {
+    /**
+     * Defines the termination code.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     code: number;
+    /**
+    * Defines the additional termination information.
+    *
+    * @type { ?Want }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
     want?: Want;
 }
-export type Callback_Literal_Number_code_Want_want_Void = (parameter: Literal_Number_code_Want_want) => void;
-export interface UIExtensionComponentAttribute extends CommonMethod {
-    @memo
-    onRemoteReady(value: ((parameter: UIExtensionProxy) => void)): this;
-    @memo
-    onReceive(value: Callback<Record<string, Object>>): this;
-    @memo
-    onResult(value: ((parameter: Literal_Number_code_Want_want) => void)): this;
-    @memo
-    onRelease(value: ((index: number) => void)): this;
-    @memo
-    onError(value: ErrorCallback<BusinessError>): this;
-    @memo
-    onTerminated(value: ((parameter: TerminationInfo) => void)): this;
+/**
+ * Get Callback from @ohos.base.
+ *
+ * @typedef { Callback<Record<string, Object>> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type ReceiveCallback = Callback<Record<string, Object>>;
+/**
+ * This interface is used for send data to the UIExtensionAbility.<br/>
+ * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
+ * when UIExtensionAbility connects successfully
+ *
+ * @interface UIExtensionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface UIExtensionProxy {
+    /**
+     * This function is for sending data to the UIExtensionAbility.
+     *
+     * @param { Record<string, Object> } data
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    send(data: Record<string, Object>): void;
+    /**
+     * This function is for sending data to the UIExtensionAbility and waiting the result in blocking mode.
+     *
+     * @param { Record<string, Object> } data - Data send to the UIExtensionAbility.
+     * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility.
+     * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+     * @throws { BusinessError } 100012 - Transferring data failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    sendSync(data: Record<string, Object>): Record<string, Object>;
+    /**
+     * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+     *
+     * @param { 'asyncReceiverRegister' } type - Indicates the type of event.
+     * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
+    /**
+     * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+     *
+     * @param { 'syncReceiverRegister' } type - Indicates the type of event.
+     * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
+    /**
+     * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+     *
+     * @param { 'asyncReceiverRegister' } type - Type of the listened event.
+     * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
+    /**
+     * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+     *
+     * @param { 'syncReceiverRegister' } type - Type of the listened event.
+     * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    off(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 }
+export declare interface UIExtensionComponentAttribute extends CommonMethod {
+    /**
+     * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback
+     * - callback called when remote UIExtensionAbility object is
+     * <br/>ready for receive data
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onRemoteReady(callback: Callback<UIExtensionProxy> | undefined): this;
+    /**
+     * @param { ReceiveCallback } callback - Called when data received from UIExtensionAbility
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onReceive(callback: ReceiveCallback | undefined): this;
+    /**
+     * @param { import('../api/@ohos.base').ErrorCallback } callback
+     * - called when some error occurred except disconnected from UIExtensionAbility.
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onError(callback: ErrorCallback<BusinessError> | undefined): this;
+    /**
+     * Called when the provider of the embedded UI is terminated.
+     *
+     * @param { Callback<TerminationInfo> } callback
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    onTerminated(callback: Callback<TerminationInfo> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<UIExtensionComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+export declare interface UIUIExtensionComponentAttribute extends UICommonMethod {
+    /**
+     * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback
+     * - callback called when remote UIExtensionAbility object is
+     * <br/>ready for receive data
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onRemoteReady(callback: Callback<UIExtensionProxy> | undefined): this;
+    /**
+     * @param { ReceiveCallback } callback - Called when data received from UIExtensionAbility
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onReceive(callback: ReceiveCallback | undefined): this;
+    /**
+     * @param { import('../api/@ohos.base').ErrorCallback } callback
+     * - called when some error occurred except disconnected from UIExtensionAbility.
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onError(callback: ErrorCallback<BusinessError> | undefined): this;
+    /**
+     * Called when the provider of the embedded UI is terminated.
+     *
+     * @param { Callback<TerminationInfo> } callback
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @memo
+    onTerminated(callback: Callback<TerminationInfo> | undefined): this;
+    @memo
+    attributeModifier(modifier: AttributeModifier<UIExtensionComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
+
 @memo
 @ComponentBuilder
 export declare function UIExtensionComponent(
-    want: Want, options?: UIExtensionOptions | undefined, 
+    want: Want, options?: UIExtensionOptions, 
     @memo
     content_?: () => void,
-): UIExtensionComponentAttribute
+): UIUIExtensionComponentAttribute

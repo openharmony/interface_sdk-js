@@ -5972,7 +5972,8 @@ declare namespace window {
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
 
@@ -5985,7 +5986,8 @@ declare namespace window {
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
@@ -6125,7 +6127,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
@@ -6141,7 +6144,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
@@ -6214,7 +6218,8 @@ declare namespace window {
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
@@ -6239,7 +6244,8 @@ declare namespace window {
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
@@ -7483,7 +7489,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowTouchable(isTouchable: boolean): Promise<void>;
 
@@ -7510,7 +7517,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
 
