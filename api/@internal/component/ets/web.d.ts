@@ -7281,6 +7281,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
+   * Called when the web page starts to be loaded.
    * This API is called only for the main frame, and not for the iframe or frameset content.
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
@@ -8209,6 +8210,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
    * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8219,7 +8222,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
+   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
