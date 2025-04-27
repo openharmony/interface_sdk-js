@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,30 +19,7 @@
  */
 
 
-
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-
-/**
- * declare ForEachAttribute
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-export interface ForEachAttribute {}
-
-/**
- * declare UIForEachAttribute
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-export interface UIForEachAttribute {}
+import { memo, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 
 /**
  * Defines ForEach Component.
@@ -50,7 +27,6 @@ export interface UIForEachAttribute {}
  * @param { Array<T> } arr
  * @param { function } itemGenerator
  * @param { function } keyGenerator
- * @returns { ForEachAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -58,9 +34,8 @@ export interface UIForEachAttribute {}
  * @since 20
  */
 @memo
-@ComponentBuilder
 export declare function ForEach<T>(arr: Array<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
-): UIForEachAttribute
+): void
