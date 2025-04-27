@@ -27,7 +27,8 @@ import window from './@ohos.window';
  * @namespace uiExtensionHost
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiExtensionHost {
   /**
@@ -39,7 +40,7 @@ declare namespace uiExtensionHost {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface UIExtensionHostWindowProxy {
+  export interface UIExtensionHostWindowProxy {
     /**
      * Get the avoid area
      *
@@ -64,7 +65,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since arkts {'1.1':'16', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
@@ -80,12 +81,13 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since arkts {'1.1':'16', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
     /**
+     * 
      * Register the callback of windowSizeChange
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
@@ -159,7 +161,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -179,7 +182,8 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -229,7 +233,7 @@ declare namespace uiExtensionHost {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface UIExtensionHostWindowProxyProperties {
+  export interface UIExtensionHostWindowProxyProperties {
     /**
      * The position and size of the UIExtension window
      *
