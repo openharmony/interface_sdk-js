@@ -3303,6 +3303,30 @@ declare class WebContextMenuResult {
    * @since 11
    */
   selectAll(): void;
+
+  /**
+   * Executes the redo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  redo(): void;
+
+  /**
+   * Executes the undo operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  undo(): void;
+
+  /**
+   * Executes the paste and match style operation related to this context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  pasteAndMatchStyle(): void;
 }
 
 /**
