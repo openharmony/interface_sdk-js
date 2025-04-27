@@ -1798,6 +1798,7 @@ declare namespace inputMethodEngine {
      */
     /**
      * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's only used for STATUS_BAR panel or SOFT_KEYBOARD panel with FLG_FLOATING or FLAG_CANDIDATE.</p>
      *
      * @throws { BusinessError } 801 - capability not supported.
      * @throws { BusinessError } 12800002 - input method engine error.
