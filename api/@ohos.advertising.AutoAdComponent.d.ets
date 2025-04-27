@@ -19,6 +19,7 @@
  */
 
 import advertising from './@ohos.advertising';
+import uniformDataStruct from '@ohos.data.uniformDataStruct';
 
 /**
  * Defines the auto ad component.
