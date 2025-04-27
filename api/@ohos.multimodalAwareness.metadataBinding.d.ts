@@ -36,7 +36,7 @@ declare namespace metadataBinding {
    * @returns { Promise<image.PixelMap> } encoded image
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 32100001 - Internal handling failed. File creation failed
-   * @throws { BusinessError } 32100002 - Encode process fail.
+   * @throws { BusinessError } 32100002 - Encode process fail. Possible causes: 1. Image processing error; 2. Channel coding error
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18
@@ -49,7 +49,7 @@ declare namespace metadataBinding {
    * @returns { Promise<string> } decode result
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 32100001 - Internal handling failed. File read failed.
-   * @throws { BusinessError } 32100003 - Decode process fail.
+   * @throws { BusinessError } 32100003 - Decode process fail. Possible causes: 1. Image is not an encoded Image; 2. Image destroyed, decoding failed
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18
@@ -84,7 +84,7 @@ declare namespace metadataBinding {
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<number> } callback - Call back the screenshot event
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100004 - Subscribe Failed.
+   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality; 3. Algorithm loading exception
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18
@@ -97,7 +97,7 @@ declare namespace metadataBinding {
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<number> } callback - Call back the screenshot event
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100005 - Unsubscribe Failed.
+   * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18
