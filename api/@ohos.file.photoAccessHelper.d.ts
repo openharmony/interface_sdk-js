@@ -6921,6 +6921,25 @@ declare namespace photoAccessHelper {
     static deleteAlbums(context: Context, albums: Array<Album>): Promise<void>;
 
     /**
+     * Delete albums With Uri.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<string> } albumUris - Uris of albums to delete
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    static deleteAlbumsWithUri(context: Context, albumUris: Array<string>): Promise<void>;
+
+    /**
      * Get the album.
      *
      * @returns { Album } - Returns the album
