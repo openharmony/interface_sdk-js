@@ -180,7 +180,6 @@ declare namespace uiExtensionHost {
      * @param { string } name - window name of sub window
      * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
