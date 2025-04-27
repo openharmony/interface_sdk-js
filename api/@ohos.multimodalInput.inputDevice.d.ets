@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,14 +26,14 @@ import { KeyCode } from './@ohos.multimodalInput.keyCode';
  *
  * @namespace inputDevice
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @since 8
+ * @since 20
  */
 declare namespace inputDevice {
   /**
    * Add or remove device
    * @typedef { 'add' | 'remove' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   type ChangedType = 'add' | 'remove';
 
@@ -41,7 +41,7 @@ declare namespace inputDevice {
    * The type of input device
    * @typedef { 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
@@ -49,7 +49,7 @@ declare namespace inputDevice {
    * Axis Type of the input event
    * @typedef { 'touchmajor'| 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   type AxisType =
     'touchmajor'
@@ -65,14 +65,14 @@ declare namespace inputDevice {
   /**
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   enum KeyboardType {
     /**
      * None
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     NONE = 0,
 
@@ -80,7 +80,7 @@ declare namespace inputDevice {
      * Unknown key
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     UNKNOWN = 1,
 
@@ -88,7 +88,7 @@ declare namespace inputDevice {
      * Alphabetical keyboard
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     ALPHABETIC_KEYBOARD = 2,
 
@@ -96,7 +96,7 @@ declare namespace inputDevice {
      * Digital keyboard
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     DIGITAL_KEYBOARD = 3,
 
@@ -104,7 +104,7 @@ declare namespace inputDevice {
      * Stylus
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     HANDWRITING_PEN = 4,
 
@@ -112,7 +112,7 @@ declare namespace inputDevice {
      * Remote control
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     REMOTE_CONTROL = 5
   }
@@ -122,14 +122,14 @@ declare namespace inputDevice {
    * 
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15
+   * @since 20
    */
   enum FunctionKey {
     /**
      * CapsLock key. Enabling or disabling the CapsLock key is allowed only for input keyboard extensions.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 15
+     * @since 20
      */
     CAPS_LOCK = 1
   }
@@ -139,7 +139,7 @@ declare namespace inputDevice {
    *
    * @interface DeviceListener
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   interface DeviceListener {
     /**
@@ -147,7 +147,7 @@ declare namespace inputDevice {
      *
      * @type { ChangedType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     type: ChangedType;
 
@@ -156,7 +156,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     deviceId: number;
   }
@@ -169,21 +169,9 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   function on(type: 'change', listener: Callback<DeviceListener>): void;
-
-  /**
-   * Stops listening for an input device event.
-   *
-   * @param { 'change' } type - Type of the input device event, which is **change**.
-   * @param { Callback<DeviceListener> } listener - Callback for the input device event.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
-   */
-  function off(type: 'change', listener?: Callback<DeviceListener>): void;
 
   /**
    * Defines axis information about events that can be reported by an input device.
@@ -192,7 +180,7 @@ declare namespace inputDevice {
    *
    * @interface AxisRange
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
+   * @since 20
    */
   interface AxisRange {
     /**
@@ -201,7 +189,7 @@ declare namespace inputDevice {
      *
      * @type { SourceType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     source: SourceType;
 
@@ -210,7 +198,7 @@ declare namespace inputDevice {
      *
      * @type { AxisType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     axis: AxisType;
 
@@ -219,7 +207,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     max: number;
 
@@ -228,7 +216,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     min: number;
 
@@ -237,7 +225,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     fuzz: number;
 
@@ -246,7 +234,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     flat: number;
 
@@ -255,7 +243,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     resolution: number;
   }
@@ -265,7 +253,7 @@ declare namespace inputDevice {
    *
    * @interface InputDeviceData
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
+   * @since 20
    */
   interface InputDeviceData {
     /**
@@ -273,7 +261,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     id: number;
 
@@ -282,7 +270,7 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     name: string;
 
@@ -292,7 +280,7 @@ declare namespace inputDevice {
      *
      * @type { Array<SourceType> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     sources: Array<SourceType>;
 
@@ -301,7 +289,7 @@ declare namespace inputDevice {
      *
      * @type { Array<AxisRange> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since 20
      */
     axisRanges: Array<AxisRange>;
 
@@ -310,7 +298,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     bus: number;
 
@@ -319,7 +307,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     product: number;
 
@@ -328,7 +316,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     vendor: number;
 
@@ -337,7 +325,7 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     version: number;
 
@@ -346,7 +334,7 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     phys: string;
 
@@ -355,7 +343,7 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since 20
      */
     uniq: string;
   }
@@ -364,56 +352,10 @@ declare namespace inputDevice {
    * Obtains the IDs of all input devices.
    *
    * @param { AsyncCallback<Array<number>> } callback - Callback function, receive reported data
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
-   */
-  function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
-
-  /**
-   * Obtains the IDs of all input devices.
-   *
-   * @returns { Promise<Array<number>> }
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
-   */
-  function getDeviceIds(): Promise<Array<number>>;
-
-  /**
-   * Obtain the information about an input device.
-   *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
-   * @param { AsyncCallback<InputDeviceData> } callback - Callback function, receive reported data
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
-   */
-  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
-
-  /**
-   * Obtain the information about an input device.
-   *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
-   * @returns { Promise<InputDeviceData> }
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
-   */
-  function getDevice(deviceId: number): Promise<InputDeviceData>;
-
-  /**
-   * Obtains the IDs of all input devices.
-   *
-   * @param { AsyncCallback<Array<number>> } callback - Callback function, receive reported data
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   function getDeviceList(callback: AsyncCallback<Array<number>>): void;
 
@@ -422,7 +364,7 @@ declare namespace inputDevice {
    *
    * @returns { Promise<Array<number>> }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   function getDeviceList(): Promise<Array<number>>;
 
@@ -434,7 +376,7 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
@@ -446,265 +388,9 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since 20
    */
   function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
-
-  /**
-   * Obtain the information about an input device.
-   *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
-   * @returns { InputDeviceData }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 10
-   */
-  function getDeviceInfoSync(deviceId: number): InputDeviceData;
-
-  /**
-   * Checks whether the specified key codes of an input device are supported.
-   *
-   * @param { number } deviceId - ID of the input device.
-   * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
-   * @param { AsyncCallback<Array<boolean>> } callback -Indicates whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
-   */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
-
-  /**
-   * Checks whether the specified key codes of an input device are supported.
-   *
-   * @param { number } deviceId - ID of the input device.
-   * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
-   * @returns { Promise<Array<boolean>> } Returns a result indicating whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
-   */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
-
-  /**
-   * Checks whether the specified key codes of an input device are supported.
-   *
-   * @param { number } deviceId - ID of the input device.
-   * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
-   * @returns { Array<boolean> } Returns a result indicating whether the specified key codes are supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 10
-   */
-  function supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>;
-
-  /**
-   * Query the keyboard type of the input device.
-   *
-   * @param { number } deviceId - ID of the specified input device.
-   * @param { AsyncCallback<KeyboardType> } callback - Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
-   */
-  function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
-
-  /**
-   * Query the keyboard type of the input device.
-   *
-   * @param { number } deviceId - ID of the specified input device.
-   * @returns { Promise<KeyboardType> } Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
-   */
-  function getKeyboardType(deviceId: number): Promise<KeyboardType>;
-
-  /**
-   * Query the keyboard type of the input device.
-   *
-   * @param { number } deviceId - ID of the specified input device.
-   * @returns { KeyboardType } Returns the keyboard type.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 10
-   */
-  function getKeyboardTypeSync(deviceId: number): KeyboardType;
-
-  /**
-   * Setting the Keyboard Repetition Delay.
-   *
-   * @param { number } delay - Repeat delay time, the unit is ms.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function setKeyboardRepeatDelay(delay: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Setting the Keyboard Repetition Delay.
-   *
-   * @param { number } delay - Repeat delay time, the unit is ms.
-   * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function setKeyboardRepeatDelay(delay: number): Promise<void>;
-
-  /**
-   * Get the Keyboard Repetition Delay.
-   *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function getKeyboardRepeatDelay(callback: AsyncCallback<number>): void;
-
-  /**
-   * Get the Keyboard Repetition Delay.
-   *
-   * @returns { Promise<number> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function getKeyboardRepeatDelay(): Promise<number>;
-
-  /**
-   * Setting the Keyboard Key Repetition Rate.
-   *
-   * @param { number } rate - Repetition rate, the unit is ms.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function setKeyboardRepeatRate(rate: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Setting the Keyboard Key Repetition Rate.
-   *
-   * @param { number } rate - Repetition rate, the unit is ms.
-   * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function setKeyboardRepeatRate(rate: number): Promise<void>;
-
-  /**
-   * Get Keyboard Key Repetition Rate.
-   *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function getKeyboardRepeatRate(callback: AsyncCallback<number>): void;
-
-  /**
-   * Get Keyboard Key Repetition Rate.
-   *
-   * @returns { Promise<number> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function getKeyboardRepeatRate(): Promise<number>;
-
-  /**
-   * Obtains the interval since the last input.
-   *
-   * @returns { Promise<number> } Promise used to return the interval since the last input.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 14
-   */
-  function getIntervalSinceLastInput(): Promise<number>;
-  
-  /**
-   * Enabling and disabling the device node.
-   *
-   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
-   * @param { number } deviceId - Device id.
-   * @param { boolean } enabled - Device node status.
-   * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API
-   * @throws { BusinessError } 202 - Permission verification failed. 
-   *     A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 3900001 - The specified device does not exist.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi
-   * @since 16
-   */
-  function setInputDeviceEnabled(deviceId: number, enabled: boolean): Promise<void>;
-
-  /**
-   * Sets whether to enable the function key.
-   *
-   * @permission ohos.permission.INPUT_KEYBOARD_CONTROLLER
-   * @param { number } functionKey - Function key.
-   * @param { boolean } enabled - Whether to enable or disable the function key.
-   * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
-   * @throws { BusinessError } 3900003 - it is prohibited for non-input applications
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15
-   */
-  function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
-
-  /**
-   * Checks whether the function key is enabled.
-   *
-   * @param { number } functionKey - Function key.
-   * @returns { Promise<boolean> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15
-   */
-  function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
 }
 
 export default inputDevice;
