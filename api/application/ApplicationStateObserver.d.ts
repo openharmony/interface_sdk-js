@@ -41,7 +41,8 @@ declare class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -50,7 +51,8 @@ declare class ApplicationStateObserver {
    *
    * @param { AbilityStateData } abilityStateData - State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -77,7 +79,8 @@ declare class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onProcessStateChanged(processData: ProcessData): void;
 

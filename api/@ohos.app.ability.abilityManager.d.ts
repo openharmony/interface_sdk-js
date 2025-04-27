@@ -30,6 +30,7 @@ import * as _AbilityForegroundStateObserver from './application/AbilityForegroun
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
 /*** if arkts 1.2 */
+import _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 /*** endif */
 
@@ -198,9 +199,10 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+  export function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
 
   /**
    * Unregister Ability foreground or background state observer.
@@ -215,9 +217,10 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
+  export function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -587,6 +590,17 @@ declare namespace abilityManager {
    * @since 11
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
+
+  /**
+   * The ability foreground state observer.
+   *
+   * @typedef { _AbilityForegroundStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 }
 
 export default abilityManager;
