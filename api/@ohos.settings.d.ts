@@ -1299,7 +1299,6 @@ declare namespace settings {
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS or ohos.permission.MANAGE_SETTINGS
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
