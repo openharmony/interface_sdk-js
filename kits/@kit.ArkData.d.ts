@@ -39,7 +39,7 @@ import sendableRelationalStore from '@ohos.data.sendableRelationalStore';
 import graphStore from '@ohos.data.graphStore';
 import collaborationEditObject from '@ohos.data.collaborationEditObject';
 import intelligence from '@ohos.data.intelligence';
-import { ContentFormCard, FormType } form '@ohos.data.udmfComponents';
+import { ContentFormCard, FormType } form '@ohos.data.UdmfComponents';
 
 export {
   DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
