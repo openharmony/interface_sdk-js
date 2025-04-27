@@ -329,6 +329,15 @@ declare namespace window {
      * @since 16
      */
     TYPE_FLOAT_NAVIGATION,
+   /**
+     * TYPE_MUTISCREEN_COLLABORATION.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 20
+     */
+    TYPE_MUTISCREEN_COLLABORATION,
     /**
      * Main.
      *
