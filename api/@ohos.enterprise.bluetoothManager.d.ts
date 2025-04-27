@@ -191,6 +191,38 @@ declare namespace bluetoothManager {
    * @since 12
    */
   function getAllowedBluetoothDevices(admin: Want): Array<string>;
+
+  /**
+   * Turn on bluetooth.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function turnOnBluetooth(admin: Want): void;
+
+  /**
+   * Turn off bluetooth.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function turnOffBluetooth(admin: Want): void;
 }
 
 export default bluetoothManager;
