@@ -37,7 +37,15 @@ declare namespace graphStore {
    * @systemapi
    * @since 18
    */
-  type ValueType = null | number | string;
+  /**
+   * Indicates possible value types
+   *
+   * @typedef { null | number | string | Float32Array } ValueType
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @systemapi
+   * @since 20
+   */
+  type ValueType = null | number | string | Float32Array;
 
   /**
    * Describes the security level.
