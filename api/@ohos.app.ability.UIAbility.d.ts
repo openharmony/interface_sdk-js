@@ -176,7 +176,8 @@ export interface Caller {
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(): void;
 
