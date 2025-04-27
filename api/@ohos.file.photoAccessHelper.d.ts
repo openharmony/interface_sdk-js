@@ -7001,6 +7001,22 @@ declare namespace photoAccessHelper {
     moveAssets(assets: Array<PhotoAsset>, targetAlbum: Album): void;
 
     /**
+     * Move assets to the target album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to move
+     * @param { Album } targetAlbum - target album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    moveAssetsWithUri(assetUris: Array<string>, targetAlbum: Album): void;
+
+    /**
      * Recover assets from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to recover
@@ -7016,6 +7032,21 @@ declare namespace photoAccessHelper {
     recoverAssets(assets: Array<PhotoAsset>): void;
 
     /**
+     * Recover assets from the trash album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to recover
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    recoverAssetsWithUri(assetUris: Array<string>): void;
+
+    /**
      * Delete assets permanently from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to be deleted permanently
@@ -7029,6 +7060,21 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     deleteAssets(assets: Array<PhotoAsset>): void;
+
+    /**
+     * Delete assets permanently from the trash album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to be deleted permanently
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    deleteAssetsWithUri(assetUris: Array<string>): void;
 
     /**
      * Set portrait album to me
