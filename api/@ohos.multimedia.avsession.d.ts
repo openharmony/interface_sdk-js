@@ -38,7 +38,8 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @namespace avSession
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare namespace avSession {
@@ -52,7 +53,8 @@ declare namespace avSession {
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
 
@@ -79,7 +81,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType): Promise<AVSession>;
 
@@ -980,7 +983,8 @@ declare namespace avSession {
    * @typedef { 'audio' | 'video' | 'voice_call' | 'video_call' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call';
 
@@ -995,7 +999,8 @@ declare namespace avSession {
    * @interface AVSession
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVSession {
     /**
@@ -1009,7 +1014,8 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly sessionId: string;
 
@@ -1025,7 +1031,8 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly sessionType: AVSessionType;
 
@@ -1469,7 +1476,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllCastDisplays(): Promise<Array<CastDisplayInfo>>;
 
@@ -2553,7 +2561,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castDisplayChange', callback: Callback<CastDisplayInfo>): void;
 
@@ -2603,7 +2612,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     activate(callback: AsyncCallback<void>): void;
 
@@ -2622,7 +2632,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     activate(): Promise<void>;
 
@@ -2661,7 +2672,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -2680,7 +2692,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(): Promise<void>;
   }
@@ -2698,7 +2711,8 @@ declare namespace avSession {
    *     'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute' } AVCastControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
@@ -3795,7 +3809,8 @@ declare namespace avSession {
    * @param { Uint8Array } requestData - media key request data sent to media key server
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type KeyRequestCallback = (assetId: string, requestData: Uint8Array) => void;
 
@@ -3805,7 +3820,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CastDisplayState {
     /**
@@ -3813,7 +3829,8 @@ declare namespace avSession {
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_OFF = 1,
 
@@ -3822,7 +3839,8 @@ declare namespace avSession {
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_ON = 2,
   }
@@ -3832,7 +3850,8 @@ declare namespace avSession {
    * @typedef CastDisplayInfo
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CastDisplayInfo {
     /**
@@ -3841,7 +3860,8 @@ declare namespace avSession {
      * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -3850,7 +3870,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -3859,7 +3880,8 @@ declare namespace avSession {
      * @type { CastDisplayState }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: CastDisplayState;
 
@@ -3868,7 +3890,8 @@ declare namespace avSession {
      * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -3877,7 +3900,8 @@ declare namespace avSession {
      * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -5147,7 +5171,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CallState {
     /**
@@ -5159,7 +5184,8 @@ declare namespace avSession {
      * Idle state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_IDLE = 0,
 
@@ -5172,7 +5198,8 @@ declare namespace avSession {
      * Incoming state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_INCOMING = 1,
 
@@ -5185,7 +5212,8 @@ declare namespace avSession {
      * Active state in calling.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_ACTIVE = 2,
 
@@ -5198,7 +5226,8 @@ declare namespace avSession {
      * Dialing state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_DIALING = 3,
 
@@ -5211,7 +5240,8 @@ declare namespace avSession {
      * Waiting state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_WAITING = 4,
 
@@ -5224,7 +5254,8 @@ declare namespace avSession {
      * Holding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_HOLDING = 5,
 
@@ -5237,7 +5268,8 @@ declare namespace avSession {
      * Disconnecting state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_DISCONNECTING = 6,
   }
@@ -5253,7 +5285,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVCastCategory {
     /**
@@ -5267,7 +5300,8 @@ declare namespace avSession {
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CATEGORY_LOCAL = 0,
 
@@ -5282,7 +5316,8 @@ declare namespace avSession {
      * the application needs to get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CATEGORY_REMOTE = 1,
   }
@@ -5297,7 +5332,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceType {
     /**
@@ -5309,7 +5345,8 @@ declare namespace avSession {
      * A device type indicating the route is on internal speakers or audio jack on the device itself.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_LOCAL = 0,
 
@@ -5322,7 +5359,8 @@ declare namespace avSession {
      * A device type indicating the route is on a TV.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_TV = 2,
 
@@ -5335,7 +5373,8 @@ declare namespace avSession {
      * A device type indicating the route is on a smart speaker.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_SMART_SPEAKER = 3,
 
@@ -5348,7 +5387,8 @@ declare namespace avSession {
      * A device type indicating the route is on a bluetooth device.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_BLUETOOTH = 10,
   }
@@ -5572,7 +5612,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum LoopMode {
     /**
@@ -5584,7 +5625,8 @@ declare namespace avSession {
      * The default mode is sequential playback
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SEQUENCE = 0,
 
@@ -5597,7 +5639,8 @@ declare namespace avSession {
      * Single loop mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SINGLE = 1,
 
@@ -5610,7 +5653,8 @@ declare namespace avSession {
      * List loop mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_LIST = 2,
 
@@ -5623,7 +5667,8 @@ declare namespace avSession {
      * Shuffle playback mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SHUFFLE = 3,
 
@@ -5636,7 +5681,8 @@ declare namespace avSession {
      * Custom playback mode supported by application
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_CUSTOM = 4,
   }
@@ -5645,25 +5691,29 @@ declare namespace avSession {
    * Supported skip intervals definition
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SkipIntervals {
     /**
      * 10 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_10 = 10,
     /**
      * 15 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_15 = 15,
     /**
      * 30 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_30 = 30,
   }
@@ -5679,7 +5729,8 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PlaybackState {
     /**
@@ -5691,7 +5742,8 @@ declare namespace avSession {
      * Initial state. The initial state of media file
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_INITIAL = 0,
 
@@ -5706,7 +5758,8 @@ declare namespace avSession {
      * the media is loading or buffering
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PREPARE = 1,
 
@@ -5719,7 +5772,8 @@ declare namespace avSession {
      * Playing state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PLAY = 2,
 
@@ -5732,7 +5786,8 @@ declare namespace avSession {
      * Paused state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PAUSE = 3,
 
@@ -5745,7 +5800,8 @@ declare namespace avSession {
      * Fast forwarding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_FAST_FORWARD = 4,
 
@@ -5758,7 +5814,8 @@ declare namespace avSession {
      * Rewinding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_REWIND = 5,
 
@@ -5771,7 +5828,8 @@ declare namespace avSession {
      * Stopped state.The server will clear the media playback position and other information.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_STOP = 6,
 
@@ -5784,7 +5842,8 @@ declare namespace avSession {
      * Completed state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_COMPLETED = 7,
 
@@ -5797,7 +5856,8 @@ declare namespace avSession {
      * Released state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_RELEASED = 8,
 
@@ -5810,7 +5870,8 @@ declare namespace avSession {
      * error state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_ERROR = 9,
 
@@ -5823,7 +5884,8 @@ declare namespace avSession {
      * Idle state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_IDLE = 10,
 
@@ -5836,7 +5898,8 @@ declare namespace avSession {
      * Buffering state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_BUFFERING = 11,
   }
@@ -7378,7 +7441,8 @@ declare namespace avSession {
    *     'toggleCallMute' } AVControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
