@@ -177,7 +177,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { NetworkRadioTech } Returns the RAT of PS domain and CS domain of registered network.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'18','1.2':20}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getRadioTechSync(slotId: number): NetworkRadioTech;
