@@ -19,6 +19,7 @@
  */
 
 /*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
 import { SearchAttribute } from './component/search'
 /*** endif */
 
@@ -35,6 +36,75 @@ import { SearchAttribute } from './component/search'
  * @arkts 1.2
  */
 declare type SearchApplyNormalFunction = (searchAttribute: SearchAttribute) => void;
+
+/**
+ * Defines Search Modifier
+ *
+ * @extends SearchAttribute
+ * @implements AttributeModifier<SearchAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: SearchAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: SearchAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: SearchAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: SearchAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: SearchAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: SearchAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: SearchAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: SearchAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: SearchAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: SearchAttribute) => void);
+}
 /*** endif */
 
 
@@ -45,8 +115,7 @@ declare type SearchApplyNormalFunction = (searchAttribute: SearchAttribute) => v
  * @implements AttributeModifier<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
 
@@ -60,18 +129,4 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: SearchAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: SearchApplyNormalFunction;
-  /*** endif */
 }

@@ -19,6 +19,7 @@
  */
 
 /*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
 import { TextInputAttribute } from './component/textInput'
 /*** endif */
 
@@ -35,8 +36,6 @@ import { TextInputAttribute } from './component/textInput'
  * @arkts 1.2
  */
 declare type TextInputApplyNormalFunction = (textInputAttribute: TextInputAttribute) => void;
-/*** endif */
-
 
 /**
  * Defines TextInput Modifier
@@ -45,8 +44,77 @@ declare type TextInputApplyNormalFunction = (textInputAttribute: TextInputAttrib
  * @implements AttributeModifier<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class TextInputModifier extends TextInputAttribute implements AttributeModifier<TextInputAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: TextInputAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: TextInputAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: TextInputAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: TextInputAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: TextInputAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: TextInputAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: TextInputAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: TextInputAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: TextInputAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: TextInputAttribute) => void);
+}
+/*** endif */
+
+/**
+ * Defines TextInput Modifier
+ *
+ * @extends TextInputAttribute
+ * @implements AttributeModifier<TextInputAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
 */
 export declare class TextInputModifier extends TextInputAttribute implements AttributeModifier<TextInputAttribute> {
 
@@ -60,18 +128,4 @@ export declare class TextInputModifier extends TextInputAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?(instance: TextInputAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: TextInputApplyNormalFunction;
-  /*** endif */
 }

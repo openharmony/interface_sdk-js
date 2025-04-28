@@ -19,6 +19,7 @@
  */
 
 /*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
 import { TextAreaAttribute } from './component/textArea'
 /*** endif */
 
@@ -35,6 +36,75 @@ import { TextAreaAttribute } from './component/textArea'
  * @arkts 1.2
  */
 declare type TextAreaApplyNormalFunction = (textAreaAttribute: TextAreaAttribute) => void;
+
+/**
+ * Defines TextArea Modifier
+ *
+ * @extends TextAreaAttribute
+ * @implements AttributeModifier<TextAreaAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class TextAreaModifier extends TextAreaAttribute implements AttributeModifier<TextAreaAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAreaAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAreaAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAreaAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAreaAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAreaAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: TextAreaAttribute) => void);
+}
 /*** endif */
 
 
@@ -45,8 +115,7 @@ declare type TextAreaApplyNormalFunction = (textAreaAttribute: TextAreaAttribute
  * @implements AttributeModifier<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class TextAreaModifier extends TextAreaAttribute implements AttributeModifier<TextAreaAttribute> {
 
@@ -60,18 +129,4 @@ export declare class TextAreaModifier extends TextAreaAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?(instance: TextAreaAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: TextAreaApplyNormalFunction;
-  /*** endif */
 }

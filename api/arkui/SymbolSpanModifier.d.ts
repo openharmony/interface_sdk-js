@@ -19,6 +19,8 @@
 
 /*** if arkts 1.2 */
 import { SymbolSpanAttribute } from './component/symbolSpan'
+import { AttributeModifier } from './component/common'
+import { Resource } from '../global/resource'
 /*** endif */
 
 /*** if arkts 1.2 */
@@ -34,6 +36,85 @@ import { SymbolSpanAttribute } from './component/symbolSpan'
  * @arkts 1.2
  */
 declare type SymbolSpanApplyNormalFunction = (symbolSpanAttribute: SymbolSpanAttribute) => void;
+
+/**
+ * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
+ *
+ * @extends SymbolSpanAttribute
+ * @implements AttributeModifier<SymbolSpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
+    /**
+     * constructor
+     *
+     * @param { Resource } src
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(src?: Resource);
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @type {undefined | ((instance: SymbolSpanAttribute) => void)}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyNormalAttribute: undefined | ((instance: SymbolSpanAttribute) => void);
+    /**
+     * Defines the pressed update attribute function.
+     *
+     * @type {undefined | ((instance: SymbolSpanAttribute) => void)}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyPressedAttribute: undefined | ((instance: SymbolSpanAttribute) => void);
+    /**
+     * Defines the focused update attribute function.
+     *
+     * @type {undefined | ((instance: SymbolSpanAttribute) => void)}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyFocusedAttribute: undefined | ((instance: SymbolSpanAttribute) => void);
+    /**
+     * Defines the disabled update attribute function.
+     *
+     * @type {undefined | ((instance: SymbolSpanAttribute) => void)}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyDisabledAttribute: undefined | ((instance: SymbolSpanAttribute) => void);
+    /**
+     * Defines the selected update attribute function.
+     *
+     * @type {undefined | ((instance: SymbolSpanAttribute) => void)}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applySelectedAttribute: undefined | ((instance: SymbolSpanAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -43,8 +124,7 @@ declare type SymbolSpanApplyNormalFunction = (symbolSpanAttribute: SymbolSpanAtt
  * @implements AttributeModifier<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
     /**
@@ -53,8 +133,7 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @param { Resource } src
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(src?: Resource);
     /**
@@ -66,18 +145,4 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @since 12
      */
     applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
-
-    /*** if arkts 1.2 */
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    applyNormalAttribute?: SymbolSpanApplyNormalFunction;
-    /*** endif */
 }

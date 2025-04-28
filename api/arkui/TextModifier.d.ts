@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import { TextAttribute } from './component/text'
+import { AttributeModifier }from './component/common'
 /*** endif */
 
 /*** if arkts 1.2 */
@@ -35,8 +36,76 @@ import { TextAttribute } from './component/text'
  * @arkts 1.2
  */
 declare type TextApplyNormalFunction = (textAttribute: TextAttribute) => void;
-/*** endif */
 
+/**
+ * Defines Text Modifier
+ *
+ * @extends TextAttribute, AttributeModifier<TextAttribute>
+ * @typedef TextModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare interface TextModifier extends TextAttribute, AttributeModifier<TextAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: TextAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: TextAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: TextAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: TextAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: TextAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: TextAttribute) => void);
+}
+/*** endif */
 
 /**
  * Defines Text Modifier
@@ -45,8 +114,7 @@ declare type TextApplyNormalFunction = (textAttribute: TextAttribute) => void;
  * @implements AttributeModifier<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 
@@ -60,18 +128,4 @@ export declare class TextModifier extends TextAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: TextAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: TextApplyNormalFunction;
-  /*** endif */
 }
