@@ -1003,24 +1003,26 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 20
    */
-  interface OutputSize {
+  declare interface OutputSize {  
     /**
-     * The expected output frame image width. If no value is assigned,
-     * the scaling ratio will follow the specified height.
-     * If height is not assigned, the output will be the original video frame width.
+     * The expected output frame image width.
+     * If the value is less then 0， the width will be  the orginal width of the vido.
+     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
+     * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 20
      */
     width?:number;
-      /**
-      * The expected output frame image height.
-      * If no value is assigned, the scaling ratio will follow the specified width.
-      * If width is not assigned, the output will be the original video frame width.
-      * @type { ?number }
-      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-      * @since 20
-      */
+    /**
+     * The expected output frame image height.
+     * If the value is less then 0， the height will be  the orginal height of the vido.
+     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
+     * If both width and height is not assigned, the output will be the original size of video frame.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @since 20
+     */
     height?: number;
   }
 
@@ -1101,7 +1103,7 @@ declare namespace media {
 
     /**
      * Supports extracting video thumbnails by proportional scaling
-     * @param { number } timeUs The time expected to fetch picture from the video resource.
+     * @param { number } timeUs The time expected to fetch picture from the video resource. The unit is microsecond(us).
      * @param { AVImageQueryOptions } queryMode Specify how to position the video frame
      * @param { OutputSize } outputSize This field is used to define the output size of frame.
      * @returns { Promise<image.PixelMap> }  Returns the output image object
