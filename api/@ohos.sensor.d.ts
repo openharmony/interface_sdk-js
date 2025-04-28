@@ -237,7 +237,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -249,7 +250,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -264,7 +266,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -276,7 +279,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
@@ -293,7 +297,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -306,7 +311,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -323,7 +329,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -337,7 +344,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -350,7 +358,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -364,7 +373,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -377,7 +387,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -393,7 +404,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -406,7 +418,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -423,7 +436,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -437,7 +451,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -452,7 +467,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -466,7 +482,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -482,7 +499,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -496,7 +514,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -511,7 +530,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -525,7 +545,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -536,7 +557,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11
@@ -553,7 +575,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -568,7 +591,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -582,7 +606,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -595,7 +620,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -609,7 +635,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -623,7 +650,8 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -638,7 +666,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -652,7 +681,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -664,7 +694,8 @@ declare namespace sensor {
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -676,7 +707,8 @@ declare namespace sensor {
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -688,7 +720,8 @@ declare namespace sensor {
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -700,7 +733,8 @@ declare namespace sensor {
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -714,7 +748,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -728,7 +763,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -740,7 +776,8 @@ declare namespace sensor {
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -754,7 +791,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -766,7 +804,8 @@ declare namespace sensor {
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -780,7 +819,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -792,7 +832,8 @@ declare namespace sensor {
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -805,7 +846,8 @@ declare namespace sensor {
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -817,7 +859,8 @@ declare namespace sensor {
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -831,7 +874,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -845,7 +889,8 @@ declare namespace sensor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -857,7 +902,8 @@ declare namespace sensor {
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -869,7 +915,8 @@ declare namespace sensor {
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -881,7 +928,8 @@ declare namespace sensor {
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -893,7 +941,8 @@ declare namespace sensor {
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -2145,7 +2194,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Sensor> } callback - callback sensor info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2155,7 +2205,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Sensor> } callback - callback sensor info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12
@@ -2168,7 +2219,8 @@ declare namespace sensor {
    * @returns { Promise<Sensor> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2178,7 +2230,8 @@ declare namespace sensor {
    * @returns { Promise<Sensor> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12
@@ -2191,7 +2244,8 @@ declare namespace sensor {
    * @returns { Sensor } Returns sensor information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12
@@ -2203,7 +2257,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2214,7 +2269,8 @@ declare namespace sensor {
    * @returns { Promise<Array<Sensor>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2223,7 +2279,8 @@ declare namespace sensor {
   /**
    * Synchronously obtains all sensor information on the device.
    * @returns { Array<Sensor> } Return a list of sensor information.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12
    */
@@ -2359,7 +2416,8 @@ declare namespace sensor {
    * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2373,7 +2431,8 @@ declare namespace sensor {
    * @returns { Promise<GeomagneticResponse> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2410,7 +2469,8 @@ declare namespace sensor {
    * @param { AsyncCallback<number> } callback - callback device altitude.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2423,7 +2483,8 @@ declare namespace sensor {
    * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2457,7 +2518,8 @@ declare namespace sensor {
    * @param { AsyncCallback<number> } callback - callback inclination in radians.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2469,7 +2531,8 @@ declare namespace sensor {
    * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2507,7 +2570,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2521,7 +2585,8 @@ declare namespace sensor {
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2555,7 +2620,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2567,7 +2633,8 @@ declare namespace sensor {
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2627,7 +2694,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2641,7 +2709,8 @@ declare namespace sensor {
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2675,7 +2744,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2687,7 +2757,8 @@ declare namespace sensor {
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2721,7 +2792,8 @@ declare namespace sensor {
    * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2733,7 +2805,8 @@ declare namespace sensor {
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2794,7 +2867,8 @@ declare namespace sensor {
    * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
@@ -2807,7 +2881,8 @@ declare namespace sensor {
    * @returns { Promise<RotationMatrixResponse> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
