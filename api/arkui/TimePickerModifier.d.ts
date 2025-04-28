@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { TimePickerAttribute } from './component/timePicker'
+/*** endif */
 
 /**
  * Defines TimePicker Modifier
@@ -43,3 +45,76 @@ export declare class TimePickerModifier extends TimePickerAttribute implements A
    */
   applyNormalAttribute?(instance: TimePickerAttribute): void;
 }
+
+/**
+ * Defines TimePicker Modifier
+ *
+ * @extends TimePickerAttribute
+ * @implements AttributeModifier<TimePickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { undefined | ((instance: TimePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: TimePickerAttribute) => void);
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type { undefined | ((instance: TimePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: TimePickerAttribute) => void);
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type { undefined | ((instance:  TimePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: TimePickerAttribute) => void);
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type { undefined | ((instance:  TimePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: TimePickerAttribute) => void);
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type { undefined | ((instance:  TimePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: TimePickerAttribute) => void);
+}

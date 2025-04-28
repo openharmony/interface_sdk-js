@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { DatePickerAttribute } from './component/datePicker'
+/*** endif */
 
 /**
  * Defines DatePicker Modifier
@@ -42,4 +44,77 @@ export declare class DatePickerModifier extends DatePickerAttribute implements A
    * @since 12
    */
   applyNormalAttribute?(instance: DatePickerAttribute): void;
+}
+
+/**
+ * Defines DatePicker Modifier
+ *
+ * @extends DatePickerAttribute
+ * @implements AttributeModifier<DatePickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { undefined | ((instance: DatePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: DatePickerAttribute) => void);
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type { undefined | ((instance: DatePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: DatePickerAttribute) => void);
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type { undefined | ((instance:  DatePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: DatePickerAttribute) => void);
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type { undefined | ((instance:  DatePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: DatePickerAttribute) => void);
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type { undefined | ((instance:  DatePickerAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: DatePickerAttribute) => void);
 }

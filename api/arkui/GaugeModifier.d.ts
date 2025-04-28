@@ -18,7 +18,10 @@
  * @kit ArkUI
  */
 
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { GaugeAttribute } from './component/gauge'
+/*** endif */
 
 /**
  * Defines Gauge Modifier
@@ -41,4 +44,77 @@ export declare class GaugeModifier extends GaugeAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?(instance: GaugeAttribute): void;
+}
+
+/**
+ * Defines Gauge Modifier
+ *
+ * @extends GaugeAttribute
+ * @implements AttributeModifier<GaugeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { undefined | ((instance: GaugeAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: GaugeAttribute) => void);
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type { undefined | ((instance: GaugeAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: GaugeAttribute) => void);
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type { undefined | ((instance:  GaugeAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: GaugeAttribute) => void);
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type { undefined | ((instance:  GaugeAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: GaugeAttribute) => void);
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type { undefined | ((instance:  GaugeAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: GaugeAttribute) => void);
 }
