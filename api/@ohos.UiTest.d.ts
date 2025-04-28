@@ -4497,6 +4497,22 @@ declare class Driver {
    * @test
    */
   injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
+
+  /**
+   * Inject a watch crown rotation event, specifies the rotation speed if necessary.
+   *
+   * @param { number } d The number of cells that watch rotates.Positive value indicate clockwise rotation,negative value indicate counterclockwise rotation.
+   * @param { number } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.Set it default 20 if out of range or undefined or null.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  crownRotate(d: number, speed?: number): Promise<void>;
 }
 
 /**
