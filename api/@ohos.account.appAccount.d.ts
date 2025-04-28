@@ -21,13 +21,18 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import type rpc from './@ohos.rpc';
+/*** if arkts 1.1 */
+import { int } from './@ohos.base';
+/*** endif */
+
 
 /**
  * This module provides the capability to manage application accounts.
  *
  * @namespace appAccount
  * @syscap SystemCapability.Account.AppAccount
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appAccount {
   /**
@@ -35,7 +40,8 @@ declare namespace appAccount {
    *
    * @returns { AppAccountManager } Returns the instance of the AppAccountManager.
    * @syscap SystemCapability.Account.AppAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAppAccountManager(): AppAccountManager;
 
@@ -44,7 +50,8 @@ declare namespace appAccount {
    *
    * @interface AppAccountManager
    * @syscap SystemCapability.Account.AppAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AppAccountManager {
     /**
@@ -107,7 +114,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccount(name: string, callback: AsyncCallback<void>): void;
 
@@ -127,7 +135,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
 
@@ -147,7 +156,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccount(name: string, options?: CreateAccountOptions): Promise<void>;
 
@@ -184,7 +194,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccountImplicitly(owner: string, callback: AuthCallback): void;
 
@@ -203,7 +214,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
@@ -248,7 +260,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeAccount(name: string, callback: AsyncCallback<void>): void;
 
@@ -265,7 +278,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeAccount(name: string): Promise<void>;
 
@@ -342,7 +356,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Sets a third-party application with the specified bundle name to access the given application
@@ -359,7 +374,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>): void;
 
@@ -378,7 +394,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Sets a third-party application with the specified bundle name to access the given application
@@ -395,7 +412,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<void>;
 
@@ -412,7 +430,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -429,7 +448,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAppAccess(name: string, bundleName: string): Promise<boolean>;
 
@@ -487,7 +507,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void;
 
@@ -509,7 +530,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkDataSyncEnabled(name: string): Promise<boolean>;
 
@@ -554,7 +576,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name, credentialType or credential.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>): void;
 
@@ -571,7 +594,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name, credentialType or credential.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCredential(name: string, credentialType: string, credential: string): Promise<void>;
 
@@ -688,7 +712,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -719,7 +744,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>;
 
@@ -765,7 +791,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400003 - The number of custom data reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -783,7 +810,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400003 - The number of custom data reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCustomData(name: string, key: string, value: string): Promise<void>;
 
@@ -832,7 +860,8 @@ declare namespace appAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -847,7 +876,8 @@ declare namespace appAccount {
      * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllAccounts(): Promise<Array<AppAccountInfo>>;
 
@@ -901,7 +931,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Gets information about all accounts of a specified account owner.
@@ -918,7 +949,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -938,7 +970,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Gets information about all accounts of a specified account owner.
@@ -955,7 +988,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>;
 
@@ -998,7 +1032,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
 
@@ -1015,7 +1050,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCredential(name: string, credentialType: string): Promise<string>;
 
@@ -1085,7 +1121,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400002 - Custom data not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCustomData(name: string, key: string, callback: AsyncCallback<string>): void;
 
@@ -1102,7 +1139,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400002 - Custom data not found
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCustomData(name: string, key: string): Promise<string>;
 
@@ -1119,7 +1157,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400002 - Custom data not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCustomDataSync(name: string, key: string): string;
 
@@ -1156,7 +1195,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid type or owners.
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Subscribes to the change events of accounts of the specified owners.
@@ -1173,7 +1213,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type or owners.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
@@ -1199,7 +1240,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void;
 
@@ -1240,7 +1282,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     auth(name: string, owner: string, authType: string, callback: AuthCallback): void;
 
@@ -1261,7 +1304,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     auth(
       name: string,
@@ -1313,7 +1357,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
 
@@ -1331,7 +1376,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthToken(name: string, owner: string, authType: string): Promise<string>;
 
@@ -1383,7 +1429,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
@@ -1403,7 +1450,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthToken(name: string, authType: string, token: string): Promise<void>;
 
@@ -1458,7 +1506,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
@@ -1479,7 +1528,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
 
@@ -1542,7 +1592,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400001 - Application not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Sets the auth token visibility of the specified authentication type to a third-party application.
@@ -1562,7 +1613,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthTokenVisibility(
       name: string,
@@ -1591,7 +1643,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400001 - Application not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Sets the auth token visibility of the specified authentication type to a third-party application.
@@ -1611,7 +1664,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
@@ -1668,7 +1722,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAuthTokenVisibility(
       name: string,
@@ -1693,7 +1748,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
 
@@ -1736,7 +1792,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name or owner.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>): void;
 
@@ -1752,7 +1809,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid name or owner.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>;
 
@@ -1803,7 +1861,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -1822,7 +1881,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthList(name: string, authType: string): Promise<Array<string>>;
 
@@ -1869,7 +1929,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid sessionId.
      * @throws { BusinessError } 12300108 - Session not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void;
 
@@ -1886,7 +1947,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid sessionId.
      * @throws { BusinessError } 12300108 - Session not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAuthCallback(sessionId: string): Promise<AuthCallback>;
 
@@ -1927,7 +1989,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
 
@@ -1942,7 +2005,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
@@ -1962,7 +2026,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
 
@@ -1982,7 +2047,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>;
 
@@ -1999,7 +2065,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deleteCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
 
@@ -2016,7 +2083,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deleteCredential(name: string, credentialType: string): Promise<void>;
 
@@ -2032,7 +2100,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300010 - Account service busy.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -2048,7 +2117,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300010 - Account service busy.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
 
@@ -2067,7 +2137,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verifyCredential(name: string, owner: string, callback: AuthCallback): void;
     /**
@@ -2086,7 +2157,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
@@ -2106,7 +2178,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthenticatorProperties(owner: string, callback: AuthCallback): void;
     /**
@@ -2126,7 +2199,8 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthCallback): void;
   }
@@ -2136,7 +2210,8 @@ declare namespace appAccount {
    *
    * @interface AppAccountInfo
    * @syscap SystemCapability.Account.AppAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AppAccountInfo {
     /**
@@ -2144,7 +2219,8 @@ declare namespace appAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     owner: string;
 
@@ -2153,7 +2229,8 @@ declare namespace appAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
   }
@@ -2194,7 +2271,8 @@ declare namespace appAccount {
    *
    * @interface AuthTokenInfo
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthTokenInfo {
     /**
@@ -2202,7 +2280,8 @@ declare namespace appAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType: string;
 
@@ -2211,7 +2290,8 @@ declare namespace appAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     token: string;
 
@@ -2220,7 +2300,8 @@ declare namespace appAccount {
      *
      * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     account?: AppAccountInfo;
   }
@@ -2230,7 +2311,8 @@ declare namespace appAccount {
    *
    * @interface AuthenticatorInfo
    * @syscap SystemCapability.Account.AppAccount
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthenticatorInfo {
     /**
@@ -2238,27 +2320,30 @@ declare namespace appAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     owner: string;
 
     /**
      * The icon id of an authenticator.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    iconId: number;
+    iconId: int;
 
     /**
      * The label id of an authenticator.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    labelId: number;
+    labelId: int;
   }
 
   /**
@@ -2266,7 +2351,8 @@ declare namespace appAccount {
    *
    * @interface AuthResult
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthResult {
     /**
@@ -2274,7 +2360,8 @@ declare namespace appAccount {
      *
      * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     account?: AppAccountInfo;
 
@@ -2283,7 +2370,8 @@ declare namespace appAccount {
      *
      * @type { ?AuthTokenInfo }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tokenInfo?: AuthTokenInfo;
   }
@@ -2293,7 +2381,8 @@ declare namespace appAccount {
    *
    * @interface CreateAccountOptions
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CreateAccountOptions {
     /**
@@ -2302,7 +2391,8 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customData?: Record<string, string>;
   }
@@ -2312,7 +2402,8 @@ declare namespace appAccount {
    *
    * @interface CreateAccountImplicitlyOptions
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CreateAccountImplicitlyOptions {
     /**
@@ -2320,7 +2411,8 @@ declare namespace appAccount {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requiredLabels?: Array<string>;
 
@@ -2329,7 +2421,8 @@ declare namespace appAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType?: string;
 
@@ -2341,7 +2434,8 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Record<string, Object>;
   }
@@ -2351,7 +2445,8 @@ declare namespace appAccount {
    *
    * @interface SelectAccountsOptions
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SelectAccountsOptions {
     /**
@@ -2359,7 +2454,8 @@ declare namespace appAccount {
      *
      * @type { ?Array<AppAccountInfo> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allowedAccounts?: Array<AppAccountInfo>;
 
@@ -2368,7 +2464,8 @@ declare namespace appAccount {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allowedOwners?: Array<string>;
 
@@ -2377,7 +2474,8 @@ declare namespace appAccount {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requiredLabels?: Array<string>;
   }
@@ -2387,7 +2485,8 @@ declare namespace appAccount {
    *
    * @interface VerifyCredentialOptions
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VerifyCredentialOptions {
     /**
@@ -2395,7 +2494,8 @@ declare namespace appAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialType?: string;
 
@@ -2404,7 +2504,8 @@ declare namespace appAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credential?: string;
 
@@ -2416,7 +2517,8 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Record<string, Object>;
   }
@@ -2426,7 +2528,8 @@ declare namespace appAccount {
    *
    * @interface SetPropertiesOptions
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SetPropertiesOptions {
     /**
@@ -2434,7 +2537,8 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     properties?: Record<string, Object>;
 
@@ -2446,7 +2550,8 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Record<string, Object>;
   }
@@ -2456,7 +2561,8 @@ declare namespace appAccount {
    *
    * @enum { string } Constants
    * @syscap SystemCapability.Account.AppAccount
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum Constants {
     /**
@@ -2483,7 +2589,8 @@ declare namespace appAccount {
      * Indicates the action for creating account implicitly.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTION_CREATE_ACCOUNT_IMPLICITLY = 'createAccountImplicitly',
 
@@ -2491,7 +2598,8 @@ declare namespace appAccount {
      * Indicates the action for authenticating.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTION_AUTH = 'auth',
 
@@ -2499,7 +2607,8 @@ declare namespace appAccount {
      * Indicates the action for verifying credential.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTION_VERIFY_CREDENTIAL = 'verifyCredential',
 
@@ -2507,7 +2616,8 @@ declare namespace appAccount {
      * Indicates the action for set authenticator properties.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTION_SET_AUTHENTICATOR_PROPERTIES = 'setAuthenticatorProperties',
 
@@ -2515,7 +2625,8 @@ declare namespace appAccount {
      * Indicates the key of name.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_NAME = 'name',
 
@@ -2523,7 +2634,8 @@ declare namespace appAccount {
      * Indicates the key of owner.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_OWNER = 'owner',
 
@@ -2531,7 +2643,8 @@ declare namespace appAccount {
      * Indicates the key of token.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_TOKEN = 'token',
 
@@ -2539,7 +2652,8 @@ declare namespace appAccount {
      * Indicates the key of action.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_ACTION = 'action',
 
@@ -2547,7 +2661,8 @@ declare namespace appAccount {
      * Indicates the key of authentication type.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_AUTH_TYPE = 'authType',
 
@@ -2555,7 +2670,8 @@ declare namespace appAccount {
      * Indicates the key of session id.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_SESSION_ID = 'sessionId',
 
@@ -2563,7 +2679,8 @@ declare namespace appAccount {
      * Indicates the key of caller pid.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_CALLER_PID = 'callerPid',
 
@@ -2571,7 +2688,8 @@ declare namespace appAccount {
      * Indicates the key of caller uid.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_CALLER_UID = 'callerUid',
 
@@ -2579,7 +2697,8 @@ declare namespace appAccount {
      * Indicates the key of caller bundle name.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_CALLER_BUNDLE_NAME = 'callerBundleName',
 
@@ -2587,7 +2706,8 @@ declare namespace appAccount {
      * Indicates the key of required labels.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_REQUIRED_LABELS = 'requiredLabels',
 
@@ -2595,7 +2715,8 @@ declare namespace appAccount {
      * Indicates the key of boolean result.
      *
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KEY_BOOLEAN_RESULT = 'booleanResult'
   }
@@ -2603,7 +2724,7 @@ declare namespace appAccount {
   /**
    * Provides result code definition.
    *
-   * @enum { number } ResultCode
+   * @enum { int } ResultCode
    * @syscap SystemCapability.Account.AppAccount
    * @since 8
    * @deprecated since 9
@@ -2799,7 +2920,7 @@ declare namespace appAccount {
      * @since 8
      * @deprecated since 9
      */
-    onResult: (code: number, result: { [key: string]: any }) => void;
+    onResult: (code: int, result: { [key: string]: any }) => void;
 
     /**
      * Notifies the client that the authentication request need to be redirected.
@@ -2817,7 +2938,8 @@ declare namespace appAccount {
    *
    * @interface AuthCallback
    * @syscap SystemCapability.Account.AppAccount
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthCallback {
     /**
@@ -2825,16 +2947,18 @@ declare namespace appAccount {
      *
      * @type { function }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onResult: (code: number, result?: AuthResult) => void;
+    onResult: (code: int, result?: AuthResult) => void;
 
     /**
      * Notifies the client that the authentication request need to be redirected.
      *
      * @type { function }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onRequestRedirected: (request: Want) => void;
 
@@ -2843,7 +2967,8 @@ declare namespace appAccount {
      *
      * @type { ?function }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onRequestContinued?: () => void;
   }
@@ -2852,7 +2977,8 @@ declare namespace appAccount {
    * Provides methods for authenticator.
    *
    * @syscap SystemCapability.Account.AppAccount
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name Authenticator
    */
   class Authenticator {
@@ -2881,7 +3007,8 @@ declare namespace appAccount {
      * @param { CreateAccountImplicitlyOptions } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
@@ -2914,7 +3041,8 @@ declare namespace appAccount {
      * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void;
 
@@ -2928,7 +3056,8 @@ declare namespace appAccount {
      * @param { VerifyCredentialOptions } options - Indicates the options for verifying credential.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
@@ -2938,7 +3067,8 @@ declare namespace appAccount {
      * @param { SetPropertiesOptions } options - Indicates the options for setting properties.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setProperties(options: SetPropertiesOptions, callback: AuthCallback): void;
 
@@ -2949,7 +3079,8 @@ declare namespace appAccount {
      * @param { Array<string> } labels - Indicates an array of labels to check.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback): void;
 
@@ -2959,7 +3090,8 @@ declare namespace appAccount {
      * @param { string } name - Indicates the account name.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkAccountRemovable(name: string, callback: AuthCallback): void;
 
@@ -2968,7 +3100,8 @@ declare namespace appAccount {
      *
      * @returns { rpc.RemoteObject } Returns a remote object.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRemoteObject(): rpc.RemoteObject;
   }
