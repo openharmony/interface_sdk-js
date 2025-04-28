@@ -3813,17 +3813,7 @@ declare namespace window {
      * @atomicservice
      * @since 18
      */
-    beginRect: Rect;
-
-    /**
-     * The position and size of keyboard after animation completed.
-     *
-     * @type { Rect }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    endRect: Rect;
+    rect: Rect;
 
     /**
      * Indicates whether animation exists.
