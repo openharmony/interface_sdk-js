@@ -2183,13 +2183,13 @@ export declare class TapGesture extends Gesture {
    * Tap gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { TapGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): TapGesture;
+  onAction(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -2402,37 +2402,37 @@ export declare class LongPressGesture extends Gesture {
    * LongPress gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): LongPressGesture;
+  onAction(event: Callback<GestureEvent>): this;
 
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): LongPressGesture;
+  onActionEnd(event: Callback<GestureEvent>): this;
 
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): LongPressGesture;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -2863,49 +2863,49 @@ export declare class PanGesture extends Gesture {
    * Pan gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): PanGesture;
+  onActionStart(event: Callback<GestureEvent>): this;
 
   /**
    * Callback when the Pan gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): PanGesture;
+  onActionUpdate(event: Callback<GestureEvent>): this;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): PanGesture;
+  onActionEnd(event: Callback<GestureEvent>): this;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): PanGesture;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -3038,13 +3038,13 @@ export declare class SwipeGesture extends Gesture {
    * Slide gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { SwipeGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): SwipeGesture;
+  onAction(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -3275,49 +3275,49 @@ export declare class PinchGesture extends Gesture {
    * Pinch gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): PinchGesture;
+  onActionStart(event: Callback<GestureEvent>): this;
 
   /**
    * Callback when the Pinch gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): PinchGesture;
+  onActionUpdate(event: Callback<GestureEvent>): this;
 
   /**
    * The Pinch gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): PinchGesture;
+  onActionEnd(event: Callback<GestureEvent>): this;
 
   /**
    * The Pinch gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): PinchGesture;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -3548,49 +3548,49 @@ export declare class RotationGesture extends Gesture {
    * Rotation gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): RotationGesture;
+  onActionStart(event: Callback<GestureEvent>): this;
 
   /**
    * Callback when the Rotation gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): RotationGesture;
+  onActionUpdate(event: Callback<GestureEvent>): this;
 
   /**
    * The Rotation gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): RotationGesture;
+  onActionEnd(event: Callback<GestureEvent>): this;
 
   /**
    * The Rotation gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGesture }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): RotationGesture;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4057,13 +4057,13 @@ export declare class TapGestureHandler extends GestureHandler {
    * Tap gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { TapGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): TapGestureHandler;
+  onAction(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4218,35 +4218,35 @@ export declare class LongPressGestureHandler extends GestureHandler {
    * LongPress gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): LongPressGestureHandler;
+  onAction(event: Callback<GestureEvent>): this;
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): LongPressGestureHandler;
+  onActionEnd(event: Callback<GestureEvent>): this;
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { LongPressGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): LongPressGestureHandler;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4412,46 +4412,46 @@ export declare class PanGestureHandler extends GestureHandler {
    * Pan gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): PanGestureHandler;
+  onActionStart(event: Callback<GestureEvent>): this;
   /**
    * Callback when the Pan gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): PanGestureHandler;
+  onActionUpdate(event: Callback<GestureEvent>): this;
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): PanGestureHandler;
+  onActionEnd(event: Callback<GestureEvent>): this;
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PanGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): PanGestureHandler;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4572,13 +4572,13 @@ export declare class SwipeGestureHandler extends GestureHandler {
    * Swipe gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { SwipeGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onAction(event: Callback<GestureEvent>): SwipeGestureHandler;
+  onAction(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4732,46 +4732,46 @@ export declare class PinchGestureHandler extends GestureHandler {
    * Pinch gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): PinchGestureHandler;
+  onActionStart(event: Callback<GestureEvent>): this;
   /**
    * Callback when the Pinch gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): PinchGestureHandler;
+  onActionUpdate(event: Callback<GestureEvent>): this;
   /**
    * The Pinch gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): PinchGestureHandler;
+  onActionEnd(event: Callback<GestureEvent>): this;
   /**
    * The Pinch gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { PinchGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): PinchGestureHandler;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -4925,46 +4925,46 @@ export declare class RotationGestureHandler extends GestureHandler {
    * Rotation gesture recognition success callback.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionStart(event: Callback<GestureEvent>): RotationGestureHandler;
+  onActionStart(event: Callback<GestureEvent>): this;
   /**
    * Callback when the Rotation gesture is moving.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionUpdate(event: Callback<GestureEvent>): RotationGestureHandler;
+  onActionUpdate(event: Callback<GestureEvent>): this;
   /**
    * The Rotation gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionEnd(event: Callback<GestureEvent>): RotationGestureHandler;
+  onActionEnd(event: Callback<GestureEvent>): this;
   /**
    * The Rotation gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<GestureEvent> } event
-   * @returns { RotationGestureHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onActionCancel(event: Callback<GestureEvent>): RotationGestureHandler;
+  onActionCancel(event: Callback<GestureEvent>): this;
 }
 /*** endif */
 
@@ -5071,13 +5071,13 @@ export declare class GestureGroupHandler extends GestureHandler {
    * The GestureGroup gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
    * @param { Callback<void> } event
-   * @returns { GestureGroupHandler }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  onCancel(event: Callback<void>): GestureGroupHandler;
+  onCancel(event: Callback<void>): this;
 }
 /*** endif */
 
