@@ -1941,7 +1941,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
-   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous share options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @StageModelOnly
@@ -1957,7 +1957,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous share options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 14
@@ -1996,7 +1996,7 @@ declare namespace unifiedDataChannel {
    * <br>When the input parameters use different records to represent various formats of a single data entry,
    * and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
    * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
-   * 
+   *
    * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
