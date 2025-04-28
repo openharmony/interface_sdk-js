@@ -537,14 +537,7 @@ declare namespace serialManager {
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19
      */
-    DATABIT_5 = 5,
-
-    /**
-     * The number of data bits is 4.
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 19
-     */
-    DATABIT_4 = 4
+    DATABIT_5 = 5
  }
   /**
    * Enumerates the parity bits of a serial port device.
@@ -605,18 +598,11 @@ declare namespace serialManager {
     STOPBIT_1 = 0,
 
     /**
-     * The number of stop bits is 1.5.
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 19
-     */
-    STOPBIT_1P5 = 1,
-
-    /**
      * The number of stop bits is 2.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19
      */
-    STOPBIT_2 = 2
+    STOPBIT_2 = 1
  }
 }
 
