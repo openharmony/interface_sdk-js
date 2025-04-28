@@ -1700,7 +1700,7 @@ declare interface TouchPadSwipeOptions {
  */
 declare interface InputTextMode {
   /**
-   * Whether to use copy and paste method to input text, default is false.
+   * Whether to use copy and paste mode to input text, default is false.
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2845,7 +2845,7 @@ declare class Component {
    * Inject text to this {@link Component},applicable to TextInput.
    *
    * @param { string } text - the text to inject.
-   * @param { InputTextMode } mode - specific the method to input text.
+   * @param { InputTextMode } mode - specific the mode to input text.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
@@ -4399,7 +4399,7 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { string } text - the text to inject.
-   * @param { InputTextMode } mode - specific the method to input text.
+   * @param { InputTextMode } mode - specific the mode to input text.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
