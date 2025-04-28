@@ -701,7 +701,7 @@ function judgeIsDeleteApi(node) {
   let sinceVersion = 20;
 
   if (dirType === DirType.typeOne) {
-    return /@arkts1.2/g.test(notesStr);
+    return /@arkts1\.2(?!\d)/g.test(notesStr);
   }
 
   if (sinceArr) {
@@ -713,7 +713,7 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts1.2|@arkts1.1&1.2/g.test(notesStr);
+    return !/@arkts1\.2\*|@arkts1\.1&1\.2\*/g.test(notesStr);
   }
 
   return false;
