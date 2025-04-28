@@ -2340,9 +2340,12 @@ declare namespace usbManager {
    * submits it in order to request a transfer
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400007 - Resource busy.
+   * @throws { BusinessError } 14400007 - Resource busy. Possible causes:
+   * <br>1. The transfer has already been submitted.
+   * <br>2. The interface is claimed by another program or driver.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
-   * @throws { BusinessError } 14400009 - Insufficient memory.
+   * @throws { BusinessError } 14400009 - Insufficient memory. Possible causes:
+   * <br>1. Malloc memory failed.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18
