@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import type appManager from './@ohos.app.ability.appManager';
+
 /**
  * The definition of AbilityConstant.
  *
@@ -263,6 +265,17 @@ declare namespace AbilityConstant {
      * @since 18
      */
     timestamp: number;
+
+    /**
+     * The process state when the process exits.
+     *
+     * @type { ?appManager.ProcessState }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    processState?: appManager.ProcessState;
   }
 
   /**
