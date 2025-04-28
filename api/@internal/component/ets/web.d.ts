@@ -6724,7 +6724,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to enable Access to the file system in the application.
+   * Sets whether to enable access to the file system in the application.
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
@@ -8989,8 +8989,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order instead of array sequence.
-   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script is executed in the lexicographic order instead of array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
    * </p>
    *
@@ -9003,11 +9003,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
-   * the script is executed on any page whose source matches scriptRules.
+   * Injects the JavaScripts script into the Web component.
+   * When the specified page or document has been loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
    * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not the array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
    * <p>
    *
