@@ -356,20 +356,11 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
 }
 
-function getFileJsdoc(firstNode) {
-  const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
-  const jsdocs = firstNodeJSDoc.split('*/');
-  let fileJSDoc = '';
-  for (let i = 0; i < jsdocs.length; i++) {
-    const jsdoc = jsdocs[i];
-    if (/\@file/.test(jsdoc)) {
-      fileJSDoc = jsdoc;
-      break;
-    }
-  }
-  return fileJSDoc;
-}
-
+/**
+ * 获取文件jsdoc
+ * @param {*} firstNode 
+ * @returns 
+ */
 function getFileJsdoc(firstNode) {
   const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
   const jsdocs = firstNodeJSDoc.split('*/');
@@ -637,7 +628,7 @@ function collectDeletionApiName(node) {
   }
 
   if (ts.isImportDeclaration(node) && node.importClause?.name) {
-    deleteApiSet.add(importClause.name.escapedText.toString());
+    deleteApiSet.add(node.importClause.name.escapedText.toString());
     return;
   }
   const namedBindings = node.namedBindings;
