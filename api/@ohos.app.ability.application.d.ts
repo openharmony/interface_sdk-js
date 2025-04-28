@@ -72,7 +72,7 @@ declare namespace application {
    * @returns { Promise<Context> } Returns the module context of plugin.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
