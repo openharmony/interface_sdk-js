@@ -77,13 +77,13 @@ declare interface PluginComponentOptions {
 
   /**
    * Plugin component data.
-   * @type { any }
+   * @type { Object|undefined|null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts {'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  data: Object|undefined|null
+  data: Object|undefined|null;
 }
 
 /**
@@ -146,8 +146,7 @@ type PluginErrorCallback = (info: PluginErrorData) => void
  * @interface PluginComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 interface PluginComponentInterface {
   /**
@@ -166,8 +165,7 @@ interface PluginComponentInterface {
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   (options: PluginComponentOptions): PluginComponentAttribute;
 }
