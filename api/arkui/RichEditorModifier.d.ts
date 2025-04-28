@@ -59,7 +59,7 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
   /**
    * Defines the normal update attribute function.
    * 
-   * @param { RichEditorAttribute } instance
+   * @type { ?((instance: RichEditorAttribute) => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
