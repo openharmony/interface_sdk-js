@@ -97,13 +97,13 @@ declare namespace url {
          * Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
          * The first item of Array is name, and the second item of Array is value.
          *
-         * @returns { EntryIterator } Returns an iterator over all values.
+         * @returns { IterableIterator<[string, string]> } Returns an iterator over all values.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
          * @since 20
          */
-        entries(): EntryIterator;
+        entries(): IterableIterator<[string, string]>;
 
         /**
          * Callback functions are used to traverse key-value pairs on the URLParams instance object.
@@ -170,30 +170,30 @@ declare namespace url {
         /**
          * Returns an iterator allowing to go through all keys contained in this object.
          *
-         * @returns { KeyValueIterator } Returns an ES6 Iterator over the names of each name-value pair.
+         * @returns { IterableIterator<string> } Returns an ES6 Iterator over the names of each name-value pair.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
          * @since 20
          */
-        keys(): KeyValueIterator;
+        keys(): IterableIterator<string>;
 
         /**
          * Returns an iterator allowing to go through all values contained in this object.
          *
-         * @returns { KeyValueIterator } Returns an ES6 Iterator over the values of each name-value pair.
+         * @returns { IterableIterator<string> } Returns an ES6 Iterator over the values of each name-value pair.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
          * @since 20
          */
-        values(): KeyValueIterator;
+        values(): IterableIterator<string>;
 
         /**
          * Returns an iterator allowing to go through all key/value
          * pairs contained in this object.
          *
-         * @returns { EntryIterator } Returns an ES6 iterator.
+         * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator.
          * Each item of the iterator is a JavaScript Array.
          * The first item of Array is name, and the second item of Array is value.
          * @syscap SystemCapability.Utils.Lang
@@ -201,7 +201,7 @@ declare namespace url {
          * @atomicservice
          * @since 20
          */
-        $_iterator(): EntryIterator;
+        $_iterator(): IterableIterator<[string, string]>;
 
         /**
          * Returns a query string suitable for use in a URL.
@@ -515,16 +515,6 @@ declare namespace url {
         * @since 20
         */
         set username(username: string);
-    }
-
-    class EntryIterator implements Iterator<Array<string>> {
-        next(): IteratorResult<Array<string>>;
-        $_iterator(): EntryIterator;
-    }
-
-    class KeyValueIterator implements Iterator<string> {
-        next(): IteratorResult<string>;
-        $_iterator(): KeyValueIterator;
     }
 }
 export default url;
