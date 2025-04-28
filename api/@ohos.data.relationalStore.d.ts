@@ -950,7 +950,7 @@ declare namespace relationalStore {
    */
   interface ExceptionMessage {
     /**
-     * Error code.
+     * Error code returned by SQLite, see {@link https://www.sqlite.org/rescode.html}.
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
