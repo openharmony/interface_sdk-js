@@ -19,9 +19,91 @@
  */
 
 /*** if arkts 1.2 */
-import { AttributeModifier } from '../@internal/component/ets/common'
-import { MenuAttribute } from '../@internal/component/ets/menu'
-import { Callback } from '../@ohos.base'
+import { AttributeModifier } from './component/common'
+import { MenuAttribute } from './component/Menu'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } MenuApplyNormalFunction
+ * @param { MenuAttribute } MenuAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type MenuApplyNormalFunction = (MenuAttribute: MenuAttribute) => void;
+
+/**
+ * Defines Menu Modifier
+ *
+ * @extends MenuAttribute
+ * @implements AttributeModifier<MenuAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class MenuAttribute extends MenuAttribute implements AttributeModifier<MenuAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: MenuAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: MenuAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: MenuAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: MenuAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: MenuAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: MenuAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: MenuAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: MenuAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: MenuAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: MenuAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,29 +127,4 @@ export declare class MenuModifier extends MenuAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: MenuAttribute): void;
-}
-
-/**
- * Defines Menu Modifier
- *
- * @extends MenuAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class MenuModifier extends MenuAttribute implements AttributeModifier<MenuAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @type { ?Callback<MenuAttribute> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: Callback<MenuAttribute>;
 }

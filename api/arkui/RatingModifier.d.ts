@@ -19,9 +19,91 @@
  */
 
 /*** if arkts 1.2 */
-import { AttributeModifier } from '../@internal/component/ets/common'
-import { RatingAttribute } from '../@internal/component/ets/rating'
-import { Callback } from '../@ohos.base'
+import { AttributeModifier } from './component/common'
+import { RatingAttribute } from './component/Rating'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } RatingApplyNormalFunction
+ * @param { RatingAttribute } RatingAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type RatingApplyNormalFunction = (RatingAttribute: RatingAttribute) => void;
+
+/**
+ * Defines Rating Modifier
+ *
+ * @extends RatingAttribute
+ * @implements AttributeModifier<RatingAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class RatingAttribute extends RatingAttribute implements AttributeModifier<RatingAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: RatingAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: RatingAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: RatingAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: RatingAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: RatingAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: RatingAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: RatingAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: RatingAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: RatingAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: RatingAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,29 +127,4 @@ export declare class RatingModifier extends RatingAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: RatingAttribute): void;
-}
-
-/**
- * Defines Rating Modifier
- *
- * @extends RatingAttribute
- * @implements AttributeModifier<RatingAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class RatingModifier extends RatingAttribute implements AttributeModifier<RatingAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?Callback<RatingAttribute> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: Callback<RatingAttribute>;
 }

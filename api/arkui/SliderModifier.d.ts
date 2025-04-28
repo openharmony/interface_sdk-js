@@ -19,9 +19,91 @@
  */
 
 /*** if arkts 1.2 */
-import { AttributeModifier } from '../@internal/component/ets/common'
-import { SliderAttribute } from '../@internal/component/ets/slider'
-import { Callback } from '../@ohos.base'
+import { AttributeModifier } from './component/common'
+import { SliderAttribute } from './component/Slider'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } SliderApplyNormalFunction
+ * @param { SliderAttribute } SliderAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SliderApplyNormalFunction = (SliderAttribute: SliderAttribute) => void;
+
+/**
+ * Defines Slider Modifier
+ *
+ * @extends SliderAttribute
+ * @implements AttributeModifier<SliderAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class SliderAttribute extends SliderAttribute implements AttributeModifier<SliderAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: SliderAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: SliderAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: SliderAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: SliderAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: SliderAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: SliderAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: SliderAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: SliderAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: SliderAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: SliderAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,29 +127,4 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: SliderAttribute): void;
-}
-
-/**
- * Defines Slider Modifier
- *
- * @extends SliderAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class SliderModifier extends SliderAttribute implements AttributeModifier<SliderAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?Callback<SliderAttribute> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: Callback<SliderAttribute>;
 }
