@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { ImageAnimatorAttribute } from './component/imageAnimator'
+/*** endif */
 
 /**
  * Defines ImageAnimator Modifier
@@ -43,3 +45,76 @@ export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implem
    */
   applyNormalAttribute?(instance: ImageAnimatorAttribute): void;
 }
+
+/**
+ * Defines ImageAnimator Modifier
+ *
+ * @extends ImageAnimatorAttribute
+ * @implements AttributeModifier<ImageAnimatorAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { undefined | ((instance: ImageAnimatorAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type { undefined | ((instance: ImageAnimatorAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type { undefined | ((instance:  ImageAnimatorAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type { undefined | ((instance:  ImageAnimatorAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type { undefined | ((instance:  ImageAnimatorAttribute) => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+}
