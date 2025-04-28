@@ -1287,6 +1287,17 @@ declare interface FullScreenEnterEvent {
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
+
+/**
+ * The callback when mouse event is triggered in native embed area
+ *
+ * @typedef { function } MouseInfoCallback
+ * @param { NativeEmbedMouseInfo } event - callback information of mouse event in native embed area.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
+
 /**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  *
@@ -4347,7 +4358,7 @@ declare class WebCookie {
 }
 
 /**
- * Defines the touch event result.
+ * Defines the event result.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -4364,7 +4375,7 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Set whether the gesture event is consumed.
    *
    * @param { boolean } result - True if the event is consumed.
    * @syscap SystemCapability.Web.Webview.Core
@@ -4374,7 +4385,7 @@ declare class EventResult {
   setGestureEventResult(result: boolean): void;
 
   /**
-   * Set whether the event is consumed.
+   * Set whether the gesture event is consumed.
    *
    * @param { boolean } result - True if the event is consumed.
    * @param { boolean } stopPropagation - Stops the propagation of events farther along.Default value is true.
@@ -4382,6 +4393,17 @@ declare class EventResult {
    * @since 14
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
+
+    /**
+   * Set whether the mouse event is consumed.
+   *
+   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } [stopPropagation] - {@code true} means to prevent mouse events from bubbling up
+   * {code false} otherwise, The default value is true.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  setMouseEventResult(result: boolean, stopPropagation?: boolean): void;
 }
 
 /**
@@ -5188,6 +5210,42 @@ declare interface NativeEmbedTouchInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  result?: EventResult;
+}
+
+/**
+ * Defines the user mouse info on embed layer.
+ *
+ * @typedef NativeEmbedMouseInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare interface NativeEmbedMouseInfo {
+  /**
+   * The native embed id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  embedId?: string;
+
+  /**
+   * An event sent when the state of contacts with a mouse-sensitive surface changes.
+   *
+   * @type { ?MouseEvent }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  mouseEvent?: MouseEvent;
+
+  /**
+   * Handle the user's mouse result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
    */
   result?: EventResult;
 }
@@ -9269,6 +9327,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNativeEmbedGestureEvent(callback: (event: NativeEmbedTouchInfo) => void): WebAttribute;
+
+  /**
+   * Triggered when mouse effect on embed tag.
+   *
+   * @param { MouseInfoCallback } callback - callback Triggered when mouse effect on embed tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
 
   /**
    * Called to set copy option
