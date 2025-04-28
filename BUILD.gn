@@ -216,8 +216,14 @@ if (!sdk_build_public) {
 arkui_transformer("transform_arkui_file") {
   input_dir = interface_sdk_path_ets2 + "/api/@internal/component/ets"
   output_dir = "//out/arkui_transformer_api"
-  node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
-  npm_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
+  
+  if (host_os == "mac") {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
+    npm_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
+  } else {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
+    npm_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
+  }
 }
 
 # ets/component执行脚本
