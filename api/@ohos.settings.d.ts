@@ -1266,7 +1266,7 @@ declare namespace settings {
   /**
    * Set settingsdata value(synchronous method)
    *
-   * @permission ohos.permission.MANAGE_SETTINGS
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { DataAbilityHelper } dataAbilityHelper Indicates dataAbilityHelper instance.
    * @param { string } name Indicates the name of the character string.
    * @param { string } value Indicates the value of the character string.
