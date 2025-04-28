@@ -23,7 +23,8 @@
 
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 /*** if arkts 1.2 */
-import { Builder, Callback } from '../component/common';
+import { Callback } from '../component/common';
+import { Builder } from '../component/customComponent';
 import { Direction } from '../component/enums';
 import { Dimension, LengthMetrics, ResourceColor, ResourceStr, SizeOptions, VoidCallback } from '../component/units';
 /*** endif */

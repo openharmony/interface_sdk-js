@@ -19,7 +19,6 @@
  */
 
 /*** if arkts 1.2 */
-import { TerminationInfo } from './uiExtensionComponent'
 import Want from '../../@ohos.app.ability.Want'
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { CommonMethod } from './common'
@@ -99,6 +98,36 @@ declare interface TerminationInfo {
    * @since 12
    */
    want?: import('../api/@ohos.app.ability.Want').default;
+}
+
+/**
+ * Indicates the information when the provider of the embedded UI is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface TerminationInfo {
+  /**
+   * Defines the termination code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+   code: number;
+   
+   /**
+   * Defines the additional termination information.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+   want?: Want;
 }
 
 /**

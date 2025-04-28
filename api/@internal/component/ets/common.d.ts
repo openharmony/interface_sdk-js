@@ -8128,7 +8128,8 @@ declare interface DragItemInfo {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#animateTo
  */
@@ -8183,7 +8184,8 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#vp2px
  */
@@ -8225,7 +8227,8 @@ declare function vp2px(value: number): number;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#px2vp
  */
