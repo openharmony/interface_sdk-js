@@ -24,8 +24,8 @@ import { TouchPoint, ResourceColor } from './arkui/component/units';
 import { Curve } from './arkui/component/enums';
 /*** endif */
 
-import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
-import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
+import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
  * This module allows developers to trigger a drag event.
