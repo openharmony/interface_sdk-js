@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import { AsyncCallback } from '@ohos.base';
  *
  * @namespace hiAppEvent
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @since 9
+ * @since 20
  */
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
@@ -37,7 +37,7 @@ import { AsyncCallback } from '@ohos.base';
  * @namespace hiAppEvent
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @atomicservice
- * @since 11
+ * @since 20
  */
 declare namespace hiAppEvent {
   /**
@@ -45,7 +45,7 @@ declare namespace hiAppEvent {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 9
+   * @since 20
    */
   /**
    * Enumerate application event types.
@@ -53,21 +53,21 @@ declare namespace hiAppEvent {
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export enum EventType {
     /**
      * Fault event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * Fault event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     FAULT = 1,
 
@@ -75,14 +75,14 @@ declare namespace hiAppEvent {
      * Statistic event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * Statistic event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     STATISTIC = 2,
 
@@ -90,14 +90,14 @@ declare namespace hiAppEvent {
      * Security event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * Security event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     SECURITY = 3,
 
@@ -105,14 +105,14 @@ declare namespace hiAppEvent {
      * User behavior event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * User behavior event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     BEHAVIOR = 4
   }
@@ -123,18 +123,297 @@ declare namespace hiAppEvent {
    * @namespace domain
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export namespace domain {
     /**
      * the domain of operating system.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     const OS: string;
+  }
+
+  /**
+   * Preset event.
+   *
+   * @namespace event
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Preset event.
+   *
+   * @namespace event
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
+  export namespace event {
+    /**
+     * User login event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * User login event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const USER_LOGIN: string;
+
+    /**
+     * User logout event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * User logout event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const USER_LOGOUT: string;
+
+    /**
+     * Distributed service event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Distributed service event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const DISTRIBUTED_SERVICE_START: string;
+
+    /**
+     * crash event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const APP_CRASH: string;
+
+    /**
+     * freeze event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const APP_FREEZE: string;
+
+    /**
+     * launch event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const APP_LAUNCH: string;
+
+    /**
+     * scroll jank event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const SCROLL_JANK: string;
+
+    /**
+     * cpu usage high event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const CPU_USAGE_HIGH: string;
+
+    /**
+     * battery usage event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const BATTERY_USAGE: string;
+
+    /**
+     * resource overlimit event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const RESOURCE_OVERLIMIT: string;
+
+    /**
+     * address sanitizer event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const ADDRESS_SANITIZER: string;
+
+    /**
+     * main thread jank event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const MAIN_THREAD_JANK: string;
+  }
+
+  /**
+   * Preset param.
+   *
+   * @namespace param
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Preset param.
+   *
+   * @namespace param
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export namespace param {
+    /**
+     * User id.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * User id.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const USER_ID: string;
+
+    /**
+     * Distributed service name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Distributed service name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const DISTRIBUTED_SERVICE_NAME: string;
+
+    /**
+     * Distributed service instance id.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Distributed service instance id.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
+  }
+
+  /**
+   * Application event logging configuration interface.
+   *
+   * @param { ConfigOption } config Application event logging configuration item object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Application event logging configuration interface.
+   *
+   * @param { ConfigOption } config Application event logging configuration item object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function configure(config: ConfigOption): void;
+
+  /**
+   * Describe the options for the configuration.
+   *
+   * @interface ConfigOption
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Describe the options for the configuration.
+   *
+   * @interface ConfigOption
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface ConfigOption {
+    /**
+     * Configuration item: application event logging switch.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Configuration item: application event logging switch.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    disable?: boolean;
+
+    /**
+     * Configuration item: event file directory storage quota size.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Configuration item: event file directory storage quota size.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    maxStorage?: string;
   }
 
   /**
@@ -142,7 +421,7 @@ declare namespace hiAppEvent {
    *
    * @interface AppEventInfo
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 9
+   * @since 20
    */
   /**
    * Definition of written application event information.
@@ -150,7 +429,7 @@ declare namespace hiAppEvent {
    * @interface AppEventInfo
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export interface AppEventInfo {
     /**
@@ -158,7 +437,7 @@ declare namespace hiAppEvent {
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * The domain of the event.
@@ -166,7 +445,7 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     domain: string;
 
@@ -175,7 +454,7 @@ declare namespace hiAppEvent {
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * The name of the event.
@@ -183,7 +462,7 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     name: string;
 
@@ -192,7 +471,7 @@ declare namespace hiAppEvent {
      *
      * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * The type of the event.
@@ -200,24 +479,24 @@ declare namespace hiAppEvent {
      * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     eventType: EventType;
 
     /**
      * The params of the event.
      *
-     * @type { object }
+     * @type { Record<string, number | string | boolean | (number | string | boolean)[]> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 9
+     * @since 20
      */
     /**
      * The params of the event.
      *
-     * @type { object }
+     * @type { Record<string, number | string | boolean | (number | string | boolean)[]> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     params: Record<string, number | string | boolean | (number | string | boolean)[]>;
   }
@@ -237,7 +516,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 9
+   * @since 20
    */
   /**
    * Write application event.
@@ -256,7 +535,7 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export function write(info: AppEventInfo): Promise<void>;
 
@@ -275,7 +554,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 9
+   * @since 20
    */
   /**
    * Write application event.
@@ -294,9 +573,616 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Indicates possible parameter types.
+   *
+   * @typedef {number | string | boolean | Array<string>}
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  type ParamType = number | string | boolean | Array<string>;
+
+  /**
+   * It is used to set custom parameters for events, including both system-subscribed events and custom events.
+   * Existing parameter will be overwritten, and non-existing parameter will be created.
+   *
+   * @param { Record<string, ParamType> } params The parameters of the event.
+   * @param { string } domain The domain of the event.
+   * @param { string } name The name of the event.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
+
+  /**
+   * Set the config for the os event.
+   *
+   * @param { string } name The name of the os event.
+   * @param { Record<string, ParamType> } config The config info of the os event.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3.Parameter verification failed.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
+
+  /**
+   * Definition of the read event package.
+   *
+   * @interface AppEventPackage
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Definition of the read event package.
+   *
+   * @interface AppEventPackage
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface AppEventPackage {
+    /**
+     * The id of the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The id of the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    packageId: number;
+
+    /**
+     * The number of events contained in the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The number of events contained in the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    row: number;
+
+    /**
+     * The total size of events contained in the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The total size of events contained in the package.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    size: number;
+
+    /**
+     * The events data contained in the package.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The events data contained in the package.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    data: string[];
+
+    /**
+     * The event json format data contained in the package.
+     *
+     * @type { Array<AppEventInfo> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    appEventInfos: Array<AppEventInfo>;
+  }
+
+  /**
+   * Definition of event holder object, which is used to read the event data monitored by the watcher.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Definition of event holder object, which is used to read the event data monitored by the watcher.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export class AppEventPackageHolder {
+    /**
+     * Constructor for AppEventPackageHolder.
+     *
+     * @param { string } watcherName Name of the watcher to read.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Constructor for AppEventPackageHolder.
+     *
+     * @param { string } watcherName Name of the watcher to read.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    constructor(watcherName: string);
+
+    /**
+     * Set the threshold size per read.
+     *
+     * @param { number } size Threshold size.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Set the threshold size per read.
+     *
+     * @param { number } size Threshold size.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    setSize(size: number): void;
+
+    /**
+     * Set the number of rows per read.
+     *
+     * @param { number } size Row size.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    setRow(size: number): void;
+
+    /**
+     * Read the event data monitored by the watcher.
+     *
+     * @returns { AppEventPackage } The read event package.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * Read the event data monitored by the watcher.
+     *
+     * @returns { AppEventPackage } The read event package.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    takeNext(): AppEventPackage;
+  }
+
+  /**
+   * Definition of the condition for triggering callback when the watcher monitors event data.
+   *
+   * @interface TriggerCondition
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Definition of the condition for triggering callback when the watcher monitors event data.
+   *
+   * @interface TriggerCondition
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface TriggerCondition {
+    /**
+     * The number of write events that trigger callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The number of write events that trigger callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    row?: number;
+
+    /**
+     * The size of write events that trigger callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The size of write events that trigger callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    size?: number;
+
+    /**
+     * The interval for triggering callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The interval for triggering callback.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    timeOut?: number;
+  }
+
+  /**
+   * Definition of event filter object, which is used to filter events monitored by the watcher.
+   *
+   * @interface AppEventFilter
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Definition of event filter object, which is used to filter events monitored by the watcher.
+   *
+   * @interface AppEventFilter
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface AppEventFilter {
+    /**
+     * The name of the event domain to be monitored by the watcher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The name of the event domain to be monitored by the watcher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    domain: string;
+
+    /**
+     * The types of the events to be monitored by the watcher.
+     *
+     * @type { ?EventType[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The types of the events to be monitored by the watcher.
+     *
+     * @type { ?EventType[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    eventTypes?: EventType[];
+
+    /**
+     * The names of the events to be monitored by the watcher.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    names?: string[];
+  }
+
+  /**
+   * Definition of event group.
+   *
+   * @interface AppEventGroup
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface AppEventGroup {
+    /**
+     * The name of the event.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    name: string;
+
+    /**
+     * The event array which is group by the name.
+     *
+     * @type { Array<AppEventInfo> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    appEventInfos: Array<AppEventInfo>;
+  }
+
+  /**
+   * Definition of event watcher object, which is used to monitor written event data.
+   *
+   * @interface Watcher
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Definition of event watcher object, which is used to monitor written event data.
+   *
+   * @interface Watcher
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export interface Watcher {
+    /**
+     * The name of watcher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The name of watcher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    name: string;
+
+    /**
+     * The condition for triggering callback.
+     *
+     * @type { ?TriggerCondition }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The condition for triggering callback.
+     *
+     * @type { ?TriggerCondition }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    triggerCondition?: TriggerCondition;
+
+    /**
+     * The event filters for monitoring events.
+     *
+     * @type { ?AppEventFilter[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The event filters for monitoring events.
+     *
+     * @type { ?AppEventFilter[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    appEventFilters?: AppEventFilter[];
+
+    /**
+     * The callback function of watcher.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 20
+     */
+    /**
+     * The callback function of watcher.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+
+    /**
+     * The callback function, when watcher receive the event.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
+  }
+
+  /**
+   * Add event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @returns { AppEventPackageHolder } Holder object, which is used to read the monitoring data of the watcher.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
+   * @throws { BusinessError } 11102003 - Invalid row value.
+   * @throws { BusinessError } 11102004 - Invalid size value.
+   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Add event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @returns { AppEventPackageHolder } Holder object, which is used to read the monitoring data of the watcher.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
+   * @throws { BusinessError } 11102003 - Invalid row value.
+   * @throws { BusinessError } 11102004 - Invalid size value.
+   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function addWatcher(watcher: Watcher): AppEventPackageHolder;
+
+  /**
+   * Remove event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Remove event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function removeWatcher(watcher: Watcher): void;
+
+  /**
+   * Clear all local logging data of the application.
+   *
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 20
+   */
+  /**
+   * Clear all local logging data of the application.
+   *
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function clearData(): void;
+
+  /**
+   * Set user ID.
+   *
+   * @param { string } name The key of the user ID.
+   * @param { string } value The value of the user ID.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function setUserId(name: string, value: string): void;
+
+  /**
+   * Get user ID.
+   *
+   * @param { string } name The key of the user ID.
+   * @returns { string } the user ID value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function getUserId(name: string): string;
+
+  /**
+   * Set user property.
+   *
+   * @param { string } name The key of the user property.
+   * @param { string } value The value of the user property.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function setUserProperty(name: string, value: string): void;
+
+  /**
+   * Get user property.
+   *
+   * @param { string } name The key of the user property.
+   * @returns { string } the user property value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function getUserProperty(name: string): string;
 
   /**
    * Describe the event config to be reported by processor.
@@ -304,7 +1190,7 @@ declare namespace hiAppEvent {
    * @interface AppEventReportConfig
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export interface AppEventReportConfig {
     /**
@@ -313,7 +1199,7 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     domain?: string;
 
@@ -323,7 +1209,7 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     name?: string;
 
@@ -333,7 +1219,7 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     isRealTime?: boolean;
   }
@@ -344,7 +1230,7 @@ declare namespace hiAppEvent {
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export interface Processor {
     /**
@@ -353,7 +1239,7 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     name: string;
 
@@ -363,7 +1249,7 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     debugMode?: boolean;
 
@@ -373,7 +1259,7 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     routeInfo?: string;
 
@@ -383,7 +1269,7 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     appId?: string;
 
@@ -393,7 +1279,7 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     onStartReport?: boolean;
 
@@ -403,7 +1289,7 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     onBackgroundReport?: boolean;
 
@@ -413,7 +1299,7 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     periodReport?: int;
 
@@ -423,7 +1309,7 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     batchReport?: int;
 
@@ -433,7 +1319,7 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     userIds?: string[];
 
@@ -443,7 +1329,7 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     userProperties?: string[];
 
@@ -453,7 +1339,7 @@ declare namespace hiAppEvent {
      * @type { ?AppEventReportConfig[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     eventConfigs?: AppEventReportConfig[];
 
@@ -463,7 +1349,7 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     configId?: int;
 
@@ -473,7 +1359,7 @@ declare namespace hiAppEvent {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     customConfigs?: Record<string, string>;
   }
@@ -488,9 +1374,22 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   export function addProcessor(processor: Processor): number;
+
+  /**
+   * Remove the processor.
+   *
+   * @param { number } id The processor unique ID.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  export function removeProcessor(id: number): void;
 }
 
 export default hiAppEvent;
