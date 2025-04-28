@@ -35,14 +35,10 @@ def compile_package(options):
         'NODE_HOME': os.path.dirname(os.path.abspath(options.node_js)),
     }
 
-    process = subprocess.Popen([npm, "run", "compile:arkui"], env=custom_env, cwd=tool_path, shell=False)
-    process.wait()
-    if os.path.exists(output):
-        shutil.rmtree(output)
+    process = subprocess.run([npm, "run", "compile:arkui"], env=custom_env, cwd=tool_path, shell=False)
 
     if os.path.exists(package_path):
-        p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output],
-                                cwd=tool_path, check=True, shell=False)
+        p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output], cwd=tool_path, shell=False)
     else:
         print("arkui_transformer: tool path does not exist")
     
