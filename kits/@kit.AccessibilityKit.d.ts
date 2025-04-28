@@ -32,3 +32,10 @@ export {
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent
 };
+
+/*** if arkts 1.2 */
+import accessibility from '@ohos.accessibility';
+import { Rect } from '@ohos.application.AccessibilityExtensionAbility';
+
+export { Rect, accessibility };
+/*** endif */
