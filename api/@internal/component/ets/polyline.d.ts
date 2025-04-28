@@ -63,7 +63,17 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Polyline width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Polyline height.
@@ -99,7 +109,17 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number
+  /**
+   * Polyline height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**

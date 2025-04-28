@@ -63,7 +63,17 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Polygon width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Polygon height.
@@ -99,7 +109,17 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number
+  /**
+   * Polygon height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**
