@@ -3753,7 +3753,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    INTERPOLATION_SPRING = 1
+    INTERPOLATION_SPRING
   }
 
   /**
@@ -3836,7 +3836,7 @@ declare namespace window {
     animated?: boolean;
 
     /**
-     * The configuration of keyboard animation
+     * The configuration of keyboard animation.
      *
      * @type { ?WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
