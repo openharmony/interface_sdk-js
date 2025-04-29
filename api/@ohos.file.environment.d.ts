@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace Environment
  * @syscap SystemCapability.FileManagement.File.Environment
- * @since arkts{'1.1':'11', '1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace Environment {
@@ -38,7 +38,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi
-   * @since arkts{'1.1':'8', '1.2':'20'}
+   * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getStorageDataDir(): Promise<string>;
@@ -52,7 +52,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi
-   * @since arkts{'1.1':'8', '1.2':'20'}
+   * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getStorageDataDir(callback: AsyncCallback<string>): void;
@@ -66,7 +66,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi
-   * @since arkts{'1.1':'8', '1.2':'20'}
+   * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserDataDir(): Promise<string>;
@@ -80,7 +80,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi
-   * @since arkts{'1.1':'8', '1.2':'20'}
+   * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserDataDir(callback: AsyncCallback<string>): void;
@@ -103,7 +103,7 @@ declare namespace Environment {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since arkts{'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserDownloadDir(): string;
@@ -126,7 +126,7 @@ declare namespace Environment {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since arkts{'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserDesktopDir(): string;
@@ -149,7 +149,7 @@ declare namespace Environment {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
-   * @since arkts{'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserDocumentDir(): string;
@@ -165,7 +165,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getExternalStorageDir(): string;
@@ -181,7 +181,7 @@ declare namespace Environment {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @systemapi Hide this for inner system use.
-   * @since arkts{'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUserHomeDir(): string;
