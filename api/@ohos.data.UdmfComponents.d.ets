@@ -96,7 +96,7 @@ declare struct ContentFormCard {
    */
   @Prop
   formWidth?: number;
-  
+
   /**
    * Height of the form card.
    *
@@ -107,7 +107,7 @@ declare struct ContentFormCard {
    */
   @Prop
   formHeight?: number;
-  
+
   /**
    * Callback to be invoked when the form card is tapped.
    *
