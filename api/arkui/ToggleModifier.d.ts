@@ -19,9 +19,91 @@
  */
 
 /*** if arkts 1.2 */
-import { AttributeModifier } from '../@internal/component/ets/common'
-import { ToggleAttribute } from '../@internal/component/ets/toggle'
-import { Callback } from '../@ohos.base'
+import { AttributeModifier } from './component/common'
+import { SelectAttribute } from './component/Select'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } SelectApplyNormalFunction
+ * @param { SelectAttribute } SelectAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SelectApplyNormalFunction = (SelectAttribute: SelectAttribute) => void;
+
+/**
+ * Defines Select Modifier
+ *
+ * @extends SelectAttribute
+ * @implements AttributeModifier<SelectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class SelectAttribute extends SelectAttribute implements AttributeModifier<SelectAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: SelectAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: SelectAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: SelectAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: SelectAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: SelectAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: SelectAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: SelectAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: SelectAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: SelectAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: SelectAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,29 +127,4 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ToggleAttribute): void;
-}
-
-/**
- * Defines Toggle Modifier
- *
- * @extends ToggleAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class ToggleModifier extends ToggleAttribute implements AttributeModifier<ToggleAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?Callback<ToggleAttribute> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: Callback<ToggleAttribute>;
 }

@@ -19,9 +19,92 @@
  */
 
 /*** if arkts 1.2 */
-import { AttributeModifier } from '../@internal/component/ets/common'
-import { ButtonAttribute } from '../@internal/component/ets/button'
-import { Callback } from '../@ohos.base'
+import { AttributeModifier } from './component/common'
+import { ButtonAttribute } from './component/Button'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } ButtonApplyNormalFunction
+ * @param { ButtonAttribute } ButtonAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type ButtonApplyNormalFunction = (ButtonAttribute: ButtonAttribute) => void;
+
+/**
+ * Defines Button Modifier
+ *
+ * @extends ButtonAttribute
+ * @implements AttributeModifier<ButtonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+*/
+export declare class ButtonAttribute extends ButtonAttribute implements AttributeModifier<ButtonAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type {undefined | ((instance: ButtonAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute: undefined | ((instance: ButtonAttribute) => void);
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @type {undefined | ((instance: ButtonAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyPressedAttribute: undefined | ((instance: ButtonAttribute) => void);
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @type {undefined | ((instance: ButtonAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyFocusedAttribute: undefined | ((instance: ButtonAttribute) => void);
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @type {undefined | ((instance: ButtonAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyDisabledAttribute: undefined | ((instance: ButtonAttribute) => void);
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @type {undefined | ((instance: ButtonAttribute) => void)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applySelectedAttribute: undefined | ((instance: ButtonAttribute) => void);
+}
 /*** endif */
 
 /**
@@ -45,29 +128,4 @@ export declare class ButtonModifier extends ButtonAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ButtonAttribute): void;
-}
-
-/**
- * Defines Button Modifier
- *
- * @extends ButtonAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class ButtonModifier extends ButtonAttribute implements AttributeModifier<ButtonAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?Callback<ButtonAttribute> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: Callback<ButtonAttribute>;
 }
