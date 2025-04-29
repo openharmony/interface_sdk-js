@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { Position, ResourceColor, Length, SizeOptions } from './@internal/component/ets/units'
+import { Position, ResourceColor, Length, SizeOptions } from './arkui/component/units'
 /*** endif */
 
 /**
