@@ -18,6 +18,8 @@
  * @kit MediaKit
  */
 
+/*** if arkts 1.1&1.2 */
 import media from '@ohos.multimedia.media';
 
 export { media };
+/*** endif */
