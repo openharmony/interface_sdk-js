@@ -1612,8 +1612,8 @@ declare namespace webview {
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
@@ -1630,8 +1630,8 @@ declare namespace webview {
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1645,8 +1645,8 @@ declare namespace webview {
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1663,8 +1663,8 @@ declare namespace webview {
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1677,8 +1677,8 @@ declare namespace webview {
      * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1693,9 +1693,9 @@ declare namespace webview {
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265. 
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265. 
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
@@ -1712,9 +1712,9 @@ declare namespace webview {
      *                                in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1732,9 +1732,9 @@ declare namespace webview {
      *                                      {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1748,9 +1748,9 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1770,9 +1770,9 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1786,9 +1786,9 @@ declare namespace webview {
      * @param { AsyncCallback<void> } callback - Called after the cookies have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.The cookie format must follow defined in RFC 6265.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3817,8 +3817,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3852,8 +3852,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -3866,8 +3866,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3882,8 +3882,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -5258,8 +5258,8 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5269,8 +5269,8 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5282,8 +5282,8 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -5293,8 +5293,8 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5384,8 +5384,8 @@ declare namespace webview {
      * @param { string } url - The download url.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5395,8 +5395,8 @@ declare namespace webview {
      * @param { string } url - The download url.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -5413,8 +5413,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5428,8 +5428,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -5859,8 +5859,8 @@ declare namespace webview {
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
      *    2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5958,8 +5958,8 @@ declare namespace webview {
     /**
      * Warmup the registered service worker associated the url.
      * @param { string } url - The url.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5976,8 +5976,8 @@ declare namespace webview {
      *    2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *    The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. Possible causes:1.No valid cookie found for the specified URL. 
-     *                           2.The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
