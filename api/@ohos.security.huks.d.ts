@@ -200,7 +200,7 @@ declare namespace huks {
    * Generate Key As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
@@ -224,9 +224,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function generateKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  function generateKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Delete Key.
@@ -342,7 +343,7 @@ declare namespace huks {
    * Delete Key As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
@@ -361,9 +362,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function deleteKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  function deleteKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Import Key.
@@ -529,7 +531,7 @@ declare namespace huks {
    * Import Key As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
@@ -554,9 +556,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function importKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  function importKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Import Wrapped Key.
@@ -623,7 +626,7 @@ declare namespace huks {
    * Import Wrapped Key As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
    * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
@@ -649,9 +652,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function importWrappedKeyItemAsUser(userId: number, keyAlias: string, wrappingKeyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  function importWrappedKeyItemAsUser(userId: int, keyAlias: string, wrappingKeyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Import Wrapped Key.
@@ -789,7 +793,7 @@ declare namespace huks {
    * Export Key As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -812,9 +816,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function exportKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+  function exportKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Export Key.
@@ -1121,7 +1126,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
@@ -1129,7 +1135,7 @@ declare namespace huks {
    * Check whether the key exists as user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<boolean> } the promise returned by the function.
@@ -1150,9 +1156,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function hasKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
+  function hasKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
 
   /**
    * Check whether the key exists.
@@ -1174,7 +1181,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasKeyItem(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
@@ -1312,7 +1320,7 @@ declare namespace huks {
    * Init Operation As User.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
@@ -1336,9 +1344,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function initSessionAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksSessionHandle>;
+  function initSessionAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<HuksSessionHandle>;
 
   /**
    * Update Operation.
@@ -1881,7 +1890,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -1889,7 +1899,7 @@ declare namespace huks {
    * Key Attestation As User.
    *
    * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -1912,9 +1922,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function attestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+  function attestKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Key Attestation. This API can be called only by system applications.
@@ -1939,7 +1950,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -1988,7 +2000,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -1996,7 +2009,7 @@ declare namespace huks {
    * Key Attestation with anonymous certificate as user.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { int } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -2019,9 +2032,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+  function anonAttestKeyItemAsUser(userId: int, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Key Attestation with anonymous certificate.
@@ -2068,7 +2082,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -2098,7 +2113,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
 
