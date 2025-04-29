@@ -133,23 +133,6 @@ export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics
 export { RenderNode } from './arkui/RenderNode';
 
 /**
- * Export XComponentNode, which extends FrameNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- */
-/**
- * Export XComponentNode, which extends FrameNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-export { XComponentNode } from './arkui/XComponentNode';
-
-/**
  * Export Content.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
