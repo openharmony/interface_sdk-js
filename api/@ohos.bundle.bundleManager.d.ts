@@ -3356,7 +3356,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
