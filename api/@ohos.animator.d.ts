@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { FillMode, PlayMode } from './@internal/component/ets/enums'
-import { ExpectedFrameRateRange } from './@internal/component/ets/common'
+import { FillMode, PlayMode } from './arkui/component/enums'
+import { ExpectedFrameRateRange } from './arkui/component/common'
 /*** endif */
 
 /**
@@ -318,7 +318,8 @@ export interface AnimatorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class SimpleAnimatorOptions {
   /**
@@ -329,7 +330,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(begin: number, end: number);
 
@@ -341,7 +343,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   duration(duration: number): SimpleAnimatorOptions;
 
@@ -367,7 +370,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   easing(curve: string): SimpleAnimatorOptions;
 
@@ -379,7 +383,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   delay(delay: number): SimpleAnimatorOptions;
 
@@ -391,7 +396,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill(fillMode: FillMode): SimpleAnimatorOptions;
 
@@ -403,7 +409,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction(direction: PlayMode): SimpleAnimatorOptions;
 
@@ -415,7 +422,8 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iterations(iterations: number): SimpleAnimatorOptions;
 }
@@ -503,7 +511,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 
