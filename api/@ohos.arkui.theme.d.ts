@@ -637,10 +637,11 @@ export declare interface CustomTheme {
     /**
     * Define tokens associated with dark mode color resources.
     *
-    * @type { ?CustomDarkModeColors }
+    * @type { ?CustomDarkColors }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
+    * @default if not set darkColors, color value will same as colors under dark mode and will not change unless the color is setted by resource in dark directory.
     * @since 20
     */
     darkColors?: CustomDarkColors;
