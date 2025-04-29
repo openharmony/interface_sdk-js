@@ -920,6 +920,306 @@ declare namespace util {
   }
 
   /**
+   * Check the type of parameter.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class types {
+
+    /**
+     * Check whether the entered value is of arraybuffer or sharedarraybuffer type.
+     *
+     * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
+     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isAnyArrayBuffer(value: Object): boolean;
+    /**
+     * Check whether the type is included in the isAnyArrayBuffer.
+     *
+     * @param { Object } value - A included in the isAnyArrayBuffer value
+     * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
+     * such as typed array objects or DataView.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isArrayBufferView(value: Object): boolean;
+    /**
+     * Check whether the entered value is of arraybuffer type.
+     *
+     * @param { Object } value - A arraybuffer value
+     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance. This does not include SharedArrayBuffer instances.
+     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isArrayBuffer(value: Object): boolean;
+    /**
+     * Check whether the entered value is of bigint64array array type.
+     *
+     * @param { Object } value - A BigInt64Array value
+     * @returns { boolean } Returns true if the value is a BigInt64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isBigInt64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of biguint64array array array type.
+     *
+     * @param { Object } value - A BigUint64Array value
+     * @returns { boolean } Returns true if the value is a BigUint64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isBigUint64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of DataView type.
+     *
+     * @param { Object } value - A DataView value
+     * @returns { boolean } Returns true if the value is a built-in DataView instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isDataView(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type date.
+     *
+     * @param { Object } value - A Date value
+     * @returns { boolean } Returns true if the value is a built-in Date instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isDate(value: Object): boolean;
+    /**
+     * Check whether the entered value is of float32array array type.
+     *
+     * @param { Object } value - A Float32Array value
+     * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFloat32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of float64array array type.
+     *
+     * @param { Object } value - A Float64Array value
+     * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFloat64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of int8array array type.
+     *
+     * @param { Object } value - A Int8Array value
+     * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt8Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the int16array type.
+     *
+     * @param { Object } value - A Int16Array value
+     * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt16Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the int32array array type.
+     *
+     * @param { Object } value - A Int32Array value
+     * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of map type.
+     *
+     * @param { Object } value - A Map value
+     * @returns { boolean } Returns true if the value is a built-in Map instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isMap(value: Object): boolean;
+    /**
+     * Check whether the entered value is the iterator type of map.
+     *
+     * @param { Object } value - A Map iterator value
+     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isMapIterator(value: Object): boolean;
+    /**
+     * Check whether the value entered is of type error.
+     *
+     * @param { Object } value - A Error value
+     * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isNativeError(value: Object): boolean;
+    /**
+     * Check whether the entered value is of promise type.
+     *
+     * @param { Object } value - A Promise value
+     * @returns { boolean } Returns true if the value is a built-in Promise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isPromise(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type regexp.
+     *
+     * @param { Object } value - A regular expression object value
+     * @returns { boolean } Returns true if the value is a regular expression object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isRegExp(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type set.
+     *
+     * @param { Object } value - A Set instance value
+     * @returns { boolean } Returns true if the value is a built-in Set instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isSet(value: Object): boolean;
+    /**
+     * Check whether the entered value is the iterator type of set.
+     *
+     * @param { Object } value - A Set iterator value
+     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isSetIterator(value: Object): boolean;
+    /**
+     * Check whether the entered value is a type contained in typedarray.
+     *
+     * @param { Object } value - A TypedArray instance value
+     * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isTypedArray(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint8array array type.
+     *
+     * @param { Object } value - A Uint8Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint8Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint8clapedarray array type.
+     *
+     * @param { Object } value - A Uint8ClampedArray value
+     * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint8ClampedArray(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint16array array array type.
+     *
+     * @param { Object } value - A Uint16Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint16Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint32array array type.
+     *
+     * @param { Object } value - A Uint32Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type weakmap.
+     *
+     * @param { Object } value - A WeakMap value
+     * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isWeakMap(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type weakset.
+     *
+     * @param { Object } value - A WeakSet value
+     * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isWeakSet(value: Object): boolean;
+  }
+
+  /**
    * Get the hash code of an object.
    *
    * @param { object } [object] - The object that need to get hash code.
