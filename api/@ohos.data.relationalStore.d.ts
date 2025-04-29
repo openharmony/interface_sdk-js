@@ -2645,11 +2645,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2703,11 +2703,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2737,12 +2737,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2770,12 +2770,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2832,11 +2832,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2887,11 +2887,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2936,11 +2936,11 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -2985,11 +2985,11 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3034,11 +3034,11 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is already in the last row.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3083,11 +3083,11 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is already in the first row.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3144,11 +3144,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3205,11 +3205,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3266,11 +3266,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3327,11 +3327,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3375,11 +3375,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3423,11 +3423,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3457,11 +3457,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3490,11 +3490,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3523,10 +3523,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3560,11 +3560,11 @@ declare namespace relationalStore {
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3589,11 +3589,11 @@ declare namespace relationalStore {
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3621,11 +3621,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3648,11 +3648,11 @@ declare namespace relationalStore {
      * @returns { sendableRelationalStore.ValuesBucket } Indicates the row of data
      *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3705,11 +3705,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
-     * @throws { BusinessError } 14800013 - Column out of bounds.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3751,7 +3751,7 @@ declare namespace relationalStore {
      * Calling this method on the result set will release all of its resources and makes it ineffective.
      *
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3805,9 +3805,9 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -3866,10 +3866,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3915,10 +3915,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -3974,10 +3974,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4023,10 +4023,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4057,10 +4057,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4092,10 +4092,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4150,10 +4150,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4209,10 +4209,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4242,10 +4242,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4276,10 +4276,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4309,10 +4309,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4371,10 +4371,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4422,10 +4422,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4489,10 +4489,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4540,10 +4540,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4575,10 +4575,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4649,10 +4649,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4729,10 +4729,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4786,10 +4786,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4842,10 +4842,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4874,10 +4874,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -4941,10 +4941,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5010,10 +5010,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5055,7 +5055,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5097,7 +5097,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5139,7 +5139,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5174,7 +5174,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
@@ -5212,7 +5212,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
@@ -5255,7 +5255,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
@@ -5277,7 +5277,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5305,7 +5305,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5347,7 +5347,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5389,7 +5389,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5406,7 +5406,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5441,10 +5441,10 @@ declare namespace relationalStore {
      * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5490,10 +5490,10 @@ declare namespace relationalStore {
      * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5544,10 +5544,10 @@ declare namespace relationalStore {
      * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5587,10 +5587,10 @@ declare namespace relationalStore {
      * 3. The tablesNames must be not empty string.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5638,10 +5638,10 @@ declare namespace relationalStore {
      * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5686,10 +5686,10 @@ declare namespace relationalStore {
      * 3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5733,10 +5733,10 @@ declare namespace relationalStore {
      * 3. The predicates must be an RdbPredicates.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5782,10 +5782,10 @@ declare namespace relationalStore {
      * 3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5827,10 +5827,10 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5887,10 +5887,10 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5947,10 +5947,10 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5981,10 +5981,10 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6015,10 +6015,10 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6047,10 +6047,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6094,10 +6094,10 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6125,10 +6125,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6168,10 +6168,10 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6198,11 +6198,11 @@ declare namespace relationalStore {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6241,10 +6241,10 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6270,11 +6270,11 @@ declare namespace relationalStore {
      * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
-     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6323,11 +6323,11 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of backup.
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800010 - Invalid database path.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6378,10 +6378,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6432,10 +6432,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6486,10 +6486,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6515,11 +6515,11 @@ declare namespace relationalStore {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800010 - Invalid database path.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -6562,7 +6562,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6591,7 +6591,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6625,7 +6625,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -6662,7 +6662,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -6704,7 +6704,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -6738,7 +6738,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6771,7 +6771,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6806,7 +6806,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6837,7 +6837,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6864,7 +6864,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -6891,7 +6891,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -6922,7 +6922,7 @@ declare namespace relationalStore {
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -6956,7 +6956,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -6990,7 +6990,7 @@ declare namespace relationalStore {
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12
@@ -7030,7 +7030,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12
@@ -7064,7 +7064,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7103,7 +7103,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7134,7 +7134,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7172,7 +7172,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7202,7 +7202,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -7228,7 +7228,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 3  parameter(s)! 2. The RdbStore must be valid.
      * 3. The event must be a not empty string. 4. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7241,7 +7241,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7270,7 +7270,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7303,7 +7303,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7337,7 +7337,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -7363,7 +7363,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be valid.
      * 3. The event must be a not empty string. 4. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7376,7 +7376,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7402,7 +7402,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -7431,12 +7431,12 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800010 - Invalid database path.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800016 - The database alias already exists.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7467,14 +7467,14 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800010 - Invalid database path.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800016 - The database alias already exists.
      * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
      * @throws { BusinessError } 14801002 - Invalid data group ID.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7502,10 +7502,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7532,11 +7532,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800018 - No data meets the condition.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7564,11 +7564,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800018 - No data meets the condition.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7597,10 +7597,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7648,8 +7648,8 @@ declare namespace relationalStore {
      * @param { TransactionOptions } options - The option for creating transactions.
      * @returns { Promise<Transaction> } The {@link Transaction} object if the operation is successful.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7678,8 +7678,8 @@ declare namespace relationalStore {
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
@@ -7697,8 +7697,8 @@ declare namespace relationalStore {
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
@@ -7721,9 +7721,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7750,9 +7750,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7778,9 +7778,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7806,9 +7806,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7835,9 +7835,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7867,9 +7867,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7900,9 +7900,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7930,9 +7930,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7957,9 +7957,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -7984,9 +7984,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8012,9 +8012,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
@@ -8035,9 +8035,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8059,9 +8059,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8083,9 +8083,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8108,9 +8108,9 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8136,9 +8136,9 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -8167,8 +8167,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8183,8 +8183,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8202,12 +8202,12 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
-   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - Config changed.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800017 - StoreConfig is changed.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
    * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -8229,13 +8229,13 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
-   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800017 - StoreConfig is changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
    * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -8259,8 +8259,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8275,8 +8275,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8294,12 +8294,12 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
-   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - Config changed.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800017 - StoreConfig is changed.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
    * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
    * @throws { BusinessError } 14800029 - SQLite: The database is full.
@@ -8319,13 +8319,13 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
-   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800017 - StoreConfig is changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. Possible causes: Insert failed or the updated data does not exist.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
    * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -8348,7 +8348,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8362,7 +8362,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8379,7 +8379,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8398,7 +8398,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8412,7 +8412,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8427,7 +8427,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
@@ -8444,7 +8444,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8462,7 +8462,7 @@ declare namespace relationalStore {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
