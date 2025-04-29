@@ -177,6 +177,38 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_NUMBER: number;
 
   /**
+   * Editor of type USER NAME
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  const PATTERN_USER_NAME: number;
+
+  /**
+   * Editor of type NEW PASSWORD
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  const PATTERN_NEW_PASSWORD: number;
+
+  /**
+   * Editor of type NUMBER DECIMAL
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  const PATTERN_NUMBER_DECIMAL: number;
+
+  /**
+   * Editor of type ONE TIME CODE
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  const PATTERN_ONE_TIME_CODE: number;
+
+  /**
    * Editor in SELECTING state
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -664,6 +696,26 @@ declare namespace inputMethodEngine {
      * @since 18
      */
     off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
+
+    /** 
+     * Subscribe 'discardTypingText'.
+     *
+     * @param { 'discardTypingText' } type - the type of subscribe event.
+     * @param { Callback<void> } callback - the callback of on('discardTypingText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    on(type: 'discardTypingText', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe 'discardTypingText'.
+     *
+     * @param { 'discardTypingText' } type - the type of unsubscribe event.
+     * @param { Callback<void> } callback - the callback of off('discardTypingText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    off(type: 'discardTypingText', callback?: Callback<void>): void;
 
     /**
      * Get input method's security mode.
@@ -2132,6 +2184,26 @@ declare namespace inputMethodEngine {
      * @since 18
      */
     readonly displayId?: number;
+
+    /**
+     * Placeholder text in the edit box.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly placeholder?: string;
+
+    /**
+     * The name of the ability where the edit box is located.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly abilityName?: string;
   }
 
   /**
