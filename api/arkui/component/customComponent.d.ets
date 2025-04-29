@@ -35,6 +35,12 @@ export declare @interface Component {
 }
 
 @Retention({policy: "SOURCE"})
+export declare @interface Builder {}
+
+@Retention({policy: "SOURCE"})
+export declare @interface BuilderParam {}
+
+@Retention({policy: "SOURCE"})
 export declare @interface Entry {
     routeName: string = "";
     storage: string = "";
