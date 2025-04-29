@@ -1541,7 +1541,7 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  function generateDLPFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
+  function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
 
   /**
    * Query a DLP file. This method uses a promise to return the result.
