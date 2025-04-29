@@ -6687,12 +6687,6 @@ declare namespace media {
      * @since 18
      */
     CFT_AMR = 'amr',
-    /**
-     * A audio container format type aac with ADTS.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 20
-     */
-    CFT_AAC = 'aac',
   }
 
   /**
