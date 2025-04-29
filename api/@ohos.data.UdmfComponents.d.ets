@@ -56,7 +56,7 @@ declare enum FormType {
 /**
  * Defineds a content form card.
  *
- * @struct { GridObjectSortComponent }
+ * @struct { ContentFormCard }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
  * @arkts 1.2
@@ -105,7 +105,7 @@ declare struct ContentFormCard {
     /**
      * Callback to be invoked when the form card is tapped.
      *
-     * @type { Function }
+     * @type { ?Function }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
