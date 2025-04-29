@@ -846,6 +846,175 @@ declare namespace util {
   }
 
   /**
+   * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class RationalNumber {
+    /**
+     * A constructor used to create a RationalNumber instance with a given numerator and denominator.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+
+    /**
+     * Used to create a RationalNumber instance with a given numerator and denominator.
+     *
+     * @param { number } numerator - An integer number
+     * @param { number } denominator - An integer number
+     * @returns { RationalNumber }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static parseRationalNumber(numerator: number, denominator: number): RationalNumber;
+
+    /**
+     * Creates a RationalNumber object based on a given string.
+     *
+     * @param { string } rationalString - String Expression of Rational Numbers
+     * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
+     * @throws { BusinessError } 401 - The type of rationalString must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static createRationalFromString(rationalString: string): RationalNumber;
+
+    /**
+     * Compares the current RationalNumber object to the given object.
+     *
+     * @param { RationalNumber } another - An object of other rational numbers
+     * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    compare(another: RationalNumber): number;
+
+    /**
+     * Compares two objects for equality.
+     *
+     * @param { Object } obj - An object
+     * @returns { boolean } Returns true if the given object is the same as the current object; Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    equals(obj: Object): boolean;
+
+    /**
+     * Gets integer and floating-point values of a rational number object.
+     *
+     * @returns { number } Returns the integer and floating-point values of a rational number object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    valueOf(): number;
+
+    /**
+     * Get the greatest common factor of two integers.
+     *
+     * @param { number } number1 - Is an integer.
+     * @param { number } number2 - Is an integer.
+     * @returns { number } Returns the greatest common factor of two integers, integer type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static getCommonFactor(number1: number, number2: number): number;
+
+    /**
+     * Gets the denominator of the current object.
+     *
+     * @returns { number } Returns the denominator of the current object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getDenominator(): number;
+
+    /**
+     * Gets the numerator of the current object.
+     *
+     * @returns { number } Returns the numerator of the current object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getNumerator(): number;
+
+    /**
+     * Checks whether the current RationalNumber object represents an infinite value.
+     *
+     * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFinite(): boolean;
+
+    /**
+     * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
+     *
+     * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isNaN(): boolean;
+
+    /**
+     * Checks whether the current RationalNumber object represents the value 0.
+     *
+     * @returns { boolean } If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isZero(): boolean;
+
+    /**
+     * Obtains a string representation of the current RationalNumber object.
+     *
+     * @returns { string } Returns a string representation of the current RationalNumber object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(): string;
+  }
+
+  /**
    * The TextEncoder interface represents a text encoder.
    * The encoder takes the byte stream as the input and outputs the String string.
    *
