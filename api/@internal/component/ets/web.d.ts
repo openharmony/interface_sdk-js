@@ -6947,12 +6947,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
