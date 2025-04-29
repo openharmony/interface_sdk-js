@@ -9006,7 +9006,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScripts script into the Web component.
    * When the specified page or document has been loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
-   * The script runs before any JavaScript code of the page, when the DOM tree has been loaded and rendered.
+   * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not the array order.
    * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
