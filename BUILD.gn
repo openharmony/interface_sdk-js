@@ -163,21 +163,6 @@ ohos_declaration_template("ohos_declaration_ets2") {
   sdk_type = "ets2"
 }
 
-# ets/api执行脚本
-ohos_copy("common_api") {
-  sources = common_api_src
-  outputs = [ target_out_dir + "/ets/${target_name}/{{source_file_part}}" ]
-  module_source_dir = target_out_dir + "/ets/${target_name}"
-  module_install_name = ""
-}
-
-ohos_copy("common_api2") {
-  sources = common_api_src_ets2
-  outputs = [ target_out_dir + "/ets2/${target_name}/{{source_file_part}}" ]
-  module_source_dir = target_out_dir + "/ets2/${target_name}"
-  module_install_name = ""
-}
-
 # ets/api/@internal/full执行脚本
 ohos_copy_internal("ets_internal_api") {
   sdk_type = "ets"
