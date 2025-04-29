@@ -19,92 +19,96 @@
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 
 /**
- * Enumerates the form type of ContetnFormCard.
+ * Enumerates the form card types.
  *
  * @enum { number }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
+ * @arkts 1.2
  */
 declare enum FormType {
     /**
-     * Fixed style.
-     * <p>It's provided for the form card type of TYPE_BIG.
-     * When the flag is set, the form card fixed 4x4.</p>
+     * Big form card, with fixed size of 4 x 4.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     TYPE_BIG = 0,
     /**
-     * Fixed style.
-     * <p>It's provided for the form card type of TYPE_MID.
-     * When the flag is set, the form card fixed 4x2.</p>
+     * Medium-sized form card, with fixed size of 4 x 2.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     TYPE_MID = 1,
     /**
-     * Fixed style.
-     * <p>It's provided for the form card type of TYPE_SMALL.
-     * When the flag is set, the form card fixed 2x1.</p>
+     * Small form card, with fixed size of 2 x 1.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     TYPE_SMALL = 2
 }
 
 /**
- * Declare ContentForm card.
+ * Defineds a content form card.
  *
- * @struct { ContentFormCard }
+ * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
+ * @arkts 1.2
  */
 @Component
 declare struct ContentFormCard {
     /**
-     * Sets the content form data.
+     * Data of the form card.
      *
      * @type { uniformDataStruct.ContentForm }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     contentFormData: uniformDataStruct.ContentForm;
     /**
-     * Sets the content from type.
+     * Type of the form card.
      *
      * @type { FormType }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     @Prop
     formType: FormType;
     /**
-     * Sets the card width.
+     * Width of the form card.
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     @Prop
     formWidth?: number;
     /**
-     * Sets the card width.
+     * Height of the form card.
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     @Prop
     formHeight?: number;
     /**
-     * An callback. When the card is clicked, the callback will be invoked.
+     * Callback to be invoked when the form card is tapped.
      *
-     * @type { ?Function }
+     * @type { Function }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
+     * @arkts 1.2
      */
     handleOnClick?: Function;
 }
