@@ -234,7 +234,17 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function off(eventId: string): void;
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } eventId - indicate ID of the event to unsubscribe from.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export function off(eventId: string): void;
 
   /**
    * Unsubscribe from an event.
@@ -409,7 +419,19 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function emit(eventId: string, options: Options, data?: EventData): void;
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
+   * @param { EventData } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export function emit(eventId: string, options: Options, data?: EventData): void;
 
   /**
    * Emits an event by specific id to the event queue.
@@ -422,7 +444,19 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
+   * @param { GenericEventData<T> } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export function emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
 
   /**
    * Obtains the number of subscribe listener count.
