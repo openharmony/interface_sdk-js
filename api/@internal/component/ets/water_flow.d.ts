@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
+import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
+import { CustomBuilder } from './builder'
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { ScrollState } from './list'

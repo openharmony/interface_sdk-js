@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder, CommonMethod, ShadowOptions,Optional,Callback} from "./common";
+import { CommonMethod, ShadowOptions,Optional,Callback} from "./common";
+import { CustomBuilder } from './builder'
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode} from './enums';
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from './units';
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions } from "./textCommon";

@@ -21,7 +21,8 @@
 /*** if arkts 1.2 */
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
-import { CustomBuilder, CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent } from './common';
+import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent } from './common';
+import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
 import { MenuType, EditMenuOptions } from './textCommon';

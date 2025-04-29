@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { ChildrenMainSize, CommonMethod, CustomBuilder } from './common';
+import { ChildrenMainSize, CommonMethod } from './common';
+import { CustomBuilder } from './builder'
 import { ComponentContent } from '../ComponentContent'
 import { ListDividerOptions  } from './list';
 /*** endif */

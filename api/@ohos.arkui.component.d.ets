@@ -33,6 +33,7 @@ export * from './arkui/component/alphabetIndexer';
 export * from './arkui/component/animator';
 export * from './arkui/component/badge';
 export * from './arkui/component/blank';
+export * from './arkui/component/builder';
 export * from './arkui/component/button';
 export * from './arkui/component/calendar';
 export * from './arkui/component/calendarPicker';

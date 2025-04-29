@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-import { CustomBuilder, Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions , Optional} from "./common";
+import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions , Optional} from "./common";
+import { CustomBuilder } from './builder'
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow,
    CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode} from './enums';
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from './units';

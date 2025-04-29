@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr, Font, ResourceColor } from './units'
-import { CustomBuilder, CommonMethod } from './common'
+import { CommonMethod } from './common'
+import { CustomBuilder } from './builder'
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
 /*** endif */
 
