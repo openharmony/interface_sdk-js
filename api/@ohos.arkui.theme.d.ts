@@ -641,7 +641,7 @@ export declare interface CustomTheme {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @default if not set darkColors, color value will same as colors under dark mode and will not change unless the color is setted by resource in dark directory.
+    * @default If not set darkColors, color value will same as colors under light mode and will not change with color mode, unless the color is setted by resource in dark directory.
     * @since 20
     */
     darkColors?: CustomDarkColors;
