@@ -638,7 +638,8 @@ export declare interface CustomTheme {
     * Define tokens associated with dark mode color resources.
     *
     * @type { ?CustomDarkColors }
-    * @default If not set darkColors, color value will same as colors under light mode and will not change with color mode, unless the color is setted by resource in dark directory.
+    * @default If not set darkColors, color value will same as colors under light mode and will not change with color
+    * mode, unless the color is setted by resource in dark directory.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
