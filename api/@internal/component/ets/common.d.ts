@@ -31037,8 +31037,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
@@ -31052,8 +31051,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDidScroll(handler: OnScrollCallback): T;
 

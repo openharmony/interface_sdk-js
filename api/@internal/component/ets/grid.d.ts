@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional,CommonMethod } from './common';
-import { Length,Resource } from './units';
+import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
+import { Length, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { ScrollState } from './list'
 import { BarState, Color, EdgeEffect } from './enums'
@@ -1371,6 +1371,33 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @arkts 1.2
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): GridAttribute;
+
+  /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onWillScroll(handler: Optional<OnWillScrollCallback>): GridAttribute;
+  
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDidScroll(handler: OnScrollCallback): GridAttribute;
 }
 
 /**

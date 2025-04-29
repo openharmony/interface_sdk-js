@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder, ScrollableCommonMethod, NestedScrollOptions,CommonMethod } from './common';
-import { Length, Dimension, Margin, ConstraintSizeOptions,Resource } from './units';
+import { CustomBuilder, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
+import { Length, Dimension, Margin, ConstraintSizeOptions, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { ScrollState } from './list'
 import { FlexDirection } from './enums'
@@ -829,6 +829,33 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @arkts 1.1&1.2
    */
   onScrollIndex(event: (first: number, last: number) => void): WaterFlowAttribute;
+
+  /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onWillScroll(handler: Optional<OnWillScrollCallback>): WaterFlowAttribute;
+  
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDidScroll(handler: OnScrollCallback): WaterFlowAttribute;
 }
 
 /**
