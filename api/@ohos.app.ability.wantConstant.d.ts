@@ -349,7 +349,7 @@ declare namespace wantConstant {
     * Indicates the dest ability refers to a plugin ability.
     *
     * @syscap SystemCapability.Ability.AbilityBase
-    * @since 18
+    * @since 19
     */
     DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
