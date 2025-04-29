@@ -7299,14 +7299,14 @@ declare namespace relationalStore {
 
     /**
      * Subscribes to the SQL execution error logs.
-     * @param { 'errorlog' } event - Event type, which must be 'errorlog'.
+     * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20
      */
-    on(event: 'errorlog', observer: Callback<ExceptionMessage> ): void;
+    on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -7445,14 +7445,14 @@ declare namespace relationalStore {
 
     /**
      * Unsubscribes from the SQL execution error logs.
-     * @param { 'errorlog' } event - Indicates the event type, which must be 'errLog'.
+     * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20
      */
-    off(event: 'errorlog', observer?: Callback<ExceptionMessage> ): void;
+    off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
