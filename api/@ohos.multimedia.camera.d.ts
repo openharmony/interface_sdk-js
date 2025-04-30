@@ -4027,6 +4027,13 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
+  /**
+   * Macro Query object.
+   *
+   * @interface MacroQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 19
+   */
   interface MacroQuery {
     /**
      * Determine whether camera macro is supported.
@@ -4047,6 +4054,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Determine whether camera macro is supported.
+     *
+     * @returns { boolean } Is camera macro supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 19
+     */
     isMacroSupported(): boolean;
   }
 
@@ -4058,6 +4072,14 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
+   */
+  /**
+   * Macro object.
+   *
+   * @extends MacroQuery
+   * @interface Macro
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 19
    */
   interface Macro extends MacroQuery {
     /**
@@ -4080,6 +4102,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Enable macro for camera.
+     *
+     * @param { boolean } enabled - enable macro for camera if TRUE.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 19
      */
     enableMacro(enabled: boolean): void;
   }
@@ -5293,7 +5324,14 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 13
    */
-  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch {
+  /**
+   * Photo session object.
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro
+   * @interface PhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 19
+   */
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro {
     /**
      * Gets whether the choosed preconfig type can be used to configure photo session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -5593,7 +5631,15 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 13
    */
-  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch {
+  /**
+   * Video session object.
+   *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro
+   * @interface VideoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 19
+   */
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro {
     /**
      * Gets whether the choosed preconfig type can be used to configure video session.
      * Must choose preconfig type from {@link PreconfigType}.
