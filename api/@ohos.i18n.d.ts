@@ -2249,15 +2249,16 @@ declare namespace i18n {
     /**
      * Determines if the specified character is a RTL character or not.
      *
-     * @param { string } char - the character to be tested
+     * @param { string } ch - the character to be tested
      * @returns { boolean } true if the character is a RTL character
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static isRTL(char: string): boolean;
+    static isRTL(ch: string): boolean;
 
     /**
      * Determines if the specified character is a Ideographic character or not.
