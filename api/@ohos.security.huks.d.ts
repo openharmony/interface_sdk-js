@@ -2069,7 +2069,7 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
-  function wrapKeyItem(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
+  function wrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Import the wrapped key protected by a specific key
@@ -2094,7 +2094,7 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
-  function unwrapKeyItem(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
+  function unwrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Interface of huks param.
