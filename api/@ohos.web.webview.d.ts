@@ -1695,7 +1695,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265. 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265. 
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
@@ -1714,7 +1715,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1734,7 +1736,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1750,7 +1753,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1772,7 +1776,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1788,7 +1793,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified in RFC 6265.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
