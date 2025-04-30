@@ -96,13 +96,12 @@ declare namespace photoAccessHelper {
    * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Called by non-system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
    * @systemapi
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
 
@@ -2606,7 +2605,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     userId?: number;
   }
