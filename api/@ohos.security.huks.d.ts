@@ -2051,6 +2051,53 @@ declare namespace huks {
   function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
 
   /**
+   * Export the wrapped key protected by a specific key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the export properties.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function wrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * Import the wrapped key protected by a specific key
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the import properties.
+   * @param { Uint8Array } wrappedKey -indicates the wrapped key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function unwrapKeyItem(keyAlias: string, options: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
+
+  /**
    * Interface of huks param.
    *
    * @typedef HuksParam
@@ -4112,7 +4159,14 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_USER_AUTH_TYPE_PIN = 1 << 2
+    HUKS_USER_AUTH_TYPE_PIN = 1 << 2,
+    /**
+     * Tui pin auth type.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 20
+     * @arkts 1.2
+     */
+    HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5
   }
 
   /**
@@ -4417,6 +4471,26 @@ declare namespace huks {
      * @since 12
      */
     HUKS_SEND_TYPE_SYNC = 1
+  }
+  /**
+     * Enum for key wrap type
+     * 
+     * @enum { number }
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+  export enum HuksKeyWrapType {
+    /**
+     * The hardware unique key wrap type
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    HUKS_KEY_WRAP_TYPE_HUK_BASED = 2,
   }
 
   /**
