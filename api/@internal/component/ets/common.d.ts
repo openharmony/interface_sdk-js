@@ -32588,3 +32588,47 @@ declare interface DateRange {
    */
   end?: Date;
 }
+
+/**
+ * Defines a bindable property
+ * @interface Bindable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare interface Bindable<T> {
+  /**
+   * Defines value of the bindable property.
+   * @type { T }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly value: T;
+
+  /**
+   * Defines the callback of the bindable property which will be invork when the property is changed..
+   * @type { Callback<T> }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly onChange: Callback<T>;
+}
+
+/**
+ * Convert to a bindable property.
+ *
+ * @param { T } value - indicate the value of a state property.
+ * @returns { Bindable<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+export declare function $$<T>(value: T): Bindable<T>;
