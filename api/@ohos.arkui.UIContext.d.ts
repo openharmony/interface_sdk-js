@@ -1190,8 +1190,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1210,8 +1210,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1230,8 +1230,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1248,8 +1248,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
