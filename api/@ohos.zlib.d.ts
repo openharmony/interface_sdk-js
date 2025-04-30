@@ -1235,7 +1235,8 @@ declare namespace zlib {
    * @returns { Checksum } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksumSync(): Checksum;
 
@@ -1285,7 +1286,8 @@ declare namespace zlib {
    * @typedef Checksum
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Checksum {
     /**
