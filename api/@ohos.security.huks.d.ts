@@ -2055,7 +2055,7 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the export properties.
-   * @returns { Promise } the promise returned by the function.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -2066,8 +2066,8 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice
    * @since 20
+   * @arkts 1.2
    */
   function wrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -2076,7 +2076,8 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the import properties.
-   * @returns { Promise } the promise returned by the function.
+   * @param { Uint8Array } wrappedKey -indicates the wrapped key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -2091,10 +2092,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice
    * @since 20
+   * @arkts 1.2
    */
-  function unwrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+  function unwrapKeyItem(keyAlias: string, options: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
   /**
    * Interface of huks param.
