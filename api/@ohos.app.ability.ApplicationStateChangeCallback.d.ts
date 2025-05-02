@@ -66,8 +66,7 @@ declare class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onApplicationForeground(): void;
 
@@ -93,8 +92,7 @@ declare class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onApplicationBackground(): void;
 }

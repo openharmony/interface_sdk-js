@@ -362,10 +362,9 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  export function on(type: 'applicationState', observer: ApplicationStateObserver): number;
+  function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
   /**
    * Register application state observer.
@@ -431,10 +430,9 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
-  export function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
+  function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister application state observer.
@@ -448,10 +446,9 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  export function off(type: 'applicationState', observerId: number): Promise<void>;
+  function off(type: 'applicationState', observerId: number): Promise<void>;
 
   /**
    * Unregister app foreground or background state observer.

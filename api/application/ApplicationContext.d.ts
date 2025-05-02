@@ -193,8 +193,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   on(type: 'environment', callback: EnvironmentCallback): number;
 
@@ -219,8 +218,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -245,8 +243,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   off(type: 'environment', callbackId: number): Promise<void>;
 
@@ -281,8 +278,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -317,8 +313,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -570,7 +565,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 1arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
