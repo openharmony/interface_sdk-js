@@ -42,6 +42,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -462,6 +463,17 @@ declare namespace common {
    * @since 14
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
+
+  /**
+   * The context of app service extension. It allows access to
+   * appServiceExtension-specific resources.
+   *
+   * @typedef { _AppServiceExtensionContext.default }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
 }
 
 export default common;
