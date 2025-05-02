@@ -25449,7 +25449,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 }
