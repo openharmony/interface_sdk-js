@@ -731,6 +731,60 @@ declare namespace util {
   }
 
   /**
+   * Provide the ability to decode binary streams into strings. The supported encoding types include: utf-8, iso-8859-2,
+   * koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, utf-16 le, etc.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class StringDecoder {
+    /**
+     * The StringDecoder constructor.
+     *
+     * @param { string } [encoding] - Encoding type of the input data.Default: utf8.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(encoding?: string);
+
+    /**
+     * Returns a decoded string, ensuring that any incomplete multiple byte characters at the end of the Uint8Array are
+     * omitted from the returned string and stored in an internal buffer.
+     *
+     * @param { string | Uint8Array } chunk - The bytes to decode.
+     * @returns { string } Returns a decoded string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    write(chunk: string | Uint8Array): string;
+
+    /**
+     * Returns any remaining input stored in the internal buffer as a string. After end() is called,
+     * this object can be reused for new input.
+     *
+     * @param { string | Uint8Array } [chunk] - The bytes to decode.
+     * @returns { string } Returns any remaining input stored in the internal buffer as a string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    end(chunk?: string | Uint8Array): string;
+  }
+
+  /**
    * The TextDecoder represents a text decoder that accepts a string as input,
    * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
