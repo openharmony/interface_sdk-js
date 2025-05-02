@@ -2294,6 +2294,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 15
    */
   onContentWillScroll(handler: ContentWillScrollCallback): SwiperAttribute;
+
+  /**
+   * Set maintain visible content position List.
+   *
+   * @param { boolean } enabled - maintain visible content position.
+   * @returns { SwiperAttribute } the attribute of swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maintainVisibleContentPosition(enabled: boolean): SwiperAttribute;
 }
 
 /**
