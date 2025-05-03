@@ -17,14 +17,8 @@
  * @file
  * @kit NetworkKit
  */
-/*** if arkts 1.1&1.2 */
-import connection from '@ohos.net.connection';
-export {
-  connection
-};
-/*** endif */
 
-/*** if arkts 1.1*/
+import connection from '@ohos.net.connection';
 import ethernet from '@ohos.net.ethernet';
 import http from '@ohos.net.http';
 import mdns from '@ohos.net.mdns';
@@ -40,8 +34,7 @@ import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnE
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
-  ethernet, http, mdns, policy, sharing, webSocket,
+  connection, ethernet, http, mdns, policy, sharing, webSocket,
   socket, statistics, vpn, vpnExtension, networkSecurity, 
   VpnExtensionAbility, VpnExtensionContext, netFirewall
 };
-/*** endif */
