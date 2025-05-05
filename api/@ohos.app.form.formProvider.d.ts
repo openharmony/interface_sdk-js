@@ -84,7 +84,7 @@ declare namespace formProvider {
    *
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
-   * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
+   * @param { (err: BusinessError) => void } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -144,7 +144,7 @@ declare namespace formProvider {
    *
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<BusinessError> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
