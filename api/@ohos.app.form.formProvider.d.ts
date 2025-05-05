@@ -19,7 +19,6 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { BusinessError } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from './@ohos.app.form.formInfo';
 import Want from './@ohos.app.ability.Want';
@@ -84,27 +83,6 @@ declare namespace formProvider {
    *
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
-   * @param { (err: BusinessError) => void } callback - The callback of setFormNextRefreshTime.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500060 - Service connection error.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 20
-   */
-  function setFormNextRefreshTime(formId: string, minute: number, callback: (err: BusinessError) => void): void;
-
-  /**
-   * Set next update time for a specified form.
-   *
-   * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -138,27 +116,6 @@ declare namespace formProvider {
    * @since 11
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
-
-  /**
-   * Set next update time for a specified form.
-   *
-   * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
-   * @returns { Promise<BusinessError> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500060 - Service connection error.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 20
-   */
-  function setFormNextRefreshTime(formId: string, minute: number): Promise<BusinessError>;
 
   /**
    * Update a specified form.
