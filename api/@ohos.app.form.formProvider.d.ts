@@ -84,7 +84,7 @@ declare namespace formProvider {
    *
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
-   * @param { (err: BusinessError) => void } callback - The callback of setFormNextRefreshTime.
+   * @param { function } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -98,7 +98,7 @@ declare namespace formProvider {
    * @atomicservice
    * @since 20
    */
-  function setFormNextRefreshTime(formId: string, minute: number, callback: (err: BusinessError) => void): void;
+  function setFormNextRefreshTime(formId: string, minute: number, callback: function): void;
 
   /**
    * Set next update time for a specified form.
