@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import { BusinessError } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from './@ohos.app.form.formInfo';
 import Want from './@ohos.app.ability.Want';
@@ -77,6 +78,7 @@ declare namespace formProvider {
    * @since 11
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTime(formId: string, minute: number, callback: (err: BusinessError) => void): void;
 
   /**
    * Set next update time for a specified form.
@@ -116,6 +118,7 @@ declare namespace formProvider {
    * @since 11
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
+  function setFormNextRefreshTime(formId: string, minute: number): Promise<BusinessError>;
 
   /**
    * Update a specified form.
