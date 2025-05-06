@@ -3772,20 +3772,6 @@ declare class Driver {
   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
   
   /**
-   * DoubleClick on the specified location on the screen.
-   *
-   * @param { Point } point - the coordinate point where the finger touches the screen.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
-   * @throws { BusinessError } 17000007 - Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 20
-   * @test
-   */
-  doubleClickAt(point: Point): Promise<void>;
-  
-  /**
    * LongClick on the specified location on the screen, specifies the duration if necessary.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
