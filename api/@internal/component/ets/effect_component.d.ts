@@ -47,7 +47,18 @@ interface EffectComponentInterface {
  * @systemapi
  * @since 10
  */
-declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {}
+declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
+  /**
+   * Use snapshot when Effect Component have no visual effect.
+   *
+   * @param { boolean } enable
+   * @returns { EffectComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 19
+   */
+  alwaysSnapshot(enable: boolean): EffectComponentAttribute
+}
 
 /**
  * Defines Effect Component.
