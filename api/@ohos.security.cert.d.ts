@@ -17,6 +17,9 @@
  * @file
  * @kit DeviceCertificateKit
  */
+/*** if arkts 1.1 */
+import { int, long } from './@ohos.base';
+/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from './@ohos.security.cryptoFramework';
 
@@ -52,14 +55,14 @@ declare namespace cert {
   /**
    * Enum for result code
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
   /**
    * Enum for result code
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -67,11 +70,12 @@ declare namespace cert {
   /**
    * Enum for result code
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CertResult {
     /**
@@ -93,7 +97,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVALID_PARAMS = 401,
 
@@ -116,7 +121,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOT_SUPPORT = 801,
 
@@ -139,7 +145,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_OUT_OF_MEMORY = 19020001,
 
@@ -162,7 +169,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_RUNTIME_ERROR = 19020002,
 
@@ -185,7 +193,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CRYPTO_OPERATION = 19030001,
 
@@ -208,7 +217,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CERT_SIGNATURE_FAILURE = 19030002,
 
@@ -231,7 +241,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CERT_NOT_YET_VALID = 19030003,
 
@@ -254,7 +265,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CERT_HAS_EXPIRED = 19030004,
 
@@ -277,7 +289,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY = 19030005,
 
@@ -300,7 +313,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_KEYUSAGE_NO_CERTSIGN = 19030006,
 
@@ -323,7 +337,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007,
 
@@ -333,7 +348,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_MAYBE_WRONG_PASSWORD = 19030008
   }
@@ -360,7 +376,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DataBlob {
     /**
@@ -385,7 +402,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
   }
@@ -445,14 +463,14 @@ declare namespace cert {
   /**
    * Enum for supported cert encoding format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
   /**
    * Enum for supported cert encoding format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -460,11 +478,12 @@ declare namespace cert {
   /**
    * Enum for supported cert encoding format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EncodingFormat {
     /**
@@ -486,7 +505,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FORMAT_DER = 0,
 
@@ -509,7 +529,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FORMAT_PEM = 1,
 
@@ -526,7 +547,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FORMAT_PKCS7 = 2
   }
@@ -534,14 +556,14 @@ declare namespace cert {
   /**
    * Enum for the certificate item type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
   /**
    * Enum for the certificate item type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -549,7 +571,7 @@ declare namespace cert {
   /**
    * Enum for the certificate item type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -675,14 +697,14 @@ declare namespace cert {
   /**
    * Enumerates for the certificate extension object identifier (OID) types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
   /**
    * Enumerates for the certificate extension object identifier (OID) types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -690,7 +712,7 @@ declare namespace cert {
   /**
    * Enumerates for the certificate extension object identifier (OID) types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -770,14 +792,14 @@ declare namespace cert {
   /**
    * Enum for the certificate extension entry type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
   /**
    * Enum for the certificate extension entry type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -785,7 +807,7 @@ declare namespace cert {
   /**
    * Enum for the certificate extension entry type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -884,7 +906,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface EncodingBlob {
     /**
@@ -909,7 +932,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
     /**
@@ -934,7 +958,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encodingFormat: EncodingFormat;
   }
@@ -961,7 +986,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CertChainData {
     /**
@@ -986,20 +1012,21 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
     /**
      * The number of certs.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     /**
      * The number of certs.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -1007,13 +1034,14 @@ declare namespace cert {
     /**
      * The number of certs.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    count: number;
+    count: int;
     /**
      * The data encoding format.
      *
@@ -1036,7 +1064,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encodingFormat: EncodingFormat;
   }
@@ -1044,7 +1073,7 @@ declare namespace cert {
   /**
    * Enum for Encoding type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -1084,7 +1113,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface X509Cert {
     /**
@@ -1121,7 +1151,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
@@ -1159,7 +1190,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
@@ -1200,7 +1232,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
@@ -1241,7 +1274,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(): Promise<EncodingBlob>;
 
@@ -1273,7 +1307,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPublicKey(): cryptoFramework.PubKey;
 
@@ -1324,14 +1359,14 @@ declare namespace cert {
     /**
      * Get X509 cert version.
      *
-     * @returns { number } X509 cert version.
+     * @returns { int } X509 cert version.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     /**
      * Get X509 cert version.
      *
-     * @returns { number } X509 cert version.
+     * @returns { int } X509 cert version.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -1339,24 +1374,24 @@ declare namespace cert {
     /**
      * Get X509 cert version.
      *
-     * @returns { number } X509 cert version.
+     * @returns { int } X509 cert version.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    getVersion(): number;
+    getVersion(): int;
 
     /**
      * Get X509 cert serial number.
      *
-     * @returns { number } X509 cert serial number.
+     * @returns { long } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
      * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
-    getSerialNumber(): number;
+    getSerialNumber(): long;
 
     /**
      * Get X509 cert serial number.
@@ -1744,14 +1779,14 @@ declare namespace cert {
     /**
      * Get X509 cert basic constraints path len.
      *
-     * @returns { number } X509 cert basic constraints path len.
+     * @returns { int } X509 cert basic constraints path len.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     /**
      * Get X509 cert basic constraints path len.
      *
-     * @returns { number } X509 cert basic constraints path len.
+     * @returns { int } X509 cert basic constraints path len.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -1759,13 +1794,13 @@ declare namespace cert {
     /**
      * Get X509 cert basic constraints path len.
      *
-     * @returns { number } X509 cert basic constraints path len.
+     * @returns { int } X509 cert basic constraints path len.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    getBasicConstraints(): number;
+    getBasicConstraints(): int;
 
     /**
      * Get X509 cert subject alternative name.
@@ -2035,7 +2070,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void;
 
@@ -2079,7 +2115,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>;
 
@@ -2239,7 +2276,7 @@ declare namespace cert {
      * If not a CA, return -1, otherwise return the path length constraint in BasicConstraints.
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
-     * @returns { number } path length constraint.
+     * @returns { int } path length constraint.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2251,7 +2288,7 @@ declare namespace cert {
      * If not a CA, return -1, otherwise return the path length constraint in BasicConstraints.
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
-     * @returns { number } path length constraint.
+     * @returns { int } path length constraint.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2264,7 +2301,7 @@ declare namespace cert {
      * If not a CA, return -1, otherwise return the path length constraint in BasicConstraints.
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
-     * @returns { number } path length constraint.
+     * @returns { int } path length constraint.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2273,7 +2310,7 @@ declare namespace cert {
      * @atomicservice
      * @since 12
      */
-    checkCA(): number;
+    checkCA(): int;
 
     /**
      * Check if exists Unsupported critical extension.
@@ -2434,13 +2471,13 @@ declare namespace cert {
     /**
      * Get the serial number from this x509crl entry.
      *
-     * @returns { number } serial number of crl entry.
+     * @returns { long } serial number of crl entry.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRLEntry#getSerialNumber
      */
-    getSerialNumber(): number;
+    getSerialNumber(): long;
 
     /**
      * Get the issuer of the x509 certificate described by this entry.
@@ -2831,13 +2868,13 @@ declare namespace cert {
     /**
      * Get version number from CRL.
      *
-     * @returns { number } version of crl.
+     * @returns { int } version of crl.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRL#getVersion
      */
-    getVersion(): number;
+    getVersion(): int;
 
     /**
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
@@ -2884,7 +2921,7 @@ declare namespace cert {
     /**
      * This method can be used to find CRL entries in specified CRLs.
      *
-     * @param { number } serialNumber - serial number of crl.
+     * @param { long } serialNumber - serial number of crl.
      * @returns { X509CrlEntry } next update of crl.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2895,7 +2932,7 @@ declare namespace cert {
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRL#getRevokedCert
      */
-    getRevokedCert(serialNumber: number): X509CrlEntry;
+    getRevokedCert(serialNumber: long): X509CrlEntry;
 
     /**
      * This method can be used to find CRL entries in specified cert.
@@ -3226,7 +3263,7 @@ declare namespace cert {
     /**
      * Get version number from CRL.
      *
-     * @returns { number } version of CRL.
+     * @returns { int } version of CRL.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -3234,13 +3271,13 @@ declare namespace cert {
     /**
      * Get version number from CRL.
      *
-     * @returns { number } version of CRL.
+     * @returns { int } version of CRL.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    getVersion(): number;
+    getVersion(): int;
 
     /**
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
@@ -3751,7 +3788,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CertChainValidator {
     /**
@@ -3812,7 +3850,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     validate(certChain: CertChainData, callback: AsyncCallback<void>): void;
 
@@ -3874,7 +3913,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     validate(certChain: CertChainData): Promise<void>;
 
@@ -3903,7 +3943,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly algorithm: string;
   }
@@ -3951,14 +3992,15 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createCertChainValidator(algorithm: string): CertChainValidator;
 
   /**
    * Enum for general name use type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4156,13 +4198,13 @@ declare namespace cert {
      * -2 : The cA field in the BaseConstraints extension of the certificate must be set to false or the certificate does not contain BaseConstraints extension.
      * other : Do not match.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    minPathLenConstraint?: number;
+    minPathLenConstraint?: int;
 
     /**
      * To match X509Cert:
@@ -4993,7 +5035,7 @@ declare namespace cert {
   /**
    * The encoding base format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5370,7 +5412,7 @@ declare namespace cert {
   /**
    * Enum for revocation check option.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5425,7 +5467,7 @@ declare namespace cert {
   /**
    * Enum for validation policy type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5456,7 +5498,7 @@ declare namespace cert {
   /**
    * Enum for validation keyusage type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5848,13 +5890,13 @@ declare namespace cert {
     /**
      * The maximum length of the certificate chain to be built.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    maxLength?: number;
+    maxLength?: int;
 
     /**
      * The CertChain validation parameters.
@@ -5906,7 +5948,7 @@ declare namespace cert {
   /**
    * Enum for CMS content type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5927,7 +5969,7 @@ declare namespace cert {
   /**
    * Enum for CMS content data format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -5958,7 +6000,7 @@ declare namespace cert {
   /**
    * Enum for CMS format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
