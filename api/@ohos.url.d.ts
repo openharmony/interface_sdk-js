@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace url {
   /**
@@ -244,7 +245,8 @@ declare namespace url {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name URLParams
    */
   class URLParams {
@@ -293,6 +295,23 @@ declare namespace url {
     constructor(init?: string[][] | Record<string, string> | string | URLParams);
 
     /**
+     * A parameterized constructor used to create an URLParams instance.
+     * As the input parameter of the constructor function, init supports four types.
+     * The input parameter is a character string two-dimensional array.
+     * The input parameter is the object list.
+     * The input parameter is a character string.
+     * The input parameter is the URLParams object.
+     *
+     * @param { [string, string][] | Record<string, string> | string | URLParams } [init] - init init
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(init?: [string, string][] | Record<string, string> | string | URLParams);
+
+    /**
      * Appends a specified key/value pair as a new search parameter.
      *
      * @param { string } name - name name Key name of the search parameter to be inserted.
@@ -329,7 +348,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     append(name: string, value: string): void;
 
@@ -367,7 +387,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delete(name: string): void;
 
@@ -413,6 +434,19 @@ declare namespace url {
     getAll(name: string): string[];
 
     /**
+    * Returns all key-value pairs associated with a given search parameter as an array.
+    *
+    * @param { string } name - name name Specifies the name of a key value.
+    * @returns { Array<string> } Array<string> Returns all key-value pairs with the specified name.
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    getAll(name: string): Array<string>;
+
+    /**
      * Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
      * The first item of Array is name, and the second item of Array is value.
      *
@@ -437,7 +471,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     entries(): IterableIterator<[string, string]>;
 
@@ -486,6 +521,18 @@ declare namespace url {
     forEach(callbackFn: (value: string, key: string, searchParams: URLParams) => void, thisArg?: Object): void;
 
     /**
+     * Iterates over a collection (e.g., URLs) and executes a callback function for each element.
+     *
+     * @param { UrlCbFn } callbackFn - A callback function to execute for each element.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    forEach(callbackFn: UrlCbFn): void;
+
+    /**
      * Returns the first value associated to the given search parameter.
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
@@ -527,6 +574,20 @@ declare namespace url {
     get(name: string): string | null;
 
     /**
+     * Returns the first value associated to the given search parameter.
+     *
+     * @param { string } name - name name Specifies the name of a key-value pair.
+     * @returns { string | undefined } Returns the first value found by name. 
+     * If no value is found, undefined is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get(name: string): string | undefined;
+
+    /**
      * Returns a Boolean that indicates whether a parameter with the specified name exists.
      *
      * @param { string } name - name name Specifies the name of a key-value pair.
@@ -560,7 +621,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     has(name: string): boolean;
 
@@ -610,7 +672,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     set(name: string, value: string): void;
 
@@ -633,7 +696,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sort(): void;
 
@@ -659,7 +723,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     keys(): IterableIterator<string>;
 
@@ -685,7 +750,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     values(): IterableIterator<string>;
 
@@ -722,6 +788,21 @@ declare namespace url {
     [Symbol.iterator](): IterableIterator<[string, string]>;
 
     /**
+     * Returns an iterator allowing to go through all key/value
+     * pairs contained in this object.
+     *
+     * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator.
+     * Each item of the iterator is a JavaScript Array.
+     * The first item of Array is name, and the second item of Array is value.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    $_iterator(): IterableIterator<[string, string]>;
+
+    /**
      * Returns a query string suitable for use in a URL.
      *
      * @returns { string } Returns a search parameter serialized as a string, percent-encoded if necessary.
@@ -743,7 +824,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
   }
@@ -769,7 +851,8 @@ declare namespace url {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name URL
    */
   class URL {
@@ -807,7 +890,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -857,7 +941,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static parseURL(url: string, base?: string | URL): URL;
 
@@ -883,7 +968,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
 
@@ -909,7 +995,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toJSON(): string;
 
@@ -1173,6 +1260,271 @@ declare namespace url {
      * @since 11
      */
     search: string;
+  
+    /**
+     * Gets and sets the fragment portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get hash(): string;
+
+    /**
+     * Gets and sets the fragment portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set hash(hash: string);
+
+    /**
+     * Gets and sets the host portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get host(): string;
+
+    /**
+    * Gets and sets the host portion of the URL.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set host(host: string);
+
+    /**
+     * Gets and sets the host name portion of the URL，not include the port.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get hostname(): string;
+
+    /**
+    * Gets and sets the host name portion of the URL，not include the port.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set hostname(hostname: string);
+
+    /**
+     * Gets and sets the serialized URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get href(): string;
+
+    /**
+     * Gets and sets the serialized URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set href(href: string);
+
+    /**
+     * Gets the read-only serialization of the URL's origin.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get origin(): string;
+
+    /**
+     * Gets and sets the password portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get password(): string;
+
+    /**
+     * Gets and sets the password portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set password(password: string);
+
+    /**
+     * Gets and sets the path portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get pathname(): string;
+
+    /**
+    * Gets and sets the path portion of the URL.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set pathname(pathname: string);
+
+    /**
+     * Gets and sets the port portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get port(): string;
+
+    /**
+    * Gets and sets the port portion of the URL.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set port(port: string);
+
+    /**
+     * Gets and sets the protocol portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get protocol(): string;
+
+    /**
+    * Gets and sets the protocol portion of the URL.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set protocol(protocol: string);
+
+    /**
+     * Gets and sets the serialized query portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get search(): string;
+
+    /**
+   * Gets and sets the serialized query portion of the URL.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    set search(search: string);
+    /**
+     * Gets the URLParams object that represents the URL query parameter.
+     * This property is read-only, but URLParams provides an object that can be used to change
+     * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
+     *
+     * @type { URLParams }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get params(): URLParams;
+
+    /**
+     * Gets and sets the username portion of the URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get username(): string;
+
+    /**
+    * Gets and sets the username portion of the URL.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    */
+    set username(username: string);
 
     /**
      * Gets the URLSearchParams object that represents the URL query parameter.
@@ -1245,5 +1597,20 @@ declare namespace url {
      */
     username: string;
   }
+
+    /**
+     * The type of URL callback function.
+     *
+     * @typedef { function } UrlCbFn
+     * @param { string } value - The value of the URL parameter.
+     * @param { string } key - The key of the URL parameter.
+     * @param { URLParams } searchParams - The URLParams object containing all parameters.
+     * @returns { void } This callback does not return a value.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    type UrlCbFn = (value: string, key: string, searchParams: URLParams) => void;
 }
 export default url;
