@@ -240,8 +240,7 @@ export interface AbilityMonitor {
    * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onWindowStageRestore?: (ability: UIAbility) => void;
 

@@ -199,10 +199,9 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  export function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+  function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
 
   /**
    * Unregister Ability foreground or background state observer.
@@ -217,10 +216,9 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  export function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
+  function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -331,7 +329,7 @@ declare namespace abilityManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getTopAbility(): Promise<ElementName>;
+  function getTopAbility(): Promise<ElementName>;
 
   /**
    * Get the top ability information of the display.
@@ -346,7 +344,7 @@ declare namespace abilityManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getTopAbility(callback: AsyncCallback<ElementName>): void;
+  function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -450,10 +448,9 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  export function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
+  function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
   /**
    * Get the foreground ui abilities.
@@ -468,7 +465,7 @@ declare namespace abilityManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
+  function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
   /**
    * Querying whether to allow embedded startup of atomic service.
