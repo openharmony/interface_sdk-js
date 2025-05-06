@@ -121,8 +121,9 @@ declare namespace uiExtensionHost {
     /**
      * Register the callback of avoidAreaChange.
      *
-     * @param { 'T' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { string } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<T> } callback - Callback used to return the avoid area information.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -137,8 +138,9 @@ declare namespace uiExtensionHost {
     /**
      * Unregister the callback of avoidAreaChange.
      *
-     * @param { 'T' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { string } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<T> } callback - Callback used to return the avoid area information.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
