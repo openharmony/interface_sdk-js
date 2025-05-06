@@ -99,7 +99,7 @@ declare interface CrossLanguageOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface InteractionEventBindingInfo {
   /**
@@ -109,7 +109,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   baseEventRegistered: boolean;
 
@@ -120,7 +120,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   nodeEventRegistered: boolean;
 
@@ -131,7 +131,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   nativeEventRegistered: boolean;
 
@@ -142,7 +142,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   builtInEventRegistered: boolean;
 }
@@ -872,7 +872,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 }
