@@ -29950,7 +29950,7 @@ declare enum HoverModeAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface DateRange {
   /**
@@ -29960,7 +29960,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   start?: Date;
 
@@ -29971,7 +29971,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   end?: Date;
 }
