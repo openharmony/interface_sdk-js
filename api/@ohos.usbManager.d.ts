@@ -2370,9 +2370,6 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
    * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Current function do not supporte due to the limitition of the device capabilities.
    * @throws { BusinessError } 14400004 - USB Service connection exception. Possible causes: 1. No USB Device plugged in.
    * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
