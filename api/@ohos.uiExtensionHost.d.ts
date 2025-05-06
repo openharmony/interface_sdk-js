@@ -27,7 +27,8 @@ import window from './@ohos.window';
  * @namespace uiExtensionHost
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiExtensionHost {
   /**
@@ -39,7 +40,7 @@ declare namespace uiExtensionHost {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface UIExtensionHostWindowProxy {
+  export interface UIExtensionHostWindowProxy {
     /**
      * Get the avoid area
      *
@@ -53,6 +54,7 @@ declare namespace uiExtensionHost {
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
+    /*** if arkts 1.1 */
     /**
      * Register the callback of avoidAreaChange
      *
@@ -64,8 +66,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
@@ -80,12 +81,12 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
     /**
+     * 
      * Register the callback of windowSizeChange
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
@@ -96,8 +97,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
@@ -112,10 +112,76 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
+    /*** endif */
+
+    /*** if arkts 1.2 */
+    /**
+     * Register the callback of avoidAreaChange.
+     *
+     * @param { string } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<T> } callback - Callback used to return the avoid area information.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20
+     */
+    // on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
+    on<T>(type: string, callback: Callback<T>):void;
+
+    /**
+     * Unregister the callback of avoidAreaChange.
+     *
+     * @param { string } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<T> } callback - Callback used to return the avoid area information.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20
+     */
+    // off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
+    off<T>(type: string, callback?: Callback<T>):void;
+
+    /**
+     * Register the callback of windowSizeChange.
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20
+     */
+    // on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
+
+    /**
+     * Unregister the callback of windowSizeChange.
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20
+     */
+    // off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
+    /*** endif */
 
     /**
      * The properties of the UIExtension window
@@ -159,7 +225,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -179,7 +246,8 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -229,7 +297,7 @@ declare namespace uiExtensionHost {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface UIExtensionHostWindowProxyProperties {
+  export interface UIExtensionHostWindowProxyProperties {
     /**
      * The position and size of the UIExtension window
      *
