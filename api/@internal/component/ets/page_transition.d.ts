@@ -790,7 +790,7 @@ class PageTransitionEnter extends CommonTransition {
    * @since 20
    * @arkts 1.2
    */
-  static $_invoke(options: PageTransitionOptions): PageTransitionEnter;
+  static $_invoke(value: PageTransitionOptions): PageTransitionEnter;
 
   /**
    * Called frame by frame to customize pageTransition animation when the page enters.
