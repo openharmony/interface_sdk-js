@@ -2837,6 +2837,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
+
+  /**
+   * Sets whether enable auto fill animation effect or not.
+   *
+   * @param { Optional<boolean> } enabled - Indicates the flag whether auto fill animation effect is enabled.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
 }
 
 /**
