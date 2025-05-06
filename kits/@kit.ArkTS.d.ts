@@ -39,6 +39,7 @@ import Stack from '@ohos.util.Stack';
 import TreeMap from '@ohos.util.TreeMap';
 import TreeSet from '@ohos.util.TreeSet';
 import Vector from '@ohos.util.Vector';
+import fastbuffer from '@ohos.fastbuffer';
 import worker, {
   DedicatedWorkerGlobalScope, ErrorEvent, Event, EventListener, EventTarget,
   MessageEvent, MessageEvents, PostMessageOptions, ThreadWorkerGlobalScope,
@@ -57,5 +58,5 @@ export {
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
-  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal
+  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal, fastbuffer
 };
