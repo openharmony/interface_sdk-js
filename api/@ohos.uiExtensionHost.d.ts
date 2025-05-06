@@ -121,14 +121,14 @@ declare namespace uiExtensionHost {
     /**
      * Register the callback of avoidAreaChange.
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
+     * @param { 'T' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<T> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
+     * @systemapi
      * @since 20
      */
     // on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
@@ -137,14 +137,14 @@ declare namespace uiExtensionHost {
     /**
      * Unregister the callback of avoidAreaChange.
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
+     * @param { 'T' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<T> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
+     * @systemapi
      * @since 20
      */
     // off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
@@ -160,7 +160,7 @@ declare namespace uiExtensionHost {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
+     * @systemapi
      * @since 20
      */
     // on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
@@ -175,7 +175,7 @@ declare namespace uiExtensionHost {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
+     * @systemapi
      * @since 20
      */
     // off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
