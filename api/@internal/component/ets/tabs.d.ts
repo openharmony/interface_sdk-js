@@ -311,7 +311,7 @@ declare enum LayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum TabsCacheMode {
   /**
@@ -320,7 +320,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_BOTH_SIDE = 0,
 
@@ -330,7 +330,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_LATEST_SWITCHED = 1
 }
@@ -1789,7 +1789,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   cachedMaxCount(count: number, mode: TabsCacheMode): TabsAttribute;
 }

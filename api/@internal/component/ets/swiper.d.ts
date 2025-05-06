@@ -623,7 +623,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   space(space: LengthMetrics): DotIndicator;
 }

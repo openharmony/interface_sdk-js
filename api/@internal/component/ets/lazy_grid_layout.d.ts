@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 interface LazyVGridLayoutInterface {
   /**
@@ -35,7 +35,7 @@ interface LazyVGridLayoutInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   (): LazyVGridLayoutAttribute;
 }
@@ -47,7 +47,7 @@ interface LazyVGridLayoutInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
@@ -58,7 +58,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   rowsGap(value: LengthMetrics): T;
 
@@ -70,7 +70,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   columnsGap(value: LengthMetrics): T;
 }
@@ -82,7 +82,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
   /**
@@ -93,7 +93,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   columnsTemplate(value: string): LazyVGridLayoutAttribute;
 }
@@ -104,7 +104,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare const LazyVGridLayout: LazyVGridLayoutInterface;
 
@@ -114,7 +114,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare const LazyVGridLayoutInstance: LazyVGridLayoutAttribute;
   
