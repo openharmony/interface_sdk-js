@@ -1939,6 +1939,8 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.avsession.AVSessoin#on
      */
     on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
 
@@ -1964,8 +1966,36 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.avsession.AVSessoin#off
      */
     off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
+
+    /**
+     * Subscribes to playWithAssetId events.
+     * @param { 'playWithAssetId' } type - Event type.
+     * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    on(type: 'playWithAssetId', callback: Callback<string>): void;
+
+    /**
+     * Unsubscribes to playWithAssetId events.
+     * @param { 'playWithAssetId' } type - Event type
+     * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    off(type: 'playWithAssetId', callback?: Callback<string>): void;
 
     /**
      * Register seek command callback
@@ -7418,8 +7448,18 @@ declare namespace avSession {
   * @atomicservice
   * @since 18
   */
+  /**
+   * The type of control command, add new support 'playWithAssetId'
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
+  *     'toggleCallMute' } AVControlCommandType
+  * @syscap SystemCapability.Multimedia.AVSession.Core
+  * @atomicservice
+  * @since 20
+  * @arkts 1.2
+  */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
   /**
    * The definition of command to be sent to the session
