@@ -9009,15 +9009,12 @@ declare namespace window {
      *
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the rotation change result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
 
@@ -9026,15 +9023,12 @@ declare namespace window {
      *
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;    
 
@@ -10539,7 +10533,7 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum RotationChangeType {
     /**
@@ -10547,7 +10541,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     WINDOW_WILL_ROTATE = 0,
 
@@ -10556,7 +10550,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     WINDOW_DID_ROTATE = 1
   }
@@ -10567,7 +10561,7 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum RectType {
     /**
@@ -10575,7 +10569,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RELATIVE_TO_SCREEN = 0,
     /**
@@ -10583,7 +10577,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     RELATIVE_TO_PARENT_WINDOW = 1
   }
@@ -10594,7 +10588,7 @@ declare namespace window {
    * @interface RotationChangeInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface RotationChangeInfo {
     /**
@@ -10603,7 +10597,7 @@ declare namespace window {
      * @type { RotationChangeType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     type: RotationChangeType;
     /**
@@ -10612,7 +10606,7 @@ declare namespace window {
      * @type { Orientation }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     orientation: Orientation;
     /**
@@ -10621,7 +10615,7 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     displayId: number;
     /**
@@ -10630,7 +10624,7 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     displayRect: Rect;
   }
@@ -10641,7 +10635,7 @@ declare namespace window {
    * @interface RotationChangeResult
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface RotationChangeResult {
     /**
@@ -10650,7 +10644,7 @@ declare namespace window {
      * @type { RectType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     rectType: RectType;
     /**
@@ -10659,7 +10653,7 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     windowRect: Rect;
   }
@@ -10670,7 +10664,7 @@ declare namespace window {
    * @typedef RotationChangeCallback<T, U>
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface RotationChangeCallback<T, U> {
     /**
@@ -10680,7 +10674,7 @@ declare namespace window {
      * @returns { U } result
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     (info: T): U;
   }
