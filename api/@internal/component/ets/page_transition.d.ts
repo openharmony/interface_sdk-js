@@ -784,7 +784,7 @@ class PageTransitionEnter extends CommonTransition {
    * The incoming parameter is the normalized progress of the current incoming animation.
    *
    * @param { PageTransitionCallback } event - animation callback frame by frame
-   * @returns { PageTransitionEnterInterface }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
