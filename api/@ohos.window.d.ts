@@ -5851,37 +5851,6 @@ declare namespace window {
     off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
-     * Register the callback of keyboardDidShow
-     *
-     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
-
-    /**
-     * Unregister the callback of keyboardDidShow
-     *
-     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-     *                                                                   2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
-
-    /**
      * Register the callback of keyboardWillShow
      *
      * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
@@ -5913,37 +5882,6 @@ declare namespace window {
     off(type: 'keyboardWillShow', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboardDidHide
-     *
-     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
-
-    /**
-     * Unregister the callback of keyboardDidHide
-     *
-     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-     *                                                                   2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
-
-    /**
      * Register the callback of keyboardWillHide
      *
      * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
@@ -5973,6 +5911,68 @@ declare namespace window {
      * @since 20
      */
     off(type: 'keyboardWillHide', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Register the callback of keyboardDidShow
+     *
+     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardDidShow
+     *
+     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Register the callback of keyboardDidHide
+     *
+     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardDidHide
+     *
+     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Touch outside callback on.
