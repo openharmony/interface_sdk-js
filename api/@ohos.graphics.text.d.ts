@@ -1067,6 +1067,14 @@ declare namespace text {
      * @since 20
      */
     trailingSpaceOptimized?: boolean;
+
+    /**
+     * Whether to enable automatic spacing between Chinese and English for paragraph.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    autoSpace?: boolean;
   }
 
   /**
