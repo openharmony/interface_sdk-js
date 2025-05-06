@@ -13498,7 +13498,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isNumLockOn?: boolean;
 
@@ -13508,7 +13508,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isCapsLockOn?: boolean;
 
@@ -13518,7 +13518,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isScrollLockOn?: boolean;
 }
