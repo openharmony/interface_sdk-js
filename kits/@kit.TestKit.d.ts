@@ -26,8 +26,11 @@ import {
   Rect, TouchPadSwipeOptions, InputTextMode
 } from '@ohos.UiTest';
 
+import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
+
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
-  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode
+  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
 };
