@@ -647,23 +647,10 @@ declare interface PageTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
-
-/**
- * Callback used to report page trasition events.
- *
- * @typedef { function } PageTransitionCallback
- * @param { RouteType } type - transition route type
- * @param { number } progress - transition progess
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
 /**
  * Provides an interface for page rotation mode.
