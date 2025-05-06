@@ -2421,8 +2421,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 18
      */
-    MEDIA_SUFFIX = 'media_suffix'
-
+    MEDIA_SUFFIX = 'media_suffix',
+    /**
+     * total size of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    SUM_SIZE = 'sum(size)'
   }
 
   /**
