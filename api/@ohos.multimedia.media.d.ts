@@ -1006,7 +1006,7 @@ declare namespace media {
   declare interface OutputSize {  
     /**
      * The expected output frame image width.
-     * If the value is less then 0， the width will be  the orginal width of the vido.
+     * If the value is less then 0, the width will be the orginal width of the vido.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?number }
@@ -1016,7 +1016,7 @@ declare namespace media {
     width?:number;
     /**
      * The expected output frame image height.
-     * If the value is less then 0， the height will be  the orginal height of the vido.
+     * If the value is less then 0, the height will be the orginal height of the vido.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?number }
