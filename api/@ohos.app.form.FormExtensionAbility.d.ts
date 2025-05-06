@@ -27,6 +27,18 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 /*** endif */
 
 /**
+ * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnStopFn = () => void;
+
+/**
  * class of form extension.
  *
  * @syscap SystemCapability.Ability.Form
@@ -326,6 +338,18 @@ declare class FormExtensionAbility {
    * @since 12
    */
   onStop?(): void;
+  
+  /**
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @type { ?OnStopFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onStop?: OnStopFn;
 }
 
 export default FormExtensionAbility;
