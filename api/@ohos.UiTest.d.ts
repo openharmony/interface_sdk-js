@@ -2107,7 +2107,7 @@
    /**
     * Specifies the checked status of the target Component.
     *
-   * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
+    * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
@@ -2122,7 +2122,7 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-   * @param { boolean } b The checkable status,default to true.
+    * @param { boolean } b The checkable status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2132,7 +2132,7 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-   * @param { boolean } b The checkable status,default to true.
+    * @param { boolean } b The checkable status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2143,7 +2143,7 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-   * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
+    * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. 1. Incorrect parameter types; 2. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
