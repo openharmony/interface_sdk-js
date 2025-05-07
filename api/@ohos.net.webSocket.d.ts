@@ -1030,7 +1030,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    serverIP ?: string;
+    serverIP?: string;
 
     /**
      * Port number that the server listens on.
@@ -1046,7 +1046,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    serverCert ?: ServerCert;
+    serverCert?: ServerCert;
 
     /**
      * Maximum number of concurrent clients. When it's reached, the server will reject new connections.
@@ -1062,7 +1062,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    protocol ?: string;
+    protocol?: string;
 
     /**
      * Maximum number of one client's connections. When it's reached, the server will reject new connections.
@@ -1200,7 +1200,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    close(connection: WebSocketConnection, options ?: webSocket.WebSocketCloseOptions): Promise<boolean>;
+    close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise<boolean>;
 
     /**
      * Send a message using a specific connection.
@@ -1268,7 +1268,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    off(type: 'error', callback ?: ErrorCallback): void;
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Cancels listening for events that a client requested to connect the server.
@@ -1277,7 +1277,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    off(type: 'connect', callback ?: Callback<WebSocketConnection>): void;
+    off(type: 'connect', callback?: Callback<WebSocketConnection>): void;
 
     /**
      * Cancels listening for events that a connection from a given client has been closed.
@@ -1295,7 +1295,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    off(type: 'messageReceive', callback ?: Callback<WebSocketMessage>): void;
+    off(type: 'messageReceive', callback?: Callback<WebSocketMessage>): void;
   }
 }
 
