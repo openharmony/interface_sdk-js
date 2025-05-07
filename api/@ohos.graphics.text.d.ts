@@ -1637,6 +1637,24 @@ declare namespace text {
      * @since 12
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
+
+    /**
+     * Synchronously updates the text color of the typography.
+     * @param { common2D.Color } color - Color of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.2
+     */
+    updateColor(color: common2D.Color): void;
+
+    /**
+     * Synchronously updates text decoration.
+     * @param { Decoration } decoration - Decoration of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.2
+     */
+    updateDecoration(decoration: Decoration): void;
   }
 
   /**
