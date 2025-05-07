@@ -798,6 +798,7 @@
     { "filePath": "arkui/SpanModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/StackModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/StepperItemModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/StepperModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/SwiperModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/TabsModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/TextAreaModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
