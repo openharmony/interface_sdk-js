@@ -3260,6 +3260,21 @@ declare namespace window {
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
 
   /**
+   * List the window modes of the foreground window on the specified display.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @returns { Promise<number> } Promise used to return the window modes.
+   * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function getGlobalWindowMode(displayId?: number): Promise<number>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -10525,6 +10540,52 @@ declare namespace window {
      * @since 15
      */
     windowRect: Rect;
+  }
+
+  /**
+   * Enum for window mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum GlobalWindowMode {
+    /**
+     * Fullscreen
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    FULLSCREEN = 1,
+
+    /**
+     * Split
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    SPLIT = 1 << 1,
+
+    /**
+     * Float
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    FLOAT = 1 << 2,
+
+    /**
+     * Picture in picture
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    PIP = 1 << 3
   }
 
   /**
