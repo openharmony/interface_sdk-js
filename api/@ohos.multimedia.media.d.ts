@@ -4733,7 +4733,8 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 18
+     * @since arkts{'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMetadata(metadata: Record<string, string>): void;
 
