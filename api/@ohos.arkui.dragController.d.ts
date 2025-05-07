@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve, CustomBuilder} from './arkui/component/common';
+import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve } from './arkui/component/common';
+import { CustomBuilder } from './arkui/component/builder'
 import { TouchPoint, ResourceColor } from './arkui/component/units';
 import { Curve } from './arkui/component/enums';
 /*** endif */

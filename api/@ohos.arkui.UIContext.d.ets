@@ -35,7 +35,8 @@ import  dragController from './@ohos.arkui.dragController';
 import image from './@ohos.multimedia.image';
 import  common from './@ohos.app.ability.common';
 import  pointer from './@ohos.multimodalInput.pointer';
-import { ClickEvent,CustomBuilder,ExpectedFrameRateRange,DragItemInfo,AnimateParam,KeyframeAnimateParam,KeyframeState,SheetOptions } from './arkui/component/common'
+import { ClickEvent,ExpectedFrameRateRange,DragItemInfo,AnimateParam,KeyframeAnimateParam,KeyframeState,SheetOptions } from './arkui/component/common'
+import { CustomBuilder } from './arkui/component/builder'
 import { GestureEvent } from './arkui/component/gesture'
 import { ResourceStr,SizeOptions } from './arkui/component/units'
 import { Nullable } from './arkui/component/enums'

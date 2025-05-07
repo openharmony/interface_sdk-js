@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, CustomBuilder } from './common';
+import { CommonMethod } from './common';
+import { CustomBuilder } from './builder'
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
 import { ComponentContent } from '../ComponentContent'

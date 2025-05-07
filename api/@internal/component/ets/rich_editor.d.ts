@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import {  ShadowOptions, ClickEvent, SelectionOptions, CustomBuilder, CommonMethod, Callback} from './common'
+import {  ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback} from './common'
+import { CustomBuilder } from './builder'
 import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font } from './units'
 import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, ResponseType, CopyOptions, BarState } from './enums'
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString'

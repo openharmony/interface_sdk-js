@@ -66,6 +66,7 @@ import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
 import { LocalStorage } from '../stateManagement/storages/localStorage'
+import { CustomBuilder } from './builder'
 /*** endif */
 
 /**
@@ -27897,19 +27898,6 @@ declare const Common: CommonInterface;
  * @since 11
  */
 declare type CustomBuilder = (() => any) | void;
-
-/**
- * Defines the CustomBuilder Type.
- *
- * @typedef { (() => Object | undefined) | undefined } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type CustomBuilder = (() => Object | undefined) | undefined;
 
 /**
  * Defines the OverlayOptions interface.

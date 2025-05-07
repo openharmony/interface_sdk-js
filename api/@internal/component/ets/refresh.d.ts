@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { Callback, CustomBuilder, Optional, CommonMethod } from './common'
+import { Callback, Optional, CommonMethod } from './common'
+import { CustomBuilder } from './builder'
 import { ResourceStr } from './units'
 import { ComponentContent } from '../ComponentContent'
 /*** endif */

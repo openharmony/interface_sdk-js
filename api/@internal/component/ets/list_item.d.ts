@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, CustomBuilder } from './common';
+import { CommonMethod } from './common';
+import { CustomBuilder } from './builder'
 import { Length } from './units';
 import { ComponentContent } from '../ComponentContent'
 /*** endif */

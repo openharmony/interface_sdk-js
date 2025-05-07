@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod,CommonConfiguration,ContentModifier,MultiShadowOptions,CustomBuilder,Optional  } from './common'
+import { CommonMethod,CommonConfiguration,ContentModifier,MultiShadowOptions,Optional  } from './common'
+import { CustomBuilder } from './builder'
 import { ResourceStr,Dimension,ResourceColor,Length } from './units'
 import { LinearGradient } from './dataPanel'
 /*** endif */

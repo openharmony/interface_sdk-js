@@ -23,7 +23,8 @@ import window from '../../@ohos.window';
 import { Resource } from '../../global/resource';
 import { TextModifier } from '../../arkui/TextModifier';
 import { LengthMetrics } from '../../arkui/Graphics';
-import { CustomBuilder, Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge,BackgroundEffectOptions,BackgroundBlurStyleOptions} from './common'
+import { Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge,BackgroundEffectOptions,BackgroundBlurStyleOptions} from './common'
+import { CustomBuilder } from './builder'
 import { Length,ResourceStr,ResourceColor,Dimension } from './units'
 import { TitleHeight } from './enums' 
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'

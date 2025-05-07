@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions,CustomBuilder } from './common'
+import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions } from './common'
+import { CustomBuilder } from './builder'
 import { ResourceStr,Length,ResourceColor ,Dimension,Font} from './units'
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions,KeyboardAppearance,EditableTextChangeValue,AutoCapitalizationMode } from './textCommon'
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from './textInput'

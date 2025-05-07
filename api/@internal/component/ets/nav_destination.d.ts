@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource'
-import { CustomBuilder,CommonMethod,Callback,LayoutSafeAreaType,LayoutSafeAreaEdge, Optional } from './common'
+import { CommonMethod,Callback,LayoutSafeAreaType,LayoutSafeAreaEdge, Optional } from './common'
+import { CustomBuilder } from './builder'
 import { Length, ResourceStr } from './units'
 import { TitleHeight,Curve } from './enums'
 import { NavPathInfo,NavPathStack,NavigationTitleOptions,NavigationMenuItem,NavigationToolbarOptions,ToolbarItem,NavigationMenuOptions,NavigationOperation,SystemBarStyle } from './navigation'

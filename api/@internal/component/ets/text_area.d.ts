@@ -26,8 +26,9 @@ import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextCo
     TextHeightAdaptivePolicy, WordBreak } from './enums'
 import { EnterKeyType, SubmitEvent, ContentType } from './textInput'
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units'
-import { CustomBuilder, InputCounterOptions, TextContentControllerBase, SelectionOptions,
+import { InputCounterOptions, TextContentControllerBase, SelectionOptions,
     TextDecorationOptions, CommonMethod, Callback, Optional } from './common'
+import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource'
 /*** endif */
 

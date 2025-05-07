@@ -79,6 +79,8 @@ function collectDeclaration(inputDir) {
 function collectComponentEtsFiles() {
   const ComponentDir = path.resolve(inputDir, '@internal', 'component', 'ets');
   readFile(ComponentDir, componentEtsFiles); // 读取文件
+  const arkuiComponentDir = path.resolve(inputDir, 'arkui', 'component');
+  readFile(arkuiComponentDir, componentEtsFiles); // 读取文件
   componentEtsFiles = componentEtsFiles.map(item => {
     return getPureName(item);
   });
