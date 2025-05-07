@@ -1465,16 +1465,16 @@ declare namespace unifiedDataChannel {
      DRAG = 'Drag',
 
     /**
-     * Indicates a system sharing channel
+     * Indicates a system sharing channel.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 20
      */
-    SYSTEMSHARE = 'SystemShare',
+    SYSTEM_SHARE = 'SystemShare',
 
     /**
-     * Indicates a Picker channel
+     * Indicates a Picker channel.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -1483,7 +1483,7 @@ declare namespace unifiedDataChannel {
     PICKER = 'Picker',
 
     /**
-     * Indicates a menu channel
+     * Indicates a menu channel.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
