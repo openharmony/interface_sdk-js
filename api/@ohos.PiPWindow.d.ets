@@ -22,7 +22,7 @@ import type BaseContext from './application/BaseContext';
 import type { Callback } from './@ohos.base';
 import { NodeController } from './arkui/NodeController';
 import { typeNode } from './arkui/FrameNode';
-import XComponentController from './arkui/component/xComponent';
+import { XComponentController } from './arkui/component/xcomponent';
 
 /**
  * Picture In Picture Window Manager
