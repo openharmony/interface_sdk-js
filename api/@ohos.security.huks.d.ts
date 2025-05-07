@@ -3145,12 +3145,14 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
     /**
-     * @description A device password is required but not set.
+     * A device password is required but not set.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * @description A device password is required but not set.
+     * A device password is required but not set.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -3159,14 +3161,14 @@ declare namespace huks {
   }
 
   /**
-   * @description Enum for huks key purpose.
+   * Enum for huks key purpose.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * @description Enum for huks key purpose.
+   * Enum for huks key purpose.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3303,14 +3305,14 @@ declare namespace huks {
   }
 
   /**
-   * @description Enum for huks key digest.
+   * Enum for huks key digest.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    */
   /**
-   * @description Enum for huks key digest.
+   * Enum for huks key digest.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4469,8 +4471,8 @@ declare namespace huks {
      * @since 11
      */
     /**
-     * @description The key can be accessed only after the device is started.
      * Key file storage security level for device encryption standard.
+     * @description The key can be accessed only after the device is started.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
