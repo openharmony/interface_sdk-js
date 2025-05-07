@@ -246,7 +246,10 @@ function hasFileByImportPath(importPath, apiDir) {
 
 function isExistArkUIFile(resolvedPath, importPath) {
   const filePath = path.resolve(resolvedPath, importPath);
-  if (filePath.includes('component')) {
+  if (
+    filePath.includes(path.resolve(inputDir, '@internal', 'component', 'ets')) ||
+    filePath.includes(path.resolve(inputDir, 'arkui', 'component'))
+  ) {
     const fileName = getPureName(filePath);
     return componentEtsFiles.includes(fileName);
   }
