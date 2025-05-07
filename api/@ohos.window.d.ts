@@ -3747,13 +3747,22 @@ declare namespace window {
    */
   enum WindowAnimationCurve {
     /**
+     * animation curve type linear
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    LINEAR = 0,
+
+    /**
      * animation curve type interpolation spring
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
-    INTERPOLATION_SPRING
+    INTERPOLATION_SPRING = 1,
   }
 
   /**
