@@ -4366,6 +4366,23 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
 
   /**
+   * Hold down the left mouse button and drag on the screen between the specified points.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise<void>;
+
+  /**
    * Inject text on the specified location.
    *
    * @param { Point } p - the coordinate of the specified location.
