@@ -1282,11 +1282,11 @@ declare namespace webSocket {
     /**
      * Cancels listening for events that a connection from a given client has been closed.
      * @param { 'close' } type - event indicating that a connection from a given client has been closed.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
+     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 19
      */
-    off(type: 'close', callback ?: Callback<WebSocketConnection>): void;
+    off(type: 'close', callback?: ClientConnectionCloseCallback): void;
 
     /**
      * Cancels listening for events that the server received a message.
