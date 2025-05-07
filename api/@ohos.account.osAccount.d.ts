@@ -4256,7 +4256,7 @@ declare namespace osAccount {
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+    getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
     /**
      * Gets authentication information.
