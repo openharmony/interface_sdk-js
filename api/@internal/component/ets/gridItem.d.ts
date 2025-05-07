@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod } from './common'
+import { CommonMethod, Bindable } from './common'
 /*** endif */
 
 /**
@@ -373,10 +373,23 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selected(value: boolean): GridItemAttribute;
+
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * 
+   * @param { boolean | Bindable<boolean> } value
+   * @returns { GridItemAttribute } the attribute of the gridItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected(value: boolean | Bindable<boolean>): GridItemAttribute;
 
   /**
    * Called when the gridItem is selected.
