@@ -2086,7 +2086,7 @@
    /**
     * Specifies the checked status of the target Component.
     *
-   * @param { boolean } b The checked status,default to true.
+    * @param { boolean } b The checked status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2096,7 +2096,7 @@
    /**
     * Specifies the checked status of the target Component.
     *
-   * @param { boolean } b The checked status,default to true.
+    * @param { boolean } b The checked status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -3472,7 +3472,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since {'1.2':'20'}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -5118,5 +5118,4 @@
    UIEventObserver,
    TouchPadSwipeOptions
  };
- 
  
