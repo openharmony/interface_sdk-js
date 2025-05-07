@@ -3259,7 +3259,7 @@
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
     * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
-    * @returns { Promise<Component> } the found result,or undefined if not found.
+    * @returns { Promise<Component|null> } the found result, or null if not found.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
@@ -3276,7 +3276,7 @@
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
     * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
-    * @returns { Promise<Component|null> } the found result,or undefined if not found.
+    * @returns { Promise<Component|null> } the found result,or null if not found.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
