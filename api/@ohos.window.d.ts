@@ -3161,7 +3161,8 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
@@ -7108,7 +7109,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowFocusable(isFocusable: boolean): Promise<void>;
 
@@ -7135,7 +7137,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowFocusable(isFocusable: boolean, callback: AsyncCallback<void>): void;
 
