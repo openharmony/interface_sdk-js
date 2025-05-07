@@ -64,10 +64,14 @@ declare namespace huks {
 
   /**
    * Generate Key.
-   *
+   * 
+   * @description Generates a key. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -89,9 +93,13 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -116,8 +124,12 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content. 
+   * It returns only the information indicating whether the API is successfully called.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -140,8 +152,12 @@ declare namespace huks {
   /**
    * Generate Key.
    *
+   * @description Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content. 
+   * It returns only the information indicating whether the API is successfully called.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -225,9 +241,14 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @description Deletes a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -244,9 +265,14 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @description Deletes a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -266,8 +292,12 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @description Deletes a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -285,8 +315,12 @@ declare namespace huks {
   /**
    * Delete Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @description Deletes a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -360,9 +394,12 @@ declare namespace huks {
   /**
    * Import Key.
    *
+   * @description Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -385,9 +422,12 @@ declare namespace huks {
   /**
    * Import Key.
    *
+   * @description Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -411,9 +451,12 @@ declare namespace huks {
   /**
    * Import Key.
    *
+   * @description Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -439,8 +482,10 @@ declare namespace huks {
   /**
    * Import Key.
    *
+   * @description Imports a key in plaintext. This API uses a promise to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -464,8 +509,10 @@ declare namespace huks {
   /**
    * Import Key.
    *
+   * @description Imports a key in plaintext. This API uses a promise to return the result.
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -525,10 +572,13 @@ declare namespace huks {
   /**
    * Import Wrapped Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importWrappedKeyItem.
+   * @description Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   * The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -551,10 +601,13 @@ declare namespace huks {
   /**
    * Import Wrapped Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importWrappedKeyItem.
+   * @description Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   * The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -619,10 +672,12 @@ declare namespace huks {
   /**
    * Import Wrapped Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @description Imports a wrapped key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   * purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -645,10 +700,12 @@ declare namespace huks {
   /**
    * Import Wrapped Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @description Imports a wrapped key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   * purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -700,9 +757,12 @@ declare namespace huks {
   /**
    * Export Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of exportKeyItem.
+   * @description Exports a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and outData contains the public key exported. Otherwise,
+   * an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -723,9 +783,12 @@ declare namespace huks {
   /**
    * Export Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of exportKeyItem.
+   * @description Exports a key. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and outData contains the public key exported. Otherwise,
+   * an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -780,9 +843,11 @@ declare namespace huks {
   /**
    * Export Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Exports a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   * in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -803,9 +868,11 @@ declare namespace huks {
   /**
    * Export Key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Exports a key. This API uses a promise to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   * in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -855,9 +922,12 @@ declare namespace huks {
   /**
    * Get properties of the key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of getKeyItemProperties.
+   * @description Obtains key properties. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
+   * operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -878,9 +948,12 @@ declare namespace huks {
   /**
    * Get properties of the key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of getKeyItemProperties.
+   * @description Obtains key properties. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
+   * operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -939,9 +1012,11 @@ declare namespace huks {
   /**
    * Get properties of the key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Obtains key properties. This API uses a promise to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -962,9 +1037,11 @@ declare namespace huks {
   /**
    * Get properties of the key.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Obtains key properties. This API uses a promise to return the result.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1014,9 +1091,13 @@ declare namespace huks {
   /**
    * Check whether the key exists.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @description Checks whether a key exists. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1038,9 +1119,12 @@ declare namespace huks {
   /**
    * Check whether the key exists.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @description Checks whether a key exists. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1062,9 +1146,13 @@ declare namespace huks {
   /**
    * Check whether the key exists.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @description Checks whether a key exists. This API uses an asynchronous callback to return the result.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1115,9 +1203,13 @@ declare namespace huks {
   /**
    * Check whether the key exists.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @description Checks whether a key exists. This API uses a promise to return the result.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
+   * does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1165,9 +1257,12 @@ declare namespace huks {
   /**
    * Init Operation.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
+   * @description Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   * operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1189,9 +1284,12 @@ declare namespace huks {
   /**
    * Init Operation.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
+   * @description Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   * operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1216,9 +1314,11 @@ declare namespace huks {
   /**
    * Init Operation.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
+   * @description Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1240,9 +1340,11 @@ declare namespace huks {
   /**
    * Init Operation.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
+   * @description Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1327,9 +1429,11 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @description Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1353,9 +1457,11 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @description Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1382,10 +1488,12 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @description Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1409,10 +1517,12 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @description Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1444,10 +1554,13 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1471,10 +1584,13 @@ declare namespace huks {
   /**
    * Update Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1527,9 +1643,11 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @description Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1553,9 +1671,11 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @description Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1582,10 +1702,12 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @description Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1609,10 +1731,12 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @description Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1644,10 +1768,13 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1671,10 +1798,13 @@ declare namespace huks {
   /**
    * Finish Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1727,9 +1857,10 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @param { AsyncCallback<void> } callback - the callback of abortSession.
+   * @description Aborts a key operation. This API uses an asynchronous callback to return the result.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1746,9 +1877,10 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @param { AsyncCallback<void> } callback - the callback of abortSession.
+   * @description Aborts a key operation. This API uses an asynchronous callback to return the result.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1768,9 +1900,10 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @description Aborts a key operation. This API uses a promise to return the result.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1787,9 +1920,10 @@ declare namespace huks {
   /**
    * Abort Operation.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @description Aborts a key operation. This API uses a promise to return the result.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1809,10 +1943,13 @@ declare namespace huks {
   /**
    * Key Attestation. This API can be called only by system applications.
    *
+   * @description Obtains the certificate used to attest a key. This API uses an asynchronous callback to return
+   * the result.
    * @permission ohos.permission.ATTEST_KEY
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1867,10 +2004,12 @@ declare namespace huks {
   /**
    * Key Attestation. This API can be called only by system applications.
    *
+   * @description Obtains the certificate used to attest a key. This API uses a promise to return the result.
    * @permission ohos.permission.ATTEST_KEY
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1894,9 +2033,14 @@ declare namespace huks {
   /**
    * Key Attestation with anonymous certificate.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @description Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Tray again later.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1917,9 +2061,14 @@ declare namespace huks {
   /**
    * Key Attestation with anonymous certificate.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @description Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Tray again later.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1974,9 +2123,14 @@ declare namespace huks {
   /**
    * Key Attestation with anonymous certificate.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Tray again later.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1997,9 +2151,14 @@ declare namespace huks {
   /**
    * Key Attestation with anonymous certificate.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @description Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Tray again later.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -2023,8 +2182,9 @@ declare namespace huks {
   /**
    * Get the sdk version.
    *
+   * @description Empty object, which is used to hold the SDK version.
    * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { string } the character string of the sdk version.
+   * @returns { string } SDK version obtained.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    * @deprecated since 11
@@ -2034,8 +2194,9 @@ declare namespace huks {
   /**
    * list the key aliases.
    *
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksListAliasesReturnResult> } the promise returned by the function.
+   * @description Lists key aliases. This API uses a promise to return the result.
+   * @param { HuksOptions } options - Parameters for listing key aliases.
+   * @returns { Promise<HuksListAliasesReturnResult> } Promise used to return the key aliases obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -2100,6 +2261,7 @@ declare namespace huks {
   /**
    * Interface of huks param.
    *
+   * @description Defines the param field in the properties array of options used in the APIs.
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
@@ -2107,6 +2269,7 @@ declare namespace huks {
   /**
    * Interface of huks param.
    *
+   * @description Defines the param field in the properties array of options used in the APIs.
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2173,6 +2336,7 @@ declare namespace huks {
   /**
    * Interface of huks handle.
    *
+   * @description Defines the struct for a HUKS handle.
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -2180,6 +2344,7 @@ declare namespace huks {
   /**
    * Interface of huks handle.
    *
+   * @description Defines the struct for a HUKS handle.
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2213,6 +2378,7 @@ declare namespace huks {
   /**
    * Interface of huks option.
    *
+   * @description Defines options used in the APIs.
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
@@ -2220,6 +2386,7 @@ declare namespace huks {
   /**
    * Interface of huks option.
    *
+   * @description Defines options used in the APIs.
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2293,6 +2460,7 @@ declare namespace huks {
   /**
    * Interface of huks result.
    *
+   * @description Represents the result returned.
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -2300,6 +2468,7 @@ declare namespace huks {
   /**
    * Interface of huks result.
    *
+   * @description Represents the result returned.
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -2344,6 +2513,7 @@ declare namespace huks {
     /**
    * Interface of huks ListAliases result.
    *
+   * @description Represents an array of key aliases.
    * @typedef HuksListAliasesReturnResult
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2793,10 +2963,12 @@ declare namespace huks {
    */
   export enum HuksExceptionErrCode {
     /**
+     * @description Permission verification failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Permission verification failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2810,170 +2982,210 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_NOT_SYSTEM_APP = 202,
     /**
+     * @description Invalid parameters are detected. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Invalid parameters are detected. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401,
     /**
+     * @description The API is not supported.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The API is not supported.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
     /**
+     * @description The feature is not supported.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The feature is not supported.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
     /**
+     * @description Key algorithm parameters are missing.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Key algorithm parameters are missing.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
     /**
+     * @description Invalid key algorithm parameters are detected.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Invalid key algorithm parameters are detected.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
     /**
+     * @description The file operation failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The file operation failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
     /**
+     * @description The communication failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The communication failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
     /**
+     * @description Failed to operate the algorithm library.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Failed to operate the algorithm library.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
     /**
+     * @description Failed to access the key because the key has expired.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Failed to access the key because the key has expired.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
     /**
+     * @description Failed to access the key because the authentication has failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Failed to access the key because the authentication has failed.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
     /**
+     * @description Key access timed out.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Key access timed out.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
     /**
+     * @description The number of key operation sessions has reached the limit.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The number of key operation sessions has reached the limit.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
     /**
+     * @description The target object does not exist.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The target object does not exist.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
     /**
+     * @description An external error occurs.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description An external error occurs.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
     /**
+     * @description The credential does not exist.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The credential does not exist.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
     /**
+     * @description The memory is insufficient.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description The memory is insufficient.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
     /**
+     * @description Failed to call other system services.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * @description Failed to call other system services.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -3013,13 +3225,13 @@ declare namespace huks {
   export enum HuksKeyPurpose {
     /**
      * Usable with RSA, EC and AES keys.
-     *
+     * @description Used to encrypt the plaintext.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
      * Usable with RSA, EC and AES keys.
-     *
+     * @description Used to encrypt the plaintext.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -3027,13 +3239,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
     /**
      * Usable with RSA, EC and AES keys.
-     *
+     * @description Used to decrypt the cipher text.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
      * Usable with RSA, EC and AES keys.
-     *
+     * @description Used to decrypt the cipher text.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -3041,11 +3253,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_DECRYPT = 2,
     /**
      * Usable with RSA, EC keys.
+     * @description Used for signing.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with RSA, EC keys.
+     * @description Used for signing.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3053,11 +3267,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_SIGN = 4,
     /**
      * Usable with RSA, EC keys.
+     * @description Used to verify the signature.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with RSA, EC keys.
+     * @description Used to verify the signature.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3065,11 +3281,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_VERIFY = 8,
     /**
      * Usable with EC keys.
+     * @description Used to derive a key.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with EC keys.
+     * @description Used to derive a key.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3077,11 +3295,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_DERIVE = 16,
     /**
      * Usable with wrap key.
+     * @description Used for an encrypted export.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with wrap key.
+     * @description Used for an encrypted export.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3089,11 +3309,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_WRAP = 32,
     /**
      * Usable with unwrap key.
+     * @description Used for an encrypted import.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with unwrap key.
+     * @description Used for an encrypted import.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3101,11 +3323,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_UNWRAP = 64,
     /**
      * Usable with mac.
+     * @description Used to generate a message authentication code (MAC).
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with mac.
+     * @description Used to generate a message authentication code (MAC).
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3113,11 +3337,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_MAC = 128,
     /**
      * Usable with agree.
+     * @description Used for key agreement.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
      * Usable with agree.
+     * @description Used for key agreement.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3821,6 +4047,7 @@ declare namespace huks {
    * Enum for huks unwrap suite.
    *
    * @enum { number }
+   * @description Enumerates the algorithm suites that can be used for importing a key in ciphertext.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -3828,6 +4055,7 @@ declare namespace huks {
    * Enum for huks unwrap suite.
    *
    * @enum { number }
+   * @description Enumerates the algorithm suites that can be used for importing a key in ciphertext.
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
@@ -3907,6 +4135,7 @@ declare namespace huks {
    * Enum for huks key flag.
    *
    * @enum { number }
+   * @description Enumerates the key generation modes.
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
@@ -3914,46 +4143,55 @@ declare namespace huks {
    * Enum for huks key flag.
    *
    * @enum { number }
+   * @description Enumerates the key generation modes.
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
   export enum HuksKeyFlag {
     /**
+     * @description Import a key using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * @description Import a key using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
     /**
+     * @description Generate a key by using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * @description Generate a key by using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
     /**
+     * @description Generate a key by using a key agreement API.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * @description Generate a key by using a key agreement API.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
     /**
+     * @description Derive a key by using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * @description Derive a key by using an API.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3978,12 +4216,18 @@ declare namespace huks {
    */
   export enum HuksKeyStorageType {
     /**
+     * @description The key is managed locally. NOTE: This tag is deprecated since API version 10. No substitute is
+     * provided because this tag is not used in key management. In key derivation scenarios, use
+     * HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
      */
     HUKS_STORAGE_TEMP = 0,
     /**
+     * @description The key is managed by the HUKS service. NOTE: This tag is deprecated since API version 10. No
+     * substitute is provided because this tag is not used in key management. In key derivation scenarios, use
+     * HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
@@ -3992,12 +4236,14 @@ declare namespace huks {
     /**
      * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      *
+     * @description The key derived from the master key is stored in the HUKS and managed by the HUKS.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
      * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      *
+     * @description The key derived from the master key is stored in the HUKS and managed by the HUKS.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4005,13 +4251,14 @@ declare namespace huks {
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
      * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
-     *
+     * @description The key derived from the master key is exported to the service, and not managed by the HUKS.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
      * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
      *
+     * @description The key derived from the master key is exported to the service, and not managed by the HUKS.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4023,6 +4270,8 @@ declare namespace huks {
    * Enum for huks import key type.
    *
    * @enum { number }
+   * @description Enumerates the types of keys to import. By default, a public key is imported. This field is not
+   * required when a symmetric key is imported.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -4030,6 +4279,8 @@ declare namespace huks {
    * Enum for huks import key type.
    *
    * @enum { number }
+   * @description Enumerates the types of keys to import. By default, a public key is imported. This field is not
+   * required when a symmetric key is imported.
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
@@ -4071,6 +4322,8 @@ declare namespace huks {
    * Enum for rsa salt len type.
    *
    * @enum { number }
+   * @description Enumerates the salt_len types to set when PSS padding is used in RSA signing or signature
+   * verification.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 10
    */
@@ -4078,6 +4331,8 @@ declare namespace huks {
    * Enum for rsa salt len type.
    *
    * @enum { number }
+   * @description Enumerates the salt_len types to set when PSS padding is used in RSA signing or signature
+   * verification.
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
@@ -4265,23 +4520,27 @@ declare namespace huks {
   export enum HuksAuthStorageLevel {
     /**
      * Key file storage security level for device encryption standard.
+     * @description The key can be accessed only after the device is started.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
      * Key file storage security level for device encryption standard.
+     * @description The key can be accessed only after the device is started.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_AUTH_STORAGE_LEVEL_DE = 0,
     /**
-     * Key file storage security level for credential encryption standard.
+     * @description Key file storage security level for credential encryption standard.
+     * The key can be accessed only after the first unlock of the device.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
      * Key file storage security level for credential encryption standard.
+     * @description Key file storage security level for credential encryption standard.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4289,11 +4548,13 @@ declare namespace huks {
     HUKS_AUTH_STORAGE_LEVEL_CE = 1,
     /**
      * Key file storage security level for enhanced credential encryption standard.
+     * @description The key can be accessed only when the device is unlocked.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
      * Key file storage security level for enhanced credential encryption standard.
+     * @description The key can be accessed only when the device is unlocked.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4305,6 +4566,7 @@ declare namespace huks {
    * Enum for huks auth access challenge type.
    *
    * @enum { number }
+   * @description Enumerates the types of the challenges generated when a key is used.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -4312,6 +4574,7 @@ declare namespace huks {
    * Enum for huks auth access challenge type.
    *
    * @enum { number }
+   * @description Enumerates the types of the challenges generated when a key is used.
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
@@ -4353,6 +4616,7 @@ declare namespace huks {
    * Enum for huks challenge position.
    *
    * @enum { number }
+   * @description Enumerates the positions of the 8-byte valid value in a custom challenge generated.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -4360,46 +4624,55 @@ declare namespace huks {
    * Enum for huks challenge position.
    *
    * @enum { number }
+   * @description Enumerates the positions of the 8-byte valid value in a custom challenge generated.
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
    */
   export enum HuksChallengePosition {
     /**
+     * @description Bytes 0 to 7.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * @description Bytes 0 to 7.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_0 = 0,
     /**
+     * @description Bytes 8 to 15.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * @description Bytes 8 to 15.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_1,
     /**
+     * @description Bytes 16 to 23.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * @description Bytes 16 to 23.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_2,
     /**
+     * @description Bytes 24 to 31.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * @description Bytes 24 to 31.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4411,6 +4684,7 @@ declare namespace huks {
    * Enum for huks secure sign type.
    *
    * @enum { number }
+   * @description Enumerates the signature types of the key generated or imported.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -4418,16 +4692,23 @@ declare namespace huks {
    * Enum for huks secure sign type.
    *
    * @enum { number }
+   * @description Enumerates the signature types of the key generated or imported.
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
    */
   export enum HuksSecureSignType {
     /**
+     * @description The signature carries authentication information. This field is specified when a key is generated or
+     * imported. When the key is used for signing, the data will be added with the authentication information and then
+     * be signed.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * @description The signature carries authentication information. This field is specified when a key is generated or
+     * imported. When the key is used for signing, the data will be added with the authentication information and then
+     * be signed.
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
