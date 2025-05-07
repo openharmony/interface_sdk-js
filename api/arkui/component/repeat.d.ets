@@ -19,7 +19,7 @@
  */
 
 
-import { memo, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 
 /**
  * Indicates the type of Repeat's Data Source.
@@ -55,6 +55,7 @@ type TemplateTypedFunc<T> = (item: T, index: number) => string;
  * @atomicservice
  * @since 20
  */
+@memo
 type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
 
 /**
@@ -255,4 +256,5 @@ export interface UIRepeatAttribute<T> {
  * @since 20
  */
 @memo
+@ComponentBuilder
 export declare function Repeat<T>(arr: RepeatArray<T>): UIRepeatAttribute<T>
