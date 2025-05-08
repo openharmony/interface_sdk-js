@@ -211,9 +211,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Returns a boolean whether the specified uid belongs to a particular application.
+     * Checks whether a UID belongs to this application.
      *
-     * @param { number } v - An id.
+     * @param { number } v - UID. which can be obtained by running process.uid.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -249,9 +249,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Returns the uid based on the specified user name.
+     * Obtains the UID of a user from the user database of the system based on the specified user name.
      *
-     * @param { string } v - Process name.
+     * @param { string } v - User name.
      * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -287,9 +287,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Returns the thread priority based on the specified tid.
+     * Obtains the thread priority based on the specified TID.
      *
-     * @param { number } v - The tid of the process.
+     * @param { number } v - TID.
      * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -325,9 +325,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Returns the system configuration at runtime.
+     * Obtains the system configuration.
      *
-     * @param { number } name - Parameters defined by the system configuration.
+     * @param { number } name - System configuration parameter name.
      * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -363,9 +363,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Returns the system value for environment variables.
+     * Obtains the value of an environment variable.
      *
-     * @param { string } name - Parameters defined by the system environment variables.
+     * @param { string } name - Environment variable name.
      * @returns { string } Return the system value for environment variables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -399,9 +399,9 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Process exit
+     * Terminates this process.
      *
-     * @param { number } code - Process exit code.
+     * @param { number } code - Exit code of the process.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -438,10 +438,10 @@ declare namespace process {
      * @since 10
      */
     /**
-     * Return whether the signal was sent successfully
+     * Sends a signal to the specified process to terminate it.
      *
-     * @param { number } signal - Signal sent.
-     * @param { number } pid - Send signal to target pid.
+     * @param { number } signal - Signal to send.
+     * @param { number } pid - PID of the process, to which the signal will be sent.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -581,7 +581,7 @@ declare namespace process {
    * @since 8
    */
   /**
-   * Returns a boolean whether the process is isolated.
+   * Checks whether this process is isolated.
    *
    * @returns { boolean } Return boolean whether the process is isolated.
    * @syscap SystemCapability.Utils.Lang
@@ -618,7 +618,7 @@ declare namespace process {
    * @since 10
    */
   /**
-   * Returns a boolean whether the process is running in a 64-bit environment.
+   * Checks whether this process is running in a 64-bit environment.
    *
    * @returns { boolean } Return a boolean whether the process is running in a 64-bit environment.
    * @syscap SystemCapability.Utils.Lang
@@ -668,7 +668,7 @@ declare namespace process {
    * @since 10
    */
   /**
-   * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
+   * Obtains the duration, in milliseconds, from the time the system starts to the time the process starts.
    *
    * @returns { number } Return the start of the system to the start of the process.
    * @syscap SystemCapability.Utils.Lang
@@ -694,7 +694,7 @@ declare namespace process {
    * @since 10
    */
   /**
-   * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
+   * Obtains the CPU time (in milliseconds) from the time the process starts to the current time.
    *
    * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
    * @syscap SystemCapability.Utils.Lang
@@ -837,7 +837,8 @@ declare namespace process {
    * @since 10
    */
   /**
-   * Abort current process
+   * Aborts a process and generates a core file. This method will cause a process to exit immediately. Exercise caution
+   * when using this method.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -919,7 +920,7 @@ declare namespace process {
    * @since 10
    */
   /**
-   * Returns the running time of the system
+   * Obtains the running time of this process.
    *
    * @returns { number } Return the running time of the system.
    * @syscap SystemCapability.Utils.Lang
