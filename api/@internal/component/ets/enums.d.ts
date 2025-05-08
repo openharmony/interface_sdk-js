@@ -10426,7 +10426,7 @@ declare enum DividerMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum EventQueryType {
   /**
@@ -10435,7 +10435,7 @@ declare enum EventQueryType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   ON_CLICK = 0,
 }
