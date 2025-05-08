@@ -973,7 +973,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
 
@@ -1009,7 +1010,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maximize(): Locale;
 
@@ -1045,7 +1047,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimize(): Locale;
   }
@@ -2114,7 +2117,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     formatRange(startDate: Date, endDate: Date): string;
 
@@ -2834,7 +2838,8 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     roundingPriority?: string;
 
@@ -2845,7 +2850,8 @@ declare namespace intl {
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     roundingIncrement?: number;
 
@@ -2855,7 +2861,8 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     roundingMode?: string;
   }
@@ -2978,7 +2985,8 @@ declare namespace intl {
      * @returns { string } a number range string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     formatRange(startRange: number, endRange: number): string;
 
@@ -3032,7 +3040,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CollatorOptions {
     /**
@@ -3106,7 +3115,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     usage?: string;
 
@@ -3167,7 +3177,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sensitivity?: string;
 
@@ -3200,7 +3211,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ignorePunctuation?: boolean;
 
@@ -3233,7 +3245,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     collation?: string;
 
@@ -3266,7 +3279,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numeric?: boolean;
 
@@ -3303,7 +3317,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     caseFirst?: string;
   }
@@ -3327,7 +3342,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class Collator {
     /**
@@ -3349,7 +3365,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -3380,7 +3397,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -3421,7 +3439,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     compare(first: string, second: string): number;
 
@@ -3450,7 +3469,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resolvedOptions(): CollatorOptions;
   }
@@ -3477,7 +3497,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PluralRulesOptions {
     /**
@@ -3513,7 +3534,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     localeMatcher?: string;
 
@@ -3546,7 +3568,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type?: string;
 
@@ -3583,7 +3606,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimumIntegerDigits?: number;
 
@@ -3620,7 +3644,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimumFractionDigits?: number;
 
@@ -3661,7 +3686,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maximumFractionDigits?: number;
 
@@ -3698,7 +3724,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimumSignificantDigits?: number;
 
@@ -3735,7 +3762,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maximumSignificantDigits?: number;
   }
@@ -3759,7 +3787,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class PluralRules {
     /**
@@ -3781,7 +3810,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3813,7 +3843,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
@@ -3845,7 +3876,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     select(n: number): string;
   }
@@ -3872,7 +3904,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RelativeTimeFormatInputOptions {
     /**
@@ -3908,7 +3941,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     localeMatcher?: string;
 
@@ -3945,7 +3979,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numeric?: string;
 
@@ -3982,7 +4017,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     style?: string;
   }
@@ -4009,7 +4045,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RelativeTimeFormatResolvedOptions {
     /**
@@ -4032,7 +4069,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locale: string;
 
@@ -4059,7 +4097,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     style: string;
 
@@ -4086,7 +4125,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numeric: string;
 
@@ -4110,9 +4150,50 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numberingSystem: string;
+  }
+
+  /**
+   * Provides the part of RelativeTimeFormat.
+   *
+   * @interface RelativeTimeFormatPart
+   * @syscap SystemCapability.Global.I18n
+   * @since 20
+   * @arkts 1.2
+   */
+  export interface RelativeTimeFormatPart {
+    /**
+     * The type of the part.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 20
+     * @arkts 1.2
+     */
+    type: string;
+
+    /**
+     * The value of the part.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 20
+     * @arkts 1.2
+     */
+    value: number;
+
+    /**
+     * The unit of the part.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 20
+     * @arkts 1.2
+     */
+    unit?: string;
   }
 
   /**
@@ -4137,7 +4218,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class RelativeTimeFormat {
     /**
@@ -4159,7 +4241,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -4191,7 +4274,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
@@ -4226,7 +4310,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     format(value: number, unit: string): string;
 
@@ -4269,6 +4354,22 @@ declare namespace intl {
     formatToParts(value: number, unit: string): Array<object>;
 
     /**
+     * returns an Array of objects representing the relative time format in parts that can be used for
+     * custom locale-aware formatting
+     *
+     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { string } unit - to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns { Array<RelativeTimeFormatPart> } an Array of RelativeTimeFormatPart representing the relative time format in parts
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    formatToParts(value: number, unit: string): Array<RelativeTimeFormatPart>;
+
+    /**
      * Returns a new object with properties that reflect the locale and formatting options computed during
      * initialization of the object.
      *
@@ -4293,7 +4394,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
   }
