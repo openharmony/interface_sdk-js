@@ -129,6 +129,20 @@ export default class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
+  * Called back asynchronously upon starting specified ability.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         do not create a new instance and pull it back to the top of the stack.
+  *         Otherwise, create a new instance and start it.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onAcceptWantAsync(want: Want): Promise<string>;
+
+  /**
    * Called back when start UIAbility in specified process.
    *
    * @param { Want } want - Indicates the want info of started ability.
@@ -139,6 +153,19 @@ export default class AbilityStage {
    * @since 11
    */
   onNewProcessRequest(want: Want): string;
+
+  /**
+  * Called back asynchronously upon starting UIAbility in specified process.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         let the ability run in this process. Otherwise, create a new process.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onNewProcessRequestAsync(want: Want): Promise<string>;
 
   /**
    * Called when the system configuration is updated.
