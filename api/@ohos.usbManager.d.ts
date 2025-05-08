@@ -19,13 +19,17 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.1 */
+import { int } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capability of manage USB device.
  *
  * @namespace usbManager
  * @syscap SystemCapability.USB.USBManager
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace usbManager {
   /**
@@ -41,7 +45,8 @@ declare namespace usbManager {
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
@@ -1032,7 +1037,8 @@ declare namespace usbManager {
    *
    * @typedef USBEndpoint
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBEndpoint {
     /**
@@ -1040,7 +1046,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     address: number;
 
@@ -1049,7 +1056,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attributes: number;
 
@@ -1058,7 +1066,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval: number;
 
@@ -1067,7 +1076,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxPacketSize: number;
 
@@ -1076,7 +1086,8 @@ declare namespace usbManager {
      *
      * @type { USBRequestDirection }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     direction: USBRequestDirection;
 
@@ -1090,11 +1101,22 @@ declare namespace usbManager {
     number: number;
 
     /**
+     * Endpoint address
+     *
+     * @type { int }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 20
+     * @arkts 1.2
+     */
+    endpointAddr: int;
+
+    /**
      * Endpoint type
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: number;
 
@@ -1103,7 +1125,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interfaceId: number;
   }
@@ -1113,7 +1136,8 @@ declare namespace usbManager {
    *
    * @typedef USBInterface
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBInterface {
     /**
@@ -1121,7 +1145,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -1130,7 +1155,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     protocol: number;
 
@@ -1139,7 +1165,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clazz: number;
 
@@ -1148,7 +1175,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subClass: number;
 
@@ -1157,7 +1185,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alternateSetting: number;
 
@@ -1166,7 +1195,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1175,7 +1205,8 @@ declare namespace usbManager {
      *
      * @type { Array<USBEndpoint> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endpoints: Array<USBEndpoint>;
   }
@@ -1185,7 +1216,8 @@ declare namespace usbManager {
    *
    * @typedef USBConfiguration
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBConfiguration {
     /**
@@ -1193,7 +1225,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -1202,7 +1235,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attributes: number;
 
@@ -1211,7 +1245,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxPower: number;
 
@@ -1220,7 +1255,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1229,7 +1265,8 @@ declare namespace usbManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRemoteWakeup: boolean;
 
@@ -1238,7 +1275,8 @@ declare namespace usbManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSelfPowered: boolean;
 
@@ -1247,7 +1285,8 @@ declare namespace usbManager {
      *
      * @type { Array<USBInterface> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interfaces: Array<USBInterface>;
   }
@@ -1257,7 +1296,8 @@ declare namespace usbManager {
    *
    * @typedef USBDevice
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDevice {
     /**
@@ -1265,7 +1305,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     busNum: number;
 
@@ -1274,7 +1315,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     devAddress: number;
 
@@ -1283,7 +1325,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serial: string;
 
@@ -1292,7 +1335,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1301,7 +1345,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufacturerName: string;
 
@@ -1310,7 +1355,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productName: string;
 
@@ -1319,7 +1365,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: string;
 
@@ -1328,7 +1375,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorId: number;
 
@@ -1337,7 +1385,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productId: number;
 
@@ -1346,7 +1395,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clazz: number;
 
@@ -1355,7 +1405,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subClass: number;
 
@@ -1364,7 +1415,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     protocol: number;
 
@@ -1373,7 +1425,8 @@ declare namespace usbManager {
      *
      * @type { Array<USBConfiguration> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     configs: Array<USBConfiguration>;
   }
@@ -1827,14 +1880,16 @@ declare namespace usbManager {
    *
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum USBRequestDirection {
     /**
      * Request for writing data from the host to the device
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
@@ -1842,7 +1897,8 @@ declare namespace usbManager {
      * Request for reading data from the device to the host
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_DIR_FROM_DEVICE = 0x80
   }
