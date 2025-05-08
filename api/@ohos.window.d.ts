@@ -4166,7 +4166,6 @@ declare namespace window {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -4197,7 +4196,6 @@ declare namespace window {
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -5347,7 +5345,6 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -5402,7 +5399,6 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -5500,7 +5496,6 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -5540,7 +5535,6 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -9689,7 +9683,6 @@ declare namespace window {
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9728,7 +9721,6 @@ declare namespace window {
      * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9791,7 +9783,7 @@ declare namespace window {
      * Get sub window of the stage.
      *
      * @returns { Promise<Array<Window>> }
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9822,7 +9814,7 @@ declare namespace window {
      * Get sub window of the stage.
      *
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9869,7 +9861,6 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9923,7 +9914,6 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
@@ -9973,7 +9963,6 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
