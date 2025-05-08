@@ -190,13 +190,10 @@ declare namespace screen {
    * @param { Rect } mainScreenRegion mirror screen region
    * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
-   * @since 15
+   * @since 19
    */
   function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
 
@@ -364,7 +361,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
 
@@ -956,8 +953,7 @@ declare namespace screen {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
-   * @since 15
+   * @since 19
    */
   interface Rect {
     /**
@@ -966,8 +962,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     left: number;
 
@@ -977,8 +972,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     top: number;
 
@@ -988,8 +982,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     width: number;
 
@@ -999,8 +992,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     height: number;
   }

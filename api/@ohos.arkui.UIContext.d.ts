@@ -1484,7 +1484,7 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
@@ -2032,7 +2032,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'beforePanStart', callback: PanListenerCallback): void;
 
@@ -2045,7 +2045,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'beforePanStart', callback?: PanListenerCallback): void;
 
@@ -2058,7 +2058,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'beforePanEnd', callback: PanListenerCallback): void;
 
@@ -2071,7 +2071,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
 
@@ -2084,7 +2084,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'afterPanStart', callback: PanListenerCallback): void;
 
@@ -2097,7 +2097,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'afterPanStart', callback?: PanListenerCallback): void;
 
@@ -2110,7 +2110,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'afterPanEnd', callback: PanListenerCallback): void;
 
@@ -2123,7 +2123,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
 

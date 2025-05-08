@@ -1953,7 +1953,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   stackFromEnd(enabled: boolean): ListAttribute;
 

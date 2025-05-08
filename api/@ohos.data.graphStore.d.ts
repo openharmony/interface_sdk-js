@@ -522,8 +522,8 @@ declare namespace graphStore {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 31300000 - Inner error.
    * @throws { BusinessError } 31300001 - Database corrupted.
-   * @throws { BusinessError } 31300014 - Invalid database path.
-   * @throws { BusinessError } 31300015 - Config changed.
+   * @throws { BusinessError } 31300014 - Failed to open or delete database with an invalid database path.
+   * @throws { BusinessError } 31300015 - StoreConfig, for example, securityLevel or encrypt, is changed.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
    * @since 18
@@ -540,7 +540,7 @@ declare namespace graphStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 31300000 - Inner error.
-   * @throws { BusinessError } 31300014 - Invalid database path.
+   * @throws { BusinessError } 31300014 - Failed to open or delete database with an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
    * @since 18

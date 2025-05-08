@@ -179,10 +179,9 @@ declare namespace media {
    * Create media source from media stream array.
    * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
 
@@ -1726,6 +1725,12 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * 
+     * <p>If your application frequently switches between short videos, you can create multiple AVPlayer
+     * objects to prepare the next video in advance, thereby improving the switching performance.
+     * For details, see [Smooth Switchover Between Online Short Videos]{@link
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}.</p>
+     * 
      * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
@@ -1755,6 +1760,12 @@ declare namespace media {
      */
     /**
      * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * 
+     * <p>If your application frequently switches between short videos, you can create multiple AVPlayer
+     * objects to prepare the next video in advance, thereby improving the switching performance.
+     * For details, see [Smooth Switchover Between Online Short Videos]{@link
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-smooth-switching}.</p>
+     * 
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
@@ -3867,7 +3878,7 @@ declare namespace media {
    * @typedef MediaStream
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface MediaStream {	
     /**
@@ -3875,7 +3886,7 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     url: string;
  
@@ -3884,7 +3895,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     width: number;
  
@@ -3893,7 +3904,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     height: number;
  
@@ -3902,7 +3913,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     bitrate: number;
   }
@@ -3977,7 +3988,12 @@ declare namespace media {
      */
     preferredHeight?: number;
     /**
-     * Choose a preferred buffer duration.
+     * Chooses a preferred buffer duration.
+     * 
+     * <p>The preferred buffer duration in the playback policy, is used to set the buffer size. For details,
+     * see [Online Video Frame Freezing Optimization Practice]{@link
+     * https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-online-video-playback-lags-practice}.</p>
+     * 
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -4716,7 +4732,7 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setMetadata(metadata: Record<string, string>): void;
 

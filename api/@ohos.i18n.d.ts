@@ -599,7 +599,6 @@ declare namespace i18n {
      * @param { TemperatureType } type - Indicates a temperature type.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -622,7 +621,6 @@ declare namespace i18n {
      *
      * @param { TemperatureType } type - Indicates a temperature type.
      * @returns { string } temperature name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
@@ -637,7 +635,6 @@ declare namespace i18n {
      * @param { WeekDay } type - one of week days.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -953,7 +950,6 @@ declare namespace i18n {
      * @param [ string ] delimiter - the file path's delimiter.
      * @param [ intl.Locale ] locale - the locale object used to localized file path.
      * @returns { string } the localized file path.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
@@ -3585,7 +3581,6 @@ declare namespace i18n {
    * @param { string } pattern - the pattern used to create SimpleDateTimeFormat object.
    * @param [ intl.Locale ] locale - the intl.Locale object used to create intl.DateTimeFormat object.
    * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from pattern.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -3601,7 +3596,6 @@ declare namespace i18n {
    * @param { string } skeleton - the skeleton used to create intl.DateTimeFormat object.
    * @param [ intl.Locale ] locale - the intl.Locale object used to create intl.DateTimeFormat object.
    * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from skeleton.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -3622,7 +3616,6 @@ declare namespace i18n {
      *
      * @param { Date } date - Indicates the Date object to be formatted.
      * @returns { string } a date string formatted based on the specified locale.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
@@ -3637,7 +3630,6 @@ declare namespace i18n {
    * @param { string } skeleton - the skeleton used to create SimpleNumberFormat object.
    * @param [ intl.Locale ] locale - the intl.Locale object used to create SimpleNumberFormat object.
    * @returns { SimpleNumberFormat } a SimpleNumberFormat object created from pattern.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
@@ -3659,7 +3651,6 @@ declare namespace i18n {
      *
      * @param { number } value - Indicates the number to be formatted.
      * @returns { string } a number string formatted based on the specified locale.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
@@ -3680,7 +3671,6 @@ declare namespace i18n {
      *
      * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
      * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
@@ -3692,7 +3682,6 @@ declare namespace i18n {
      *
      * @param { number } value - Indicates the number to be formatted.
      * @returns { StyledString } a styled number string formatted based on the specified locale.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18

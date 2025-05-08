@@ -96,13 +96,12 @@ declare namespace photoAccessHelper {
    * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Called by non-system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
    * @systemapi
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
 
@@ -2422,8 +2421,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 18
      */
-    MEDIA_SUFFIX = 'media_suffix'
-
+    MEDIA_SUFFIX = 'media_suffix',
+    /**
+     * total size of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    SUM_SIZE = 'sum(size)'
   }
 
   /**
@@ -2606,7 +2612,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     userId?: number;
   }
@@ -4581,12 +4587,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. The photoCreationConfigs is empty;
+     * <br>2. Incorrect photoCreationConfigs format.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     createAssetsForApp(bundleName: string, appName: string, tokenId: number, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
@@ -4858,12 +4864,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of grant permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
@@ -4877,12 +4883,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of grant permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     grantPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
@@ -4895,12 +4901,12 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns result of cancel permission
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes: 1. Incorrect uri format;
+     * <br>2. The value of photoPermissionType or hideSensitiveType is out of range.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 15
+     * @since 19
      */
     cancelPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
@@ -6763,6 +6769,25 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
+
+    /**
+     * Delete local assets permanently from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<string> } assetUris - Uris of the assets to be deleted permanently
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    static deleteLocalAssetsPermanentlyWithUri(context: Context, assetUris: Array<string>): Promise<void>;
   }
 
   /**
@@ -6902,6 +6927,25 @@ declare namespace photoAccessHelper {
     static deleteAlbums(context: Context, albums: Array<Album>): Promise<void>;
 
     /**
+     * Delete albums With Uri.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<string> } albumUris - Uris of albums to delete
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    static deleteAlbumsWithUri(context: Context, albumUris: Array<string>): Promise<void>;
+
+    /**
      * Get the album.
      *
      * @returns { Album } - Returns the album
@@ -6982,6 +7026,22 @@ declare namespace photoAccessHelper {
     moveAssets(assets: Array<PhotoAsset>, targetAlbum: Album): void;
 
     /**
+     * Move assets to the target album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to move
+     * @param { Album } targetAlbum - target album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    moveAssetsWithUri(assetUris: Array<string>, targetAlbum: Album): void;
+
+    /**
      * Recover assets from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to recover
@@ -6997,6 +7057,21 @@ declare namespace photoAccessHelper {
     recoverAssets(assets: Array<PhotoAsset>): void;
 
     /**
+     * Recover assets from the trash album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to recover
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    recoverAssetsWithUri(assetUris: Array<string>): void;
+
+    /**
      * Delete assets permanently from the trash album.
      *
      * @param { Array<PhotoAsset> } assets - the assets to be deleted permanently
@@ -7010,6 +7085,21 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     deleteAssets(assets: Array<PhotoAsset>): void;
+
+    /**
+     * Delete assets permanently from the trash album.
+     *
+     * @param { Array<string> } assetUris - Uris of assets to be deleted permanently
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 19
+     */
+    deleteAssetsWithUri(assetUris: Array<string>): void;
 
     /**
      * Set portrait album to me

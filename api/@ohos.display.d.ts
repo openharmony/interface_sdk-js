@@ -480,12 +480,10 @@ declare namespace display {
    * @param { FoldDisplayMode } mode target display mode to change.
    * @param { string } reason set display mode reason.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 19
    */
   function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
@@ -1143,7 +1141,7 @@ declare namespace display {
      * @enum { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
   enum DisplaySourceMode {
     /**
@@ -1151,7 +1149,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     NONE = 0,
  
@@ -1160,7 +1158,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MAIN = 1,
 
@@ -1169,7 +1167,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MIRROR = 2,
 
@@ -1178,7 +1176,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     EXTEND = 3,
 
@@ -1187,7 +1185,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     ALONE = 4
   }
@@ -1937,7 +1935,7 @@ declare namespace display {
      * @type { ?DisplaySourceMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     sourceMode?: DisplaySourceMode;
  
@@ -1947,7 +1945,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     x?: number;
   
@@ -1957,7 +1955,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     y?: number;
 

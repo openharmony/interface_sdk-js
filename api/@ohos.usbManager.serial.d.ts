@@ -152,7 +152,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -169,7 +171,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -186,7 +190,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -203,7 +209,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -529,14 +537,7 @@ declare namespace serialManager {
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19
      */
-    DATABIT_5 = 5,
-
-    /**
-     * The number of data bits is 4.
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 19
-     */
-    DATABIT_4 = 4
+    DATABIT_5 = 5
  }
   /**
    * Enumerates the parity bits of a serial port device.
@@ -597,18 +598,11 @@ declare namespace serialManager {
     STOPBIT_1 = 0,
 
     /**
-     * The number of stop bits is 1.5.
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 19
-     */
-    STOPBIT_1P5 = 1,
-
-    /**
      * The number of stop bits is 2.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19
      */
-    STOPBIT_2 = 2
+    STOPBIT_2 = 1
  }
 }
 

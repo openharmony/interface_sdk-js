@@ -20,7 +20,7 @@
 
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
-import { Position3, Color, GeometryDefinition } from './SceneTypes';
+import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
 
 /**
  * The scene resource parameters type.
@@ -74,6 +74,60 @@ export interface SceneNodeParameters {
    * @since 12
    */
   path?: string;
+}
+
+/**
+ * The result of a ray cast hit.
+ *
+ * @typedef RaycastResult
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface RaycastResult {
+  /**
+   * The node that was hit.
+   *
+   * @type { Node }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  node: Node;
+
+  /**
+   * The distance to the center of the axis-aligned bounding box.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  centerDistance: number;
+
+  /**
+   * The position of the hit in world coordinates.
+   *
+   * @type { Position3 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  hitPosition: Position3;
+}
+
+/**
+ * How a raycast should be performed.
+ *
+ * @interface RaycastParameters
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface RaycastParameters {
+  /**
+   * If defined, search only the nodes in the hierarchy under this node.
+   *
+   * @type { ?Node }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  rootNode?: Node;
 }
 
 /**

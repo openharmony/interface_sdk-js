@@ -1076,6 +1076,7 @@ declare namespace settings {
 
   /**
    * Get value from settingsdata
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @param { Context } context - Indicates the Context used to access the database.
    * @param { string } name - Indicates the name of the character string.
@@ -1125,7 +1126,7 @@ declare namespace settings {
   /**
    * Set settingsdata value.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SETTINGS
    * @param { Context } context - Indicates Context or dataAbilityHelper instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
@@ -1139,7 +1140,7 @@ declare namespace settings {
   /**
    * Set settingsdata value.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SETTINGS
    * @param { Context } context - Indicates Context or dataAbilityHelper instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
@@ -1152,8 +1153,10 @@ declare namespace settings {
 
   /**
    * Set settingsdata value.
+   * [DEVICE_SHARED, USER_PROPERTY] domain need ohos.permission.MANAGE_SETTINGS permission.
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS or ohos.permission.MANAGE_SETTINGS
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
@@ -1246,7 +1249,8 @@ declare namespace settings {
   function getValueSync(context: Context, name: string, defValue: string): string;
 
   /**
-   * Get value from settingsdata(synchronous method)
+   * Get value from settingsdata(synchronous method).
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @param { Context } context - Indicates Context instance
    * @param { string } name - Indicates the name of the character string.
@@ -1278,7 +1282,7 @@ declare namespace settings {
   /**
    * Set settingsdata value(synchronous method)
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SETTINGS
    * @param { Context } context - Indicates Context or dataAbilityHelper instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
@@ -1290,9 +1294,11 @@ declare namespace settings {
   function setValueSync(context: Context, name: string, value: string): boolean;
 
   /**
-   * Set settingsdata value(synchronous method)
+   * Set settingsdata value(synchronous method).
+   * [DEVICE_SHARED, USER_PROPERTY] domain need ohos.permission.MANAGE_SETTINGS permission.
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS or ohos.permission.MANAGE_SETTINGS
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
@@ -1307,6 +1313,7 @@ declare namespace settings {
 
   /**
    * Monitor registration key(synchronous method)
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
@@ -1321,6 +1328,7 @@ declare namespace settings {
 
   /**
    * Monitor unregister key(synchronous method)
+   * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
