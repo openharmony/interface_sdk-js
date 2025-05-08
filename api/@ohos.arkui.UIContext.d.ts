@@ -4201,4 +4201,23 @@ export class TextMenuController {
    * @since 16
    */
   setMenuOptions(options: TextMenuOptions): void;
+
+  /**
+   * Disable all system service menus, such as translation and ai writer.
+   * True means disable, false means enable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static disableSystemServiceMenuItems(disable: boolean): void;
+
+  /**
+   * Disable menu action by action id.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static disableMenuItems(items: Array<TextMenuItemId>): void;
 }
