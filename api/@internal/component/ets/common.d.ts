@@ -18511,7 +18511,7 @@ declare enum DragPreviewMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7,
 }
@@ -18522,7 +18522,7 @@ declare enum DragPreviewMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum DraggingSizeChangeEffect {
   /**
@@ -18530,7 +18530,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   DEFAULT = 0,
 
@@ -18539,7 +18539,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SIZE_TRANSITION = 1,
 
@@ -18548,7 +18548,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SIZE_CONTENT_TRANSITION = 2,
 }
@@ -18710,7 +18710,7 @@ declare interface DragPreviewOptions {
   * @type { ?DraggingSizeChangeEffect }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 18
+  * @since 19
   */
   sizeChangeEffect?: DraggingSizeChangeEffect;
 }
