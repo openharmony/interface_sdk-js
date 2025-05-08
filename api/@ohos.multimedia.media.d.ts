@@ -179,10 +179,9 @@ declare namespace media {
    * Create media source from media stream array.
    * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
 
@@ -3879,7 +3878,7 @@ declare namespace media {
    * @typedef MediaStream
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface MediaStream {	
     /**
@@ -3887,7 +3886,7 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     url: string;
  
@@ -3896,7 +3895,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     width: number;
  
@@ -3905,7 +3904,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     height: number;
  
@@ -3914,7 +3913,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     bitrate: number;
   }
