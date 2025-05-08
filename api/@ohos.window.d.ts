@@ -9218,12 +9218,11 @@ declare namespace window {
      * Set whether window delay raise is enabled.
      *
      * @param { boolean } isEnabled - The value true means to enable window delay raise, and false means disable window delay raise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.function setWindowDelayRaiseOnDrag can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
