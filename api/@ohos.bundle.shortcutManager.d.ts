@@ -84,6 +84,18 @@ declare namespace shortcutManager {
   function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
 
   /**
+   * Set a shortcut of current application is visible or invisible.
+   *
+   * @param { string } id - Indicates id of shortcut to set.
+   * @param { boolean } visible - The value true means to set the shortcut visible, otherwise set the shortcut invisible.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 17700070 - The specified shortcut id is not exist.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   */
+  function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
+
+  /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
    * @typedef { _ShortcutInfo }
