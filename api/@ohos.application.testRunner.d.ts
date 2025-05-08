@@ -73,4 +73,4 @@ interface TestRunner {
 /*** if arkts 1.1 */
 export { TestRunner };
 /*** endif */
-export default TestRunner
+export default TestRunner;

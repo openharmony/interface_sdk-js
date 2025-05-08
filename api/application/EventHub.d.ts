@@ -397,7 +397,8 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6,
+    p7: P7, p8: P8, p9: P9, p10: P10, p11: P11): void;
 
   /**
    * Trigger the event callbacks.
@@ -413,7 +414,8 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5,
+    p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12): void;
 
   /**
    * Trigger the event callbacks.
@@ -429,7 +431,8 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5,
+    p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13): void;
 
   /**
    * Trigger the event callbacks.
@@ -445,7 +448,8 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14>(event: string, p1: P1, p2: P2, p3: P3, p4: P4,
+    p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14): void;
 
   /**
    * Trigger the event callbacks.
@@ -461,7 +465,8 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14, p15: P15): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15>(event: string, p1: P1, p2: P2, p3: P3, p4: P4,
+    p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14, p15: P15): void;
 
   /**
    * Trigger the event callbacks.
@@ -477,7 +482,9 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16>(event: string, p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14, p15: P15, p16: P16): void;
+  emit<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16>(event: string, p1: P1, p2: P2, p3: P3,
+    p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, p11: P11, p12: P12, p13: P13, p14: P14, p15: P15,
+    p16: P16): void;
 }
 
 export default EventHub;
