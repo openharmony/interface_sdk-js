@@ -42,42 +42,42 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    UPLOADING,
+    UPLOADING = 0,
     /**
      * Indicates that the sync failed in upload processing.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    UPLOAD_FAILED,
+    UPLOAD_FAILED = 1,
     /**
      * Indicates that the sync state is downloading.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    DOWNLOADING,
+    DOWNLOADING = 2,
     /**
      * Indicates that the sync failed in download processing.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    DOWNLOAD_FAILED,
+    DOWNLOAD_FAILED = 3,
     /**
      * Indicates that the sync finish.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    COMPLETED,
+    COMPLETED = 4,
     /**
      * Indicates that the sync has been stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    STOPPED
+    STOPPED = 5,
   }
 
   /**
@@ -94,56 +94,56 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NO_ERROR,
+    NO_ERROR = 0,
     /**
      * Synchronization aborted due to network unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NETWORK_UNAVAILABLE,
+    NETWORK_UNAVAILABLE = 1,
     /**
      * Synchronization aborted due to wifi unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    WIFI_UNAVAILABLE,
+    WIFI_UNAVAILABLE = 2,
     /**
      * Synchronization aborted due to low capacity level.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    BATTERY_LEVEL_LOW,
+    BATTERY_LEVEL_LOW = 3,
     /**
      * Synchronization aborted due to warning low capacity level.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    BATTERY_LEVEL_WARNING,
+    BATTERY_LEVEL_WARNING = 4,
     /**
      * Synchronization aborted due to cloud storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    CLOUD_STORAGE_FULL,
+    CLOUD_STORAGE_FULL = 5,
     /**
      * Synchronization aborted due to local storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    LOCAL_STORAGE_FULL,
+    LOCAL_STORAGE_FULL = 6,
     /**
      * Synchronization aborted due to device temperature is too high.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    DEVICE_TEMPERATURE_TOO_HIGH,
+    DEVICE_TEMPERATURE_TOO_HIGH = 7,
     
   }
 
@@ -312,28 +312,28 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    RUNNING,
+    RUNNING = 0,
     /**
      * Indicates that the download task finished.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    COMPLETED,
+    COMPLETED = 1,
     /**
      * Indicates that the download task failed.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    FAILED,
+    FAILED = 2,
     /**
      * Indicates that the download task stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    STOPPED
+    STOPPED = 3,
   }
 
   /**
@@ -350,42 +350,42 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    NO_ERROR,
+    NO_ERROR = 0,
     /**
      * download aborted due to unknown error.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    UNKNOWN_ERROR,
+    UNKNOWN_ERROR = 1,
     /**
      * download aborted due to network unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    NETWORK_UNAVAILABLE,
+    NETWORK_UNAVAILABLE = 2,
     /**
      * download aborted due to local storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    LOCAL_STORAGE_FULL,
+    LOCAL_STORAGE_FULL = 3,
     /**
      * download aborted due to content is not found in the cloud.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    CONTENT_NOT_FOUND,
+    CONTENT_NOT_FOUND = 4,
     /**
      * download aborted due to frequent user requests.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    FREQUENT_USER_REQUESTS,
+    FREQUENT_USER_REQUESTS = 5,
   }
 
   /**
@@ -833,7 +833,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    UPLOADING,
+    UPLOADING = 0,
     /**
      * Indicates that the file cache is downloading now.
      *
@@ -841,7 +841,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    DOWNLOADING,
+    DOWNLOADING = 1,
     /**
      * Indicates that the file cache sync task finished.
      *
@@ -849,7 +849,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    COMPLETED,
+    COMPLETED = 2,
     /**
      * Indicates that the file cache sync task stopped.
      *
@@ -857,7 +857,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    STOPPED,
+    STOPPED = 3,
     /**
      * Indicates that the file is waiting for upload.
      *
@@ -865,7 +865,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 12
      */
-    TO_BE_UPLOADED,
+    TO_BE_UPLOADED = 4,
     /**
      * Indicates that the file has been already uploaded successfully.
      *
@@ -873,7 +873,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 12
      */
-    UPLOAD_SUCCESS,
+    UPLOAD_SUCCESS = 5,
     /**
      * Indicates that the file upload failure.
      *
@@ -881,7 +881,7 @@ declare namespace cloudSync {
      * @systemapi
      * @since 12
      */
-    UPLOAD_FAILURE,
+    UPLOAD_FAILURE = 6,
   }
 
   /**
@@ -985,28 +985,28 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NOTIFY_ADDED,
+    NOTIFY_ADDED = 0,
     /**
      * File has been modified.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NOTIFY_MODIFIED,
+    NOTIFY_MODIFIED = 1,
     /**
      * File has been deleted.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NOTIFY_DELETED,
+    NOTIFY_DELETED = 2,
     /**
      * File has been renamed or moved.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
-    NOTIFY_RENAMED
+    NOTIFY_RENAMED = 3,
   }
 
   /** 
