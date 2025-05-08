@@ -168,24 +168,10 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
      * @since 12
-     */
-    /**
-     * Create sub window.
-     *
-     * @param { string } name - window name of sub window
-     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
-     * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 801 - Capability not supported.function createSubWindowWithOptions can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @StageModelOnly
-     * @since 19
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
