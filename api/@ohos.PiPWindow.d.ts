@@ -261,7 +261,7 @@ declare namespace PiPWindow {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
      defaultWindowSizeType?: number;
   }
