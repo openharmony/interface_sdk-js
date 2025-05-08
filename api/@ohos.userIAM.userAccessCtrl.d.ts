@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit UserAuthenticationKit
+ * @arkts 1.1&1.2
  */
 
 import userAuth from '@ohos.userIAM.userAuth';
