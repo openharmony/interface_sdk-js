@@ -478,7 +478,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
@@ -494,7 +494,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 16
@@ -1291,6 +1291,18 @@ declare namespace geoLocationManager {
    * @since 14
    */
   function getCurrentWifiBssidForLocating(): string;
+
+  /**
+   * Obtains the distance between two locations.
+   *
+   * @param { Location } location1 - Indicates first location.
+   * @param { Location } location2 - Indicates second location.
+   * @returns { number } Returns the distance between two locations.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getDistanceBetweenLocations(location1: Location, location2: Location): number;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
