@@ -18,8 +18,9 @@
  * @kit UserAuthenticationKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
-
+/*** endif */
 /*** if arkts 1.2 */
 import Context from './application/Context';
 /*** endif */
