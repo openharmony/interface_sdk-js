@@ -19,10 +19,9 @@
  */
 
 /*** if arkts 1.1 */
-import { int, double, AsyncCallback, Callback } from './@ohos.base';
-/*** else */
-import { AsyncCallback, Callback } from './@ohos.base';
+import { int, double } from './@ohos.base';
 /*** endif */
+import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import { NotificationRequest } from './notification/notificationRequest';
 
