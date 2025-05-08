@@ -28397,7 +28397,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getText(range?: TextRange): string;
 }
