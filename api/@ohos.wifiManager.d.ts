@@ -41,7 +41,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace wifiManager {
   /**
-   * Enables the WLAN.
+   * Enable Wi-Fi.
    * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
    *  ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @throws {BusinessError} 201 - Permission denied.
