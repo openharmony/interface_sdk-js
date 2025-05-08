@@ -1305,6 +1305,16 @@ declare namespace geoLocationManager {
     function getDistanceBetweenLocations(location1: Location, location2: Location): number;
 
   /**
+   * Check whether the POI service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if POI service is available, returns {@code false} otherwise.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function isPoiServiceSupport(): boolean;
+
+  /**
    * Obtaining POI Information.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
