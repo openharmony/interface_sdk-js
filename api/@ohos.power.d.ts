@@ -16,16 +16,18 @@
 /**
  * @file
  * @kit BasicServicesKit
+ * @arkts 1.1&1.2
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback, BusinessError, long } from './@ohos.base';
 
 /**
  * Provides interfaces to manage power.
  *
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace power {
   /**
@@ -41,7 +43,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function shutdown(reason: string): void;
 
@@ -73,7 +76,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function reboot(reason: string): void;
 
@@ -107,7 +111,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isActive(): boolean;
 
@@ -135,7 +140,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function wakeup(detail: string): void;
 
@@ -171,7 +177,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -181,7 +188,8 @@ declare namespace power {
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPowerMode(): DevicePowerMode;
 
@@ -198,7 +206,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -215,7 +224,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -225,7 +235,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isStandby(): boolean;
 
@@ -251,7 +262,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -277,44 +289,50 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setScreenOffTime(timeout: number): void;
+  function setScreenOffTime(timeout: long): void;
 
   /**
    * Power mode of a device.
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DevicePowerMode {
     /**
      * Normal power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
-     *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
+     *
      */
     MODE_POWER_SAVE,
     /**
      * Performance power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_PERFORMANCE,
     /**
      * Extreme power save mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_EXTREME_POWER_SAVE
   }
