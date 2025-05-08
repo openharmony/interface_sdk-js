@@ -4793,4 +4793,90 @@ export default class UIAbilityContext extends Context {
    * @since 18
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
+
+  /**
+   * Starts a new app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible app service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000200 - The target and the caller are not in the same group.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  startAppServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Stops an app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible app service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000200 - The target and the caller are not in the same group.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  stopAppServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Connects current ability to an app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible app service extension ability.
+   *
+   * @param { Want } want - The element name of the app service ability
+   * @param { ConnectOptions } options - The remote object instance
+   * @returns { number } Returns the number code of the ability connected
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000201 - The target has not been started yet.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  connectAppServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+
+  /**
+   * Disconnect current ability from an app service extension, in contrast to {@link connectAppServiceExtensionAbility}.
+   *
+   * @param { number } connection - The number code of the ability connected
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
 }
