@@ -3575,7 +3575,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   distanceMap?: Map<SourceTool, number>;
 }
@@ -4474,7 +4474,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDirection(): PanDirection;
   /**
@@ -4485,7 +4485,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDistance(): number;
   /**
@@ -4496,7 +4496,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDistanceMap(): Map<SourceTool, number>;
 }
