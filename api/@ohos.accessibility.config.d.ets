@@ -26,7 +26,7 @@ import { AccessibilityError } from './@ohos.accessibility';
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 9
+ * @since 20
  */
 declare namespace config {
   /**
@@ -34,16 +34,16 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 20
    */
   const highContrastText: Config<boolean>;
   /**
-   * Indicates setting, getting, and listening to changes in configuration.
+   * Indicates setting and getting in configuration.
    *
    * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 20
    */
   interface Config<T> {
     /**
@@ -61,7 +61,7 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 20
      */
     set(value: T): Promise<void>;
 
@@ -80,7 +80,7 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 20
      */
 	set(value: T, callback: (err: AccessibilityError) => void): void;
 
@@ -93,7 +93,7 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 20
      */
 	get(): Promise<T>;
 
@@ -104,7 +104,7 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 20
      */
 	get(callback:(err: AccessibilityError, data: T) => void): void;
   }
