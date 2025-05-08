@@ -885,7 +885,8 @@ declare namespace window {
    * @interface SystemBarRegionTint
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SystemBarRegionTint {
     /**
@@ -945,7 +946,8 @@ declare namespace window {
    * @interface SystemBarTintState
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SystemBarTintState {
     /**
