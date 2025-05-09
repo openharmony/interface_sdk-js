@@ -9799,4 +9799,17 @@ declare interface EmbedOptions {
    * @since 16
    */
   supportDefaultIntrinsicSize?: boolean;
+
+  /**
+   * Whether the {@link onNativeEmbedVisibilityChange} event supports display-related attributes
+   * of the embed element.
+   * <br>Default value is false. If true, the changes of the display-related attributes of the
+   * embed element will be reported through the {@link onNativeEmbedVisibilityChange} event.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  supportCssDisplayChange?: boolean;
 }
