@@ -3553,7 +3553,7 @@ declare interface AnimateParam {
   curve?: Curve | string | ICurve;
 
   /**
-   * Animation plays with delay,when set to a negative number, the animation plays in advance.
+   * Animation delay time, in ms. By default, the animation has no delay.
    *
    * @type { ?number }
    * @default 0
@@ -3561,7 +3561,7 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation delay time, in ms.
+   * Animation delay time, in ms. By default, the animation has no delay.
    *
    * @type { ?number }
    * @default 0
@@ -3570,7 +3570,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Animation delay time, in ms.
+   * Animation delay time, in ms. By default, the animation has no delay.
    *
    * @type { ?number }
    * @default 0
@@ -3582,7 +3582,9 @@ declare interface AnimateParam {
   delay?: number;
 
   /**
-   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
+   * Number of times that the animation is played. By default, the animation is played once.
+   * The value **-1** indicates that the animation is played for an unlimited number of times. 
+   * The value **0** indicates that there is no animation.
    *
    * @type { ?number }
    * @default 1
@@ -3590,7 +3592,9 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
+   * Number of times that the animation is played. By default, the animation is played once.
+   * The value **-1** indicates that the animation is played for an unlimited number of times. 
+   * The value **0** indicates that there is no animation.
    *
    * @type { ?number }
    * @default 1
@@ -3599,7 +3603,9 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
+   * Number of times that the animation is played. By default, the animation is played once.
+   * The value **-1** indicates that the animation is played for an unlimited number of times. 
+   * The value **0** indicates that there is no animation.
    *
    * @type { ?number }
    * @default 1
@@ -3611,7 +3617,7 @@ declare interface AnimateParam {
   iterations?: number;
 
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?PlayMode }
    * @default PlayMode.Normal
@@ -3619,7 +3625,7 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?PlayMode }
    * @default PlayMode.Normal
@@ -3628,7 +3634,7 @@ declare interface AnimateParam {
    * @since 9
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?PlayMode }
    * @default PlayMode.Normal
@@ -3638,7 +3644,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?PlayMode }
    * @default PlayMode.Normal
@@ -3651,14 +3657,14 @@ declare interface AnimateParam {
   playMode?: PlayMode;
 
   /**
-   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
+   * Callback invoked when the animation playback is complete.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
+   * Callback invoked when the animation playback is complete.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3666,7 +3672,7 @@ declare interface AnimateParam {
    * @since 9
    */
   /**
-   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
+   * Callback invoked when the animation playback is complete.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3675,7 +3681,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
+   * Callback invoked when the animation playback is complete.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5173,14 +5179,18 @@ declare enum TransitionHierarchyStrategy {
  */
 declare interface TranslateOptions {
   /**
-   * The param of x direction.
+   * Translation distance along the x-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of Length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of x direction.
+   * Translation distance along the x-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of Length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5188,7 +5198,9 @@ declare interface TranslateOptions {
    * @since 9
    */
   /**
-   * The param of x direction.
+   * Translation distance along the x-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of Length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5197,7 +5209,9 @@ declare interface TranslateOptions {
    * @since 10
    */
   /**
-   * The param of x direction.
+   * Translation distance along the x-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5209,14 +5223,18 @@ declare interface TranslateOptions {
   x?: number | string;
 
   /**
-   * The param of y direction.
+   * Translation distance along the y-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of y direction.
+   * Translation distance along the y-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5224,7 +5242,9 @@ declare interface TranslateOptions {
    * @since 9
    */
   /**
-   * The param of y direction.
+   * Translation distance along the y-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5233,7 +5253,9 @@ declare interface TranslateOptions {
    * @since 10
    */
   /**
-   * The param of y direction.
+   * Translation distance along the y-axis.
+   * For the number type, the unit is VP, and the value range is (-∞, +∞).
+   * For the string type, the value follows the format of length string type.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5321,14 +5343,20 @@ declare interface TranslateOptions {
  */
 declare interface ScaleOptions {
   /**
-   * The param of x direction.
+   * Scale ratio along the x-axis.
+   * x > 1: The component is scaled up along the x-axis.
+   * 0 < x < 1: The component is scaled down along the x-axis.
+   * x < 0: The component is scaled in the reverse direction of the x-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of x direction.
+   * Scale ratio along the x-axis.
+   * x > 1: The component is scaled up along the x-axis.
+   * 0 < x < 1: The component is scaled down along the x-axis.
+   * x < 0: The component is scaled in the reverse direction of the x-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5336,7 +5364,10 @@ declare interface ScaleOptions {
    * @since 9
    */
   /**
-   * The param of x direction.
+   * Scale ratio along the x-axis.
+   * x > 1: The component is scaled up along the x-axis.
+   * 0 < x < 1: The component is scaled down along the x-axis.
+   * x < 0: The component is scaled in the reverse direction of the x-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5345,7 +5376,10 @@ declare interface ScaleOptions {
    * @since 10
    */
   /**
-   * The param of x direction.
+   * Scale ratio along the x-axis.
+   * x > 1: The component is scaled up along the x-axis.
+   * 0 < x < 1: The component is scaled down along the x-axis.
+   * x < 0: The component is scaled in the reverse direction of the x-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5357,14 +5391,20 @@ declare interface ScaleOptions {
   x?: number;
 
   /**
-   * The param of y direction.
+   * Scale ratio along the y-axis.
+   * y > 1: The component is scaled up along the y-axis.
+   * 0 < y < 1: The component is scaled down along the y-axis.
+   * y < 0: The component is scaled in the reverse direction of the y-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of y direction.
+   * Scale ratio along the y-axis.
+   * y > 1: The component is scaled up along the y-axis.
+   * 0 < y < 1: The component is scaled down along the y-axis.
+   * y < 0: The component is scaled in the reverse direction of the y-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5372,7 +5412,10 @@ declare interface ScaleOptions {
    * @since 9
    */
   /**
-   * The param of y direction.
+   * Scale ratio along the y-axis.
+   * y > 1: The component is scaled up along the y-axis.
+   * 0 < y < 1: The component is scaled down along the y-axis.
+   * y < 0: The component is scaled in the reverse direction of the y-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5381,7 +5424,10 @@ declare interface ScaleOptions {
    * @since 10
    */
   /**
-   * The param of y direction.
+   * Scale ratio along the y-axis.
+   * y > 1: The component is scaled up along the y-axis.
+   * 0 < y < 1: The component is scaled down along the y-axis.
+   * y < 0: The component is scaled in the reverse direction of the y-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5437,14 +5483,14 @@ declare interface ScaleOptions {
   z?: number;
 
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5452,7 +5498,7 @@ declare interface ScaleOptions {
    * @since 9
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5461,7 +5507,7 @@ declare interface ScaleOptions {
    * @since 10
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5473,14 +5519,14 @@ declare interface ScaleOptions {
   centerX?: number | string;
 
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5488,7 +5534,7 @@ declare interface ScaleOptions {
    * @since 9
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5497,7 +5543,7 @@ declare interface ScaleOptions {
    * @since 10
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5965,14 +6011,14 @@ declare enum ChainStyle {
  */
 declare interface RotateOptions {
   /**
-   * The param of x direction.
+   * X coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of x direction.
+   * X coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5980,7 +6026,7 @@ declare interface RotateOptions {
    * @since 9
    */
   /**
-   * The param of x direction.
+   * X coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5989,7 +6035,7 @@ declare interface RotateOptions {
    * @since 10
    */
   /**
-   * The param of x direction.
+   * X coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6001,14 +6047,14 @@ declare interface RotateOptions {
   x?: number;
 
   /**
-   * The param of y direction.
+   * Y coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of y direction.
+   * Y coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6016,7 +6062,7 @@ declare interface RotateOptions {
    * @since 9
    */
   /**
-   * The param of y direction.
+   * Y coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6025,7 +6071,7 @@ declare interface RotateOptions {
    * @since 10
    */
   /**
-   * The param of y direction.
+   * Y coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6037,14 +6083,14 @@ declare interface RotateOptions {
   y?: number;
 
   /**
-   * The param of z direction.
+   * Z coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of z direction.
+   * Z coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6052,7 +6098,7 @@ declare interface RotateOptions {
    * @since 9
    */
   /**
-   * The param of z direction.
+   * Z coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6061,7 +6107,7 @@ declare interface RotateOptions {
    * @since 10
    */
   /**
-   * The param of z direction.
+   * Z coordinate of the rotation axis vector.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6073,14 +6119,14 @@ declare interface RotateOptions {
   z?: number;
 
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6088,7 +6134,7 @@ declare interface RotateOptions {
    * @since 9
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6097,7 +6143,7 @@ declare interface RotateOptions {
    * @since 10
    */
   /**
-   * The param of center point of x.
+   * X coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6109,21 +6155,21 @@ declare interface RotateOptions {
   centerX?: number | string;
 
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6132,7 +6178,7 @@ declare interface RotateOptions {
    * @since 10
    */
   /**
-   * The param of center point of y.
+   * Y coordinate of the transformation center point (anchor). Unit is vp.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6350,7 +6396,7 @@ declare enum TransitionEdge {
   TOP,
 
   /**
-   * Bottom edge
+   * Bottom edge of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6358,7 +6404,7 @@ declare enum TransitionEdge {
    * @since 10
    */
   /**
-   * Bottom edge
+   * Bottom edge of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6390,7 +6436,8 @@ declare enum TransitionEdge {
   START,
 
   /**
-   * End edge
+   * End edge of the window, which is the right edge for left-to-right scripts
+   * and the left edge for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6398,7 +6445,8 @@ declare enum TransitionEdge {
    * @since 10
    */
   /**
-   * End edge
+   * End edge of the window, which is the right edge for left-to-right scripts
+   * and the left edge for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6545,7 +6593,8 @@ declare class TransitionEffect<
   static readonly IDENTITY: TransitionEffect<"identity">;
 
   /**
-   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
+   * Applies a transition effect with the opacity changing from 0 to 1 when the component appears
+   * And from 1 to 0 when the component disappears. This is equivalent to **TransitionEffect.opacity(0)**
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -6556,7 +6605,8 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
+   * Applies a transition effect with the opacity changing from 0 to 1 when the component appears
+   * And from 1 to 0 when the component disappears. This is equivalent to **TransitionEffect.opacity(0)**
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -6656,9 +6706,13 @@ declare class TransitionEffect<
   static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
 
   /**
-   * Creates a translate transition effect
+   * Translation of the component during transition, which is the value of the start point
+   * of insertion and the end point of deletion.
    *
-   * @param { TranslateOptions } options - translate options
+   * @param { TranslateOptions } options - translate options.
+   * <br>-**x**: distance to translate along the x-axis. Unit is vp.
+   * <br>-**y**: distance to translate along the y-axis. Unit is vp.
+   * <br>-**z**: distance to translate along the z-axis. Unit is vp.
    * @returns { TransitionEffect<"translate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6666,9 +6720,13 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Creates a translate transition effect
+   * Translation of the component during transition, which is the value of the start point
+   * of insertion and the end point of deletion.
    *
-   * @param { TranslateOptions } options - translate options
+   * @param { TranslateOptions } options - translate options.
+   * <br>-**x**: distance to translate along the x-axis. Unit is vp.
+   * <br>-**y**: distance to translate along the y-axis. Unit is vp.
+   * <br>-**z**: distance to translate along the z-axis. Unit is vp.
    * @returns { TransitionEffect<"translate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6724,7 +6782,8 @@ declare class TransitionEffect<
   static rotate(options: RotateOptions): TransitionEffect<"rotate">;
 
   /**
-   * Creates a scale transition effect
+   * Scaling of the component during transition, which is the value of the start point of insertion and
+   * the end point of deletion.
    *
    * @param { ScaleOptions } options - scale options
    * @returns { TransitionEffect<"scale"> }
@@ -6734,7 +6793,8 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Creates a scale transition effect
+   * Scaling of the component during transition, which is the value of the start point of insertion and
+   * the end point of deletion.
    *
    * @param { ScaleOptions } options - scale options
    * @returns { TransitionEffect<"scale"> }
@@ -6782,7 +6842,9 @@ declare class TransitionEffect<
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
   /**
-   * Creates a move transition effect
+   * Slide-in and slide-out of the component from the screen edge during transition.
+   * It is essentially a translation effect, which is the value of the start point of insertion
+   * and the end point of deletion.
    *
    * @param { TransitionEdge } edge - the edge that component will move to
    * @returns { TransitionEffect<"move"> }
@@ -6792,7 +6854,9 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Creates a move transition effect
+   * Slide-in and slide-out of the component from the screen edge during transition.
+   * It is essentially a translation effect, which is the value of the start point of insertion
+   * and the end point of deletion.
    *
    * @param { TransitionEdge } edge - the edge that component will move to
    * @returns { TransitionEffect<"move"> }
@@ -6879,7 +6943,7 @@ declare class TransitionEffect<
   animation(value: AnimateParam): TransitionEffect;
 
   /**
-   * Combines another transition effect
+   * Combination of transition effects.
    *
    * @param { TransitionEffect } transitionEffect - transition effect which is be combined
    * @returns { TransitionEffect } combined transition effect
@@ -6889,7 +6953,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Combines another transition effect
+   * Combination of transition effects.
    *
    * @param { TransitionEffect } transitionEffect - transition effect which is be combined
    * @returns { TransitionEffect } combined transition effect
@@ -8347,14 +8411,14 @@ declare enum RepeatMode {
  */
 declare enum BlurStyle {
   /**
-   * Defines the thin card material.
+   * Thin material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Defines the thin card material.
+   * Thin material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8362,7 +8426,7 @@ declare enum BlurStyle {
    * @since 10
    */
   /**
-   * Defines the thin card material.
+   * Thin material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8399,14 +8463,14 @@ declare enum BlurStyle {
   Regular,
 
   /**
-   * Defines the thick card material.
+   * Thick material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Defines the thick card material.
+   * Thick material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8414,7 +8478,7 @@ declare enum BlurStyle {
    * @since 10
    */
   /**
-   * Defines the thick card material.
+   * Thick material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8497,7 +8561,7 @@ declare enum BlurStyle {
   BACKGROUND_ULTRA_THICK,
 
   /**
-   * Defines none material.
+   * No blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8505,7 +8569,7 @@ declare enum BlurStyle {
    * @since 10
    */
   /**
-   * Defines none material.
+   * No blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8741,14 +8805,16 @@ declare enum ThemeColorMode {
  */
 declare enum AdaptiveColor {
   /**
-   * Defines the fixed value color adaptive mode.
+   * Adaptive color mode is not used.
+   * The default color is used as the mask color. Using a mode other than **DEFAULT** can be more time-consuming.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the fixed value color adaptive mode.
+   * Adaptive color mode is not used.
+   * The default color is used as the mask color. Using a mode other than **DEFAULT** can be more time-consuming.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8811,14 +8877,14 @@ declare enum ModalTransition {
   DEFAULT,
 
   /**
-   * Use none animation.
+   * No transition animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Use none animation.
+   * No transition animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9551,14 +9617,14 @@ declare enum ShadowType {
  */
 declare interface ShadowOptions {
   /**
-   * Define the radius size of shadow
+   * Blur radius of the shadow.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Define the radius size of shadow
+   * Blur radius of the shadow.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9566,7 +9632,7 @@ declare interface ShadowOptions {
    * @since 9
    */
   /**
-   * Define the radius size of shadow
+   * Blur radius of the shadow.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9575,7 +9641,7 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Define the radius size of shadow
+   * Blur radius of the shadow.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9610,14 +9676,14 @@ declare interface ShadowOptions {
   type?: ShadowType;
 
   /**
-   * Define the color of shadow
+   * Color of the shadow. Default value: **Black**
    *
    * @type { ?(Color | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Define the color of shadow
+   * Color of the shadow. Default value: **Black**
    *
    * @type { ?(Color | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9625,7 +9691,7 @@ declare interface ShadowOptions {
    * @since 9
    */
   /**
-   * Define the color of shadow
+   * Color of the shadow. Default value: **Black**
    *
    * @type { ?(Color | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9634,7 +9700,7 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Define the color or the color strategy of shadow
+   * Color of the shadow. Default value: **Black**
    *
    * @type { ?(Color | string | Resource| ColoringStrategy) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9646,14 +9712,14 @@ declare interface ShadowOptions {
   color?: Color | string | Resource | ColoringStrategy;
 
   /**
-   * Define the horizontal offset size of shadow
+   * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Define the horizontal offset size of shadow
+   * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9661,7 +9727,7 @@ declare interface ShadowOptions {
    * @since 9
    */
   /**
-   * Define the horizontal offset size of shadow
+   * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9670,7 +9736,7 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Define the horizontal offset size of shadow
+   * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9682,14 +9748,14 @@ declare interface ShadowOptions {
   offsetX?: number | Resource;
 
   /**
-   * Define the vertical offset size of shadow
+   * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Define the vertical offset size of shadow
+   * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9697,7 +9763,7 @@ declare interface ShadowOptions {
    * @since 9
    */
   /**
-   * Define the vertical offset size of shadow
+   * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9706,7 +9772,7 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Define the vertical offset size of shadow
+   * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
    *
    * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10215,14 +10281,14 @@ declare enum SheetSize {
   LARGE,
 
   /**
-   * Defines the sheet size fit content height type. The height fit content.
+   * The sheet height automatically adapts to the content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Defines the sheet size fit content height type. The height fit content.
+   * The sheet height automatically adapts to the content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29115,26 +29181,26 @@ declare class BaseCustomComponent extends CommonAttribute {
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
   /**
-   * onPageShow Method
-   * 
-   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * Invoked each time the page is displayed, for example, during page redirection.
+   * When the application is switched to the foreground.
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * onPageShow Method
-   *
-   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * Invoked each time the page is displayed, for example, during page redirection.
+   * When the application is switched to the foreground.
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * onPageShow Method
-   *
-   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * Invoked each time the page is displayed, for example, during page redirection.
+   * When the application is switched to the foreground.
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29142,9 +29208,9 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 11
    */
   /**
-   * onPageShow Method and it is migrated from class CustomComponent.
-   *
-   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * Invoked each time the page is displayed, for example, during page redirection.
+   * When the application is switched to the foreground.
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29154,26 +29220,26 @@ declare class BaseCustomComponent extends CommonAttribute {
   onPageShow?(): void;
 
   /**
-   * onPageHide Method
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * Invoked each time the page is hidden, for example, during page redirection.
+   * When the application is switched to the background. 
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * onPageHide Method
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * Invoked each time the page is hidden, for example, during page redirection.
+   * When the application is switched to the background. 
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * onPageHide Method
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * Invoked each time the page is hidden, for example, during page redirection.
+   * When the application is switched to the background. 
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29181,9 +29247,9 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 11
    */
   /**
-   * onPageHide Method and it is migrated from class CustomComponent.
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * Invoked each time the page is hidden, for example, during page redirection.
+   * When the application is switched to the background. 
+   * It works only for the custom components decorated by **@Entry**.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29263,7 +29329,10 @@ declare class BaseCustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
-   * Triggered when the user clicks the back button
+   * Invoked when the user clicks the Back button.
+   * It works only for the custom components decorated by @Entry.
+   * The value **true** means that the page executes its own return logic.
+   * And **false** (default) means that the default return logic is used.
    * 
    * @returns { void | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29272,7 +29341,10 @@ declare class BaseCustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
-   * Triggered when the user clicks the back button
+   * Invoked when the user clicks the Back button.
+   * It works only for the custom components decorated by @Entry.
+   * The value **true** means that the page executes its own return logic.
+   * And **false** (default) means that the default return logic is used.
    * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
@@ -29284,7 +29356,10 @@ declare class BaseCustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
-   * Triggered when the user clicks the back button
+   * Invoked when the user clicks the Back button.
+   * It works only for the custom components decorated by @Entry.
+   * The value **true** means that the page executes its own return logic.
+   * And **false** (default) means that the default return logic is used.
    * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
@@ -29295,9 +29370,10 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 11
    */
   /**
-   * onBackPress Method and it is migrated from class CustomComponent.
-   *
-   * Triggered when the user clicks the back button
+   * Invoked when the user clicks the Back button.
+   * It works only for the custom components decorated by @Entry.
+   * The value **true** means that the page executes its own return logic.
+   * And **false** (default) means that the default return logic is used.
    * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
