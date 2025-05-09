@@ -31,3 +31,16 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
  * @since 20
  */
 export type CustomBuilder = @memo (() => void);
+
+
+/**
+ * Defines the PageMapBuilder Type.
+ *
+ * @typedef { @memo ((name: string, param: Object | null | undefined) => void) } PageMapBuilder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type PageMapBuilder = @memo ((name: string, param: Object | null | undefined) => void)
