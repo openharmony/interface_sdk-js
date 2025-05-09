@@ -885,7 +885,8 @@ declare namespace window {
    * @interface SystemBarRegionTint
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SystemBarRegionTint {
     /**
@@ -945,7 +946,8 @@ declare namespace window {
    * @interface SystemBarTintState
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SystemBarTintState {
     /**
@@ -3263,7 +3265,8 @@ declare namespace window {
    *                                                                  3. Parameter verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
@@ -3277,7 +3280,8 @@ declare namespace window {
    *                                                                  2. Parameter verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
@@ -3294,7 +3298,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
 
@@ -3310,7 +3315,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
@@ -3325,7 +3331,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
@@ -3340,7 +3347,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
   /**
@@ -5809,7 +5817,8 @@ declare namespace window {
      *                                                                   2. Incorrect parameter types; 
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Register the callback of avoidAreaChange
@@ -5821,7 +5830,8 @@ declare namespace window {
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Register the callback of avoidAreaChange
@@ -5833,7 +5843,8 @@ declare namespace window {
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaOptions>): void;
 
@@ -5845,7 +5856,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unregister the callback of avoidAreaChange
@@ -5856,7 +5868,8 @@ declare namespace window {
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unregister the callback of avoidAreaChange
@@ -5867,7 +5880,8 @@ declare namespace window {
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaOptions>): void;
 
@@ -6059,7 +6073,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Window visibility change callback on.
@@ -6074,7 +6089,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowVisibilityChange', callback: Callback<boolean>): void;
 
@@ -6089,7 +6105,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Window visibility change callback off.
@@ -6103,7 +6120,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
@@ -6183,7 +6201,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Register the callback of screenshot, only the focused window called back
@@ -6195,7 +6214,8 @@ declare namespace window {
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'screenshot', callback: Callback<void>): void;
 
@@ -6207,7 +6227,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unregister the callback of screenshot
@@ -6218,7 +6239,8 @@ declare namespace window {
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'screenshot', callback?: Callback<void>): void;
 
@@ -6457,7 +6479,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
@@ -6474,7 +6497,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
   
@@ -7604,7 +7628,8 @@ declare namespace window {
      * @param { AsyncCallback<image.PixelMap> } callback Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Obtains snapshot of window
@@ -7613,7 +7638,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     snapshot(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -7623,7 +7649,8 @@ declare namespace window {
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Obtains snapshot of window
@@ -7632,7 +7659,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     snapshot(): Promise<image.PixelMap>;
 
@@ -8357,7 +8385,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideNonSystemFloatingWindows(shouldHide: boolean, callback: AsyncCallback<void>): void;
 
@@ -8375,7 +8404,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
