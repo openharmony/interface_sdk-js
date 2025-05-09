@@ -155,6 +155,37 @@ declare enum RichEditorSpanType {
 }
 
 /**
+ * Defines undo style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum UndoStyle {
+  /**
+   * Undo without style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLEAR_STYLE = 0,
+
+  /**
+   * Undo keep style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  KEEP_STYLE = 1,
+}
+
+/**
  * ResponseType for contextMenu
  *
  * @enum { number }
@@ -4050,6 +4081,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 18
    */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Set undo style.
+   *
+   * @param { Optional<UndoStyle> } style - Default value is UndoStyle.CLEAR_STYLE.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
 }
 
 /**
