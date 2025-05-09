@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
 import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
@@ -291,6 +291,24 @@ declare namespace commonEventManager {
    * @since 11
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
+
+  /**
+   * Subscribes to a common event, and returns the result by promise that resolves with a success or
+   * <br> rejects with a failure code.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { Callback<CommonEventData> } callback - The callback function used to receive the CommonEventData object.
+   * @returns { Promise<void> } A promise that indicates whether the subscription was successful.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500010 - The count of subscriber exceed system specification.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
   /**
    * Unsubscribe from an ordered, sticky, or standard common event.
