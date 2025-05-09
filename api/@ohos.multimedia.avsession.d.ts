@@ -597,6 +597,15 @@ declare namespace avSession {
      * @since 12
      */
     TYPE_DLNA = 4,
+
+    /**
+     * This type indicates the device supports audio casting with high defination to get a better sound quality.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    TYPE_CAST_PLUS_AUDIO = 8,
   }
 
   /**
@@ -3826,6 +3835,28 @@ declare namespace avSession {
   }
 
   /**
+   * Audio capabilities.
+   *
+   * @typedef AudioCapabilities
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  interface AudioCapabilities {
+    /**
+     * Audio stream information.
+     * @type { Array<audio.AudioStreamInfo> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    readonly streamInfos: Array<audio.AudioStreamInfo>;
+  }
+
+  /**
    * An option to make different picker usage
    *
    * @typedef AVCastPickerOptions
@@ -4695,6 +4726,15 @@ declare namespace avSession {
      * @since 12
      */
     dataSrc?: media.AVDataSrcDescriptor;
+
+    /**
+     * Pcm source type. The app should send pcm data directly to the system.
+     * @type { ?boolean}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    pcmSrc?: boolean;
 
     /**
      * The drm scheme supported by this resource which is represented by uuid.
@@ -5588,6 +5628,16 @@ declare namespace avSession {
      * @since 13
      */
     mediumTypes?: number;
+
+    /**
+     * When the device protocol is {@link ProtocolType.TYPE_HIGH_DEFINITION_AUDIO},
+     * the device audio capabilities will be presented to let application choose proper resource to play.
+     * @type { ?AudioCapabilities }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 20
+     * @arkts 1.2
+     */
+    audioCapabilities?: AudioCapabilities;
   }
 
   /**
