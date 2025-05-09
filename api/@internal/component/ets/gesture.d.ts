@@ -1153,6 +1153,18 @@ interface BaseGestureEvent extends BaseEvent {
    * @since 12
    */
   fingerList: FingerInfo[];
+
+  /**
+   * All finger information when the gesture event is triggered, the return value
+   * is one array, and the array length is just the total fingers count. 
+   * 
+   * @type { ?FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fingerInfos?: FingerInfo[];
 }
 
 /**
@@ -1613,6 +1625,18 @@ interface GestureEvent extends BaseEvent {
    * @since 11
    */
   fingerList: FingerInfo[];
+
+  /**
+   * All finger information when the gesture event is triggered, the return value
+   * is one array, and the array length is just the total fingers count. 
+   * 
+   * @type { ?FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fingerInfos?: FingerInfo[];
 
   /**
    * Gesture event offset X.
