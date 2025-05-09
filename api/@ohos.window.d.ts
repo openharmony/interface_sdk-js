@@ -4899,9 +4899,9 @@ declare namespace window {
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the property of the window can layout in full screen
+     * Sets whether the main window layout or the child window layout is immersive.
      *
-     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @param { boolean } isLayoutFullScreen - Whether the window layout is immersive
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -4911,9 +4911,9 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Set the property of the window can layout in full screen
+     * Sets whether the main window layout or the child window layout is immersive.
      *
-     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @param { boolean } isLayoutFullScreen - Whether the window layout is immersive
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -4994,9 +4994,9 @@ declare namespace window {
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the system bar to have visible.
+     * Sets whether to show the system bar of the main window.
      *
-     * @param { Array<'status' | 'navigation'> } names - The set of system bar
+     * @param { Array<'status' | 'navigation'> } names - The set of system bar types
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5006,9 +5006,9 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Set the system bar to have visible.
+     * Sets whether to show the system bar of the main window.
      *
-     * @param { Array<'status' | 'navigation'> } names - The set of system bar
+     * @param { Array<'status' | 'navigation'> } names - The set of system bar types
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5019,9 +5019,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Set the system bar to have visible.
+     * Sets whether to show the system bar of the main window.
      *
-     * @param { Array<'status' | 'navigation'> } names - The set of system bar
+     * @param { Array<'status' | 'navigation'> } names - The set of system bar types
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
      *                                                                  2.Incorrect parameter types.
@@ -5035,9 +5035,9 @@ declare namespace window {
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
     /**
-     * Set specific system bar to have visible.
+     * Sets whether to show the specific system bar of the main window.
      *
-     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {SpecificSystemBar} name - Type of the system bar to be shown or hidden
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws {BusinessError} 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -5049,9 +5049,9 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Set specific system bar to have visible.
+     * Sets whether to show the specific system bar of the main window.
      *
-     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {SpecificSystemBar} name - Type of the system bar to be shown or hidden
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @param {boolean} enableAnimation - Whether using animation during this setting, using animation if true or not using animation if false.
      * @returns { Promise<void> } Promise that returns no value.
@@ -5164,9 +5164,9 @@ declare namespace window {
     getWindowSystemBarProperties(): SystemBarProperties;
 
     /**
-     * Set the color of the status bar.
+     * Set the content color of the status bar.
      *
-     * @param { ColorMetrics } color - Color metrics.
+     * @param { ColorMetrics } color - Content color of the status bar
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
