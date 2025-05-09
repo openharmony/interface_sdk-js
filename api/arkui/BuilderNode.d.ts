@@ -165,6 +165,16 @@ export interface BuildOptions {
    */
   nestingBuilderSupported?: boolean;
 
+  /**
+   *The LocalStorage of the Builder.
+   * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  localStorage?: LocalStorage;
 }
 
 /**
