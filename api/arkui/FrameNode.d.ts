@@ -1562,7 +1562,7 @@ export namespace typeNode {
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 
