@@ -13934,6 +13934,16 @@ declare enum SheetType {
    * @since 12
    */
   POPUP = 2,
+
+  /**
+   * Defines side sheet type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SIDE = 3,
 }
 
 /**
@@ -14983,7 +14993,19 @@ declare enum DismissReason {
   * @atomicservice
   * @since 12
   */
-  SLIDE_DOWN = 3
+  SLIDE_DOWN = 3,
+
+  /**
+  * Slide, not slide down.
+  * Default means slide right, after mirroring it means slide left.
+  * Choosing to slide left or slide right is not supported.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 20
+  */
+  SLIDE = 4,
 }
 
 /**
