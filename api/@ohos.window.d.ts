@@ -9526,6 +9526,16 @@ declare namespace window {
      * @since 18
      */
     zLevel?: number;
+    /**
+     * Indicates whether subwindow show outline
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    outlineEnabled?: boolean;
+
   }
   /**
    * WindowStage
