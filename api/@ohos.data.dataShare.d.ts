@@ -1332,7 +1332,8 @@ declare namespace dataShare {
      * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700000 - Inner error.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
+     *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1606,7 +1607,8 @@ declare namespace dataShare {
      * Close the connection between datashare and extension.
      * 
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 15700000 - Inner error.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
+     *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly

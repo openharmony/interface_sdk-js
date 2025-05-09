@@ -92,7 +92,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onLazyLoading?(index: number): void;
 
@@ -103,7 +103,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onTotalCount?(): number;
 }
@@ -173,7 +173,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**

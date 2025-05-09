@@ -176,13 +176,6 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { NetworkRadioTech } Returns the RAT of PS domain and CS domain of registered network.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 18
    */
@@ -213,6 +206,7 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * if no slotId is provided, the default slotId is 0.
    * @returns { Promise<NetworkState> } Returns the NetworkState object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.

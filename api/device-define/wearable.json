@@ -53,7 +53,6 @@
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Telephony.CallManager",
-    "SystemCapability.Telephony.CellularCall",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Security.Cert",
     "SystemCapability.Notification.CommonEvent",
@@ -196,6 +195,7 @@
     "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
-    "SystemCapability.Test.UiTest"
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager"
   ]
 }

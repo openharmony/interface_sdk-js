@@ -125,7 +125,7 @@ declare namespace wifiManager {
   function isWifiActive(): boolean;
 
   /**
-   * Scan Wi-Fi hotspot, This API works in asynchronous mode.
+   * Scan Wi-Fi hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -643,7 +643,8 @@ declare namespace wifiManager {
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
-   * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
+   * Obtain connection information about the Wi-Fi connection.this apireturns the result syncchronously.
+   * If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { WifiLinkedInfo } Returns Wi-Fi linked information.
    * @throws {BusinessError} 201 - Permission denied.
@@ -726,7 +727,7 @@ declare namespace wifiManager {
   function getDeviceMacAddress(): string[];
 
   /**
-   * Obtain the IP information of the Wi-Fi connection.
+   * Obtain the IPv4 information of the Wi-Fi connection.
    * The IP information includes the host IP address, gateway address, and DNS information.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { IpInfo } Returns the IP information of the Wi-Fi connection.
@@ -837,7 +838,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 17
    */
   function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
@@ -993,7 +994,7 @@ declare namespace wifiManager {
 
   /**
    * Enable Wi-Fi hotspot function.
-   * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
+   * After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -1007,7 +1008,7 @@ declare namespace wifiManager {
 
   /**
    * Disable Wi-Fi hotspot function.
-   * This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
+   * If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -1538,6 +1539,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi status change events.
+   * When the service exits, call off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
@@ -1552,6 +1554,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi status change events.
+   * When the service exits, call off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
@@ -1604,6 +1607,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi connection change events.
+   * When the service exits, call off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
@@ -1618,6 +1622,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi connection change events.
+   * When the service exits, call off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
@@ -1668,6 +1673,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi scan status change events.
+   * When the service exits, call off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
@@ -1682,6 +1688,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi scan status change events.
+   * When the service exits, call off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
@@ -1730,6 +1737,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi rssi change events.
+   * When the service exits, call off(type: 'wifiRssiChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
@@ -1830,6 +1838,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi hotspot state change events.
+   * When the service exits, call off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
@@ -1933,6 +1942,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P status change events.
+   * When the service exits, call off(type: 'p2pStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
@@ -1963,6 +1973,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P connection change events.
+   * When the service exits, call off(type: 'p2pConnectionChange', callback?: Callback&lt;WifiP2pLinkedInfo&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
@@ -1993,6 +2004,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P local device change events.
+   * When the service exits, call off(type: 'p2pDeviceChange', callback?: Callback&lt;WifiP2pDevice&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
@@ -2006,6 +2018,7 @@ declare namespace wifiManager {
    */
   /**
    * Subscribe P2P local device change events.
+   * When the service exits, call off(type: 'p2pDeviceChange', callback?: Callback&lt;WifiP2pDevice&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
@@ -2048,6 +2061,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P peer device change events.
+   * When the service exits, call off(type: 'p2pPeerDeviceChange', callback?: Callback&lt;WifiP2pDevice[]&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
@@ -2061,6 +2075,7 @@ declare namespace wifiManager {
    */
   /**
    * Subscribe P2P peer device change events.
+   * When the service exits, call off(type: 'p2pPeerDeviceChange', callback?: Callback&lt;WifiP2pDevice[]&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
@@ -2103,6 +2118,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P persistent group change events.
+   * When the service exits, call off(type: 'p2pPersistentGroupChange', callback?: Callback&lt;void&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
@@ -2133,6 +2149,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe P2P discovery events.
+   * When the service exits, call off(type: 'p2pDiscoveryChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
@@ -2925,7 +2942,7 @@ declare namespace wifiManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 17
      */
     isAutoConnectAllowed?: boolean;
   }

@@ -5618,20 +5618,20 @@ declare enum ImageSize {
   Auto,
 
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5639,7 +5639,7 @@ declare enum ImageSize {
    * @since 10
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10362,7 +10362,7 @@ declare enum AxisAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
  declare enum FocusDrawLevel {
   /**
@@ -10372,7 +10372,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SELF = 0,
 
@@ -10383,7 +10383,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   TOP = 1,
 }
@@ -10426,7 +10426,7 @@ declare enum DividerMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum EventQueryType {
   /**
@@ -10435,7 +10435,7 @@ declare enum EventQueryType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   ON_CLICK = 0,
 }

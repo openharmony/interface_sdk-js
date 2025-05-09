@@ -311,7 +311,7 @@ declare enum LayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum TabsCacheMode {
   /**
@@ -320,7 +320,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_BOTH_SIDE = 0,
 
@@ -330,7 +330,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_LATEST_SWITCHED = 1
 }
@@ -1717,6 +1717,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
 
   /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
+
+  /**
    * Set the BlurStyle of the tab bar.
    *
    * @param { BlurStyle } style - style indicate the blur style for the tab bar
@@ -1725,7 +1737,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
 
@@ -1737,21 +1749,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
-
-  /**
-   * Setting page flip mode on mouse wheel event.
-   *
-   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
-   * @returns { TabsAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 15
-   */
-  pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
   /**
    * Called when content will change.
@@ -1789,7 +1789,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   cachedMaxCount(count: number, mode: TabsCacheMode): TabsAttribute;
 }

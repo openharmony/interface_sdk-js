@@ -111,8 +111,6 @@ export default class UIExtensionContentSession {
    *
    * @param { string } name - name of the page to which the content will be loaded.
    * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the page.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

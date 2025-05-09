@@ -645,7 +645,7 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   paragraphSpacing?: number;
 }
@@ -1548,7 +1548,7 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   urlStyle?: RichEditorUrlStyle;
 }
@@ -2040,7 +2040,7 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   urlStyle?: RichEditorUrlStyle;
 }
@@ -2346,7 +2346,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
     urlStyle?: RichEditorUrlStyle;
 }
@@ -4089,7 +4089,7 @@ declare interface CopyEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface RichEditorUrlStyle {
   /**
@@ -4099,7 +4099,7 @@ declare interface RichEditorUrlStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   url?: ResourceStr;
 }

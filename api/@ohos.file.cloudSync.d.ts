@@ -1071,7 +1071,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 22400005 - Inner error.
-   * @throws { BusinessError } 22400006 - Other optimize task is running.
+   * @throws { BusinessError } 22400006 - The same task is already in progress.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17

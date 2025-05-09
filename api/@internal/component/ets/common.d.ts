@@ -1741,7 +1741,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface ExpectedFrameRateRange {
   /**
@@ -1766,7 +1766,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   min: number,
   /**
@@ -1791,7 +1791,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   max: number,
   /**
@@ -1822,7 +1822,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   expected: number,
 }
@@ -8597,7 +8597,7 @@ declare interface BlurOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface SystemAdaptiveOptions {
   /**
@@ -8608,7 +8608,7 @@ declare interface SystemAdaptiveOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   disableSystemAdaptation?: boolean;
 }
@@ -10132,7 +10132,7 @@ declare interface BaseEvent {
   sourceTool: SourceTool;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13092,7 +13092,7 @@ declare interface DragEvent {
   getVelocity(): number;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13102,7 +13102,7 @@ declare interface DragEvent {
    * @since 12
    */
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13460,7 +13460,7 @@ declare interface KeyEvent {
   intentionCode: IntentionCode;
 
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the modifier keys.
    * @returns { boolean }
@@ -13470,7 +13470,7 @@ declare interface KeyEvent {
    * @since 12
    */
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the modifier keys.
    * @returns { boolean }
@@ -13498,7 +13498,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isNumLockOn?: boolean;
 
@@ -13508,7 +13508,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isCapsLockOn?: boolean;
 
@@ -13518,7 +13518,7 @@ declare interface KeyEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   isScrollLockOn?: boolean;
 }
@@ -14611,7 +14611,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   showInSubWindow?: boolean;
 
@@ -18511,7 +18511,7 @@ declare enum DragPreviewMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7,
 }
@@ -18522,7 +18522,7 @@ declare enum DragPreviewMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum DraggingSizeChangeEffect {
   /**
@@ -18530,7 +18530,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   DEFAULT = 0,
 
@@ -18539,7 +18539,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SIZE_TRANSITION = 1,
 
@@ -18548,7 +18548,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SIZE_CONTENT_TRANSITION = 2,
 }
@@ -18710,7 +18710,7 @@ declare interface DragPreviewOptions {
   * @type { ?DraggingSizeChangeEffect }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 18
+  * @since 19
   */
   sizeChangeEffect?: DraggingSizeChangeEffect;
 }
@@ -19874,6 +19874,21 @@ declare class CommonMethod<T> {
   /**
    * Background blur style.
    * blurStyle:Blur style type.
+   *
+   * @param { Optional<BlurStyle> } style
+   * @param { BackgroundBlurStyleOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions): T;
+
+  /**
+   * Background blur style.
+   * blurStyle:Blur style type.
    * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
@@ -19884,7 +19899,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -19911,6 +19926,18 @@ declare class CommonMethod<T> {
 
   /**
    * options:background effect options.
+   *
+   * @param { Optional<BackgroundEffectOptions> } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
+
+  /**
+   * options:background effect options.
    * sysOptions: system adaptive options.
    *
    * @param { Optional<BackgroundEffectOptions> } options - options indicates the effect options.
@@ -19919,7 +19946,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundEffect(options: Optional<BackgroundEffectOptions>, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -20024,6 +20051,20 @@ declare class CommonMethod<T> {
   /**
    * Foreground blur style.
    * blurStyle:Blur style type.
+   *
+   * @param { Optional<BlurStyle> } style
+   * @param { ForegroundBlurStyleOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions): T;
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
    * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
@@ -20033,7 +20074,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -21389,13 +21430,29 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 18
+   */
+  blur(blurRadius: Optional<number>, options?: BlurOptions): T;
+
+  /**
+   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
+   * The larger the blurring radius, the more blurring the content.
+   * If the value is 0, the content blurring effect is not blurring.
+   *
+   * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 19
    */
   blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -22071,13 +22128,28 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates the backdrop blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 18
+   */
+  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
+
+  /**
+   * Adds the background blur effect for the current component. The input parameter is the blur radius.
+   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   *
+   * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 19
    */
   backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -25449,7 +25521,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 }
@@ -28047,7 +28119,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onNewParam?(param: ESObject): void;
 }
@@ -28397,7 +28469,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getText(range?: TextRange): string;
 }
@@ -29307,7 +29379,7 @@ declare interface KeyframeAnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   expectedFrameRateRange?: ExpectedFrameRateRange;
 }
@@ -29950,7 +30022,7 @@ declare enum HoverModeAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface DateRange {
   /**
@@ -29960,7 +30032,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   start?: Date;
 
@@ -29971,7 +30043,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   end?: Date;
 }

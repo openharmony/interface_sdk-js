@@ -672,6 +672,14 @@ declare namespace bundleManager {
     FENCE = 24,
 
     /**
+     * Indicates extension info with type of CALLER_INFO_QUERY
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 19
+     */
+    CALLER_INFO_QUERY = 25,
+
+    /**
      * Indicates extension info with type of asset acceleration
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

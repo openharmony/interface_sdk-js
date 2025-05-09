@@ -1297,7 +1297,7 @@ declare namespace pasteboard {
     /**
      * Checks whether the data is remote.
      * @returns { boolean } True is remote data, else false.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1307,7 +1307,7 @@ declare namespace pasteboard {
     /**
      * Gets source of data.
      * @returns { string } data source.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1320,7 +1320,7 @@ declare namespace pasteboard {
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1385,7 +1385,7 @@ declare namespace pasteboard {
 
     /**
      * Clears the pasteboard.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1479,7 +1479,7 @@ declare namespace pasteboard {
     /**
      * Gets pasteData from the system pasteboard.
      * @returns { PasteData }  a new PasteData.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1490,7 +1490,7 @@ declare namespace pasteboard {
      * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *    permission required to call the API.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1556,7 +1556,7 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the system pasteboard.
      * @returns { boolean } True exists, false does not exist.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1642,7 +1642,7 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1668,7 +1668,7 @@ declare namespace pasteboard {
      * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *    permission required to call the API.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1694,7 +1694,7 @@ declare namespace pasteboard {
      * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900005 - Request timed out.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1792,10 +1792,10 @@ declare namespace pasteboard {
      *     permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
-     * @throws { BusinessError } 12900007 - Copy file failed.
+     * @throws { BusinessError } 12900007 - Invalid destUri or file system error.
      * @throws { BusinessError } 12900008 - Failed to start progress.
      * @throws { BusinessError } 12900009 - Progress exits abnormally.
-     * @throws { BusinessError } 12900010 - Get pasteData error.
+     * @throws { BusinessError } 12900010 - System error occurred during paste execution.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15

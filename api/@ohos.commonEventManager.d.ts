@@ -2328,6 +2328,18 @@ declare namespace commonEventManager {
      * @since 15
      */
     COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
+
+    /**
+     * Indicates that the default application is changed.
+     * To subscribe to this common event, your application must have the ohos.permission.CHANGE_DEFAULT_APPLICATION
+     * permission.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 19
+     */
+    COMMON_EVENT_DEFAULT_APPLICATION_CHANGED = 'usual.event.DEFAULT_APPLICATION_CHANGED',
   }
 
   /**
