@@ -16,9 +16,13 @@
 /**
  * @file
  * @kit BasicServicesKit
+ * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
+/*** if arkts 1.1 */
+import { int } from './@ohos.base';
+/*** endif */
 
 /**
  * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
@@ -30,7 +34,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  *
  * @namespace runningLock
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace runningLock {
 
@@ -38,7 +43,8 @@ declare namespace runningLock {
    * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
    * when the screen is off.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class RunningLock {
     /**
@@ -60,16 +66,17 @@ declare namespace runningLock {
      * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out,
+     * @param { int } timeout Indicates the lock duration (ms). After the lock duration times out,
      * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
-     * timeout parameter must be of type number.
+     * timeout parameter must be of type int.
      * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    hold(timeout: number): void;
+    hold(timeout: int): void;
 
     /**
      * Checks whether a lock is held or in use.
@@ -88,7 +95,8 @@ declare namespace runningLock {
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHolding(): boolean;
 
@@ -112,7 +120,8 @@ declare namespace runningLock {
      * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unhold(): void;
   }
@@ -125,7 +134,8 @@ declare namespace runningLock {
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RunningLockType {
     /**
@@ -143,7 +153,8 @@ declare namespace runningLock {
      * from the user's ear, the screen turns on.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PROXIMITY_SCREEN_CONTROL
   }
@@ -238,7 +249,8 @@ declare namespace runningLock {
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
@@ -257,7 +269,8 @@ declare namespace runningLock {
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function create(name: string, type: RunningLockType): Promise<RunningLock>;
 }
