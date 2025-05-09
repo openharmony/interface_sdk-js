@@ -447,11 +447,16 @@ declare namespace fileIo {
  * @since 11
  */
 /**
- * Access file.
+ * Checks whether the file or directory exists or has the operation permission.
+ * This API uses a promise to return the result.
+ * If the read, write, or read and write permission verification fails,
+ * the error code 13900012 (Permission denied) will be thrown.
  *
- * @param { string } path - path.
- * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - accessibility mode.
- * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @param { string } path - Application sandbox path of the file to check.
+ * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - Permission on the file to verify.
+ * <br>If this parameter is left blank, the system checks whether the file exists.
+ * @returns { Promise<boolean> } Promise used to return a Boolean value.
+ * <br>Returns true if the file exists; returns false otherwise.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -513,10 +518,11 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
  * @since 10
  */
 /**
- * Access file.
+ * Checks whether a file or directory exists. This API uses an asynchronous callback to return the result.
  *
- * @param { string } path - path.
- * @param { AsyncCallback<boolean> } callback - The callback is used to return the file is accessible or not.
+ * @param { string } path - Application sandbox path of the file to check.
+ * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result.
+ * <br>The value true means the file exists; the value false means the opposite.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -537,12 +543,16 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
- * Access file.
+ * Checks whether the file or directory is stored locally or has the operation permission.
+ * This API uses a promise to return the result.If the read, write, or read and write permission verification fails,
+ * the error code 13900012 (Permission denied) will be thrown.
  *
- * @param { string } path - file path that needs to be checked whether the calling process can access.
- * @param { AccessModeType } mode - accessibility mode.
- * @param { AccessFlagType } flag - accessibility flag.
- * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @param { string } path - Application sandbox path of the file to check.
+ * @param { AccessModeType } mode - Permission on the file to verify.
+ * @param { AccessFlagType } flag - Location of the file to verify.
+ * @returns { Promise<boolean> } Promise used to return a Boolean value.
+ * <br>The value true means the file is a local file and has the related permission.
+ * <br>The value false means the file does not exist or is on the cloud or a distributed device.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -623,12 +633,15 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
  * @since 11
  */
 /**
- *  
- * Access file with sync interface.
  *
- * @param { string } path - path.
- * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - accessibility mode.
- * @returns { boolean } Returns the file is accessible or not.
+ * Checks whether a file or directory exists or has the operation permission.
+ * This API returns the result synchronously.If the read, write, or read and write permission verification fails,
+ * the error code 13900012 (Permission denied) will be thrown.
+ *
+ * @param { string } path - Application sandbox path of the file to check.
+ * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - Permission on the file to verify.
+ * <br>If this parameter is left blank, the system checks whether the file exists.
+ * @returns { boolean } Returns true if the file exists; returns false otherwise.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -649,12 +662,15 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
 declare function accessSync(path: string, mode?: AccessModeType): boolean;
 
 /**
- * Access file with sync interface.
+ * Checks whether a file or directory is stored locally or has the operation permission. This API returns the result synchronously.
+ * If the read, write, or read and write permission verification fails,
+ * the error code 13900012 (Permission denied) will be thrown.
  *
- * @param { string } path - file path that needs to be checked whether the calling process can access.
- * @param { AccessModeType } mode - accessibility mode.
- * @param { AccessFlagType } flag - accessibility flag.
- * @returns { boolean } Returns the file is accessible or not.
+ * @param { string } path - Application sandbox path of the file to check.
+ * @param { AccessModeType } mode - Permission on the file to verify.
+ * @param { AccessFlagType } flag - Location of the file to verify.
+ * @returns { boolean } Returns true if the file is a local file and has the related permission;
+ * <br>returns false if the file does not exist or is on the cloud or a distributed device.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -701,10 +717,11 @@ declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlag
  * @since 10
  */
 /**
- * Close file or fd.
+ * Closes a file or directory. This API uses a promise to return the result.
  *
- * @param { number | File } file - file object or fd.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { number | File } file - File object or FD of the file to close.
+ * <br>Once closed, the File object or FD cannot be used for read or write operations.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -748,10 +765,11 @@ declare function close(file: number | File): Promise<void>;
  * @since 10
  */
 /**
- * Close file or fd.
+ * Closes a file or directory. This API uses an asynchronous callback to return the result.
  *
- * @param { number | File } file - file object or fd.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { number | File } file - File object or FD of the file to close.
+ * <br>Once closed, the File object or FD cannot be used for read or write operations.
+ * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is closed.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -793,9 +811,10 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @since 10
  */
 /**
- * Close file or fd with sync interface.
+ * Closes a file or directory. This API returns the result synchronously.
  *
- * @param { number | File } file - file object or fd.
+ * @param { number | File } file - File object or FD of the file to close.
+ * <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -846,12 +865,16 @@ declare function closeSync(file: number | File): void;
  * @since 11
  */
 /**
- * Copy file or directory.
+ * Copies a file or directory. This API uses a promise to return the result.
+ * File copy across devices is supported. This API forcibly overwrites the file or directory.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * and the number of files to be copied at a time cannot exceed 500.
  *
- * @param { string } srcUri - src uri.
- * @param { string } destUri - dest uri.
- * @param { CopyOptions } [options] - options.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } srcUri - URI of the file or directory to copy.
+ * @param { string } destUri - URI of the destination file or directory.
+ * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
+ * <br>If this parameter is not set, the callback will not be invoked.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -885,11 +908,14 @@ declare function closeSync(file: number | File): void;
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
- * Copy file or directory.
+ * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * File copy across devices is supported. This API forcibly overwrites the file or directory. The file or directory URI is supported.
+ * A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * and the number of files to be copied at a time cannot exceed 500.
  *
- * @param { string } srcUri - src uri.
- * @param { string } destUri - dest uri.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } srcUri - URI of the file or directory to copy.
+ * @param { string } destUri - URI of the destination file or directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -922,12 +948,15 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
 declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copy file or directory.
+ * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * File copy across devices is supported. This API forcibly overwrites the file or directory. The file or directory URI is supported.
+ * A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * and the number of files to be copied at a time cannot exceed 500.
  *
- * @param { string } srcUri - src uri.
- * @param { string } destUri - dest uri.
- * @param { CopyOptions } options - options.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } srcUri - URI of the file or directory to copy.
+ * @param { string } destUri - URI of the destination file or directory.
+ * @param { CopyOptions } options - Callback used to return the copy progress.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -987,12 +1016,21 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @since 10
  */
 /**
- * Copy directory.
+ * Copies the source directory to the destination directory. This API uses a promise to return the result.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination folder.
+ * @param { number } [mode = 0] - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1017,11 +1055,12 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
 declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
- * Copy directory.
+ * Copies the source directory to the destination directory.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1045,11 +1084,12 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copy directory.
+ * Copies the source directory to the destination directory.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
@@ -1058,12 +1098,22 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
 
 
 /**
- * Copy directory.
+ * Copies the source directory to the destination directory. You can set the copy mode.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } mode - mode.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1087,12 +1137,22 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
- * Copy directory.
+ * Copies the source directory to the destination directory. You can set the copy mode.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } mode - mode.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
@@ -1127,11 +1187,20 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @since 10
  */
 /**
- * Copy directory with sync interface.
+ * Copies the source directory to the destination directory. This API returns the result synchronously.
  *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } [mode = 0] - mode.
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the source directory.
+ * @param { number } [mode = 0] - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1241,12 +1310,14 @@ declare function copyDirSync(src: string, dest: string, mode?: number): void;
  * @since 11
  */
 /**
- * Copy file.
+ * Copies a file. This API uses a promise to return the result.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string | number } src - Path or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
+ * @param { number } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
+ * <br>The default value is 0, which is the only value supported.
+ * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1326,11 +1397,12 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @since 10
  */
 /**
- * Copy file.
+ * Copies a file. This API overwrites the file with the same name in the destination directory and truncates the part that is not overwritten.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string | number } src - Path or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
+ * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is copied.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1411,12 +1483,15 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @since 10
  */
 /**
- * Copy file.
+ * Copies a file. This API overwrites the file with the same name in the destination directory
+ * and truncates the part that is not overwritten. This API uses an asynchronous callback to return the result.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { number } [mode = 0] - mode.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string | number } src - Path or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
+ * @param { number } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
+ * <br>The default value is 0, which is the only value supported.
+ * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is copied.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1528,11 +1603,13 @@ declare function copyFile(
  * @since 11
  */
 /**
- * Copy file with sync interface.
+ * Copies a file. This API returns the result synchronously.
  *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { number } [mode = 0] - mode.
+ * @param { string | number } src - Path or FD of the file to copy.
+ * @param { string | number } dest - Destination path of the file or FD of the file created.
+ * @param { number } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
+ * <br>The default value is 0, which is the only value supported.
+ * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1559,11 +1636,12 @@ declare function copyFile(
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
 /**
- * Create class Stream.
+ * Callback invoked immediately after the file is copied.
  *
- * @param { string } path - path.
- * @param { string } mode - mode.
- * @returns { Promise<Stream> } return Promise
+ * @param { string } path - Path or FD of the file to copy.
+ * @param { string } mode - Whether to overwrite the file with the same name in the destination directory.
+ * <br>The default value is 0, which is the only value supported.
+ * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1594,11 +1672,20 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @since 9
  */
 /**
- * Create class Stream.
+ * Creates a stream based on a file path. This API uses a promise to return the result.
+ * To close the stream, use close() of Stream.
  *
- * @param { string } path - path.
- * @param { string } mode - mode.
- * @returns { Promise<Stream> } return Promise
+ * @param { string } path - Application sandbox path of the file.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ * <br>If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * @returns { Promise<Stream> } Promise used to return the stream opened.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1632,11 +1719,20 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
 declare function createStream(path: string, mode: string): Promise<Stream>;
 
 /**
- * Create class Stream.
+ * Creates a stream based on a file path. This API uses an asynchronous callback to return the result.
+ * To close the stream, use close() of Stream.
  *
- * @param { string } path - path.
- * @param { string } mode - mode.
- * @param { AsyncCallback<Stream> } callback - callback.
+ * @param { string } path - Application sandbox path of the file.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ * <br>If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1704,11 +1800,20 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @since 9
  */
 /**
- * Create class Stream with sync interface.
+ * Creates a stream based on a file path. This API returns the result synchronously.
+ * To close the stream, use close() of Stream.
  *
- * @param { string } path - path.
- * @param { string } mode - mode.
- * @returns { Stream } createStream
+ * @param { string } path - Application sandbox path of the file.
+ * @param { string } mode - -r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ * <br>If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * @returns { Stream } Stream opened.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1778,12 +1883,13 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * @since 10
  */
 /**
- * Create class RandomAccessFile.
+ * Creates a RandomAccessFile instance based on a file path or file object.
+ * This API uses a promise to return the result.
  *
- * @param { string | File } file - file path, object.
- * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { RandomAccessFileOptions } [options] - RandomAccessFile options
- * @returns { Promise<RandomAccessFile> } Returns the RandomAccessFile object which has been created in promise mode.
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
+ * @returns { Promise<RandomAccessFile> } Promise used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1818,10 +1924,11 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
 
 /**
- * Create class RandomAccessFile.
+ * Creates a RandomAccessFile object in read-only mode based on a file path or file object.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string | File } file - file path, object.
- * @param { AsyncCallback<RandomAccessFile> } callback - The callback is used to return the RandomAccessFile object which has been created.
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1854,11 +1961,12 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
 declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
- * Create class RandomAccessFile.
+ * Creates a RandomAccessFile instance based on a file path or file object.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string | File } file - file path, object.
- * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<RandomAccessFile> } callback - The callback is used to return the RandomAccessFile object which has been created.
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1926,12 +2034,12 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  * @since 10
  */
 /**
- * Create class RandomAccessFile with sync interface.
+ * Creates a RandomAccessFile instance based on a file path or file object.
  *
- * @param { string | File } file - file path, object.
- * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { RandomAccessFileOptions } [options] - RandomAccessFile options
- * @returns { RandomAccessFile } Returns the RandomAccessFile object which has been created.
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
+ * @returns { RandomAccessFile } RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1966,11 +2074,11 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): RandomAccessFile;
 
 /**
- * Create file read stream.
+ * Creates a readable stream. This API returns the result synchronously.
  *
- * @param { string } path - file path.
- * @param { ReadStreamOptions } [options] - Optional parameters for ReadStream.
- * @returns { ReadStream } Returns the ReadStream object which has been created.
+ * @param { string } path - Path of the file.
+ * @param { ReadStreamOptions } [options] - Defines the options used in createReadStream().
+ * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1993,11 +2101,11 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
 declare function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
 /**
- * Create file write stream.
+ * Creates a writeable stream. This API returns the result synchronously.
  *
- * @param { string } path - file path.
- * @param { WriteStreamOptions } [options] - Optional parameters for ReadStream.
- * @returns { WriteStream } Returns the WriteStream object which has been created.
+ * @param { string } path - Path of the file.
+ * @param { WriteStreamOptions } [options] - Defines the options used in createWriteStream().
+ * @returns { WriteStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2022,12 +2130,13 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
 declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
 /**
- * Create watcher to listen for file changes.
+ * Creates a Watcher object to listen for file or directory changes.
  *
- * @param { string } path - path.
- * @param { number } events - listened events.
- * @param { WatchEventListener } listener - Callback to invoke when an event of the specified type occurs.
- * @returns { Watcher } Returns the Watcher object which has been created.
+ * @param { string } path - Application sandbox path of the file or directory to observe.
+ * @param { number } events - Events to observe. Multiple events can be separated by a bitwise OR operator (|).
+ * @param { WatchEventListener } listener - Callback invoked when an observed event occurs.
+ * <br>The callback will be invoked each time an observed event occurs.
+ * @returns { Watcher } Watcher object created.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2047,10 +2156,10 @@ declare function createWriteStream(path: string, options?: WriteStreamOptions): 
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
 /**
- * Duplicate fd to File Object.
+ * Opens a File object based on an FD.
  *
- * @param { number } fd - fd.
- * @returns { File } return File
+ * @param { number } fd - FD of the file.
+ * @returns { File } File object opened.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2079,10 +2188,10 @@ declare function dup(fd: number): File;
  * @since 9
  */
 /**
- * Synchronize file metadata.
+ * Synchronizes the data of a file. This API uses a promise to return the result.
  *
- * @param { number } fd - fd.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { number } fd - FD of the file.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2112,10 +2221,11 @@ declare function fdatasync(fd: number): Promise<void>;
  * @since 9
  */
 /**
- * Synchronize file metadata.
+ * Synchronizes the data (excluding the metadata) of a file.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { number } fd - fd.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { number } fd - FD of the file.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2144,9 +2254,9 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  * @since 9
  */
 /**
- * Synchronize file metadata with sync interface.
+ * Synchronizes the data of a file. This API returns the result synchronously.
  *
- * @param { number } fd - fd.
+ * @param { number } fd - FD of the file.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2161,10 +2271,18 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 declare function fdatasyncSync(fd: number): void;
 
 /**
- * Create class Stream by using fd.
+ * Opens a stream based on an FD. This API uses a promise to return the result. To close the stream,
+ * use close() of Stream.
  *
- * @param { number } fd - fd.
- * @param { string } mode - mode.
+ * @param { number } fd - FD of the file.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
  * @returns { Promise<Stream> } Returns the Stream object in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2199,11 +2317,19 @@ declare function fdatasyncSync(fd: number): void;
 declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 
 /**
- * Create class Stream by using fd.
+ * Opens a stream based on an FD. This API uses an asynchronous callback to return the result.
+ * To close the stream, use close() of Stream.
  *
- * @param { number } fd - fd.
- * @param { string } mode - mode.
- * @param { AsyncCallback<Stream> } callback - The callback is used to return the Stream object.
+ * @param { number } fd - FD of the file.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2237,10 +2363,18 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
- * Create class Stream by using fd with sync interface.
+ * Opens a stream based on an FD. This API returns the result synchronously. To close the stream, use close() of Stream.
  *
- * @param { number } fd - fd.
- * @param { string } mode - mode.
+ * @param { number } fd - FD of the file.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
+ * <br>r+: Open a file for both reading and writing. The file must exist.
+ * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
+ * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
+ * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2256,6 +2390,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @throws { BusinessError } 13900017 - No such device
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
+ * 
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900022 - Too many open files
  * @throws { BusinessError } 13900023 - Text file busy
@@ -2290,9 +2425,9 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @since 9
  */
 /**
- * Synchronize file.
+ * Synchronizes the cached data of a file to storage. This API uses a promise to return the result.
  *
- * @param { number } fd - fd.
+ * @param { number } fd - FD of the file.
  * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2323,10 +2458,10 @@ declare function fsync(fd: number): Promise<void>;
  * @since 9
  */
 /**
- * Synchronize file.
+ * Synchronizes the cached data of a file to storage. This API uses an asynchronous callback to return the result.
  *
- * @param { number } fd - fd.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { number } fd - FD of the file.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2355,9 +2490,9 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  * @since 9
  */
 /**
- * Synchronize file with sync interface.
+ * Synchronizes the cached data of a file to storage. This API returns the result synchronously.
  *
- * @param { number } fd - fd.
+ * @param { number } fd - FD of the file.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2403,12 +2538,12 @@ declare function fsyncSync(fd: number): void;
  * @since 10
  */
 /**
- * List file.
+ * Lists all file names in a directory. This API supports recursive listing of all file names and file filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory. This API uses a promise to return the result.
  *
- * @param { string } path - path.
- * @param { ListFileOptions } [options] - options.
- * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria.
- *      If present, Include the subdirectory structure.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { Promise<string[]> } Promise used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2454,11 +2589,10 @@ declare function listFile(
  * @since 10
  */
 /**
- * List file.
+ * Lists all file names in a directory. This API uses a promise to return the result.
  *
- * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
- *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2503,12 +2637,12 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * @since 10
  */
 /**
- * List file.
+ * Lists all file names in a directory. This API supports recursive listing of all file names and file filtering.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } path - path.
- * @param { ListFileOptions } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
- *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2555,11 +2689,12 @@ declare function listFile(
  * @since 10
  */
 /**
- * List file with sync interface.
+ * Lists all file names in a directory. This API returns the result synchronously.
+ * This API supports recursive listing of all file names and file filtering.
  *
- * @param { string } path - path.
- * @param { ListFileOptions } [options] - options.
- * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { string[] } List of the file names obtained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2591,11 +2726,12 @@ declare function listFileSync(
  * @since 11
  */
 /**
- *  Reposition file offset.
+ *  Adjusts the position of the file offset pointer.
  *
- * @param { number } fd - file descriptor.
- * @param { number } offset - file offset.
- * @param { WhenceType } [whence = WhenceType.SEEK_SET] - directive whence.
+ * @param { number } fd - FD of the file.
+ * @param { number } offset - Number of bytes to move the offset.
+ * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
+ * <br>If this parameter is not specified, the file start position is used by default.
  * @returns { number } Returns the file offset relative to starting position of file.
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2609,10 +2745,11 @@ declare function listFileSync(
 declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
 /**
- * Stat link file.
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses a promise to return the result.
  *
- * @param { string } path - path.
- * @returns { Promise<Stat> } Returns the Stat object in promise mode.
+ * @param { string } path - Application sandbox path of the file.
+ * @returns { Promise<Stat> } Promise used to return the symbolic link information obtained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2629,10 +2766,11 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 declare function lstat(path: string): Promise<Stat>;
 
 /**
- * Stat link file.
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses an asynchronous callback to return the result.
  *
- * @param { string } path - path.
- * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
+ * @param { string } path - Application sandbox path of the file.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2649,10 +2787,11 @@ declare function lstat(path: string): Promise<Stat>;
 declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
- * Stat link file with sync interface.
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API returns the result synchronously.
  *
- * @param { string } path - path.
- * @returns { Stat } Returns the Stat object.
+ * @param { string } path - Application sandbox path of the file.
+ * @returns { Stat } File information obtained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2716,10 +2855,10 @@ declare function lstatSync(path: string): Stat;
  * @since 10
  */
 /**
- * Make dir.
+ * Creates a directory. This API uses a promise to return the result.
  *
- * @param { string } path - path.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } path - Application sandbox path of the directory.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2743,11 +2882,12 @@ declare function lstatSync(path: string): Stat;
 declare function mkdir(path: string): Promise<void>;
 
 /**
- * Make dir.
+ * Creates a directory. This API uses a promise to return the result. The value true means to create a directory recursively.
  *
- * @param { string } path - path.
- * @param { boolean } recursion - whether to recursively make directory.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2817,10 +2957,10 @@ declare function mkdir(path: string, recursion: boolean): Promise<void>;
  * @since 10
  */
 /**
- * Make dir.
+ * Creates a directory. This API uses an asynchronous callback to return the result.
  *
- * @param { string } path - path.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2844,11 +2984,13 @@ declare function mkdir(path: string, recursion: boolean): Promise<void>;
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * Make dir.
+ * Creates a directory. This API uses an asynchronous callback to return the result.
+ * The value true means to create a directory recursively.
  *
- * @param { string } path - path.
- * @param { boolean } recursion - whether to recursively make directory.
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2916,9 +3058,9 @@ declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback
  * @since 10
  */
 /**
- * Make dir with sync interface.
+ * Creates a directory. This API returns the result synchronously.
  *
- * @param { string } path - path.
+ * @param { string } path - Application sandbox path of the directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2942,10 +3084,11 @@ declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback
 declare function mkdirSync(path: string): void;
 
 /**
- * Make dir with sync interface.
+ * Creates a directory. This API returns the result synchronously. The value true means to create a directory recursively.
  *
- * @param { string } path - path.
- * @param { boolean } recursion - whether to recursively make directory.
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2991,10 +3134,10 @@ declare function mkdirSync(path: string, recursion: boolean): void;
  * @since 9
  */
 /**
- * Make temp dir.
+ * Creates a temporary directory. This API uses a promise to return the result.
  *
- * @param { string } prefix - dir prefix.
- * @returns { Promise<string> } Returns the path to the new directory in promise mode.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @returns { Promise<string> } Promise used to return the directory created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3040,10 +3183,11 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * @since 9
  */
 /**
- * Make temp dir.
+ * Creates a temporary directory. This API uses an asynchronous callback to return the result.
+ * The directory name is created by replacing a string (specified by prefix) with six randomly generated characters.
  *
- * @param { string } prefix - dir prefix.
- * @param { AsyncCallback<string> } callback - The callback is used to return the path to the new directory.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @param { AsyncCallback<string> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3089,10 +3233,11 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @since 9
  */
 /**
- * Make temp dir with sync interface.
+ * Creates a temporary directory. This API returns the result synchronously.
+ * The directory name is created by replacing a string (specified by prefix) with six randomly generated characters.
  *
- * @param { string } prefix - dir prefix.
- * @returns { string } Returns the path to the new directory.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @returns { string } Unique path generated.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
