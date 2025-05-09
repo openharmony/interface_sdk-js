@@ -785,6 +785,17 @@ declare interface ScrollOptions {
    * @since 12
    */
   animation?: ScrollAnimationOptions | boolean;
+
+  /**
+   * Set whether the scroll target position can over the boundary.
+   *
+   * @type { ?boolean } whether the scroll target position can over the boundary.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  canOverScroll?: boolean;
 }
 
 /**
