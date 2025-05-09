@@ -4808,6 +4808,18 @@ declare namespace media {
     updateRotation(rotation: number): Promise<void>;
 
     /**
+     * Set if recorder want to be muted instead of interrupted.
+     * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
+     *     instead of interrupted.
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     */
+    setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
+
+    /**
      * Start AVRecorder, it will to started state.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when start completed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
