@@ -29,14 +29,74 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace systemDateTime {
   /**
+   * Sets the system time.
+   *
+   * @permission ohos.permission.SET_TIME
+   * @param { long } time - Indicates the target timestamp(in milliseconds)
+   * @param { AsyncCallback<void> } callback - The callback of setTime
+   * @syscap SystemCapability.MiscServices.Time
+   * @systemapi Hide this for inner system use
+   * @since 20
+   */
+  function setTime(time: long, callback: AsyncCallback<void>): void;
+  
+  /**
+   * Sets the system time.
+   *
+   * @permission ohos.permission.SET_TIME
+   * @param { long } time - Indicates the target timestamp(in milliseconds)
+   * @returns { Promise<void> } The promise returned by the function
+   * @syscap SystemCapability.MiscServices.Time
+   * @systemapi Hide this for inner system use
+   * @since 20
+   */
+  function setTime(time: long): Promise<void>;
+
+  /**
    * Obtains the number of timestamp that have elapsed since the Unix epoch.
    *
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
-   * @returns { number } The timestamp returned of getTime.
+   * @returns { long } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @since 20
    */
-  function getTime(isNanoseconds?: boolean): number;
+  function getTime(isNanoseconds?: boolean): long;
+
+  /**
+   * Indicates time type.
+   *
+   * @enum { int } TimeType
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 20
+   */
+  enum TimeType {
+    /**
+     * Indicates the time elapsed since the system was booted, including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 20
+     */
+    STARTUP,
+
+    /**
+     * Indicates the time elapsed since the system was booted, not including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 20
+     */
+    ACTIVE
+  }
+
+  /**
+   * Obtains the number of milliseconds since the system has been running.
+   *
+   * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { long } The timestamp returned of getUpTime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 20
+   */
+  function getUptime(timeType: TimeType, isNanoseconds?: boolean): long;
 
   /**
    * Obtains the system time zone.
