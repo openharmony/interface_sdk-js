@@ -764,6 +764,14 @@ declare namespace bundleManager {
     DISTRIBUTED = 28,
 
     /**
+     * Indicates extension info with type of app service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     */
+    APP_SERVICE = 29,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
