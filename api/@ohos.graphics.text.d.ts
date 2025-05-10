@@ -731,7 +731,7 @@ declare namespace text {
   interface TextStyle {
 
     /**
-     * Decoration of text.
+     * Text decoration. By default, no decoration is used.
      * @type { ?Decoration } decoration for text
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -739,7 +739,7 @@ declare namespace text {
     decoration?: Decoration;
 
     /**
-     * Color of text.
+     * Text color. The default color is white.
      * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -747,7 +747,9 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Font weight of text.
+     * Font weight. The default value is W400. Currently, only the default system font supports font weight adjustment.
+     * For other fonts, if the weight is less than semi-bold (W600), there is no variation in stroke thickness.
+     * If the weight is greater than or equal to semi-bold, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -755,7 +757,7 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
-     * Font style of text.
+     * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -763,7 +765,7 @@ declare namespace text {
     fontStyle?: FontStyle;
 
     /**
-     * Base line of text.
+     * Text baseline type. The default value is ALPHABETIC.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -771,7 +773,7 @@ declare namespace text {
     baseline?: TextBaseline;
 
     /**
-     * Font Families of text.
+     * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -779,7 +781,7 @@ declare namespace text {
     fontFamilies?: Array<string>;
 
     /**
-     * Font size of text.
+     * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -787,7 +789,9 @@ declare namespace text {
     fontSize?: number;
 
     /**
-     * Letter spacing of text.
+     * Letter spacing, in units of px. The value is a floating point number.
+     * The default value is 0.0. A positive value causes characters to spread farther apart,
+     * and a negative value bring characters closer together.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -795,7 +799,7 @@ declare namespace text {
     letterSpacing?: number;
 
     /**
-     * Word spacing of text.
+     * Word spacing, in units of px. The value is a floating point number. The default value is 0.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -803,7 +807,8 @@ declare namespace text {
     wordSpacing?: number;
 
     /**
-     * Height scale of text.
+     * Scale factor of the line height. The value is a floating point number.
+     * The default value is 1.0. This parameter is valid only when heightOnly is set to true.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -811,7 +816,9 @@ declare namespace text {
     heightScale?: number;
 
     /**
-     * Half leading of text.
+     * Whether half leading is enabled.
+     * Half leading is the leading split in half and applied equally to the top and bottom edges.
+     * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -819,8 +826,9 @@ declare namespace text {
     halfLeading?: boolean;
 
     /**
-     * Control the height calculation method of font blob, true means calculate the height of the blob by
-     * the font size, false means by the line height and leading.
+     * How the height of the text box is set.
+     * The value true means that the height of the text box is set based on the font size and the value of heightScale,
+     * and false means that the height is set based on the line height and line spacing. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -828,7 +836,7 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * Text ellipsis.
+     * Ellipsis content, which will be used to replace the extra content.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -836,7 +844,7 @@ declare namespace text {
     ellipsis?: string;
 
     /**
-     * Text ellipsis mode.
+     * Ellipsis type. The default value is END, indicating that the ellipsis is at the end of a line.
      * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -844,7 +852,8 @@ declare namespace text {
     ellipsisMode?: EllipsisMode;
 
     /**
-     * Text locale.
+     * Locale. For example, 'en' indicates English, 'zh-Hans' indicates Simplified Chinese,
+     * and 'zh-Hant' indicates Traditional Chinese. For details, see ISO 639-1. The default value is an empty string.
      * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -852,7 +861,7 @@ declare namespace text {
     locale?: string;
 
     /**
-     * The offset distance that the underline of text.
+     * Shift of the baseline. The value is a floating point number. The default value is 0.0px.
      * @type { ?number } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -876,7 +885,7 @@ declare namespace text {
     textShadows?: Array<TextShadow>;
 
     /**
-     * Rect style of text.
+     * Rectangle style of text.
      * @type { ?RectStyle } rect style for text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -901,7 +910,7 @@ declare namespace text {
   }
 
   /**
-   * Provides the basis for graphics.
+   * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -915,19 +924,25 @@ declare namespace text {
     static getGlobalInstance(): FontCollection;
 
     /**
-     * Load font.
+     * Loads a custom font. This API returns the result synchronously.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf and .otf.
      * @param { string } name - the font name.
-     * @param { string | Resource } path - the path of the font file.
+     * @param { string | Resource } path - Path of the font file to import. The value must be
+     * <br>**file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     loadFontSync(name: string, path: string | Resource): void;
 
     /**
-     * Load font.
-     * @param { string } name - The font name.
-     * @param { string | Resource } path - The path of the font file.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Loads a custom font. This API uses a promise to return the result.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are ttf and otf.
+     * @param { string } name - Name of the font. Any string is acceptable.
+     * @param { string | Resource } path - Path of the font file to load.
+     * <br>The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -937,6 +952,8 @@ declare namespace text {
 
     /**
      * Clear font caches.
+     * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
+     * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -944,14 +961,15 @@ declare namespace text {
   }
 
   /**
-   * Describes strut style.
+   * Describes the strut style, which determines the line spacing, baseline alignment mode,
+   * and other properties related to the line height when drawing texts. The strut style is disabled by default.
    * @typedef StrutStyle
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface StrutStyle {
     /**
-     * The families of the font to use when calculating the strut.
+     * List of font families. By default, the list corresponds to the system's default fonts.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -959,7 +977,7 @@ declare namespace text {
     fontFamilies?: Array<string>;
 
     /**
-     * The font style to use when calculating the strut.
+     * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -967,7 +985,7 @@ declare namespace text {
     fontStyle?: FontStyle;
 
     /**
-     * The font width to use when calculating the strut.
+     * Font width. The default value is NORMAL.
      * @type { ?FontWidth } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -975,7 +993,9 @@ declare namespace text {
     fontWidth?: FontWidth;
 
     /**
-     * The font weight to use when calculating the strut.
+     * Font weight. The default value is W400. The default system font supports font weight adjustment.
+     * For other fonts, if the weight is less than W600, there is no variation in stroke thickness.
+     * If the weight is greater than or equal to W600, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -983,7 +1003,7 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
-     * The size of the ascent plus descent in logical pixels.
+     * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -991,7 +1011,7 @@ declare namespace text {
     fontSize?: number;
 
     /**
-     * The minimum height of the strut, as a multiple of fontSize.
+     * Scale factor of the line height. The value is a floating point number. The default value is 1.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -999,7 +1019,7 @@ declare namespace text {
     height?: number;
 
     /**
-     * The additional leading to apply to the strut as a multiple of Size.
+     * Custom leading to be applied to the strut. The value is a floating point number. The default value is -1.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1007,7 +1027,8 @@ declare namespace text {
     leading?: number;
 
     /**
-     * Whether the strut height should be forced.
+     * Whether to forcibly use the strut height for all lines. The value true means to forcibly use the strut height
+     * for all lines, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1015,7 +1036,8 @@ declare namespace text {
     forceHeight?: boolean;
 
     /**
-     * Whether the strut style should be enable.
+     * Whether to enable the strut style.
+     * The value true means to enable the strut style, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1023,7 +1045,8 @@ declare namespace text {
     enabled?: boolean;
 
     /**
-     * Whether the height is override.
+     * 	Whether to override the height. The value true means to override the height, and false means the opposite.
+     * The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1031,7 +1054,9 @@ declare namespace text {
     heightOverride?: boolean;
 
     /**
-     * Whether the half leading is enable.
+     * Whether half leading is enabled.
+     * Half leading is the leading split in half and applied equally to the top and bottom edges.
+     * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1047,7 +1072,7 @@ declare namespace text {
    */
   interface ParagraphStyle {
     /**
-     * Text style of paragraph.
+     * Text style applied to the paragraph. The default value is the initial text style.
      * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1055,7 +1080,7 @@ declare namespace text {
     textStyle?: TextStyle;
 
     /**
-     * Text runs direction.
+     * Text direction. The default value is LTR.
      * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1063,7 +1088,7 @@ declare namespace text {
     textDirection?: TextDirection;
 
     /**
-     * Refers to how to align the horizontal position of text when displaying text.
+     * Text alignment mode. The default value is START. This parameter is invalid when the tab parameter is configured.
      * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1071,7 +1096,7 @@ declare namespace text {
     align?: TextAlign;
 
     /**
-     * Word break strategy.
+     * Word break type. The default value is BREAK_WORD.
      * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1079,7 +1104,7 @@ declare namespace text {
     wordBreak?: WordBreak;
 
     /**
-     * Maximum number of lines.
+     * Maximum number of lines. The value is an integer. The default value is 1e9.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1087,7 +1112,7 @@ declare namespace text {
     maxLines?: number;
 
     /**
-     * text segmentation strategy.
+     * Text break strategy. The default value is GREEDY.
      * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1095,7 +1120,7 @@ declare namespace text {
     breakStrategy?: BreakStrategy;
 
     /**
-     * Strut style of paragraph.
+     * Strut style. The default value is the initial StrutStyle object.
      * @type { ?StrutStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1103,7 +1128,7 @@ declare namespace text {
     strutStyle?: StrutStyle;
 
     /**
-     * Text height behavior of paragraph.
+     * Text height modifier pattern. The default value is ALL.
      * @type { ?TextHeightBehavior }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1111,10 +1136,9 @@ declare namespace text {
     textHeightBehavior?: TextHeightBehavior;
 
     /**
-     * Text tab of paragraph. Tab alignment does not take effect when text alignment is also set, Or when the ellipsis
-     * style is configured. When the tab is not set or the tab's location property is less than or equal to 0,
-     * it is the default space effect. And all tabs in the paragraph after the setting are aligned
-     * according to this tab effect.
+     * Alignment mode and position of the text after the tab character in a paragraph. By default, the tab character
+     * is replaced with a space. This parameter is invalid when it is used together with the align parameter or
+     * the ellipsis parameter in TextStyle.
      * @type { ?TextTab }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1123,21 +1147,21 @@ declare namespace text {
   }
 
   /**
-   * Where to vertically align the placeholder relative to the surrounding text.
+   * Enumerates the vertical alignment modes of a placeholder relative to the surrounding text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum PlaceholderAlignment {
     /**
-     * Match the baseline of the placeholder with the baseline.
+     * Aligns the baseline of the placeholder to the baseline of the text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     OFFSET_AT_BASELINE,
 
     /**
-     * Align the bottom edge of the placeholder with the baseline such that the placeholder
+     * Aligns the bottom edge of the placeholder to the baseline of the text.
      * sits on top of the baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1145,7 +1169,7 @@ declare namespace text {
     ABOVE_BASELINE,
 
     /**
-     * Align the top edge of the placeholder with the baseline specified in such that the placeholder
+     * Aligns the top edge of the placeholder to the baseline of the text.
      * hangs below the baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1169,7 +1193,7 @@ declare namespace text {
     BOTTOM_OF_ROW_BOX,
 
     /**
-     * Align the middle of the placeholder with the middle of the text.When the placeholder is very tall,
+     * Align the middle of the placeholder with the middle of the text. When the placeholder is very tall,
      * the extra space will grow equally from the top and bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
