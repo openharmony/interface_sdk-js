@@ -25,7 +25,7 @@
   *
   * @throws { BusinessError } 17000001 - Initialization failed.
   * @syscap SystemCapability.Test.UiTest
-  * @since arkts {'1.2':20}
+  * @since 20
   * @arkts 1.2
   * @test
   */
@@ -53,7 +53,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice 
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum MatchPattern {
@@ -78,7 +78,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -104,7 +104,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -130,7 +130,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -156,7 +156,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -166,7 +166,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -176,7 +176,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -706,7 +706,7 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum WindowMode {
@@ -722,7 +722,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -739,7 +739,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -756,7 +756,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -773,7 +773,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -793,7 +793,7 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum ResizeDirection {
@@ -809,7 +809,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -826,7 +826,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -843,7 +843,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -860,7 +860,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -877,7 +877,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -894,7 +894,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -911,7 +911,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -928,7 +928,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -948,7 +948,7 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum DisplayRotation {
@@ -964,7 +964,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -981,7 +981,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -998,7 +998,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1015,7 +1015,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1044,7 +1044,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare interface Point {
@@ -1073,7 +1073,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly x: number;
@@ -1102,7 +1102,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly y: number;
@@ -1130,7 +1130,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':12, '1.2':20}
+  * @since arkts {'1.1':'12','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare interface Rect {
@@ -1159,7 +1159,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly left: number;
@@ -1188,7 +1188,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly top: number;
@@ -1217,7 +1217,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly right: number;
@@ -1246,7 +1246,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly bottom: number;
@@ -1265,7 +1265,7 @@
   * @typedef WindowFilter
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare interface WindowFilter {
@@ -1282,7 +1282,7 @@
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    bundleName?: string;
@@ -1300,7 +1300,7 @@
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    title?: string;
@@ -1318,7 +1318,7 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    focused?: boolean;
@@ -1346,7 +1346,7 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
    active?: boolean;
@@ -1366,7 +1366,7 @@
   * @typedef UIElementInfo
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -1385,7 +1385,7 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1404,7 +1404,7 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1423,7 +1423,7 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1444,34 +1444,58 @@
   * @typedef UIEventObserver
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
  declare interface UIEventObserver {
-   /**
-    * Listen for toast show once
-    * 
-    * @param { String } type -'toastShow', 'dialogShow'.
-    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
-    * @throws { BusinessError } 401 - if the input parameters are invalid.
-    * @syscap SystemCapability.Test.UiTest
-    * @since 10
-    * @test
-    */
-   /**
-    * Listen for toast show once
-    * 
-    * @param { String } type -'toastShow', 'dialogShow'.
-    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
-    * @arkts 1.1&1.2
-    * @test
-    */
-   once(type: String, callback: Callback<UIElementInfo>): void;
+/**
+   * Listen for toast show once
+   * 
+   * @param { 'toastShow' } type 'toastShow'.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  /**
+   * Listen for toast show once
+   * 
+   * @param { 'toastShow' } type -'toastShow'.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   * @test
+   */
+  once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { 'dialogShow' } type 'dialogShow'.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { 'dialogShow' } type - 'dialogShow'.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice  
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   * @test
+   */
+  once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
  }
  
  /**
@@ -1496,7 +1520,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':12, '1.2':20}
+  * @since arkts {'1.1':'12','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum UiDirection {
@@ -1521,7 +1545,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1547,7 +1571,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1573,7 +1597,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1599,7 +1623,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1619,7 +1643,7 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare enum MouseButton {
@@ -1635,7 +1659,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1652,7 +1676,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1669,7 +1693,7 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1681,7 +1705,7 @@
   * @interface TouchPadSwipeOptions
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':18, '1.2':20}
+  * @since arkts {'1.1':'18','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -1691,7 +1715,7 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1702,7 +1726,7 @@
     * @type { ?number }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1728,7 +1752,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':12, '1.2':20}
+  * @since arkts {'1.1':'12','1.2':'20'}
   * @arkts 1.1&1.2
   */
  declare class On {
@@ -1765,7 +1789,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1801,7 +1825,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1837,7 +1861,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1873,7 +1897,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1909,7 +1933,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1945,7 +1969,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -1981,7 +2005,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2017,7 +2041,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2053,7 +2077,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2062,7 +2086,7 @@
    /**
     * Specifies the checked status of the target Component.
     *
-    * @param { boolean } b The checked status,default to false.
+    * @param { boolean } b The checked status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2072,7 +2096,7 @@
    /**
     * Specifies the checked status of the target Component.
     *
-    * @param { boolean } b The checked status,default to false.
+    * @param { boolean } b The checked status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2083,13 +2107,13 @@
    /**
     * Specifies the checked status of the target Component.
     *
-    * @param { boolean } [b] - the checked status.Set it default false if null or undefined.
+    * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2098,7 +2122,7 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-    * @param { boolean } b The checkable status,default to false.
+    * @param { boolean } b The checkable status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2108,7 +2132,7 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-    * @param { boolean } b The checkable status,default to false.
+    * @param { boolean } b The checkable status,default to true.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - if the input parameters are invalid.
     * @syscap SystemCapability.Test.UiTest
@@ -2119,13 +2143,13 @@
    /**
     * Specifies the checkable status of the target Component.
     *
-    * @param { boolean } [b] - the checkable status.Set it default false if null or undefined.
+    * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. 1. Incorrect parameter types; 2. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2152,7 +2176,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2179,7 +2203,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2206,7 +2230,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2230,7 +2254,7 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2245,7 +2269,7 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2259,7 +2283,7 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2273,7 +2297,7 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2287,7 +2311,7 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2315,7 +2339,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':12, '1.2':20}
+  * @since arkts {'1.1':'12','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -2350,7 +2374,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2386,7 +2410,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2422,7 +2446,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2458,7 +2482,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2494,7 +2518,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2530,7 +2554,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2566,7 +2590,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2602,7 +2626,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2638,7 +2662,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2674,7 +2698,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2710,7 +2734,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2746,7 +2770,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2782,7 +2806,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2818,7 +2842,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2860,7 +2884,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2896,7 +2920,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2938,7 +2962,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -2980,7 +3004,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3016,7 +3040,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3052,7 +3076,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3080,7 +3104,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3109,7 +3133,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3138,7 +3162,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3152,7 +3176,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3165,7 +3189,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3210,6 +3234,25 @@
     * @since 11
     * @test
     */
+  scrollSearch(on: On): Promise<Component>;
+
+   /**
+    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
+    *
+    * @param { On } on - the attribute requirements of the target {@link Component}.
+    * @returns { Promise<Component|null> } the found result, or null if not found.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    * @arkts 1.2
+    * @test
+    */
+   scrollSearch(on: On): Promise<Component|null>;
+   
    /**
     * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
     *
@@ -3233,12 +3276,12 @@
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
     * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
-    * @returns { Promise<Component|null> } the found result,or undefined if not found.
+    * @returns { Promise<Component|null> } the found result,or null if not found.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':20}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3269,7 +3312,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':12, '1.2':20}
+  * @since arkts {'1.1':'12','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -3301,7 +3344,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3340,7 +3383,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3391,7 +3434,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':20}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3429,7 +3472,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since {'1.2':20}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3470,7 +3513,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':20}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3522,7 +3565,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.2':20}
+    * @since 20
     * @arkts 1.2
     * @test
     */
@@ -3564,7 +3607,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3597,7 +3640,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3624,7 +3667,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3655,7 +3698,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3697,7 +3740,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3739,7 +3782,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3781,7 +3824,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3832,7 +3875,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3866,7 +3909,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3892,7 +3935,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3918,7 +3961,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3940,7 +3983,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3966,7 +4009,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -3988,7 +4031,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4010,7 +4053,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4032,7 +4075,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4054,7 +4097,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4082,7 +4125,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4130,7 +4173,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4159,7 +4202,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4201,7 +4244,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':12, '1.2':20}
+    * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4233,7 +4276,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4259,7 +4302,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4293,7 +4336,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4311,7 +4354,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4339,7 +4382,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4361,7 +4404,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4379,7 +4422,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4397,7 +4440,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4414,7 +4457,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4431,7 +4474,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4447,7 +4490,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4464,7 +4507,7 @@
     * @throws { BusinessError } 17000005 This device can not support this action.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4478,7 +4521,7 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4493,7 +4536,7 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4507,7 +4550,7 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4524,7 +4567,7 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4540,7 +4583,7 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':18, '1.2':20}
+    * @since arkts {'1.1':'18','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4557,7 +4600,7 @@
   *
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -4580,7 +4623,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4605,7 +4648,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4629,7 +4672,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4653,7 +4696,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4677,7 +4720,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4724,7 +4767,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4756,7 +4799,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4790,7 +4833,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4816,7 +4859,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4842,7 +4885,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4868,7 +4911,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4894,7 +4937,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4920,7 +4963,7 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4934,7 +4977,7 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -4956,7 +4999,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -4982,7 +5025,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -5009,7 +5052,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':11, '1.2':20}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     * @test
     */
@@ -5040,7 +5083,7 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':11, '1.2':20}
+  * @since arkts {'1.1':'11','1.2':'20'}
   * @arkts 1.1&1.2
   * @test
   */
@@ -5075,5 +5118,4 @@
    UIEventObserver,
    TouchPadSwipeOptions
  };
- 
  
