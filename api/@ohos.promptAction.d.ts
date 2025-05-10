@@ -1096,7 +1096,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     dialogTransition?: TransitionEffect;
 
@@ -1107,7 +1107,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     maskTransition?: TransitionEffect;
     
