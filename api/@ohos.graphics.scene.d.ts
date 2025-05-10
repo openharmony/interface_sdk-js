@@ -39,7 +39,9 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * @since 12
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource } from './graphics3d/SceneResources';
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
+  RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
+  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
@@ -54,4 +56,5 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters } from './graphics3d/Scene';
+export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
+  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext } from './graphics3d/Scene';
