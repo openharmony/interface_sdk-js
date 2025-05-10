@@ -21,7 +21,23 @@ import type drawing from './@ohos.graphics.drawing';
 import type common2D from './@ohos.graphics.common2D';
 
 /**
- * Provides functions such as 2D graphics text paragraphs, text styles.
+ * The Text module provides a set of APIs for text layout and font management. 
+ * It aims to deliver high-quality typesetting through features like character-to-glyph
+ * conversion, kerning, line breaking, alignment, and text measurement. Additionally,
+ * it provides font management capabilities, including font registration, font descriptors,
+ * and font collection management.
+ * 
+ * This module provides the following classes for creating complex text paragraphs:
+ * 
+ * TextStyle: defines the font type, size, spacing, and other text properties.
+ * FontCollection: manages a collection of different fonts.
+ * FontDescriptor: provides information about font descriptors.
+ * ParagraphStyle: controls line break and word break strategies for the entire paragraph.
+ * ParagraphBuilder: used to create different paragraph objects.
+ * Paragraph: created by calling build() of the ParagraphBuilder class.
+ * LineTypeset: created by calling buildLineTypeset() of the ParagraphBuilder class.
+ * TextLine: paragraph text on a line-by-line basis, obtained by calling getTextLines() of the Paragraph class.
+ * Run: text typesetting unit, obtained by calling getGlyphRuns() of the TextLine class.
  *
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
@@ -58,21 +74,22 @@ declare namespace text {
     CENTER = 2,
 
     /**
-     * Align the text at the start and end of the line.
+     * Justified, which means that each line (except the last line) is stretched so that every line has equal width,
+     * and the left and right margins are straight.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     JUSTIFY = 3,
 
     /**
-     * Align text from start, based on the direction of text, such as left-to-right or right-to-left.
+     * Align text from start, based on the TextDirection, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     START = 4,
 
     /**
-     * Align text from end, based on the direction of text, such as left-to-right or right-to-left, opposite to START.
+     * Align text from end, based on the TextDirection, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -109,21 +126,21 @@ declare namespace text {
    */
   enum BreakStrategy {
     /**
-     * The segmentation strategy is greedy.
+     * Fills the current line as much as possible without adding hyphens.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     GREEDY,
 
     /**
-     * The segmentation strategy is high quality.
+     * Optimizes layout and may add hyphens when necessary.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     HIGH_QUALITY,
 
     /**
-     * The segmentation strategy is balanced.
+     * Ensures consistent line width in a paragraph, adding hyphens if needed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -138,28 +155,33 @@ declare namespace text {
    */
   enum WordBreak {
     /**
-     * Normal word break strategy.
+     * Default mode that break words based on language-specific conventions.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     NORMAL,
 
     /**
-     * Breaks word by character.
+     * Allows breaks within any character in non-CJK text. (CJK means Chinese, Japanese, and Korean.)
+     * This value is suitable for Asian text that contains some non-Asian text. For example, 
+     * it can be used to break consecutive English characters.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     BREAK_ALL,
 
     /**
-     * Breaks word by phrase.
+     * Allows breaks between any two characters in non-CJK text. It prioritizes breaking at whitespace
+     * or other natural breakpoints to keep words intact. If no breakpoints are found, it breaks between
+     * any two characters. For CJK text, this behaves like NORMAL.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     BREAK_WORD,
 
     /**
-     * Breaks word by hyphen.
+     * Attempts to break words at the end of a line using a hyphen. If a hyphen cannot be added,
+     * it behaves like BREAK_WORD.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -167,14 +189,14 @@ declare namespace text {
   }
 
   /**
-   * Decoration for text.
+   * Describes a text decoration.
    * @typedef Decoration
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface Decoration {
     /**
-     * Decorates text by line.
+     * Type of the decoration. The default value is NONE.
      * @type { ?TextDecorationType }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -182,7 +204,7 @@ declare namespace text {
     textDecoration?: TextDecorationType;
 
     /**
-     * Text color.
+     * Color of the decoration. The default value is transparent.
      * @type { ?common2D.Color }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -190,7 +212,7 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Text decoration style.
+     * Style of the decoration. The default value is SOLID.
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -198,7 +220,8 @@ declare namespace text {
     decorationStyle?: TextDecorationStyle;
 
     /**
-     * The thickness scale of decoration line.
+     * Scale factor for the thickness of the decoration line. The value is a floating point number.
+     * The default value is 1.0.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -207,7 +230,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates decoration line for text.
+   * Enumerates the text decoration types.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -243,7 +266,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates decoration line style.
+   * Enumerates the text decoration styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -371,14 +394,14 @@ declare namespace text {
     NORMAL,
 
     /**
-     * Slant font.
+     * Slant font. If no italic version is available for the current font, the oblique version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ITALIC,
 
     /**
-     * Oblique font.
+     * Oblique font. If no oblique version is available for the current font, the italic version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -457,35 +480,35 @@ declare namespace text {
   }
 
   /**
-   * Enumerates of height mode of text.
+   * Enumerates the text height modifier patterns.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum TextHeightBehavior {
     /**
-     * Both ascend of first row and last row style.
+     * Allows the first line of the paragraph to rise and the last line to drop.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ALL = 0x0,
 
     /**
-     * Forbidding ascend of first row style.
+     * Prevents the first line of a paragraph from rising.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     DISABLE_FIRST_ASCENT = 0x1,
 
     /**
-     * Forbidding ascend of last row style.
+     * Prevents the last line of a paragraph from dropping.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     DISABLE_LAST_ASCENT = 0x2,
 
     /**
-     * Neither ascend of first row nor last row style.
+     * Combines the effects of disabling the first line from rising and the last line from dropping.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -518,27 +541,28 @@ declare namespace text {
 
   /**
    * Enumerates of ellipsis mode.
+   * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum EllipsisMode {
     /**
-     * The ellipsis is shown in the start of text.
+     * Places the ellipsis in the text header. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     START,
 
     /**
-     * The ellipsis is shown in the middle of text.
+     * Places the ellipsis in the middle of the text. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     MIDDLE,
 
     /**
-     * The ellipsis is shown in the end of text.
+     * Places the ellipsis at the end of the text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -553,21 +577,23 @@ declare namespace text {
    */
   interface TextShadow {
     /**
-     * The color of text shadow.
+     * Color of the text shadow. The default value is black (255, 0, 0, 0).
      * @type { ?common2D.Color } The color of text shadow
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     color?: common2D.Color;
     /**
-     * The value sets offset of text shadow that based on the original text.
+     * Position of the text shadow relative to the text.
+     * The horizontal and vertical coordinates must be greater than or equal to 0.
      * @type { ?common2D.Point } The point of shadow
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     point?: common2D.Point;
     /**
-     * The value sets special effect radius of blurring text, it default is 0.
+     * The value sets special effect radius of blurring text.
+     * The value is a floating point number. The default value is 0.0px.
      * @type { ?number } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -576,14 +602,14 @@ declare namespace text {
   }
 
   /**
-   * Describes rect style of text.
+   * Describes the style of a rectangle.
    * @typedef RectStyle
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface RectStyle {
     /**
-     * The color of rect style.
+     * Color of the rectangle.
      * @type { common2D.Color } The color of rect style
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -591,7 +617,7 @@ declare namespace text {
     color: common2D.Color;
 
     /**
-     * Radius in left top of rect style.
+     * Left top radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -599,7 +625,7 @@ declare namespace text {
     leftTopRadius: number;
 
     /**
-     * Radius in right top of rect style.
+     * Right top radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -607,7 +633,7 @@ declare namespace text {
     rightTopRadius: number;
 
     /**
-     * Radius in right bottom of rect style.
+     * Right bottom radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -615,7 +641,7 @@ declare namespace text {
     rightBottomRadius: number;
 
     /**
-     * Radius in left bottom of rect style.
+     * Left bottom radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -631,14 +657,14 @@ declare namespace text {
    */
   interface FontFeature {
     /**
-     * The name of font feature.
+     * String identified by the keyword in the font feature key-value pair.
      * @type { string } feature name
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     name: string;
     /**
-     * The value of font feature.
+     * 	Value in the font feature key-value pair.
      * @type { number } feature value
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -654,14 +680,14 @@ declare namespace text {
    */
   interface FontVariation {
     /**
-     * The axis of font variation.
+     * String identified by the keyword in the font variation key-value pair.
      * @type { string } variation axis
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     axis: string;
     /**
-     * The value of font variation.
+     * Value in the font variation key-value pair.
      * @type { number } variation value
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
