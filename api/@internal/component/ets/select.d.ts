@@ -308,6 +308,35 @@ declare enum AvoidanceMode {
 }
 
 /**
+ * Enumeration of selection modes for the Select dropdown menu
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum SelectSelectionMode {
+  /**
+   * Highlight background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BACKGROUND_COLOR = 0,
+  /**
+   * Display selected icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SELECT_ICON
+}
+
+/**
  * Callback of selecting an item from the select event.
  * 
  * @typedef {function} OnSelectCallback
@@ -1205,6 +1234,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20
    */
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
+
+  /**
+   * Set the select menu selection mode
+   *
+   * @param { SelectSelectionMode } mode - Enumeration value of the selection mode
+   * @returns { SelectAttribute } Returns the chained object of Select component attributes
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedMode(mode: SelectSelectionMode): SelectAttribute;
 }
 
 /**
