@@ -284,7 +284,7 @@ declare enum MenuAlignType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum AvoidanceMode {
   /**
@@ -293,7 +293,7 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   COVER_TARGET,
   /**
@@ -302,7 +302,7 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   AVOID_AROUND_TARGET
 }
@@ -1190,7 +1190,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   avoidance(mode: AvoidanceMode): SelectAttribute;
 
