@@ -275,6 +275,47 @@ declare enum TextDeleteDirection {
 }
 
 /**
+ * Defines the superscript style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum SuperscriptStyle {
+  /**
+   * normal font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  NORMAL = 0,
+
+  /**
+   * Superscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUPERSCRIPT = 1,
+
+  /**
+   * Subscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUBSCRIPT = 2,
+}
+
+/**
  * Defines menu type.
  *
  * @enum { number }

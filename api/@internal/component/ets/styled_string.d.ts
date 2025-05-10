@@ -451,6 +451,18 @@ declare class TextStyle {
      * @since 20
      */
     readonly strokeColor?: ResourceColor;
+
+    /**
+     * Get the superscript style of the StyledString.
+     *
+     * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly superscript?: SuperscriptStyle;
 }
 
 /**
@@ -538,7 +550,18 @@ declare interface TextStyleInterface {
      * @atomicservice
      * @since 20
      */
-    strokeColor?: ResourceColor;    
+    strokeColor?: ResourceColor;
+
+    /**
+     * The superscript value of the font property object.
+     *
+     * @type { ?SuperscriptStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    superscript?: SuperscriptStyle;
 }
 
 /**
