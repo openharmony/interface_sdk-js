@@ -3153,10 +3153,11 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * Shift window pointer event within the same application. And the window type contains only main window and subwindow.
+   * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
+   * It takes effect only for the main window and its child windows.
    *
-   * @param { number } sourceWindowId - Window id which the pointer event shift from.
-   * @param { number } targetWindowId - Window id which the pointer event shift to.
+   * @param { number } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { number } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -6310,10 +6311,14 @@ declare namespace window {
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
-     * Register the callback of subWindowClose
+     * Subscribes to the event indicating that the child window is closed.
+     * This event is triggered only when the user clicks the system-provided close button in the upper right corner to close the child window.
+     * It is not triggered when the child window is closed in other ways.
      *
-     * @param { 'subWindowClose' } type - The value is fixed at 'subWindowClose', indicating the subwindow close event.
-     * @param { Callback<void> } callback - Callback used to return whether to terminate the subwindow close process.
+     * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
+     *                                      The return value determines whether to continue to close the child window.
+     *                                      The value true means not to close the child window, and false means to continue to close the child window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6326,10 +6331,14 @@ declare namespace window {
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
     /**
-     * Unregister the callback of subWindowClose
+     * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { 'subWindowClose' } type - The value is fixed at 'subWindowClose', indicating the subwindow close event.
-     * @param { Callback<void> } callback - Callback used to return whether to terminate the subwindow close process.
+     * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
+     *                                      The return value determines whether to continue to close the child window.
+     *                                      The value true means not to close the child window, and false means to continue to close the child window.
+     *                                      If a value is passed in, the corresponding subscription is canceled.
+     *                                      If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6342,10 +6351,14 @@ declare namespace window {
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
     /**
-     * Asynchronous callback event for closing the registration window.
+     * Subscribes to the event indicating that the main window or child window will be closed.
+     * This event is triggered only when the user clicks the close button in the system-provided title bar to close the window.
+     * It is not triggered when the window is closed in other ways.
      *
-     * @param { 'windowWillClose' } type - The value is fixed at 'windowWillClose', indicating the window close event.
-     * @param { Callback<void, Promise<boolean>> } callback - The callback function returns a Promise<boolean> to decide whether to close the window.
+     * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
+     * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *                                                        In the returned Promise function, resolve(true) means not to close the window,
+     *                                                        and resolve(false) or reject means to continue to close the window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6358,10 +6371,13 @@ declare namespace window {
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
     /**
-     * Cancel the asynchronous callback event for closing the registration window.
+     * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
-     * @param { 'windowWillClose' } type - The value is fixed at 'windowWillClose', indicating the window close event.
-     * @param { Callback<void, Promise<boolean>> } callback - The callback function returns a Promise<boolean> to decide whether to close the window.
+     * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
+     * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *                                                        It does not return any parameter. In the returned Promise function,
+     *                                                        resolve(true) means not to close the window,
+     *                                                        and resolve(false) or reject means to continue to close the window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6877,10 +6893,11 @@ declare namespace window {
     setTopmost(isTopmost: boolean): Promise<void>;
 
     /**
-     * Set whether the main window is topmost.
+     * Places the main window above all the other windows of the application.
      *
      * @permission ohos.permission.WINDOW_TOPMOST
-     * @param { boolean } isWindowTopmost - Main window is topmost if true.
+     * @param { boolean } isWindowTopmost - Whether to pin the main window on top.
+     *                                      The value true means to pin the main window on top, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -7826,9 +7843,11 @@ declare namespace window {
     setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
 
     /**
-     * Sets window shadow radius.
+     * Sets the blur radius of the shadow on the edges of a child window or floating window.
      *
-     * @param { number } radius the radius of the shadow.
+     * @param { number } radius - Radius of the shadow, measured in px.
+     *                            The value is a floating point number greater than or equal to 0.0,
+     *                            and the value 0.0 means that the shadow is disabled for the window borders.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7871,9 +7890,11 @@ declare namespace window {
     setCornerRadius(cornerRadius: number): void;
 
     /**
-     * Sets sub window or floating window corner radius.
+     * Sets the radius of the rounded corners for a child window or floating window.
      *
-     * @param { number } cornerRadius - Indicate the corner radius of the window.
+     * @param { number } cornerRadius - Radius of the rounded corners, measured in vp.
+     *                                  The value is a floating point number greater than or equal to 0.0.
+     *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
@@ -7889,9 +7910,9 @@ declare namespace window {
     setWindowCornerRadius(cornerRadius: number): Promise<void>;
 
     /**
-     * Get sub window or floating window corner radius.
+     * Obtains the radius of rounded corners of a child window or floating window.
      *
-     * @returns { number } - The corner radius of window.
+     * @returns { number } - Radius of the rounded corner of the child window or floating window, measured in vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -8174,9 +8195,11 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Minimize app main window and hide app subWindow.
+     * Minimizes the main window if the caller is the main window. The main window can be restored in the dock bar. For 2-in-1 devices, it can be restored by calling restore().
+     * Hides the child window if the caller is a child window. The child window cannot be restored in the dock bar. It can be made visible again by calling showWindow().
+     * 
      *
-     * @param { AsyncCallback<void> } callback - The callback of Minimize.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8197,9 +8220,10 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Minimize app main window and hide app subWindow.
+     * Minimizes the main window if the caller is the main window. The main window can be restored in the dock bar. For 2-in-1 devices, it can be restored by calling restore().
+     * Hides the child window if the caller is a child window. The child window cannot be restored in the dock bar. It can be made visible again by calling showWindow().
      *
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8223,9 +8247,12 @@ declare namespace window {
      * @since 12
      */
     /**
-     * Maximize app main window.
-     * @param { ?MaximizePresentation } presentation - set window presentation when maximize.
-     * @returns { Promise<void> } - The promise returned by the function.
+     * Maximizes the main window.
+     * 
+     * @param { ?MaximizePresentation } presentation - Layout when the window is maximized.
+     *                                                 The default value is window.MaximizePresentation.ENTER_IMMERSIVE,
+     *                                                 indicating that the window enters the immersive layout when maximized.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Function maximize can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8431,9 +8458,10 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Recover app main window.
+     * Restores the main window from the full-screen, maximized, or split-screen mode to a floating window,
+     * and restores the window size and position to those before the full-screen, maximized, or split-screen mode is entered.
      *
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8444,9 +8472,9 @@ declare namespace window {
     recover(): Promise<void>;
 
     /**
-     * After the app main window is minimized, if the Ability is not in the background state, you can restore app main window.
+     * Restores the main window from minimization to the foreground, returning it to its size and position before it is minimized.
      *
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8483,9 +8511,9 @@ declare namespace window {
      * @since 12
      */
     /**
-     * Set the visibility of the window decor.
+     * Sets whether the title bar is visible in the window.
      *
-     * @param { boolean } isVisible - Enable the decor visible if true, otherwise means the opposite.
+     * @param { boolean } isVisible - Whether the title bar is visible. The value true means that the title bar is visible and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8497,9 +8525,9 @@ declare namespace window {
     setWindowDecorVisible(isVisible: boolean): void;
 
     /**
-     * Get the visibility of the window decor.
+     * Checks whether the title bar of this window is visible.
      *
-     * @returns { boolean } - The visibility of window decor, true if the decor is visible, otherwise means the.
+     * @returns { boolean } - Check result. The value true means that the title bar is visible, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -8509,9 +8537,10 @@ declare namespace window {
     getWindowDecorVisible(): boolean;
 
     /**
-     * Set whether window can be moved by drag title.
+     * Enables or disables the capability to move the window (either main window or child window) by dragging its title bar and to maximize the window with a double-click.
      *
-     * @param { boolean } enabled - Enable the window title move if true, otherwise means the opposite.
+     * @param { boolean } enabled - Whether to enable the capability to move the window by dragging the title bar and to maximize the window with a double-click.
+     *                              The value true means to enable the capability, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8553,9 +8582,11 @@ declare namespace window {
      * @since 12
      */
     /**
-     * Set the modality of the window.
+     * Enables the modal property of the child window. After the modal property is enabled,
+     * the parent window does not respond to user interactions until the child window is closed or the child window's modal property is disabled.
      *
-     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @param { boolean } isModal - Whether to enable the modal property of the child window.
+     *                              The value true means to enable the modal property, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8585,10 +8616,12 @@ declare namespace window {
      * @since 14
      */
     /**
-     * Set the modality of the window.
+     * Enables the modal property of the child window. After the modal property is enabled,
+     * the parent window does not respond to user interactions until the child window is closed or the child window's modal property is disabled.
      *
-     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
-     * @param { ModalityType } modalityType - Set modality type when the window modal is true. 
+     * @param { boolean } isModal - Whether to enable the modal property of the child window. The value true means to enable the modal property,
+     *                              and false means the opposite. Currently, this parameter can only be set to true.
+     * @param { ModalityType } modalityType - Modality type of the child window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8615,9 +8648,12 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Set the height of the window decor.
+     * Sets the height of the title bar of this window.
+     * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @param { number } height - The height of window decor.
+     * @param { number } height - Height of the title bar. It takes effect only for the window with the title bar.
+     *                            The value is an integer in the range [37,112]. The unit is vp. If a floating point number is passed in,
+     *                            the value is rounded down. A value outside the range is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
@@ -8639,9 +8675,10 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the height of the window decor.
+     * Obtains the height of the title bar of this window.
+     * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @returns { number } - The height of window decor.
+     * @returns { number } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -8651,9 +8688,9 @@ declare namespace window {
     getWindowDecorHeight(): number;
 
     /**
-     * Set the style of the window decor.
+     * Sets the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
      *
-     * @param { DecorButtonStyle } dectorStyle - The style of window decor.
+     * @param { DecorButtonStyle } dectorStyle - Button style of the decoration bar.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8666,9 +8703,10 @@ declare namespace window {
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
     /**
-     * Get the style of the window decor.
+     * Obtains the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
      *
-     * @returns { DecorButtonStyle } - The style of window decor.
+     * @returns { DecorButtonStyle } - Button style on the decoration bar of the current window.
+     *                                 The decoration button area is located in the upper right corner of the window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8707,9 +8745,9 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the area of window title buttons.
+     * Obtains the rectangle that holds the minimize, maximize, and close buttons on the title bar of the main window or the decorated child window.
      *
-     * @returns { TitleButtonRect } - The area of window title buttons.
+     * @returns { TitleButtonRect } - Rectangle obtained, which is located in the upper right corner of the window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -8719,11 +8757,11 @@ declare namespace window {
     getTitleButtonRect(): TitleButtonRect;
 
     /**
-     * Set whether to display the maximize, minimize, split buttons of main window.
+     * Shows or hides the maximize, minimize, and split-screen buttons on the title bar of the main window.
      *
-     * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
-     * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
-     * @param { boolean } isSplitVisible - Display split button if true, or hide split button if false.
+     * @param { boolean } isMaximizeVisible - Whether to show the maximize button. The value true means to show the button, and false means to hide it.
+     * @param { boolean } isMinimizeVisible - Whether to show the minimize button. The value true means to show the button, and false means to hide it.
+     * @param { boolean } isSplitVisible - Whether to show the split-screen button. The value true means to show the button, and false means to hide it.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8737,11 +8775,12 @@ declare namespace window {
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
     /**
-     * Set whether to display the maximize, minimize, close buttons of main window.
+     * Shows or hides the maximize, minimize, and close buttons on the title bar of the main window.
      *
-     * @param { boolean } isMaximizeButtonVisible - Display maximize button if true, or hide maximize button if false.
-     * @param { boolean } isMinimizeButtonVisible - Display minimize button if true, or hide minimize button if false.
-     * @param { boolean } isCloseButtonVisible - Display close button if true, or hide close button if false.
+     * @param { boolean } isMaximizeButtonVisible - Whether to show the maximize button. The value true means to show the button, and false means the opposite.
+     *                                              If the maximize button is hidden, the corresponding restore button is also hidden in the maximize scenario.
+     * @param { boolean } isMinimizeButtonVisible - Whether to show the minimize button. The value true means to show the button, and false means the opposite.
+     * @param { boolean } isCloseButtonVisible - Whether to show the close button. The value true means to show the button, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8778,7 +8817,8 @@ declare namespace window {
     enableLandscapeMultiWindow(): Promise<void>;
 
     /**
-     * Start moving window.
+     * Starts moving this window. This API uses a promise to return the result.
+     * The window moves along with the cursor only when this API is called in the callback function of onTouch, where the event type is TouchType.Down.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8793,10 +8833,15 @@ declare namespace window {
     startMoving(): Promise<void>;
 
     /**
-     * Start moving window.
+     * Specifies the cursor position within the window and moves the window. It first adjusts the window to the cursor position before starting to move the window.
+     * The window moves along with the cursor only when this API is called in the callback function of onTouch, where the event type is TouchType.Down.
      *
-     * @param { number } offsetX - Expected pointer position x-axis offset in window when start moving.
-     * @param { number } offsetY - Expected pointer position y-axis offset in window when start moving.
+     * @param { number } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     *                             This parameter only accepts integer values; any floating-point input will be rounded down.
+     *                             Negative values or values exceeding the window width are invalid. The window width can be obtained from WindowProperties.
+     * @param { number } offsetY - Y-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     *                             This parameter only accepts integer values; any floating-point input will be rounded down.
+     *                             Negative values or values exceeding the window height are invalid. The window height can be obtained from WindowProperties.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
@@ -8812,7 +8857,7 @@ declare namespace window {
     startMoving(offsetX: number, offsetY: number): Promise<void>;
 
     /**
-     * Stop moving window.
+     * Stops window movement when a window is being dragged. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8869,10 +8914,11 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Register the callback of title buttons area change.
+     * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
-     * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
-     * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
+     * @param { 'windowTitleButtonRectChange' } type - Event type. The value is fixed at 'windowTitleButtonRectChange',
+     *                                                 indicating that the change event of the rectangle that holds the minimize, maximize, and close buttons.
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
@@ -8897,10 +8943,12 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Unregister the callback of title buttons area change.
+     * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
-     * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
-     * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
+     * @param { 'windowTitleButtonRectChange' } type - Event type. The value is fixed at 'windowTitleButtonRectChange',
+     *                                                 indicating that the change event of the rectangle that holds the minimize, maximize, and close buttons.
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle. If a value is passed in, the corresponding subscription is canceled.
+     *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -9089,11 +9137,11 @@ declare namespace window {
     isFocused(): boolean;
 
     /**
-     * Create sub window with options.
+     * Creates a child window under the main window, another child window, or floating window.
      *
-     * @param { string } name - window name of sub window
-     * @param { SubWindowOptions } options - options of sub window creation
-     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @param { string } name - Name of the child window.
+     * @param { SubWindowOptions } options - Parameters used for creating the child window.
+     * @returns { Promise<Window> } Promise used to used to return the child window created.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -9170,10 +9218,12 @@ declare namespace window {
      * @since 14
      */
     /**
-     * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
+     * Sets whether to show the window title bar and dock bar when the cursor hovers over the hot zone while the main window is in full-screen mode.
      *
-     * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
-     * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
+     * @param { boolean } isTitleHoverShown - Whether to show the window title bar. The value true means to show the window title bar,
+     *                                        and false means the opposite. The default value is true.
+     * @param { boolean } isDockHoverShown - Whether to show the dock bar. The value true means to show the dock bar,
+     *                                       and false means the opposite. The default value is true.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10117,10 +10167,14 @@ declare namespace window {
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
     /**
-     * Window stage close callback on.
+     * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
+     * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
      * 
-     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
-     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @param { 'windowStageClose' } eventType - Event type. The value is fixed at 'windowStageClose',
+     *                                           indicating that the close button in the three-button navigation bar of the main window is clicked.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
+     *                                      The return value determines whether to continue to close the main window.
+     *                                      The value true means not to close the main window, and false means to continue to close the main window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -10134,10 +10188,13 @@ declare namespace window {
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
     /**
-     * Window stage close callback off.
+     * Unsubscribes from the event indicating that the main window is closed.
      *
-     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
-     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @param { 'windowStageClose' } eventType - Event type. The value is fixed at 'windowStageClose',
+     *                                           indicating that the close button in the three-button navigation bar of the main window is clicked.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
+     *                                      If a value is passed in, the corresponding subscription is canceled.
+     *                                      If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -10235,9 +10292,10 @@ declare namespace window {
     setCustomDensity(density: number): void;
 
     /**
-     * Remove the starting window, it must be used with configuration "enable.remove.starting.window".
+     * Allows the application to control the time when the launch page disappears.
+     * This API takes effect only for the application main window when enable.remove.starting.window under metadata in abilities in the module.json5 file is set to true.
      *
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -10264,9 +10322,10 @@ declare namespace window {
      * @since 14
      */
     /**
-     * Set the application modality of the windowStage.
+     * Enables the modal property of the main window.
      *
-     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @param { boolean } isModal - Whether to enable the modal property of the main window.
+     *                              The value true means to enable the modal property, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10282,9 +10341,10 @@ declare namespace window {
     setWindowModal(isModal: boolean): Promise<void>;
 
     /**
-     * Set to automatically save the window rect.
+     * Sets whether to enable the auto-save feature for the size of the main window.
      *
-     * @param { boolean } enabled - Enable the window rect auto-save if true, otherwise means the opposite.
+     * @param { boolean } enabled - Whether to enable the auto-save feature for the main window's size.
+     *                              The value true means to enable the auto-save feature, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10330,10 +10390,9 @@ declare namespace window {
      * @since 14
      */
     /**
-     * Whether the window supports the window rect auto-save.
+     * Checks whether the auto-save feature is enabled for the main window's size.
      *
-     * @returns { Promise<boolean> } Promise used to return the result.
-     *  The value true means that the window rect auto-save is supported, and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the auto-save feature is enabled, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -10345,7 +10404,7 @@ declare namespace window {
     isWindowRectAutoSave(): Promise<boolean>;
 
     /**
-     * Sets the supported window modes.
+     * Sets the supported window modes of the main window.
      *
      * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - The supported modes of window.
      * @returns { Promise<void> } Promise that returns no value.
