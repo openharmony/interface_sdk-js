@@ -3781,6 +3781,25 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
+   * Describes the window transition type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum WindowTransitionType {
+    /**
+     * window transition type destroy
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    DESTROY = 0,
+  }
+
+  /**
    * Describes the window animation curve
    *
    * @enum { number }
@@ -3846,6 +3865,35 @@ declare namespace window {
      * @since 20
      */
     param?: WindowAnimationCurveParam;
+  }
+
+  /**
+   * The animation configuration of window transition
+   *
+   * @interface TransitionAnimation
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface TransitionAnimation {
+    /**
+     * The config of window animation
+     *
+     * @type { WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    config: WindowAnimationConfig;
+    /**
+     * The opacity of window
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    opacity?: number;
   }
 
   /**
@@ -8889,6 +8937,39 @@ declare namespace window {
      * @since 12
      */
     disableLandscapeMultiWindow(): Promise<void>;
+
+    /**
+     * Set window transition animation
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 20
+     */
+    setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: TransitionAnimation): Promise<void>;
+
+    
+    /**
+     * Get window transition animation configuration
+     *
+     * @returns { TransitionAnimation | undefined } Window transition animation configuration. Undefined means no configuration.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 20
+     */
+    getWindowTransitionAnimation(transitionType: WindowTransitionType): TransitionAnimation | undefined;
 
     /**
      * Register the callback of title buttons area change.
