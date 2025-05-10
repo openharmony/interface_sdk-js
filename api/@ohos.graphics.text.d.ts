@@ -670,6 +670,33 @@ declare namespace text {
   }
 
   /**
+   * Describes badge type of text.
+   * @typedef TextBadgeType
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextBadgeType {
+    /**
+     * No badge.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_BADGE_NONE,
+    /**
+     * Super badge.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_SUPERSCRIPT,
+    /**
+     * Sub badge.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_SUBSCRIPT,
+  }
+
+  /**
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
@@ -837,6 +864,14 @@ declare namespace text {
      * @since 12
      */
     fontVariations?: Array<FontVariation>;
+
+    /**
+     * Text style available badge type.
+     * @type { ?TextBadgeType } The type of text badge type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    badgeType?: TextBadgeType;
   }
 
   /**
