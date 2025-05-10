@@ -3671,6 +3671,18 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
   /**
+   * Obtains a notification setting of the calling application.
+   *
+   * @returns { Promise<NotificationSetting> } Returns notificationsetting of this application.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   */
+  function getNotificationSetting(): Promise<NotificationSetting>;
+
+  /**
    * Add do not disturb notification templates.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4082,6 +4094,33 @@ declare namespace notificationManager {
      * @since 10
      */
     message: string;
+  }
+
+  /**
+   * Describes a NotificationSetting instance.
+   *
+   * @typedef NotificationSetting
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   */
+  export interface NotificationSetting {
+    /**
+     * Indicates whether vibration is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 20
+     */
+    vibrationEnabled: boolean;
+
+    /**
+     * Indicates whether sound is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 20
+     */
+    soundEnabled: boolean;
   }
 
   /**
