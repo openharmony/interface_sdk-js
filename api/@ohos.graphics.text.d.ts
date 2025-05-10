@@ -1202,14 +1202,14 @@ declare namespace text {
   }
 
   /**
-   * Provide a description of placeholder scope in creating typography.
+   * Describes the placeholder style.
    * @typedef PlaceholderSpan
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface PlaceholderSpan {
     /**
-     * The width of the placeholder.
+     * Width of the placeholder, in units of px. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1217,7 +1217,7 @@ declare namespace text {
     width: number;
 
     /**
-     * The height of the placeholder.
+     * Height of the placeholder, in units of px. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1225,7 +1225,7 @@ declare namespace text {
     height: number;
 
     /**
-     * Alignment mode of placeholder.
+     * Vertical alignment of the placeholder relative to the surrounding text.
      * @type { PlaceholderAlignment }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1233,7 +1233,7 @@ declare namespace text {
     align: PlaceholderAlignment;
 
     /**
-     * Baseline of placeholder.
+     * Type of the text baseline.
      * @type { TextBaseline }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1241,7 +1241,7 @@ declare namespace text {
     baseline: TextBaseline;
 
     /**
-     * Baseline offset of placeholder.
+     * Offset to the text baseline, in units of px. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1250,14 +1250,14 @@ declare namespace text {
   }
 
   /**
-   * Provides the definition of the range.
+   * Describes a left-closed and right-open interval.
    * @typedef Range
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface Range {
     /**
-     * Left index.
+     * Index of the leftmost point of the interval. The value is an integer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1265,7 +1265,7 @@ declare namespace text {
     start: number;
 
     /**
-     * Right index.
+     * Index of the rightmost point of the interval. The value is an integer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1274,14 +1274,14 @@ declare namespace text {
   }
 
   /**
-   * An enumeration of system font types.
+   * Enumerates the font types, which can be combined through bitwise OR operations.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 14
    */
   enum SystemFontType {
     /**
-     * All font types.
+     * All font types, including the system font type, style font type, and user-installed font type.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
      */
@@ -1295,14 +1295,14 @@ declare namespace text {
     GENERIC = 1 << 1,
 
     /**
-     * Stylish font type.
+     * Style font type. The style font type is designed for 2-in-1 devices.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
      */
     STYLISH = 1 << 2,
 
     /**
-     * Installed font types.
+     * Font type that has been installed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
      */
@@ -1317,14 +1317,15 @@ declare namespace text {
   }
 
   /**
-   * Font descriptor
+   * Describes the font descriptor information.
    * @typedef FontDescriptor
    * @syscap SystemCapability.Graphics.Drawing
    * @since 14
    */
   interface FontDescriptor {
     /**
-     * Font file path
+     * Absolute path of the font. Any string is acceptable, but the value must adhere to the system's path constraints.
+     * <br>The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1332,7 +1333,7 @@ declare namespace text {
     path?: string;
 
     /**
-     * Font postScript name
+     * Unique name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1340,7 +1341,7 @@ declare namespace text {
     postScriptName?: string;
 
     /**
-     * Full font name
+     * Font name. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1348,7 +1349,7 @@ declare namespace text {
     fullName?: string;
 
     /**
-     * Font family name
+     * Family name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1356,7 +1357,7 @@ declare namespace text {
     fontFamily?: string;
 
     /**
-     * Font subfamily name
+     * Subfamily name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1364,7 +1365,7 @@ declare namespace text {
     fontSubfamily?: string;
 
     /**
-     * Font weight
+     * Font weight. The default value is 0.
      * @type { ?FontWeight }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1372,7 +1373,7 @@ declare namespace text {
     weight?: FontWeight;
 
     /**
-     * Font width
+     * Font width. The value is an integer ranging from 1 to 9. The default value is 0.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1380,7 +1381,8 @@ declare namespace text {
     width?: number;
 
     /**
-     * Font slant, non-0 means italic.
+     * Whether the font is italic. The value 0 means that the font is not italic, and 1 means the opposite.
+     * The default value is 0.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1388,7 +1390,8 @@ declare namespace text {
     italic?: number;
 
     /**
-     * Whether the font is monospaced
+     * Whether the font is monospaced. The value true means that the font is monospaced, and false means the opposite.
+     * The default value is false.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1396,7 +1399,7 @@ declare namespace text {
     monoSpace?: boolean;
 
     /**
-     * Whether to support symbols
+     * Whether the font is symbolic. The value true means that the font is symbolic, and false means the opposite.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1405,23 +1408,25 @@ declare namespace text {
   }
 
   /**
-   * A paragraph retains the size and position of each glyph in the text and can be efficiently resized and painted.
+   * Implements a carrier that stores the text content and style. You can perform operations such as layout and drawing.
+   * Before calling any of the following APIs, you must use build() of the ParagraphBuilder class to
+   * create a Paragraph object.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   class Paragraph {
     /**
-     * Calculates the positioning of all the glyphs.
-     * @param { number } width - Control how wide the text is allowed to be.
+     * Performs layout and calculates the positions of all glyphs.
+     * @param { number } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     layoutSync(width: number): void;
 
     /**
-     * Calculates the positioning of all the glyphs.
-     * @param { number } width - Control how wide the text is allowed to be.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Performs layout and calculates the positions of all glyphs. This API uses a promise to return the result.
+     * @param { number } width - Maximum width of a single line, in units of px. The value is a floating point number.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1430,10 +1435,10 @@ declare namespace text {
     layout(width: number): Promise<void>;
 
     /**
-     * Paint the laid out text onto the supplied canvas at (x, y).
-     * @param { drawing.Canvas } canvas - Object
-     * @param { number } x - Represents the X-axis position on the canvas.
-     * @param { number } y - Represents the Y-axis position on the canvas.
+     * Paints the text on the canvas with the coordinate point (x, y) as the upper left corner.
+     * @param { drawing.Canvas } canvas - Target canvas.
+     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1443,127 +1448,132 @@ declare namespace text {
      * Draw the laid out text onto the supplied canvas along the path and offset.
      * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
      * @param { drawing.Path } path - Path used to determine the position of the text.
-     * @param { number } hOffset - Horizontal offset along the path.
-     * @param { number } vOffset - Vertical offset along the path.
+     * @param { number } hOffset - Horizontal offset along the path direction. A positive number indicates a position
+     * <br>that is ahead along the path from its start point, and a negative number indicates a position that is behind
+     * <br>from the start point.
+     * @param { number } vOffset - Vertical offset along the path direction. A positive number indicates a position
+     * <br>on the left side of the path, and a negative number indicates a position on the right side of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
 
     /**
-     * Get max width of horizontal space this paragraph occupied.
-     * @returns { number } Max width of horizontal space.
+     * Obtains the maximum width of the line in the text.
+     * @returns { number } Maximum line width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getMaxWidth(): number;
 
     /**
-     * Get height of horizontal space this paragraph occupies.
-     * @returns { number } Height of horizontal space this paragraph occupies.
+     * Obtains the total height of the text.
+     * @returns { number } Total height, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getHeight(): number;
 
     /**
-     * Get the longest line of horizontal space this paragraph occupies.
-     * @returns { number } The longest line of horizontal space this paragraph occupies.
+     * Obtains the longest line in the text.
+     * @returns { number } Longest line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getLongestLine(): number;
 
     /**
-     * Get the longest line of horizontal space this paragraph occupies, and this horizontal space contains the width
-     * of indent.
-     * @returns { number } The longest line with indent of horizontal space this paragraph occupies.
+     * Obtains the width of the longest line, including its indentation, in the text.
+     * You are advised to round up the return value. If the text content is empty, 0 is returned.
+     * @returns { number } Width of the longest line, including its indentation.
+     * <br>The value is a floating point number, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 13
      */
     getLongestLineWithIndent(): number;
 
     /**
-     * Get the min intrinsic width of horizontal space this paragraph occupies.
-     * @returns { number } The min intrinsic width of horizontal space this paragraph occupies.
+     * Obtains the minimum intrinsic width of the paragraph.
+     * @returns { number } Minimum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getMinIntrinsicWidth(): number;
 
     /**
-     * Get the max intrinsic width.
-     * @returns { number } Intrinsic Width.
+     * Obtains the maximum intrinsic width of the paragraph.
+     * @returns { number } Maximum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getMaxIntrinsicWidth(): number;
 
     /**
-     * Get the alphabetic baseline.
-     * @returns { number } Alphabetic Baseline.
+     * Obtains the alphabetic baseline.
+     * @returns { number } Alphabetic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getAlphabeticBaseline(): number;
 
     /**
-     * Get the ideographic baseline.
-     * @returns { number } Ideographic Baseline.
+     * Obtains the ideographic baseline.
+     * @returns { number } Ideographic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getIdeographicBaseline(): number;
 
     /**
-     * Get the rects for range.
-     * @param { Range } range - The range to set.
-     * @param { RectWidthStyle } widthStyle - Width style to set.
-     * @param { RectHeightStyle } heightStyle - Height style to set.
-     * @returns { Array<TextBox> } The rects for range.
+     * Obtains the rectangles occupied by the characters in the range of the text under the given rectangle width and
+     * height.
+     * @param { Range } range - Range of the text.
+     * @param { RectWidthStyle } widthStyle - Width of the rectangle.
+     * @param { RectHeightStyle } heightStyle - Height of the rectangle.
+     * @returns { Array<TextBox> } Array holding the rectangles obtained.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
     /**
-     * Get the rects for placeholders.
-     * @returns { Array<TextBox> } The rects for placeholders.
+     * Obtains the rectangles occupied by all placeholders in the text.
+     * @returns { Array<TextBox> } Array holding the rectangles obtained.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getRectsForPlaceholders(): Array<TextBox>;
 
     /**
-     * Get the glyph position at coordinate.
-     * @param { number } x - the positionX of typography to set.
-     * @param { number } y - the positionY of typography to set.
-     * @returns { PositionWithAffinity } TextBlob object.
+     * Obtains the position of a glyph closest to the given coordinates.
+     * @param { number } x - X coordinate. The value is a floating point number.
+     * @param { number } y - Y coordinate. The value is a floating point number.
+     * @returns { PositionWithAffinity } Position of the glyph.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
     /**
-     * Find the start and end position of the word containing the glyphs of the given offset.
-     * @param { number } offset - offset value
-     * @returns { Range } The range value returned to the caller.
+     * Obtains the range of the word where the glyph with a given offset is located.
+     * @param { number } offset - Offset of the glyph. The value is an integer.
+     * @returns { Range } Range of the word.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getWordBoundary(offset: number): Range;
 
     /**
-     * Get line count.
-     * @returns { number } The line count value returned to the caller.
+     * Obtains the number of text lines.
+     * @returns { number } Number of text lines. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getLineCount(): number;
 
     /**
-     * Get the line height of the specified line.
-     * @param { number } line - line number
+     * Obtains the height of a given line.
+     * @param { number } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
      * @returns { number } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1571,8 +1581,8 @@ declare namespace text {
     getLineHeight(line: number): number;
 
     /**
-     * Get the line width of the specified line.
-     * @param { number } line - line number
+     * Obtains the width of a given line.
+     * @param { number } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
      * @returns { number } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1580,43 +1590,49 @@ declare namespace text {
     getLineWidth(line: number): number;
 
     /**
-     * Return whether it exceed the maximum lines of typography.
-     * @returns { boolean } The true indicates exceeding, the false indicates not exceeding.
+     * Checks whether the number of lines in the paragraph exceeds the maximum.
+     * @returns { boolean } Check result. The value true means that the number of lines exceeds the maximum,
+     * <br>and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     didExceedMaxLines(): boolean;
 
     /**
-     * Get the text lines of paragraph.
-     * @returns { Array<TextLine> } the tuple of TextLine.
+     * Obtains all the text lines.
+     * @returns { Array<TextLine> } Array of text lines.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getTextLines(): Array<TextLine>;
 
     /**
-     * Returns the visible text on the line (excluding a possible ellipsis).
-     * @param { number } lineNumber - a line number
-     * @param { boolean } includeSpaces - indicates if the whitespaces should be included
-     * @returns { Range } The range of text.
+     * Obtains the actually visible text range in the specified line, excluding any overflow ellipsis.
+     * @param { number } lineNumber - Line number of the text range, starting from 0. This API can only be used to
+     * <br>obtain the bounds of existing lines. That is, the line number must start from 0, and the maximum line number
+     * <br>is getLineCount - 1.
+     * @param { boolean } includeSpaces - Whether spaces are included. The value true means that spaces are contained,
+     * <br>and false means the opposite.
+     * @returns { Range } Text range obtained. If the line index is invalid, start and end are both 0.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getActualTextRange(lineNumber: number, includeSpaces: boolean): Range;
 
     /**
-     * Returns the array of line metrics for a line of text.
-     * @returns { Array<LineMetrics> } Array of line metrics.
+     * Obtains an array of line measurement information.
+     * @returns { Array<LineMetrics> } Array of line measurement information.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getLineMetrics(): Array<LineMetrics>;
 
     /**
-     * Returns line metrics info for the line.
-     * @param { number } lineNumber - a line number
-     * @returns { LineMetrics | undefined } line metrics.
+     * Obtains the line measurement information of a line.
+     * @param { number } lineNumber - Line number, starting from 0.
+     * @returns { LineMetrics | undefined } LineMetrics object containing the measurement information if the specified
+     * <br>line number is valid and the measurement information exists. If the line number is invalid or
+     * <br>the measurement information cannot be obtained, undefined is returned.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
