@@ -2839,6 +2839,20 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
 
   /**
+   * Sets the back button icon and accessibility broadcast content.
+   *
+   * @param { string | image.PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
+   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  backButtonIcon(icon: string | image.PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
+
+  /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
    *
    * @param { boolean } value
