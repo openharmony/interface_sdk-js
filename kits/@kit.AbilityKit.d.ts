@@ -55,6 +55,10 @@ import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
+import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentForm,
+  InsightIntentEntry, InsightIntentEntity
+} from '@ohos.app.ability.InsightIntentDecorator';
+import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
@@ -126,5 +130,7 @@ export {
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
+  InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,InsightIntentForm,
+  InsightIntentEntry, InsightIntentEntity, InsightIntentEntryExecutor,
   CompletionHandler, AppServiceExtensionAbility
 };
