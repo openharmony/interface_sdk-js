@@ -1838,6 +1838,39 @@ declare namespace taskpool {
      */
     execute(task: Task, priority?: Priority): Promise<Object>;
   }
+
+  /**
+   * Defines the task result interface
+   * 
+   * @interface TaskResult
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface TaskResult {
+    /**
+     * the result returned by the task
+     *
+     * @type { ?Object }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    result?: Object;
+
+    /**
+     * the error thrown by the task
+     *
+     * @type { ?(Error | Object) }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    error?: Error | Object;
+  }
 }
 
 export default taskpool;
