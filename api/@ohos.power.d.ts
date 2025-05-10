@@ -19,7 +19,10 @@
  * @arkts 1.1&1.2
  */
 
-import { AsyncCallback, BusinessError, long } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
+/*** if arkts 1.1 */
+import { int, long } from './@ohos.base';
+/*** endif */
 
 /**
  * Provides interfaces to manage power.
@@ -270,7 +273,7 @@ declare namespace power {
   /**
    * Sets the timeout duration(ms) for turning off the screen.
    *
-   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -282,7 +285,7 @@ declare namespace power {
    * Sets the timeout duration(ms) for turning off the screen with permission.
    *
    * @permission ohos.permission.POWER_MANAGER
-   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
@@ -297,7 +300,7 @@ declare namespace power {
   /**
    * Power mode of a device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
