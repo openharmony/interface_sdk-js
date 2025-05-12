@@ -4388,6 +4388,27 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Registers the JavaScript object and method list.
+     *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
+     *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
 
@@ -4414,6 +4435,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Deletes a registered JavaScript object with given name.
+     *
+     * @param { string } name - The name of a registered JavaScript object to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     deleteJavaScriptRegister(name: string): void;
 
