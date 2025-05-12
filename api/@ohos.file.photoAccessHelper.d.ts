@@ -6559,20 +6559,6 @@ declare namespace photoAccessHelper {
     setTitle(title: string): void;
 
     /**
-     * Set display name of the asset.
-     *
-     * @param { string } displayName - the new display name of the asset
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - System inner fail
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 18
-     */
-    setDisplayName(displayName: string): void;
-
-    /**
      * Save edit data.
      *
      * @param { MediaAssetEditData } editData - edit data of the asset
