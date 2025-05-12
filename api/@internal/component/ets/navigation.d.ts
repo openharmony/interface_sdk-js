@@ -24,7 +24,7 @@ import { Resource } from '../../global/resource';
 import { TextModifier } from '../../arkui/TextModifier';
 import { LengthMetrics } from '../../arkui/Graphics';
 import { Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge,BackgroundEffectOptions,BackgroundBlurStyleOptions} from './common'
-import { CustomBuilder } from './builder'
+import { CustomBuilder, PageMapBuilder } from './builder'
 import { Length,ResourceStr,ResourceColor,Dimension } from './units'
 import { TitleHeight } from './enums' 
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
@@ -3264,10 +3264,22 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   navDestination(builder: (name: string, param: Object | null | undefined) => void): NavigationAttribute;
+
+  /**
+   * Set builder for user-defined NavDestination component.
+   *
+   * @param { PageMapBuilder | undefined } builder - The builder function of NavDestination component.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  navDestination(builder: PageMapBuilder | undefined): NavigationAttribute;
 
   /**
    * Set custom navigation content transition animation.
