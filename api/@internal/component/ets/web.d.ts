@@ -1077,6 +1077,15 @@ declare interface WebMediaOptions {
    * @since 11
    */
   audioExclusive?: boolean;
+
+  /**
+   * The type for audio sessions.
+   *
+   * @type { ?AudioSessionType }
+   * @syscap SystemCapability.Web.Webview.Core   
+   * @since 20
+   */
+  audioSessionType?: AudioSessionType;
 }
 
 /**
@@ -6752,6 +6761,61 @@ declare enum WebResponseType {
    * @since 13
    */
   LONG_PRESS = 1
+}
+
+/**
+ * Arkweb audio session Type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum AudioSessionType {
+  /**
+   * Playback audio, which is used for video or music playback, etc.
+   * They should not mix with other playback audio.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  PLAYBACK = 0,
+  /**
+   * Transient audio, such as a notification ping. 
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 
+   */
+  TRANSIENT=1,
+  /**
+   * Transient solo audio, such as driving directions. 
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  TRANSIENT_SOLO=2,
+  /**
+   * Ambient audio, which is mixable with other types of audio. 
+   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AMBIENT=3,
+  /**
+   * Play and record audio, which is used for recording audio. 
+   * This is useful in cases microphone is being used or in video conferencing applications.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  PLAY_AND_RECORD=4,
+  /**
+   * This is the default type of AudioSession.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AUTO=5
 }
 
 /**
