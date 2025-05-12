@@ -8948,7 +8948,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 20
      */
@@ -8965,7 +8965,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 20
      */
