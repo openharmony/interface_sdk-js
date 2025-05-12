@@ -5418,6 +5418,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 110001 - Image analysis feature is not supported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
+   * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
