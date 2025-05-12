@@ -303,7 +303,6 @@ declare enum SearchType {
    * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
