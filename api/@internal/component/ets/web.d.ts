@@ -7679,7 +7679,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
    *
-   * @param { Callback<OnPromptEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { Callback<OnPromptEvent, boolean> } - {@code true}  the application can call the custom pop-up capability (including confirmation and cancellation),
+   *     and it needs to call JsResult to notify the Web component whether to leave the current page based on the user's confirmation or cancellation operation;
+   *     {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
