@@ -768,7 +768,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -779,7 +779,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundEffect?: BackgroundEffectOptions;
 
@@ -1220,7 +1220,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -1231,7 +1231,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundEffect?: BackgroundEffectOptions;
 
