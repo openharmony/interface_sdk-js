@@ -3154,7 +3154,7 @@ declare namespace window {
 
   /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
-   * It takes effect only for the main window and its child windows.
+   * It takes effect only for the main window and its child windows on 2-in-1 devices.
    *
    * @param { number } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
    * @param { number } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
@@ -6317,6 +6317,7 @@ declare namespace window {
      *
      * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
      * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
+     *                                      The internal logic of the callback function requires a return value of the Boolean type.
      *                                      The return value determines whether to continue to close the child window.
      *                                      The value true means not to close the child window, and false means to continue to close the child window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -6335,6 +6336,7 @@ declare namespace window {
      *
      * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
      * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
+     *                                      The internal logic of the callback function requires a return value of the Boolean type.
      *                                      The return value determines whether to continue to close the child window.
      *                                      The value true means not to close the child window, and false means to continue to close the child window.
      *                                      If a value is passed in, the corresponding subscription is canceled.
@@ -6357,6 +6359,7 @@ declare namespace window {
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
      * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *                                                        The internal logic of the callback function requires a return value of the Promise type.
      *                                                        In the returned Promise function, resolve(true) means not to close the window,
      *                                                        and resolve(false) or reject means to continue to close the window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -6375,6 +6378,7 @@ declare namespace window {
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
      * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *                                                        The internal logic of the callback function requires a return value of the Promise type.
      *                                                        It does not return any parameter. In the returned Promise function,
      *                                                        resolve(true) means not to close the window,
      *                                                        and resolve(false) or reject means to continue to close the window.
