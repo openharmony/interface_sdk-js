@@ -2093,110 +2093,125 @@ declare namespace text {
   }
 
   /**
-   * Independent rendering of text layout.
+   * Implements a unit for text layout.
+   * Before calling any of the following APIs, you must use getGlyphRuns() of the TextLine class to create a Run object.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   class Run {
     /**
-     * Gets the number of glyph.
-     * @returns { number } The number of glyph.
+     * Obtains the number of glyphs in this run.
+     * @returns { number } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphCount(): number;
 
     /**
-     * Gets the glyph identifier for each character.
-     * @returns { Array<number> } Glyph identifier.
+     * Obtains the index of each glyph in this run.
+     * @returns { Array<number> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphs(): Array<number>;
 
     /**
-     * Gets the range glyph identifier for each character.
-     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
-     * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
-     * @returns { Array<number> } Glyph identifier or undefined.
+     * Obtains the index of each glyph in the specified range of this run.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * <br>range. end indicates the length of the range. If the length is 0, the range is from range.start to the end
+     * <br>of the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is
+     * <br>returned.
+     * @returns { Array<number> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getGlyphs(range: Range): Array<number>;
 
     /**
-     * Gets the font position offset.
-     * @returns { Array<common2D.Point> } The position of the font in the layout.
+     * Obtains the position of each glyph relative to the respective line in this run.
+     * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
+     * <br>the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getPositions(): Array<common2D.Point>;
 
     /**
-     * Gets the range font position offset.
-     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
-     * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
-     * @returns { Array<common2D.Point> } The position of the font in the layout or undefined.
+     * Obtains the position array of each glyph relative to the respective line within the specified range of this run.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * <br>range. end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * <br>the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
+     * @returns { Array<common2D.Point> } 	Array holding the position of each glyph relative to the respective line in
+     * <br>the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getPositions(range: Range): Array<common2D.Point>;
 
 	  /**
-     * Gets the font position offset array.
-     * @returns { Array<common2D.Point> } The position offset of the font in the layout.
+     * Obtains the offset of each glyph in this run relative to its index.
+     * @returns { Array<common2D.Point> } Array holding the offset of each glyph in the run relative to its index.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getOffsets(): Array<common2D.Point>;
 
     /**
-     * Gets the font object instance.
-     * @returns { drawing.Font } The font object instance.
+     * Obtains the Font object of this run.
+     * @returns { drawing.Font } Font object of this run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getFont(): drawing.Font;
 
     /**
-     * Paint the laid out text onto the supplied canvas at (x, y).
-     * @param { drawing.Canvas } canvas - Object.
-     * @param { number } x - Represents the X-axis position on the canvas.
-     * @param { number } y - Represents the Y-axis position on the canvas.
+     * Paints this run on the canvas with the coordinate point (x, y) as the upper left corner.
+     * @param { drawing.Canvas } canvas - Target canvas.
+     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
     /**
-     * Gets the range of run glyph indices, the offset of the indices relative to the entire paragraph.
-     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
-     * range.end is run length, if range.start range.and end are set to 0, then get all of the current run.
-     * @returns { Array<number> } The glyph indices or undefined.
+     * Obtains an array of character indices for glyphs within a specified range of this run, where the indices are
+     * <br>offsets relative to the entire paragraph.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * <br>range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * <br>the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
+     * <br>If this parameter is not passed, the entire run is obtained.
+     * @returns { Array<number> } Array of character indices.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getStringIndices(range?: Range): Array<number>;
 
     /**
-     * Gets the run glyph location and length.
-     * @returns { Range } The run of glyph location and length, Range.start is location, Range.end is length.
+     * Obtains the range of glyphs generated by this run.
+     * @returns { Range } 	Range of the glyphs, where start indicates the start position of the range, which is the
+     * <br>index relative to the entire paragraph, and end indicates the length of the range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getStringRange(): Range;
 
     /**
-     * Gets the run typographic bounds.
-     * @returns { TypographicBounds } The run of typographic bounds.
+     * Obtain the typographic boundaries of this run. These boundaries depend on the typographic font and font size,
+     * <br>but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
+     * <br>a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
+     * @returns { TypographicBounds } Typographic boundaries of the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getTypographicBounds(): TypographicBounds;
 
     /**
-     * Gets the run image bounds.
-     * @returns { common2D.Rect } The run rect bounds.
+     * Obtains the image boundary of this run. The image boundary, equivalent to a visual boundary, is related to the
+     * <br>font, font size, and characters. For example, for the string " a b " (which has a space before "a" and a
+     * <br>space after "b"), only "a b" are visible to users, and therefore the image boundary does not include these
+     * <br>spaces at the beginning and end.
+     * @returns { common2D.Rect } Image boundary of the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2228,14 +2243,14 @@ declare namespace text {
   }
 
   /**
-   * Describes the metric information for a line of text in a text layout.
+   * Describes the measurement information of a single line of text in the text layout.
    * @typedef LineMetrics
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface LineMetrics {
     /**
-     * The indexes in the text buffer the line begins.
+     * Start index of the line in the text buffer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2243,7 +2258,7 @@ declare namespace text {
     startIndex: number;
 
     /**
-     * The indexes in the text buffer the line ends.
+     * End index of the line in the text buffer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2251,7 +2266,7 @@ declare namespace text {
     endIndex: number;
 
     /**
-     * The height of the text rise, the distance from the baseline to the top of the character.
+     * Ascent, that is, the distance from the baseline to the top of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2259,7 +2274,7 @@ declare namespace text {
     ascent: number;
 
     /**
-     * The height of the text drop, the distance from the baseline to the bottom of the character.
+     * Descent, that is, the distance from the baseline to the bottom of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2267,7 +2282,7 @@ declare namespace text {
     descent: number;
 
     /**
-     * The height of the current line is `round(ascent + descent)`.
+     * Height of the line, which is Math.round(ascent + descent).
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2283,7 +2298,7 @@ declare namespace text {
     width: number;
 
     /**
-     * The left edge of the line. The right edge can be obtained with `left + width`.
+     * Left edge of the line. The right edge is the value of left plus the value of width.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2291,7 +2306,7 @@ declare namespace text {
     left: number;
 
     /**
-     * The y position of the baseline for this line from the top of the paragraph.
+     * Y coordinate of the baseline in the line relative to the top of the paragraph.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2299,7 +2314,7 @@ declare namespace text {
     baseline: number;
 
     /**
-     * Zero indexed line number.
+     * Line number, starting from 0.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2307,7 +2322,7 @@ declare namespace text {
     lineNumber: number;
 
     /**
-     * Height from the top.
+     * Height from the top to the current line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -2326,9 +2341,9 @@ declare namespace text {
   }
 
   /**
-   * Obtain the corresponding font full names array based on the font type.
+   * Obtains the full names of all fonts of the specified type. This API uses a promise to return the result.
    * @param { SystemFontType } fontType - System font type.
-   * @returns { Promise<Array<string>> } An array of font full names.
+   * @returns { Promise<Array<string>> } 	Promise used to return the full names of all fonts of the specified type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
@@ -2337,11 +2352,13 @@ declare namespace text {
   function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>;
 
   /**
-   * Get font details according to the font full name and the font type, supporting generic fonts, stylish fonts, and
-   * installed fonts.
-   * @param { string } fullName - Font full name.
+   * Obtains the font descriptor based on the font name and type. This API uses a promise to return the result.
+   * A font descriptor is a data structure that describes font features. It contains details of the font appearance and
+   * <br>properties.
+   * @param { string } fullName - Font name, corresponding to the value of fullName in the name table of the
+   * <br>corresponding font file. It is obtained by calling getSystemFontFullNamesByType.
    * @param { SystemFontType } fontType - System font type.
-   * @returns { Promise<FontDescriptor> } Returns the font descriptor.
+   * @returns { Promise<FontDescriptor> } Promise used to return the font descriptor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
@@ -2350,11 +2367,13 @@ declare namespace text {
   function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>;
 
   /**
-   * Obtain all system font descriptive symbols that match the specified font descriptor.
-   * @param { FontDescriptor } desc - Custom font descriptor, where the 'path' fields are not
-   * considered as valid matching values. If all fields are default values, get all font descriptors.
-   * @returns { Promise<Array<FontDescriptor>> } List of font descriptors, and an empty array will be returned
-   * if the matching fails.
+   * Obtains all system font descriptors that match the provided font descriptor. This API uses a promise to return the
+   * <br>result.
+   * @param { FontDescriptor } desc - Font descriptor to match against. If this parameter is left unspecified,
+   * <br>all system font descriptors are returned. If a specific value is provided, the matching is performed based on
+   * <br.the value provided. If the matching fails, an empty array is returned.
+   * @returns { Promise<Array<FontDescriptor>> } Promise used to return all matched system font descriptors, and an
+   * <br>empty array will be returned if the matching fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
@@ -2363,15 +2382,16 @@ declare namespace text {
   function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>;
 
   /**
-   * Text tab contains alignment type and location in paragraph style.
+   * Implements a paragraph-style text tab, which stores the alignment mode and position.
    * @typedef TextTab
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
   interface TextTab {
     /**
-     * The alignment of tab. Support left alignment right alignment center alignment,
-     * other enumeration values are left alignment effect.
+     * Alignment mode of the text following the tab character in a paragraph. It can be set to LEFT, RIGHT, and CENTER
+     * <br>defined in TextAlign. Other enumerated values have the effect of left alignment. The default value is left
+     * <br>alignment.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2379,7 +2399,8 @@ declare namespace text {
     alignment: TextAlign;
     
     /**
-     * The position of the tab relative to the start of the line.
+     * Alignment position of the text following the tab character. The value is a floating point number, in px.
+     * <br>The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
