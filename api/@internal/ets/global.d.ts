@@ -753,6 +753,18 @@ export declare function clearTimeout(timeoutID?: number): void;
 export declare function canIUse(syscap: string): boolean;
 
 /**
+ * Defining apiversion function.
+ *
+ * @param { string } apiversion
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 19
+ */
+export declare function isApiVersionGreaterOrEqual(apiversion: string): boolean;
+
+/**
  * Obtains all attributes of the component with the specified ID.
  *
  * @param { string } id - ID of the component whose attributes are to be obtained.
