@@ -24,7 +24,8 @@
  * @typedef BundlePackInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BundlePackInfo {
   /**
@@ -34,7 +35,8 @@ export interface BundlePackInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly packages: Array<PackageConfig>;
 
@@ -45,7 +47,8 @@ export interface BundlePackInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly summary: PackageSummary;
 }
@@ -56,7 +59,8 @@ export interface BundlePackInfo {
  * @typedef PackageConfig
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PackageConfig {
   /**
@@ -66,7 +70,8 @@ export interface PackageConfig {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly deviceTypes: Array<string>;
 
@@ -77,7 +82,8 @@ export interface PackageConfig {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -88,7 +94,8 @@ export interface PackageConfig {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly moduleType: string;
 
@@ -99,7 +106,8 @@ export interface PackageConfig {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly deliveryWithInstall: boolean;
 }
@@ -110,7 +118,8 @@ export interface PackageConfig {
  * @typedef PackageSummary
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PackageSummary {
   /**
@@ -120,7 +129,8 @@ export interface PackageSummary {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly app: BundleConfigInfo;
 
@@ -131,7 +141,8 @@ export interface PackageSummary {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly modules: Array<ModuleConfigInfo>;
 }
@@ -142,7 +153,8 @@ export interface PackageSummary {
  * @typedef BundleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BundleConfigInfo {
   /**
@@ -152,7 +164,8 @@ export interface BundleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -163,7 +176,8 @@ export interface BundleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly version: Version;
 }
@@ -174,7 +188,8 @@ export interface BundleConfigInfo {
  * @typedef ExtensionAbility
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ExtensionAbility {
   /**
@@ -184,7 +199,8 @@ export interface ExtensionAbility {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -195,7 +211,8 @@ export interface ExtensionAbility {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly forms: Array<AbilityFormInfo>;
 }
@@ -206,7 +223,8 @@ export interface ExtensionAbility {
  * @typedef ModuleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ModuleConfigInfo {
   /**
@@ -216,7 +234,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly mainAbility: string;
 
@@ -227,7 +246,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly apiVersion: ApiVersion;
 
@@ -238,7 +258,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly deviceTypes: Array<string>;
 
@@ -249,7 +270,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly distro: ModuleDistroInfo;
 
@@ -260,7 +282,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly abilities: Array<ModuleAbilityInfo>;
 
@@ -271,7 +294,8 @@ export interface ModuleConfigInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly extensionAbilities: Array<ExtensionAbility>;
 }
@@ -282,7 +306,8 @@ export interface ModuleConfigInfo {
  * @typedef ModuleDistroInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ModuleDistroInfo {
   /**
@@ -292,7 +317,8 @@ export interface ModuleDistroInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly deliveryWithInstall: boolean;
 
@@ -303,7 +329,8 @@ export interface ModuleDistroInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installationFree: boolean;
 
@@ -314,7 +341,8 @@ export interface ModuleDistroInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly moduleName: string;
 
@@ -325,7 +353,8 @@ export interface ModuleDistroInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly moduleType: string;
 }
@@ -336,7 +365,8 @@ export interface ModuleDistroInfo {
  * @typedef ModuleAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ModuleAbilityInfo {
   /**
@@ -346,7 +376,8 @@ export interface ModuleAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -357,7 +388,8 @@ export interface ModuleAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly label: string;
 
@@ -368,7 +400,8 @@ export interface ModuleAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly exported: boolean;
 
@@ -379,7 +412,8 @@ export interface ModuleAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly forms: Array<AbilityFormInfo>;
 }
@@ -390,7 +424,8 @@ export interface ModuleAbilityInfo {
  * @typedef AbilityFormInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityFormInfo {
   /**
@@ -400,7 +435,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -411,7 +447,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly type: string;
 
@@ -422,7 +459,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly updateEnabled: boolean;
 
@@ -433,7 +471,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly scheduledUpdateTime: string;
 
@@ -444,7 +483,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly updateDuration: number;
 
@@ -455,7 +495,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly supportDimensions: Array<string>;
 
@@ -466,7 +507,8 @@ export interface AbilityFormInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly defaultDimension: string;
 }
@@ -477,7 +519,8 @@ export interface AbilityFormInfo {
  * @typedef Version
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Version {
   /**
@@ -487,7 +530,8 @@ export interface Version {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly minCompatibleVersionCode: number;
 
@@ -498,7 +542,8 @@ export interface Version {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -509,7 +554,8 @@ export interface Version {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly code: number;
 }
@@ -520,7 +566,8 @@ export interface Version {
  * @typedef ApiVersion
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ApiVersion {
   /**
@@ -530,7 +577,8 @@ export interface ApiVersion {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly releaseType: string;
 
@@ -541,7 +589,8 @@ export interface ApiVersion {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly compatible: number;
 
@@ -552,7 +601,8 @@ export interface ApiVersion {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly target: number;
 }
