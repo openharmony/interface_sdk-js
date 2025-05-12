@@ -1640,16 +1640,19 @@ declare namespace text {
   }
 
   /**
-   * Provides the abilities to typeset by line.
+   * Implements a carrier that stores the text content and style. It can be used to compute layout details for
+   * individual lines of text. Before calling any of the following APIs, you must use buildLineTypeset()
+   * in the ParagraphBuilder class to create a LineTypeset object.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
   class LineTypeset {
     /**
-     * Calculate the line breakpoint based on the width provided.
-     * @param { number } startIndex - The starting point for the line-break calculations.
-     * @param { number } width - The requested line-break width.
-     * @returns { number } A count of the characters from startIndex that would cause the line break.
+     * Obtains the number of characters that can fit in the layout from the specified position within a limited width.
+     * @param { number } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
+     * <br>[0, total number of text characters). If the parameter is invalid, an exception is thrown.
+     * @param { number } width - Layout width. The value is a floating point number greater than 0, in px.
+     * @returns { number } Number of characters.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1658,10 +1661,14 @@ declare namespace text {
     getLineBreak(startIndex: number, width: number): number;
 
     /**
-     * Creates a text line object based on the text range provided.
-     * @param { number } startIndex - The starting index of the text range.
-     * @param { number } count - The characters count of the text range.
-     * @returns { TextLine } Text line object.
+     * Generates a text line object based on the specified layout range.
+     * @param { number } startIndex - Start position for layout calculation. The value is an integer in the
+     * <br>range [0, total number of text characters).
+     * @param { number } count - 	Number of characters from the specified start position. The value is an integer in
+     * <br>the range [0, total number of text characters). The sum of startIndex and count cannot be greater than
+     * <br>the total number of text characters. When count is 0, the range is [startIndex, end of the text].
+     * <br>You can use getLineBreak to obtain the number of characters that can fit in the layout.
+     * @returns { TextLine } TextLine object generated based on the characters in the text range.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1671,14 +1678,14 @@ declare namespace text {
   }
 
   /**
-   * Box that contain text.
+   * Describes the rectangle that holds the text.
    * @typedef TextBox
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface TextBox{
     /**
-     * Rect of text box.
+     * Information about the rectangle.
      * @type { common2D.Rect }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1695,14 +1702,14 @@ declare namespace text {
   }
 
   /**
-   * Position and affinity.
+   * Describes the position and affinity of a glyph.
    * @typedef PositionWithAffinity
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface PositionWithAffinity {
     /**
-     * Position of text.
+     * Index of the glyph relative to the paragraph. The value is an integer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1710,7 +1717,7 @@ declare namespace text {
     position: number;
 
     /**
-     * Affinity of text.
+     * Affinity of the position.
      * @type { Affinity }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1719,21 +1726,22 @@ declare namespace text {
   }
 
   /**
-   * Enumerates rect width style.
+   * Enumerates the rectangle width styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum RectWidthStyle {
     /**
-     * Tight width.
+     * If letterSpacing is not set, the rectangle conforms tightly to the text it contains.
+     * <br>However, if letterSpacing is set, a gap is introduced between the rectangle and text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     TIGHT,
 
     /**
-     * Max width.
+     * The rectangle's width is extended to align with the widest rectangle across all lines.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1741,22 +1749,21 @@ declare namespace text {
   }
 
   /**
-   * Enumerates rect height style.
+   * Enumerates the rectangle height styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum RectHeightStyle {
     /**
-     * Provide tight bounding boxes that fit heights per run.
+     * Tight style.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     TIGHT,
 
     /**
-     * The height of the boxes will be the maximum height of all runs in the line. All rects in the same
-     * line will be the same height.
+     * Extends the height to match the highest rectangle in all lines.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1822,7 +1829,7 @@ declare namespace text {
    */
   class ParagraphBuilder {
     /**
-     * Constructor ParagraphBuilder.
+     * A constructor used to create a ParagraphBuilder object.
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
      * @param { FontCollection } fontCollection - Font collection {@link FontCollection}
      * @syscap SystemCapability.Graphics.Drawing
@@ -1831,55 +1838,63 @@ declare namespace text {
     constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection);
 
     /**
-     * Push a style to the stack.
-     * @param { TextStyle } textStyle - Text style {@link TextStyle}
+     * Applies a new style to the current text blob.
+     * <p>**NOTE**</p>
+     * When you update the style of the current text blob, all text added afterward will use this new style.
+     * @param { TextStyle } textStyle - Text style, which describes various visual attributes of text, such as font,
+     * <br>font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
+     * <br>and text shadow. {@link TextStyle}
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     pushStyle(textStyle: TextStyle): void;
 
     /**
-     * Remove a style from the stack.
+     * Restores the previous text style.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     popStyle(): void;
 
     /**
-     * Adds text to the builder.
-     * @param { string } text - Text string
+     * Inserts a text string into the paragraph being built.
+     * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
+     * <br>provided, it is displayed as �.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     addText(text: string): void;
 
     /**
-     * Add placeholder.
-     * @param { PlaceholderSpan } placeholderSpan - Placeholder Span {@link PlaceholderSpan}
+     * Inserts a placeholder into the paragraph being built.
+     * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment,
+     * <br>baseline type, and baseline offset of the placeholder. {@link PlaceholderSpan}
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
     /**
-     * Create paragraph object.
-     * @returns { Paragraph } The paragraph value returned to the caller.
+     * Creates a paragraph object that can be used for subsequent layout and rendering.
+     * @returns { Paragraph } Paragraph object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     build(): Paragraph;
 
     /**
-     * Create LineTypeset object.
-     * @returns { LineTypeset } The LineTypeset value returned to the caller.
+     * Builds a line typesetter.
+     * @returns { LineTypeset } LineTypeset object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     buildLineTypeset(): LineTypeset;
 
     /**
-     * Add symbolId.
-     * @param { number } symbolId - Symbol Id
+     * Inserts a symbol into the paragraph being built.
+     * @param { number } symbolId - Symbol code to insert. The value is a hexadecimal number in the
+     * <br>range 0xF0000-0xF0C97. For details about the configurable symbol codes (unicode values in the list view),
+     * <br>see <a href="https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/">HarmonyOS Symbol</a>.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1887,14 +1902,17 @@ declare namespace text {
   }
 
   /**
-   * Provides the definition of the typographic bounds.
+   * Describes the typographic boundaries of a text line. These boundaries depend on the typographic font and font size,
+   * not on the characters themselves. For example, for the string " a b " (which has a space before "a" and a space
+   * after "b"), the typographic boundaries include the spaces at the beginning and end of the line. Similarly,
+   * the strings "j" and "E" have identical typographic boundaries, which are independent of the characters themselves.
    * @typedef TypographicBounds
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
   interface TypographicBounds {
     /**
-     * Distance Retained Above Baseline.
+     * Ascent of a text line. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1902,7 +1920,7 @@ declare namespace text {
     ascent: number;
 
     /**
-     * The distance that remains below the baseline.
+     * Descent of a text line. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1910,7 +1928,7 @@ declare namespace text {
     descent: number;
 
     /**
-     * Line Spacing.
+     * Leading of a text line. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1918,7 +1936,7 @@ declare namespace text {
     leading: number;
 
     /**
-     * The total width of the typesetting border.
+     * Width of the typographic boundaries. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1927,55 +1945,61 @@ declare namespace text {
   }
 
   /**
-   * Offset callback function of caret.
+   * Defines the callback used to receive the offset and index of each character in a text line object
+   * as its parameters.
    *
    * @typedef { function } CaretOffsetsCallback
-   * @param { number } offset - Character offset is traversed as an argument to the callback function.
-   * @param { number } index - Character index is traversed as an argument to the callback function.
-   * @param { boolean } leadingEdge - Whether the current offset is at the character front, as an argument to the
+   * @param { number } offset - Offset of each character in a text line. The value is a floating point number.
+   * @param { number } index - Index of each character in a text line. The value is an integer.
+   * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value true means
+   * <br>that the cursor is located at the front of the character, that is, the offset does not contain the character
+   * <br>width. The value false means that the cursor is located at the rear of the character, that is, the offset
+   * <br>contains the character width.
    * callback function.
-   * @returns { boolean } The return value of the user-defined callback function. If false is returned, the traversal
-   * continues. If true is returned, the traversal stops.
+   * @returns { boolean } Whether to stop calling the callback. The value true means to stop calling the callback,
+   * <br>and false means to continue calling the callback.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
   type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean;
 
   /**
-   * The structure of text line that provides the basis of paragraph for graphics.
+   * Implements a carrier that describes the basic text line structure of a paragraph.
+   * Before calling any of the following APIs, you must use getTextLines() of the Paragraph class or createLine() of
+   * the LineTypeset class to create a TextLine object.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   class TextLine {
     /**
-     * Get the count of glyphs.
-     * @returns { number } The counts of glyphs.
+     * Obtains the number of glyphs in this text line.
+     * @returns { number } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphCount(): number;
 
     /**
-     * Get the range of text line.
-     * @returns { Range } The range of text.
+     * Obtains the range of the text in this text line in the entire paragraph.
+     * @returns { Range } Range of the text in this text line in the entire paragraph.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getTextRange(): Range;
 
     /**
-     * Get the glyph runs of text line.
-     * @returns { Array<Run> } The tuple of glyph runs of text.
+     * Obtains the array of glyph runs in the text line.
+     * @returns { Array<Run> } Array of the runs obtained.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphRuns(): Array<Run>;
 
     /**
-     * Paint the range of text line.
-     * @param { drawing.Canvas } canvas - Canvas.
-     * @param { number } x - Represents the X-axis position on the canvas.
-     * @param { number } y - Represents the Y-axis position on the canvas.
+     * Paints this text line on the canvas with the coordinate point (x, y) as the upper left corner.
+     * @param { drawing.Canvas } canvas - Target canvas.
+     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1983,9 +2007,9 @@ declare namespace text {
 
     /**
      * Creates a truncated text line object.
-     * @param { number } width - The width of the truncated line.
-     * @param { EllipsisMode } ellipsisMode - Text ellipsis mode, EllipsisMode:MIDDLE is not supported.
-     * @param { string } ellipsis - Text ellipsis.
+     * @param { number } width - Width of the line after truncation. The value is a floating point number.
+     * @param { EllipsisMode } ellipsisMode - Ellipsis mode. Currently, only START and END are supported.
+     * @param { string } ellipsis - String used to mark a truncation.
      * @returns { TextLine } Truncated text line object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1993,63 +2017,75 @@ declare namespace text {
     createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
     /**
-     * Gets the text line typographic bounds.
-     * @returns { TypographicBounds } The text line of typographic bounds.
+     * Obtains the typographic boundaries of this text line. These boundaries depend on the typographic font and font
+     * <br>size, but not on the characters themselves. For example, for the string " a b " (which has a space before
+     * <br>"a" and a space after "b"), the typographic boundaries include the spaces at the beginning and end of the
+     * <br>line. Similarly, the strings "j" and "E" have identical typographic boundaries, which are independent of
+     * <br>the characters themselves.
+     * @returns { TypographicBounds } Typographic boundaries of the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getTypographicBounds(): TypographicBounds;
 
     /**
-     * Gets the text line image bounds.
-     * @returns { common2D.Rect } Rect of text line.
+     * Obtains the image boundaries of this text line. The image boundaries, equivalent to visual boundaries, depend on
+     * <br>the font, font size, and characters. For example, for the string " a b " (which has a space before "a" and
+     * <br>a space after "b"), only "a b" are visible to users, and therefore the image boundaries do not include these
+     * <br>spaces at the beginning and end of the line. For the strings "j" and "E", their image boundaries are
+     * <br>different. Specifically, the width of the boundary for "j" is narrower than that for "E", and the height of
+     * <br>the boundary for "j" is taller than that for "E".
+     * @returns { common2D.Rect } Image boundary of the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getImageBounds(): common2D.Rect;
 
     /**
-     * Gets the tail space width.
-     * @returns { number } The tail space width.
+     * Obtains the width of the spaces at the end of this text line.
+     * @returns { number } Number of spaces at the end of the text line. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getTrailingSpaceWidth(): number;
 
     /**
-     * Gets the string index of the given position.
-     * @param { common2D.Point } point - The given position.
-     * @returns { number } The string index for a given position.
+     * Obtains the index of a character at the specified position in the original string.
+     * @param { common2D.Point } point - Position of the character.
+     * @returns { number } Index of the character in the text line. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getStringIndexForPosition(point: common2D.Point): number;
 
     /**
-     * Gets the offset of the given string index.
-     * @param { number } index - The given string index.
-     * @returns { number } The offset for a given string index.
+     * Obtains the offset of a character with the specified index in this text line.
+     * @param { number } index - Index of the character. The value is an integer.
+     * @returns { number } Offset of the character with the specified index. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getOffsetForStringIndex(index: number): number;
 
     /**
-     * Enumerate caret offset and index in text lines.
-     * @param { CaretOffsetsCallback } callback - User-defined callback functions.
+     * Enumerates the offset and index of each character in a text line.
+     * @param { CaretOffsetsCallback } callback - Custom function, which contains the offset and index of each
+     * <br>character in the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     enumerateCaretOffsets(callback: CaretOffsetsCallback): void;
 
     /**
-     * Gets the text offset based on the given alignment factor and alignment width.
-     * @param { number } alignmentFactor - The coefficients that text needs to be aligned.
-     *                                     Less than or equal to 0 is left justified, 0.5 is center justified,
-     *                                     and greater than or equal to 1 is right justified.
-     * @param { number } alignmentWidth - The width of the text to be aligned.
-     *                                    Returns 0 if it is less than the actual width of the text.
-     * @returns { number } The offset of the aligned text.
+     * Obtains the offset of this text line after alignment based on the alignment factor and alignment width.
+     * @param { number } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
+     * <br>floating point number. A value less than or equal to 0.0 means that the text is left-aligned; a value
+     * <br>between 0.0 and 0.5 means that the text is slightly left-aligned; the value 0.5 means that is text
+     * <br>is centered; a value between 0.5 and 1 means that the text is slightly right-aligned; a value greater than
+     * <br>or equal to 1.0 means that the text is right-aligned.
+     * @param { number } alignmentWidth - Alignment width, that is, the width of the text line. The value is a floating
+     * <br>point number. If the width is less than the actual width of the text line, 0 is returned.
+     * @returns { number } Offset required for alignment. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
