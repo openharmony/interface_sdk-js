@@ -18,7 +18,7 @@
  * @kit ArkGraphics3D
  */
 
-import { SceneResource, Mesh } from './SceneResources';
+import { SceneResource, Mesh, Morpher } from './SceneResources';
 import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
 import { RaycastParameters, RaycastResult } from './Scene';
@@ -281,6 +281,16 @@ export interface Geometry extends Node {
    * @since 12
    */
   readonly mesh: Mesh;
+  
+  /**
+   * Morpher target definition.
+   * 
+   * @type { ?Morpher }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 
+   */
+  readonly morpher?: Morpher;
 }
 
 /**
