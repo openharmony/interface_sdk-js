@@ -706,7 +706,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): TextAreaAttribute;
+   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextAreaAttribute;
 
   /**
    * Called when the font list of text is set.
