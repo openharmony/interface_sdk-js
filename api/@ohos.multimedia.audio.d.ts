@@ -4310,14 +4310,10 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
-     /**
-     * Query whether Acoustic Echo Canceler is supported on input SourceType.
-     * @param { SourceType } sourceType - Audio source type.
-     * @returns { boolean } Promise used to return the support status of Acoustic Echo Canceler. 
-     * The value true means that Acoustic Echo Canceler is supported, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+    /**
+     * Checks whether the specified audio source type supports echo cancellation
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
