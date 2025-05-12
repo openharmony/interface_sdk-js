@@ -5249,7 +5249,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Set the preferred orientation config of the window
+     * Sets the preferred orientation for the main window.
+     * This API uses a promise to return the result. This API takes effect only on devices that support rotation with the sensor.
+     * It does not take effect on 2-in-1 devices or in the child window mode.
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
@@ -5290,7 +5292,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Set the preferred orientation config of the window
+     * Sets the preferred orientation for the main window.
+     * This API uses an asynchronous callback to return the result. This API takes effect only on devices that support rotation with the sensor.
+     * It does not take effect on 2-in-1 devices or in the child window mode.
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -5306,7 +5310,8 @@ declare namespace window {
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
-     * Get the preferred orientation config of the window
+     * Obtains the orientation of the main window.
+     * This API can be called only by the main window.
      *
      * @returns { Orientation } orientation - The orientation config of the window
      * @throws { BusinessError } 1300002 - This window state is abnormal.
