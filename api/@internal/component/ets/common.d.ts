@@ -91,6 +91,21 @@ declare interface InputCounterOptions {
   /**
    * It is the numerator bit of the percentage and used as a threshold. If the number of characters input 
    * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Threshold percentage for displaying the character counter.
+   * <br>The character counter is displayed when the number of characters that have been entered is greater than
+   * the maximum number of characters multiplied by the threshold percentage value.
+   * <br>When displayed, the character counter is in the following format:
+   * <br>Number of characters that have been entered/Maximum number of characters allowed.
+   * <br>It is visible when the number of characters entered is greater than
+   * the character limit multiplied by the threshold percentage value.
+   * <br>Value range: [1, 100]
+   * <br>If the value is not an integer, it is rounded down to the nearest integer.
+   * <br>If the value exceeds the valid value range, the character counter is not displayed.
+   * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
+   * </p>
+   * 
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -111,6 +126,16 @@ declare interface InputCounterOptions {
   /**
    * If the current input character count reaches the maximum character count and users want to exceed the
    * normal input, the border will turn red. If this parameter is true, the red border displayed.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Whether to highlight the text box border and character counter subscript in red.
+   * <br>If options is not set, the text box border and character counter subscript turn red
+   * <br>when the number of characters entered reaches the limit.
+   * <br>If the character counter is displayed and thresholdPercentage is set to a valid value,
+   * the text box border and character counter subscript turn red when the number of entered characters exceeds the limit.
+   * <br>The value true (default) means to highlight the text box border and character counter subscript in red.
+   * </p>
+   * 
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28299,6 +28324,15 @@ declare abstract class TextContentControllerBase {
   /**
    * Get the index and relative position of the CaretOffset.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>If this API is called when the caret position is updated in the current frame, it will not take effect.
+   * <br>For the Search component, the returned position information is the offset of the first character
+   * relative to the search icon in the component.
+   * <br>If no text is entered in the Search component,
+   * the return value contains the position information relative to the component.
+   * <br>The location information in the return value is the location of the caret relative to the editable component.
+   * </p>
+   * 
    * @returns { CaretOffset } index and relative position of the CaretOffset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -28318,7 +28352,15 @@ declare abstract class TextContentControllerBase {
   /**
    * Get the start and end positions of the text content.
    *
-   * @returns { RectResult } Text content rect.
+   * <p><strong>NOTE</strong>:
+   * <br>If no text is entered, the return value contains the position information, but the size is 0.
+   * <br>The position information is the offset of the first character relative to the editable area.
+   * <br>For the Search component, the returned position information is the offset of the first character
+   * relative to the search icon in the component.
+   * <br>If there is input, the width in the return value is the fixed width of the editable area.
+   * </p>
+   *
+   * @returns { RectResult } Text content rect.The unit of the return value is pixel.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -28336,7 +28378,8 @@ declare abstract class TextContentControllerBase {
    */
   /**
    * Get the lines number of the text content.
-   *
+   * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
+   * 
    * @returns { number } Text content line count
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

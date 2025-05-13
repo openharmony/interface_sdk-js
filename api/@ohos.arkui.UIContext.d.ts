@@ -46,7 +46,12 @@ import type pointer from './@ohos.multimodalInput.pointer';
  */
 /**
  * class Font
- *
+ * 
+ * <p><strong>NOTE</strong>:
+ * <br>You must first use getFont() in UIContext to obtain a Font instance,
+ * and then call the APIs using the obtained instance.
+ * </p>
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -80,6 +85,11 @@ export class Font {
    */
   /**
    * Gets a list of fonts supported by system.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This API takes effect only on 2-in-1 devices.
+   * </p>
+   * 
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -2698,6 +2708,12 @@ export class DragController {
 
 /**
  * class MeasureUtils
+ * 
+ * <p><strong>NOTE</strong>:
+ * <br>You must first use getMeasureUtils() in UIContext to obtain a MeasureUtils instance,
+ * and then call the APIs using the obtained instance.
+ * </p>
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -2708,7 +2724,7 @@ export class MeasureUtils {
    * Obtains the width of the specified text in a single line layout.
    *
    * @param { MeasureOptions } options - Options.
-   * @returns { number }
+   * @returns { number } - The unit is px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2720,7 +2736,7 @@ export class MeasureUtils {
    * Obtains the width and height of the specified text in a single line layout.
    *
    * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display
+   * @returns { SizeOptions } width and height for text to display.The return values for text width and height are both in px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
