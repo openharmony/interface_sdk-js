@@ -21,7 +21,9 @@
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
-import StartOptions from './@ohos.app.ability.StartOptions';
+/*** if arkts 1.1 */
+import { StartOptions } from './@ohos.app.ability.StartOptions';
+/*** endif */
 
 /**
  * Launcher bundle manager.
