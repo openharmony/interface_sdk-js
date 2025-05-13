@@ -127,18 +127,18 @@ declare namespace accessibility {
   /**
    * The type of the observer.
    *
-   * @typedef {'accessibilityStateChange' | 'touchGuideStateChange'}
+   * @typedef {'accessibilityStateChange' | 'touchGuideStateChange' | 'screenReaderStateChange'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
-  type ObserverEventType = 'accessibilityStateChange' | 'touchGuideStateChange';
+  type ObserverEventType = 'accessibilityStateChange' | 'touchGuideStateChange' | 'screenReaderStateChange';
 
   /**
    * The granularity of text move.
    *
    * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since 20
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
