@@ -8286,6 +8286,35 @@ declare namespace media {
   }
 
   /**
+   * Provides the media AVScreenCaptureStrategy definition.
+   * 
+   * @typedef AVScreenCaptureStrategy
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 20
+   */
+  interface AVScreenCaptureStrategy {
+    /**
+     * Defines whether to enable device-level content recording
+     * @type { ?boolean } Record according to the display device where the logical screen is located if set True
+     * @default false
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 20
+     */
+    enableDeviceLevelCapture?: boolean;
+
+    /**
+     * Allows starting or maintaining screen capture during a call
+     * @type { ?boolean } The default value is false,
+     * which means that the recording is ended during the call or the recording cannot be initiated.
+     * @default {false} [Required if provided]
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 20
+     */
+    keepCaptureDuringCall?: boolean;
+  }
+
+  /**
    * Provides the media AVScreenCaptureRecord config definition.
    *
    * @typedef AVScreenCaptureRecordConfig
@@ -8363,6 +8392,14 @@ declare namespace media {
      * @since 18
      */
     fillMode?: AVScreenCaptureFillMode;
+    /**
+     * Screen Capture Policy Configuration Fields
+     * @type { ?AVScreenCaptureStrategy } Screen capture policy configuration values
+     * @default {default value of the property} [Required if provided]
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 20
+     */
+    strategy?: AVScreenCaptureStrategy;
   }
 
   /**
