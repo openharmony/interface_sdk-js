@@ -95,7 +95,6 @@
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
-    "SystemCapability.Telephony.CellularCall",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Telephony.SmsMms",
     "SystemCapability.Telephony.StateRegistry",
@@ -223,6 +222,7 @@
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Graphics.Drawing",
+    "SystemCapability.Graphic.Graphic2D.HyperGraphicManager",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",
     "SystemCapability.Developtools.Syscap",
     "SystemCapability.Resourceschedule.Ffrt.Core",
@@ -233,6 +233,9 @@
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Ability.AppStartup",
-    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.Test.PerfTest",
+    "SystemCapability.Mechanic.Core"
   ]
 }
