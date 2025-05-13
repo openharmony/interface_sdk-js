@@ -7496,7 +7496,7 @@ declare namespace cursorControl {
   /**
    * Change the mouse cursor style by param: 'PointerStyle'.
    *
-   * @param { PointerStyle } value
+   * @param { PointerStyle } value - Cursor style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19779,7 +19779,7 @@ declare class CommonMethod<T> {
   /**
    * Background image size
    *
-   * @param { SizeOptions | ImageSize } value
+   * @param { SizeOptions | ImageSize } value - The width and height of the background image.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20741,7 +20741,7 @@ declare class CommonMethod<T> {
   /**
    * Set hover effect.
    *
-   * @param { HoverEffect } value
+   * @param { HoverEffect } value - Hover effect of the component in hover state.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20830,7 +20830,7 @@ declare class CommonMethod<T> {
   /**
    * Keyboard input
    *
-   * @param { Callback<KeyEvent, boolean> } event
+   * @param { Callback<KeyEvent, boolean> } event - Callback for handling the key event.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20853,7 +20853,7 @@ declare class CommonMethod<T> {
   /**
    * Handle keyboard events before input method events.
    *
-   * @param { Callback<KeyEvent, boolean> } event
+   * @param { Callback<KeyEvent, boolean> } event - Callback for handling the key event.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20915,7 +20915,10 @@ declare class CommonMethod<T> {
    */
   /**
    * Set focusable.
-   *
+   * Components that have default interaction logic, such as Button and TextInput, are focusable by default. Other 
+   * components, such as Text and Image, are not focusable by default. Only focusable components can trigger a focus 
+   * event.
+   * 
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21026,7 +21029,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Set focus index by key tab.
-   *
+   * The tabIndex and focusScopeId cannot be used together.
    * @param { number } index
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21056,7 +21059,7 @@ declare class CommonMethod<T> {
   /**
    * Set default focused component when a page create.
    *
-   * @param { boolean } value
+   * @param { boolean } value - True means to set the component as the default focus, and the value false has no effect.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21085,7 +21088,8 @@ declare class CommonMethod<T> {
   /**
    * Set default focused component when focus on a focus group.
    *
-   * @param { boolean } value
+   * @param { boolean } value - True means the component is the default focus of the parent container, and
+   * false means the component is not the default focus of the parent container.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21114,7 +21118,7 @@ declare class CommonMethod<T> {
   /**
    * Set a component focused when the component be touched.
    *
-   * @param { boolean } value
+   * @param { boolean } value - True means the component is focusable on touch, false means the component is not focusable on touch.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21126,7 +21130,7 @@ declare class CommonMethod<T> {
   /**
    * Set the component's focusBox style.
    *
-   * @param { FocusBoxStyle } style
+   * @param { FocusBoxStyle } style - Component's focusBox style.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -22659,7 +22663,7 @@ declare class CommonMethod<T> {
   /**
    * Controls the display or hide of the current component.
    *
-   * @param { Visibility } value
+   * @param { Visibility } value - Whether the component is visible.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -23181,7 +23185,7 @@ declare class CommonMethod<T> {
 
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
-   *  If it is set to false, click operations are not responded.
+   * If it is set to false, click operations are not responded.
    *
    * @param { boolean } value
    * @returns { T }
@@ -23190,7 +23194,7 @@ declare class CommonMethod<T> {
    */
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
-   *  If it is set to false, click operations are not responded.
+   * If it is set to false, click operations are not responded.
    *
    * @param { boolean } value
    * @returns { T }
@@ -23200,7 +23204,7 @@ declare class CommonMethod<T> {
    */
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
-   *  If it is set to false, click operations are not responded.
+   * If it is set to false, click operations are not responded.
    *
    * @param { boolean } value
    * @returns { T }
@@ -23211,7 +23215,7 @@ declare class CommonMethod<T> {
    */
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
-   *  If it is set to false, click operations are not responded.
+   * If it is set to false, click operations are not responded.
    *
    * @param { boolean } value
    * @returns { T }
@@ -24825,8 +24829,9 @@ declare class CommonMethod<T> {
   /**
    * Trigger a visible area change event.
    *
-   * @param { Array<number> } ratios
-   * @param { VisibleAreaChangeCallback } event
+   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible area to the component's total area.
+   * The value range of the threshold is [0.0, 1.0].
+   * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
