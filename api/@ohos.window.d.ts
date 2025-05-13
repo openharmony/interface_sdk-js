@@ -1895,7 +1895,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x?: number;
 
@@ -1905,7 +1906,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y?: number;
 
@@ -1915,7 +1917,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pivotX?: number;
 
@@ -1925,7 +1928,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pivotY?: number;
   }
@@ -1946,7 +1950,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x?: number;
 
@@ -1956,7 +1961,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y?: number;
 
@@ -1966,7 +1972,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     z?: number;
 
@@ -1976,7 +1983,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pivotX?: number;
 
@@ -1986,7 +1994,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pivotY?: number;
   }
@@ -2007,7 +2016,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x?: number;
 
@@ -2017,7 +2027,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y?: number;
 
@@ -2027,7 +2038,8 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     z?: number;
   }
@@ -7701,7 +7713,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     opacity(opacity: number): void;
 
@@ -7730,7 +7743,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scale(scaleOptions: ScaleOptions): void;
 
@@ -7759,7 +7773,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rotate(rotateOptions: RotateOptions): void;
 
@@ -7788,7 +7803,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     translate(translateOptions: TranslateOptions): void;
 
@@ -7933,7 +7949,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
 
