@@ -565,6 +565,15 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Describes the window status of an application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @crossplatform
+   * @since 20
+   */
   enum WindowStatusType {
     /**
      * Undefined status of the window
@@ -579,6 +588,14 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Undefined status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     UNDEFINED = 0,
     /**
      * Full screen status of the window
@@ -592,6 +609,14 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Full screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FULL_SCREEN,
     /**
@@ -621,6 +646,14 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Minimize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     MINIMIZE,
     /**
      * Floating status of the window
@@ -635,6 +668,14 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Floating status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FLOATING,
     /**
      * Split screen status of the window
@@ -648,6 +689,14 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Split screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     SPLIT_SCREEN
   }
@@ -667,6 +716,15 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Properties of status bar and navigation bar, it couldn't update automatically
+   *
+   * @interface SystemBarProperties
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   interface SystemBarProperties {
     /**
      * The color of the status bar.
@@ -681,6 +739,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * The color of the status bar.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     statusBarColor?: string;
 
@@ -697,6 +764,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * The light icon of the status bar.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     isStatusBarLightIcon?: boolean;
 
@@ -730,6 +806,16 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * The color of the navigation bar.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+  
     navigationBarColor?: string;
 
     /**
@@ -745,6 +831,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * The light icon of the navigation bar.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     isNavigationBarLightIcon?: boolean;
 
@@ -771,6 +866,15 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Enable the animation of the status bar.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     enableStatusBarAnimation?: boolean;
 
@@ -1359,6 +1463,14 @@ declare namespace window {
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18
+     */
+    /**
+     * The window status of an application.
+     *
+     * @type { WindowStatusType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossPlatform
+     * @since 20
      */
     windowStatusType: WindowStatusType;
 
@@ -2434,6 +2546,15 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Avoid area options
+   *
+   * @interface AvoidAreaOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   interface AvoidAreaOptions {
     /**
      * Avoid area type
@@ -2442,6 +2563,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Avoid area type
+     *
+     * @type { AvoidAreaType }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     type: AvoidAreaType,
 
@@ -2452,6 +2582,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Avoid area
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     area: AvoidArea
   }
@@ -5152,6 +5291,21 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Set the properties of system bar
+     *
+     * @param { SystemBarProperties } systemBarProperties - The properties of system bar
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
@@ -5802,6 +5956,19 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types; 
+     *                                                                   3. Parameter verification failed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaOptions>): void;
 
     /**
@@ -5835,6 +6002,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 
+     *                                                                   2. Parameter verification failed.  
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaOptions>): void;
 
@@ -6294,6 +6473,20 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
     /**
@@ -6318,6 +6511,19 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Unregister the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
@@ -7343,6 +7549,21 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Sets whether is private mode or not.
+     *
+     * @permission ohos.permission.PRIVACY_WINDOW
+     * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
     /**
@@ -7371,6 +7592,21 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Sets whether is private mode or not.
+     *
+     * @permission ohos.permission.PRIVACY_WINDOW
+     * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @crossplatform
+     * @since 20
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
