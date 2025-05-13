@@ -339,6 +339,15 @@ declare namespace window {
      */
     TYPE_DYNAMIC,
     /**
+     * TYPE_MUTISCREEN_COLLABORATION.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 20
+     */
+    TYPE_MUTISCREEN_COLLABORATION = 26,
+    /**
      * Main.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
