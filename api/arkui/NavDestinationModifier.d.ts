@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { NavDestinationAttribute } from './component/navDestination'
+/*** endif */
+
 /**
  * Defines NavDestination Modifier
  *
