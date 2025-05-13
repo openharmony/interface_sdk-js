@@ -105,7 +105,6 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
-    "SystemCapability.Resourceschedule.QoS.Core",
     "SystemCapability.Utils.Lang",
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiTrace",
@@ -227,6 +226,7 @@
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
-    "SystemCapability.Test.PerfTest"
+    "SystemCapability.Test.PerfTest",
+    "SystemCapability.Mechanic.Core"
   ]
 }
