@@ -929,7 +929,7 @@ declare namespace text {
      * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf and .otf.
      * @param { string } name - the font name.
      * @param { string | Resource } path - Path of the font file to import. The value must be
-     * <br>**file://**absolute path of the font file or **rawfile/**directory or file name.
+     * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -941,7 +941,7 @@ declare namespace text {
      * the value of name is set in fontFamilies in TextStyle. The supported font file formats are ttf and otf.
      * @param { string } name - Name of the font. Any string is acceptable.
      * @param { string | Resource } path - Path of the font file to load.
-     * <br>The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1325,7 +1325,7 @@ declare namespace text {
   interface FontDescriptor {
     /**
      * Absolute path of the font. Any string is acceptable, but the value must adhere to the system's path constraints.
-     * <br>The default value is an empty string.
+     * The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 14
@@ -1449,10 +1449,10 @@ declare namespace text {
      * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
      * @param { drawing.Path } path - Path used to determine the position of the text.
      * @param { number } hOffset - Horizontal offset along the path direction. A positive number indicates a position
-     * <br>that is ahead along the path from its start point, and a negative number indicates a position that is behind
-     * <br>from the start point.
+     * that is ahead along the path from its start point, and a negative number indicates a position that is behind
+     * from the start point.
      * @param { number } vOffset - Vertical offset along the path direction. A positive number indicates a position
-     * <br>on the left side of the path, and a negative number indicates a position on the right side of the path.
+     * on the left side of the path, and a negative number indicates a position on the right side of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1486,7 +1486,7 @@ declare namespace text {
      * Obtains the width of the longest line, including its indentation, in the text.
      * You are advised to round up the return value. If the text content is empty, 0 is returned.
      * @returns { number } Width of the longest line, including its indentation.
-     * <br>The value is a floating point number, in px.
+     * The value is a floating point number, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 13
      */
@@ -1592,7 +1592,7 @@ declare namespace text {
     /**
      * Checks whether the number of lines in the paragraph exceeds the maximum.
      * @returns { boolean } Check result. The value true means that the number of lines exceeds the maximum,
-     * <br>and false means the opposite.
+     * and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1609,10 +1609,10 @@ declare namespace text {
     /**
      * Obtains the actually visible text range in the specified line, excluding any overflow ellipsis.
      * @param { number } lineNumber - Line number of the text range, starting from 0. This API can only be used to
-     * <br>obtain the bounds of existing lines. That is, the line number must start from 0, and the maximum line number
-     * <br>is getLineCount - 1.
+     * obtain the bounds of existing lines. That is, the line number must start from 0, and the maximum line number
+     * is getLineCount - 1.
      * @param { boolean } includeSpaces - Whether spaces are included. The value true means that spaces are contained,
-     * <br>and false means the opposite.
+     * and false means the opposite.
      * @returns { Range } Text range obtained. If the line index is invalid, start and end are both 0.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1631,8 +1631,8 @@ declare namespace text {
      * Obtains the line measurement information of a line.
      * @param { number } lineNumber - Line number, starting from 0.
      * @returns { LineMetrics | undefined } LineMetrics object containing the measurement information if the specified
-     * <br>line number is valid and the measurement information exists. If the line number is invalid or
-     * <br>the measurement information cannot be obtained, undefined is returned.
+     * line number is valid and the measurement information exists. If the line number is invalid or
+     * the measurement information cannot be obtained, undefined is returned.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1650,7 +1650,7 @@ declare namespace text {
     /**
      * Obtains the number of characters that can fit in the layout from the specified position within a limited width.
      * @param { number } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
-     * <br>[0, total number of text characters). If the parameter is invalid, an exception is thrown.
+     * [0, total number of text characters). If the parameter is invalid, an exception is thrown.
      * @param { number } width - Layout width. The value is a floating point number greater than 0, in px.
      * @returns { number } Number of characters.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1663,11 +1663,11 @@ declare namespace text {
     /**
      * Generates a text line object based on the specified layout range.
      * @param { number } startIndex - Start position for layout calculation. The value is an integer in the
-     * <br>range [0, total number of text characters).
+     * range [0, total number of text characters).
      * @param { number } count - 	Number of characters from the specified start position. The value is an integer in
-     * <br>the range [0, total number of text characters). The sum of startIndex and count cannot be greater than
-     * <br>the total number of text characters. When count is 0, the range is [startIndex, end of the text].
-     * <br>You can use getLineBreak to obtain the number of characters that can fit in the layout.
+     * the range [0, total number of text characters). The sum of startIndex and count cannot be greater than
+     * the total number of text characters. When count is 0, the range is [startIndex, end of the text].
+     * You can use getLineBreak to obtain the number of characters that can fit in the layout.
      * @returns { TextLine } TextLine object generated based on the characters in the text range.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1734,7 +1734,7 @@ declare namespace text {
   enum RectWidthStyle {
     /**
      * If letterSpacing is not set, the rectangle conforms tightly to the text it contains.
-     * <br>However, if letterSpacing is set, a gap is introduced between the rectangle and text.
+     * However, if letterSpacing is set, a gap is introduced between the rectangle and text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1842,8 +1842,8 @@ declare namespace text {
      * <p>**NOTE**</p>
      * When you update the style of the current text blob, all text added afterward will use this new style.
      * @param { TextStyle } textStyle - Text style, which describes various visual attributes of text, such as font,
-     * <br>font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
-     * <br>and text shadow. {@link TextStyle}
+     * font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
+     * and text shadow. {@link TextStyle}
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1859,7 +1859,7 @@ declare namespace text {
     /**
      * Inserts a text string into the paragraph being built.
      * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
-     * <br>provided, it is displayed as �.
+     * provided, it is displayed as �.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1868,7 +1868,7 @@ declare namespace text {
     /**
      * Inserts a placeholder into the paragraph being built.
      * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment,
-     * <br>baseline type, and baseline offset of the placeholder. {@link PlaceholderSpan}
+     * baseline type, and baseline offset of the placeholder. {@link PlaceholderSpan}
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1893,8 +1893,8 @@ declare namespace text {
     /**
      * Inserts a symbol into the paragraph being built.
      * @param { number } symbolId - Symbol code to insert. The value is a hexadecimal number in the
-     * <br>range 0xF0000-0xF0C97. For details about the configurable symbol codes (unicode values in the list view),
-     * <br>see <a href="https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/">HarmonyOS Symbol</a>.
+     * range 0xF0000-0xF0C97. For details about the configurable symbol codes (unicode values in the list view),
+     * see <a href="https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/">HarmonyOS Symbol</a>.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1952,12 +1952,12 @@ declare namespace text {
    * @param { number } offset - Offset of each character in a text line. The value is a floating point number.
    * @param { number } index - Index of each character in a text line. The value is an integer.
    * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value true means
-   * <br>that the cursor is located at the front of the character, that is, the offset does not contain the character
-   * <br>width. The value false means that the cursor is located at the rear of the character, that is, the offset
-   * <br>contains the character width.
+   * that the cursor is located at the front of the character, that is, the offset does not contain the character
+   * width. The value false means that the cursor is located at the rear of the character, that is, the offset
+   * contains the character width.
    * callback function.
    * @returns { boolean } Whether to stop calling the callback. The value true means to stop calling the callback,
-   * <br>and false means to continue calling the callback.
+   * and false means to continue calling the callback.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
@@ -2018,10 +2018,10 @@ declare namespace text {
 
     /**
      * Obtains the typographic boundaries of this text line. These boundaries depend on the typographic font and font
-     * <br>size, but not on the characters themselves. For example, for the string " a b " (which has a space before
-     * <br>"a" and a space after "b"), the typographic boundaries include the spaces at the beginning and end of the
-     * <br>line. Similarly, the strings "j" and "E" have identical typographic boundaries, which are independent of
-     * <br>the characters themselves.
+     * size, but not on the characters themselves. For example, for the string " a b " (which has a space before
+     * "a" and a space after "b"), the typographic boundaries include the spaces at the beginning and end of the
+     * line. Similarly, the strings "j" and "E" have identical typographic boundaries, which are independent of
+     * the characters themselves.
      * @returns { TypographicBounds } Typographic boundaries of the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2030,11 +2030,11 @@ declare namespace text {
 
     /**
      * Obtains the image boundaries of this text line. The image boundaries, equivalent to visual boundaries, depend on
-     * <br>the font, font size, and characters. For example, for the string " a b " (which has a space before "a" and
-     * <br>a space after "b"), only "a b" are visible to users, and therefore the image boundaries do not include these
-     * <br>spaces at the beginning and end of the line. For the strings "j" and "E", their image boundaries are
-     * <br>different. Specifically, the width of the boundary for "j" is narrower than that for "E", and the height of
-     * <br>the boundary for "j" is taller than that for "E".
+     * the font, font size, and characters. For example, for the string " a b " (which has a space before "a" and
+     * a space after "b"), only "a b" are visible to users, and therefore the image boundaries do not include these
+     * spaces at the beginning and end of the line. For the strings "j" and "E", their image boundaries are
+     * different. Specifically, the width of the boundary for "j" is narrower than that for "E", and the height of
+     * the boundary for "j" is taller than that for "E".
      * @returns { common2D.Rect } Image boundary of the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2070,7 +2070,7 @@ declare namespace text {
     /**
      * Enumerates the offset and index of each character in a text line.
      * @param { CaretOffsetsCallback } callback - Custom function, which contains the offset and index of each
-     * <br>character in the text line.
+     * character in the text line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2079,12 +2079,12 @@ declare namespace text {
     /**
      * Obtains the offset of this text line after alignment based on the alignment factor and alignment width.
      * @param { number } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
-     * <br>floating point number. A value less than or equal to 0.0 means that the text is left-aligned; a value
-     * <br>between 0.0 and 0.5 means that the text is slightly left-aligned; the value 0.5 means that is text
-     * <br>is centered; a value between 0.5 and 1 means that the text is slightly right-aligned; a value greater than
-     * <br>or equal to 1.0 means that the text is right-aligned.
+     * floating point number. A value less than or equal to 0.0 means that the text is left-aligned; a value
+     * between 0.0 and 0.5 means that the text is slightly left-aligned; the value 0.5 means that is text
+     * is centered; a value between 0.5 and 1 means that the text is slightly right-aligned; a value greater than
+     * or equal to 1.0 means that the text is right-aligned.
      * @param { number } alignmentWidth - Alignment width, that is, the width of the text line. The value is a floating
-     * <br>point number. If the width is less than the actual width of the text line, 0 is returned.
+     * point number. If the width is less than the actual width of the text line, 0 is returned.
      * @returns { number } Offset required for alignment. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2118,9 +2118,9 @@ declare namespace text {
     /**
      * Obtains the index of each glyph in the specified range of this run.
      * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
-     * <br>range. end indicates the length of the range. If the length is 0, the range is from range.start to the end
-     * <br>of the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is
-     * <br>returned.
+     * range. end indicates the length of the range. If the length is 0, the range is from range.start to the end
+     * of the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is
+     * returned.
      * @returns { Array<number> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2130,7 +2130,7 @@ declare namespace text {
     /**
      * Obtains the position of each glyph relative to the respective line in this run.
      * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
-     * <br>the run.
+     * the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -2139,10 +2139,10 @@ declare namespace text {
     /**
      * Obtains the position array of each glyph relative to the respective line within the specified range of this run.
      * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
-     * <br>range. end indicates the length of the range. If the length is 0, the range is from range.start to the end of
-     * <br>the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
+     * range. end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
      * @returns { Array<common2D.Point> } 	Array holding the position of each glyph relative to the respective line in
-     * <br>the run.
+     * the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2176,11 +2176,11 @@ declare namespace text {
 
     /**
      * Obtains an array of character indices for glyphs within a specified range of this run, where the indices are
-     * <br>offsets relative to the entire paragraph.
+     * offsets relative to the entire paragraph.
      * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
-     * <br>range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
-     * <br>the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
-     * <br>If this parameter is not passed, the entire run is obtained.
+     * range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
+     * If this parameter is not passed, the entire run is obtained.
      * @returns { Array<number> } Array of character indices.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2190,7 +2190,7 @@ declare namespace text {
     /**
      * Obtains the range of glyphs generated by this run.
      * @returns { Range } 	Range of the glyphs, where start indicates the start position of the range, which is the
-     * <br>index relative to the entire paragraph, and end indicates the length of the range.
+     * index relative to the entire paragraph, and end indicates the length of the range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -2198,8 +2198,8 @@ declare namespace text {
 
     /**
      * Obtain the typographic boundaries of this run. These boundaries depend on the typographic font and font size,
-     * <br>but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
-     * <br>a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
+     * but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
+     * a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
      * @returns { TypographicBounds } Typographic boundaries of the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2208,9 +2208,9 @@ declare namespace text {
 
     /**
      * Obtains the image boundary of this run. The image boundary, equivalent to a visual boundary, is related to the
-     * <br>font, font size, and characters. For example, for the string " a b " (which has a space before "a" and a
-     * <br>space after "b"), only "a b" are visible to users, and therefore the image boundary does not include these
-     * <br>spaces at the beginning and end.
+     * font, font size, and characters. For example, for the string " a b " (which has a space before "a" and a
+     * space after "b"), only "a b" are visible to users, and therefore the image boundary does not include these
+     * spaces at the beginning and end.
      * @returns { common2D.Rect } Image boundary of the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2354,9 +2354,9 @@ declare namespace text {
   /**
    * Obtains the font descriptor based on the font name and type. This API uses a promise to return the result.
    * A font descriptor is a data structure that describes font features. It contains details of the font appearance and
-   * <br>properties.
+   * properties.
    * @param { string } fullName - Font name, corresponding to the value of fullName in the name table of the
-   * <br>corresponding font file. It is obtained by calling getSystemFontFullNamesByType.
+   * corresponding font file. It is obtained by calling getSystemFontFullNamesByType.
    * @param { SystemFontType } fontType - System font type.
    * @returns { Promise<FontDescriptor> } Promise used to return the font descriptor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2368,12 +2368,12 @@ declare namespace text {
 
   /**
    * Obtains all system font descriptors that match the provided font descriptor. This API uses a promise to return the
-   * <br>result.
+   * result.
    * @param { FontDescriptor } desc - Font descriptor to match against. If this parameter is left unspecified,
-   * <br>all system font descriptors are returned. If a specific value is provided, the matching is performed based on
+   * all system font descriptors are returned. If a specific value is provided, the matching is performed based on
    * <br.the value provided. If the matching fails, an empty array is returned.
    * @returns { Promise<Array<FontDescriptor>> } Promise used to return all matched system font descriptors, and an
-   * <br>empty array will be returned if the matching fails.
+   * empty array will be returned if the matching fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
@@ -2390,8 +2390,8 @@ declare namespace text {
   interface TextTab {
     /**
      * Alignment mode of the text following the tab character in a paragraph. It can be set to LEFT, RIGHT, and CENTER
-     * <br>defined in TextAlign. Other enumerated values have the effect of left alignment. The default value is left
-     * <br>alignment.
+     * defined in TextAlign. Other enumerated values have the effect of left alignment. The default value is left
+     * alignment.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -2400,7 +2400,7 @@ declare namespace text {
     
     /**
      * Alignment position of the text following the tab character. The value is a floating point number, in px.
-     * <br>The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
+     * The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
