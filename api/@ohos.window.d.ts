@@ -5250,7 +5250,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Set the preferred orientation config of the window
+     * Sets the preferred orientation for the main window.
+     * This API uses a promise to return the result.
+     * It does not take effect on devices that do not support rotation with the sensor, on 2-in-1 devices or for the child window.
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
@@ -5291,7 +5293,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Set the preferred orientation config of the window
+     * Sets the preferred orientation for the main window.
+     * This API uses an asynchronous callback to return the result.
+     * It does not take effect on devices that do not support rotation with the sensor, on 2-in-1 devices or for the child window.
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -5307,7 +5311,8 @@ declare namespace window {
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
-     * Get the preferred orientation config of the window
+     * Obtains the orientation of the main window.
+     * This API can be called only by the main window.
      *
      * @returns { Orientation } orientation - The orientation config of the window
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7601,7 +7606,8 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets opacity  of window
+     * Sets the opacity for this window.
+     * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
      * @param { number } opacity Interval is 0.f-1.f.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7630,7 +7636,8 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets scale options of window.
+     * Sets the scale parameters for this window.
+     * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
      * @param { ScaleOptions } scaleOptions scale param of window.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7659,7 +7666,8 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets rotate options of window.
+     * Sets the rotation parameters for this window.
+     * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
      * @param { RotateOptions } rotateOptions rotate param of window.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7688,7 +7696,8 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets translate options of window.
+     * Sets the translation parameters for this window.
+     * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
      * @param { TranslateOptions } translateOptions translate param of window.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7769,7 +7778,9 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets the window backdrop blur radius.
+     * Blurs the background of this window.
+     * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
+     * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
      * @param { number } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7798,7 +7809,7 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets the window backdrop blur style.
+     * Sets the blur style for the background of this window.
      *
      * @param { BlurStyle } blurStyle the specified blur style.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7830,7 +7841,7 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets shadow.
+     * Sets the shadow for the window borders.
      *
      * @param { number } radius the radius of the shadow.
      * @param { string } color the color of the shadow.
@@ -7880,7 +7891,7 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Sets corner radius.
+     * Sets the radius of the rounded corners for this window.
      *
      * @param { number } cornerRadius the corner radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
