@@ -112,6 +112,20 @@ declare namespace sendableContextManager {
    * @since 12
    */
   function convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityContext;
+
+  /**
+   * Enable/disable multi-threaded communication capability for the EventHub widthin the specified context.
+   * After it is enabled, eventHub emit data is transmitted through serialization,
+   * the data at the sender and receiver are independent.
+   *
+   * @param { common.Context } context - the context where multi-threading eventHub should be enabled.
+   * @param { boolean } enabled - the value true means to enable it, and the value false means to disable it.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  function setEventHubMultithreadingEnabled(context: common.Context, enabled: boolean): void;
 }
 
 export default sendableContextManager;
