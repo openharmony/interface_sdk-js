@@ -11837,6 +11837,10 @@ declare interface PixelMapMock {
  */
 /**
  * Enum for Drag Behavior.
+ * 
+ * <strong>NOTE</strong>:<br>
+ * DragBehavior serves to inform you about the intended method of data handling, 
+ * whether it's a copy or a move, but it does not actually dictate the real processing of the data.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13137,7 +13141,7 @@ declare interface DragEvent {
    * @param { DataSyncOptions } options - the data sync options.
    * @returns { string } The data key returned by system, which can be used as the identify of the request.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 190003 - Operation no allowed for current pharse.
+   * @throws { BusinessError } 190003 - Operation not allowed for current pharse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15
@@ -18659,6 +18663,7 @@ declare interface DragPreviewOptions {
   * Drag preview mode.
   *
   * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
+  * @default DragPreviewMode.AUTO
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -18697,6 +18702,7 @@ declare interface DragPreviewOptions {
   * The flag for number showing.
   *
   * @type { ?(boolean | number) }
+  * @default true
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -18708,6 +18714,7 @@ declare interface DragPreviewOptions {
   * Drag start animation effect from drag preview to the handle drag image.
   *
   * @type { ?DraggingSizeChangeEffect }
+  * @default DraggingSizeChangeEffect.DEFAULT
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 19
@@ -18728,6 +18735,7 @@ declare interface DragInteractionOptions {
   * Define whether to gather selected nodes in grid or list.
   *
   * @type { ?boolean }
+  * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
@@ -18738,6 +18746,7 @@ declare interface DragInteractionOptions {
   * Define whether to execute animation before preview floating.
   *
   * @type { ?boolean }
+  * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
@@ -18748,6 +18757,7 @@ declare interface DragInteractionOptions {
   * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
   *
   * @type { ?boolean }
+  * @default true
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 18
@@ -18758,6 +18768,7 @@ declare interface DragInteractionOptions {
   * Define whether to enable the haptic feedback when dragging, the default value is false.
   *
   * @type { ?boolean }
+  * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 18
@@ -23393,6 +23404,9 @@ declare class CommonMethod<T> {
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
+   * 
+   * <strong>NOTE</strong>:<br>
+   * The global builder is not supported.
    *
    * @param { function } event
    * @returns { T }
@@ -23608,6 +23622,7 @@ declare class CommonMethod<T> {
    * Enable the selectable area can be dragged.
    *
    * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
+   * The default value is false.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25736,6 +25751,10 @@ declare type CustomBuilder = (() => any) | void;
 
 /**
  * Defines the OverlayOptions interface.
+ * 
+ * <strong>NOTE</strong>:<br>
+ * When both align and offset are set, the effects are combined. 
+ * The overlay is first aligned relative to the component and then offset from its current upper left corner.
  *
  * @typedef OverlayOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25773,6 +25792,7 @@ declare interface OverlayOptions {
    * Defines align type.
    *
    * @type { ?Alignment }
+   * @default TopStart
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -25809,6 +25829,7 @@ declare interface OverlayOptions {
    * Defines offset type.
    *
    * @type { ?OverlayOffset }
+   * @default - the overlay is in the upper left corner of the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
