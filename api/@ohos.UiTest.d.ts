@@ -1035,7 +1035,16 @@ declare interface Point {
    * @atomicservice
    * @since 11
    */
-  readonly x: number;
+  /**
+   * The x-coordinate of the coordinate point.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  x: number;
   /**
    * The y-coordinate of the coordinate point.
    *
@@ -1063,7 +1072,25 @@ declare interface Point {
    * @atomicservice
    * @since 11
    */
-  readonly y: number;
+  /**
+   * The y-coordinate of the coordinate point.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  y: number;
+  /**
+   * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   */
+  displayId?: number; 
 }
 
 /**
@@ -1661,6 +1688,36 @@ declare interface TouchPadSwipeOptions {
    * @test
    */
   speed?: number;
+}
+
+/**
+ * Text input method options.
+ * @interface InputTextMode
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 20
+ * @test
+ */
+declare interface InputTextMode {
+  /**
+   * Whether to use copy and paste mode to input text, default is false.
+   * @type { ?boolean }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  paste?: boolean;
+
+  /**
+   * Whether input text appending to the end of paragraph without clearing the text, default is false.
+   * @type { ?boolean }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  addition?: boolean;
 }
 
 /**
@@ -2785,6 +2842,22 @@ declare class Component {
   inputText(text: string): Promise<void>;
 
   /**
+   * Inject text to this {@link Component},applicable to TextInput.
+   *
+   * @param { string } text - the text to inject.
+   * @param { InputTextMode } mode - specific the mode to input text.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  inputText(text: string, mode: InputTextMode): Promise<void>;
+  /**
    * Clear text of this {@link Component},applicable to TextInput.
    *
    * @returns { Promise<void> }
@@ -3697,6 +3770,38 @@ declare class Driver {
    * @test
    */
   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
+  
+  /**
+   * LongClick on the specified location on the screen, specifies the duration if necessary.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @param { number } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  longClickAt(point: Point, duration?: number): Promise<void>;
+  
+  /**
+   * Drag on the screen between the specified points.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { number } [speed] - speed of drag(pixels per second),the value ranges from 200 to 4000.Set it default 600 if out out of range or null or undefined.   
+   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  dragBetween(from: Point, to: Point, speed?: number, duration?: number): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
@@ -4211,6 +4316,24 @@ declare class Driver {
   mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
 
   /**
+   * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { MouseButton } btnId - the button of Mouse.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [duration] - duration of mouse longClick in millisecond, the minimum and default are 1500.   
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, duration?: number): Promise<void>;
+
+  /**
    * Swipe on the screen between the specified points with mouse.
    *
    * @param { Point } from - the starting point.
@@ -4243,6 +4366,23 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
 
   /**
+   * Hold down the left mouse button and drag on the screen between the specified points.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise<void>;
+
+  /**
    * Inject text on the specified location.
    *
    * @param { Point } p - the coordinate of the specified location.
@@ -4256,6 +4396,23 @@ declare class Driver {
    * @test
    */
   inputText(p: Point, text: string): Promise<void>;
+
+  /**
+   * Inject text on the specified location, default to input at the coordinate of the specified location.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { string } text - the text to inject.
+   * @param { InputTextMode } mode - specific the mode to input text.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  inputText(p: Point, text: string, mode: InputTextMode): Promise<void>;
 
   /**
    * Simulate touchpad multi-finger swipe gestures.
@@ -4343,6 +4500,22 @@ declare class Driver {
    * @test
    */
   injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
+
+  /**
+   * Inject a watch crown rotation event, specifies the rotation speed if necessary.
+   *
+   * @param { number } d The number of cells that watch rotates.Positive value indicate clockwise rotation,negative value indicate counterclockwise rotation.
+   * @param { number } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.Set it default 20 if out of range or undefined or null.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  crownRotate(d: number, speed?: number): Promise<void>;
 }
 
 /**
@@ -4848,5 +5021,6 @@ export {
   MouseButton,
   UIElementInfo,
   UIEventObserver,
-  TouchPadSwipeOptions
+  TouchPadSwipeOptions,
+  InputTextMode
 };
