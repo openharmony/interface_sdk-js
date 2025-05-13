@@ -5928,7 +5928,7 @@ declare namespace window {
     off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Touch outside callback on.
+     * Subscribes to the touch event outside this window.
      *
      * @param { 'touchOutside' } type - The value is fixed at 'touchOutside', indicating the click event outside this window.
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
@@ -5942,7 +5942,7 @@ declare namespace window {
     on(type: 'touchOutside', callback: Callback<void>): void;
 
     /**
-     * Touch outside callback off.
+     * Unsubscribes from the touch event outside this window.
      *
      * @param { 'touchOutside' } type - The value is fixed at 'touchOutside', indicating the click event outside this window.
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
@@ -6077,7 +6077,8 @@ declare namespace window {
     off(type: 'systemDensityChange', callback?: Callback<number>): void;
 
     /**
-     * Register the callback function that has no interaction for a long time.
+     * Subscribes to non-interaction events in a window within the specified period.
+     * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { number } timeout - The timeout(in seconds) of no interaction detection.
@@ -6095,7 +6096,8 @@ declare namespace window {
     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
     /**
-     * Unregister the callback function that has no interaction for a long time.
+     * Unsubscribes from non-interaction events in a window within the specified period.
+     * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
@@ -6170,7 +6172,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Register the callback of dialogTargetTouch
+     * Subscribes to click or touch events in a window covered by a modal window. This API takes effect only when it is called by a modal window.
      *
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
@@ -6195,7 +6197,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Unregister the callback of dialogTargetTouch
+     * Unsubscribes from the touch event of the target window in the modal window mode.
      *
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch',
      *  indicating the click event of the target window in the modal window mode.
