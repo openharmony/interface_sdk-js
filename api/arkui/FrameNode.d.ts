@@ -1173,7 +1173,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
 
@@ -1373,7 +1373,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
 
@@ -1490,7 +1490,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
 
@@ -1921,7 +1921,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 

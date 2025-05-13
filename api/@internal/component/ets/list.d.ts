@@ -621,7 +621,7 @@ declare interface ChainAnimationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIListEvent extends UIScrollableCommonEvent {
   /**
@@ -631,7 +631,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
@@ -642,7 +642,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
@@ -654,7 +654,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
 
@@ -666,7 +666,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
 }
@@ -775,7 +775,7 @@ declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentIn
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type OnListScrollIndexCallback = (start: number, end: number, center: number) => void;
 

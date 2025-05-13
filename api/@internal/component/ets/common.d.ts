@@ -29645,7 +29645,7 @@ declare interface UICommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIScrollableCommonEvent extends UICommonEvent {
   /**
@@ -29656,7 +29656,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnReachStart(callback: Callback<void> | undefined): void;
 
@@ -29668,7 +29668,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnReachEnd(callback: Callback<void> | undefined): void;
 
@@ -29679,7 +29679,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollStart(callback: Callback<void> | undefined): void;
 
@@ -29690,7 +29690,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollStop(callback: Callback<void> | undefined): void;
 
@@ -29702,7 +29702,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
 }
