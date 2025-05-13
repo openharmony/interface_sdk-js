@@ -14946,7 +14946,7 @@ declare interface PopupMessageOptions {
  */
 declare enum DismissReason {  
   /**
-  * Press back
+  * Touching the Back button, swiping left or right on the screen, or pressing the Esc key.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -14956,7 +14956,7 @@ declare enum DismissReason {
   PRESS_BACK = 0,
 
   /**
-  * Touch component outside
+  * Touching the mask.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -14966,7 +14966,7 @@ declare enum DismissReason {
   TOUCH_OUTSIDE = 1,
 
   /**
-  * Close button
+  * Touching the Close button.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -14977,6 +14977,9 @@ declare enum DismissReason {
 
   /**
   * Slide down
+  * <p><strong>NOTE</strong>:
+  * <br>This API is effective only in sheet transition.
+  * </p>
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -15566,7 +15569,7 @@ declare interface PopupOptions {
    * @since 10
    */
   /**
-   * Information in the pop-up window.
+   * Content of the popup message.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15895,7 +15898,7 @@ declare interface PopupOptions {
    * @since 10
    */
   /**
-   * Sets the options of popup message.
+   * Parameters of the popup message.
    *
    * @type { ?PopupMessageOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16288,7 +16291,15 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   /**
-   * builder of popup
+   * Popup builder.
+   * <p><strong>NOTE</strong>:
+   * <br>The popup attribute is a universal attribute. A custom popup does not support display of another popup.
+   * <br>The position attribute cannot be used for the first-layer container in the builder.
+   * <br>If the position attribute is used, the popup will not be displayed.
+   * <br>If a custom component is used in the builder, the aboutToAppear and aboutToDisappear lifecycle callbacks
+   * of the custom component are irrelevant to the visibility of the popup. As such, the lifecycle of the
+   * custom component cannot be used to determine whether the popup is displayed or not.
+   * </p>
    *
    * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16314,9 +16325,11 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   /**
-   * placement of popup
+   * Preferred position of the popup. If the set position is insufficient for holding the popup,
+   * it will be automatically adjusted.
    *
    * @type { ?Placement }
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16346,14 +16359,16 @@ declare interface CustomPopupOptions {
    * background color of popup
    *
    * @type { ?(Color | string | Resource | number) }
+   * @default '#4d4d4d'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * background color of popup
+   * Color of the popup. To remove the background blur, set backgroundBlurStyle to BlurStyle.NONE.
    *
    * @type { ?(Color | string | Resource | number) }
+   * @default TRANSPARENT plus COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16380,6 +16395,7 @@ declare interface CustomPopupOptions {
    * whether show arrow
    *
    * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16403,9 +16419,15 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   /**
-   * whether hide popup when click mask
+   * Whether to automatically dismiss the popup when an operation is performed on the page.
+   * <p><strong>NOTE</strong>:
+   * <br>To enable the popup to disappear upon a click on it, place a layout component in the builder place the
+   * <Popup> component in the layout component, and modify the value of the bindPopup variable (show: boolean)
+   * in the onClick event of the layout component.
+   * </p>
    *
    * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16429,7 +16451,7 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   /**
-   * on State Change
+   * Callback for the popup status change event. 
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16476,6 +16498,13 @@ declare interface CustomPopupOptions {
   /**
    * The offset of the sharp corner of popup.
    *
+   * Offset of the popup arrow relative to the popup. When the arrow is at the top or bottom of the popup:
+   * <br>The value 0 indicates that the arrow is located on the leftmost, and any other value indicates the distance
+   * from the arrow to the leftmost; the arrow is centered by default. When the arrow is on the left or right
+   * side of the popup: The value indicates the distance from the arrow to the top; the arrow is centered by
+   * default. When the popup is displayed on either edge of the screen, it will automatically deviate leftward
+   * or rightward to stay within the safe area. When the value is 0, the arrow always points to the bound component.
+   *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -16503,6 +16532,7 @@ declare interface CustomPopupOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16521,9 +16551,9 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * Whether to apply a mask to the popup.
+   * <br>The value true means to apply a transparent mask to the popup, false means not to apply a mask to the popup,
+   * and a color value means to apply a mask in the corresponding color to the popup.
    *
    * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16580,7 +16610,7 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * Set the width of the popup.
+   * Width of the popup.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16599,7 +16629,8 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * The position of the sharp corner of popup.
+   * Position of the popup arrow relative to its parent component. Available positions are Start, Center, and End,
+   * in both vertical and horizontal directions. All these positions are within the parent component area.
    *
    * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16619,10 +16650,15 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * The width of the arrow.
+   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup
+   * rounded corner, the arrow is not drawn.
    *
    * @type { ?Dimension }
    * @default 16.0_vp.
+   * <p><strong>NOTE</strong>:
+   * <br>This parameter cannot be set in percentage.
+   * </p>
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16644,6 +16680,10 @@ declare interface CustomPopupOptions {
    *
    * @type { ?Dimension }
    * @default 8.0_vp.
+   * <p><strong>NOTE</strong>:
+   * <br>This parameter cannot be set in percentage.
+   * </p>
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16661,7 +16701,7 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * The round corners of the popup.
+   * Rounded corner radius of the popup.
    *
    * @type { ?Dimension }
    * @default 20.0_vp.
@@ -16703,7 +16743,7 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * Defines popup background blur Style
+   * Background blur style of the popup.
    *
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
@@ -16747,9 +16787,19 @@ declare interface CustomPopupOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss
+   * Whether to perform dismissal event interception and interception callback.
+   * 1. If this parameter is set to false, the system does not respond to the dismissal event initiated by
+   * touching the Back button, swiping left or right on the screen, or pressing the Esc key; and the system
+   * dismisses the popup only when show is set to false. If this parameter is set to true, the system responds
+   * to the dismissal event as expected.
+   * 2. If this parameter is set to a function, the dismissal event is intercepted and the callback function
+   * is executed.
+   * <p><strong>NOTE</strong>:
+   * <br>No more onWillDismiss callback is allowed in an onWillDismiss callback.
+   * </p>
    *
    * @type { ?(boolean | Callback<DismissPopupAction>) }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16879,7 +16929,7 @@ declare enum MenuPreviewMode {
    * @since 11
    */
   /**
-   * Defines image type preview content.
+   * The preview is a screenshot of the component on which a long-press triggers the context menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -17047,10 +17097,26 @@ declare interface ContextMenuOptions {
    * @since 10
    */
   /**
-   * Sets the position offset of the context menu window.
+   * Offset for showing the context menu, which should not cause the menu to extend beyond the screen.
+   * <p><strong>NOTE</strong>:
+   * <br>When the menu is displayed relative to the parent component area, the width or height of the area is
+   * automatically counted into the offset based on the placement attribute of the menu. When the menu is
+   * displayed above the parent component (that is, placement is set to Placement.TopLeft, Placement.Top, or
+   * Placement.TopRight), a positive value of x indicates rightward movement relative to the parent component,
+   * and a positive value of y indicates upward movement. When the menu is displayed below the parent component
+   * (that is, placement is set to Placement.BottomLeft, Placement.Bottom, or Placement.BottomRight), a positive
+   * value of x indicates rightward movement relative to the parent component, and a positive value of y indicates
+   * downward movement. When the menu is displayed on the left of the parent component (that is, placement is set
+   * to Placement.LeftTop, Placement.Left, or Placement.LeftBottom), a positive value of x indicates leftward
+   * movement relative to the parent component, and a positive value of y indicates downward movement. When the
+   * menu is displayed on the right of the parent component (that is, placement is set to Placement.RightTop,
+   * Placement.Right, or Placement.RightBottom), a positive value of x indicates rightward movement relative to
+   * the parent component, and a positive value of y indicates downward movement. If the display position of the
+   * menu is adjusted (different from the main direction of the initial placement value), the offset value is invalid.
+   * </p>
    *
    * @type { ?Position }
-   * @default -
+   * @default {x:0,y:0} - Percentage values are not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17068,10 +17134,15 @@ declare interface ContextMenuOptions {
    * @since 10
    */
   /**
-   * Sets the placement of the context menu window.
+   * Preferred position of the context menu. If the set position is insufficient for holding the component, it will be
+   * automatically adjusted.
+   * <p><strong>NOTE</strong>:
+   * <br>If a menu is displayed by pressing and holding or right-clicking, the menu is displayed at the clicked
+   * position.
+   * </p>
    *
    * @type { ?Placement }
-   * @default -
+   * @default Placement.BottomLeft
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17080,7 +17151,7 @@ declare interface ContextMenuOptions {
   placement?: Placement;
 
   /**
-   * whether show arrow belong to the menu, default: false, not show arrow
+   * whether show arrow belong to the menu.
    *
    * @type { ?boolean }
    * @default false
@@ -17088,7 +17159,14 @@ declare interface ContextMenuOptions {
    * @since 10
    */
   /**
-   * whether show arrow belong to the menu, default: false, not show arrow
+   * whether show arrow belong to the menu.
+   * <p><strong>NOTE</strong>:
+   * <br>When enableArrow is true, an arrow is displayed in the position specified by placement.
+   * <br>If placement is not set or its value is invalid, the arrow is displayed above the target.
+   * <br>If the position is insufficient for holding the arrow, it is automatically adjusted.
+   * <br>When enableArrow is undefined, no arrow is displayed.
+   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
+   * </p>
    *
    * @type { ?boolean }
    * @default false
@@ -17103,15 +17181,36 @@ declare interface ContextMenuOptions {
    * The horizontal offset to the left of menu or vertical offset to the top of menu
    *
    * @type { ?Length }
-   * @default 0
+   * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * The horizontal offset to the left of menu or vertical offset to the top of menu
+   * Offset of the arrow relative to the context menu. The offset settings take effect only when the value is valid,
+   * can be converted to a number greater than 0, and does not cause the arrow to extend beyond the safe area of
+   * the context menu.
+   * <p><strong>NOTE</strong>:
+   * <br>The safe distance of the arrow from the four sides of the menu is the sum of the menu's corner radius and
+   * half the width of the arrow. The value of placement determines whether the offset is horizontal or vertical.
+   * When the arrow is in the horizontal direction of the menu, the offset is the distance from the arrow to the
+   * leftmost arrow's safe distance. When the arrow is in the vertical direction of the menu, the offset is the
+   * distance from the arrow to the topmost arrow's safe distance. The default position where the arrow is
+   * displayed varies with the value of placement: Without any avoidance by the menu, when placement is set to
+   * Placement.Top or Placement.Bottom, the arrow is displayed horizontally and is centered by default; when
+   * placement is set to Placement.Left or Placement.Right, the arrow is displayed vertically and is centered by
+   * default; when placement is set to Placement.TopLeft or Placement.BottomLeft, the arrow is displayed
+   * horizontally by default, and the distance from the arrow to the left edge of the menu is the arrow's safe
+   * distance; when placement is set to Placement.TopRight or Placement.BottomRight, the arrow is displayed
+   * horizontally by default, and the distance from the arrow to the right edge of the menu is the arrow's safe
+   * distance; when placement is set to Placement.LeftTop or Placement.RightTop, the arrow is displayed vertically
+   * by default, and the distance from the arrow to the top edge of the menu is the arrow's safe distance; when
+   * placement is set to Placement.LeftBottom or Placement.RightBottom, the arrow is displayed vertically by
+   * default, and the distance from the arrow to the bottom edge of the menu is the arrow's safe distance.
+   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
+   * </p>
    *
    * @type { ?Length }
-   * @default 0
+   * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17129,8 +17228,15 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   /**
-   * The preview content of context menu.
-   * 
+   * Preview displayed when the context menu is triggered by a long-press or use the isShown variable of
+   * bindContextMenu to display the preview content style of the menu.
+   * <p><strong>NOTE</strong>:
+   * <br>This parameter has no effect when responseType is set to ResponseType.RightClick.
+   * <br>If preview is set to MenuPreviewMode.NONE or is not set, the enableArrow parameter is effective.
+   * <br>If preview is set to MenuPreviewMode.IMAGE or CustomBuilder, no arrow will be displayed even when
+   * enableArrow is true.
+   * </p>
+   *
    * @type { ?(MenuPreviewMode | CustomBuilder) }
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17152,9 +17258,16 @@ declare interface ContextMenuOptions {
   previewBorderRadius?: BorderRadiusType;
 
   /**
-   * Defines the border radius of menu.
+   * Border radius of the menu.
+   * <p><strong>NOTE</strong>:
+   * <br>The value can be in percentage.
+   * <br>If the sum of the two maximum corner radii in the horizontal direction exceeds the menu's width, or if the sum
+   * of the two maximum corner radii in the vertical direction exceeds the menu's height, the default corner radius of
+   * the menu will be used.
+   * </p>
    *
    * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @default 8vp for 2-in-1 devices and 20vp for other devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17171,7 +17284,7 @@ declare interface ContextMenuOptions {
    * @since 10
    */
   /**
-   * Callback function when the context menu appears.
+   * Callback triggered when the menu is displayed.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17182,7 +17295,7 @@ declare interface ContextMenuOptions {
   onAppear?: () => void;
 
   /**
-   * Callback function when the context menu disappear.
+   * Callback triggered when the menu is hidden.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17209,7 +17322,7 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   /**
-   * Callback function before the context menu animation starts.
+   * Callback triggered when the menu is about to appear.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17228,7 +17341,7 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   /**
-   * Callback function before the context menu popAnimation starts.
+   * Callback triggered when the menu is about to disappear.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17278,7 +17391,7 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   /**
-   * Defines the menu's background color
+   * Background color of the menu.
    *
    * @type { ?ResourceColor }
    * @default Color.Transparent
@@ -17299,7 +17412,7 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   /**
-   * Defines menu background blur Style
+   * Background blur style of the menu.
    *
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
@@ -17441,6 +17554,7 @@ declare interface MenuOptions extends ContextMenuOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default true for 2-in-1 devices and false for other devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18574,7 +18688,7 @@ declare enum MenuPolicy {
   DEFAULT = 0,
 
   /**
-   * Hide pop up menu.
+   * The menu is always hidden.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -18584,7 +18698,7 @@ declare enum MenuPolicy {
   HIDE = 1,
 
   /**
-   * Show pop up menu.
+   * The menu is always displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24466,8 +24580,12 @@ declare class CommonMethod<T> {
    */
   /**
    * Popup control
+   * <p><strong>NOTE</strong>:
+   * <br>The popup can be displayed only after the entire page is fully constructed. Therefore, to avoid incorrect
+   * display positions and shapes, do not set this parameter to true while the page is still being constructed.
+   * </p>
    *
-   * @param { boolean } show
+   * @param { boolean } show - Whether to show the popup, default is false.
    * @param { PopupOptions | CustomPopupOptions } popup
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24525,7 +24643,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { boolean } isShow true means display menu, false means hide menu.
+   * @param { boolean } isShow true means display menu, false means hide menu, default is false.
    * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options - Indicates the options of menu.
    * @returns { T }
@@ -24558,10 +24676,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * ContextMenu control
+   * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+   * component. Only custom menu items are supported.
    *
    * @param { CustomBuilder } content - Indicates the content of context menu.
-   * @param { ResponseType } responseType - Indicates response type of context menu.
+   * @param { ResponseType } responseType - Indicates response type of context menu, Long pressing with a mouse device
+   * is not supported.
    * @param { ContextMenuOptions } options - Indicates the options of context menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24572,9 +24692,15 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
-   * ContextMenu control
+   * Binds a context menu to the component, whose visibility is subject to the isShown settings.
    *
-   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { boolean } isShown - true means display content, false means hide content, default is false.
+   * <p><strong>NOTE</strong>:
+   * <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
+   * to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
+   * up, may occur. To trigger dragging by long presses is not supported.
+   * </p>
+   *
    * @param { CustomBuilder } content - Indicates the content of context menu.
    * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
    * @returns { T }
@@ -29891,7 +30017,7 @@ declare interface FocusMovement {
  */
 declare enum KeyboardAvoidMode {
   /**
-   * Defines avoid keyboard when keyboard shows.
+   * Automatically avoids the soft keyboard and compresses the height when reaching the maximum limit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -29901,7 +30027,7 @@ declare enum KeyboardAvoidMode {
   DEFAULT = 0,
 
   /**
-   * Defines not avoid keyboard when keyboard shows.
+   * Does not avoid the soft keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
