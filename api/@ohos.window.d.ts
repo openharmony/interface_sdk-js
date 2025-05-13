@@ -330,6 +330,24 @@ declare namespace window {
      */
     TYPE_FLOAT_NAVIGATION,
     /**
+     * TYPE_DYNAMIC.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 20
+     */
+    TYPE_DYNAMIC,
+    /**
+     * TYPE_MUTISCREEN_COLLABORATION.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 20
+     */
+    TYPE_MUTISCREEN_COLLABORATION = 26,
+    /**
      * Main.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2222,6 +2240,16 @@ declare namespace window {
      * @since 12
      */
     title?: string;
+
+    /**
+     * Indicates window container zIndex.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    zIndex?: number;
   }
 
   /**
