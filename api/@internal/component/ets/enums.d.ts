@@ -10395,7 +10395,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum DividerMode {
   /**
@@ -10404,7 +10404,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -10414,7 +10414,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   EMBEDDED_IN_MENU = 1,
 }
