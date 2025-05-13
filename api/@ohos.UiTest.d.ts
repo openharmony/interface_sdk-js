@@ -3772,7 +3772,7 @@ declare class Driver {
   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
   
   /**
-   * LongClick on the specified location on the screen, specifies the duration if necessary.
+   * Long click on the specified location on the screen, specifies the duration if necessary.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
    * @param { number } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
