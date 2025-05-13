@@ -24878,18 +24878,18 @@ declare class CommonMethod<T> {
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
   /**
-   * Sets accessibilityGroup
+   * Sets whether to enable accessibility grouping.
    *
-   * @param { boolean } value - set group with accessibility
+   * @param { boolean } value - set group with accessibility, default value is false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sets accessibilityGroup
+   * Sets whether to enable accessibility grouping.
    *
-   * @param { boolean } value - set group with accessibility
+   * @param { boolean } value - set group with accessibility, default value is false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24897,9 +24897,14 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets accessibilityGroup
+   * Sets whether to enable accessibility grouping.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
+   * <br>the component and all its children are treated as a single selectable unit, and the accessibility
+   * <br>service will no longer focus on the individual child components.</p>
    *
-   * @param { boolean } value - set group with accessibility
+   * @param { boolean } value - set group with accessibility, default value is false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24910,10 +24915,21 @@ declare class CommonMethod<T> {
   accessibilityGroup(value: boolean): T;
 
   /**
-   * Sets accessibilityGroup
+   * Sets whether to enable accessibility grouping.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
+   * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
+   * <br>its child components to form a merged text for the component. If a child component lacks a universal
+   * <br>text attribute, it will be ignored in the concatenation process.
+   * 
+   * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
+   * <br>text attributes of the child components to form the merged text. If a child component lacks an
+   * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
+   * <br>If a child component lacks both, it will be ignored.</p>
    *
-   * @param { boolean } isGroup - set group with accessibility
-   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility
+   * @param { boolean } isGroup - set group with accessibility, default value is false.
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24924,18 +24940,18 @@ declare class CommonMethod<T> {
   accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
 
   /**
-   * Sets accessibilityText
+   * Sets the accessibility text.
    *
-   * @param { string } value - set accessibility text
+   * @param { string } value - set accessibility text, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sets accessibilityText
+   * Sets the accessibility text.
    *
-   * @param { string } value - set accessibility text
+   * @param { string } value - set accessibility text, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24943,9 +24959,11 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets accessibilityText
-   *
-   * @param { string } value - set accessibility text
+   * Sets the accessibility text.
+   * When a component does not contain a text attribute, you can use this API to set an accessibility
+   * text attribute, so that accessibility services can announce the specified content for the component.
+   * 
+   * @param { string } value - set accessibility text, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25004,8 +25022,13 @@ declare class CommonMethod<T> {
   accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
   /**
-   * Sets accessibilityText
-   *
+   * Sets the accessibility text.
+   * <p><strong>NOTE</strong>
+   * If a component has both text content and accessibility text, only the accessibility text is announced.
+   * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
+   * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
+   * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
+   * </p>
    * @param { Resource } text - set accessibility text
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25056,7 +25079,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityDescription
    *
-   * @param { string } value - set description of accessibility
+   * @param { string } value - set description of accessibility, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25065,7 +25088,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityDescription
    *
-   * @param { string } value - set description of accessibility
+   * @param { string } value - set description of accessibility, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25075,7 +25098,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityDescription
    *
-   * @param { string } value - set description of accessibility
+   * @param { string } value - set description of accessibility, default value is "".
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25087,7 +25110,16 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityDescription
-   *
+   * 
+   * with support for resource references using Resource.
+   * This property provides additional context or explanation for the component,
+   * helping users understand the action or function it performs.
+   * <p><strong>NOTE</strong>:
+   * <br>Reference resource of the accessibility description. You can specify further explanation
+   * <br>of the current component, for example, possible operation consequences, especially those that
+   * <br>cannot be learned from component attributes and accessibility text. If a component contains
+   * <br>both text information and the accessibility description, the text is read first and then the
+   * <br>accessibility description, when the component is selected.</p>
    * @param { Resource } description - set description of accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25099,18 +25131,20 @@ declare class CommonMethod<T> {
   accessibilityDescription(description: Resource): T;
 
   /**
-   * Sets accessibilityLevel
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
    *
-   * @param { string } value - set accessibility level
+   * @param { string } value - set accessibility level, default value is auto.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sets accessibilityLevel
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
    *
-   * @param { string } value - set accessibility level
+   * @param { string } value - set accessibility level, default value is auto.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25118,9 +25152,23 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets accessibilityLevel
-   *
-   * @param { string } value - set accessibility level
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
+   * <p>
+   * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
+   * <br>The options are as follows:
+   * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
+   * <br>"yes": The component can be recognized by accessibility services.
+   * <br>"no": The component cannot be recognized by accessibility services.
+   * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
+   * <strong>NOTE</strong>
+   * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
+   * <br>1. The accessibility service internally determines whether the component can be recognized.
+   * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
+   * <br>not focus on its child components, making them unrecognizable.
+   * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
+   * <br>recognized by accessibility services.</p>
+   * @param { string } value - set accessibility level, default value is auto.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
