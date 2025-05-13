@@ -84,7 +84,16 @@ declare namespace bundleResourceManager {
      * @systemapi
      * @since 12
      */
-    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010
+    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
+
+    /**
+     * Used to obtain only main ability resource.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 20
+     */
+    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
 
   /**
