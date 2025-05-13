@@ -978,6 +978,33 @@ declare namespace relationalStore {
   }
 
   /**
+   * Defines an SQL statement.
+   *
+   * @interface SqlInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 20
+   */
+  interface SqlInfo {
+    /**
+     * SQL statement.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+    sql: string;
+
+    /**
+     * Parameters of the SQL statement.
+     *
+     * @type { Array<ValueType> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+    args: Array<ValueType>;
+  }
+
+  /**
    * Describes the {@code RdbStore} type.
    *
    * @enum { number }
