@@ -375,7 +375,8 @@
       "SystemCapability.Security.CryptoFramework.MessageDigest",
       "SystemCapability.Security.CryptoFramework.Mac",
       "SystemCapability.Security.CryptoFramework.Kdf",
-      "SystemCapability.Security.CryptoFramework.Rand"
+      "SystemCapability.Security.CryptoFramework.Rand",
+      "SystemCapability.Mechanic.Core"
     ]
   },
   "administrators": [
