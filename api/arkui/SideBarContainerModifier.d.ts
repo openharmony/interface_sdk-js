@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { AttributeModifier } from './component/common'
+import { SideBarContainerAttribute } from './component/sidebar'
+/*** endif */
+
 /**
  * Defines SideBarContainer Modifier
  *
