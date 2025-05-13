@@ -1434,7 +1434,7 @@ declare namespace inputMethodEngine {
      * @returns { AttachOptions } return attach options.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     getAttachOptions(): AttachOptions;
     /**
@@ -1444,7 +1444,7 @@ declare namespace inputMethodEngine {
      * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
@@ -1453,7 +1453,7 @@ declare namespace inputMethodEngine {
      * @param { 'attachOptionsDidChange' } type - the type of unsubscribe event.
      * @param { Callback<AttachOptions> } [callback] - optional, the callback of off('attachOptionsDidChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void;
   }
@@ -1640,31 +1640,31 @@ declare namespace inputMethodEngine {
    *
    * @enum { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 17
+   * @since 19
    */
   export enum RequestKeyboardReason {
     /**
       * The request keyboard reason is NONE.
       * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @since 17
+      * @since 19
       */
     NONE = 0,
     /**
      * The request keyboard reason is MOUSE.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     MOUSE = 1,
     /**
      * The request keyboard reason is TOUCH.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     TOUCH = 2,
     /**
      * The request keyboard reason is OTHER.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     OTHER = 20
   }
@@ -2614,7 +2614,7 @@ declare namespace inputMethodEngine {
    *
    * @interface AttachOptions
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 17
+   * @since 19
    */
   export interface AttachOptions {
     /**
@@ -2622,7 +2622,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?RequestKeyboardReason }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
   }
