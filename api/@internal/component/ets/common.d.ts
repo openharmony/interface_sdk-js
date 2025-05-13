@@ -7870,7 +7870,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * Repeat mode.
+   * The source image's slices are tiled. Tiles beyond the border box will be clipped.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7896,7 +7896,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * Stretch mode.
+   * The source image's slices are stretched to fill the border box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7922,7 +7922,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * Round mode.
+   * The source image's slices are tiled to fill the border box. Tiles may be compressed when needed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7948,7 +7948,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * Space mode.
+   * The source image's slices are tiled to fill the border box. Extra space will be distributed in between tiles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8924,7 +8924,7 @@ declare interface PickerTextStyle {
    * @since 10
    */
   /**
-   * Define the text color of picker.
+   * Font color..
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8944,8 +8944,7 @@ declare interface PickerTextStyle {
    * @since 10
    */
   /**
-   * Define the text font of picker.
-   * Only support size and weight.
+   * Text style.
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17457,7 +17456,7 @@ declare interface MenuOptions extends ContextMenuOptions {
  * @since 10
  */
 /**
- * Defines the ProgressMask class.
+ * Implements a ProgressMask object to set the progress, maximum value, and color of the mask.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -17478,9 +17477,9 @@ declare class ProgressMask {
   /**
    * constructor.
    *
-   * @param { number } value - indicates the current value of the progress.
-   * @param { number } total - indicates the total value of the progress.
-   * @param { ResourceColor } color - indicates the color of the mask.
+   * @param { number } value - Current value of the progress mask. Value range: [0.0, +∞).
+   * @param { number } total - Maximum value of the progress mask. Value range: [0.0, +∞).
+   * @param { ResourceColor } color - Color of the progress mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17497,9 +17496,9 @@ declare class ProgressMask {
    * @since 10
    */
   /**
-   * Update the current value of the progress.
+   * Updates the progress value of the progress mask.
    *
-   * @param { number } value - indicates the current value of the progress.
+   * @param { number } value - Current value of the progress mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17518,7 +17517,7 @@ declare class ProgressMask {
   /**
    * Update the color of the mask.
    *
-   * @param { ResourceColor } value - indicates the color of the mask.
+   * @param { ResourceColor } value - Color of the progress mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
