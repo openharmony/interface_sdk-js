@@ -2837,7 +2837,8 @@ declare namespace window {
    * @since 10
    */
   /**
-   * Get the top window.
+   * Obtains the top window of the current application. This API uses an asynchronous callback to return the result.
+   * If no child window is available, the main window of the application is returned.
    *
    * @param { BaseContext } ctx - Current application context.
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
@@ -2878,7 +2879,8 @@ declare namespace window {
    * @since 10
    */
   /**
-   * Get the top window.
+   * Obtains the top window of the current application. This API uses a promise to return the result.
+   * If no child window is available, the main window of the application is returned.
    *
    * @param { BaseContext } ctx - Current application context.
    * @returns { Promise<Window> } Promise used to return the top window obtained.
@@ -3135,7 +3137,8 @@ declare namespace window {
    * @since 11
    */
   /**
-   * Shift window focus within the same application. And the window type contains only main window and subwindow.
+   * Shifts the window focus from the source window to the target window in the same application.
+   * The window focus can be shifted between the main window and a child window.
    *
    * @param { number } sourceWindowId - Window id which the focus shift from.
    * @param { number } targetWindowId - Window id which the focus shift to.
