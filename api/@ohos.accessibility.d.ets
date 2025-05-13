@@ -138,7 +138,7 @@ declare namespace accessibility {
    *
    * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since 20
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
