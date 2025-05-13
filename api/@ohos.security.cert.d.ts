@@ -1448,8 +1448,9 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType indicates the encoding type.
      * @returns { string } X509 cert issuer name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2046,8 +2047,9 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType indicates the encoding type.
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -2737,8 +2739,9 @@ declare namespace cert {
      * @param { EncodingType } encodingType indicates the encoding type.
      * @returns { string } issuer name.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3448,8 +3451,9 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType indicates the encoding type.
      * @returns { string } issuer name of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -3854,8 +3858,9 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType indicates the encoding type.
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -5496,8 +5501,9 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - the specified encoding type.
      * @returns { string } distinguished name string.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
      * <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - crypto operation error.
