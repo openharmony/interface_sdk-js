@@ -2566,11 +2566,10 @@ declare namespace window {
    * @since 12
    */
   /**
-   * Create a window with a specific configuration
-   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
+   * Creates a child window or system window. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
-   * @param { Configuration } config - Parameters for window creation.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW (required when the window type is window.WindowType.TYPE_FLOAT)
+   * @param { Configuration } config - Parameters used for creating the window.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -2749,9 +2748,9 @@ declare namespace window {
    * @since 10
    */
   /**
-   * Find the window by name.
+   * Finds a window based on the name.
    *
-   * @param { string } name - Indicates window name.
+   * @param { string } name - Window name, that is, the value of name in Configuration.
    * @returns { Window } Window found.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -4044,7 +4043,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Show window.
+     * Shows this window. This API uses an asynchronous callback to return the result.
+     * This API takes effect only for a system window or an application child window.
+     * For the main window of an application, this API moves it at the top when the main window is already displayed.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -4073,7 +4074,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Show window.
+     * Shows this window. This API uses a promise to return the result.
+     * This API takes effect only for a system window or an application child window.
+     * For the main window of an application, this API moves it at the top when the main window is already displayed.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -4175,7 +4178,8 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Destroy the window.
+     * Destroys this window. This API uses an asynchronous callback to return the result.
+     * This API takes effect only for a system window or an application child window.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -4205,7 +4209,8 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Destroy the window.
+     * Destroys this window. This API uses an asynchronous callback to return the result.
+     * This API takes effect only for a system window or an application child window.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5364,12 +5369,11 @@ declare namespace window {
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
      * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @param { string } path - Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -5418,12 +5422,11 @@ declare namespace window {
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
      * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @param { string } path - 	Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -5473,9 +5476,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get the UIContext associate with the window content.
+     * Obtain a UIContext instance.
      *
-     * @returns { UIContext } the object of UIContext.
+     * @returns { UIContext } UIContext instance obtained.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -5510,9 +5513,12 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { string } path - Path of the page from which the content will be loaded.
+     *                          In the stage model, the path is configured in the main_pages.json file of the project.
+     *                          In the FA model, the path is configured in the config.json file of the project.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5549,9 +5555,12 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window.
+     * This API uses a promise to return the result.
      *
-     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { string } path - Path of the page from which the content will be loaded.
+     *                          In the stage model, the path is configured in the main_pages.json file of the project.
+     *                          In the FA model, the path is configured in the config.json file of the project.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5564,10 +5573,13 @@ declare namespace window {
     setUIContent(path: string): Promise<void>;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5582,9 +5594,12 @@ declare namespace window {
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { string } name - Name of the named route page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5599,10 +5614,13 @@ declare namespace window {
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6008,10 +6026,11 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Window visibility change callback on.
+     * Subscribes to the visibility status change event of this window.
      *
-     * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
-     * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
+     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating the visibility status change event.
+     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window, which is a Boolean value.
+     *                                         The value true means that the window is visible, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6038,10 +6057,12 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Window visibility change callback off.
+     * Unsubscribes from the visibility status change event of this window.
      *
-     * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
-     * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
+     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating the visibility status change event.
+     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window.
+     *                                         If a value is passed in, the corresponding subscription is canceled.
+     *                                         If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6230,10 +6251,10 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Register the callback of windowEvent
+     * Subscribes to the window lifecycle change event.
      *
-     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
-     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @param { 'windowEvent' } type - Event type. The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6255,10 +6276,12 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Unregister the callback of windowEvent
+     * Unsubscribes from the window lifecycle change event.
      *
-     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
-     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @param { 'windowEvent' } type - Event type. The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     *                                                 If a value is passed in, the corresponding subscription is canceled.
+     *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6558,9 +6581,10 @@ declare namespace window {
     ): void;
 
     /**
-     * Set whether the dialog window responds to back gesture.
+     * Sets whether the modal window responds to the back gesture event. An error code is returned if this API is called for a non-modal window.
      *
-     * @param { boolean } enabled - Responds to back gesture if true, or ignore back gesture if false.
+     * @param { boolean } enabled - Whether to respond to the back gesture event.
+     *                              The value true means to respond to the back gesture event and trigger the onBackPress callback, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
@@ -9654,9 +9678,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get main window of the stage.
+     * Obtains the main window of this window stage. This API uses a promise to return the result.
      *
-     * @returns { Promise<Window> } Callback used to return the subwindow.
+     * @returns { Promise<Window> } Promise used to return the main window.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9688,7 +9712,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get main window of the stage.
+     * Obtains the main window of this window stage. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Window> } callback Callback used to return the main window.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -9722,9 +9746,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get main window of the stage.
+     * Obtains the main window of this window stage.
      *
-     * @returns { Window }
+     * @returns { Window } Main window.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9759,10 +9783,10 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Create sub window of the stage.
+     * Creates a child window for this window stage. This API uses a promise to return the result.
      *
-     * @param { string } name window name of sub window
-     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @param { string } name Name of the child window.
+     * @returns { Promise<Window> } Promise used to return the child window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9797,10 +9821,10 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Create sub window of the stage.
+     * Creates a child window for this window stage. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name window name of sub window
-     * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
+     * @param { string } name Name of the child window.
+     * @param { AsyncCallback<Window> } callback Callback used to return the child window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9860,9 +9884,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get sub window of the stage.
+     * Obtains all the child windows of this window stage. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<Window>> }
+     * @returns { Promise<Array<Window>> } Promise used to return all the child windows.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -9891,9 +9915,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Get sub window of the stage.
+     * Obtains all the child windows of this window stage. This API uses a promise to return the result.
      *
-     * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
+     * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the child windows.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -10057,10 +10081,13 @@ declare namespace window {
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10074,9 +10101,12 @@ declare namespace window {
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { string } name - Name of the named route page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10090,10 +10120,13 @@ declare namespace window {
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content by named router
+     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Exercise caution when using it.
      *
-     * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10136,9 +10169,9 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Window stage event callback on.
+     * Subscribes to the window stage lifecycle change event.
      *
-     * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10180,10 +10213,12 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Window stage event callback off.
+     * Unsubscribes from the window stage lifecycle change event.
      *
-     * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     *                                                    If a value is passed in, the corresponding subscription is canceled.
+     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
