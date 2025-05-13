@@ -36,21 +36,21 @@ declare namespace config {
    * @systemapi
    * @since 20
    */
-  const highContrastText: Config<boolean>;
+  const highContrastText: HighContrastTextConfig;
   /**
    * Indicates setting and getting in configuration.
    *
-   * @typedef Config<T>
+   * @typedef HighContrastTextConfig
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  interface Config<T> {
+  class HighContrastTextConfig {
     /**
      * Setting configuration value.
      *
      * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
+     * @param { boolean } value Indicates the value.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
@@ -63,13 +63,13 @@ declare namespace config {
      * @systemapi
      * @since 20
      */
-    set(value: T): Promise<void>;
+    set(value: boolean): Promise<void>;
 
     /**
      * Setting configuration value.
      *
      * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
+     * @param { boolean } value Indicates the value.
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
@@ -82,12 +82,12 @@ declare namespace config {
      * @systemapi
      * @since 20
      */
-	set(value: T, callback: (err: AccessibilityError) => void): void;
+	set(value: boolean, callback: (err: AccessibilityError) => void): void;
 
     /**
      * Getting configuration value.
      *
-     * @returns { Promise<T> }
+     * @returns { Promise<boolean> }
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -95,18 +95,18 @@ declare namespace config {
      * @systemapi
      * @since 20
      */
-	get(): Promise<T>;
+	get(): Promise<boolean>;
 
     /**
      * Getting configuration value.
      *
-     * @param { AsyncCallback<T> } callback
+     * @param { AsyncCallback<boolean> } callback
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 20
      */
-	get(callback:(err: AccessibilityError, data: T) => void): void;
+	get(callback:(err: AccessibilityError, data: boolean) => void): void;
   }
 }
 export default config;
