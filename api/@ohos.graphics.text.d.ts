@@ -2284,6 +2284,41 @@ declare namespace text {
      */
     location: number;
   }
+
+  /**
+   * Defines text rendering high contrast mode to enhance readability.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextHighContrast {
+    /**
+     * Follow system's high contrast settings for text rendering.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_FOLLOW_SYSTEM_HIGH_CONTRAST,
+    /**
+     * Disables high contrast rendering regardless of system settings.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_APP_DISABLE_HIGH_CONTRAST,
+    /**
+     * Enable high contrast rendering regardless of system settings.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_APP_ENABLE_HIGH_CONTRAST,
+  }
+
+  /**
+   * Sets high contrast mode of text rendering.
+   * @param { TextHighContrast } action - High contrast mode.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  function setTextHighContrast(action: TextHighContrast): void;
 }
 
 export default text;
