@@ -348,6 +348,16 @@ export interface RenderParameters {
  */
 export class Scene {
   /**
+   * Get default render context
+   *
+   * @returns { RenderContext } -- The default RenderContext instance
+   * @static
+   * @syscap SystemCapability.ArkUI.Graphic3D
+   * @since 20
+   */
+  static getDefaultRenderContext(): RenderContext;
+
+  /**
    * Create a new scene from a ResourceStr.
    *
    * @param { ResourceStr } uri - the resource of creating a scene
