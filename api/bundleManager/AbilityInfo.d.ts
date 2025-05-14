@@ -78,7 +78,7 @@ export interface AbilityInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
@@ -86,7 +86,7 @@ export interface AbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
@@ -95,7 +95,7 @@ export interface AbilityInfo {
    * @since 10
    */
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
