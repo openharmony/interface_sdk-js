@@ -5513,8 +5513,8 @@ declare namespace webview {
      * @param { ScrollType } type - Enable scrolling type
      *                              When the input parameter enable is false, it indicates that scrolling of the ScrollType type is prohibited.When ScrollType
      *                              is not specified,it indicates that all types of webpage scrolling are prohibited.
-     *                              When the input parameter enable is true, regardless of whether ScrollType is specified, it indicates that all types of webpage
-     *                              scrolling are allowed.
+     *                              When the input parameter enable is true, regardless of whether ScrollType is specified, it indicates that all types
+     *                              of webpage scrolling are allowed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
