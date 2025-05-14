@@ -699,7 +699,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20
