@@ -28904,7 +28904,7 @@ declare interface ItemDragEventHandler {
 declare class DynamicNode<T> {
   /**
    * Invoked when data is moved during drag and drop sorting.
-   * This callback is only applicable in a List component
+   * This callback is only applicable in a List component.
    * where each ForEach iteration generates a ListItem component.
    * It allows you to define custom drag actions and handle various drag events.
    *
@@ -28919,7 +28919,7 @@ declare class DynamicNode<T> {
 
   /**
    * Invoked when data is moved during drag and drop sorting.
-   * This callback is only applicable in a List component
+   * This callback is only applicable in a List component.
    * where each ForEach iteration generates a ListItem component.
    * It allows you to define custom drag actions and handle various drag events.
    *
@@ -29274,14 +29274,14 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  */
 declare class WrappedBuilder<Args extends Object[]> {
   /**
-   * global @Builder decorated function
+   * global @Builder decorated function.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * global @Builder decorated function
+   * global @Builder decorated function.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

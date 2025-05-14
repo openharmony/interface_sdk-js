@@ -122,7 +122,7 @@ interface DataAddOperation {
   index: number,
 
   /**
-   * Number of data records to insert.Default value: 1.
+   * Number of data records to insert. Default value: 1.
    *
    * @type { ?number }
    * @default 1
@@ -178,7 +178,7 @@ interface DataDeleteOperation {
   index: number,
 
   /**
-   * Number of data records to delete.Default value: 1.
+   * Number of data records to delete. Default value: 1.
    *
    * @type { ?number }
    * @default 1
@@ -309,7 +309,7 @@ interface ExchangeIndex {
  */
 interface ExchangeKey {
   /**
-   * New key to assign to the first position in the exchange.The original key is used by default.
+   * New key to assign to the first position in the exchange. The original key is used by default.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -319,7 +319,7 @@ interface ExchangeKey {
    */
   start: string;
   /**
-   * New key to assign to the second position in the exchange.The original key is used by default.
+   * New key to assign to the second position in the exchange. The original key is used by default.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -363,7 +363,7 @@ interface DataMoveOperation {
   index: MoveIndex,
 
   /**
-   * New key to assign to the moved data.The original key is used by default.
+   * New key to assign to the moved data. The original key is used by default.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -407,7 +407,7 @@ interface DataMoveOperation {
   index: ExchangeIndex,
 
   /**
-   * New keys to assign to the exchanged data.The original keys are used by default.
+   * New keys to assign to the exchanged data. The original keys are used by default.
    *
    * @type { ?ExchangeKey }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
