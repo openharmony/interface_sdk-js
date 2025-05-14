@@ -19,29 +19,34 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
-  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
+import { ElementName as _ElementName } from './bundleManager/ElementName';
+import Want from './@ohos.app.ability.Want';
 /*** if arkts 1.1 */
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
-/*** endif */
-import { ElementName as _ElementName } from './bundleManager/ElementName';
-/*** if arkts 1.1 */
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
-import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
+import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
+import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
+import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
+import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
+import * as _Skill from './bundleManager/Skill';
 /*** endif */
-import Want from './@ohos.app.ability.Want';
+/*** if arkts 1.2 */
+import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
-/*** if arkts 1.1 */
-import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
-/*** endif */
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
+/*** endif */
 /**
  * This module is used to obtain package information of various applications installed on the current device.
  *
@@ -3771,138 +3776,227 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about a bundle.
    *
-   * @typedef { _BundleInfo }
+   * @typedef { _BundleInfo.BundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about a bundle.
    *
+   * @typedef { _BundleInfo.BundleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type BundleInfo = _BundleInfo.BundleInfo;
+
+  /**
+   * Obtains configuration information about a bundle.
+   *
    * @typedef { _BundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type BundleInfo = _BundleInfo;
 
   /**
    * The scene which is used.
    *
-   * @typedef { _UsedScene }
+   * @typedef { _BundleInfo.UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * The scene which is used.
    *
+   * @typedef { _BundleInfo.UsedScene }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type UsedScene = _BundleInfo.UsedScene;
+
+  /**
+   * The scene which is used.
+   *
    * @typedef { _UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type UsedScene = _UsedScene;
 
   /**
    * Indicates the required permissions details defined in file config.json.
    *
-   * @typedef { _ReqPermissionDetail }
+   * @typedef { _BundleInfo.ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the required permissions details defined in file config.json.
    *
+   * @typedef { _BundleInfo.ReqPermissionDetail }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
+
+  /**
+   * Indicates the required permissions details defined in file config.json.
+   *
    * @typedef { _ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type ReqPermissionDetail = _ReqPermissionDetail;
 
   /**
    * Indicates the SignatureInfo.
    *
-   * @typedef { _SignatureInfo }
+   * @typedef { _BundleInfo.SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the SignatureInfo.
    *
+   * @typedef { _BundleInfo.SignatureInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type SignatureInfo = _BundleInfo.SignatureInfo;
+
+  /**
+   * Indicates the SignatureInfo.
+   *
    * @typedef { _SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type SignatureInfo = _SignatureInfo;
 
   /**
    * AppCloneIdentity Contain BundleName and appIndex.
    *
+   * @typedef { _BundleInfo.AppCloneIdentity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 15
+   */
+  export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
+
+  /**
+   * AppCloneIdentity Contain BundleName and appIndex.
+   *
    * @typedef { _AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type AppCloneIdentity = _AppCloneIdentity;
 
   /**
    * Obtains configuration information about a module.
    *
-   * @typedef { _HapModuleInfo }
+   * @typedef { _HapModuleInfo.HapModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about a module.
    *
+   * @typedef { _HapModuleInfo.HapModuleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
+
+  /**
+   * Obtains configuration information about a module.
+   *
    * @typedef { _HapModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type HapModuleInfo = _HapModuleInfo;
 
   /**
    * Obtains preload information about a module.
    *
-   * @typedef { _PreloadItem }
+   * @typedef { _HapModuleInfo.PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains preload information about a module.
    *
+   * @typedef { _HapModuleInfo.PreloadItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type PreloadItem = _HapModuleInfo.PreloadItem;
+
+  /**
+   * Obtains preload information about a module.
+   *
    * @typedef { _PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type PreloadItem = _PreloadItem;
 
   /**
    * Obtains dependency information about a module.
    *
-   * @typedef { _Dependency }
+   * @typedef { _HapModuleInfo.Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains dependency information about a module.
    *
+   * @typedef { _HapModuleInfo.Dependency }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type Dependency = _HapModuleInfo.Dependency;
+
+  /**
+   * Obtains dependency information about a module.
+   *
    * @typedef { _Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type Dependency = _Dependency;
+
+  /**
+   * Obtains the router item about a module.
+   *
+   * @typedef { _HapModuleInfo.RouterItem}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type RouterItem = _HapModuleInfo.RouterItem;
 
   /**
    * Obtains the router item about a module.
@@ -3910,10 +4004,20 @@ declare namespace bundleManager {
    * @typedef { _RouterItem}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type RouterItem = _RouterItem;
+
+  /**
+   * Obtains the data item within router item.
+   *
+   * @typedef { _HapModuleInfo.DataItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type DataItem = _HapModuleInfo.DataItem;
 
   /**
    * Obtains the data item within router item.
@@ -3921,62 +4025,92 @@ declare namespace bundleManager {
    * @typedef { _DataItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type DataItem = _DataItem;
 
   /**
    * Obtains configuration information about an ability.
    *
-   * @typedef { _AbilityInfo }
+   * @typedef { _AbilityInfo.AbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains configuration information about an ability.
    *
+   * @typedef { _AbilityInfo.AbilityInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type AbilityInfo = _AbilityInfo.AbilityInfo;
+
+  /**
+   * Obtains configuration information about an ability.
+   *
    * @typedef { _AbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type AbilityInfo = _AbilityInfo;
 
   /**
    * Contains basic Ability information. Indicates the window size..
    *
-   * @typedef { _WindowSize }
+   * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Contains basic Ability information. Indicates the window size..
    *
+   * @typedef { _AbilityInfo.WindowSize }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type WindowSize = _AbilityInfo.WindowSize;
+
+  /**
+   * Contains basic Ability information. Indicates the window size..
+   *
    * @typedef { _WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type WindowSize = _WindowSize;
 
   /**
    * Obtains extension information about a bundle.
    *
-   * @typedef { _ExtensionAbilityInfo }
+   * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Obtains extension information about a bundle.
    *
+   * @typedef { _ExtensionAbilityInfo.ExtensionAbilityInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo;
+
+  /**
+   * Obtains extension information about a bundle.
+   *
    * @typedef { _ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
@@ -4021,22 +4155,22 @@ declare namespace bundleManager {
   /**
    * Obtains profile file information about a bundle.
    *
-   * @typedef { _AppProvisionInfo }
+   * @typedef { _AppProvisionInfo.AppProvisionInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
    */
-  export type AppProvisionInfo = _AppProvisionInfo;
+  export type AppProvisionInfo = _AppProvisionInfo.AppProvisionInfo;
 
   /**
    * Obtains profile file validity about a bundle.
    *
-   * @typedef { _Validity }
+   * @typedef { _AppProvisionInfo.Validity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
    */
-  export type Validity = _Validity;
+  export type Validity = _AppProvisionInfo.Validity;
 
   /**
    * Obtains information about a recoverable preinstalled application.
@@ -4051,13 +4185,33 @@ declare namespace bundleManager {
   /**
    * Obtains configuration information about an skill
    *
+   * @typedef { _Skill.Skill }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type Skill = _Skill.Skill;
+
+  /**
+   * Obtains configuration information about an skill
+   *
    * @typedef { _Skill }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type Skill = _Skill;
+
+  /**
+   * Obtains configuration information about an skillUri
+   *
+   * @typedef { _Skill.SkillUri }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type SkillUrl = _Skill.SkillUri;
 
   /**
    * Obtains configuration information about an skillUri
@@ -4065,8 +4219,8 @@ declare namespace bundleManager {
    * @typedef { _SkillUri }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   export type SkillUrl = _SkillUri;
 
