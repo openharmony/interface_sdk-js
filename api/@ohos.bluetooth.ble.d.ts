@@ -137,7 +137,7 @@ declare namespace ble {
 
   /**
    * Create a ble scanner instance. Each ble scanner instance can be independently started or stopped.
-   * 
+   *
    * @returns { BleScanner } Returns the promise object.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -3245,6 +3245,17 @@ declare namespace ble {
      * @since 18
      */
     characteristicValueHandle?: number;
+
+    /**
+     * The permissions of a BLECharacteristic instance. The default value is Readable and Writable.
+     *
+     * @type { ?GattPermissions }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    permissions?: GattPermissions;
   }
 
   /**
@@ -3382,6 +3393,17 @@ declare namespace ble {
      * @since 18
      */
     descriptorHandle?: number;
+
+    /**
+     * The permissions of a BLEDescriptor instance. The default value is Readable and Writable.
+     *
+     * @type { ?GattPermissions }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    permissions?: GattPermissions;
   }
 
   /**
@@ -4614,7 +4636,7 @@ declare namespace ble {
 
   /**
    * Describes the contents of the scan report.
-   * 
+   *
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -5773,6 +5795,36 @@ declare namespace ble {
      * @since 12
      */
     indicate?: boolean;
+
+    /**
+     * Support broadcast property of the characteristic.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    broadcast?: boolean;
+
+    /**
+     * Support authenticated signed write property of the characteristic.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    authenticatedSignedWrite?: boolean;
+
+    /**
+     * Support extended properties property of the characteristic.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    extendedProperties?: boolean;
   }
 
   /**
@@ -6099,7 +6151,7 @@ declare namespace ble {
 
   /**
    * Report mode used during scan.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6166,6 +6218,98 @@ declare namespace ble {
      * @since 15
      */
     ON_LOST = 2,
+  }
+
+  /**
+   * Describes the permission of a att attribute item.
+   *
+   * @typedef GattPermissions
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface GattPermissions {
+
+    /**
+     * The attribute field has the read permission.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    read?: boolean;
+
+    /**
+     * The attribute field has the encrypted read permission.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    readEncrypted?: boolean;
+
+    /**
+     * The attribute field has the read permission for encryption authentication.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    readEncryptedMitm?: boolean;
+
+    /**
+     * The attribute field has the write permission.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    write?: boolean;
+
+    /**
+     * The attribute field has the encrypted write permission.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    writeEncrypted?: boolean;
+
+    /**
+     * The attribute field has the write permission for encryption authentication.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    writeEncryptedMitm?: boolean;
+
+    /**
+     * The attribute field has the signed write permission.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    writeSigned?: boolean;
+
+    /**
+     * The attribute field has the write permission for signature authentication.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     */
+    writeSignedMitm?: boolean;
   }
 }
 
