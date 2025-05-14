@@ -4311,6 +4311,15 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+    /**
+     * Checks whether the specified audio source type supports echo cancellation
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+     isAcousticEchoCancelerSupported(sourceType: SourceType): boolean;
   }
 
   /**
@@ -8443,7 +8452,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 14
      */
-    SOURCE_TYPE_UNPROCESSED = 14
+    SOURCE_TYPE_UNPROCESSED = 14,
+    /**
+     * live broadcast source type. 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    SOURCE_TYPE_LIVE = 17
   }
 
   /**
