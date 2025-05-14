@@ -1305,7 +1305,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000014 - Member is not a valid PhotoKey
+     * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1317,7 +1317,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000014 - Member is not a valid PhotoKey
+     * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -1331,7 +1331,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000014 - Member is not a valid PhotoKey
+     * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @example : set(PhotoKeys.TITLE, "newTitle"), call commitModify after set
@@ -4222,7 +4222,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900012 - Permission denied
-     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900015 - The file name already exists.
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4242,7 +4242,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900012 - Permission denied
-     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900015 - The file name already exists.
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4456,7 +4456,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000002 - The uri format is incorrect or does not exist.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -4476,7 +4476,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000002 - The uri format is incorrect or does not exist.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -6344,7 +6344,7 @@ declare namespace photoAccessHelper {
      * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 13900002 - The file corresponding to the URI is not in the app sandbox.
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6358,7 +6358,7 @@ declare namespace photoAccessHelper {
      * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 13900002 - The file corresponding to the URI is not in the app sandbox.
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6375,7 +6375,7 @@ declare namespace photoAccessHelper {
      * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 13900002 - The file corresponding to the URI is not in the app sandbox.
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6447,7 +6447,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000002 - Invalid asset uri
+     * @throws { BusinessError } 14000002 - The uri format is incorrect or does not exist.
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6594,7 +6594,7 @@ declare namespace photoAccessHelper {
      * @param { string } fileUri - File uri
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 13900002 - The file corresponding to the URI is not in the app sandbox.
      * @throws { BusinessError } 14000011 - System inner fail
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
