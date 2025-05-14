@@ -3478,11 +3478,15 @@ declare namespace media {
      * By default, this event is reported every 100 ms. However, it is reported immediately upon
      * a successful seek operation.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the current time.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('timeUpdate', (time:number) => {
+     *   console.info('timeUpdate called,and new time is :' + time)
+     * })
      */
     on(type: 'timeUpdate', callback: Callback<number>): void;
     /**
@@ -3499,9 +3503,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for media playback timeUpdate event.
+     * Unsubscribes from playback position changes.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the current time.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3516,13 +3520,19 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback durationUpdate event.
+     * Subscribes to media asset duration changes. It is used to refresh the length of the progress bar. By
+     * default, this event is reported once in the prepared state. However, it can be repeatedly reported for
+     * special streams that trigger duration changes. The **'durationUpdate'** event is not supported in live mode.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the resource duration.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('durationUpdate', (duration: number) => {
+     *   console.info('durationUpdate called,new duration is :' + duration)
+     * })
      */
     on(type: 'durationUpdate', callback: Callback<number>): void;
     /**
@@ -3532,9 +3542,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback durationUpdate event.
+     * Unsubscribes from media asset duration changes.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the resource duration.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -3550,14 +3560,19 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for video playback buffering events.
+     * Subscribes to audio and video buffer changes. This subscription is supported only in network
+     * playback scenarios.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
-	   * return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered,
+	   * and return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
+     *   console.info('bufferingUpdate called,and infoType value is:' + infoType + ', value is :' + value)
+     * })
      */
     on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void;
 
@@ -3569,10 +3584,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for video playback buffering events.
+     * Unsubscribes from audio and video buffer changes.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
-	   * return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered.,
+	   * and return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3587,12 +3602,19 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for start render video frame events.
+     * Subscribes to the event that indicates rendering starts for the first frame. This subscription is
+     * supported only in video playback scenarios. This event only means that the playback service sends
+     * the first frame to the display module. The actual rendering effect depends on the rendering performance
+     * of the display service.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback event return .
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('startRenderFrame', () => {
+     *   console.info('startRenderFrame called')
+     * })
      */
     on(type: 'startRenderFrame', callback: Callback<void>): void;
     /**
@@ -3602,9 +3624,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for start render video frame events.
+     * Unsubscribes from the event that indicates rendering starts for the first frame.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback event return .
+     * @param { Callback<void> } callback - 	Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
@@ -3618,13 +3640,19 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for video size change event.
+     * Subscribes to video size (width and height) changes. This subscription is supported only in video playback
+     * scenarios. By default, this event is reported only once in the prepared state. However, it is also reported
+     * upon resolution changes in the case of HLS streams.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
+     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('videoSizeChange', (width: number, height: number) => {
+     *   console.info('videoSizeChange called,and width is:' + width + ', height is :' + height)
+     * })
      */
     on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void;
     /**
@@ -3634,9 +3662,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for video size change event.
+     * Unsubscribes from video size changes.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
+     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3651,13 +3679,21 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}.
+     * The application needs to perform corresponding processing based on different audio interruption events. 
+     * For details, see Handling Audio Interruption Events.
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     * 
+     * avPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
+     *   console.info('audioInterrupt called,and InterruptEvent info is:' + info)
+     * })
      */
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
     /**
@@ -3688,7 +3724,9 @@ declare namespace media {
      * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
      * @param { 'availableBitrates' } type - Type of the playback event to listen for.
+     * This event is triggered once after the AVPlayer switches to the prepared state.
      * @param { Callback<Array<number>> } callback - Callback used to listen for the playback event return available bitrate list.
+     * It returns an array that holds the available bit rates. If the array length is 0, no bit rate can be set.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3766,8 +3804,11 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Register listens for playback error events.
-     * @param { 'error' } type - Type of the playback error event to listen for.
+     * Subscribes to AVPlayer errors. This event is used only for error prompt and does not require the user to stop
+     * playback control. If AVPlayerState is also switched to error, call {@link #reset()} or {@link #release()}
+     * to exit the playback.
+     * @param { 'error' } type - Event type, which is **'error'** in this case. This event can be triggered by
+     * both user operations and the system.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -3792,6 +3833,13 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.on('error', (error: BusinessError) => {
+     *   console.info('error happened,and error message is :' + error.message)
+     *   console.info('error happened,and error code is :' + error.code)
+     * })
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
@@ -3808,9 +3856,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for playback error events.
-     * @param { 'error' } type - Type of the playback error event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * Unsubscribes from AVPlayer errors.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     * @param { ErrorCallback } callback - Callback used to return the error code ID and error message.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
