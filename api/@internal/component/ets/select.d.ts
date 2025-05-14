@@ -1178,7 +1178,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   dividerStyle(style: Optional<DividerStyleOptions>): SelectAttribute;
 
