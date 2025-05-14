@@ -7697,7 +7697,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
    *
-   * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { Callback<OnPromptEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript prompt() dialog.
    *     {@code true} means the application can call the custom pop-up window capability (including confirmation, cancellation, and input),and needs to
    *                   call JsResult to notify the Web component of the final processing result based on the user's confirmation or cancellation operation.
    *     {@code false} means the pop-up window processing result is considered as a cancellation.
