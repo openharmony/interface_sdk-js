@@ -160,46 +160,58 @@ function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
     return node
 }
 
+function handleOptionalType(paramType: ts.TypeNode, wrapUndefined: boolean = true): ts.TypeNode {
+    if (!ts.isTypeReferenceNode(paramType)) {
+        return paramType;
+    }
+    const typeName = (paramType.typeName as ts.Identifier).escapedText;
+
+    const wrapUndefinedOp = (type: ts.TypeNode) => {
+        if (!wrapUndefined) {
+            return type;
+        }
+        return ts.factory.createUnionTypeNode([
+            ...(ts.isUnionTypeNode(type) ? type.types : [type]),
+            ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
+        ]);
+    }
+
+    // Check if the parameter type is Optional<XX>
+    if (typeName === 'Optional' && paramType.typeArguments?.length === 1) {
+        const innerType = paramType.typeArguments[0];
+        return wrapUndefinedOp(innerType);
+    }
+    return wrapUndefinedOp(paramType);
+}
+
 function handleAttributeMember(node: ts.MethodDeclaration): ts.MethodSignature {
     const updatedParameters = node.parameters.map(param => {
         const paramType = param.type;
 
-        if (paramType && ts.isTypeReferenceNode(paramType)) {
-            const typeName = (paramType.typeName as ts.Identifier).escapedText;
-
-            // Step 1: Check if the parameter type is Optional<XX>
-            if (typeName === 'Optional' && paramType.typeArguments?.length === 1) {
-                const innerType = paramType.typeArguments[0];
-
-                // Step 2: If T is a union type, flatten it and update the parameter type to (XX | undefined)
-                const updatedType = ts.factory.createUnionTypeNode([
-                    ...(ts.isUnionTypeNode(innerType) ? innerType.types : [innerType]),
-                    ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
-                ]);
-
+        // Ensure all other parameters are XX | undefined
+        if (paramType) {
+            if (ts.isTypeReferenceNode(paramType)) {
                 return ts.factory.updateParameterDeclaration(
                     param,
                     undefined,
                     param.dotDotDotToken,
                     param.name,
                     param.questionToken,
-                    updatedType,
+                    handleOptionalType(paramType),
                     param.initializer
                 );
-            }
-        }
-
-        // Step 3: Ensure all other parameters are XX | undefined
-        if (paramType) {
-            if (ts.isUnionTypeNode(paramType)) {
+            } else if (ts.isUnionTypeNode(paramType)) {
+                const removeOptionalTypes = paramType.types.map(type => {
+                    return handleOptionalType(type, false);
+                })
                 // Check if the union type already includes undefined
-                const hasUndefined = paramType.types.some(
+                const hasUndefined = removeOptionalTypes.some(
                     type => type.kind === ts.SyntaxKind.UndefinedKeyword
                 );
 
                 if (!hasUndefined) {
                     const updatedType = ts.factory.createUnionTypeNode([
-                        ...paramType.types,
+                        ...removeOptionalTypes,
                         ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
                     ]);
 
