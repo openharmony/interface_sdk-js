@@ -20681,6 +20681,19 @@ declare class CommonMethod<T> {
   onAccessibilityHover(callback: AccessibilityCallback): T;
 
   /**
+   * prompt for current component and descendants unable to handle accessibility hover event
+   *
+   * @param { AccessibilityTransparentCallback } callback - A callback instance used when current component and 
+   * descendants not handled accessibility hover event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onAccessibilityHoverTransparent(callback: AccessibilityTransparentCallback): T;
+  
+  /**
    * Set hover effect.
    *
    * @param { HoverEffect } value
@@ -29441,6 +29454,18 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * @since 12
  */
 declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
+
+/**
+ * Defines the callback type used in accessibility hover transparent event.
+ *
+ * @typedef { function } AccessibilityTransparentCallback
+ * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type AccessibilityTransparentCallback = (event: TouchEvent) => void
 
 /**
  * Defines the options about VisibleAreaEvent.
