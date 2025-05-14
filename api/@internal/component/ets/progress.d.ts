@@ -220,11 +220,10 @@ declare interface ProgressOptions {
    */
   total?: number;
 
-
   /**
    * Sets the type of Progress.
    *
-   * @type { ?number }
+   * @type { ?ProgressType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -232,7 +231,7 @@ declare interface ProgressOptions {
    * @since 20
    * @arkts 1.2
    */
-  type?: number
+  type?: ProgressType
 }
 /**
  * Type of progress bar
