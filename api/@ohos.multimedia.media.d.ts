@@ -3122,11 +3122,22 @@ declare namespace media {
      */
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
-     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Event type, which is **'mediaKeySystemInfoUpdate'** in this case.
+     * This event is triggered when the copyright protection information of the media asset being played changes.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
+     * It reports a **MediaKeySystemInfo** array.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { drm } from '@kit.DrmKit';
+     * 
+     * avPlayer.on('mediaKeySystemInfoUpdate', (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => {
+     *     for (let i = 0; i < mediaKeySystemInfo.length; i++) {
+     *       console.info('mediaKeySystemInfoUpdate happened uuid: ' + mediaKeySystemInfo[i]["uuid"]);
+     *       console.info('mediaKeySystemInfoUpdate happened pssh: ' + mediaKeySystemInfo[i]["pssh"]);
+     *     }
+     * })
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3164,12 +3175,48 @@ declare namespace media {
      */
     /**
      * Register listens for media playback stateChange event.
-     * @param { 'stateChange' } type - Type of the playback event to listen for.
-     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for the playback stateChange event.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
+     *   switch (state) {
+     *     case 'idle':
+     *       console.info('state idle called');
+     *       break;
+     *     case 'initialized':
+     *       console.info('initialized prepared called');
+     *       break;
+     *     case 'prepared':
+     *       console.info('state prepared called');
+     *       break;
+     *     case 'playing':
+     *       console.info('state playing called');
+     *       break;
+     *     case 'paused':
+     *       console.info('state paused called');
+     *       break;
+     *     case 'completed':
+     *       console.info('state completed called');
+     *       break;
+     *     case 'stopped':
+     *       console.info('state stopped called');
+     *       break;
+     *     case 'released':
+     *       console.info('state released called');
+     *       break;
+     *     case 'error':
+     *       console.info('state error called');
+     *       break;
+     *     default:
+     *       console.info('unknown state :' + state);
+     *       break;
+     *   }
+     * })
      */
     on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3188,7 +3235,7 @@ declare namespace media {
     /**
      * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
-     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for stateChange event
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3198,18 +3245,23 @@ declare namespace media {
     /**
      * Register listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Register listens for media playback volumeChange event.
-     * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * Subscribes to the event to check whether the volume is successfully set.
+     * @param { 'volumeChange' } type - This event is triggered each time setVolume() is called.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective volume.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('volumeChange', (vol: number) => {
+     *   console.info('volumeChange called,and new volume is :' + vol)
+     * })
      */
     on(type: 'volumeChange', callback: Callback<number>): void;
     /**
@@ -3219,9 +3271,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback volumeChange event.
+     * Unsubscribes from the event that checks whether the volume is successfully set.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective volume.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -3235,13 +3288,20 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback endOfStream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * Subscribes to the event that indicates the end of the stream being played. If {@link #loop} = true is set,
+     * the AVPlayer seeks to the beginning of the stream and plays the stream again. If loop is not set,
+     * the completed state is reported through the {@link #stateChange} event.
+     * @param { 'endOfStream' } type - Type of the playback event to listen for. This event is triggered
+     * when the AVPlayer finishes playing the media asset.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('endOfStream', () => {
+     *   console.info('endOfStream called')
+     * })
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
     /**
@@ -3251,9 +3311,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback endOfStream event.
+     * Unsubscribes from the event that indicates the end of the stream being played.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -3275,13 +3335,23 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Register listens for media playback seekDone event.
-     * @param { 'seekDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * Subscribes to the event to check whether the seek operation takes effect.
+     * @param { 'seekDone' } type - Type of the playback event to listen for. This event is triggered each time
+     * **seek()** is called, except in SEEK_CONTINUOUS mode.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the time position requested by the user.
+     * 
+     * For video playback, {@link #SeekMode} may cause the actual position to be different from that requested by
+     * the user.The exact position can be obtained from the currentTime attribute. The time in this callback
+     * only means that the requested seek operation is complete.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('seekDone', (seekDoneTime:number) => {
+     *   console.info('seekDone called,and seek time is:' + seekDoneTime)
+     * })
      */
     on(type: 'seekDone', callback: Callback<number>): void;
     /**
@@ -3298,9 +3368,14 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for media playback seekDone event.
+     * Unsubscribes from the event that checks whether the seek operation takes effect.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the time position requested by the user.
+     * 
+     * For video playback, SeekMode may cause the actual position to be different from that requested by the user.
+     * The exact position can be obtained from the currentTime attribute. The time in this callback only means
+     * that the requested seek operation is complete.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3315,13 +3390,19 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback speedDone event.
+     * Subscribes to the event to check whether the playback speed is successfully set.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
+     * This event is triggered each time **setSpeed()** is called.
+     * @param { Callback<number> } callback - Callback used to return the result. When the call of
+     * setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('speedDone', (speed:number) => {
+     *   console.info('speedDone called,and speed value is:' + speed)
+     * })
      */
     on(type: 'speedDone', callback: Callback<number>): void;
     /**
@@ -3331,9 +3412,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback speedDone event.
+     * Unsubscribes from the event that checks whether the playback speed is successfully set.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
+     * @param { Callback<number> } callback - Callback used to return the result. When the call of
+     * setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -3347,12 +3429,18 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback setBitrateDone event.
+     * Subscribes to the event to check whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
+     * This event is triggered each time **setBitrate()** is called.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('bitrateDone', (bitrate:number) => {
+     *   console.info('bitrateDone called,and bitrate value is:' + bitrate)
+     * })
      */
     on(type: 'bitrateDone', callback: Callback<number>): void;
     /**
@@ -3362,9 +3450,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback setBitrateDone event.
+     * Unsubscribes from the event that checks whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
@@ -3385,7 +3474,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Register listens for media playback timeUpdate event.
+     * Subscribes to playback position changes. It is used to refresh the current position of the progress bar.
+     * By default, this event is reported every 100 ms. However, it is reported immediately upon
+     * a successful seek operation.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
