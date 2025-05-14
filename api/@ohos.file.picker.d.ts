@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import window  from "./@ohos.window"
+import window from './@ohos.window';
 import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * Provide the capabilities to use different pickers.
