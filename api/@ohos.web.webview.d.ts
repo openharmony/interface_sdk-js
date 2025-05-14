@@ -5335,7 +5335,7 @@ declare namespace webview {
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5346,7 +5346,7 @@ declare namespace webview {
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
