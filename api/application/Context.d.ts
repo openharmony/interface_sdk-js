@@ -500,7 +500,6 @@ export default class Context extends BaseContext {
    * Get application context
    *
    * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
