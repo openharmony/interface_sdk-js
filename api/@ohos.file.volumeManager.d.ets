@@ -67,9 +67,8 @@ declare namespace volumeManager {
     * @param { AsyncCallback<Volume> } callback - callback
     * @throws { BusinessError } 201 - Permission verification failed.
     * @throws { BusinessError } 202 - The caller is not a system application.
-    * @throws { BusinessError } 401 - The input parameter is invalid. Possible causes:1.Mandatory
-parameters are left unspecified;
-    * <br>2.Incorrect parameter types.
+    * @throws { BusinessError } 401 - The input parameter is invalid. Possible causes:
+    * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
     * @throws { BusinessError } 13600001 - IPC error.
     * @throws { BusinessError } 13600008 - No such object.
     * @throws { BusinessError } 13900042 - Unknown error.
@@ -87,9 +86,8 @@ parameters are left unspecified;
     * @returns { Promise<Volume> } return Promise
     * @throws { BusinessError } 201 - Permission verification failed.
     * @throws { BusinessError } 202 - The caller is not a system application.
-    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-    parameters are left unspecified;
-    * <br>2.Incorrect parameter types.
+    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+    * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
     * @throws { BusinessError } 13600001 - IPC error.
     * @throws { BusinessError } 13600008 - No such object.
     * @throws { BusinessError } 13900042 - Unknown error.
@@ -106,8 +104,8 @@ parameters are left unspecified;
    * @param { AsyncCallback<Array<Volume>> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
- parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * Mandatory parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -123,8 +121,8 @@ parameters are left unspecified;
    * @returns { Promise<Array<Volume>> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
- parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * Mandatory parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume

@@ -88,7 +88,8 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:
+   * 1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.

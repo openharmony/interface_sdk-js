@@ -32,10 +32,10 @@ declare namespace storageStatistics {
    * Get the free size.
    *
    * @param { AsyncCallback<long> } callback - callback
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * Mandatory parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -47,7 +47,7 @@ May need permission ohos.permission.STORAGE_MANAGER.
    *
    * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -59,9 +59,9 @@ May need permission ohos.permission.STORAGE_MANAGER.
    *
    * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   * parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -73,7 +73,7 @@ May need permission ohos.permission.STORAGE_MANAGER.
    *
    * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -84,10 +84,10 @@ May need permission ohos.permission.STORAGE_MANAGER.
    * Get the current bundle statistics.
    *
    * @param { AsyncCallback<BundleStats> } callback - callback
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * Mandatory parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -98,10 +98,10 @@ May need permission ohos.permission.STORAGE_MANAGER.
    * Get the current bundle statistics.
    *
    * @returns { Promise<BundleStats> } return Promise
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * Mandatory parameters are left unspecified;
    * @throws { BusinessError } 13600001 - Permission Denied.Possible causes:
-May need permission ohos.permission.STORAGE_MANAGER.
+   * May need permission ohos.permission.STORAGE_MANAGER.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 20
@@ -115,9 +115,8 @@ May need permission ohos.permission.STORAGE_MANAGER.
    * @returns { Promise<StorageStats> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -133,9 +132,8 @@ parameters are left unspecified;
    * @param { AsyncCallback<StorageStats> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -152,9 +150,8 @@ parameters are left unspecified;
    * @returns { Promise<StorageStats> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600009 - User if out of range.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -172,9 +169,8 @@ parameters are left unspecified;
    * @param { AsyncCallback<StorageStats> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600009 - User if out of range.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -238,7 +234,6 @@ parameters are left unspecified;
      * @since 20
      */
     total: long;
-
   }
 }
 
