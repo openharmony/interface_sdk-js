@@ -3512,6 +3512,27 @@ declare namespace bundleManager {
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
   /**
+   * Enable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Disable dynamic icon.
    *
    * @permission ohos.permission.ACCESS_DYNAMIC_ICON
@@ -3529,6 +3550,25 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
   /**
+   * Disable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3544,6 +3584,41 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
+
+  /**
+   * Get dynamic icon.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<string> } Returns dynamic icon key.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getDynamicIcon(bundleName: string, option?: BundleOptions): Promise<string>;
+
+  /**
+   * Get all dynamic icon info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } [userId] - Indicates the user id, default value is to query all users.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAllDynamicIconInfo(userId?: number): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
@@ -4317,6 +4392,26 @@ declare namespace bundleManager {
    * @since 19
    */
   export type PluginModuleInfo = _PluginModuleInfo;
+
+  /**
+   * Contains dynamic icon.
+   *
+   * @typedef { _BundleInfo.DynamicIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type DynamicIconInfo = _BundleInfo.DynamicIconInfo;
+
+  /**
+   * Contains bundle options.
+   *
+   * @typedef { _BundleInfo.BundleOptions }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type BundleOptions = _BundleInfo.BundleOptions;
 }
 
 export default bundleManager;
