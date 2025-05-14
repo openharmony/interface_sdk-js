@@ -731,10 +731,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   /**
-   * Placeholder displayed on load
-   *
-   * @param { string | Resource | PixelMap } value
+   * Sets the placeholder image displayed during loading.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   * 
+   * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading.
    * @returns { ImageAttribute }
+   * @default null
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -771,10 +776,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * match Text Direction
+   * Specifies whether to display the image in the system language direction.
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { boolean } value - Whether to display the image in the system language direction.
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -813,8 +823,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets whether the display size of the image follows the source size.
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { boolean } value - Whether to fit the image to the size of the image source.
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -851,10 +866,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * fill Color
+   * Sets the fill color to be superimposed on the image.
    *
-   * @param { ResourceColor } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute applies only to SVG images.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ResourceColor } value - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
+   * @default no fill color is applied. If an invalid value is passed, the system uses the default theme color:
+   * black in light mode and white in dark mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -864,10 +886,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
-   * fill Color
+   * Sets the fill color to be superimposed on the image.
    *
-   * @param { ResourceColor | ColorContent } color
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute applies only to SVG images.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ResourceColor | ColorContent } color - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
+   * @default no fill color is applied. If an invalid value is passed, the system uses the default theme color:
+   * black in light mode and white in dark mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -903,10 +932,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Sets the zoom type of an image.
+   * Sets how the image is resized to fit its container.
    *
-   * @param { ImageFit } value
+   * @param { ImageFit } value - How the image is resized to fit its container.
    * @returns { ImageAttribute }
+   * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -916,9 +946,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   objectFit(value: ImageFit): ImageAttribute;
 
   /**
-   * Sets the matrix for the image.
+   * Sets the transformation matrix of the image.
    *
-   * @param { ImageMatrix } matrix
+   * @param { ImageMatrix } matrix - Transformation matrix of the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -957,8 +987,14 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Set the repeat style of the picture
    *
-   * @param { ImageRepeat } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not applicable to SVG images.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ImageRepeat } value - How the image is repeated.
    * @returns { ImageAttribute }
+   * @default ImageRepeat.NoRepeat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -995,10 +1031,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Set the auto style of the picture
+   * Specifies whether to resize the image source based on the size of the display area during image decoding.
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor
+   * or SVG.
+   * </p>
+   *
+   * @param { boolean } value - Whether to resize the image source based on the size of the display area
+   * during image decoding.
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1035,10 +1078,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Sets the image rendering mode.
+   * Sets the rendering mode of the image.
    *
-   * @param { ImageRenderMode } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not applicable to SVG images.
+   * <br>When ColorFilter is set, this attribute is not effective.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ImageRenderMode } value - Rendering mode of the image.
    * @returns { ImageAttribute }
+   * @default ImageRenderMode.Original
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1048,10 +1098,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   renderMode(value: ImageRenderMode): ImageAttribute;
 
   /**
-   * Set dynamic range mode of image.
+   * Sets the dynamic range of the image to be displayed.
    *
-   * @param { DynamicRangeMode } value - Indicates the resizable options.
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not applicable to SVG images.
+   * </p>
+   *
+   * @param { DynamicRangeMode } value - Dynamic range of the image.
    * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @default dynamicRangeMode.Standard
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1063,6 +1118,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   *
   * @param { number } brightness - control the brightness of HDR Image
   * @returns { ImageAttribute }
+  * @default 1.0
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 20
@@ -1097,10 +1153,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
+   * Sets the interpolation effect of the image, which can alleviate aliasing that occurs when the image is zoomed.
    *
-   * @param { ImageInterpolation } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not applicable to SVG images.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ImageInterpolation } value - 	Interpolation effect of the image.
    * @returns { ImageAttribute }
+   * @default ImageInterpolation.Low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1152,11 +1214,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   /**
-   * Specifies the picture decoding size.
+   * Sets the decoding size of the image. 
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    * Anonymous Object Rectification.
    *
-   * @param { ImageSourceSize } value - Image source size.
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute works only when the target size is smaller than the source size.
+   * <br>This attribute is not applicable to SVG images or PixelMap objects.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ImageSourceSize } value - Decoding size of the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1197,11 +1265,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Sets the synchronous or asynchronous mode for image loading.
-   * The default parameter type is bool, and the default value is false.
+   * Specifies whether to load the image synchronously.
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { boolean } value - Whether to load the image synchronously. 
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1241,9 +1313,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   /**
-   * Sets the color filter effect on the image.
+   * Sets the color filter for the image.
    *
-   * @param { ColorFilter | DrawingColorFilter } value ColorFilter object.
+   * <p><strong>NOTE</strong>:
+   * <br>When this attribute is set, renderMode is not effective.
+   * </p>
+   *
+   * @param { ColorFilter | DrawingColorFilter } value -  Color filter of the image.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1273,10 +1349,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * Allow replication.
+   * Whether the image can be copied.
+   * 
+   * <strong>NOTE</strong>:
+   * <br>SVG images cannot be copied.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
    *
-   * @param { CopyOptions } value
+   * @param { CopyOptions } value - Specifies whether the image can be copied.
    * @returns { ImageAttribute }
+   * @default CopyOptions.None
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1291,6 +1373,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -1300,16 +1383,21 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
-   * Enable image dragging.
-   * Default value is true.
+   * Specifies whether the image is draggable. 
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute cannot be used together with the onDragStart event.
+   * </p>
+   *
+   * @param { boolean } value - Whether the image is draggable.
    * @returns { ImageAttribute }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1372,8 +1460,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * This callback is triggered when an image is successfully loaded.
+   * Triggered when an image is successfully loaded or decoded.
    * The size of the image source that is successfully loaded is returned, in pixels.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This event is not triggered if the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
    *
    * @param { function } callback
    * @returns { ImageAttribute }
@@ -1673,8 +1765,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    */
   /**
-   * This callback is triggered when an exception occurs during image loading.
+   * Triggered when an error occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This event is not triggered if the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
    *
    * @param { ImageErrorCallback } callback
    * @returns { ImageAttribute }
@@ -1720,6 +1816,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>Only SVG images are supported.
+   * <br>This event is not triggered if the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
    * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1739,10 +1840,26 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   /**
-   * Enable image analyzer.
+   * Sets whether to enable the AI analyzer
    *
-   * @param { boolean} enable
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute cannot be used together with the overlay attribute. If they are set at the same time,
+   * the CustomBuilder attribute in overlay has no effect. This attribute depends on device capabilities.
+   * <br>Images to be analyzed must be static, non-vector images. That is, SVG and GIF images cannot be analyzed.
+   * Pixel maps in RGBA_8888 format can be passed in for analysis.
+   * <br>The placeholder images (specified by alt) cannot be analyzed. An image can be analyzed only when
+   * objectRepeat is set to ImageRepeat.NoRepeat and obscured is disabled.
+   * <br>Analysis is performed based on the complete original image. If the clip, margin, borderRadius,
+   * position, or objectFit attribute is set, the image is not displayed completely.
+   * If renderMode is used to apply a mask, analysis is still performed based on the complete original image.
+   * The copyOption attribute does not affect the AI analyzer.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * <br>The ohos.permission.INTERNET permission must be declared.
+   * </p>
+   *
+   * @param { boolean} enable - Whether to enable the AI analyzer.
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1770,9 +1887,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   /**
-   * Set image resizable options.
+   * Sets the resizable image options.
    *
-   * @param { ResizableOptions } value - Indicates the resizable options.
+   * <p><strong>NOTE</strong>:
+   * <br>Resizing is effective for drag previews and placeholder images.
+   * <br>When ResizableOptions is set to a valid value, the objectRepeat attribute does not take effect.
+   * <br>When the sum of the values of top and bottom is greater than the source image height,
+   * or the sum of the values of left and right is greater than the source image width,
+   * the ResizableOptions attribute does not take effect.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor
+   * or SVG.
+   * </p>
+   *
+   * @param { ResizableOptions } value - 	Resizable image options.
    * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1782,10 +1909,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   resizable(value: ResizableOptions): ImageAttribute;
 
   /**
-   * Whether to support sensitive privacy information
+   * Sets whether to secure sensitive information on widgets.
    *
-   * @param { boolean } supported - Whether to support sensitive privacy information.
+   * <p><strong>NOTE</strong>:
+   * <br>Obscuring requires widget framework support.
+   * </p>
+   *
+   * @param { boolean } supported - Whether to secure sensitive information on widgets.
    * @returns { ImageAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
@@ -1805,10 +1937,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
   /**
-   * Set the rotation angle of image.
+   * Sets the display orientation of the image content.
    *
-   * @param { ImageRotateOrientation } orientation
+   * @param { ImageRotateOrientation } orientation - Display orientation of the image content.
    * @returns { ImageAttribute }
+   * @default ImageRotateOrientation.UP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
