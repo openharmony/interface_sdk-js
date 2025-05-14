@@ -45,53 +45,93 @@ import type drm from './@ohos.multimedia.drm';
 declare namespace media {
   /**
    * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
+   * The instance can be used to play audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
    */
   /**
    * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 11
    */
   /**
-   * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an AVPlayer instance. This API uses an asynchronous callback to return the result.
+   * <br>**NOTE**
+   * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.<br>
+   * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.
+   * For example, in the case of RK3568, you are advised to create a maximum of 6 AVPlayer instances for an application in audio and
+   * video playback scenarios.<br>
+   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @example
+   * import { BusinessError } from '@kit.BasicServicesKit';
+   * 
+   * let avPlayer: media.AVPlayer;
+   * media.createAVPlayer((error: BusinessError, video: media.AVPlayer) => {
+   *   if (video != null) {
+   *     avPlayer = video;
+   *     console.info('Succeeded in creating AVPlayer');
+   *   } else {
+   *     console.error(`Failed to create AVPlayer, error message:${error.message}`);
+   *   }
+   * });
    */
   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
 
   /**
-   * Creates an AVPlayer instance.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an AVPlayer instance. This API uses a promise to return the result.
+   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
+   *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
    */
   /**
-   * Creates an AVPlayer instance.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an AVPlayer instance. This API uses a promise to return the result.
+   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
+   *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 11
    */
   /**
-   * Creates an AVPlayer instance.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an AVPlayer instance. This API uses a promise to return the result.
+   * <br>**NOTE**
+   * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.<br>
+   * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.
+   * For example, in the case of RK3568, you are advised to create a maximum of 6 AVPlayer instances for an application in audio and
+   * video playback scenarios.<br>
+   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
+   *  null is returned otherwise. The instance can be used to play audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @example
+   * import { BusinessError } from '@kit.BasicServicesKit';
+
+   * let avPlayer: media.AVPlayer;
+   * media.createAVPlayer().then((video: media.AVPlayer) => {
+   *   if (video != null) {
+   *     avPlayer = video;
+   *     console.info('Succeeded in creating AVPlayer');
+   *   } else {
+   *     console.error('Failed to create AVPlayer');
+   *   }
+   * }).catch((error: BusinessError) => {
+   *   console.error(`Failed to create AVPlayer, error message:${error.message}`);
+   * });
    */
   function createAVPlayer(): Promise<AVPlayer>;
 
@@ -162,8 +202,9 @@ declare namespace media {
    * @since 12
    */
   /**
-   * Create MediaSource from url.
-   * @param { string } url : The location for the media source.
+   * Creates a media source for streaming media to be pre-downloaded.
+   * @param { string } url : The location for the media source. The following streaming media formats are supported: HLS,
+   *  HTTP-FLV, DASH, and HTTPS.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -172,13 +213,37 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 13
+   * @example
+   * import { common } from '@kit.AbilityKit';
+   * import { resourceManager } from '@kit.LocalizationKit';
+   * 
+   * private context: Context | undefined;
+   * constructor(context: Context) {
+   *   this.context = context; // this.getUIContext().getHostContext();
+   * }
+   * let mgr = this.context.resourceManager;
+   * let fileDescriptor = await mgr.getRawFd("xxx.m3u8");
+   * 
+   * let fd:string = fileDescriptor.fd.toString();
+   * let offset:string = fileDescriptor.offset.toString();
+   * let length:string = fileDescriptor.length.toString();
+   * let fdUrl:string = "fd://" + fd + "?offset=" + offset + "&size=" + length;
+   * 
+   * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
+   * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl(fdUrl,  headers);
+   * 
+   * let mimeType : media.AVMimeTypes = media.AVMimeTypes.APPLICATION_M3U8;
+   * mediaSource.setMimeType(mimeType);
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
    /**
-   * Create media source from media stream array.
-   * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
+   * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate media source is supported.
+   * @param { Array<MediaStream> } streams - Array of MediaStream objects. The supported streaming media format is HTTP-FLV.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 5400101 - No memory.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 19
@@ -371,7 +436,8 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Enumerates state change reason.
+   * Enumerates the reasons for the state transition of the AVPlayer or AVRecorder instance.
+   * The enum value is reported together with state.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -392,7 +458,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * State changed by user operation.
+     * State transition triggered by user behavior. It happens when a user or the client calls an API.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -412,7 +478,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * State changed by background action.
+     * State transition caused by background system behavior. For example, if an application does not have the permission of
+     * Media Controller, the application is forcibly suspended or stopped by the system when it switches to the background.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1214,7 +1281,7 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Enumerates ErrorCode types, return in BusinessError::code.
+   * Enumerates the media error codes, return in BusinessError::code.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1255,7 +1322,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Permission denied.
+     * No permission to perform the operation.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1275,7 +1342,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Invalid parameter.
+     * Invalid input parameter.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1568,7 +1635,7 @@ declare namespace media {
 
    */
   /**
-   * Describes AVPlayer states.
+   * Describes AVPlayer states. It can be used as a query parameter when the AVPlayer is in any state.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -1578,7 +1645,7 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
-   * Define the TrackChange Event callback.
+   * Describes the callback invoked for the track change event.
    * @typedef { function } OnTrackChangeHandler
    * @param { number } index - index number for change Track.
    * @param { boolean } isSelected - Target index number for moving elements.
@@ -1589,7 +1656,7 @@ declare namespace media {
   type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
 
   /**
-   * Defines the OnStateChange callback.
+   * Describes the callback invoked for the AVPlayer state change event.
    *
    * @typedef { function } OnAVPlayerStateChangeHandle
    * @param { AVPlayerState } state - state for AVPlayer.
@@ -1602,7 +1669,7 @@ declare namespace media {
   type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
 
   /**
-   * Defines the OnBufferingUpdateHandler callback.
+   * Describes the callback invoked for the buffering update event.
    *
    * @typedef { function } OnBufferingUpdateHandler
    * @param { BufferingInfoType } infoType - define the Buffering info Type.
@@ -1615,7 +1682,7 @@ declare namespace media {
   type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => void;
 
   /**
-   * Defines the OnVideoSizeChangeHandler callback.
+   * Describes the callback invoked for the video size change event.
    *
    * @typedef { function } OnVideoSizeChangeHandler
    * @param { number } width - Value of video Width.
@@ -1628,10 +1695,20 @@ declare namespace media {
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
 
   /**
-   * Defines the OnSuperResolutionChanged callback.
+   * Describes the callback used to listen for video super resolution status changes. If super resolution is enabled by
+   * using PlaybackStrategy, this callback is invoked to report the super resolution status changes. It is also invoked
+   * to report the initial status when the video starts. However, this callback is not invoked when super resolution is not enabled.
+   * 
+   * Super resolution is automatically disabled in either of the following cases:
+   * 
+   * 1.The current super resolution algorithm only works with videos that have a frame rate of 30 fps or lower. If the
+   * video frame rate exceeds 30 fps, or if the input frame rate exceeds the processing capability of the super resolution
+   * algorithm in scenarios such as fast playback, super resolution is automatically disabled.
+   * 2.The current super resolution algorithm supports input resolutions from 320 x 320 to 1920 x 1080, in px. If the input
+   * video resolution exceeds the range during playback, super resolution is automatically disabled.
    *
    * @typedef { function } OnSuperResolutionChanged
-   * @param { boolean } enabled - Super-resolution enabled or not.
+   * @param { boolean } enabled - Whether super resolution is enabled. The value true means that it is enabled, and false means the opposite.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 18
@@ -1639,7 +1716,7 @@ declare namespace media {
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
   /**
-   * SEI message.
+   * Describes the information of an SEI message.
    *
    * @typedef SeiMessage
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1667,7 +1744,8 @@ declare namespace media {
   }
 
   /**
-   * Defines the OnSeiMessageHandle callback.
+   * Describes the handle used to obtain SEI messages. This is used when in subscriptions to SEI message events,
+   * and the callback returns detailed SEI information.
    *
    * @typedef { function } OnSeiMessageHandle
    * @param { Array<SeiMessage> } messages - SEI messages.
@@ -1698,6 +1776,11 @@ declare namespace media {
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
+   * <br>For details about the audio and video playback demo, see Audio Playback and Video Playback.
+   * <br>**NOTE**
+   * When using the AVPlayer instance, you are advised to register the following callbacks to proactively obtain status changes:<br>
+   * on('stateChange'): listens for AVPlayer state changes.<br>
+   * on('error'): listens for error events.<br>
    *
    * @typedef AVPlayer
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1738,6 +1821,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.prepare((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to prepare,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in preparing');
+     *   }
+     * })
      */
     prepare(callback: AsyncCallback<void>): void;
 
@@ -1773,6 +1866,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.prepare().then(() => {
+     *   console.info('Succeeded in preparing');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to prepare,error message is :' + err.message)
+     * })
      */
     prepare(): Promise<void>;
 
@@ -1799,6 +1900,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.play((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to play,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in playing');
+     *   }
+     * })
      */
     play(callback: AsyncCallback<void>): void;
 
@@ -1825,6 +1936,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.play().then(() => {
+     *   console.info('Succeeded in playing');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to play,error message is :' + err.message)
+     * })
      */
     play(): Promise<void>;
 
@@ -1851,6 +1970,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.pause((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to pause,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in pausing');
+     *   }
+     * })
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -1877,6 +2006,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.pause().then(() => {
+     *   console.info('Succeeded in pausing');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to pause,error message is :' + err.message)
+     * })
      */
     pause(): Promise<void>;
 
@@ -1903,6 +2040,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.stop((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to stop,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in stopping');
+     *   }
+     * })
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -1929,6 +2076,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.stop().then(() => {
+     *   console.info('Succeeded in stopping');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to stop,error message is :' + err.message)
+     * })
      */
     stop(): Promise<void>;
 
@@ -1955,6 +2110,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.reset((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to reset,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in resetting');
+     *   }
+     * })
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -1981,6 +2146,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.reset().then(() => {
+     *   console.info('Succeeded in resetting');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to reset,error message is :' + err.message)
+     * })
      */
     reset(): Promise<void>;
 
@@ -2007,6 +2180,16 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.release((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to release,error message is :' + err.message)
+     *   } else {
+     *     console.info('Succeeded in releasing');
+     *   }
+     * })
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -2033,6 +2216,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.release().then(() => {
+     *   console.info('Succeeded in releasing');
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to release,error message is :' + err.message)
+     * })
      */
     release(): Promise<void>;
 
@@ -2053,12 +2244,27 @@ declare namespace media {
      */
     /**
      * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
-     * @param { number } timeMs - Playback position to jump, should be in [0, duration].
-     * @param { SeekMode } mode - See @SeekMode .
+     * You can check whether the seek operation takes effect by subscribing to the seekDone event. This API is not supported in live mode.
+     * @param { number } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
+     * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is SEEK_PREV_SYNC. Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * let seekTime: number = 1000
+     * avPlayer.seek(seekTime, media.SeekMode.SEEK_PREV_SYNC)
+     * // SEEK_CONTINUOUS can be used together with the callback of seekBar/slider.
+     * async onSlideMoving(position : number) : Promise<void> {
+     *   // To trigger a callback when the seekBar/slider moves, call seek(position, media.SeekMode.SEEK_CONTINUOUS) to perform the seek operation.
+     *   this.avPlayer.seek(position, media.SeekMode.SEEK_CONTINUOUS)
+     * }
+     * 
+     * async onSlideEnd(position : number) : Promise<void> {
+     *   // To trigger a callback when the seekBar/slider movement ends, call seek(-1, media.SeekMode.SEEK_CONTINUOUS) to end the seek operation.
+     *   this.avPlayer.seek(-1, media.SeekMode.SEEK_CONTINUOUS)
+     * }
      */
     seek(timeMs: number, mode?: SeekMode): void;
 
@@ -2069,12 +2275,16 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Sets the volume.
+     * Sets the volume. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
+     * You can check whether the setting takes effect by subscribing to the volumeChange event.
      * @param { number } volume - Relative volume. The value ranges from 0.00 to 1.00. The value 1 indicates the maximum volume (100%).
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * let volume: number = 1.0
+     * avPlayer.setVolume(volume)
      */
     setVolume(volume: number): void;
 
@@ -2094,13 +2304,26 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Get all track infos in MediaDescription, should be called after data loaded callback.
+     * Obtains the audio and video track information. This API can be called only when the AVPlayer is in the prepared, playing,
+     * or paused state. To obtain information about all audio and video tracks, this API must be called after the data loading
+     * callback is triggered. This API uses an asynchronous callback to return the result.
      * @param { AsyncCallback<Array<MediaDescription>> } callback - Async callback return track info in MediaDescription.
+     * If the operation is successful, err is undefined and data is the MediaDescription array obtained; otherwise, err is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+     *   if ((arrList) != null) {
+     *     console.info('Succeeded in doing getTrackDescription');
+     *   } else {
+     *     console.error(`Failed to do getTrackDescription, error:${error}`);
+     *   }
+     * });
      */
     getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void;
 
@@ -2120,28 +2343,47 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Get all track infos in MediaDescription, should be called after data loaded callback.
+     * Obtains the audio and video track information. This API can be called only when the AVPlayer is in the prepared, playing,
+     * or paused state. This API uses a promise to return the result.
      * @returns { Promise<Array<MediaDescription>> } A Promise instance used to return the track info in MediaDescription.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) => {
+     *   console.info('Succeeded in getting TrackDescription');
+     * }).catch((error: BusinessError) => {
+     *   console.error(`Failed to get TrackDescription, error:${error}`);
+     * });
      */
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
-     * Get selected tracks, should be called after prepared state.
+     * Obtains the indexes of the selected audio or video tracks. This API can be called only when the AVPlayer is in the prepared,
+     * playing, or paused state. This API uses a promise to return the result.
      * @returns { Promise<Array<number>> } A Promise instance used to return selected track index.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.getSelectedTracks().then((arrList: Array<number>) => {
+     *   console.info('Succeeded in getting SelectedTracks');
+     * }).catch((error: BusinessError) => {
+     *   console.error(`Failed to get SelectedTracks, error:${error}`);
+     * });
      */
     getSelectedTracks(): Promise<Array<number>>;
 
     /**
-     * Select specific track to play.
+     * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
      * @param { number } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @param { SwitchMode } mode - set switchmode for track select behavior.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
@@ -2150,11 +2392,32 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * let avPlayer: media.AVPlayer = await media.createAVPlayer();
+     * let audioTrackIndex: Object = 0;
+     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+     *   if (arrList != null) {
+     *     for (let i = 0; i < arrList.length; i++) {
+     *       if (i != 0) {
+     *         // Obtain the audio track list.
+     *         audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
+     *       }
+     *     }
+     *   } else {
+     *     console.error(`Failed to get TrackDescription, error:${error}`);
+     *   }
+     * });
+     * 
+     * // Select an audio track.
+     * avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
      */
     selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
     /**
-     * Deselect specific track to play.
+     * Deselects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
      * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @returns { Promise<void> } A Promise instance used to return when deselect track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -2162,13 +2425,36 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * let avPlayer: media.AVPlayer = await media.createAVPlayer();
+     * let audioTrackIndex: Object = 0;
+     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+     *   if (arrList != null) {
+     *     for (let i = 0; i < arrList.length; i++) {
+     *       if (i != 0) {
+     *         // Obtain the audio track list.
+     *         audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
+     *       }
+     *    }
+     *   } else {
+     *     console.error(`Failed to get TrackDescription, error:${error}`);
+     *   }
+     * });
+     * 
+     * // Select an audio track.
+     * avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
+     * // Deselect the audio track and restore to the default audio track.
+     * avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
      */
     deselectTrack(index: number): Promise<void>;
 
     /**
-     * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
-     * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
-     * @param { PlaybackStrategy } strategy : Play strategy of the media source.
+     * Sets a source of streaming media that can be pre-downloaded, downloads the media data, and temporarily stores the data
+     * in the memory. For details about how to use the API, see Video Playback This API uses a promise to return the result.
+     * @param { MediaSource } src : Source of the streaming media to pre-download.
+     * @param { PlaybackStrategy } strategy : strategy for playing the pre-downloaded streaming media.
      * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -2176,6 +2462,19 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * let player = await media.createAVPlayer();
+     * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
+     * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl("http://xxx",  headers);
+     * let playStrategy : media.PlaybackStrategy = {
+     *   preferredWidth: 1,
+     *   preferredHeight: 2,
+     *   preferredBufferDuration: 3,
+     *   preferredHdr: false,
+     *   preferredBufferDurationForPlaying: 1,
+     *   thresholdForAutoQuickPlay: 5
+     * };
+     * player.setMediaSource(mediaSource, playStrategy);
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
