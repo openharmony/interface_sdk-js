@@ -61,11 +61,9 @@ declare namespace media {
    */
   /**
    * Creates an AVPlayer instance. This API uses an asynchronous callback to return the result.
-   * <br>**NOTE**
+   * <br>**NOTE:**<br>
    * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.<br>
-   * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.
-   * For example, in the case of RK3568, you are advised to create a maximum of 6 AVPlayer instances for an application in audio and
-   * video playback scenarios.<br>
+   * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.<br>
    * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -107,10 +105,12 @@ declare namespace media {
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
    * <br>**NOTE**
-   * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.<br>
+   * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.
+   * 
    * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.
    * For example, in the case of RK3568, you are advised to create a maximum of 6 AVPlayer instances for an application in audio and
-   * video playback scenarios.<br>
+   * video playback scenarios.
+   * 
    * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
    *  null is returned otherwise. The instance can be used to play audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -1711,6 +1711,7 @@ declare namespace media {
    * 1.The current super resolution algorithm only works with videos that have a frame rate of 30 fps or lower. If the
    * video frame rate exceeds 30 fps, or if the input frame rate exceeds the processing capability of the super resolution
    * algorithm in scenarios such as fast playback, super resolution is automatically disabled.
+   * 
    * 2.The current super resolution algorithm supports input resolutions from 320 x 320 to 1920 x 1080, in px. If the input
    * video resolution exceeds the range during playback, super resolution is automatically disabled.
    *
