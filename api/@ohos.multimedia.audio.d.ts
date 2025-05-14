@@ -218,7 +218,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -239,7 +239,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -7055,7 +7055,7 @@ declare namespace audio {
    * Audio timestamp info.
    * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
-   * @since 18
+   * @since 19
    */
   interface AudioTimestampInfo {
     /**
@@ -7063,7 +7063,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly framePos: number;
 
@@ -7072,7 +7072,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly timestamp: number;
   }
@@ -7391,7 +7391,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -7401,7 +7401,7 @@ declare namespace audio {
      * @returns { AudioTimestampInfo } The returned timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -8454,7 +8454,7 @@ declare namespace audio {
      */
     SOURCE_TYPE_UNPROCESSED = 14,
     /**
-     * live broadcast source type. 
+     * live broadcast source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -8880,7 +8880,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -8890,7 +8890,7 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-      * @since 18
+      * @since 19
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -9361,13 +9361,13 @@ declare namespace audio {
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY. 
+     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
      * Other capturers' devices will not be affected by this method.
      * This method can only be used before the capture stream starts. Besides,
      * if audio accessory is not connected, this method will report fail. After
      * calling this function, the input device of this capturer will not be affected
      * by other interfaces.
-     * @throws { BusinessError } 202 - Caller is not a system application.     
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
