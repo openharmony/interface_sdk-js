@@ -82,6 +82,40 @@ declare namespace fileShare {
   }
 
   /**
+   * Enable the URI that have been permanently authorized
+   *
+   * @permission ohos.permission.FILE_ACCESS_PERSIST
+   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900042 - Out of memory
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 20
+   */
+  function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
+
+  /**
+   * Stop the authorized URI that has been enabled
+   *
+   * @permission ohos.permission.FILE_ACCESS_PERSIST
+   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900042 - Out of memory
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 20
+   */
+  function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
+
+  /**
    * Provides grant uri permission for app
    *
    * @permission ohos.permission.WRITE_MEDIA
