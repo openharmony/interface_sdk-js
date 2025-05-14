@@ -247,6 +247,12 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 19
+   * @example
+   * let streams : Array<media.MediaStream> = [];
+   * streams.push({url: "http://xxx/480p.flv", width: 854, height: 480, bitrate: 800000});
+   * streams.push({url: "http:/xxx/720p.flv", width: 1280, height: 720, bitrate: 2000000});
+   * streams.push({url: "http:/xxx/1080p.flv", width: 1280, height: 720, bitrate: 2000000});
+   * let mediaSource : media.MediaSource = media.createMediaSourceWithStreamData(streams);
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
 
@@ -1322,7 +1328,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * No permission to perform the operation.
+     * Permission denied.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1342,7 +1348,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Invalid input parameter.
+     * Invalid parameter.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1635,7 +1641,8 @@ declare namespace media {
 
    */
   /**
-   * Describes AVPlayer states. It can be used as a query parameter when the AVPlayer is in any state.
+   * Describes AVPlayer states. our application can proactively obtain the AVPlayer state through the state attribute or
+   * obtain the reported AVPlayer state by subscribing to the stateChange event.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -2479,8 +2486,10 @@ declare namespace media {
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
     /**
-     * Add subtitle resource represented by FD to the player.
-     * @param { number } fd : The file descriptor of subtitle source from file system.
+     * Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
+     * fdSrc of the video resource is set in an AVPlayer instance. This API uses a promise to return the result.
+     * @param { number } fd : The file descriptor of subtitle source from file system, which is obtained by
+     * calling resourceManager.getRawFd.
      * The caller is responsible to close the file descriptor.
      * @param { number } offset : The offset into the file where the data to be read, in bytes.
      * By default, the offset is zero.
@@ -2492,11 +2501,22 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { common } from '@kit.AbilityKit'
+     * 
+     * private context: Context | undefined;
+     * constructor(context: Context) {
+     *   this.context = context; // this.getUIContext().getHostContext();
+     * }
+     * let fileDescriptor = await this.context.resourceManager.getRawFd('xxx.srt');
+     * 
+     * avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length)
      */
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
 
     /**
-     * Add subtitle resource represented by url to the player. After the Promise returns,
+     * Add subtitle resource represented by url to the player. Currently, the external subtitle must be set
+     * after fdSrc of the video resource is set in an AVPlayer instance. After the Promise returns,
      * subtitle info can be obtained by @getTrackDescription
      * @param { string } url : Address of external subtitle file.
      * @returns { Promise<void> } Promise used to return the result.
@@ -2505,19 +2525,46 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * let fdUrl:string = 'http://xxx.xxx.xxx/xx/index.srt'
+     * 
+     * let avPlayer: media.AVPlayer = await media.createAVPlayer()
+     * avPlayer.addSubtitleFromUrl(fdUrl)
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player.
+     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
+     * playing, or paused state.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * let avPlayer: media.AVPlayer | undefined = undefined;
+     * let playbackInfo: media.PlaybackInfo | undefined = undefined;
+     * media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
+     *   if (player != null) {
+     *     avPlayer = player;
+     *     console.info(`Succeeded in creating AVPlayer`);
+     *     if (avPlayer) {
+     *       try {
+     *         playbackInfo = await avPlayer.getPlaybackInfo();
+     *         console.info(`AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`); // Print PlaybackInfo.
+     *       } catch (error) {
+     *         console.error(`error = ${error}`);
+     *       }
+     *     }
+     *   } else {
+     *     console.error(`Failed to create AVPlayer, error message:${err.message}`);
+     *   }
+     * });
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
-     * Set playback strategy to AVPlayer.
+     * Set playback strategy to AVPlayer. This API can be called only when the AVPlayer is in the initialized state.
      * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
      * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
@@ -2525,12 +2572,35 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { common } from '@kit.AbilityKit';
+     * 
+     * private context: Context | undefined;
+     * constructor(context: Context) {
+     *   this.context = context; // this.getUIContext().getHostContext();
+     * }
+     * 
+     * let player = await media.createAVPlayer();
+     * let context = getContext(this) as common.UIAbilityContext;
+     * let fileDescriptor = await this.context.resourceManager.getRawFd('xxx.mp4');
+     * player.fdSrc = fileDescriptor
+     * let playStrategy : media.PlaybackStrategy = {
+     *   preferredWidth: 1,
+     *   preferredHeight: 2,
+     *   preferredBufferDuration: 3,
+     *   preferredHdr: false,
+     *   mutedMediaType: media.MediaType.MEDIA_TYPE_AUD,
+     *   preferredBufferDurationForPlaying: 1,
+     *   thresholdForAutoQuickPlay: 5
+     * };
+     * player.setPlaybackStrategy(playStrategy);
      */
     setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
 
     /**
-     * Mute specified media stream.
-     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * Mute specified media stream. This API can be called only when the AVPlayer is in the prepared, playing,
+     * paused, or completed state.
+     * @param { MediaType } mediaType - specified media Type, see @MediaType. The parameter can be set only to the audio format.
      * @param { boolean } muted - true for mute, false for unmute.
      * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -2538,11 +2608,22 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.prepare().then(() => {
+     *   console.info('Succeeded in preparing');
+     *   avPlayer.setMediaMuted(media.MediaType.MEDIA_TYPE_AUD, true)
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to prepare,error message is :' + err.message)
+     * })
      */
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
     /**
-     * Set playback start position and end position.
+     * Set playback start position and end position. After the setting, only the content in the specified range of
+     * the audio or video file is played. This API uses a promise to return the result. It can be used in the
+     * initialized, prepared, paused, stopped, or completed state.
      * @param { number } startTimeMs - Playback start position, should be in [0, duration),
      *                                 -1 means that the start position is not set,
      *                                 and the playback will start from 0.
@@ -2558,32 +2639,56 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * import { media } from '@kit.MediaKit';
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.setPlaybackRange(0, 6000, media.SeekMode.SEEK_CLOSEST).then(() => {
+     *   console.info('Succeeded setPlaybackRange');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to setPlaybackRange' + err.message);
+     * });
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
     /**
-     * Check whether the media stream currently being played by the player supports seek continuous.
+     * Check whether the media stream currently being played by the player supports seek continuous. The actual value is
+     * returned when this API is called in the prepared, playing, paused, or completed state. The value false is returned if
+     * it is called in other states. For devices that do not support the seek operation in SEEK_CONTINUOUS mode, false is returned.
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
      * false: seek continuous is not supported or the support status is uncertain.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * let isSupported = avPlayer.isSeekContinuousSupported()
      */
     isSeekContinuousSupported() : boolean;
 
     /**
-     * Get current playback position.
+     * Get current playback position. This API can be used in the prepared, playing, paused, or completed state.
      * @returns { number } return the time of current playback position - millisecond(ms)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * avPlayer.prepare().then(() => {
+     *   console.info('Succeeded in preparing')
+     *   let playbackPosition: number = avPlayer.getPlaybackPosition()
+     *   console.info(`AVPlayer getPlaybackPosition== ${playbackPosition}`)
+     * }, (err: BusinessError) => {
+     *   console.error('Failed to prepare,error message is :' + err.message)
+     * })
      */
     getPlaybackPosition() : number;
 
     /**
-     * Enable or disable super-resolution dynamically.
+     * Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
+     * initialized, prepared, playing, paused, completed, or stopped state.
      * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
      * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
      * @param { boolean } enabled - true: super-resolution enabled; false: super-resolution disabled.
@@ -2595,15 +2700,20 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * avPlayer.setSuperResolution(true)
      */
     setSuperResolution(enabled: boolean) : Promise<void>;
 
     /**
-     * Set video window size for super-resolution.
+     * Set video window size for super-resolution. This API can be called when the AVPlayer is in the initialized,
+     * prepared, playing, paused, completed, or stopped state. The input parameter values s must be in the range
+     * of 320 x 320 to 1920 x 1080 (in px).
+     * 
      * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
      * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
-     * @param { number } width - width of the window.
-     * @param { number } height - height of the window.
+     * @param { number } width - width of the window. The value range is [320-1920], in px.
+     * @param { number } height - height of the window. The value range is [320-1080], in px.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Return by promise.
@@ -2613,6 +2723,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * avPlayer.setVideoWindowSize(1920, 1080)
      */
     setVideoWindowSize(width: number, height: number) : Promise<void>;
 
@@ -2630,7 +2742,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Media URI. Mainstream media formats are supported.
+     * Media URI. It can be set only when the AVPlayer is in the idle state.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * Network:http://xxx
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2652,7 +2766,10 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Media file descriptor. Mainstream media formats are supported.
+     * Media file descriptor. It can be set only when the AVPlayer is in the idle state.
+     * This attribute is required when media assets of an application are continuously stored in a file.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2673,7 +2790,10 @@ declare namespace media {
      * @since 11
      */
     /**
-     * DataSource descriptor. Supports mainstream media formats.
+     * DataSource descriptor. It can be set only when the AVPlayer is in the idle state. Use scenario: An application
+     * starts playing a media file while the file is still being downloaded from the remote to the local host.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * @type { ?AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2688,7 +2808,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Whether to loop media playback.
+     * Whether to loop media playback. The value true means to loop playback, and false (default) means the opposite.
+     * It is a dynamic attribute and can be set only when the AVPlayer is in the prepared, playing, paused,
+     * or completed state. This setting is not supported in live mode.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2705,9 +2827,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
-     * set, the default mode will be used. Set it before calling the {@link #play()} in the
-     * first time in order for the interrupt mode to become effective thereafter.
+     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not set, the default mode will be used.
+     * The default value is SHARE_MODE. It is a dynamic attribute and can be set only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state. Set it before calling the {@link #play()} in the first time in order for the
+     * interrupt mode to become effective thereafter.
      * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2723,8 +2846,9 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
-     * calling the {@link #prepare()} in the first time in order for the audio renderer info to
+     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. If the media source contains videos,
+     * the default value of usage is STREAM_USAGE_MOVIE. Otherwise, the default value of usage is STREAM_USAGE_MUSIC.
+     * Set it before calling the {@link #prepare()} in the first time in order for the audio renderer info to
      * become effective thereafter.
      * @type { ?audio.AudioRendererInfo }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2739,7 +2863,9 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}.
+     * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}. The audio effect mode is a dynamic
+     * attribute and is restored to the default value EFFECT_DEFAULT when usage of audioRendererInfo is changed.
+     * It can be set only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @type { ?audio.AudioEffectMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2753,7 +2879,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Current playback position.
+     * Current playback position, in ms. It can be used as a query parameter when the AVPlayer is in the prepared,
+     * playing, paused, or completed state. The value -1 indicates an invalid value. In live mode, -1 is returned by default.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2775,7 +2902,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * Playback duration, in ms. It can be used as a query parameter when the AVPlayer is in the prepared, playing, paused,
+     * or completed state. When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2791,7 +2919,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Playback state.
+     * Playback state. It can be used as a query parameter when the AVPlayer is in any state.
      * @type { AVPlayerState }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2813,7 +2941,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Video player will use this id get a surface instance.
+     * Video player will use this id get a surface instance. This parameter can be set when the AVPlayer
+     * is in the initialized state. It can be set again when the AVPlayer is in the prepared, playing, paused,
+     * completed, or stopped state, in the prerequisite that the video window ID has been set in the initialized state.
+     * After the new setting is performed, the video is played in the new window. It is used to render the window
+     * for video playback and therefore is not required in audio-only playback scenarios.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2828,7 +2960,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video width, valid after prepared.
+     * Video width, in px, valid after prepared. It can be used as a query parameter when the AVPlayer is in the
+     * prepared, playing, paused, or completed state.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2839,12 +2972,13 @@ declare namespace media {
     readonly width: number;
 
     /**
-     * Video height, valid after prepared.
+     * Video height, in px, valid after prepared.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Video height, valid after prepared.
+     * Video height, in px, valid after prepared. It can be used as a query parameter when the AVPlayer is in the
+     * prepared, playing, paused, or completed state.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2878,12 +3012,16 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Set payback speed.
+     * Set payback speed. This API can be called only when the AVPlayer is in the prepared, playing, paused,
+     * or completed state. You can check whether the setting takes effect by subscribing to the speedDone event.
+     * This API is not supported in live mode.
      * @param { PlaybackSpeed } speed - playback speed, see @PlaybackSpeed .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.setSpeed(media.PlaybackSpeed.SPEED_FORWARD_2_00_X)
      */
     setSpeed(speed: PlaybackSpeed): void;
 
@@ -2908,6 +3046,9 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * let bitrate: number = 96000
+     * avPlayer.setBitrate(bitrate)
      */
     setBitrate(bitrate: number): void;
 
@@ -2921,14 +3062,29 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Set decryption session to codec module.
+     * Set decryption session to codec module. When receiving a mediaKeySystemInfoUpdate event, create the related
+     * configuration and set the decryption configuration based on the information in the reported event.
+     * Otherwise, the playback fails.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
-     * @param { boolean } secureVideoPath - Secure video path required or not.
+     * @param { boolean } secureVideoPath - Secure video path required or not. The value true means that a secure video channel
+     * is selected, and false means that a non-secure video channel is selected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { drm } from '@kit.DrmKit';
+     * 
+     * // Create a media key system.
+     * let keySystem:drm.MediaKeySystem = drm.createMediaKeySystem('com.clearplay.drm');
+     * // Create a media key session.
+     * let keySession:drm.MediaKeySession = keySystem.createMediaKeySession(drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
+     * // Generate a media key request and set the response to the media key request.
+     * // Flag indicating whether a secure video channel is used.
+     * let secureVideoPath:boolean = false;
+     * // Set the decryption configuration.
+     * avPlayer.setDecryptionConfig(keySession, secureVideoPath);
      */
     setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
 
@@ -2944,6 +3100,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { drm } from '@kit.DrmKit';
+     * 
+     * const infos = avPlayer.getMediaKeySystemInfos();
+     * console.info('GetMediaKeySystemInfos count: ' + infos.length);
+     * for (let i = 0; i < infos.length; i++) {
+     *   console.info('GetMediaKeySystemInfos uuid: ' + infos[i]["uuid"]);
+     *   console.info('GetMediaKeySystemInfos pssh: ' + infos[i]["pssh"]);
+     * }
      */
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
