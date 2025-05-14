@@ -8142,6 +8142,8 @@ declare interface Stat {
    * @since 9
    */
   /**
+   * File identifier, which varies with files on the same device.
+   *
    * @type { bigint }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8169,6 +8171,18 @@ declare interface Stat {
    * @since 10
    */
   /**
+   * File permissions. The meaning of each bit is as follows:
+   * The following values are in octal format. The return values are in decimal format. You need to convert the values.
+   * <br>0o400: The user has the read permission on a regular file or a directory entry.
+   * <br>0o200: The user has the permission to write a regular file or create and delete a directory entry.
+   * <br>0o100: The user has the permission to execute a regular file or search for the specified path in a directory.
+   * <br>0o040: The user group has the read permission on a regular file or a directory entry.
+   * <br>0o020: The user group has the permission to write a regular file or create and delete a directory entry.
+   * <br>0o010: The user group has the permission to execute a regular file or search for the specified path in a directory.
+   * <br>0o004: Other users have the permission to read a regular file or read a directory entry.
+   * <br>0o002: Other users have the permission to write a regular file or create and delete a directory entry.
+   * <br>0o001: Other users have the permission to execute a regular file or search for the specified path in a directory.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8190,6 +8204,8 @@ declare interface Stat {
    * @since 9
    */
   /**
+   * ID of the file owner.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8210,6 +8226,8 @@ declare interface Stat {
    * @since 9
    */
   /**
+   * ID of the user group of the file.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8237,6 +8255,8 @@ declare interface Stat {
    * @since 10
    */
   /**
+   * File size, in bytes. This parameter is valid only for regular files.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8265,6 +8285,9 @@ declare interface Stat {
    * @since 10
    */
   /**
+   * Time when the file was last accessed. The value is the number of seconds elapsed since 00:00:00 on January 1, 1970.
+   * NOTE Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8293,6 +8316,9 @@ declare interface Stat {
    * @since 10
    */
   /**
+   * Time when the file content was last modified. The value is the number of seconds elapsed
+   * since 00:00:00 on January 1, 1970.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8312,6 +8338,9 @@ declare interface Stat {
    * @since 9
    */
   /**
+   * Time when the file metadata was last modified. The value is the number of seconds elapsed
+   * since 00:00:00 on January 1, 1970.
+   *
    * @type { number }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
@@ -8333,7 +8362,10 @@ declare interface Stat {
   readonly atimeNs?:bigint;
 
   /**
-   * Returns nanosecond of the modification time.
+   * Time of the last access to the file. The value is the number of nanoseconds elapsed
+   * since 00:00:00 on January 1, 1970.
+   * NOTE Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
+   *
    * @type { bigint }
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
@@ -8343,7 +8375,9 @@ declare interface Stat {
   readonly mtimeNs?:bigint;
 
   /**
-   * Returns nanosecond of the change time.
+   * Time of the last status change of the file. The value is the number of nanoseconds elapsed
+   * since 00:00:00 on January 1, 1970.
+   *
    * @type { bigint }
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
@@ -8353,6 +8387,7 @@ declare interface Stat {
   readonly ctimeNs?:bigint;
 
   /**
+   * File location, which indicates whether the file is stored in a local device or in the cloud.
    *
    * @type { LocationType }
    * @readonly
@@ -8372,7 +8407,7 @@ declare interface Stat {
    * @since 9
    */
   /**
-   * Checks whether this file is a block special file.
+   * Checks whether this file is a block special file. A block special file supports access by block only, and it is cached when accessed.
    *
    * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
@@ -8392,7 +8427,7 @@ declare interface Stat {
    * @since 9
    */
   /**
-   * Checks whether this file is a character special file.
+   * Checks whether this file is a character special file. A character special device supports random access, and it is not cached when accessed.
    *
    * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
@@ -8535,7 +8570,8 @@ declare interface Stat {
  * @since 9
  */
 /**
- * Stream object
+ * Provides API for stream operations. Before calling any API of Stream,
+ * you need to create a Stream instance by using fs.createStream or fs.fdopenStream.
  *
  * @interface Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -8629,7 +8665,7 @@ declare interface Stream {
   closeSync(): void;
 
   /**
-   * Flush stream.
+   * Flushes this stream. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -8648,7 +8684,7 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Flush stream.
+   * Flushes this stream. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -8672,7 +8708,7 @@ declare interface Stream {
   /**
    * Flush stream.
    *
-   * @param { AsyncCallback<void> } callback - Return the callback function.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8689,9 +8725,9 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Flush stream.
+   * Flushes this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Return the callback function.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8711,7 +8747,7 @@ declare interface Stream {
   flush(callback: AsyncCallback<void>): void;
 
   /**
-   * Flush stream with sync interface.
+   * Flushes this stream. This API uses an asynchronous callback to return the result.
    *
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -8729,7 +8765,7 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Flush stream with sync interface.
+   * Flushes this stream. This API returns the result synchronously.
    *
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -8771,11 +8807,16 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Write stream.
+   * Writes data to this stream. This API uses a promise to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { Promise<number> } Promise used to return the length of the data written.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8792,11 +8833,16 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Write stream.
+   * Writes data to this stream. This API uses a promise to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { Promise<number> } Promise used to return the length of the data written.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8819,9 +8865,9 @@ declare interface Stream {
   ): Promise<number>;
 
   /**
-   * Write stream.
+   * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -8839,9 +8885,10 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Write stream.
+  /**
+   * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -8883,11 +8930,16 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Write stream.
+   * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8904,11 +8956,16 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Write stream.
+   * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8953,11 +9010,16 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Write stream with sync interface.
+   * Writes data to this stream. This API returns the result synchronously.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @returns { number } Returns the number of file bytes written to file.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { number } Length of the data written in the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8974,11 +9036,16 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Write stream with sync interface.
+   * Writes data to this stream. This API returns the result synchronously.
    *
-   * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { WriteOptions } [options] - options.
-   * @returns { number } Returns the number of file bytes written to file.
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data in the file. This parameter is optional.
+   * <br>By default, data is written from the current position.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { number } Length of the data written in the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -9037,11 +9104,14 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Read stream.
+   * Reads data from the stream. This API uses a promise to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @returns { Promise<number> } Promise used to return the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9056,11 +9126,14 @@ declare interface Stream {
    * @since 12
    */
   /**
-   * Read stream.
+   * Reads data from the stream. This API uses a promise to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @returns { Promise<number> } Promise used to return the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9081,10 +9154,10 @@ declare interface Stream {
   ): Promise<number>;
 
   /**
-   * Read stream.
+   * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9098,10 +9171,10 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Read stream.
+   * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9136,11 +9209,14 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Read stream.
+   * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9154,11 +9230,14 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Read stream.
+   * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9215,11 +9294,14 @@ declare interface Stream {
    * @since 11
    */
   /**
-   * Read stream with sync interface.
+   * Reads data from this stream. This API returns the result synchronously.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @returns { number } Returns the number of file bytes read to file.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @returns { number } Length of the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9234,11 +9316,14 @@ declare interface Stream {
    * @since 12
    */
   /**
-   * Read stream with sync interface.
+   * Reads data from this stream. This API returns the result synchronously.
    *
-   * @param { ArrayBuffer } buffer - buffer.
-   * @param { ReadOptions } [options] - options.
-   * @returns { number } Returns the number of file bytes read to file.
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data. This parameter is optional. By default,
+   * <br>data is read from the current position.
+   * @returns { number } Length of the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9260,7 +9345,7 @@ declare interface Stream {
 }
 
 /**
- * Implements watcher event listening.
+ * Provides APIs for observing events.
  *
  * @interface WatchEventListener
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9270,7 +9355,7 @@ export interface WatchEventListener {
   /**
    * Specifies the callback function to be invoked.
    *
-   * @param { WatchEvent } event - Event type for the callback to invoke.
+   * @param { WatchEvent } event - Event for the callback to invoke.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
@@ -9278,7 +9363,7 @@ export interface WatchEventListener {
 }
 
 /**
- * Event Listening.
+ * Defines the event to observe.
  *
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9286,7 +9371,7 @@ export interface WatchEventListener {
  */
 export interface WatchEvent {
   /**
-   * File name.
+   * Sandbox path of the file to observe. The sandbox path contains the file name.
    *
    * @type { string }
    * @readonly
@@ -9296,7 +9381,7 @@ export interface WatchEvent {
   readonly fileName: string;
 
   /**
-   * Event happened.
+   * Events to observe.
    *
    * @type { number }
    * @readonly
@@ -9306,7 +9391,7 @@ export interface WatchEvent {
   readonly event: number;
 
   /**
-   * Associated rename event.
+   * Cookie bound with the event.
    *
    * @type { number }
    * @readonly
@@ -9317,7 +9402,8 @@ export interface WatchEvent {
 }
 
 /**
- * Watcher object
+ * Provides APIs for observing the changes of files or directories.
+ * Before using the APIs of Watcher, call createWatcher() to create a Watcher object.
  *
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9325,7 +9411,7 @@ export interface WatchEvent {
  */
 export interface Watcher {
   /**
-   * Start watcher.
+   * Starts listening.
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9346,7 +9432,7 @@ export interface Watcher {
   start(): void;
 
   /**
-   * Stop watcher.
+   * Stops listening and removes the Watcher object.
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9368,7 +9454,7 @@ export interface Watcher {
 }
 
 /**
- * Reader Iterator Result
+ * Represents the information obtained by the ReaderIterator object.
  *
  * @interface ReaderIteratorResult
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9376,7 +9462,8 @@ export interface Watcher {
  */
 export interface ReaderIteratorResult {
   /**
-   * Whether reader iterator completes the traversal.
+   * Whether the iteration is complete.
+   * The value true means the iteration is complete; the value false means the iteration is not complete.
    *
    * @type { boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9385,7 +9472,7 @@ export interface ReaderIteratorResult {
   done: boolean;
 
   /**
-   * The value of reader iterator.
+   * File text content read line by line.
    *
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9395,7 +9482,8 @@ export interface ReaderIteratorResult {
 }
 
 /**
- * ReaderIterator object
+ * Provides a ReaderIterator object. Before calling APIs of ReaderIterator,
+ * you need to use readLines() to create a ReaderIterator instance.
  *
  * @interface ReaderIterator
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9403,9 +9491,9 @@ export interface ReaderIteratorResult {
  */
 declare interface ReaderIterator {
   /**
-   * Get next result from the iterator.
+   * Obtains the ReaderIterator result.
    *
-   * @returns { ReaderIteratorResult } Returns the result of reader iterator.
+   * @returns { ReaderIteratorResult } ReaderIteratorResult object obtained.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900037 - No data available
    * @throws { BusinessError } 13900042 - Unknown error
@@ -9423,7 +9511,7 @@ declare interface ReaderIterator {
  * @since 10
  */
 /**
- * File filter type
+ * Defines the file filtering configuration used by listFile().
  *
  * @interface Filter
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9440,7 +9528,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * The suffix of the file.
+   * Locate files that fully match the specified file name extensions, which are of the OR relationship.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9457,7 +9545,8 @@ export interface Filter {
    * @since 10
    */
   /**
-   * The display name of the file.
+   * Locate files that fuzzy match the specified file names, which are of the OR relationship.
+   * Currently, only the wildcard * is supported.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9474,7 +9563,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * The mimetype of the file.
+   * Locate files that fully match the specified MIME types, which are of the OR relationship.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9491,7 +9580,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * The exceeding size of the file.
+   * Locate files that are greater than or equal to the specified size.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9508,7 +9597,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * The last modification time of the file.
+   * Locate files whose last modification time is the same or later than the specified time.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9525,7 +9614,8 @@ export interface Filter {
    * @since 10
    */
   /**
-   * Whether to exclude media files.
+   * Whether to exclude the files already in Media. The value true means to exclude the files already in Media;
+   * the value false means not to exclude the files already in Media.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9543,7 +9633,7 @@ export interface Filter {
  * @since 10
  */
 /**
- * Conflict Files type
+ * Defines conflicting file information used in copyDir() or moveDir().
  *
  * @interface ConflictFiles
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9584,7 +9674,7 @@ export interface ConflictFiles {
 }
 
 /**
- * Options type
+ * Defines the options used in readLines().
  *
  * @interface Options
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9592,7 +9682,7 @@ export interface ConflictFiles {
  */
 export interface Options {
   /**
-   * The encoding style.
+   * File encoding format. It is optional.
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9602,7 +9692,7 @@ export interface Options {
 }
 
 /**
- * ReadOptions type
+ * Defines the options used in read().
  *
  * @interface ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9611,7 +9701,7 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * The offset when reading the file.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9620,7 +9710,8 @@ export interface ReadOptions {
    */
   offset?: number;
   /**
-   * The length for reading.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9631,7 +9722,7 @@ export interface ReadOptions {
 }
 
 /**
- * ReadTextOptions type
+ * Defines the options used in readText(). It inherits from ReadOptions.
  *
  * @extends ReadOptions
  * @interface ReadTextOptions
@@ -9641,7 +9732,8 @@ export interface ReadOptions {
  */
 export interface ReadTextOptions extends ReadOptions {
   /**
-   * The encoding style when reading text.
+   * Format of the data to be encoded. This parameter is valid only when the data type is string.
+   * The default value is 'utf-8', which is the only value supported.
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9652,7 +9744,7 @@ export interface ReadTextOptions extends ReadOptions {
 }
 
 /**
- * WriteOptions type
+ * Defines the options use din write(). It inherits from Options.
  *
  * @extends Options
  * @interface WriteOptions
@@ -9662,7 +9754,8 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * The offset when writing the file.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9671,7 +9764,7 @@ export interface WriteOptions extends Options {
    */
   offset?: number;
   /**
-   * The length for writing.
+   * Length of the data to write, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9691,7 +9784,10 @@ export interface WriteOptions extends Options {
  */
 export interface ListFileOptions {
   /**
-   * Whether to recursively list files.
+   * Whether to list all files in the subdirectories recursively. This parameter is optional.
+   * The default value is false. If recursion is false, the names of files and directories that meet the filtering
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * of all files that meet the specified conditions in the current directory are returned.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9701,7 +9797,7 @@ export interface ListFileOptions {
   recursion?: boolean;
 
   /**
-   * The number of files listed.
+   * Number of file names to list. This parameter is optional. The default value is 0, which means to list all files.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9711,7 +9807,7 @@ export interface ListFileOptions {
   listNum?: number;
 
   /**
-   * The filter of listing files.
+   * File filtering configuration. This parameter is optional. It specifies the file filtering conditions.
    *
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9722,7 +9818,7 @@ export interface ListFileOptions {
 }
 
 /**
- * RandomAccessFileOptions type
+ * Defines the options used in createRandomAccessFile().
  *
  * @interface RandomAccessFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9730,7 +9826,7 @@ export interface ListFileOptions {
  */
 export interface RandomAccessFileOptions {
   /**
-   * The starting position of file offset.
+   * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current position.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9739,7 +9835,7 @@ export interface RandomAccessFileOptions {
   start?: number;
 
   /**
-   * The ending position of file offset.
+   * End position to read the data, in bytes. This parameter is optional. The default value is the end of the file.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9749,7 +9845,7 @@ export interface RandomAccessFileOptions {
 }
 
 /**
- * ReadStreamOptions type
+ * Defines the options used in createReadStream().
  *
  * @interface ReadStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9757,7 +9853,8 @@ export interface RandomAccessFileOptions {
  */
 export interface ReadStreamOptions {
   /**
-   * The starting range for reading a file by stream.
+   * Start position to read the data, in bytes. This parameter is optional. By default,
+   * data is read from the current position.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9766,7 +9863,8 @@ export interface ReadStreamOptions {
   start?: number;
 
   /**
-   * The ending range for reading a file by stream.
+   * End position to read the data, in bytes. This parameter is optional.
+   * The default value is the end of the file.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9776,7 +9874,7 @@ export interface ReadStreamOptions {
 }
 
 /**
- * WriteStreamOptions type
+ * Defines the options used in createWriteStream().
  *
  * @interface WriteStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9784,7 +9882,7 @@ export interface ReadStreamOptions {
  */
 export interface WriteStreamOptions {
   /**
-   * The mode for creating write stream.
+   * Option for creating the writeable stream.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9792,7 +9890,8 @@ export interface WriteStreamOptions {
    */
   mode?: number;
   /**
-   * The starting range for writing a file by stream.
+   * Start position to write the data, in bytes. This parameter is optional.
+   * By default, data is written from the beginning of the file.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9821,7 +9920,7 @@ export interface DfsListeners {
 }
 
 /**
- * Enumeration of different types of whence.
+ * Enumerates the types of the relative offset position used in lseek().
  *
  * @enum { number } whence type
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9862,7 +9961,7 @@ declare enum WhenceType {
  */
 declare enum LocationType {
   /**
-   * Local file.
+   * The file is stored in a local device.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -9870,7 +9969,7 @@ declare enum LocationType {
   LOCAL = 1 << 0,
 
   /**
-   * Cloud file.
+   * The file is stored in the cloud.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -9879,7 +9978,7 @@ declare enum LocationType {
 }
 
 /**
- * Enumeration of different types of access mode.
+ * Enumerates the access modes to verify. If this parameter is left blank, the system checks whether the file exists.
  *
  * @enum { number } access mode type
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9888,7 +9987,7 @@ declare enum LocationType {
  */
 declare enum AccessModeType {
   /**
-   * Check if the file exists.
+   * Whether the file exists.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -9897,7 +9996,7 @@ declare enum AccessModeType {
   EXIST = 0,
 
   /**
-   * Check if the file has write permission.
+   * Verify the write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -9906,7 +10005,7 @@ declare enum AccessModeType {
   WRITE = 2,
 
   /**
-   * Check if the file has read permission.
+   * Verify the read permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -9915,7 +10014,7 @@ declare enum AccessModeType {
   READ = 4,
 
   /**
-   * Check if the file has read and write permission.
+   * Verify the read/write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -9925,7 +10024,7 @@ declare enum AccessModeType {
 }
 
 /**
- * Enumeration of different types of access flag.
+ * Enumerates the locations of the file to verify.
  *
  * @enum { number } access flag type
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -9933,7 +10032,7 @@ declare enum AccessModeType {
  */
 declare enum AccessFlagType {
   /**
-   * Check if the file is on the local.
+   * The file is stored locally.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
