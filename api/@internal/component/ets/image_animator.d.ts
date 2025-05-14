@@ -326,10 +326,15 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * list images
+   * Sets the image frame information.
    *
-   * @param { Array<ImageFrameInfo> } value
+   * <p><strong>NOTE</strong>:
+   * <br>Dynamic update is not supported.
+   * </p>
+   *
+   * @param { Array<ImageFrameInfo> } value - Image frame information.
    * @returns { ImageAnimatorAttribute }
+   * @default []
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -357,10 +362,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * The default value is the initial state, which is used to control the playback status.
+   * Sets the playback state of the animation.
    *
-   * @param { AnimationStatus } value
+   * @param { AnimationStatus } value - Playback state of the animation.
    * @returns { ImageAnimatorAttribute }
+   * @default AnimationStatus.Initial
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -388,10 +394,16 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
+   * Sets the playback duration.
    * The unit is millisecond.
    *
-   * @param { number } value
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when a separate duration is set for any of the image frames.
+   * </p>
+   *
+   * @param { number } value - Playback duration.
    * @returns { ImageAnimatorAttribute }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -419,10 +431,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * Set the playback sequence.
+   * Sets the playback direction.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Playback direction.
    * @returns { ImageAnimatorAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -450,10 +463,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * Sets whether the image size is fixed to the component size.
+   * Sets whether the image size is fixed at the component size.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the image size is fixed at the component size.
    * @returns { ImageAnimatorAttribute }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -463,10 +477,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   fixedSize(value: boolean): ImageAnimatorAttribute;
 
   /**
-   * Indicates whether to enable pre-decoding.
+   * Sets the number of images to be pre-decoded.
    *
-   * @param { number } value
+   * @param { number } value - Number of images to be pre-decoded.
    * @returns { ImageAnimatorAttribute }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
@@ -492,10 +507,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * Sets the state before and after the animation starts
+   * Sets the status before and after execution of the animation in the current playback direction.
    *
-   * @param { FillMode } value
+   * @param { FillMode } value - Status before and after execution of the animation in the current playback direction.
    * @returns { ImageAnimatorAttribute }
+   * @default FillMode.Forwards
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -522,10 +538,12 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
+   * Sets the number of times that the animation is played.
    * Played once by default
    *
-   * @param { number } value
+   * @param { number } value - Number of times that the animation is played.
    * @returns { ImageAnimatorAttribute }
+   * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -534,10 +552,13 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   iterations(value: number): ImageAnimatorAttribute;
 
   /**
-   * Determines whether to use the system onVisibleAreaChange callback to control pause and play.
+   * Sets whether the component should automatically pause or resume based on its visibility, using the system's
+   * onVisibleAreaChange event.
    *
-   * @param { boolean } monitorInvisibleArea
+   * @param { boolean } monitorInvisibleArea - 	Whether the component should automatically pause or resume based on
+   * its visibility, using the system's onVisibleAreaChange event.
    * @returns { ImageAnimatorAttribute }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -655,7 +676,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * Status callback, which is triggered when the animation is canceled.
+   * Status callback, which is triggered when the animation playback returns to the initial state.
    *
    * @param { function } event
    * @returns { ImageAnimatorAttribute }
@@ -686,7 +707,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 10
    */
   /**
-   * Status callback, which is triggered when the animation playback is complete.
+   * Status callback, which is triggered when the animation playback is complete or stopped.
    *
    * @param { function } event
    * @returns { ImageAnimatorAttribute }

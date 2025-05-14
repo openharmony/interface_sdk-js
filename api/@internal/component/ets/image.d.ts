@@ -867,6 +867,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the fill color to be superimposed on the image.
+   * By default, no fill color is applied. If an invalid value is passed, the system uses the default theme color:
+   * black in light mode and white in dark mode.
    *
    * <p><strong>NOTE</strong>:
    * <br>This attribute applies only to SVG images.
@@ -875,8 +877,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ResourceColor } value - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
-   * @default no fill color is applied. If an invalid value is passed, the system uses the default theme color:
-   * black in light mode and white in dark mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -887,6 +887,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * Sets the fill color to be superimposed on the image.
+   * By default, no fill color is applied. If an invalid value is passed, the system uses the default theme color:
+   * black in light mode and white in dark mode.
    *
    * <p><strong>NOTE</strong>:
    * <br>This attribute applies only to SVG images.
@@ -895,8 +897,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ResourceColor | ColorContent } color - Fill color to be superimposed on the image.
    * @returns { ImageAttribute }
-   * @default no fill color is applied. If an invalid value is passed, the system uses the default theme color:
-   * black in light mode and white in dark mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
