@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Describes a NotificationTemplate instance
+ * @file The NotificationTemplate module describes the notification template.
  * @kit NotificationKit
  */
 
 /**
- * Describes a NotificationTemplate instance.
+ * The NotificationTemplate module describes the notification template.
  *
  * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
@@ -27,7 +27,7 @@
  */
 export interface NotificationTemplate {
   /**
-   * Obtains the type of a notification template.
+   * Template name. Currently, only downloadTemplate is supported.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -36,7 +36,10 @@ export interface NotificationTemplate {
   name: string;
 
   /**
-   * Obtains the data of a notification template.
+   * Template data.
+   * - title: title of the file. This parameter is mandatory, and the value is of the string type.
+   * - fileName: name of the file to be downloaded. This parameter is mandatory, and the value is of the string type.
+   * - progressValue: download progress. The value is a number.
    *
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
