@@ -122,6 +122,8 @@ declare namespace fileShare {
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   *  1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
@@ -145,6 +147,8 @@ declare namespace fileShare {
    * @returns { Promise<void> } no callback return Promise otherwise return void
    * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
+   *  1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
