@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides methods for intelligent data processing.
+ * Provides methods for intelligent data processing.+++
  *
  * @namespace intelligence
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
