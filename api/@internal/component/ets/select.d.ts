@@ -1205,6 +1205,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 18
    */
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
+
+  /**
+   * Sets whether to display in the sub window.
+   *
+   * @param { Optional<boolean> } showInSubWindow Whether to display in the sub window.
+   * @returns { SelectAttribute } The attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  showInSubWindow(showInSubWindow: Optional<boolean>): SelectAttribute;
 }
 
 /**
