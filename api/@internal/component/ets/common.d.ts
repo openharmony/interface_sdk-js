@@ -3259,7 +3259,7 @@ declare enum TouchTestStrategy {
   * @since 11
   */
  /**
-  * Do framework touch test.
+  * Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -3278,7 +3278,8 @@ declare enum TouchTestStrategy {
   * @since 11
   */
  /**
-  * Specify the component to do touch test and follow the framework touch test
+  * The specified event is forwarded to a particular child node, and the system determines whether to
+  * distribute the event to other sibling nodes.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -3297,7 +3298,8 @@ declare enum TouchTestStrategy {
   * @since 11
   */
  /**
-  * Specify the component to do touch test and not follow the framework touch test
+  * The specified event is forwarded to a particular child node, and the system no longer distributes
+  * the event to other sibling nodes.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -7665,7 +7667,7 @@ declare interface EventTarget {
    * @since 10
    */
   /**
-   * Area of current target.
+   * Area information of the target element.
    *
    * @type { Area }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7728,7 +7730,7 @@ declare enum SourceType {
    * @since 10
    */
   /**
-   * Unknown type.
+   * Unknown device type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7823,7 +7825,7 @@ declare enum SourceTool {
    * @since 10
    */
   /**
-   * Unknown type.
+   * Unknown input source.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9978,7 +9980,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * Defines the current target which fires this event.
+   * Display area of the element that triggers the gesture event.
    *
    * @type { EventTarget }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10014,7 +10016,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * Event timestamp.
+   * Timestamp of the event.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10050,7 +10052,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * the event source info.
+   * Event input device.
    *
    * @type { SourceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10103,7 +10105,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * Touch pressure.
+   * Press pressure.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10132,7 +10134,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * Angle between the projection of the stylus on the device plane and the x-axis.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10161,7 +10163,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * Angle between the projection of the stylus on the device plane and the y-axis.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10202,7 +10204,7 @@ declare interface BaseEvent {
    * @since 10
    */
   /**
-   * The event tool type info.
+   * Event input source.
    *
    * @type { SourceTool }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10214,7 +10216,7 @@ declare interface BaseEvent {
   sourceTool: SourceTool;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
+   * Obtains the pressed status of modifier keys. The following modifier keys are supported: 'Ctrl'|'Alt'|'Shift'.
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -10555,7 +10557,7 @@ declare interface ClickEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * X coordinate of the click point relative to the left edge of the device screen.
+   * X coordinate of the click relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10574,7 +10576,7 @@ declare interface ClickEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Y coordinate of the click point relative to the upper edge of the device screen.
+   * Y coordinate of the click relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10593,7 +10595,7 @@ declare interface ClickEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * X coordinate of the click point relative to the left edge of the current window.
+   * X coordinate of the click relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10612,7 +10614,7 @@ declare interface ClickEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Y coordinate of the click point relative to the upper edge of the current window.
+   * Y coordinate of the click relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10623,7 +10625,7 @@ declare interface ClickEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the current window.
+   * X coordinate of the click relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10634,7 +10636,7 @@ declare interface ClickEvent extends BaseEvent {
   screenX: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the current window.
+   * Y coordinate of the click relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10717,7 +10719,7 @@ declare interface ClickEvent extends BaseEvent {
   y: number;
 
   /**
-   * Type of the touch hand.
+   * Whether the event is triggered by a left-hand or right-hand tap.
    *
    * @type { InteractionHand }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10895,7 +10897,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10912,7 +10914,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10929,7 +10931,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * X coordinate of the mouse point relative to the left edge of the current window.
+   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10946,7 +10948,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10956,7 +10958,7 @@ declare interface MouseEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * X coordinate of the mouse point relative to the left edge of the current window.
+   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10967,7 +10969,7 @@ declare interface MouseEvent extends BaseEvent {
   screenX: number;
 
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10985,7 +10987,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 8
    */
   /**
-   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
+   * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11002,7 +11004,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 8
    */
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
+   * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11019,7 +11021,7 @@ declare interface MouseEvent extends BaseEvent {
    * @since 8
    */
   /**
-   * The blocking event pops up.
+   * Stops the event from bubbling upwards or downwards.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11051,7 +11053,7 @@ declare interface MouseEvent extends BaseEvent {
   rawDeltaY?: number;
   
   /**
-   * The pressed buttons of the mouse event.
+   * Array of all mouse buttons that are currently pressed.
    *
    * @type { ?MouseButton[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11209,7 +11211,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * Finger unique identifier.
+   * Unique identifier of a finger.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11228,7 +11230,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11247,7 +11249,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * Y coordinate of the touch point relative to the upper left corner of the application screen.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11266,7 +11268,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the current window.
+   * X coordinate of the touch point relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11285,7 +11287,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * Y coordinate of the touch point relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11296,7 +11298,7 @@ declare interface TouchObject {
   windowY: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the current window.
+   * X coordinate of the touch point relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11307,7 +11309,7 @@ declare interface TouchObject {
   screenX: number;
 
   /**
-   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * Y coordinate of the touch point relative to the upper left corner of the application window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11333,7 +11335,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the touched element.
+   * X coordinate of the touch point relative to the upper left corner of the event responding component.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11359,7 +11361,7 @@ declare interface TouchObject {
    * @since 10
    */
   /**
-   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * Y coordinate of the touch point relative to the upper left corner of the event responding component.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11370,7 +11372,7 @@ declare interface TouchObject {
   y: number;
 
   /**
-   * Type of the touch hand.
+   * Whether the event is triggered by a left-hand or right-hand tap.
    *
    * @type { InteractionHand }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11381,7 +11383,7 @@ declare interface TouchObject {
     hand?: InteractionHand;
 
   /**
-   * Time stamp when the touch point is pressed.
+   * Time when the finger is pressed.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11391,7 +11393,7 @@ declare interface TouchObject {
    */
   pressedTime?: number;
   /**
- * Pressure of a specific touch point.
+ * Pressure value of the finger press.
  *
  * @type { ?number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11402,7 +11404,7 @@ declare interface TouchObject {
   pressure?: number;
 
   /**
-   * Width of the contact area when touch is pressed of a specific touch point.
+   * Width of the area pressed by the finger.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11413,7 +11415,7 @@ declare interface TouchObject {
   width?: number;
 
   /**
-   * Height of the contact area when touch is pressed of a specific touch point.
+   * Height of the area pressed by the finger.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11615,7 +11617,7 @@ declare interface TouchEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Indicates the current changed finger information.
+   * Finger information changed.
    *
    * @type { TouchObject[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11641,7 +11643,7 @@ declare interface TouchEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * The blocking event pops up.
+   * Stops the event from bubbling upwards or downwards.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11660,7 +11662,7 @@ declare interface TouchEvent extends BaseEvent {
    * @since 10
    */
   /**
-   * Get the historical points.
+   * Obtains all historical points of the current frame.
    *
    * @returns { Array<HistoricalPoint> } - return all historical points.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11671,7 +11673,7 @@ declare interface TouchEvent extends BaseEvent {
   getHistoricalPoints(): Array<HistoricalPoint>;
 
   /**
-   * Prevent the default function.
+   * Blocks the default event.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18141,7 +18143,14 @@ declare interface ClickEffect {
   /**
    * Set scale number.
    * This default scale is same as the scale of click effect level.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br> This parameter works based on the setting of ClickEffectLevel.
+   * <br> If level is set to ClickEffectLevel.LIGHT, the default value is 0.90.
+   * <br> If level is set to ClickEffectLevel.MIDDLE or ClickEffectLevel.HEAVY, the default value is 0.95.
+   * <br> If level is set to undefined or null (both of which evaluate to ClickEffectLevel.LIGHT), the default value is 0.90.
+   * <br> If scale is set to undefined or null, the default zoom ratio for the set level will be used.
+   * </p>
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -19604,9 +19613,11 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Defines the component's hit test behavior in touch events.
+   * Sets how the component behaves during hit testing.
    *
    * @param { HitTestMode } value - the hit test mode.
+   * @default HitTestMode.default - Both the node and its child nodes respond to the hit test of a touch event,
+   * but its sibling nodes are blocked from the hit test. The hit test for ancestor nodes is not affected.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19625,7 +19636,7 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Defines the pre-touch test of sub component in touch events.
+   * Called to specify how to perform the touch test on the children of this component.
    *
    * @param { function } event
    * @returns { T }
@@ -20869,8 +20880,13 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Trigger a click event when a click is clicked.
+   * Called when a click event occurs.
    *
+   * <p><strong>NOTE</strong>:
+   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
+   * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
+   * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
+   * </p>
    * @param { function } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20884,8 +20900,15 @@ declare class CommonMethod<T> {
   /**
    * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold. 
    *
+   * <p><strong>NOTE</strong>:
+   * <br> If the distanceThreshold value specified is less than or equal to 0 vp, it will be converted to the default value.
+   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
+   * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
+   * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
+   * </p>
    * @param { function } event - this function callback executed when the click action is recognized
    * @param { number } distanceThreshold - the distance threshold of finger's movement when detecting a click action
+   * @default (2^31-1)vp 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20990,7 +21013,7 @@ declare class CommonMethod<T> {
    * @since 8
    */
   /**
-   * Trigger a mouse event.
+   * Triggered when the component is clicked by a mouse button or the mouse pointer moves on the component.
    *
    * @param { function } event
    * @returns { T }
@@ -21018,7 +21041,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Trigger a touch event when touched.
+   * Invoked when a touch event is triggered.
    *
    * @param { function } event
    * @returns { T }
@@ -25701,7 +25724,7 @@ declare class CommonMethod<T> {
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
 
   /**
-   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   * Binds a custom gesture recognizer judgment callback to the component.
    *
    * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
    * @returns { T }
@@ -25713,10 +25736,18 @@ declare class CommonMethod<T> {
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
 
   /**
-   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
-   *
+   * Binds a custom gesture recognizer judgment callback to the component.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br> For a composite component, setting exposeInnerGesture to true exposes the internal gesture recognizer of the
+   * <br> composite component in the current parameter callback. Currently, only the Tabs component is supported. 
+   * 
+   * <br> Do not set exposeInnerGesture for other components. When exposeInnerGesture is set to false, this API provides the same functionality
+   * <br> as the onGestureRecognizerJudgeBegin API.
+   * </p>
    * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
    * @param { boolean } exposeInnerGesture - This parameter is a flag. This flag determines whether to expose internal gestures.
+   * @default false 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25727,7 +25758,7 @@ declare class CommonMethod<T> {
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
   /**
-   * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
+   * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in the response chain.
    *
    * @param { ShouldBuiltInRecognizerParallelWithCallback } callback - A callback instance used when a component is doing touch test.
    * @returns { T }
@@ -25748,9 +25779,11 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Events are monopolized by components.
+   * Sets whether the component exclusively handles events.
+   * true: The component exclusively handles events. false: The component does not exclusively handle events.
    *
    * @param { boolean } monopolize - indicate the monopoly of events
+   * @default false
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30101,7 +30134,7 @@ declare interface UIGestureEvent {
   addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
-   * Add a parallel gesture bound to the component.
+   * Adds a gesture that can be recognized at once by the component and its child component.
    *
    * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
@@ -30113,7 +30146,7 @@ declare interface UIGestureEvent {
   addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
 
   /**
-   * Remove the gesture that is bound to the component and marked as tag.
+   * Remove a gesture from a component that has been bound with a specific tag through a modifier.
    *
    * @param { string } tag - tag indicates the gesture's tag.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
