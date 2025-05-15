@@ -763,7 +763,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
  * @since 20
  * @arkts 1.2
  */
-class PageTransitionEnter extends CommonTransition {
+declare class PageTransitionEnter extends CommonTransition {
 
   /**
    * Called when page Jump animation is used.
@@ -905,7 +905,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
  * @since 20 
  * @arkts 1.2
  */
-class PageTransitionExit extends CommonTransition {
+declare class PageTransitionExit extends CommonTransition {
   /**
    * Called when page Jump animation is used.
    *
