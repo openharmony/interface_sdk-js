@@ -104,7 +104,7 @@ declare namespace media {
    */
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
-   * <br>**NOTE**
+   * <br>**NOTE:**<br>
    * You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback scenarios.
    * 
    * The actual number of instances that can be created may be different. It depends on the specifications of the device chip in use.
@@ -1785,7 +1785,7 @@ declare namespace media {
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
    * <br>For details about the audio and video playback demo, see Audio Playback and Video Playback.
-   * <br>**NOTE**
+   * <br>**NOTE:**<br>
    * When using the AVPlayer instance, you are advised to register the following callbacks to proactively obtain status changes:<br>
    * on('stateChange'): listens for AVPlayer state changes.<br>
    * on('error'): listens for error events.<br>
@@ -3877,15 +3877,26 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Subscribes output device change event callback.
-     * The event is triggered when output device change for this stream.
+     * Subscribes to audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
+     * 
+     * When subscribing to this event, you are advised to implement the player behavior when the device is
+     * connected or disconnected by referring to Responding to Audio Output Device Changes.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * The event is triggered when the output device is changed.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - 	Callback used to return the output device
+     * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     * 
+     * avPlayer.on('audioOutputDeviceChangeWithInfo', (data: audio.AudioStreamDeviceChangeInfo) => {
+     *   console.info(`${JSON.stringify(data)}`);
+     * });
      */
     on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
@@ -3899,9 +3910,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unsubscribes output device change event callback.
+     * Unsubscribes from audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to return the output device
+     * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3911,19 +3924,34 @@ declare namespace media {
     off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
     /**
-     * Subscribes listener for subtitle update event.
+     * Subscribes to subtitle update events. When external subtitles exist, the system notifies the application
+     * through the subscribed-to callback. An application can subscribe to only one subtitle update event. When
+     * the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
-     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * The event is triggered when the external subtitle is updated.
+     * @param { Callback<SubtitleInfo> } callback - Callback invoked when the subtitle is updated.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('subtitleUpdate', async (info: media.SubtitleInfo) => {
+     *   if (info) {
+     *     let text = (!info.text) ? '' : info.text
+     *     let startTime = (!info.startTime) ? 0 : info.startTime
+     *     let duration = (!info.duration) ? 0 : info.duration
+     *     console.info('subtitleUpdate info: text=' + text + ' startTime=' + startTime +' duration=' + duration)
+     *   } else {
+     *     console.info('subtitleUpdate info is null')
+     *   }
+     * })
      */
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
 
     /**
-     * Unsubscribes listener for subtitle update event.
+     * Unsubscribes from subtitle update events.
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
-     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * @param { Callback<SubtitleInfo> } callback - Callback that has been registered to listen for subtitle
+     * update events.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3931,19 +3959,27 @@ declare namespace media {
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
 
     /**
-     * Subscribes listener for track change event.
+     * Subscribes to track change events. When the track changes, the system notifies the application through
+     * the subscribed-to callback. An application can subscribe to only one track change event. When the
+     * application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'trackChange' } type - Type of the event to listen for.
-     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('trackChange', (index: number, isSelect: boolean) => {
+     *   console.info('trackChange info: index=' + index + ' isSelect=' + isSelect)
+     * })
      */
     on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
     /**
-     * Unsubscribes listener for track change event.
+     * Unsubscribes from track change events.
      * @param { 'trackChange' } type - Type of the event to listen for.
-     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } callback - Callback that has been registered to listen for track changes.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3951,19 +3987,36 @@ declare namespace media {
     off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
     /**
-     * Subscribes listener for trackinfo update event.
+     * Subscribes to track information update events. When the track information is updated, the system notifies the
+     * application through the subscribed-to callback. An application can subscribe to only one track change event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
+     * @example
+     * avPlayer.on('trackInfoUpdate', (info: Array<media.MediaDescription>) => {
+     *   if (info) {
+     *     for (let i = 0; i < info.length; i++) {
+     *       let propertyIndex: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
+     *       let propertyType: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_TYPE];
+     *       console.info('track info: index=' + propertyIndex + ' tracktype=' + propertyType)
+     *     }
+     *   } else {
+     *     console.info('track info is null')
+     *   }
+     * })
      */
     on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
 
     /**
-     * Unsubscribes listener for trackinfo update event.
+     * Unsubscribes from track information update events.
      * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback that has been registered to listen for track
+     * information updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3971,44 +4024,74 @@ declare namespace media {
     off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
 
     /**
-     * Subscrips listener for audio playback amplitude update event.
-     * In each event, an array of amplitude is reported, large index indicates closer to current time.
+     * Subscribes to update events of the maximum audio level value, which is periodically reported when audio
+     * resources are played.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<number>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
+     * @example
+     * avPlayer.on('amplitudeUpdate', (value: Array<number>) => {
+     *   console.info('amplitudeUpdate called,and amplitudeUpdate = ${value}')
+     * })
      */
     on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
     /**
-     * UnSubscrips listener for audio playback amplitude update event
+     * Unsubscribes from update events of the maximum amplitude.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<number>> } callback - Callback that has been registered to listen for amplitude updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
     off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
 
     /**
-     * Subscribes listener for video SEI message event, only for live video streaming.
-     * Call before the {@link #prepare}, repeated invocation overwrites the last subscribed callback and payload types.
-     *
+     * Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
+     * applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
+     * You must initiate the subscription before calling {@link #prepare}. If you initiate multiple subscriptions
+     * to this event, the last subscription is applied.
      * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
-     * @param { Array<number> } payloadTypes - The subscribed payload types of the SEI message.
-     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * The event is triggered when an SEI message is received.
+     * @param { Array<number> } payloadTypes - Array of subscribed-to payload types of SEI messages. Currently,
+     * only payloadType = 5 is supported.
+     * @param { OnSeiMessageHandle } callback - Callback used to listen for SEI message events and receive the
+     * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * import util from '@ohos.util';
+     * 
+     * avPlayer.on('seiMessageReceived', [5], (messages: Array<media.SeiMessage>, playbackPosition?: number) =>
+     * {
+     *   console.info('seiMessageReceived playbackPosition ' + playbackPosition)
+     * 
+     *   for (let key = 0; key < messages.length; key++) {
+     *     console.info('seiMessageReceived messages payloadType ' + messages[key].payloadType + ' payload size '
+     *     + messages[key].payload.byteLength)
+     * 
+     *     let textDecoder = util.TextDecoder.create("utf-8",{ignoreBOM: true})
+     *     let ab = messages[key]?.payload?.slice(16, messages[key].payload.byteLength)
+     *     let result: Uint8Array = new Uint8Array(ab)
+     *     let retStr: string = textDecoder.decodeToString(result)
+     *     console.info('seiMessageReceived messages payload ' + retStr)
+     *   }
+     * });
      */
     on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
 
     /**
-     * Unsubscribes listener for video SEI message event.
+     * Unsubscribes from the events indicating that an SEI message is received.
      * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * The event is triggered when an SEI message is received.
      * @param { Array<number> } payloadTypes - The payload types of the SEI message.
      *                                        Null means unsubscribe all payload types.
 
-     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @param { OnSeiMessageHandle } callback -	Callback used to listen for SEI message events and receive the
+     * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
@@ -4016,18 +4099,24 @@ declare namespace media {
     off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
 
     /**
-     * Subscribes listener for super-resolution status changed event.
+     * Subscribes to the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * The event is triggered when super resolution is enabled or disabled.
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
+     * @example
+     * avPlayer.on('superResolutionChanged', (enabled: boolean) => {
+     *   console.info('superResolutionChanged called, and enabled is:' + enabled)
+     * })
      */
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
     /**
-     * Unsubscribes listener for super-resolution status changed event.
+     * Unsubscribes from the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * The event is triggered when super resolution is enabled or disabled.
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -4048,6 +4137,34 @@ declare namespace media {
      * key:value pair, key see @PlaybackInfoKey.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * 
+     * function printfPlaybackInfo(obj: media.PlaybackInfo, key: string) {
+     *   let property: Object = obj[key];
+     *   console.info('key is ' + key); // // Specify a key. For details about the keys, see [PlaybackInfoKey].
+     *   console.info('value is ' + property); // Obtain the value of the key. The value can be any type.
+     * }
+     * 
+     * let avPlayer: media.AVPlayer | undefined = undefined;
+     * let playbackInfo: media.PlaybackInfo | undefined = undefined;
+     * media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
+     *   if (player != null) {
+     *     avPlayer = player;
+     *     console.info(`Succeeded in creating AVPlayer`);
+     *     if (avPlayer) {
+     *       try {
+     *         playbackInfo = await avPlayer.getPlaybackInfo();
+     *         console.info(`AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`); // Print PlaybackInfo.
+     *         printfPlaybackInfo(playbackInfo, media.PlaybackInfoKey.SERVER_IP_ADDRESS); // Print the IP address.
+     *       } catch (error) {
+     *         console.error(`error = ${error}`);
+     *       }
+     *     }
+     *   } else {
+     *     console.error(`Failed to create AVPlayer, error message:${err.message}`);
+     *   }
+     * });
      */
     [key:string]: Object;
   }
@@ -4274,50 +4391,120 @@ declare namespace media {
   /**
    * Defines the SourceOpenCallback function which is called by the service. client should process the incoming request
    * and return the unique handle to the open resource.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
+   * 
    * @typedef { function } SourceOpenCallback
-   * @param { MediaSourceLoadingRequest } request - open request parameters.
+   * @param { MediaSourceLoadingRequest } request - Parameters for the resource open request, including detailed
+   * information about the requested resource and the data push method.
    * @returns { number } - return the handle of current resource open request.
-   *                       values less than or equal to zero mean failed.
+   *                        A value greater than 0 means the request is successful.
+   *                        A value less than or equal to 0 means it fails.
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
+   * @example
+   * import HashMap from '@ohos.util.HashMap';
+   * 
+   * let uuid: number = 1;
+   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+   * 
+   * let sourceOpenCallback: media.SourceOpenCallback = (request: media.MediaSourceLoadingRequest) => {
+   *   console.log(`Opening resource: ${request.url}`);
+   *   // Open the resource and return a unique handle, ensuring the mapping between the UUID and request.
+   *   uuid += 1;
+   *   requests.set(uuid, request);
+   *   return uuid;
+   * }
    */
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
 
   /**
    * Defines the SourceReadCallback function which is called by the service. Client should record the read requests
    * and push the data through the {@link #response} method of the request object when there is sufficient data.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
    * @typedef { function } SourceReadCallback
-   * @param { number } uuid - label the resource handle.
-   * @param { number } requestedOffset - current media data position from the start of the source.
-   * @param { number } requestedLength - current request length.
+   * @param { number } uuid - ID for the resource handle.
+   * @param { number } requestedOffset - Offset of the current media data relative to the start of the resource.
+   * @param { number } requestedLength - Length of the current request.
    *                                   - -1 means reaching the end of the source, need to inform the player
    *                                     of the end of the push through the {@link #finishLoading} method.
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
+   * @example
+   * let sourceReadCallback: media.SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => {
+   *  console.log(`Reading resource with handle ${uuid}, offset: ${requestedOffset}, length: ${requestedLength}`);
+   *  // Check whether the UUID is valid and store the read request. Avoid blocking the request while pushing data and header information.
+   *}
    */
   type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
 
   /**
    * Defines the SourceCloseCallback function which is called by the service. Client should release related resources.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
    * @typedef { function } SourceCloseCallback
-   * @param { number } uuid - label the resource handle.
+   * @param { number } uuid - 	ID for the resource handle.
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
+   * @example
+   * import HashMap from '@ohos.util.HashMap';
+   * 
+   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+   * 
+   * let sourceCloseCallback: media.SourceCloseCallback = (uuid: number) => {
+   *   console.log(`Closing resource with handle ${uuid}`);
+   *   // Clear resources related to the current UUID.
+   *   requests.remove(uuid);
+   * }
    */
   type SourceCloseCallback = (uuid: number) => void;
 
   /**
-   * Media data loader. User can customize media data loader.
+   * Defines a media data loader, which needs to be implemented by applications.
    * @typedef MediaSourceLoader
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
+   * @example
+   * import HashMap from '@ohos.util.HashMap';
+   * 
+   * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
+   * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl("http://xxx",  headers);
+   * let uuid: number = 1;
+   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+   * let mediaSourceLoader: media.MediaSourceLoader = {
+   *   open: (request: media.MediaSourceLoadingRequest) => {
+   *     console.log(`Opening resource: ${request.url}`);
+   *     // Open the resource and return a unique handle, ensuring the mapping between the UUID and request.
+   *     uuid += 1;
+   *     requests.set(uuid, request);
+   *     return uuid;
+   *   },
+   *   read: (uuid: number, requestedOffset: number, requestedLength: number) => {
+   *     console.log(`Reading resource with handle ${uuid}, offset: ${requestedOffset}, length: ${requestedLength}`);
+   *    // Check whether the UUID is valid and store the read request.
+   *    // Avoid blocking the request while pushing data and header information.
+   *   },
+   *   close: (uuid: number) => {
+   *     console.log(`Closing resource with handle ${uuid}`);
+   *     // Clear resources related to the current UUID.
+   *     requests.remove(uuid);
+   *   }
+   *};
+   *
+   * mediaSource.setMediaResourceLoaderDelegate(mediaSourceLoader);
+   * let playStrategy : media.PlaybackStrategy = {
+   *   preferredBufferDuration: 20,
+   * };
+   *let player = await media.createAVPlayer();
+   *player.setMediaSource(mediaSource, playStrategy);
    */
   interface MediaSourceLoader {
     /**
@@ -4432,7 +4619,8 @@ declare namespace media {
     url: string;
 
     /**
-     * Headers attached to network request while player request data. Client should set headers to the http request.
+     * HTTP request header. If the header exists, the application should set the header information in
+     * the HTTP request when downloading data.
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -4442,37 +4630,70 @@ declare namespace media {
 
     /**
      * The interface for application used to send requested data to AVPlayer.
-     * @param { number } uuid - label the resource handle.
-     * @param { number } offset - current media data position from start of the source.
-     * @param { ArrayBuffer } buffer - media data buffer which respond to the player.
+     * @param { number } uuid - ID for the resource handle.
+     * @param { number } offset - Offset of the current media data relative to the start of the resource.
+     * @param { ArrayBuffer } buffer - Media data sent to the player.
      * @returns { number } - accept bytes for current read. The value less than zero means failed.
      *                    - 2, means player need current data any more, the client should stop current read process.
      *                    - 3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
+     * @example
+     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+     * let uuid = 1;
+     * 
+     * let request = requests.get(uuid);
+     * let num = request.respondData(uuid, offset, buf);
      */
     respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
 
     /**
      * The interface for application used to send respond header to AVPlayer
      * should be called before calling the {@link #respondData()} for the first time.
-     * @param { number } uuid - label the resource handle.
+     * @param { number } uuid - ID for the resource handle.
      * @param { ?Record<string, string> } [header] - header info in the http response.
+     * The application can intersect the header fields with the fields supported by the underlying layer for
+     * parsing or directly pass in all corresponding header information.
      * @param { ?string } [redirectUrl] - redirect url from the http response if exist.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
+     * @example
+     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+     * let uuid = 1;
+     * 
+     * // The application fills this in as needed.
+     * let header:Record<string, string> = {
+     *   'Transfer-Encoding':'xxx',
+     *   'Location' : 'xxx',
+     *   'Content-Type' : 'xxx',
+     *   'Content-Range' : 'xxx',
+     *   'Content-Encode' : 'xxx',
+     *   'Accept-Ranges' : 'xxx',
+     *   'content-length' : 'xxx'
+     * };
+     * let request = requests.get(uuid);
+     * request.respondHeader(uuid, header);
      */
     respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
     /**
-     * The interface for application used to notify player current request state.
-     * @param { number } uuid - label the resource handle.
-     * @param { LoadingRequestError } state - the request state.
+     * Notifies the player of the current request status. After pushing all the data for a single resource, the
+     * application should send the **LOADING_ERROR_SUCCESS** state to notify the player that the resource push is
+     * complete.
+     * @param { number } uuid - ID for the resource handle.
+     * @param { LoadingRequestError } state - Request status.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
+     * @example
+     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
+     * let uuid = 1;
+     * 
+     * let request = requests.get(uuid);
+     * let loadingError = media.LoadingRequestError.LOADING_ERROR_SUCCESS;
+     * request.finishLoading(uuid, loadingError);
      */
     finishLoading(uuid: number, state: LoadingRequestError): void;
   }
@@ -4798,8 +5019,9 @@ declare namespace media {
    * @since 11
    */
   /**
-   * DataSource descriptor. The caller needs to ensure that the fileSize and
-   * callback is valid.
+   * Defines the descriptor of an audio and video file, which is used in DataSource playback mode.
+   * Use scenario: An application can create a playback instance and start playback before it finishes
+   * downloading the audio and video resources.
    *
    * @typedef AVDataSrcDescriptor
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -4870,7 +5092,8 @@ declare namespace media {
   }
 
   /**
-   * Provides subtitle information.
+   * Provides subtitle information. When a subtitle update event is subscribed to, the information about the
+   * external subtitle is returned through a callback.
    * Can be synchronized to the time reported by AVPlayer#timeUpdate event
    *
    * @typedef SubtitleInfo
