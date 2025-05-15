@@ -1885,6 +1885,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 15
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

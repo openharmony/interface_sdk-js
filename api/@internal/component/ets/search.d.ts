@@ -1996,6 +1996,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 15
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): SearchAttribute;
 }
 
 /**
