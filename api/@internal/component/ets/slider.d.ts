@@ -1491,7 +1491,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Sets the style of the slider in the block direction.
    *
    * @param { SliderBlockStyle } value - Style of the slider in the block direction.
-   * @default SliderBlockType.DEFAULT - indicating the round slider.
+   * <br>Default value is SliderBlockType.DEFAULT, indicating the round slider.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1525,7 +1525,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Sets the interaction mode between the user and the slider.
    *
    * @param { SliderInteraction } value - Interaction mode between the user and the slider.
-   * @default SliderInteraction.SLIDE_AND_CLICK
+   * <br>Default value is SliderInteraction.SLIDE_AND_CLICK.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
