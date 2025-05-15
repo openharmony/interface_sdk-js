@@ -146,7 +146,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     on(type: 'drawChildren', callback: Callback<void>): void;
 
@@ -158,7 +158,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     off(type: 'drawChildren', callback?: Callback<void>): void;
   }
