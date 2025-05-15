@@ -3090,6 +3090,89 @@ declare enum AccessibilityRoleType {
 declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
 /**
+ * Enum for accessibility action type
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum AccessibilityAction {
+  /**
+  * undefined action type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  UNDEFINED_ACTION = 0,
+  /**
+  * accessibility click action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACCESSIBILITY_CLICK = 1,
+}
+
+/**
+ * Enum for the result of accessibility action intercept function
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum AccessibilityActionInterceptResult {
+  /**
+  * intercept the accessibility action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_INTERCEPT = 0,
+  /**
+  * the accessibility action can be continued
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_CONTINUE = 1,
+  /**
+  * the accessibility action need to bubble up for execution
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_RISE = 2,
+}
+
+/**
+ * Defines the callback type used in accessibility action intercept.
+ * The value of action indicates the accessibility action type.
+ * @typedef { function } AccessibilityActionInterceptCallback
+ * @param { AccessibilityAction } action - the enum of accessibility action type.
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction) => AccessibilityActionInterceptResult;
+
+/**
  * Enum for FinishCallbackType.
  *
  * @enum { number }
@@ -25289,6 +25372,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
+
+  /**
+   * Register accessibility action intercept callback,
+   * when accessibility action is to be executed,the callback will be executed
+   * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
   /**
    * Sets accessibilityTextHint
