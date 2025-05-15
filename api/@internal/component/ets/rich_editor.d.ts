@@ -4080,7 +4080,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
 }
