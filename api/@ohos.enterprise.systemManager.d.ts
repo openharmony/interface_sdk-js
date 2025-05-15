@@ -199,7 +199,7 @@ declare namespace systemManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 18
+     * @since 20
      */
     disableSystemOtaUpdate?: boolean;
   }
