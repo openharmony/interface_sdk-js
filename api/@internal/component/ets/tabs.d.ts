@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions } from './common';
+import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle } from './common';
 import { EdgeEffect, PageFlipMode } from './enums';
 import { Dimension, Length, ResourceColor } from './units';
 import { CommonModifier } from "../CommonModifier";
@@ -666,8 +666,7 @@ interface TabsInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface DividerStyle {
   /**
@@ -687,8 +686,7 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeWidth: Length;
 
@@ -707,8 +705,7 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color?: ResourceColor;
 
@@ -729,8 +726,7 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   startMargin?: Length;
 
@@ -751,8 +747,7 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   endMargin?: Length;
 }
