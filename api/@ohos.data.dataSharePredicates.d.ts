@@ -39,14 +39,18 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  */
 declare namespace dataSharePredicates {
   /**
-   * Manages relational database configurations.
+   * Provides a filter object to query data in a database by using DataShare APIs.
+   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
+   * at the same time in an application, use a lock for it.</strong>
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @StageModelOnly
    * @since 10
    */
   /**
-   * Manages relational database configurations.
+   * Provides a filter object to query data in a database by using DataShare APIs.
+   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
+   * at the same time in an application, use a lock for it.</strong>
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @StageModelOnly
