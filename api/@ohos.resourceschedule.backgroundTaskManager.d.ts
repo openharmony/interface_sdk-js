@@ -461,6 +461,10 @@ declare namespace backgroundTaskManager {
    * Obtains all the transient task before an application enters the suspended state.
    *
    * @returns { Promise<TransientTaskInfo> } The promise returns the transient task info.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9900004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20
    */
@@ -693,6 +697,10 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20
    */
@@ -739,6 +747,10 @@ declare namespace backgroundTaskManager {
    *
    * @returns { Promise<EfficiencyResourcesInfo[]> } The promise returns the efficiency resources info.
    * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
+   * @throws { BusinessError } 18700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 18700004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi
    * @since 20
