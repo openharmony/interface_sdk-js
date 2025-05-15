@@ -23874,6 +23874,17 @@ declare class CommonMethod<T> {
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
   /**
+   * Config toolbar for current component.
+   *
+   * @param { CustomBuilder } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 20
+   */
+  toolbar(value: CustomBuilder): T;
+
+  /**
    * Linear Gradient
    * angle: Angle of Linear Gradient. The default value is 180;
    * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
