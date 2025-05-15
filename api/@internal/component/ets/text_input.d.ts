@@ -270,7 +270,7 @@ declare enum InputType {
   URL = 13,
 
   /**
-   * URL entry mode.
+   * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
