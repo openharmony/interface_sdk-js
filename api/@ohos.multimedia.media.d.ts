@@ -997,6 +997,35 @@ declare namespace media {
   }
 
   /**
+   * This interface is used to define the output image size.
+   * @typedef OutputSize
+   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @since 20
+   */
+  declare interface OutputSize {  
+    /**
+     * The expected output frame image width.
+     * If the value is less then 0， the width will be  the orginal width of the vido.
+     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
+     * If both width and height is not assigned, the output will be the original size of video frame.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @since 20
+     */
+    width?:number;
+    /**
+     * The expected output frame image height.
+     * If the value is less then 0， the height will be  the orginal height of the vido.
+     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
+     * If both width and height is not assigned, the output will be the original size of video frame.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @since 20
+     */
+    height?: number;
+  }
+
+  /**
    * Enumerates options about the HDR Type of the video.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1070,6 +1099,20 @@ declare namespace media {
      * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
+
+    /**
+     * Supports extracting video thumbnails by proportional scaling
+     * @param { number } timeUs The time expected to fetch picture from the video resource. The unit is microsecond(us).
+     * @param { AVImageQueryOptions } queryMode Specify how to position the video frame
+     * @param { OutputSize } outputSize This field is used to define the output size of frame.
+     * @returns { Promise<image.PixelMap> }  Returns the output image object
+     * @throws { BusinessError  } 5400102 Operation not allowed. Returned by promise.
+     * @throws { BusinessError  } 5400106 Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @since 20
+     */
+    fetchScaledFrameByTime(timeUs: number, queryMode: AVImageQueryOptions, outputSize?: OutputSize):
+      Promise<image.PixelMap>;
 
     /**
      * Release resources used for AVImageGenerator.
