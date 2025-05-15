@@ -1594,6 +1594,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
 
   /**
+   * Set font line spacing with options.
+   *
+   * @param { LengthMetrics } value
+   * @param { LineSpacingOptions } options
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAreaAttribute;
+
+  /**
    * Called when the line height of the font is set.
    * 
    * <p><strong>NOTE</strong>:

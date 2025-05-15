@@ -1403,3 +1403,24 @@ declare enum KeyboardAppearance {
    */
   DARK_IMMERSIVE = 3,
 }
+
+  /**
+   * Defines the line spacing options.
+   * @interface LineSpacingOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  declare interface LineSpacingOptions {
+  /**
+   * Used to set whether it will only take effect between lines. 
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onlyBetweenLines?: boolean;
+}
