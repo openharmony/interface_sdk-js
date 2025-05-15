@@ -18,6 +18,7 @@
  * @kit ArkData
  */
 
+import lang from '../arkts/@arkts.lang';
 import relationalStore from './@ohos.data.relationalStore';
 
 /**
@@ -32,11 +33,11 @@ declare namespace sendableRelationalStore {
    * Defines information of an asset.
    *
    * @interface Asset
-   * @extends ISendable
+   * @extends lang.ISendable
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  interface Asset extends ISendable {
+  interface Asset extends lang.ISendable {
     /**
      * Name of the asset.
      *
