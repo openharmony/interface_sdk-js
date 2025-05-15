@@ -27539,7 +27539,8 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  */
 declare class CustomComponent extends BaseCustomComponent {
   /**
-   * aboutToReuse Method
+   * Invoked when a reusable custom component is re-added to the node tree
+   * from the reuse cache to receive construction parameters of the component.
    *
    * @param { object } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27547,7 +27548,8 @@ declare class CustomComponent extends BaseCustomComponent {
    * @since 10
    */
   /**
-   * aboutToReuse Method
+   * Invoked when a reusable custom component is re-added to the node tree
+   * from the reuse cache to receive construction parameters of the component.
    *
    * @param { object } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27596,8 +27598,8 @@ declare class CustomComponent extends BaseCustomComponent {
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
-   * aboutToReuse Method for @ComponentV2, it is executed when fetching instance of custom component from RecyclePool.
-   * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
+   * Invoked when a reusable custom component managed by state management V2
+   * is taken from the reuse pool and reinserted into the node tree.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -27660,37 +27662,41 @@ declare class BaseCustomComponent extends CommonAttribute {
   build(): void;
 
   /**
-   * aboutToAppear Method
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
+   * Invoked after a new instance of the custom component is created
+   * and before its build() function is executed. You can change state variables in aboutToAppear.
+   * The change will take effect when you execute the build() function next time.
+   * The aboutToAppear lifecycle callback of a custom component with a custom layout
+   * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * aboutToAppear Method
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
+   * Invoked after a new instance of the custom component is created
+   * and before its build() function is executed. You can change state variables in aboutToAppear.
+   * The change will take effect when you execute the build() function next time.
+   * The aboutToAppear lifecycle callback of a custom component with a custom layout
+   * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * aboutToAppear Method
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
+   * Invoked after a new instance of the custom component is created
+   * and before its build() function is executed. You can change state variables in aboutToAppear.
+   * The change will take effect when you execute the build() function next time.
+   * The aboutToAppear lifecycle callback of a custom component with a custom layout
+   * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * aboutToAppear Method
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
+   * Invoked after a new instance of the custom component is created
+   * and before its build() function is executed. You can change state variables in aboutToAppear.
+   * The change will take effect when you execute the build() function next time.
+   * The aboutToAppear lifecycle callback of a custom component with a custom layout
+   * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -27698,10 +27704,11 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 11
    */
   /**
-   * aboutToAppear Method and it is migrated from class CustomComponent.
-   *
-   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
-   * 
+   * Invoked after a new instance of the custom component is created
+   * and before its build() function is executed. You can change state variables in aboutToAppear.
+   * The change will take effect when you execute the build() function next time.
+   * The aboutToAppear lifecycle callback of a custom component with a custom layout
+   * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -27711,37 +27718,33 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToAppear?(): void;
 
   /**
-   * aboutToDisappear Method
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
+   * Invoked when this component is about to disappear.
+   * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
+   * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * aboutToDisappear Method
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
+   * Invoked when this component is about to disappear.
+   * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
+   * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * aboutToDisappear Method
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
+   * Invoked when this component is about to disappear.
+   * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
+   * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * aboutToDisappear Method
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
+   * Invoked when this component is about to disappear.
+   * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
+   * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -27749,10 +27752,9 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 11
    */
   /**
-   * aboutToDisappear Method and it is migrated from class CustomComponent.
-   *
-   * The aboutToDisappear function executes before a custom component is destroyed. 
-   * 
+   * Invoked when this component is about to disappear.
+   * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
+   * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -29054,7 +29056,10 @@ declare interface ItemDragEventHandler {
  */
 declare class DynamicNode<T> {
   /**
-   * Set the move action.
+   * Invoked when data is moved during drag and drop sorting.
+   * This callback is only applicable in a List component.
+   * where each ForEach iteration generates a ListItem component.
+   * It allows you to define custom drag actions and handle various drag events.
    *
    * @param { Optional<OnMoveHandler> } handler
    * @returns { T }
@@ -29066,7 +29071,10 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * Set the move action.
+   * Invoked when data is moved during drag and drop sorting.
+   * This callback is only applicable in a List component.
+   * where each ForEach iteration generates a ListItem component.
+   * It allows you to define custom drag actions and handle various drag events.
    *
    * @param { Optional<OnMoveHandler> } handler
    * @param { ItemDragEventHandler } eventHandler
@@ -29382,7 +29390,9 @@ declare interface LightSource {
 }
 
 /**
- * Defining wrapBuilder function.
+ * wrapBuilder is a template function that returns a WrappedBuilder object.
+ * wrapBuilder only accepts a global @Builder decorated function as its argument.
+ * Of the WrappedBuilder object it returns, the builder attribute method can be used only inside the struct.
  * @param { function } builder
  * @returns { WrappedBuilder<Args> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29390,7 +29400,9 @@ declare interface LightSource {
  * @since 11
  */
 /**
- * Defining wrapBuilder function.
+ * wrapBuilder is a template function that returns a WrappedBuilder object.
+ * wrapBuilder only accepts a global @Builder decorated function as its argument.
+ * Of the WrappedBuilder object it returns, the builder attribute method can be used only inside the struct.
  * @param { function } builder
  * @returns { WrappedBuilder<Args> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29401,13 +29413,13 @@ declare interface LightSource {
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
- * Defines the WrappedBuilder class.
+ * The WrappedBuilder object is also a template class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
 /**
- * Defines the WrappedBuilder class.
+ * The WrappedBuilder object is also a template class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -29415,12 +29427,14 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  */
 declare class WrappedBuilder<Args extends Object[]> {
   /**
+   * global @Builder decorated function.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
+   * global @Builder decorated function.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

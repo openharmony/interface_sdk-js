@@ -3805,7 +3805,7 @@ export class UIContext {
   px2lpx(value: number): number;
 
   /**
-   * Get current LocalStorage shared from stage.
+   * Obtains the LocalStorage instance shared by this stage.
    *
    * @returns { LocalStorage | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
