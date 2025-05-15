@@ -1607,6 +1607,8 @@ export interface OverlayManagerOptions {
 
 /**
  * Register callbacks to observe ArkUI behavior.
+ * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
+ * then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1614,6 +1616,8 @@ export interface OverlayManagerOptions {
  */
 /**
  * Register callbacks to observe ArkUI behavior.
+ * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
+ * then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2917,6 +2921,7 @@ export abstract class FrameCallback {
    * Call when a new display frame is being rendered.
    *
    * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2927,7 +2932,8 @@ export abstract class FrameCallback {
   /**
    * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame, in nanoseconds.
+   * Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3680,6 +3686,13 @@ export class UIContext {
 
   /**
    * Get FrameNode by uniqueId.
+   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
+   * The return value depends on the type of component associated with the uniqueId.
+   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
+   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
+   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
+   * component is returned.
+   * 3. If the uniqueId does not correspond to any component, null is returned.
    *
    * @param { number } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.

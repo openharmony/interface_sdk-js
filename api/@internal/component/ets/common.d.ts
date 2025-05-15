@@ -1294,7 +1294,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  *
  * @param { Object } component - indicate the component on the page.
+ * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
+ * The default context is the context obtained by tracing the call chain of the API.
+ * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
+ * instance may fail to be traced. In this case, undefined is returned.
  * @returns { Context }
+ * The context type depends on the ability type.
+ * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
+ * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @since 9
@@ -1303,7 +1310,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  *
  * @param { Object } component - indicate the component on the page.
+ * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
+ * The default context is the context obtained by tracing the call chain of the API.
+ * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
+ * instance may fail to be traced. In this case, undefined is returned.
  * @returns { Context }
+ * The context type depends on the ability type.
+ * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
+ * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -1313,7 +1327,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  *
  * @param { Object } component - indicate the component on the page.
+ * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
+ * The default context is the context obtained by tracing the call chain of the API.
+ * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
+ * instance may fail to be traced. In this case, undefined is returned.
  * @returns { Context }
+ * The context type depends on the ability type.
+ * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
+ * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -1856,6 +1877,11 @@ declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
+ * The value format is 'belonging.type.name'.
+ * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
+ * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
+ * 'strarray', 'string', or 'media'.
+ * name: resource name, which is determined during resource definition.
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1865,6 +1891,11 @@ declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
+ * The value format is 'belonging.type.name'.
+ * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
+ * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
+ * 'strarray', 'string', or 'media'.
+ * name: resource name, which is determined during resource definition.
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1875,6 +1906,11 @@ declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
+ * The value format is 'belonging.type.name'.
+ * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
+ * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
+ * 'strarray', 'string', or 'media'.
+ * name: resource name, which is determined during resource definition.
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1886,6 +1922,11 @@ declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
+ * The value format is 'belonging.type.name'.
+ * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
+ * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
+ * 'strarray', 'string', or 'media'.
+ * name: resource name, which is determined during resource definition.
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1900,6 +1941,10 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  *
  * @param { string } value
+ * name of the file in the resources/rawfile directory of the project.
+ * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
+ * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
+ * string.
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1908,6 +1953,10 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  *
  * @param { string } value
+ * name of the file in the resources/rawfile directory of the project.
+ * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
+ * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
+ * string.
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -1917,6 +1966,10 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  *
  * @param { string } value
+ * name of the file in the resources/rawfile directory of the project.
+ * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
+ * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
+ * string.
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1927,6 +1980,10 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  *
  * @param { string } value
+ * name of the file in the resources/rawfile directory of the project.
+ * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
+ * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
+ * string.
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6281,6 +6338,7 @@ declare type TransitionEffects = {
 
 /**
  * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
+ * Each DrawModifier instance can be set for only one component. Repeated setting is not allowed.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6324,6 +6382,7 @@ declare class DrawModifier {
   
   /**
    * Invalidate the component, which will cause a re-render of the component.
+   * No overloading is allowed or needed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7261,26 +7320,38 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
 
 /**
  * Converts a value in vp units to a value in px.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Converts a value in vp units to a value in px.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
  */
 /**
  * Converts a value in vp units to a value in px.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7288,9 +7359,13 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  */
 /**
  * Converts a value in vp units to a value in px.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7303,26 +7378,38 @@ declare function vp2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of vp.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Converts a number in units of px to a number in units of vp.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
  */
 /**
  * Converts a number in units of px to a number in units of vp.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7330,9 +7417,13 @@ declare function vp2px(value: number): number;
  */
 /**
  * Converts a number in units of px to a number in units of vp.
+ * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
+ * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7347,7 +7438,9 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
@@ -7355,7 +7448,9 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -7364,7 +7459,9 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7374,7 +7471,9 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7389,7 +7488,9 @@ declare function fp2px(value: number): number;
  * Converts a number in units of px to a number in units of fp.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
@@ -7397,7 +7498,9 @@ declare function fp2px(value: number): number;
  * Converts a number in units of px to a number in units of fp.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -7406,7 +7509,9 @@ declare function fp2px(value: number): number;
  * Converts a number in units of px to a number in units of fp.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7416,7 +7521,9 @@ declare function fp2px(value: number): number;
  * Converts a number in units of px to a number in units of fp.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7431,7 +7538,9 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
@@ -7439,7 +7548,9 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -7448,7 +7559,9 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7458,7 +7571,9 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7473,7 +7588,9 @@ declare function lpx2px(value: number): number;
  * Converts a number in units of px to a number in units of lpx.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
@@ -7481,7 +7598,9 @@ declare function lpx2px(value: number): number;
  * Converts a number in units of px to a number in units of lpx.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -7490,7 +7609,9 @@ declare function lpx2px(value: number): number;
  * Converts a number in units of px to a number in units of lpx.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -7500,7 +7621,9 @@ declare function lpx2px(value: number): number;
  * Converts a number in units of px to a number in units of lpx.
  *
  * @param { number } value
+ * Value range of value: (-∞, +∞).
  * @returns { number }
+ * Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -18524,6 +18647,9 @@ declare interface ContentModifier<T> {
    * Defining applyContent function.
    * 
    * @returns { WrappedBuilder<[T]> }
+   * Component attribute class, which is used to distinguish different information required by different components
+   * after content areas are customized, for example, ButtonConfiguration for the Button component and
+   * CheckBoxConfiguration of the Checkbox component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19430,6 +19556,8 @@ declare class CommonMethod<T> {
    * Sets the drawModifier of the current component.
    *
    * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
+   * Default value: undefined
+   * A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19440,6 +19568,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the custom property of the current component.
+   * This API does not work for custom components.
    *
    * @param { string } name - the name of the custom property.
    * @param { Optional<Object> } value - the value of the custom property.
@@ -25700,6 +25829,8 @@ declare class CommonMethod<T> {
    * Sets the attribute modifier.
    *
    * @param { AttributeModifier<T> } modifier
+   * The if/else syntax is supported.
+   * You need a custom class to implement the AttributeModifier API.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -28434,6 +28565,9 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * Get uniqueId of the custom component.
+   * This unique ID is assigned by the system to each component.
+   * If this API is called before the component's corresponding node is created or after it has been destroyed, an
+   * invalid unique ID, which is -1, will be returned.
    *
    * @returns { number } - The uniqueId of the custom component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28443,6 +28577,9 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   /**
    * Get uniqueId of the custom component and it is migrated from class CustomComponent.
+   * This unique ID is assigned by the system to each component.
+   * If this API is called before the component's corresponding node is created or after it has been destroyed, an
+   * invalid unique ID, which is -1, will be returned.
    *
    * @returns { number } - The uniqueId of the custom component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
