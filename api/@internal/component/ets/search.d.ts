@@ -368,7 +368,15 @@ declare interface SearchOptions {
    * @atomicservice
    * @since 18
    */
-  value?: string;
+   /**
+   * Text input in the search text box.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  value?: ResourceStr;
 
   /**
    * Text displayed when there is no input.
@@ -832,7 +840,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  searchButton(value: string, option?: SearchButtonOptions): SearchAttribute;
+  /**
+   * Set the search button text, fontSize and fontColor
+   *
+   * @param { ResourceStr } value - indicates the text of the search button.
+   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
 
   /**
    * Set the text Color

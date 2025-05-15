@@ -3211,7 +3211,18 @@ declare class RichEditorController extends RichEditorBaseController {
    * @atomicservice
    * @since 11
    */
-  addTextSpan(value: string, options?: RichEditorTextSpanOptions): number;
+   /**
+   * Add a text span.
+   *
+   * @param { ResourceStr } content - text value.
+   * @param { RichEditorTextSpanOptions } [options] - span info.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
 
   /**
    * Add a image span.
