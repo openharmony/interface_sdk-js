@@ -1935,7 +1935,7 @@ declare namespace audio {
      * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     volumeMode?: AudioVolumeMode;
   }
@@ -4311,6 +4311,15 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+    /**
+     * Checks whether the specified audio source type supports echo cancellation
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+     isAcousticEchoCancelerSupported(sourceType: SourceType): boolean;
   }
 
   /**
@@ -4593,13 +4602,10 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     getAppVolumePercentageForUid(uid: number): Promise<number>;
 
@@ -4611,14 +4617,11 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
 
@@ -4632,13 +4635,10 @@ declare namespace audio {
      * @returns { Promise<boolean> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
 
@@ -4651,14 +4651,11 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
 
@@ -4666,7 +4663,7 @@ declare namespace audio {
      * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     getAppVolumePercentage(): Promise<number>;
 
@@ -4679,13 +4676,10 @@ declare namespace audio {
      * 'appVolumeChange' callback.
      * @param { number } volume - Volume to set. The value range is from 0 to 100.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     setAppVolumePercentage(volume: number): Promise<void>;
 
@@ -4737,13 +4731,10 @@ declare namespace audio {
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
 
@@ -4755,13 +4746,10 @@ declare namespace audio {
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 18
+     * @since 19
      */
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
@@ -4770,12 +4758,9 @@ declare namespace audio {
      * or other system settings.
      * @param { 'appVolumeChange' } type - Type of the event to listen for. Only the appVolumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4784,12 +4769,9 @@ declare namespace audio {
      * @param { 'appVolumeChange' } type - Type of the event to be unregistered. Only the appVolumeChange event
      * is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified.
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
   }
@@ -6616,19 +6598,19 @@ declare namespace audio {
    * Volume mode.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 18
+   * @since 19
    */
   enum AudioVolumeMode {
     /**
      * Audio volume affected by system volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     SYSTEM_GLOBAL = 0,
     /**
      * Audio volume affected by app's individual percentage.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     APP_INDIVIDUAL = 1
   }
@@ -6695,7 +6677,7 @@ declare namespace audio {
      * Audio volume mode of this volume event
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since 19
      */
     volumeMode?: AudioVolumeMode;
   }
@@ -8470,7 +8452,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 14
      */
-    SOURCE_TYPE_UNPROCESSED = 14
+    SOURCE_TYPE_UNPROCESSED = 14,
+    /**
+     * live broadcast source type. 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    SOURCE_TYPE_LIVE = 17
   }
 
   /**

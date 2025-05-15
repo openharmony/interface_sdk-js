@@ -102,6 +102,20 @@ declare namespace uiEffect {
      * @since 13
      */
     distort(distortionK: number): Filter;
+
+    /**
+     * Adds the content radius gradient blurring effect for the current component. The input parameter is the blurring radius.
+     *
+     * @param { number } value - the blurring radius.
+     * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+     * @param { LinearGradientBlurOptions } options - the radius gradient blur options.
+     * @returns { Filter } - Returns radius gradient blur Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 19
+     */
+    radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
   }
 
   /**

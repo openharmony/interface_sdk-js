@@ -208,7 +208,17 @@ declare interface TextPickerOptions {
    * @atomicservice
    * @since 11
    */
-  value?: string | string[];
+  /**
+   * Value of the current selection.
+   * Only valid when only text is displayed.
+   *
+   * @type { ?(ResourceStr | ResourceStr[]) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  value?: ResourceStr | ResourceStr[];
 
   /**
    * Current selected subscript.
@@ -1337,7 +1347,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -1348,7 +1358,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundEffect?: BackgroundEffectOptions;
 

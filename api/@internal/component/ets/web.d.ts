@@ -792,13 +792,13 @@ declare enum CacheMode {
    * @since 11
    */
   /**
-  * Load online and not cache.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @crossplatform
-  * @atomicservice
-  * @since 18
-  */
+   * Load online and not cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   Online = 2,
 
   /**
@@ -1780,7 +1780,7 @@ declare class JsResult {
   /**
    * Handle the user's JavaScript result if confirm the prompt dialog.
    *
-   * @param { string } result
+   * @param { string } result - The content of the dialog box entered by the user.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1830,7 +1830,7 @@ declare class FileSelectorResult {
   /**
    * select a list of files.
    *
-   * @param { Array<string> } fileList
+   * @param { Array<string> } fileList - List of files that need to be operated.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -2776,7 +2776,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 9
    */
   /**
-   * Support for pasting.
+   * Pasting is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2969,6 +2969,8 @@ declare class WebContextMenuParam {
    * Horizontal offset coordinates of the menu within the Web component.
    *
    * @returns { number } The context menu x coordinate.
+   *                     Returns a non-negative integer if normal, otherwise returns -1.
+   *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -2986,6 +2988,8 @@ declare class WebContextMenuParam {
    * Vertical offset coordinates for the menu within the Web component.
    *
    * @returns { number } The context menu y coordinate.
+   *                     Returns a non-negative integer if normal, otherwise returns -1.
+   *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3087,7 +3091,7 @@ declare class WebContextMenuParam {
   /**
    * Returns the text of the selection.
    *
-   * @returns { string } Returns the text of the selection.
+   * @returns { string } Returns the text of the selection, or return null if no text is selected.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3267,6 +3271,10 @@ declare class WebContextMenuResult {
    */
   /**
    * Executes the paste operation related to this context menu.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
+   * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4444,11 +4452,14 @@ declare class WebController {
   clearHistory(): void;
 
   /**
-   * Executes a JavaScript script. This API uses an asynchronous callback to return the script execution result.
-   * This interface must be used on the UI thread, and the callback will also be executed on the UI thread.
+   * Asynchronously execute JavaScript in the context of the currently displayed page.
+   * The result of the script execution will be returned through an asynchronous callback.
+   * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+   * <p><strong>API Note</strong>:<br>
    * The state of JavaScript is no longer persisted across navigations like loadUrl.
    * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
    * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+   * <p>
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
@@ -4501,18 +4512,7 @@ declare class WebController {
   stop();
 
   /**
-   * Registers a proxy for interaction between the application and web pages loaded by the Web component.
-   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * After this API is called, call refresh for the registration to take effect.
-   * <p><strong>API Note</strong>:<br>
-   * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memony leak.
-   * It is recommended that registerJavaScriptProxy be used only with trusted URLs and over secure HTTPS connections.
-   * Injecting JavaScript objects into untrused web commponents can expose your application to malicious attacks.
-   * After registerJavaScriptProxy is called, the application exposes the registered JavaScript object to all page frames.
-   * If a registerJavaScriptProxy is both registered in the synchronous and asynchronous list, it is called asynchronously by default.
-   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.
-   * Otherwise, this API fails to be registered.
-   * <p>
+   * Registers the JavaScript object and method list.
    *
    * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
@@ -6543,6 +6543,7 @@ declare interface OnLoadInterceptEvent {
 declare interface OnOverScrollEvent {
   /**
    * Based on the leftmost part of the page, the horizontal scroll offset is over.
+   * Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6553,6 +6554,7 @@ declare interface OnOverScrollEvent {
 
   /**
    * Based on the top of the page, the vertical scroll offset is over.
+   * Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6570,6 +6572,15 @@ declare interface OnOverScrollEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the JavaScript object to be injected.
+ *
+ * @typedef JavaScriptProxy
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare interface JavaScriptProxy {
   /**
    * Objects participating in registration.
@@ -6578,6 +6589,15 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Objects participating in registration.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   object: object;
 
@@ -6590,6 +6610,16 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The name of the registered object, which is consistent with the
+   *                          object name called in the window.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   name: string;
 
   /**
@@ -6601,6 +6631,16 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The method of the application side JavaScript object participating
+   *                                       in the registration.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   methodList: Array<string>;
 
   /**
@@ -6611,6 +6651,15 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Controller.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   controller: WebController | WebviewController;
 
   /**
@@ -6620,6 +6669,15 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The async method of the application side JavaScript object participating in the registration.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   asyncMethodList?: Array<string>;
 
@@ -6836,12 +6894,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
-   * </p> 
+   * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6850,12 +6903,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
-   * </p> 
+   * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is true.
@@ -6869,7 +6917,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
+   * directory can still be accessed through the file protocol.
    * </p> 
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
@@ -6978,8 +7027,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-   * By default, this features is disabled.
+   * Sets how to load HTTP and HTTPS content.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6987,8 +7035,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-   * By default, this features is disabled.
+   * Sets how to load HTTP and HTTPS content.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6997,8 +7044,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-  * Sets whether to enable loading of HTTP and HTTPS hybrid content can be loaded.
-  * By default, this features is disabled.
+  * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
+  * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
+  * 
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7089,7 +7137,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7097,11 +7147,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * <p><strong>API Note</strong>:
+   * <strong>Performance Note</strong>:
+   * <p>For details about how to arkWeb rendering framework adaptation solution,
+   * see [ArkWeb Rendering Framework Adaptation]
+   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
+   * </p>
+   *
+   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
@@ -7247,8 +7315,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the over-scroll mode for web
+   * When the scrolling mode is enabled, when the user slides to the edge on the web root page, the web will bounce back
+   * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce back.
    *
    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+   *    The default value is OverScrollMode.NEVER.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7331,6 +7402,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets the initial scale for the Web.
    *
    * @param { number } percent the initial scale for the Web.
+   *                           Value range: (0, 1000].
+   *                           Default value: 100.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7405,8 +7478,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
   /**
-   * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7414,8 +7486,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Called when the web page starts to be loaded. 
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading. 
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7424,8 +7495,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7436,7 +7506,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called when the web page starts to be loaded.
-   * This API is called only for the main frame content, and not for the iframe or frameset content.
+   * This API is called only for the main frame, and not for the iframe or frameset content.
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7478,8 +7548,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Triggered when the title of the main application document changes.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7487,8 +7556,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Triggered when the title of the main application document changes.
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7498,8 +7566,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
+   * Notifies the application that the title has changed..
+   * If the page being loaded does not specify a title via the <title> element,
+   * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7669,6 +7738,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
    *
    * @param { Callback<OnConfirmEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript confirm() dialog.
+   *     {@code true} means the application can call the custom pop-up capability (including confirmation and cancellation), and needs to call JsResult
+   *                  to notify the Web component whether to leave the current page based on the user's confirmation or cancellation operation.
+   *     {@code false} means the custom pop-up drawn in the function is invalid.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7699,6 +7771,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
    *
    * @param { Callback<OnPromptEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript prompt() dialog.
+   *     {@code true} means the application can call the custom pop-up window capability (including confirmation, cancellation, and input),and needs to
+   *                   call JsResult to notify the Web component of the final processing result based on the user's confirmation or cancellation operation.
+   *     {@code false} means the pop-up window processing result is considered as a cancellation.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7729,6 +7804,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page receives a JavaScript console message.
    *
    * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a JavaScript console message.
+   *     {@code true} means the message will no longer be printed to the console.
+   *     {@code false} means it will still be printed to the console.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7946,8 +8023,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the file selector shows.
+   * Call this function to handle HTML forms with a "file" input type. If this function is not called or returns false,
+   * the web component provides the default "select file" handling interface. If it returns true, the application can customize
+   * the "select file" response behavior.
    *
    * @param { Callback<OnShowFileSelectorEvent, boolean> } callback The triggered when the file selector shows.
+   *     {@code true} means the user can call the system-provided pop-up window capability.
+   *     {@code false} means the custom pop-up window drawn in the function is invalid.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8245,6 +8327,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when called to allow custom display of the context menu.
    *
    * @param { Callback<OnContextMenuShowEvent, boolean> } callback The triggered callback when called to allow custom display of the context menu.
+   *     {@code true} means the custom menu is triggered.
+   *     {@code false} means the custom menu is invalid.
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8758,6 +8842,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether paint horizontal scroll bar.
    *
+   * <p><strong>API Note</strong>:<br>
+   * After controlling the horizontal scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
+   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
+   * </p>
+   *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
    *    The default value is true.
    * @returns { WebAttribute }
@@ -8778,7 +8867,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether paint vertical scroll bar.
+   * Set whether paint vertical scroll bar, including the system default scrollbar and user-defined scrollbar.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * After controlling the vertical scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
+   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
+   * </p>
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
    *    The default value is true.
@@ -9142,7 +9236,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
   /**
-   * Injects a JavaScript script into the Web component.
+   * Injects the JavaScripts script into the Web component.
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
@@ -9160,7 +9254,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects a JavaScript script into the Web component. When the specified page or document has been loaded,
+   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
    * the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
    * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
@@ -9197,6 +9291,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called to setting the nested scroll options.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
+   * to achieve scrolling linkage with the parent component.<br>
+   * When value is of type NestedScrollOptionsExt (four directions: up, down, left, and right), the default scrolling options
+   * for scrollUp, scrollDown, scrollLeft, and scrollRight are NestedScrollMode.SELF_FIRST.<br>
+   * When value is of type NestedScrollOptions (two directions: forward and backward), the default scrolling options for scrollForward
+   * and scrollBackward are NestedScrollMode.SELF_FIRST.<br>
+   * Supported nested scrolling containers: Grid, List, Scroll, Swiper, Tabs, WaterFlow, Refresh, bindSheet.<br>
+   * Supported nested scrolling input events: gestures, mouse, and trackpad.<br>
+   * In nested scrolling scenarios, since web scrolling to the edge will prioritize triggering the overscroll bounce effect,
+   * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
+   * </p>
    *
    * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
    *     nested scrolling.
@@ -9283,7 +9390,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Called to set copy option
    *
-   * @param { CopyOptions } value - copy option.
+   * @param { CopyOptions } value - copy option.The default value is CopyOptions.LocalDevice.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9347,8 +9454,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Set the custom text menu.
+   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon, and callback method.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * This interface only supports selecting plain text. When the selected content contains images and other non-text content,
+   * garbled characters will be displayed in the action information.
+   * </p>
    *
    * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   *                                                                 The number of menu items, the content size of the menu, and the startIcon
+   *                                                                 icon size are consistent with the ArkUI Menu component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
@@ -9409,7 +9524,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set the custom text menu.
    *
+   * <p><strong>API Note</strong>:<br>
+   * The onCreateMenu interface is used to modify, add, and delete menu options.If you want to hide the text menu,
+   * you need to return an empty array.<br>
+   * The onMenuItemClick interface allows you to define the callback function for menu options.This function is
+   * triggered when a menu option is clicked, and it determines whether to execute the system's default callback
+   * based on the return value. Returning true prevents the system callback from executing, while returning false
+   * continues with the system callback.<br>
+   * The editMenuOptions interface makes the selectionMenuOptions (deprecated) not work when used at the same time.
+   * </p>
+   *
    * @param { EditMenuOptions } editMenu - Customize text menu options.
+   *                                       The number of menu items, as well as the content size and icon size of the menu,
+   *                                       should be consistent with the ArkUI Menu component.
+   *                                       The system-provided id enumeration values (TextMenuItemId) in the menu are only
+   *                                       supportedfor CUT, COPY, PASTE, and SELECT_ALL in the web.
+   *                                       The textRange parameter in the onMenuItemClick function is meaningless in the web,
+   *                                       and the input value is -1.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12

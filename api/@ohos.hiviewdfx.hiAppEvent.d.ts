@@ -48,7 +48,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare namespace hiAppEvent {
   /**
@@ -73,7 +73,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   enum EventType {
     /**
@@ -95,7 +95,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     FAULT = 1,
 
@@ -118,7 +118,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     STATISTIC = 2,
 
@@ -141,7 +141,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     SECURITY = 3,
 
@@ -164,7 +164,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     BEHAVIOR = 4
   }
@@ -184,7 +184,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   namespace domain {
     /**
@@ -200,7 +200,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     const OS: string;
   }
@@ -227,7 +227,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   namespace event {
     /**
@@ -288,7 +288,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     const APP_CRASH: string;
 
@@ -387,7 +387,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   namespace param {
     /**
@@ -409,7 +409,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     const USER_ID: string;
 
@@ -432,7 +432,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     const DISTRIBUTED_SERVICE_NAME: string;
 
@@ -455,7 +455,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
   }
@@ -493,7 +493,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function configure(config: ConfigOption): void;
 
@@ -519,7 +519,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface ConfigOption {
     /**
@@ -544,7 +544,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     disable?: boolean;
 
@@ -588,7 +588,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface AppEventInfo {
     /**
@@ -613,7 +613,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     domain: string;
 
@@ -639,7 +639,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     name: string;
 
@@ -665,7 +665,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     eventType: EventType;
 
@@ -691,7 +691,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     params: object;
   }
@@ -750,7 +750,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function write(info: AppEventInfo): Promise<void>;
 
@@ -808,7 +808,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
@@ -827,7 +827,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   type ParamType = number | string | boolean | Array<string>;
 
@@ -862,7 +862,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
@@ -903,7 +903,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface AppEventPackage {
     /**
@@ -928,7 +928,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     packageId: number;
 
@@ -954,7 +954,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     row: number;
 
@@ -980,7 +980,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     size: number;
 
@@ -1006,7 +1006,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     data: string[];
 
@@ -1025,7 +1025,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1049,7 +1049,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   class AppEventPackageHolder {
     /**
@@ -1074,7 +1074,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     constructor(watcherName: string);
 
@@ -1108,7 +1108,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     setSize(size: number): void;
 
@@ -1133,7 +1133,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     setRow(size: number): void;
 
@@ -1159,7 +1159,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     takeNext(): AppEventPackage;
   }
@@ -1186,7 +1186,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface TriggerCondition {
     /**
@@ -1211,7 +1211,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     row?: number;
 
@@ -1237,7 +1237,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     size?: number;
 
@@ -1263,7 +1263,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     timeOut?: number;
   }
@@ -1290,7 +1290,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface AppEventFilter {
     /**
@@ -1315,7 +1315,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     domain: string;
 
@@ -1341,7 +1341,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     eventTypes?: EventType[];
 
@@ -1360,7 +1360,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     names?: string[];
   }
@@ -1380,7 +1380,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface AppEventGroup {
     /**
@@ -1398,7 +1398,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     name: string;
 
@@ -1417,7 +1417,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1444,7 +1444,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface Watcher {
     /**
@@ -1469,7 +1469,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     name: string;
 
@@ -1495,7 +1495,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     triggerCondition?: TriggerCondition;
 
@@ -1521,7 +1521,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     appEventFilters?: AppEventFilter[];
 
@@ -1547,7 +1547,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
 
@@ -1566,7 +1566,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
   }
@@ -1619,7 +1619,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
@@ -1656,7 +1656,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -1682,7 +1682,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function clearData(): void;
 
@@ -1709,7 +1709,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function setUserId(name: string, value: string): void;
 
@@ -1736,7 +1736,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getUserId(name: string): string;
 
@@ -1763,7 +1763,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function setUserProperty(name: string, value: string): void;
 
@@ -1790,7 +1790,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getUserProperty(name: string): string;
 

@@ -478,7 +478,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
@@ -494,7 +494,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 16
@@ -1291,6 +1291,18 @@ declare namespace geoLocationManager {
    * @since 14
    */
   function getCurrentWifiBssidForLocating(): string;
+
+  /**
+   * Obtains the distance between two locations.
+   *
+   * @param { Location } location1 - Indicates first location.
+   * @param { Location } location2 - Indicates second location.
+   * @returns { number } Returns the distance between two locations.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getDistanceBetweenLocations(location1: Location, location2: Location): number;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -2161,6 +2173,16 @@ declare namespace geoLocationManager {
      * @since 18
      */
     sportsType?: SportsType;
+
+    /**
+     * Indicates whether to obtain POI information near the current location.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    needPoi?: boolean;
   }
 
   /**
@@ -2191,6 +2213,16 @@ declare namespace geoLocationManager {
      * @since 12
      */
     locatingTimeoutMs: number;
+
+    /**
+     * Indicates whether to obtain POI information near the current location.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    needPoi?: boolean;
   }
 
   /**
@@ -2456,6 +2488,16 @@ declare namespace geoLocationManager {
      * @since 12
      */
     sourceType?: LocationSourceType;
+
+    /**
+     * Indicates the poi information.
+     *
+     * @type { ?PoiInfo }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    poi?: PoiInfo;
   }
 
   /**
@@ -2699,6 +2741,147 @@ declare namespace geoLocationManager {
      * @since 16
      */
     connectable: boolean;
+  }
+
+  /**
+   * Describes the information about a single POI.
+   *
+   * @typedef Poi
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 19
+   */
+  export interface Poi {
+    /**
+     * Indicates the ID of a POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    id: string;
+
+    /**
+     * Indicates the confidence of POI information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    confidence: number;
+
+    /**
+     * Indicates the name of the POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    name: string;
+
+    /**
+     * Indicates the latitude of POI.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    latitude: number;
+
+    /**
+     * Indicates the longitude of POI.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    longitude: number;
+
+    /**
+     * Indicates administrative region name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    administrativeArea: string;
+
+    /**
+     * Indicates sub-administrative region name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    subAdministrativeArea: string;
+
+    /**
+     * Indicates locality information.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    locality: string;
+
+    /**
+     * Indicates sub-locality information.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    subLocality: string;
+
+    /**
+     * Indicates the detailed address of the POI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    address: string;
+  }
+
+
+  /**
+   * Describes the POI information struct.
+   *
+   * @typedef PoiInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 19
+   */
+  export interface PoiInfo {
+    /**
+     * Indicates POI information list.
+     *
+     * @type { Array<Poi> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    poiArray: Array<Poi>;
+
+    /**
+     * Indicates the timestamp when the POI information is obtained.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 19
+     */
+    timestamp: number;
   }
 
   /**

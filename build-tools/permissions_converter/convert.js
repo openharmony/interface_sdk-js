@@ -66,9 +66,11 @@ const getPermissions = downloadPath => {
   try {
     const content = fs.readFileSync(downloadPath, { encoding: 'utf8' });
     const configMap = JSON.parse(decodeURIComponent(content));
-    if (configMap.module.definePermissions) {
-      return configMap.module.definePermissions;
-    }
+    return configMap.definePermissions.filter(permission => {
+      if (permission.availableType) {
+        return permission.availableType !== 'SERVICE';
+      }
+    });
   } catch (error) {
     console.error('Convert json file to object failed');
   }

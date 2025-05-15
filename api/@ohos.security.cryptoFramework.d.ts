@@ -134,6 +134,16 @@ declare namespace cryptoFramework {
     ERR_RUNTIME_ERROR = 17620002,
 
     /**
+     * Indicates that parameter check failed.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ERR_PARAMETER_CHECK_FAILED = 17620003,
+
+    /**
      * Indicates that crypto operation error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8989,6 +8999,86 @@ declare namespace cryptoFramework {
      * @since 12
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
+  }
+
+  /**
+   * Defines the ECC signature spec, also works with SM2 signature.
+   *
+   * @typedef EccSignatureSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Signature
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+
+  interface EccSignatureSpec {
+    /**
+     * Indicates the r value of the signature.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    r: bigint;
+
+    /**
+     * Indicates the s value of the signature.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    s: bigint;
+  }
+
+  /**
+   * Utilities for signature operations.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework.Signature
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class SignatureUtils {
+    /**
+     * Generates the ECC signature spec from the ECC signature in DER format.
+     *
+     * @param { Uint8Array } data - indicates the signature in DER format.
+     * @returns { EccSignatureSpec } the ECC signature spec.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The length of the data parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec;
+
+    /**
+     * Generates the ECC signature in DER format according to the ECC signature spec.
+     *
+     * @param { EccSignatureSpec } spec - indicates the ECC signature spec.
+     * @returns { Uint8Array } the signature in DER format.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The r or s value of the spec parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static genEccSignature(spec: EccSignatureSpec): Uint8Array;
   }
 }
 

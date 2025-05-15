@@ -349,16 +349,16 @@ declare namespace wantConstant {
     * Indicates the dest ability refers to a plugin ability.
     *
     * @syscap SystemCapability.Ability.AbilityBase
-    * @since 18
+    * @since 19
     */
     DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
     /**
-    * Indicates the param of the bundleName Trust list when implicitly launching applications.
+    * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
-    * @since 18
+    * @since 17
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList'
   }

@@ -99,7 +99,8 @@ declare namespace display {
   function getDefaultDisplaySync(): Display;
 
   /**
-   * Obtain the primary display.
+   * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
+   * For 2in1 devices with an external screen, the Display object obtained is the primary screen. For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
    *
    * @returns { Display } the result of primary display
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -402,10 +403,10 @@ declare namespace display {
   function off(type: 'foldAngleChange', callback?: Callback<Array<number>>): void;
 
   /**
-   * Register the callback for device capture status changes.
+   * Register the callback for device capture, casting, or recording status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -416,10 +417,10 @@ declare namespace display {
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture status changes.
+   * Unregister the callback for device capture, casting, or recording status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status .
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -431,9 +432,9 @@ declare namespace display {
 
 
   /**
-   * Check whether the device is captured.
+   * Check whether the device is captured, projected, or recorded.
    *
-   * @returns { boolean } true means the device is captured.
+   * @returns { boolean } true means the device is captured, projected, or recorded.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -480,12 +481,10 @@ declare namespace display {
    * @param { FoldDisplayMode } mode target display mode to change.
    * @param { string } reason set display mode reason.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 19
    */
   function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
@@ -725,14 +724,14 @@ declare namespace display {
   }
 
   /**
-   * Enumerates the fold status.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
    */
   /**
-   * Enumerates the fold status.
+   * Enumerates the fold status.For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -755,13 +754,13 @@ declare namespace display {
      */
     FOLD_STATUS_UNKNOWN = 0,
     /**
-     * Fold Status Expanded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Expanded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -769,13 +768,13 @@ declare namespace display {
      */
     FOLD_STATUS_EXPANDED,
     /**
-     * Fold Status Folded.
+     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Folded.
+     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -783,13 +782,13 @@ declare namespace display {
      */
     FOLD_STATUS_FOLDED,
     /**
-     * Fold Status Half Folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Half Folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1143,7 +1142,7 @@ declare namespace display {
      * @enum { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
   enum DisplaySourceMode {
     /**
@@ -1151,7 +1150,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     NONE = 0,
  
@@ -1160,7 +1159,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MAIN = 1,
 
@@ -1169,7 +1168,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MIRROR = 2,
 
@@ -1178,7 +1177,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     EXTEND = 3,
 
@@ -1187,7 +1186,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     ALONE = 4
   }
@@ -1619,14 +1618,14 @@ declare namespace display {
     name: string;
 
     /**
-     * The display is alive.
+     * Whether the display is alive.
      *
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The display is alive.
+     * Whether the display is alive.
      *
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1765,14 +1764,14 @@ declare namespace display {
     availableHeight: number;
 
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1780,7 +1779,7 @@ declare namespace display {
      * @since 11
      */
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1810,14 +1809,14 @@ declare namespace display {
     orientation: Orientation;
 
     /**
-     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1937,7 +1936,7 @@ declare namespace display {
      * @type { ?DisplaySourceMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     sourceMode?: DisplaySourceMode;
  
@@ -1947,7 +1946,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     x?: number;
   
@@ -1957,7 +1956,7 @@ declare namespace display {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     y?: number;
 

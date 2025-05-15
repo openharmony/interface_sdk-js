@@ -222,7 +222,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 143000001 - IPC error
+   * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9
@@ -246,7 +246,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 143000001 - IPC error
+   * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9
@@ -264,7 +264,7 @@ declare namespace fileShare {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
@@ -281,7 +281,7 @@ declare namespace fileShare {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
@@ -298,7 +298,7 @@ declare namespace fileShare {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
@@ -315,7 +315,7 @@ declare namespace fileShare {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
@@ -331,7 +331,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 12
    */
@@ -343,7 +343,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 17
    */

@@ -481,6 +481,21 @@ declare namespace pointer {
      * @since 10
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
+    /**
+     * Touchpad two fingers tap or right button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
+
+      /**
+     * Touchpad two fingers tap or left button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
 
   /**
@@ -1549,7 +1564,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
-   * @throws { BusinessError } 26500001 - Invalid windowId.
+   * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15
    */

@@ -99,7 +99,7 @@ declare interface CrossLanguageOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface InteractionEventBindingInfo {
   /**
@@ -109,7 +109,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   baseEventRegistered: boolean;
 
@@ -120,7 +120,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   nodeEventRegistered: boolean;
 
@@ -131,7 +131,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   nativeEventRegistered: boolean;
 
@@ -142,7 +142,7 @@ declare interface InteractionEventBindingInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   builtInEventRegistered: boolean;
 }
@@ -872,7 +872,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 }
@@ -1173,7 +1173,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined;
 
@@ -1373,7 +1373,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined;
 
@@ -1490,7 +1490,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined;
 
@@ -1562,7 +1562,7 @@ export namespace typeNode {
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 
@@ -1921,7 +1921,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined;
 

@@ -311,7 +311,7 @@ declare enum LayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum TabsCacheMode {
   /**
@@ -320,7 +320,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_BOTH_SIDE = 0,
 
@@ -330,7 +330,7 @@ declare enum TabsCacheMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   CACHE_LATEST_SWITCHED = 1
 }
@@ -1306,6 +1306,19 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barHeight(value: Length): TabsAttribute;
 
   /**
+   * Sets the animation curve
+   *
+   * @param { Curve | ICurve } curve - animation curve for tabs switch animation,
+   *     Curve is an enumeration type for common curves, ICurve is a curve object.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+   animationCurve(curve: Curve | ICurve): TabsAttribute;
+
+  /**
    * Called when the animation duration of the bar graph is set.
    *
    * @param { number } value
@@ -1729,6 +1742,31 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
   /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } style - style indicate the blur style for the tab bar
+   * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
+
+  /**
+   * Set the BackgroundEffect of the tab bar.
+   *
+   * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
+
+  /**
    * Called when content will change.
    *
    * @param { function } handler
@@ -1764,7 +1802,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   cachedMaxCount(count: number, mode: TabsCacheMode): TabsAttribute;
 }

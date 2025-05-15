@@ -179,10 +179,9 @@ declare namespace media {
    * Create media source from media stream array.
    * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
 
@@ -3879,7 +3878,7 @@ declare namespace media {
    * @typedef MediaStream
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   interface MediaStream {	
     /**
@@ -3887,7 +3886,7 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     url: string;
  
@@ -3896,7 +3895,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     width: number;
  
@@ -3905,7 +3904,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     height: number;
  
@@ -3914,7 +3913,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     bitrate: number;
   }
@@ -3989,7 +3988,12 @@ declare namespace media {
      */
     preferredHeight?: number;
     /**
-     * Choose a preferred buffer duration.
+     * Chooses a preferred buffer duration.
+     * 
+     * <p>The preferred buffer duration in the playback policy, is used to set the buffer size. For details,
+     * see [Online Video Frame Freezing Optimization Practice]{@link
+     * https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-online-video-playback-lags-practice}.</p>
+     * 
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -4728,7 +4732,7 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setMetadata(metadata: Record<string, string>): void;
 
@@ -6682,6 +6686,12 @@ declare namespace media {
      * @since 18
      */
     CFT_AMR = 'amr',
+    /**
+     * A audio container format type aac with ADTS.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 20
+     */
+    CFT_AAC = 'aac',
   }
 
   /**

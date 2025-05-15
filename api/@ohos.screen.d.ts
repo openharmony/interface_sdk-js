@@ -361,7 +361,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
 
@@ -782,7 +782,7 @@ declare namespace screen {
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * Active the mode
+     * Set the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
@@ -797,7 +797,7 @@ declare namespace screen {
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Active the mode
+     * Sets the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
@@ -898,7 +898,7 @@ declare namespace screen {
   }
 
   /**
-   * The information of the screen
+   * The information of the screen mode
    *
    * @interface ScreenModeInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -907,7 +907,7 @@ declare namespace screen {
    */
   interface ScreenModeInfo {
     /**
-     * Screen id
+     * Mode id
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core

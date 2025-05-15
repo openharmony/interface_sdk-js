@@ -464,6 +464,7 @@ declare namespace webview {
      */
     /**
      * Get the hit test extra data.
+     * If the clicked area is an image or a link, the additional parameter information is it's URL address.
      *
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
@@ -1612,7 +1613,8 @@ declare namespace webview {
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
@@ -1629,7 +1631,8 @@ declare namespace webview {
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1643,7 +1646,8 @@ declare namespace webview {
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1660,7 +1664,8 @@ declare namespace webview {
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1673,7 +1678,8 @@ declare namespace webview {
      * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1688,8 +1694,10 @@ declare namespace webview {
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265. 
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
@@ -1706,8 +1714,10 @@ declare namespace webview {
      *                                in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1725,8 +1735,10 @@ declare namespace webview {
      *                                      {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1740,8 +1752,10 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -1761,8 +1775,10 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14
      */
@@ -1776,8 +1792,10 @@ declare namespace webview {
      * @param { AsyncCallback<void> } callback - Called after the cookies have been set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3806,7 +3824,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -3840,7 +3859,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -3853,7 +3873,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3868,7 +3889,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3982,6 +4004,7 @@ declare namespace webview {
      * Let the Web zoom by.
      *
      * @param { number } factor - The zoom factor.
+     *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -3991,6 +4014,10 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom by.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * zoomAccess must be true.
+     * </p>
      *
      * @param { number } factor - The zoom factor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4026,6 +4053,7 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom in.
+     * Call this interface to enlarge the current page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4058,6 +4086,7 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom out.
+     * Call this interface to shrink the current page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4338,7 +4367,17 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Registers the JavaScript object and method list.
+     * Registers the supplied ArkTs object into this Web component.
+     * The object is registered into all frames of the web page, including all iframes, using the specified name.
+     * This allows the methods of the ArkTs object to be accessed from JavaScript.
+     * <p><strong>API Note</strong>:<br>
+     * Registed objects will not appear in JavaScript until the page is next (re)load.
+     * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
+     * To avoid security risks, it is recommended that registerJavaScriptProxy be used with trusted web components.
+     * If the same method is registered repeatedly in both synchronous and asynchronous list, it will default to an asynchronous method.
+     * The synchronous function list and asynchronous function list cannot be empty at the same time.<br>
+     * otherwise, this registration will fail.
+     *  <p>
      *
      * @param { object } object - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
@@ -4356,6 +4395,27 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Registers the JavaScript object and method list.
+     *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
+     *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
@@ -4383,6 +4443,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Deletes a registered JavaScript object with given name.
+     *
+     * @param { string } name - The name of a registered JavaScript object to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     deleteJavaScriptRegister(name: string): void;
 
@@ -5023,9 +5097,10 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
+     * @param { number } x - the x of the position.Unit: vp.
+     * @param { number } y - the y of the position.Unit: vp.
      * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5065,9 +5140,14 @@ declare namespace webview {
     /**
      * Scroll by the delta position.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * <p><strong>API Note</strong>:<br>
+     * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
+     * </p>
+     *
+     * @param { number } deltaX - the delta x of the position.Unit: vp.
+     * @param { number } deltaY - the delta y of the position.Unit: vp.
      * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5243,7 +5323,8 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5253,7 +5334,8 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5265,8 +5347,9 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5275,8 +5358,9 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - Invalid url.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5365,7 +5449,8 @@ declare namespace webview {
      * @param { string } url - The download url.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5375,7 +5460,8 @@ declare namespace webview {
      * @param { string } url - The download url.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -5392,7 +5478,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5406,7 +5493,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -5455,7 +5543,13 @@ declare namespace webview {
      * Set whether scroll is allowed
      *
      * @param { boolean } enable - Set whether scrolling is allowed
+     *                             {@code true} means scrolling is allowed.
+     *                             {@code false} means scrolling is disabled.
      * @param { ScrollType } type - Enable scrolling type
+     *                              When the input parameter enable is false, it indicates that scrolling of the ScrollType type is prohibited.When ScrollType
+     *                              is not specified,it indicates that all types of webpage scrolling are prohibited.
+     *                              When the input parameter enable is true, regardless of whether ScrollType is specified, it indicates that all types
+     *                              of webpage scrolling are allowed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5836,7 +5930,8 @@ declare namespace webview {
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
      *    2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5934,7 +6029,8 @@ declare namespace webview {
     /**
      * Warmup the registered service worker associated the url.
      * @param { string } url - The url.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5951,7 +6047,8 @@ declare namespace webview {
      *    2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *    The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
+     * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
      */
@@ -8523,133 +8620,274 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
+  /**
+   * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 19
+   */
   enum ProxySchemeFilter {
-      /**
-       * This indicates all the schemes will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_ALL_SCHEMES = 0,
-      /**
-       * This indicates only the HTTP requests will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_HTTP = 1,
-      /**
-       * This indicates only the HTTPS requests will use the proxy.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      MATCH_HTTPS = 2,
+    /**
+     * This indicates all the schemes will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * This indicates all the schemes will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    MATCH_ALL_SCHEMES = 0,
+    /**
+     * This indicates only the HTTP requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * This indicates only the HTTP requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    MATCH_HTTP = 1,
+    /**
+     * This indicates only the HTTPS requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * This indicates only the HTTPS requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    MATCH_HTTPS = 2,
   }
+
   /**
    * The ProxyConfig used by applyProxyOverride.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
+  /**
+   * The ProxyConfig used by applyProxyOverride.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 19
+   */
   class ProxyConfig {
-      /**
-       * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
-       * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
-       * "https://www.example.com" and "http://test.example.com" will connect the server directly.
-       *
-       * @param { string } bypassRule - The bypass rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertBypassRule(bypassRule: string): void;
-      /**
-       * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
-       *
-       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
-      /**
-       * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
-       * use the proxy rule if schemeFilter is null.
-       *
-       * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
-       * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
-       * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
-       *
-       * e.g. example.com host: example.com
-       *      https://example.com  scheme: https  host: example.com
-       *      example.com:8888     host: example.com  port: 8888
-       *      https://example.com:8888  scheme:https  host: example.com  port:8888
-       *      192.168.1.1  host: 192.168.1.1
-       *      192.168.1.1:8888  host:192.168.1.1 port: 8888
-       *      [10:20:30:40:50:60:70:80]
-       *
-       * @param { string } proxyRule - The proxy rule.
-       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
-      /**
-       * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
-       * Examples: "abc", "local", "some-domain".
-       *
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      bypassHostnamesWithoutPeriod(): void;
-      /**
-       * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
-       * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
-       * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
-       *
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      clearImplicitRules(): void;
-      /**
-       * Reverse the bypass rules.
-       *
-       * If false all URLs will use proxy settings except URLs match the bypass rules.
-       * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
-       *
-       * @param { boolean } reverse - If reverse the bypass rule.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-       * <br>2. Incorrect parameter types.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      enableReverseBypass(reverse: boolean): void;
-      /**
-       * Returns the bypass rules.
-       *
-       * @returns { Array<string> } The bypass rules.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getBypassRules(): Array<string>;
-      /**
-       * Returns the proxy rules.
-       *
-       * @returns { Array<ProxyRule> } The proxy rules.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getProxyRules(): Array<ProxyRule>;
-      /**
-       * Returns if reverse bypass rules.
-       *
-       * @returns { boolean } If reverse bypass enabled.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      isReverseBypassEnabled(): boolean;
+    /**
+     * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
+     * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
+     * "https://www.example.com" and "http://test.example.com" will connect the server directly.
+     *
+     * @param { string } bypassRule - The bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
+     * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
+     * "https://www.example.com" and "http://test.example.com" will connect the server directly.
+     *
+     * @param { string } bypassRule - The bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    insertBypassRule(bypassRule: string): void;
+
+    /**
+     * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
+     *
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
+     *
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
+
+    /**
+     * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
+     * use the proxy rule if schemeFilter is null.
+     *
+     * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
+     * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
+     * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
+     *
+     * e.g. example.com host: example.com
+     *      https://example.com  scheme: https  host: example.com
+     *      example.com:8888     host: example.com  port: 8888
+     *      https://example.com:8888  scheme:https  host: example.com  port:8888
+     *      192.168.1.1  host: 192.168.1.1
+     *      192.168.1.1:8888  host:192.168.1.1 port: 8888
+     *      [10:20:30:40:50:60:70:80]
+     *
+     * @param { string } proxyRule - The proxy rule.
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
+     * use the proxy rule if schemeFilter is null.
+     *
+     * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
+     * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
+     * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
+     *
+     * e.g. example.com host: example.com
+     *      https://example.com  scheme: https  host: example.com
+     *      example.com:8888     host: example.com  port: 8888
+     *      https://example.com:8888  scheme:https  host: example.com  port:8888
+     *      192.168.1.1  host: 192.168.1.1
+     *      192.168.1.1:8888  host:192.168.1.1 port: 8888
+     *      [10:20:30:40:50:60:70:80]
+     *
+     * @param { string } proxyRule - The proxy rule.
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
+
+    /**
+     * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
+     * Examples: "abc", "local", "some-domain".
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
+     * Examples: "abc", "local", "some-domain".
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    bypassHostnamesWithoutPeriod(): void;
+
+    /**
+     * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
+     * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
+     * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
+     * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
+     * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    clearImplicitRules(): void;
+
+    /**
+     * Reverse the bypass rules.
+     *
+     * If false all URLs will use proxy settings except URLs match the bypass rules.
+     * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
+     *
+     * @param { boolean } reverse - If reverse the bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Reverse the bypass rules.
+     *
+     * If false all URLs will use proxy settings except URLs match the bypass rules.
+     * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
+     *
+     * @param { boolean } reverse - If reverse the bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    enableReverseBypass(reverse: boolean): void;
+
+    /**
+     * Returns the bypass rules.
+     *
+     * @returns { Array<string> } The bypass rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Returns the bypass rules.
+     *
+     * @returns { Array<string> } The bypass rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    getBypassRules(): Array<string>;
+
+    /**
+     * Returns the proxy rules.
+     *
+     * @returns { Array<ProxyRule> } The proxy rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Returns the proxy rules.
+     *
+     * @returns { Array<ProxyRule> } The proxy rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    getProxyRules(): Array<ProxyRule>;
+
+    /**
+     * Returns if reverse bypass rules.
+     *
+     * @returns { boolean } If reverse bypass enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Returns if reverse bypass rules.
+     *
+     * @returns { boolean } If reverse bypass enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    isReverseBypassEnabled(): boolean;
   }
 
   /**
@@ -8658,23 +8896,47 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
+  /**
+   * The ProxyRule used by insertProxyRule.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 19
+   */
   class ProxyRule {
-      /**
-       * Returns the scheme filter used for this rule.
-       *
-       * @returns { ProxySchemeFilter } The scheme filter used for this rule.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getSchemeFilter(): ProxySchemeFilter;
-      /**
-       * Returns the proxy URL.
-       *
-       * @returns { string } The proxy URL.
-       * @syscap SystemCapability.Web.Webview.Core
-       * @since 15
-       */
-      getUrl(): string;
+    /**
+     * Returns the scheme filter used for this rule.
+     *
+     * @returns { ProxySchemeFilter } The scheme filter used for this rule.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Returns the scheme filter used for this rule.
+     *
+     * @returns { ProxySchemeFilter } The scheme filter used for this rule.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    getSchemeFilter(): ProxySchemeFilter;
+
+    /**
+     * Returns the proxy URL.
+     *
+     * @returns { string } The proxy URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    /**
+     * Returns the proxy URL.
+     *
+     * @returns { string } The proxy URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
+    getUrl(): string;
   }
 
   /**
@@ -8684,6 +8946,14 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
+  /**
+   * The callback for proxy changed.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 19
+   */
   type OnProxyConfigChangeCallback = () => void;
 
   /**
@@ -8691,6 +8961,13 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
+   */
+  /**
+   * This class is used for set proxy for ArkWeb.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 19
    */
   class ProxyController {
     /**
@@ -8706,7 +8983,22 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
+    /**
+     * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
+     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
+     * the listener before loading a page. This listener will be called on the UI thread.
+     * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
+     *
+     * @param { ProxyConfig } proxyConfig - The proxy config.
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
+
     /**
      * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
      * will be called on the UI thread.
@@ -8717,8 +9009,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
+    /**
+     * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
+     * will be called on the UI thread.
+     *
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 19
+     */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
-}
+  }
+
 }
 
 export default webview;

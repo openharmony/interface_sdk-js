@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
 import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
@@ -88,8 +88,6 @@ declare namespace commonEventManager {
    *
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -97,7 +95,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 20
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -156,8 +154,6 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -165,7 +161,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 20
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -192,15 +188,13 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 19
+   * @since 20
    */
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -231,15 +225,13 @@ declare namespace commonEventManager {
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 19
+   * @since 20
    */
   function publishAsUser(
     event: string,
@@ -357,8 +349,6 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -366,9 +356,27 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 20
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
+
+  /**
+   * Subscribes to a common event, and returns the result by promise that resolves with a success or
+   * <br> rejects with a failure code.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { Callback<CommonEventData> } callback - The callback function used to receive the CommonEventData object.
+   * @returns { Promise<void> } A promise that indicates whether the subscription was successful.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500010 - The count of subscriber exceed system specification.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
   /**
    * Unsubscribe from an ordered, sticky, or standard common event.
@@ -2328,6 +2336,18 @@ declare namespace commonEventManager {
      * @since 15
      */
     COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
+
+    /**
+     * Indicates that the default application is changed.
+     * To subscribe to this common event, your application must have the ohos.permission.CHANGE_DEFAULT_APPLICATION
+     * permission.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 19
+     */
+    COMMON_EVENT_DEFAULT_APPLICATION_CHANGED = 'usual.event.DEFAULT_APPLICATION_CHANGED',
   }
 
   /**

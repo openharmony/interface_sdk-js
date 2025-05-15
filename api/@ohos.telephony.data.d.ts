@@ -70,7 +70,7 @@ declare namespace data {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
@@ -93,7 +93,7 @@ declare namespace data {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
@@ -166,7 +166,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
@@ -181,7 +181,7 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
@@ -196,7 +196,7 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 12
    */
@@ -214,7 +214,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -230,7 +230,7 @@ declare namespace data {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -249,7 +249,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -265,7 +265,7 @@ declare namespace data {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -287,7 +287,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
@@ -307,7 +307,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
@@ -327,7 +327,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 12
    */
@@ -347,7 +347,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -368,7 +368,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -389,7 +389,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -410,7 +410,7 @@ declare namespace data {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7

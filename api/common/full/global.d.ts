@@ -127,6 +127,18 @@ export declare function createLocalParticleAbility(name?: string): any;
 export declare function canIUse(syscap: string): boolean;
 
 /**
+ * Defining apiversion function.
+ *
+ * @param { string } apiversion
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 19
+ */
+export declare function isApiVersionGreaterOrEqual(apiversion: string): boolean;
+
+/**
  * Obtain the objects exposed in app.js
  *
  * @returns { object }

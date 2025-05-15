@@ -343,7 +343,7 @@ declare interface WaterFlowOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -353,7 +353,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
@@ -364,7 +364,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
@@ -376,7 +376,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
@@ -390,7 +390,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void;
 

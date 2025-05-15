@@ -1108,7 +1108,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -1147,7 +1147,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1187,7 +1187,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1229,7 +1229,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1272,7 +1272,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1316,7 +1316,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -1356,7 +1356,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1397,7 +1397,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1440,7 +1440,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1484,7 +1484,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1528,7 +1528,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -1568,7 +1568,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1609,7 +1609,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1652,7 +1652,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1696,7 +1696,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1740,7 +1740,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -1781,7 +1781,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
@@ -1822,7 +1822,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 15
@@ -1865,7 +1865,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1909,7 +1909,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -1950,7 +1950,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
@@ -1991,7 +1991,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 15
@@ -2034,7 +2034,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -2078,7 +2078,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2119,7 +2119,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
@@ -2160,7 +2160,7 @@ declare namespace http {
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 15
@@ -2203,7 +2203,7 @@ declare namespace http {
      * @throws { BusinessError } 2300094 - Authentication error.
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice

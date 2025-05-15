@@ -989,9 +989,9 @@ export class PromptAction {
    * @since 10
    */
   /**
-   * Displays the notification text.
+   * Shows a toast in the given settings.
    *
-   * @param { promptAction.ShowToastOptions } options - Options.
+   * @param { promptAction.ShowToastOptions } options - Toast options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1030,6 +1030,7 @@ export class PromptAction {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1067,10 +1068,11 @@ export class PromptAction {
    * @since 11
    */
   /**
-   * Displays the dialog box.
+   * Shows a dialog box in the given settings. This API uses an asynchronous callback to return the result.
    *
-   * @param { promptAction.ShowDialogOptions } options - Options.
-   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - the callback of showDialog.
+   * @param { promptAction.ShowDialogOptions } options - Dialog box options.
+   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - Callback used to return the dialog
+   * box response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1098,10 +1100,11 @@ export class PromptAction {
    * @since 10
    */
   /**
-   * Displays the dialog box.
+   * Shows a dialog box. This API uses a promise to return the result.
    *
-   * @param { promptAction.ShowDialogOptions } options - Options.
-   * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
+   * @param { promptAction.ShowDialogOptions } options - Dialog box options.
+   * @returns { Promise<promptAction.ShowDialogSuccessResponse> } Promise used to return the dialog
+   * box response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1115,10 +1118,11 @@ export class PromptAction {
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
-   * Displays the menu.
+   * Shows an action menu in the given settings. This API uses an asynchronous callback to return the result.
    *
-   * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
+   * @param { promptAction.ActionMenuOptions } options - Action menu options.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - Callback used to return the action menu
+   * response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1133,10 +1137,11 @@ export class PromptAction {
   showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
 
   /**
-   * Displays the menu.
+   * Shows an action menu in the given settings. This API uses an asynchronous callback to return the result.
    *
-   * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @param { promptAction.ActionMenuOptions } options - Action menu options.
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - Callback used to return the action
+   * menu response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1164,10 +1169,11 @@ export class PromptAction {
    * @since 10
    */
   /**
-   * Displays the menu.
+   * Shows an action menu in the given settings. This API uses an asynchronous callback to return the result.
    *
-   * @param { promptAction.ActionMenuOptions } options - Options.
-   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @param { promptAction.ActionMenuOptions } options - Action menu options.
+   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - Promise used to return the action
+   * menu response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1190,8 +1196,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1202,6 +1208,8 @@ export class PromptAction {
   /**
    * Open the custom dialog with frameNode and controller.
    *
+   * isModal = true and showInSubWindow = true cannot be used at the same time.
+   *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.DialogController } controller - Dialog controller.
    * @param { promptAction.BaseDialogOptions } options - Options.
@@ -1210,8 +1218,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1225,13 +1233,14 @@ export class PromptAction {
    *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.BaseDialogOptions } options - Options.
+   * only alignment, offset, autoCancel, and maskColor can be updated.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1240,16 +1249,16 @@ export class PromptAction {
   updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
-   * Close the custom dialog with frameNode.
+   * Closes a custom dialog box corresponding to dialogContent. This API uses a promise to return the result.
    *
-   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { ComponentContent<T> } dialogContent - Content of the custom dialog box.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1259,6 +1268,8 @@ export class PromptAction {
 
   /**
    * Open the custom dialog.
+   *
+   * isModal = true and showInSubWindow = true cannot be used at the same time.
    *
    * @param { promptAction.CustomDialogOptions } options - Options.
    * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
@@ -1276,6 +1287,8 @@ export class PromptAction {
 
   /**
    * Present the custom dialog with controller.
+   *
+   * isModal = true and showInSubWindow = true cannot be used at the same time.
    *
    * @param { CustomBuilder | CustomBuilderWithId } builder - Dialog builder.
    * @param { promptAction.DialogController } controller - Dialog controller.
@@ -1484,7 +1497,7 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
@@ -1567,7 +1580,17 @@ export interface OverlayManagerOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 19
+   */
+  /**
+   * Set whether support backPressed event or not.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   enableBackPressedEvent?: boolean;
 }
@@ -2032,7 +2055,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'beforePanStart', callback: PanListenerCallback): void;
 
@@ -2045,7 +2068,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'beforePanStart', callback?: PanListenerCallback): void;
 
@@ -2058,7 +2081,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'beforePanEnd', callback: PanListenerCallback): void;
 
@@ -2071,7 +2094,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
 
@@ -2084,7 +2107,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'afterPanStart', callback: PanListenerCallback): void;
 
@@ -2097,7 +2120,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'afterPanStart', callback?: PanListenerCallback): void;
 
@@ -2110,7 +2133,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   on(type: 'afterPanEnd', callback: PanListenerCallback): void;
 
@@ -2123,7 +2146,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
 
@@ -2227,10 +2250,21 @@ export class ComponentUtils {
  */
 export class OverlayManager {
   /**
-   * Add the ComponentContent to the OverlayManager.
+   * Adds a specified ComponentContent node to the OverlayManager.
    *
-   * @param { ComponentContent } content - The content will be added to the OverlayManager.
-   * @param { number } [ index ] - The index at which to add the ComponentContent.
+   * @param { ComponentContent } content - 	Content to add to the new node on the OverlayManager.
+   * <p><strong>NOTE</strong>:
+   * <br>By default, the new node is centered on the page and stacked according to its stacking level.
+   * </p>
+   *
+   * @param { number } [ index ] - Stacking level of the new node on the OverlayManager.
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is greater than or equal to 0, a larger value indicates a higher stacking level; for those that
+   * have the same index, the one that is added at a later time has a higher stacking level. If the value is less than
+   * 0 or is null or undefined, the ComponentContent node is added at the highest level by default. If the same
+   * ComponentContent node is added multiple times, only the last added one is retained.
+   * </p>
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2239,10 +2273,16 @@ export class OverlayManager {
   addComponentContent(content: ComponentContent, index?: number): void;
 
   /**
-   * Add the ComponentContent to the OverlayManager with order.
+   * Creates a floating layer node with the specified display order.
+   * This API allows you to define the stacking order of the nodes when they are created.
    *
-   * @param { ComponentContent } content - The content will be added to the OverlayManager.
-   * @param { LevelOrder } [ levelOrder ] - The display order of the ComponentContent.
+   * @param { ComponentContent } content - Content to add to the new node on the OverlayManager.
+   * <p><strong>NOTE</strong>:
+   * <br>By default, the new node is centered on the page and stacked according to its stacking level.
+   * </p>
+   *
+   * @param { LevelOrder } [ levelOrder ] - The display order of the ComponentContDisplay order of the new floating
+   * layer node, default is LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2251,9 +2291,9 @@ export class OverlayManager {
   addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void;
 
   /**
-   * Remove the ComponentContent from the OverlayManager.
+   * Removes a specified ComponentContent node from the OverlayManager
    *
-   * @param { ComponentContent } content - The content will be removed from the OverlayManager.
+   * @param { ComponentContent } content - Content to remove from the OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3197,9 +3237,9 @@ export class UIContext {
    * @since 10
    */
   /**
-   * get object PromptAction.
+   * Obtains a PromptAction object.
    *
-   * @returns { PromptAction } object PromptAction.
+   * @returns { PromptAction } PromptAction object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3244,9 +3284,9 @@ export class UIContext {
   getUIObserver(): UIObserver;
 
   /**
-   * Get object OverlayManager.
+   * Obtains the OverlayManager object.
    *
-   * @returns { OverlayManager } object OverlayManager.
+   * @returns { OverlayManager } OverlayManager instance obtained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3352,9 +3392,10 @@ export class UIContext {
    * @since 10
    */
   /**
-   * alertDialog display.
+   * Shows an alert dialog box.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Shows
+   * an AlertDialog component in the given settings.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3371,9 +3412,9 @@ export class UIContext {
    * @since 10
    */
   /**
-   * actionSheet display.
+   * Shows an action sheet in the given settings.
    *
-   * @param { ActionSheetOptions } value - Options.
+   * @param { ActionSheetOptions } value - Parameters of the action sheet.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -4201,4 +4242,23 @@ export class TextMenuController {
    * @since 16
    */
   setMenuOptions(options: TextMenuOptions): void;
+
+  /**
+   * Disable all system service menus, such as translation and ai writer.
+   * True means disable, false means enable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static disableSystemServiceMenuItems(disable: boolean): void;
+
+  /**
+   * Disable menu action by action id.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static disableMenuItems(items: Array<TextMenuItemId>): void;
 }

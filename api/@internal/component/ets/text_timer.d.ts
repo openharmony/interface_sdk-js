@@ -560,7 +560,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): TextTimerAttribute;
+  /**
+   * Called when the fontWeight is set
+   *
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextTimerAttribute;
 
   /**
    * Called when the fontFamily is set
