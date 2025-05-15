@@ -3080,6 +3080,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setTypingStyle(value: RichEditorTextStyle): void;
 
   /**
+   * Set the typing paragraph style.
+   *
+   * @param { RichEditorParagraphStyle } style - set the typing paragraph style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  setTypingParagraphStyle(style: RichEditorParagraphStyle): void;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the rich editor.
    *
    * @param { number } selectionStart - The start position of the selected text.
