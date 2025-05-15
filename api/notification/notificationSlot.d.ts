@@ -19,6 +19,7 @@
  */
 /*** if arkts 1.1 */
 import notification from '../@ohos.notification';
+import type notificationManager from '../@ohos.notificationManager';
 /*** endif */
 /*** if arkts 1.2 */
 import type notificationManager from '../@ohos.notificationManager';
@@ -59,7 +60,7 @@ export interface NotificationSlot {
    *
    * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
-    * @since 7
+   * @since 7
    * @deprecated since 11
    * @useinstead NotificationSlot#notificationLevel
    */
