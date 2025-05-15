@@ -177,36 +177,36 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_NUMBER: number;
 
   /**
-   * Editor of type USER NAME
+   * Editor of type PATTERN_USER_NAME
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
-  const PATTERN_USER_NAME: number;
+  const PATTERN_USER_NAME: number = 10;
 
   /**
-   * Editor of type NEW PASSWORD
+   * Editor of type PATTERN_NEW_PASSWORD
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
-  const PATTERN_NEW_PASSWORD: number;
+  const PATTERN_NEW_PASSWORD: number = 11;
 
   /**
-   * Editor of type NUMBER DECIMAL
+   * Editor of type PATTERN_NUMBER_DECIMAL
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
-  const PATTERN_NUMBER_DECIMAL: number;
+  const PATTERN_NUMBER_DECIMAL: number = 12;
 
   /**
-   * Editor of type ONE TIME CODE
+   * Editor of type PATTERN_ONE_TIME_CODE
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
-  const PATTERN_ONE_TIME_CODE: number;
+  const PATTERN_ONE_TIME_CODE: number = 13;
 
   /**
    * Editor in SELECTING state
