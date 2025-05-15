@@ -2526,11 +2526,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * let fdUrl:string = 'http://xxx.xxx.xxx/xx/index.srt'
-     * 
-     * let avPlayer: media.AVPlayer = await media.createAVPlayer()
-     * avPlayer.addSubtitleFromUrl(fdUrl)
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
@@ -2662,8 +2657,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * let isSupported = avPlayer.isSeekContinuousSupported()
      */
     isSeekContinuousSupported() : boolean;
 
@@ -2701,8 +2694,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * avPlayer.setSuperResolution(true)
      */
     setSuperResolution(enabled: boolean) : Promise<void>;
 
@@ -3047,9 +3038,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * let bitrate: number = 96000
-     * avPlayer.setBitrate(bitrate)
      */
     setBitrate(bitrate: number): void;
 
