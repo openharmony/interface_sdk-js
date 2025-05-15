@@ -50,6 +50,21 @@ function hasExportModifier(modifiers: readonly ts.Modifier[]): boolean {
   return modifiers.some(m => m.kind === ts.SyntaxKind.ExportKeyword);
 }
 
+function hasDeclareModifier(modifiers: readonly ts.Modifier[]): boolean {
+  return modifiers.some(m => m.kind === ts.SyntaxKind.DeclareKeyword);
+}
+
+function handleClassModifiers(existingModifiers: readonly ts.Modifier[]): ts.Modifier[] {
+  const newModifiers = [...existingModifiers]
+  if (!hasDeclareModifier(existingModifiers)) {
+    newModifiers.unshift(ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword));
+  }
+  if (!hasExportModifier(existingModifiers)) {
+    newModifiers.unshift(ts.factory.createModifier(ts.SyntaxKind.ExportKeyword));
+  }
+  return newModifiers;
+}
+
 function updateNodeWithExport(
   node: ts.Node,
   existingModifiers: readonly ts.Modifier[],
@@ -82,7 +97,7 @@ function updateNodeWithExport(
       const cls = node as ts.ClassDeclaration;
       return ts.factory.updateClassDeclaration(
         cls,
-        newModifiers,
+        handleClassModifiers(existingModifiers),
         cls.name,
         cls.typeParameters,
         cls.heritageClauses,

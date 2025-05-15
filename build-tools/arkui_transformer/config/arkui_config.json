@@ -62,8 +62,6 @@
         "Navigator",
         "NodeContainer",
         "Option",
-        "PageTransitionEnter",
-        "PageTransitionExit",
         "Panel",
         "Particle",
         "Path",
