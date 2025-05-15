@@ -202,6 +202,86 @@ export enum ExpandMode {
 }
 
 /**
+ * Enum for the UI state of one component, which is used for handling of state style.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export enum UIState {
+  /** 
+   * The normal state.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+  */
+  NORMAL = 0,
+
+  /** 
+   * The pressed state.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+  */
+  PRESSED = 1 << 0,
+
+  /** 
+   * The focused state.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+  */
+  FOCUSED = 1 << 1,
+
+  /** 
+   * The disabled state.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+  */
+  DISABLED = 1 << 2,
+
+  /** 
+   * The selected state, this state is only supported by some specific kind of component,
+   * they are Checkbox, Radio, Toggle and List/Grid/MenuItem, please check the StateStyles docs for details.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SELECTED = 1 << 3,
+}
+
+/**
+ * UI state change handling function, it returns the current UI states, the value is the result
+ * of all current state enumeration values or calculations, and you can determine the state
+ * by performing the & operation as follows.
+ *    if (currentStates & UIState.PRESSED == UIState.PRESSEED)
+ * But, please be awared, for the normal state check, the equal should be used directly.
+ *    if (currentStates== UIState.NORMAL)
+ * 
+ * @typedef { function } UIStatesChangeHandler
+ * @param { FrameNode } node - Current node which istriggering the state change.
+ * @param { number } currentUIStates - Current UI states when the handler is triggered.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void;
+
+/**
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -970,6 +1050,45 @@ export class FrameNode {
    * @since 19
    */
   getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
+
+  /**
+   * Adds the polymorphic style states supported by the component. To handle states efficiently, specify the
+   * states of interest and the corresponding handler. When a state of interest occurs, the handler will be executed.
+   *  - You can adjust the UI style based on the current state within the callback. If this API is called multiple
+   * times on the same node, the last set of states and handler will take precedence.
+   *  - Some component types have default system handling for certain states. For example, the <b>Button</b>
+   * component has a default style effect for the PRESSED state. When custom state handling is implemented on such
+   * components, the default style effect will be applied first, followed by the custom style changes, resulting in
+   * a combined effect. To disable the default style effects, set <b>excludeInner</b> to <b>true</b>, if this is allowed
+   * by the system implementation.
+   *  - And when this API is called, the provided handler function will be executed immediately.
+   *  - There is no need to explicitly register a listener for the NORMAL state. Once a non-NORMAL state is registered,
+   * the system will automatically notify your application when the state changes back to NORMAL.
+   *
+   * @param { number } uiStates - The target UI state the node need to handle.
+   *     The combination of all target states can be calculated by the OR operation,
+   *     e.g. targetUIStates = UIState.PRESSED | UIState.FOCUSED.
+   * @param { UIStatesChangeHandler } statesChangeHandler - The UI state chhanging handling function.
+   * @param { boolean } excludeInner - The flag to forbid the inner default state style handling, default is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  addSupportedUIStates(uiStates: number, statesChangeHandler: UIStatesChangeHandler, excludeInner?: boolean): void;
+
+  /**
+   * Removes registered UI states. When all states registered using <b>OH_ArkUI_AddSupportedUIStates</b>
+   * are removed, the registered <b>stateChangeHandler</b> will no longer be executed.
+   * 
+   * @param { number } uiStates - The target UI state the node need to remove from.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  removeSupportedUIStates(uiStates: number): void;
 }
 
 /**
