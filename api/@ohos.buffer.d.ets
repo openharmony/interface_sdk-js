@@ -295,30 +295,6 @@ declare namespace buffer {
   function transcode(source: Buffer | Uint8Array, fromEnc: string, toEnc: string): Buffer
 
   /**
-   * Returns the byte at the specified index.
-   *
-   * @param { number } index - byte index to read
-   * @returns { number | undefined } Returns the byte value at `index`
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  function $_get(index: number): number | undefined;
-
-  /**
-   * Sets the byte at the specified index.
-   *
-   * @param { number } index – byte index to write
-   * @param { number } value – byte value (0–255)
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  function $_set(index: number, value: number): void;
-
-  /**
    * The Buffer object is a method of handling buffers dedicated to binary data.
    *
    * @syscap SystemCapability.Utils.Lang
@@ -1346,6 +1322,30 @@ declare namespace buffer {
      * @since 20
      */
     writeUIntLE(value: number, offset: number, byteLength: number): number;
+
+    /**
+     * Returns the byte at the specified index.
+     *
+     * @param { number } index - byte index to read
+     * @returns { number | undefined } Returns the byte value at `index`
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    $_get(index: number): number | undefined;
+
+    /**
+     * Sets the byte at the specified index.
+     *
+     * @param { number } index – byte index to write
+     * @param { number } value – byte value (0–255)
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    $_set(index: number, value: number): void;
   }
 
   /**
