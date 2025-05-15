@@ -223,21 +223,6 @@ declare namespace reminderAgentManager {
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
 
   /**
-   * Updates a scheduled reminder.
-   *
-   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param { reminderId } number - Indicates the reminder id.
-   * @param { ReminderRequest } reminderReq - Indicates the reminder.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 1700003 - The reminder does not exist.
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 20
-   */
-  function updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise<void>;
-
-  /**
    * Declares action button type.
    *
    * @enum { number }
@@ -477,6 +462,32 @@ declare namespace reminderAgentManager {
   }
 
   /**
+   * Declares ring channel.
+   *
+   * @enum { number }
+   *
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   */
+  export enum RingChannel {
+    /**
+     * Ring channel alarm.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    RING_CHANNEL_ALARM = 0,
+
+    /**
+     * Ring channel alarm.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    RING_CHANNEL_MEDIA = 1,
+  }
+
+  /**
    * Reminder Common information.
    *
    * @interface ReminderRequest
@@ -537,6 +548,15 @@ declare namespace reminderAgentManager {
      * @since 9
      */
     ringDuration?: number;
+
+    /**
+     * Type of the ring channel.
+     *
+     * @type { ?RingChannel }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    ringChannel?: RingChannel;
 
     /**
      * Number of reminder snooze times.
