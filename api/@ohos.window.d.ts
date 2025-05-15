@@ -9160,7 +9160,36 @@ declare namespace window {
      * @atomicservice
      * @since 19
      */
-    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;    
+    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+
+    /**
+     * UIExtension in window secure limit change callback on.
+     * 
+     * @param { 'uiExtensionSecureLimitChange' } eventType The value is fixed at 'uiExtensionSecureLimitChange', indicating the UIExtension secure limit change.
+     * @param { Callback<boolean> } callback Callback used to return the result whether the APP has uiextension secure limit. 
+     * @throws { BusinessError } 801 - Capability not supported.Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
+
+    /**
+     * UIExtension in window secure limit change callback off.
+     *
+     * @param { 'uiExtensionSecureLimitChange' } eventType The value is fixed at 'uiExtensionSecureLimitChange', indicating the UIExtension secure limit change.
+     * @param { Callback<boolean> } callback Callback used to return the result whether the APP has uiextension secure limit. 
+     * @throws { BusinessError } 801 - Capability not supported.Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
+ 
 
     /**
      * Set gray scale of window.
