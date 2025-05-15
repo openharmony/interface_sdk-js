@@ -737,9 +737,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    * 
-   * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading.
+   * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading, Default value is null.
    * @returns { ImageAttribute }
-   * @default null
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -782,9 +781,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { boolean } value - Whether to display the image in the system language direction.
+   * @param { boolean } value - Whether to display the image in the system language direction, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -827,9 +825,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { boolean } value - Whether to fit the image to the size of the image source.
+   * @param { boolean } value - Whether to fit the image to the size of the image source, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -934,9 +931,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets how the image is resized to fit its container.
    *
-   * @param { ImageFit } value - How the image is resized to fit its container.
+   * @param { ImageFit } value - How the image is resized to fit its container, Default value is ImageFit.Cover.
    * @returns { ImageAttribute }
-   * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -992,9 +988,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { ImageRepeat } value - How the image is repeated.
+   * @param { ImageRepeat } value - How the image is repeated, Default value is ImageRepeat.NoRepeat.
    * @returns { ImageAttribute }
-   * @default ImageRepeat.NoRepeat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1039,9 +1034,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * </p>
    *
    * @param { boolean } value - Whether to resize the image source based on the size of the display area
-   * during image decoding.
+   * during image decoding, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1086,9 +1080,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { ImageRenderMode } value - Rendering mode of the image.
+   * @param { ImageRenderMode } value - Rendering mode of the image, Default value is ImageRenderMode.Original.
    * @returns { ImageAttribute }
-   * @default ImageRenderMode.Original
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1105,8 +1098,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * </p>
    *
    * @param { DynamicRangeMode } value - Dynamic range of the image.
-   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
-   * @default dynamicRangeMode.Standard
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute, Default value is
+   * dynamicRangeMode.Standard.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1116,9 +1109,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Set hdrBrightness for Image.
   *
-  * @param { number } brightness - control the brightness of HDR Image
+  * @param { number } brightness - Control the brightness of HDR Image, Default value is 1.0.
   * @returns { ImageAttribute }
-  * @default 1.0
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 20
@@ -1160,9 +1152,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { ImageInterpolation } value - 	Interpolation effect of the image.
+   * @param { ImageInterpolation } value - Interpolation effect of the image, Default value is ImageInterpolation.Low.
    * @returns { ImageAttribute }
-   * @default ImageInterpolation.Low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1271,9 +1262,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { boolean } value - Whether to load the image synchronously. 
+   * @param { boolean } value - Whether to load the image synchronously, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1356,9 +1346,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
    *
-   * @param { CopyOptions } value - Specifies whether the image can be copied.
+   * @param { CopyOptions } value - Specifies whether the image can be copied, Default value is CopyOptions.None.
    * @returns { ImageAttribute }
-   * @default CopyOptions.None
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1371,9 +1360,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Enable image dragging.
    * Default value is false.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the image is draggable, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -1381,9 +1369,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Enable image dragging.
    * Default value is true.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the image is draggable, Default value is true.
    * @returns { ImageAttribute }
-   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -1395,9 +1382,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute cannot be used together with the onDragStart event.
    * </p>
    *
-   * @param { boolean } value - Whether the image is draggable.
+   * @param { boolean } value - Whether the image is draggable, Default value is true.
    * @returns { ImageAttribute }
-   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1857,9 +1843,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>The ohos.permission.INTERNET permission must be declared.
    * </p>
    *
-   * @param { boolean} enable - Whether to enable the AI analyzer.
+   * @param { boolean} enable - Whether to enable the AI analyzer, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -1915,9 +1900,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>Obscuring requires widget framework support.
    * </p>
    *
-   * @param { boolean } supported - Whether to secure sensitive information on widgets.
+   * @param { boolean } supported - Whether to secure sensitive information on widgets, Default value is false.
    * @returns { ImageAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
@@ -1939,9 +1923,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the display orientation of the image content.
    *
-   * @param { ImageRotateOrientation } orientation - Display orientation of the image content.
+   * @param { ImageRotateOrientation } orientation - Display orientation of the image content, Default value
+   * is ImageRotateOrientation.UP.
    * @returns { ImageAttribute }
-   * @default ImageRotateOrientation.UP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
