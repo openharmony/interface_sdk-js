@@ -338,6 +338,70 @@ declare interface EntryOptions {
 }
 
 /**
+ * Provides an interface for the style of an divider including stroke width, color, start margin
+ * and end margin
+ *
+ * @interface DividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface DividerStyle {
+  /**
+   * Define the stroke width of the divider
+   *
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  strokeWidth: Length;
+
+  /**
+   * Define the color of the divider
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the divider
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the divider
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  endMargin?: Length;
+}
+
+/**
  * Defines Entry ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
