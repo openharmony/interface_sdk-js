@@ -280,7 +280,7 @@ declare class WebKeyboardController {
   constructor();
 
   /**
-   * Insert text into Editor.
+   * Insert characters in the Web input field.
    *
    * @param { string } text - text which will be inserted.
    * @syscap SystemCapability.Web.Webview.Core
@@ -289,7 +289,7 @@ declare class WebKeyboardController {
   insertText(text: string): void;
 
   /**
-   * Delete text from back to front.
+   * Deletes the specified length of characters from the back to the front in the Web input field.
    *
    * @param { number } length - length of text, which will be deleted from back to front.
    * @syscap SystemCapability.Web.Webview.Core
@@ -298,7 +298,7 @@ declare class WebKeyboardController {
   deleteForward(length: number): void;
 
   /**
-   * Delete text from front to back.
+   * Delete the specified length of characters in the Web input field from the beginning to the end.
    *
    * @param { number } length - length of text, which will be deleted from front to back.
    * @syscap SystemCapability.Web.Webview.Core
@@ -1340,7 +1340,7 @@ declare enum RenderExitReason {
    * @since 9
    */
   /**
-   * Segmentation fault.
+   * The rendering process crashes and exits, such as a segment error.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1593,7 +1593,7 @@ declare enum RenderProcessNotRespondingReason {
   INPUT_TIMEOUT = 0,
 
   /**
-   * Timeout for navigation commit.
+   * The new webpage loading navigation response timed out.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
@@ -2428,7 +2428,7 @@ declare class ControllerHandler {
    */
   /**
    * Set WebController object.
-   *
+   * Set to null if you don't need to open a new window.
    * @param { WebviewController } controller
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4412,6 +4412,7 @@ declare class WebController {
 
   /**
    * Let the Web inactive.
+   * It is no longer maintained since API version 9, and it is recommended to use {@link onInactive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -4422,6 +4423,7 @@ declare class WebController {
 
   /**
    * Let the Web active.
+   * It is no longer maintained since API version 9, and it is recommended to use {@link onActive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -4670,7 +4672,11 @@ declare interface WebOptions {
    * @since 10
    */
   /**
-   * Sets the address of the web page to be displayed.
+   * Web resource address. If accessing local resource files, please use $rawfile or resource protocol.
+   * If you load a local resource file that applies the sandbox path outside the package (files support html and txt types),
+   * please use the file:// sandbox file path.
+   * Src cannot dynamically change the address through state variables (for example: @State).
+   * If you need to change it, please reload it through {@link loadUrl}.
    *
    * @type { string | Resource }
    * @syscap SystemCapability.Web.Webview.Core
@@ -4703,8 +4709,9 @@ declare interface WebOptions {
    * @since 10
    */
   /**
-   * Sets the controller of the Web.
-   *
+   * Controller, through which you can control various behaviors of Web components
+   * (including page navigation, declaring cycle state, JavaScript interaction and other behaviors).
+   * Since API Version 9, WebController is no longer maintained, so it is recommended to use WebviewController instead.
    * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4747,11 +4754,11 @@ declare interface WebOptions {
   incognitoMode? : boolean;
 
   /**
-   * Sets the shared render process token of the web.
-   * When the web is in multiprocess mode, web with the same
-   * sharedRenderProcessToken will attempt to reuse the same render process.
-   * The shared render process will remain active until all associated
-   * web are destroyed.
+   * A token indicating that the current Web component specifies a shared rendering process.
+   * In the multi-rendering process mode, Web components with the same token will preferentially try to reuse
+   * the rendering process bound to the token.
+   * The binding of token to the rendering process occurs in the initialization stage of the rendering process.
+   * When the rendering process has no associated Web component, its binding relationship with token will be removed.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6703,7 +6710,7 @@ declare interface JavaScriptProxy {
  */
 declare enum WebKeyboardAvoidMode {
   /**
-   * Resize the visual viewport when keyboard avoidance occurs.
+   * When the soft keyboard avoids, only the size of the visual viewport is adjusted, not the size of the layout viewport.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6712,7 +6719,8 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_VISUAL = 0,
 
   /**
-   * Resize the visual and layout viewport when keyboard avoidance occurs.
+   * By default, when the soft keyboard avoids,
+   * the sizes of the visual viewport and the layout viewport are adjusted at the same time.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6721,7 +6729,7 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_CONTENT = 1,
 
   /**
-   * Do not resize any viewport when keyboard avoidance occurs.
+   * Without adjusting any viewport size, soft keyboard avoidance will not be triggered.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7994,7 +8002,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the render process exits.
-   *
+   * Multiple Web components may share a single rendering process, and each affected Web component will trigger the callback.
+   * When the application handles this callback, it can call the related interface of the bound webviewController to
+   * restore the page. Such as {@link refresh}, {@link loadUrl}, etc.
+   * For details of component lifecycle callback, please refer to the lifecycle of Web components.
    * @param { Callback<OnRenderExitedEvent> } callback The triggered when the render process exits.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8520,7 +8531,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when web page requires the user to create a window.
-   *
+   * If the {@link setWebController} interface is not called, the render process will be blocked.
+   * If no new window is created, it is set to null when calling the {@link setWebController} interface,
+   * informing the Web that no new window is created.
+   * The new window should avoid being directly overlaid on the original Web component,
+   * and its URL (such as address bar) should be clearly displayed in the same form as the main page to
+   * prevent users from being confused. If credible URL visualization management cannot be achieved,
+   * it is necessary to consider prohibiting the creation of new windows. It should be noted that the source of
+   * the new window request cannot be traced reliably, and it may be initiated by a third party iframe.
+   * The application needs to take defensive measures such as sandbox isolation and permission restriction
+   * by default to ensure security.
    * @param {  Callback<OnWindowNewEvent> } callback The triggered callback when web page requires the user to create a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8538,8 +8558,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Triggered when web page requires the user to close a window.
-   *
+   * Notifies the user of the window closing request.
+   * Like {@link onWindowNew}, from a security perspective, applications should ensure that users can know that
+   * the page they interact with is closed.
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8559,7 +8580,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Set whether multiple windows are supported.
-   *
+   * When multiple windows permissions are enabled, the {@link onWindowNew} event needs to be implemented.
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
    *    The default value is false.
    * @returns { WebAttribute }
@@ -8579,7 +8600,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Key events notify the application before the WebView consumes them.
-   *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
@@ -9166,8 +9186,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
-   * This callback can not use the interface about manipulating web pages.
+   * The callback is triggered when the Controller is successfully bound to the Web component,
+   * and the Controller must be a WebviewController, and it is forbidden to call the interface related to
+   * the Web component before the event callback, otherwise a js-error exception will be thrown.
+   * Because the webpage has not been loaded when the callback is called, it is impossible to use interfaces related to
+   * operating webpages in the callback, such as {@link zoomIn} and {@link zoomOut}, and you can use interfaces unrelated to
+   * operating webpages such as {@link loadUrl} and {@link getWebId}.
    * @param { function } callback The triggered callback when web controller initialization success.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9434,7 +9458,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when render process not responding.
-   *
+   * If the Web component can't handle the input event, or can't navigate to the new URL within a reasonable time range,
+   * the Web page process is considered unresponsive and the callback will be triggered.
+   * As long as the web process has been unresponsive, this callback may continue to trigger until
+   * the web process responds again, at which time {@link onRenderProcessResponding} will trigger.
+   * Applications can terminate the associated rendering process through the WebviewController interface {@link terminateRenderProcess},
+   * which may affect other Web components in the same rendering process.
    * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9443,7 +9472,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
 
   /**
-   * Triggered when the unresponsive render process becomes responsive.
+   * This callback function is triggered when the rendering process changes from unresponsive state to normal operation state,
+   * which indicates that the webpage is not really stuck.
    *
    * @param { OnRenderProcessRespondingCallback } callback The triggered function when the unresponsive render process becomes responsive.
    * @returns { WebAttribute }
@@ -9484,10 +9514,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 
   /**
-   * When the soft keyboard is about to be displayed on the current Web,
-   * it gives the application the opportunity to intercept the system keyboard attachment.
-   * The application can return the keyboard options to control the web to
-   * pull up the soft keyboard of the different type.
+   * Editable elements (such as input labels) in web pages will call back to this interface before pulling up
+   * the soft keyboard. Applications can use this interface to intercept the pop-up of the system soft keyboard
+   * and configure the application-customized soft keyboard (according to this interface,
+   * the application can decide to use the system default soft keyboard/the system soft keyboard with
+   * the enter key customized/all the soft keyboards customized by the application).
    *
    * @param { WebKeyboardCallback } callback - The callback for onInterceptKeyboardAttach.
    * @returns { WebAttribute }
@@ -9511,9 +9542,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 
   /**
-   * Set web avoidance keyboard mode. The default value is WebKeyboardAvoidMode.RESIZE_CONTENT.
-   *
+   * When the keyboard avoidance mode set by UIContext is {@link KeyboardAvoidMode.RESIZE} mode,
+   * the interface function will not take effect.
    * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
+   *                                        Web soft keyboard avoidance is not recommended in nested scrolling scenes,
+   *                                        including RESIZE_VISUAL and RESIZE_CONTENT.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
