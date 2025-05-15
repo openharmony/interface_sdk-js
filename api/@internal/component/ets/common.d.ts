@@ -26319,26 +26319,32 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   constructor();
 
   /**
-   * border Color
+   * Sets the stroke color.
+   * If this attribute is not set, the component does not have any stroke.
+   * If the value is invalid, no stroke will be drawn.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Stroke color.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * border Color
+   * Sets the stroke color.
+   * If this attribute is not set, the component does not have any stroke.
+   * If the value is invalid, no stroke will be drawn.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Stroke color.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * border Color
+   * Sets the stroke color.
+   * If this attribute is not set, the component does not have any stroke.
+   * If the value is invalid, no stroke will be drawn.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Stroke color.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26346,9 +26352,11 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * border Color
+   * Sets the stroke color.
+   * If this attribute is not set, the component does not have any stroke.
+   * If the value is invalid, no stroke will be drawn.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Stroke color.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26359,26 +26367,32 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   stroke(value: ResourceColor): T;
 
   /**
-   * Fill color.
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Fill color.
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Fill color.
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26386,9 +26400,11 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Fill color.
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26399,26 +26415,35 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   fill(value: ResourceColor): T;
 
   /**
-   * Offset from the start point of the border drawing.
+   * Sets the offset of the start point for drawing the stroke.
+   * An invalid value is handled as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Offset of the start point for drawing the stroke.
+   * Default value: 0
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Offset from the start point of the border drawing.
+   * Sets the offset of the start point for drawing the stroke.
+   * An invalid value is handled as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Offset of the start point for drawing the stroke.
+   * Default value: 0
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Offset from the start point of the border drawing.
+   * Sets the offset of the start point for drawing the stroke.
+   * An invalid value is handled as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Offset of the start point for drawing the stroke.
+   * Default value: 0
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26426,9 +26451,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Offset from the start point of the border drawing.
+   * Sets the offset of the start point for drawing the stroke.
+   * An invalid value is handled as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Offset of the start point for drawing the stroke.
+   * Default value: 0
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26439,26 +26467,26 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeDashOffset(value: number | string): T;
 
   /**
-   * Path endpoint drawing style.
+   * Sets the cap style of the stroke.
    *
-   * @param { LineCapStyle } value
+   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Path endpoint drawing style.
+   * Sets the cap style of the stroke.
    *
-   * @param { LineCapStyle } value
+   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Path endpoint drawing style.
+   * Sets the cap style of the stroke.
    *
-   * @param { LineCapStyle } value
+   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26466,9 +26494,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Path endpoint drawing style.
+   * Sets the cap style of the stroke.
    *
-   * @param { LineCapStyle } value
+   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26479,26 +26507,29 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeLineCap(value: LineCapStyle): T;
 
   /**
-   * Border corner drawing style.
+   * Sets the join style of the stroke.
+   * This attribute does not work for the Circle component, which does not have corners.
    *
-   * @param { LineJoinStyle } value
+   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Border corner drawing style.
+   * Sets the join style of the stroke.
+   * This attribute does not work for the Circle component, which does not have corners.
    *
-   * @param { LineJoinStyle } value
+   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Border corner drawing style.
+   * Sets the join style of the stroke.
+   * This attribute does not work for the Circle component, which does not have corners.
    *
-   * @param { LineJoinStyle } value
+   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26506,9 +26537,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Border corner drawing style.
+   * Sets the join style of the stroke.
+   * This attribute does not work for the Circle component, which does not have corners.
    *
-   * @param { LineJoinStyle } value
+   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26559,26 +26591,35 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeMiterLimit(value: number | string): T;
 
   /**
-   * Sets the opacity of the border.
+   * Sets the stroke opacity.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the opacity of the border.
+   * Sets the stroke opacity.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Sets the opacity of the border.
+   * Sets the stroke opacity.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26586,9 +26627,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the opacity of the border.
+   * Sets the stroke opacity.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26599,26 +26643,35 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeOpacity(value: number | string | Resource): T;
 
   /**
-   * fill Opacity
+   * Sets the opacity of the fill area.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * fill Opacity
+   * Sets the opacity of the fill area.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * fill Opacity
+   * Sets the opacity of the fill area.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26626,9 +26679,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * fill Opacity
+   * Sets the opacity of the fill area.
+   * The value range is [0.0, 1.0].
+   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
+   * Any other value evaluates to the value 1.0.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26639,26 +26695,41 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   fillOpacity(value: number | string | Resource): T;
 
   /**
-   * Sets the width of the dividing line.
+   * Sets the stroke width.
+   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
    *
-   * @param { Length } value
+   * @param { Length } value - Stroke width.
+   * The value must be greater than or equal to 0.
+   * Default value: 1.
+   * Default unit: vp.
+   * An invalid value is handled as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the width of the dividing line.
+   * Sets the stroke width.
+   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
    *
-   * @param { Length } value
+   * @param { Length } value - Stroke width.
+   * The value must be greater than or equal to 0.
+   * Default value: 1.
+   * Default unit: vp.
+   * An invalid value is handled as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Sets the width of the dividing line.
+   * Sets the stroke width.
+   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
    *
-   * @param { Length } value
+   * @param { Length } value - Stroke width.
+   * The value must be greater than or equal to 0.
+   * Default value: 1.
+   * Default unit: vp.
+   * An invalid value is handled as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26666,9 +26737,14 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the width of the dividing line.
+   * Sets the stroke width.
+   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
    *
-   * @param { Length } value
+   * @param { Length } value - Stroke width.
+   * The value must be greater than or equal to 0.
+   * Default value: 1.
+   * Default unit: vp.
+   * An invalid value is handled as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26679,26 +26755,35 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeWidth(value: Length): T;
 
   /**
-   * Indicates whether to enable anti-aliasing
+   * Specifies whether anti-aliasing is enabled.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether anti-aliasing is enabled.
+   * true: Anti-aliasing is enabled.
+   * false: Anti-aliasing is disabled.
+   * Default value: true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Indicates whether to enable anti-aliasing
+   * Specifies whether anti-aliasing is enabled.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether anti-aliasing is enabled.
+   * true: Anti-aliasing is enabled.
+   * false: Anti-aliasing is disabled.
+   * Default value: true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Indicates whether to enable anti-aliasing
+   * Specifies whether anti-aliasing is enabled.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether anti-aliasing is enabled.
+   * true: Anti-aliasing is enabled.
+   * false: Anti-aliasing is disabled.
+   * Default value: true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26706,9 +26791,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Indicates whether to enable anti-aliasing
+   * Specifies whether anti-aliasing is enabled.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether anti-aliasing is enabled.
+   * true: Anti-aliasing is enabled.
+   * false: Anti-aliasing is disabled.
+   * Default value: true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26719,26 +26807,35 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   antiAlias(value: boolean): T;
 
   /**
-   * Sets the gap for the border.
+   * Sets stroke dashes.
+   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Stroke dashes.
+   * Default value: []
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the gap for the border.
+   * Sets stroke dashes.
+   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Stroke dashes.
+   * Default value: []
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Sets the gap for the border.
+   * Sets stroke dashes.
+   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Stroke dashes.
+   * Default value: []
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26746,9 +26843,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the gap for the border.
+   * Sets stroke dashes.
+   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Stroke dashes.
+   * Default value: []
+   * Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
