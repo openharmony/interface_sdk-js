@@ -9007,7 +9007,7 @@ declare interface PickerTextStyle {
    * @since 10
    */
   /**
-   * Font color..
+   * Font color.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
