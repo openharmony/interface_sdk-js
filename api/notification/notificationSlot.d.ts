@@ -17,13 +17,12 @@
  * @file Description of the notification channel
  * @kit NotificationKit
  */
+
 /*** if arkts 1.1 */
 import notification from '../@ohos.notification';
-import type notificationManager from '../@ohos.notificationManager';
 /*** endif */
-/*** if arkts 1.2 */
 import type notificationManager from '../@ohos.notificationManager';
-/*** endif */
+
 
 /**
  * Describes a NotificationSlot instance.
@@ -61,7 +60,7 @@ export interface NotificationSlot {
    * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
-   * @deprecated since 11
+   * @deprecated since 20
    * @useinstead NotificationSlot#notificationLevel
    */
   level?: notification.SlotLevel;
@@ -71,7 +70,7 @@ export interface NotificationSlot {
    *
    * @type { ?notificationManager.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
     notificationLevel?: notificationManager.SlotLevel;
