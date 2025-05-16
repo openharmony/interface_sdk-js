@@ -16982,7 +16982,7 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   /**
-   * The style of popup Shadow.
+   * Popup shadow.
    *
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
