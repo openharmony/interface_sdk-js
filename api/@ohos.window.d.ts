@@ -9568,7 +9568,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    INTERACTIVE,
+    INTERACTIVE = 8,
         /**
      * The window stage is not interactive in the foreground.
      *
