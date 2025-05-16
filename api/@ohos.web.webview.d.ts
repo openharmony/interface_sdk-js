@@ -6234,6 +6234,46 @@ declare namespace webview {
      * @since 18
      */
     getLastHitTest(): HitTestValue;
+
+    /**
+     * Set the default User-Agent for the application.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * Unlike setCustomUserAgent, which only takes effect in the current web context, the
+     * priority for pages loaded in the web is as follows:
+     * 1. The User-Agent set by setCustomUserAgent is used first.
+     * 2. If not set, it will check whether a specific User-Agent has been
+     *    assigned to the current page via setUserAgentForHosts.
+     * 3. If no specific User-Agent is assigned, the application will fall back
+     *    to using the User-Agent set by setAppCustomUserAgent.
+     * 4. If the app's default User-Agent is also not specified, the web's default
+     *    User-Agent will be used as the final fallback.
+     * </p>
+     *
+     * @param { string } userAgent - The User-Agent string.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setAppCustomUserAgent(userAgent: string) : void;
+
+    /**
+     * Set the User-Agent to be used for specified hosts, with a maximum of 20,000 hosts.
+     * <p><strong>API Note</strong>:<br>
+     * Setting the same host list multiple times for the same User-Agent will override
+     * the previous settings. That is, if you want to cancel certain hosts from using
+     * the specified User-Agent, you need to reset the host list for that User-Agent.
+     * </p>
+     *
+     * @param { string } userAgent - The User-Agent string.
+     * @param { Array<string> } hosts - The hosts to which the User-Agent apply.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
   }
 
   /**
