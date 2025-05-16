@@ -68,6 +68,7 @@ declare namespace bundleManager {
    */
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -162,7 +163,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -170,7 +172,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -190,7 +193,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -198,7 +202,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -239,9 +244,12 @@ declare namespace bundleManager {
      * @since 9
      */
     /**
-     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo, abilityInfo and extensionAbility.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIES | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -371,6 +379,7 @@ declare namespace bundleManager {
 
   /**
    * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_APPLICATION_INFO_DEFAULT | GET_APPLICATION_INFO_WITH_PERMISSION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
