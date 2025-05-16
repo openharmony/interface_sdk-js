@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Touch } from './@ohos.multimodalInput.touchEvent';
+
 /**
  * @file
  * @kit InputKit
