@@ -139,6 +139,38 @@ declare namespace insightIntent {
      */
     flags?: number;
   }
+  /**
+   * The class of insight intent result.
+   *
+   * @interface IntentResult<T>
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  interface IntentResult<T> {
+    /**
+     * The result code.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    code: number;
+
+    /**
+     * The insight intent result.
+     *
+     * @type { ?T }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    result?: T;
+  }
 }
 
 export default insightIntent;
