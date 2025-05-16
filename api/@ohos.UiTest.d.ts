@@ -1085,7 +1085,7 @@
     * @since arkts {'1.1':'20','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly x: number;
+   x: number;
    /**
     * The y-coordinate of the coordinate point.
     *
@@ -1123,7 +1123,7 @@
     * @since arkts {'1.1':'20','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly y: number;
+   y: number;
  }
  
  /**
