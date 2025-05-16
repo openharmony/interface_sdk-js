@@ -1078,7 +1078,13 @@ declare interface IMonitorValue<T> {
 }
 
 /**
- * Define AnimatableArithmetic interface
+ * The **AnimatableArithmetic** API defines the animation operation rules for
+ * non-number data types. To animate non-number data (such as arrays, structs,
+ * and colors), implement the addition, subtraction, multiplication, and
+ * equality judgment functions in the **AnimatableArithmetic\<T\>** API.
+ * In this way, the data can be involved in an interpolation operation of the
+ * animation and identify whether the data changes, that is, the non-number data
+ * is defined as the types that implement the **AnimatableArithmetic\<T\>** API.
  *
  * @interface AnimatableArithmetic
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1086,7 +1092,13 @@ declare interface IMonitorValue<T> {
  * @since 10
  */
 /**
- * Define AnimatableArithmetic interface
+ * The **AnimatableArithmetic** API defines the animation operation rules for
+ * non-number data types. To animate non-number data (such as arrays, structs,
+ * and colors), implement the addition, subtraction, multiplication, and
+ * equality judgment functions in the **AnimatableArithmetic\<T\>** API.
+ * In this way, the data can be involved in an interpolation operation of the
+ * animation and identify whether the data changes, that is, the non-number data
+ * is defined as the types that implement the **AnimatableArithmetic\<T\>** API.
  *
  * @interface AnimatableArithmetic
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1096,7 +1108,7 @@ declare interface IMonitorValue<T> {
  */
  declare interface AnimatableArithmetic<T> {
   /**
-   * Define plus method
+   * Defines the addition rule of the data type.
    *
    * @param { AnimatableArithmetic<T> } rhs - another value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -1105,7 +1117,7 @@ declare interface IMonitorValue<T> {
    * @since 10
    */
   /**
-   * Define plus method
+   * Defines the addition rule of the data type.
    *
    * @param { AnimatableArithmetic<T> } rhs - another value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -1117,7 +1129,7 @@ declare interface IMonitorValue<T> {
    plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
   /**
-   * Define subtract method
+   * Defines the subtraction rule of the data type.
    *
    * @param { AnimatableArithmetic<T> } rhs - another value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -1126,7 +1138,7 @@ declare interface IMonitorValue<T> {
    * @since 10
    */
   /**
-   * Define subtract method
+   * Defines the subtraction rule of the data type.
    *
    * @param { AnimatableArithmetic<T> } rhs - another value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -1138,7 +1150,7 @@ declare interface IMonitorValue<T> {
    subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
   /**
-   * Define multiply method
+   * Defines the multiplication rule of the data type.
    *
    * @param { number } scale - scale value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -1147,7 +1159,7 @@ declare interface IMonitorValue<T> {
    * @since 10
    */
   /**
-   * Define multiply method
+   * Defines the multiplication rule of the data type.
    *
    * @param { number } scale - scale value
    * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
@@ -3275,7 +3287,7 @@ declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction
  */
 declare enum FinishCallbackType {
   /**
-   * When the entire animation ends and will be removed immediately, the callback is triggered.
+   * The callback is invoked when the entire animation is removed once it has finished.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3283,7 +3295,7 @@ declare enum FinishCallbackType {
    * @since 11
    */
   /**
-   * When the entire animation ends and will be removed immediately, the callback is triggered.
+   * The callback is invoked when the entire animation is removed once it has finished.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3469,6 +3481,7 @@ declare interface AnimateParam {
   /**
    * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
    * animation playback. The value 0 means that there is no animation.
+   * <br>Default value: **1.0**.
    *
    * @type { ?number }
    * @default 1.0
@@ -3478,6 +3491,7 @@ declare interface AnimateParam {
   /**
    * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
    * animation playback. The value 0 means that there is no animation.
+   * <br>Default value: **1.0**.
    *
    * @type { ?number }
    * @default 1.0
@@ -3693,14 +3707,14 @@ declare interface AnimateParam {
   finishCallbackType?: FinishCallbackType;
 
   /**
-   * Indicates expectedFrameRateRange including minimum、maximum and expected frame rate.
+   * Expected frame rate range of the animation.
    *
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   /**
-   * Indicates expectedFrameRateRange including minimum、maximum and expected frame rate.
+   * Expected frame rate range of the animation.
    *
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3947,7 +3961,10 @@ declare interface sharedTransitionOptions {
    * @since 7
    */
   /**
-   * Animation duration, in ms.
+   * Animation duration.
+   * <br>Default value: **1000**.
+   * <br>Unit: ms.
+   * <br>Value range: [0, +∞).
    *
    * @type { ?number }
    * @default 1000
@@ -3956,7 +3973,10 @@ declare interface sharedTransitionOptions {
    * @since 10
    */
   /**
-   * Animation duration, in ms.
+   * Animation duration.
+   * <br>Default value: **1000**.
+   * <br>Unit: ms.
+   * <br>Value range: [0, +∞).
    *
    * @type { ?number }
    * @default 1000
@@ -3968,7 +3988,7 @@ declare interface sharedTransitionOptions {
   duration?: number;
 
   /**
-   * Animation duration, in ms.
+   * Animation curve.<br>You are advised to specify the curve using the Curve or ICurve type.
    *
    * @type { ?(Curve | string | ICurve) }
    * @default 1000
@@ -3976,7 +3996,11 @@ declare interface sharedTransitionOptions {
    * @since 7
    */
   /**
-   * Animation curve.
+   * Animation curve.<br>You are advised to specify the curve using the **Curve** or
+   * ** ICurve** type.<br>For the string type, this parameter indicates an animation
+   * interpolation curve. For available values, see the **curve** parameter in
+   * AnimateParam.
+   * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
    * @default 1000
@@ -3985,7 +4009,11 @@ declare interface sharedTransitionOptions {
    * @since 10
    */
   /**
-   * Animation curve.
+   * Animation curve.<br>You are advised to specify the curve using the **Curve** or
+   * ** ICurve** type.<br>For the string type, this parameter indicates an animation
+   * interpolation curve. For available values, see the **curve** parameter in
+   * AnimateParam.
+   * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
    * @default 1000
@@ -5182,14 +5210,16 @@ declare interface TranslateOptions {
   y?: number | string;
 
   /**
-   * The param of z direction.
+   * Distance to translate along the z-axis. The value is a floating
+   * point number, the default value is 0.0, and the unit is px.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of z direction.
+   * Distance to translate along the z-axis. The value is a floating
+   * point number, the default value is 0.0, and the unit is px.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5197,7 +5227,8 @@ declare interface TranslateOptions {
    * @since 9
    */
   /**
-   * The param of z direction.
+   * Distance to translate along the z-axis. The value is a floating
+   * point number, the default value is 0.0, and the unit is px.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5206,7 +5237,8 @@ declare interface TranslateOptions {
    * @since 10
    */
   /**
-   * The param of z direction.
+   * Distance to translate along the z-axis. The value is a floating
+   * point number, the default value is 0.0, and the unit is px.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5326,14 +5358,18 @@ declare interface ScaleOptions {
   y?: number;
 
   /**
-   * The param of z direction.
+   * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
+   * <br>0 < z < 1: The component is scaled down along the z-axis.
+   * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The param of z direction.
+   * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
+   * <br>0 < z < 1: The component is scaled down along the z-axis.
+   * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5341,7 +5377,9 @@ declare interface ScaleOptions {
    * @since 9
    */
   /**
-   * The param of z direction.
+   * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
+   * <br>0 < z < 1: The component is scaled down along the z-axis.
+   * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5350,7 +5388,9 @@ declare interface ScaleOptions {
    * @since 10
    */
   /**
-   * The param of z direction.
+   * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
+   * <br>0 < z < 1: The component is scaled down along the z-axis.
+   * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6160,7 +6200,10 @@ declare interface RotateOptions {
  */
 declare interface TransitionOptions {
   /**
-   * Defines the param of type.
+   * Transition type.<br>
+   * Default value: **TransitionType.All**.
+   * <br>**NOTE**<br>If **type** is not specified, the default value **TransitionType.All**
+   * is used, which means that the transition effect works for both component addition and deletion.
    *
    * @type { ?TransitionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6169,7 +6212,11 @@ declare interface TransitionOptions {
    */
   type?: TransitionType;
   /**
-   * Defines the param of opacity.
+   * Opacity of the component during transition, which is the value of the
+   * start point of insertion and the end point of deletion.
+   * <br>Value range: [0, 1].
+   * <br>**NOTE**<br>If the value specified is less than 0, the value **0** is used.
+   * If the value specified is greater than 1, the value **1** is used.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6265,7 +6312,8 @@ declare enum TransitionEdge {
   BOTTOM,
 
   /**
-   * Start edge
+   * Start edge of the window, which is the left edge for left-to-right
+   * scripts and the right edge for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6273,7 +6321,8 @@ declare enum TransitionEdge {
    * @since 10
    */
   /**
-   * Start edge
+   * Start edge of the window, which is the left edge for left-to-right
+   * scripts and the right edge for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6464,7 +6513,13 @@ declare class TransitionEffect<
   static readonly OPACITY: TransitionEffect<"opacity">;
 
   /**
-   * Defines a slide transition effect
+   * Applies a transition effect of sliding in from the start edge when the component
+   * appears and sliding out from the end edge when the component disappears.
+   * This means sliding in from the left edge and sliding out from the right edge for
+   * left-to-right scripts, and sliding in from the right edge and sliding out from
+   * the left edge for right-to-left scripts. This is equivalent to 
+   * TransitionEffect.asymmetric(TransitionEffect.move(TransitionEdge.START),
+   * TransitionEffect.move(TransitionEdge.END)).
    *
    * @type { TransitionEffect<
    * "asymmetric",
@@ -6479,7 +6534,13 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines a slide transition effect
+   * Applies a transition effect of sliding in from the start edge when the component
+   * appears and sliding out from the end edge when the component disappears.
+   * This means sliding in from the left edge and sliding out from the right edge for
+   * left-to-right scripts, and sliding in from the right edge and sliding out from
+   * the left edge for right-to-left scripts. This is equivalent to 
+   * TransitionEffect.asymmetric(TransitionEffect.move(TransitionEdge.START),
+   * TransitionEffect.move(TransitionEdge.END)).
    *
    * @type { TransitionEffect<
    * "asymmetric",
@@ -6557,19 +6618,20 @@ declare class TransitionEffect<
   static translate(options: TranslateOptions): TransitionEffect<"translate">;
 
   /**
-   * Creates a rotation transition effect
+   * Rotation of the component during transition, which is the value of the start
+   * point of insertion and the end point of deletion.
+   * <br>- **x**: X-component of the rotation vector.
+   * <br>- **y**: Y-component of the rotation vector.
+   * <br>- **z**: Z-component of the rotation vector.
+   * <br>- **centerX** and **centerY**: rotation center point. The default values
+   * are both **"50%"**, indicating the center point of the page.
+   * <br>- If the center point is (0, 0), it refers to the upper left corner of the component.
+   * <br>- **centerZ**: z-axis anchor point, that is, the z-component of the 3D rotation
+   * center point. The default value is **0**.
+   * <br>- **perspective**: viewing distance. It is not supported for use in transition animations.
+   * <br>**Widget capability**: This API can be used in ArkTS widgets since API version 10.
    *
-   * @param { RotateOptions } options - rotate options
-   * Set the rotation effect for component transitions when inserting and deleting. 
-   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
-   * -x: Horizontal component of the rotational vector.
-   * -y: Vertical component of the rotational vector.
-   * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%",
-   * meaning that the default rotation center point is the center point of the component.
-   * -The center point of (0, 0) represents the upper-left corner of the component.
-   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
-   * -perspective indicates the visual distance. The perspective property does not support transition animation.
+   * @param { RotateOptions } options - Rotate options.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6577,19 +6639,20 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Creates a rotation transition effect
+   * Rotation of the component during transition, which is the value of the start
+   * point of insertion and the end point of deletion.
+   * <br>- **x**: X-component of the rotation vector.
+   * <br>- **y**: Y-component of the rotation vector.
+   * <br>- **z**: Z-component of the rotation vector.
+   * <br>- **centerX** and **centerY**: rotation center point. The default values
+   * are both **"50%"**, indicating the center point of the page.
+   * <br>- If the center point is (0, 0), it refers to the upper left corner of the component.
+   * <br>- **centerZ**: z-axis anchor point, that is, the z-component of the 3D rotation
+   * center point. The default value is **0**.
+   * <br>- **perspective**: viewing distance. It is not supported for use in transition animations.
+   * <br>**Widget capability**: This API can be used in ArkTS widgets since API version 10.
    *
-   * @param { RotateOptions } options - rotate options
-   * Set the rotation effect for component transitions when inserting and deleting. 
-   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
-   * -x: Horizontal component of the rotational vector.
-   * -y: Vertical component of the rotational vector.
-   * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%",
-   * meaning that the default rotation center point is the center point of the component.
-   * -The center point of (0, 0) represents the upper-left corner of the component.
-   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
-   * -perspective indicates the visual distance. The perspective property does not support transition animation.
+   * @param { RotateOptions } options - Rotate options.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7307,7 +7370,9 @@ declare interface DragItemInfo {
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
- * Define animation functions for immediate distribution.
+ * Implements immediate delivery of an explicit animation through a **UIContext** object. 
+ * When multiple property animations are loaded at once, you can call this API to immediately 
+ * execute the transition animation for state changes caused by the specified closure function.
  *
  * @param { AnimateParam } value - Set animation effect parameters.
  * @param { function } event - Specify the closure function that displays dynamic effects,
@@ -8247,14 +8312,14 @@ declare enum BlurStyle {
   Thin,
 
   /**
-   * Defines the regular card material.
+   * Regular material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Defines the regular card material.
+   * Regular material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8262,7 +8327,7 @@ declare enum BlurStyle {
    * @since 10
    */
   /**
-   * Defines the regular card material.
+   * Regular material.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8299,14 +8364,14 @@ declare enum BlurStyle {
   Thick,
 
   /**
-   * Defines the thin background material.
+   * Material that creates the minimum depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the thin background material.
+   * Material that creates the minimum depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8317,14 +8382,14 @@ declare enum BlurStyle {
   BACKGROUND_THIN,
 
   /**
-   * Defines the thin regular material.
+   * Material that creates a medium shallow depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the thin regular material.
+   * Material that creates a medium shallow depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8335,14 +8400,14 @@ declare enum BlurStyle {
   BACKGROUND_REGULAR,
 
   /**
-   * Defines the thin thick material.
+   * Material that creates a high shallow depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the thin thick material.
+   * Material that creates a high shallow depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8353,14 +8418,14 @@ declare enum BlurStyle {
   BACKGROUND_THICK,
 
   /**
-   * Defines the thin ultra thick material.
+   * Material that creates the maximum depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the thin ultra thick material.
+   * Material that creates the maximum depth of field effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8632,14 +8697,14 @@ declare enum AdaptiveColor {
   DEFAULT,
 
   /**
-   * Defines the background average color adaptive mode.
+   * Adaptive color mode is used. The average color value of the color picking area is used as the mask color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the background average color adaptive mode.
+   * Adaptive color mode is used. The average color value of the color picking area is used as the mask color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8668,14 +8733,14 @@ declare enum AdaptiveColor {
  */
 declare enum ModalTransition {
   /**
-   * Use default animation.
+   * Slide-up and slide-down animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Use default animation.
+   * Slide-up and slide-down animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8702,14 +8767,14 @@ declare enum ModalTransition {
   NONE,
 
   /**
-   * Use alpha animation.
+   * Opacity gradient animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Use alpha animation.
+   * Opacity gradient animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8865,7 +8930,8 @@ declare interface SystemAdaptiveOptions {
  */
 declare interface BlurStyleOptions {
   /**
-   * color mode
+   * Color mode used for the foreground blur.
+   * <br>Default value: **ThemeColorMode.SYSTEM**.
    *
    * @type { ?ThemeColorMode }
    * @default ThemeColorMode.SYSTEM
@@ -8873,7 +8939,8 @@ declare interface BlurStyleOptions {
    * @since 10
    */
   /**
-   * color mode
+   * Color mode used for the foreground blur.
+   * <br>Default value: **ThemeColorMode.SYSTEM**.
    *
    * @type { ?ThemeColorMode }
    * @default ThemeColorMode.SYSTEM
@@ -8885,7 +8952,8 @@ declare interface BlurStyleOptions {
   colorMode?: ThemeColorMode;
 
   /**
-   * adaptive color
+   * Adaptive color mode.
+   * <br>Default value: **AdaptiveColor.DEFAULT**.
    *
    * @type { ?AdaptiveColor }
    * @default AdaptiveColor.DEFAULT
@@ -8893,7 +8961,8 @@ declare interface BlurStyleOptions {
    * @since 10
    */
   /**
-   * adaptive color
+   * Adaptive color mode.
+   * <br>Default value: **AdaptiveColor.DEFAULT**.
    *
    * @type { ?AdaptiveColor }
    * @default AdaptiveColor.DEFAULT
@@ -8905,9 +8974,9 @@ declare interface BlurStyleOptions {
   adaptiveColor?: AdaptiveColor;
 
   /**
-   * Define the scale of blur effect.
-   * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
-   * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
+   * Foreground blur scale.
+   * <br>Default value: **1.0**.
+   * <br>Value range: [0.0, 1.0].
    *
    * @type { ?number }
    * @default 1.0
@@ -9356,14 +9425,14 @@ declare enum ShadowType {
   COLOR,
 
   /**
-   * Define a blur type of shadow
+   * Blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Define a blur type of shadow
+   * Blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9445,7 +9514,8 @@ declare interface ShadowOptions {
   radius: number | Resource;
 
   /**
-   * Define the type of shadow
+   * Shadow type.
+   * <br>Default value: **COLOR**.
    *
    * @type { ?ShadowType }
    * @default ShadowType.COLOR
@@ -9454,7 +9524,8 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Define the type of shadow
+   * Shadow type.
+   * <br>Default value: **COLOR**.
    *
    * @type { ?ShadowType }
    * @default ShadowType.COLOR
@@ -9574,7 +9645,11 @@ declare interface ShadowOptions {
   offsetY?: number | Resource;
 
   /**
-   * Define whether the shadow should fill the area
+   * Whether to fill the inside of the component with shadow. **true**: Fill
+   * the inside of the component with shadow.
+   * <br>**false**: Do not fill the inside of the component with shadow.
+   * <br>The default value is **false**.
+   * <br>**NOTE**<br>This attribute does not take effect in textShadow.
    *
    * @type { ?boolean }
    * @default false
@@ -9583,7 +9658,11 @@ declare interface ShadowOptions {
    * @since 11
    */
   /**
-   * Define whether the shadow should fill the area
+   * Whether to fill the inside of the component with shadow. **true**: Fill
+   * the inside of the component with shadow.
+   * <br>**false**: Do not fill the inside of the component with shadow.
+   * <br>The default value is **false**.
+   * <br>**NOTE**<br>This attribute does not take effect in textShadow.
    *
    * @type { ?boolean }
    * @default false
@@ -9648,14 +9727,14 @@ declare enum ShadowStyle {
   OUTER_DEFAULT_SM,
 
   /**
-   * Defines the medium default shadow style.
+   * Medium shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the medium default shadow style.
+   * Medium shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9665,14 +9744,14 @@ declare enum ShadowStyle {
   OUTER_DEFAULT_MD,
 
   /**
-   * Defines the large default shadow style.
+   * Large shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the large default shadow style.
+   * Large shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9682,14 +9761,14 @@ declare enum ShadowStyle {
   OUTER_DEFAULT_LG,
 
   /**
-   * Defines the small floating shadow style.
+   * Floating medium shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the small floating shadow style.
+   * Floating medium shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10017,14 +10096,14 @@ declare enum LayoutSafeAreaEdge {
  */
 declare enum SheetSize {
   /**
-   * Defines the sheet size medium height type. The height is half the screen height
+   * The sheet height is half of the screen height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the sheet size medium height type. The height is half the screen height
+   * The sheet height is half of the screen height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10034,14 +10113,14 @@ declare enum SheetSize {
   MEDIUM,
 
   /**
-   * Defines the sheet size large height type. The height is almost screen height.
+   * The sheet height is almost the screen height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Defines the sheet size large height type. The height is almost screen height.
+   * The sheet height is almost the screen height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12405,7 +12484,7 @@ declare enum BlendMode {
   */
   DST = 3,
   /**
-   * r = s + (1 - sa) * d
+   * r = s + (1 - sa) * d: The source pixels are blended based on opacity and cover the target pixels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12413,7 +12492,7 @@ declare enum BlendMode {
    * @since 11
    */
   /**
-   * r = s + (1 - sa) * d
+   * r = s + (1 - sa) * d: The source pixels are blended based on opacity and cover the target pixels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12441,7 +12520,7 @@ declare enum BlendMode {
   */
   DST_OVER = 5,
   /**
-   * r = s * da
+   * r = s * da: Only the part of the source pixels that overlap with the target pixels is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12449,7 +12528,7 @@ declare enum BlendMode {
    * @since 11
    */
   /**
-   * r = s * da
+   * r = s * da: Only the part of the source pixels that overlap with the target pixels is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12459,7 +12538,7 @@ declare enum BlendMode {
    */
   SRC_IN = 6,
   /**
-   * r = d * sa
+   * r = d * sa: Only the part of the target pixels that overlap with the source pixels is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12467,7 +12546,7 @@ declare enum BlendMode {
    * @since 11
   */
   /**
-   * r = d * sa
+   * r = d * sa: Only the part of the target pixels that overlap with the source pixels is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12918,8 +12997,8 @@ declare enum BlendApplyType {
   FAST = 0,
 
   /**
-   * Composite this views's contents into an
-   * offscreen image and then blend over dst
+   * The content of the component and its child components are drawn on the
+   * offscreen canvas, and then blended with the existing content on the canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12927,8 +13006,8 @@ declare enum BlendApplyType {
    * @since 11
    */
   /**
-   * Composite this views's contents into an
-   * offscreen image and then blend over dst
+   * The content of the component and its child components are drawn on the
+   * offscreen canvas, and then blended with the existing content on the canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13871,7 +13950,8 @@ declare interface CrownEvent {
  */
 declare interface BindOptions {
   /**
-   * Defines the background color
+   * Background color of the sheet.
+   * <br>Default value: **Color.White**.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13879,7 +13959,8 @@ declare interface BindOptions {
    * @since 10
    */
   /**
-   * Defines the background color
+   * Background color of the sheet.
+   * <br>Default value: **Color.White**.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13890,7 +13971,7 @@ declare interface BindOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Callback function when overlay interface appears
+   * Callback for when the sheet is displayed (after the animation ends).
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13898,7 +13979,7 @@ declare interface BindOptions {
    * @since 10
    */
   /**
-   * Callback function when overlay interface appears
+   * Callback for when the sheet is displayed (after the animation ends).
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13909,7 +13990,7 @@ declare interface BindOptions {
   onAppear?: () => void;
 
   /**
-   * Callback function when overlay interface exits
+   * Callback for when the sheet disappears (after the animation ends).
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13917,7 +13998,7 @@ declare interface BindOptions {
    * @since 10
    */
   /**
-   * Callback function when overlay interface exits
+   * Callback for when the sheet disappears (after the animation ends).
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14123,14 +14204,14 @@ declare interface SheetTitleOptions {
  */
 declare enum SheetType {
   /**
-   * Defines bottom sheet type.
+   * Bottom sheet.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Defines bottom sheet type.
+   * Bottom sheet.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14140,14 +14221,14 @@ declare enum SheetType {
   BOTTOM = 0,
 
   /**
-   * Defines center sheet type.
+   * Center sheet.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Defines center sheet type.
+   * Center sheet.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14157,14 +14238,14 @@ declare enum SheetType {
   CENTER = 1,
 
   /**
-   * Defines popup sheet type.
+   * Popup sheet. The popup sheet cannot be dismissed with a pull-down gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Defines popup sheet type.
+   * Popup sheet. The popup sheet cannot be dismissed with a pull-down gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14205,7 +14286,16 @@ declare enum SheetMode {
   OVERLAY = 0,
 
   /**
-   * Sheet displays within the current page.
+   * The sheet is displayed at the top of the current page.
+   * <br>**NOTE**<br>Currently, the sheet can only be mounted on a **Page**
+   * or **NavDestination** node, with priority given to the **NavDestination**
+   * node if it is present. This means that, the sheet can only be displayed at
+   * the top of these two types of pages.<br> In this mode, new pages can overlay
+   * the sheet, and when the user returns to the previous page, the sheet remains
+   * present without losing its content.<br> In this mode, you must ensure that
+   * the target page node, such as the **Page** node, has been attached to the tree
+   * before bringing up the sheet; otherwise, the sheet will not be able to be
+   * attached to the corresponding page node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14435,7 +14525,9 @@ declare interface SheetOptions extends BindOptions {
   height?: SheetSize | Length;
 
   /**
-   * Defines whether the control bar is displayed.
+   * Whether to display the drag bar.
+   * <br>**NOTE**<br>By default, the drag bar is displayed only when the sheet's
+   * **detents** attribute is set to multiple heights and the settings take effect.
    *
    * @type { ?boolean }
    * @default true
@@ -14444,7 +14536,9 @@ declare interface SheetOptions extends BindOptions {
    * @since 10
    */
   /**
-   * Defines whether the control bar is displayed.
+   * Whether to display the drag bar.
+   * <br>**NOTE**<br>By default, the drag bar is displayed only when the sheet's
+   * **detents** attribute is set to multiple heights and the settings take effect.
    *
    * @type { ?boolean }
    * @default true
@@ -14456,7 +14550,7 @@ declare interface SheetOptions extends BindOptions {
   dragBar?: boolean;
 
   /**
-   * Defines sheet maskColor
+   * Mask color of the sheet.
    * 
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14464,7 +14558,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 10
    */
   /**
-   * Defines sheet maskColor
+   * Mask color of the sheet.
    * 
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14494,7 +14588,7 @@ declare interface SheetOptions extends BindOptions {
   detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
 
   /**
-   * Defines sheet background blur Style
+   * Background blur of the sheet. By default, there is no background blur.
    * 
    * @type { ?BlurStyle }
    * @default BlurStyle.NONE
@@ -14503,7 +14597,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   /**
-   * Defines sheet background blur Style
+   * Background blur of the sheet. By default, there is no background blur.
    * 
    * @type { ?BlurStyle }
    * @default BlurStyle.NONE
@@ -14536,7 +14630,11 @@ declare interface SheetOptions extends BindOptions {
   showClose?: boolean | Resource;
 
   /**
-   * Defines the sheet prefer type
+   * Type of the sheet.
+   * <br>**NOTE**<br>The types supported by the sheet vary by window.
+   * <br>1. Width < 600 vp: bottom.
+   * <br>2. 600 vp <= Width: bottom, center, and popup (default).
+   * <br>3. Width >= 840 vp: bottom, center, and popup (default).
    *
    * @type { ?(SheetType.CENTER | SheetType.POPUP) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14544,7 +14642,11 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
    /**
-   * Defines the sheet prefer type
+   * Type of the sheet.
+   * <br>**NOTE**<br>The types supported by the sheet vary by window.
+   * <br>1. Width < 600 vp: bottom.
+   * <br>2. 600 vp <= Width: bottom, center, and popup (default).
+   * <br>3. Width >= 840 vp: bottom, center, and popup (default).
    *
    * @type { ?SheetType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14555,7 +14657,7 @@ declare interface SheetOptions extends BindOptions {
   preferType?: SheetType;
 
   /**
-   * Defines the sheet title
+   * Title of the sheet.
    *
    * @type { ?(SheetTitleOptions | CustomBuilder) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14563,7 +14665,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   /**
-   * Defines the sheet title
+   * Title of the sheet.
    *
    * @type { ?(SheetTitleOptions | CustomBuilder) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14574,7 +14676,12 @@ declare interface SheetOptions extends BindOptions {
   title?: SheetTitleOptions | CustomBuilder;
 
   /**
-   * Callback function when the sheet interactive dismiss
+   * Callback invoked when the user performs an interactive dismiss operation: pulling down or clicking
+   * the back button, the mask, or the close icon.<br>**NOTE**<br>If this callback is registered, the
+   * sheet is not dismissed immediately when the user performs the above operations. To dismiss the sheet,
+   * you must call **shouldDismiss.dismiss()** in the callback.<br>If this callback is not registered, the
+   * sheet is dismissed immediately when the user performs the above operations, without any additional
+   * behavior.<br>It is recommended that this API be used in scenarios where a secondary confirmation is required.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14582,7 +14689,12 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   /**
-   * Callback function when the sheet interactive dismiss
+   * Callback invoked when the user performs an interactive dismiss operation: pulling down or clicking
+   * the back button, the mask, or the close icon.<br>**NOTE**<br>If this callback is registered, the
+   * sheet is not dismissed immediately when the user performs the above operations. To dismiss the sheet,
+   * you must call **shouldDismiss.dismiss()** in the callback.<br>If this callback is not registered, the
+   * sheet is dismissed immediately when the user performs the above operations, without any additional
+   * behavior.<br>It is recommended that this API be used in scenarios where a secondary confirmation is required.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14615,7 +14727,12 @@ declare interface SheetOptions extends BindOptions {
   onWillSpringBackWhenDismiss?: Callback<SpringBackAction>;
 
   /**
-   * Set whether interaction is allowed outside the sheet
+   * Whether to allow users to interact with the page pertaining to the sheet.
+   * <br>**NOTE**<br>The value **true** means that interactions are allowed, in which
+   * case no mask is not displayed. The value **false** means that interactions are not
+   * allowed, in which case a mask is displayed. If this parameter is not set, interactions
+   * are allowed for the popup sheet, but not for bottom and center sheets. If this parameter
+   * is set to **true**, the setting of **maskColor** does not take effect.
    *
    * @type { ?boolean }
    * @default false
@@ -14624,7 +14741,12 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   /**
-   * Set whether interaction is allowed outside the sheet
+   * Whether to allow users to interact with the page pertaining to the sheet.
+   * <br>**NOTE**<br>The value **true** means that interactions are allowed, in which
+   * case no mask is not displayed. The value **false** means that interactions are not
+   * allowed, in which case a mask is displayed. If this parameter is not set, interactions
+   * are allowed for the popup sheet, but not for bottom and center sheets. If this parameter
+   * is set to **true**, the setting of **maskColor** does not take effect.
    *
    * @type { ?boolean }
    * @default false
