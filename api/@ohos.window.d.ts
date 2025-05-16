@@ -9532,7 +9532,7 @@ declare namespace window {
      * The window stage is interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
@@ -9552,7 +9552,7 @@ declare namespace window {
      * The window stage is not interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
@@ -9563,7 +9563,7 @@ declare namespace window {
      * stage is interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20
@@ -9573,7 +9573,7 @@ declare namespace window {
      * The window stage is not interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20
