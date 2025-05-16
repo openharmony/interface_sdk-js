@@ -1350,7 +1350,6 @@ declare interface ListDividerOptions {
    */
   /**
    * Set startMargin.
-   * Anonymous Object Rectification.
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1361,6 +1360,7 @@ declare interface ListDividerOptions {
    */
   /**
    * Distance between the divider and the start edge of the list.
+   * Anonymous Object Rectification.
    *
    * @type { ?Length }
    * @default 0vp
@@ -1470,7 +1470,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap between columns.
    * It takes effect when the number of columns is greater than 1.
-   * Anonymous Object Rectification.
    *
    * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
    * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em> 
@@ -1730,6 +1729,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Sets the style of the divider for the list items. By default, there is no divider.
+   * Anonymous Object Rectification.
    *
    * @param { ListDividerOptions | null } value - Style of the divider for the list items.<br>Default value: <em>null</em>
    * @returns { ListAttribute }

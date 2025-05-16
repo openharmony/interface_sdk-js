@@ -496,6 +496,7 @@ declare class Scroller {
    */
   /**
    * Scrolls to the specified position.
+   * Anonymous Object Rectification.
    *
    * @param { ScrollOptions } options - Parameters for scrolling to the specified position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -921,7 +922,8 @@ declare interface ScrollOptions {
    * @since 12
    */
   /**
-   * Animation configuration, which includes the following:
+   * Animation configuration
+   * Anonymous Object Rectification.
    * 
    * <p><strong>NOTE</strong>
    * <br>Currently, the <em>List</em>, <em>Scroll</em>, <em>Grid</em>, and <em>WaterFlow</em> support the <em>Boolean</em> type and <em>ICurve</em>.
@@ -1191,6 +1193,7 @@ interface OnScrollFrameBeginHandlerResult {
    */
   /**
    * Actual scroll offset.
+   * Anonymous Object Rectification.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1365,6 +1368,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling to the edge of the container.
+   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1411,7 +1415,6 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling start.
-   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1421,6 +1424,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   /**
+   * Called when scrolling start.
+   * Anonymous Object Rectification.
+   * 
    * <p><strong>NOTE</strong>
    * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings, such as keyboard and mouse operations.
    * <br>2. This event is triggered when the controller API is called, accompanied by a transition animation.
@@ -1471,7 +1477,6 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling has stopped.
-   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1481,6 +1486,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   /**
+   * Called when scrolling has stopped.
+   * Anonymous Object Rectification.
+   * 
    * <p><strong>NOTE</strong>
    * <br>1. This event is triggered when scrolling is stopped by the <em>Scroll</em> component or other input settings, such as keyboard and mouse operations.
    * <br>2. This event is triggered when the controller API is called, accompanied by a transition animation.
