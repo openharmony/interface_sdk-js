@@ -29,7 +29,7 @@
   * @arkts 1.2
   * @test
   */
- export function loadAndSetupUiTest(): void {};
+ export function loadAndSetUpUiTest(): void {};
  
  /**
   * Enumerates the string value match pattern.
@@ -1073,7 +1073,16 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'11','1.2':'20'}
+    * @since 11
+    */
+   /**
+    * The x-coordinate of the coordinate point.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly x: number;
@@ -1102,7 +1111,16 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'11','1.2':'20'}
+    * @since 11
+    */
+   /**
+    * The y-coordinate of the coordinate point.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
     * @arkts 1.1&1.2
     */
    readonly y: number;
