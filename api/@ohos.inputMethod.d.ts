@@ -678,6 +678,28 @@ declare namespace inputMethod {
      * @since 15
      */
     getInputMethodState(): Promise<EnabledState>;
+	
+	/**
+     * 
+     * Change inputmethod enabled status.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { string } bundleName - Indicates the bundleName of the inputmethod.
+     * @param { string } extensionName - Indicates the extensionName of the inputmethod.
+     * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+	 * @throws { BusinessError } 12800018 - input method is not found.
+     * @throws { BusinessError } 12800019 - default input method can not be disabled.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
   }
 
   /**
@@ -1555,6 +1577,16 @@ declare namespace inputMethod {
      * @since 9
      */
     readonly iconId?: number;
+
+    /**
+     * The enabledState of input method
+     *
+     * @type { ?EnabledState }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly enabledState?: EnabledState;
 
     /**
      * The extra info of input method
