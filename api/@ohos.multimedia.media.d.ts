@@ -45,7 +45,7 @@ import type drm from './@ohos.multimedia.drm';
 declare namespace media {
   /**
    * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
+   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * The instance can be used to play audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -53,7 +53,7 @@ declare namespace media {
    */
   /**
    * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; null is returned otherwise.
+   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
@@ -81,7 +81,7 @@ declare namespace media {
 
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
+   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
    *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -89,7 +89,7 @@ declare namespace media {
    */
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful;
+   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
    *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -198,8 +198,10 @@ declare namespace media {
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
    /**
-   * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate media source is supported.
-   * @param { Array<MediaStream> } streams - Array of MediaStream objects. The supported streaming media format is HTTP-FLV.
+   * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate
+   * media source is supported.
+   * @param { Array<MediaStream> } streams - Array of MediaStream objects.
+   * The supported streaming media format is HTTP-FLV.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
