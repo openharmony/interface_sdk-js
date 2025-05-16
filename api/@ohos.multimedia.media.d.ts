@@ -2521,10 +2521,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not set, the default mode will be used.
-     * The default value is SHARE_MODE. It is a dynamic attribute and can be set only when the AVPlayer is in the prepared,
-     * playing, paused, or completed state. Set it before calling the {@link #play()} in the first time in order for the
-     * interrupt mode to become effective thereafter.
+     * Describes audio interrupt mode. If it is not set, the default mode will be used. The default value is
+     * **SHARE_MODE**. It is a dynamic attribute and can be set only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state. Set it before calling the {@link #play()} in the first time in order
+     * for the interrupt mode to become effective thereafter.
      * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2540,8 +2540,9 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. If the media source contains videos,
-     * the default value of usage is STREAM_USAGE_MOVIE. Otherwise, the default value of usage is STREAM_USAGE_MUSIC.
+     * Describes audio renderer info. If the media source contains videos, the default value of usage is
+     * **STREAM_USAGE_MOVIE**. Otherwise, the default value of usage is **STREAM_USAGE_MUSIC**. This parameter can
+     * be set only when the AVPlayer is in the initialized state.
      * Set it before calling the {@link #prepare()} in the first time in order for the audio renderer info to
      * become effective thereafter.
      * @type { ?audio.AudioRendererInfo }
@@ -2557,8 +2558,8 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}. The audio effect mode is a dynamic
-     * attribute and is restored to the default value EFFECT_DEFAULT when usage of audioRendererInfo is changed.
+     * Obtains the current audio effect mode. The audio effect mode is a dynamic attribute and is restored
+     * to the default value **EFFECT_DEFAULT** when usage of audioRendererInfo is changed.
      * It can be set only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @type { ?audio.AudioEffectMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2574,7 +2575,8 @@ declare namespace media {
      */
     /**
      * Current playback position, in ms. It can be used as a query parameter when the AVPlayer is in the prepared,
-     * playing, paused, or completed state. The value -1 indicates an invalid value. In live mode, -1 is returned by default.
+     * playing, paused, or completed state. The value -1 indicates an invalid value.
+     * In live mode, -1 is returned by default.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2596,8 +2598,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Playback duration, in ms. It can be used as a query parameter when the AVPlayer is in the prepared, playing, paused,
-     * or completed state. When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * Playback duration, in ms. It can be used as a query parameter when the AVPlayer is in the prepared,
+     * playing, paused, or completed state.
+     * When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2879,7 +2882,7 @@ declare namespace media {
      */
     /**
      * Subscribes to the event to check whether the volume is successfully set.
-     * @param { 'volumeChange' } type - This event is triggered each time setVolume() is called.
+     * @param { 'volumeChange' } type - This event is triggered each time **setVolume()** is called.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * It reports the effective volume.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
