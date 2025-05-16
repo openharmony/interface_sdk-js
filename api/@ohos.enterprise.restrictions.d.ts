@@ -456,7 +456,7 @@ declare namespace restrictions {
   /**
    * Restricting users from changing specified settings item on the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.SET_USER_RESTRICTION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
    * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
