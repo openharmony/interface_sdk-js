@@ -26,35 +26,35 @@
  */
 declare namespace common2D {
   /**
-   * Provide a description in the form of color ARGB.
+   * Describes a color in ARGB format.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   interface Color {
     /**
-     * Alpha component of color, from 0 to 255.
+     * Alpha component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     alpha: number;
     /**
-     * Red component of color, from 0 to 255.
+     * Red component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     red: number;
     /**
-     * Green component of color, from 0 to 255.
+     * Green component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     green: number;
     /**
-     * Blue component of color, from 0 to 255.
+     * Blue component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -63,35 +63,35 @@ declare namespace common2D {
   }
 
   /**
-   * Provides the definition of the rectangle.
+   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   interface Rect {
     /**
-     * Left Position of Rectangle.
+     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     left: number;
     /**
-     * Top side position of the rectangle
+     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     top: number;
     /**
-     * Right Position of Rectangle.
+     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     right: number;
     /**
-     * Position of the bottom side of the rectangle.
+     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -100,14 +100,14 @@ declare namespace common2D {
   }
 
   /**
-   * Coordinates in the font layout.
+   * Describes a coordinate point.
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface Point {
     /**
-     * X-axis coordinate.
+     * Horizontal coordinate. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -115,7 +115,7 @@ declare namespace common2D {
     x: number;
 
     /**
-     * Y-axis coordinate.
+     * Vertical coordinate. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -124,7 +124,7 @@ declare namespace common2D {
   }
 
   /**
-   * Provides the definition of the point in 3D.
+   * Describes a 3D coordinate point.
    *
    * @typedef Point3d
    * @extends Point
@@ -133,7 +133,7 @@ declare namespace common2D {
    */
   interface Point3d extends Point {
     /**
-     * Z-axis coordinate.
+     * Z-axis coordinate. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
