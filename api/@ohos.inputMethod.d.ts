@@ -757,6 +757,19 @@ declare namespace inputMethod {
      * @since 15
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+
+    /**
+     * Discard the typing text
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    discardTypingText(): Promise<void>;
+
     /**
      * Show the text input and start typing.
      *
@@ -1777,7 +1790,47 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    NUMBER_PASSWORD
+    NUMBER_PASSWORD,
+
+    /**
+     * The text input type is SCREEN_LOCK_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    SCREEN_LOCK_PASSWORD,
+
+    /**
+     * The text input type is USER_NAME.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    USER_NAME,
+
+    /**
+     * The text input type is NEW_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NEW_PASSWORD,
+
+    /**
+     * The text input type is NUMBER_DECIMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NUMBER_DECIMAL,
+
+    /**
+     * The text input type is ONE_TIME_CODE.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    ONE_TIME_CODE
   }
 
   /**
@@ -1919,6 +1972,24 @@ declare namespace inputMethod {
      * @since 10
      */
     enterKeyType: EnterKeyType;
+
+    /**
+     * Placeholder text in the edit box.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    placeholder?: string;
+
+    /**
+     * The name of the ability where the edit box is located.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    abilityName?: string;
   }
 
   /**
@@ -2027,6 +2098,15 @@ declare namespace inputMethod {
      * @since 10
      */
     windowId?: number;
+
+    /**
+     *Indicates that this is a new edit box.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    newEditBox?: boolean;
   }
 
   /**
