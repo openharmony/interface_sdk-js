@@ -2913,7 +2913,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2948,7 +2947,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2983,7 +2981,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -3017,7 +3014,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3050,7 +3046,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3083,7 +3078,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
