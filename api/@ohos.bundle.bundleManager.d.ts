@@ -2193,6 +2193,21 @@ declare namespace bundleManager {
    * @since 10
    */
   function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
+  
+  /**
+   * Get AbilityInfo by the given uri.
+   *
+   * @permission ohos.permission.GET_ABILITY_INFO
+   * @param { string } uri - Indicates the uri used for matching ability.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700003 - The ability is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getAbilityInfo(uri: string, abilityFlags: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
