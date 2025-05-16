@@ -16976,7 +16976,7 @@ interface ContextMenuAnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
 type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -17147,7 +17147,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   previewBorderRadius?: BorderRadiusType;
 
