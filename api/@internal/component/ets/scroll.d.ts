@@ -1368,7 +1368,6 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling to the edge of the container.
-   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1379,6 +1378,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Triggered when scrolling reaches the edge.
+   * Anonymous Object Rectification.
    * 
    * <p><strong>NOTE</strong>
    * <br>1. This event is triggered when scrolling reaches the edge after being started by the <em>Scroll</em> component or other input settings, 
