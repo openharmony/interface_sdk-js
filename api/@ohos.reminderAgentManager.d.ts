@@ -462,6 +462,32 @@ declare namespace reminderAgentManager {
   }
 
   /**
+   * Declares ring channel.
+   *
+   * @enum { number }
+   *
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   */
+  export enum RingChannel {
+    /**
+     * Ring channel alarm.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    RING_CHANNEL_ALARM = 0,
+
+    /**
+     * Ring channel alarm.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    RING_CHANNEL_MEDIA = 1,
+  }
+
+  /**
    * Reminder Common information.
    *
    * @interface ReminderRequest
@@ -522,6 +548,15 @@ declare namespace reminderAgentManager {
      * @since 9
      */
     ringDuration?: number;
+
+    /**
+     * Type of the ring channel.
+     *
+     * @type { ?RingChannel }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     */
+    ringChannel?: RingChannel;
 
     /**
      * Number of reminder snooze times.
