@@ -1596,7 +1596,8 @@ declare namespace media {
    */
   /**
    * Enumerates the states of the AVPlayer. Your application can proactively obtain the AVPlayer state through the
-   * **state** attribute or obtain the reported AVPlayer state by subscribing to the {@link #stateChange} event.
+   * **state** attribute or obtain the reported AVPlayer state by subscribing to the
+   * [stateChange]{@link #stateChange} event.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -2124,7 +2125,7 @@ declare namespace media {
     /**
      * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
      * playing, paused, or completed state.
-     * You can check whether the seek operation takes effect by subscribing to the {@link #seekDone} event.
+     * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
      * This API is not supported in live mode.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
      * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
@@ -2325,7 +2326,8 @@ declare namespace media {
     /**
      * Mute specified media stream. This API can be called only when the AVPlayer is in the prepared, playing,
      * paused, or completed state.
-     * @param { MediaType } mediaType - specified media Type, see @MediaType. The parameter can be set only to the audio format.
+     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}. 
+     * The parameter can be set only to the audio format.
      * @param { boolean } muted - true for mute, false for unmute.
      * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -2359,10 +2361,10 @@ declare namespace media {
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
     /**
-     * Checks whether the media source supports seek in SEEK_CONTINUOUS mode ({@link #SeekMode}). The actual value is
-     * returned when this API is called in the prepared, playing, paused, or completed state. The value **false**
-     * is returned if it is called in other states. For devices that do not support the seek operation in
-     * SEEK_CONTINUOUS mode, false is returned.
+     * Checks whether the media source supports seek in SEEK_CONTINUOUS mode ([SeekMode]{@link #SeekMode}).
+     * The actual value is returned when this API is called in the prepared, playing, paused, or completed state.
+     * The value **false** is returned if it is called in other states. For devices that do not support the seek
+     * operation in SEEK_CONTINUOUS mode, false is returned.
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
      * false: seek continuous is not supported or the support status is uncertain.
@@ -2758,8 +2760,8 @@ declare namespace media {
      * configuration and set the decryption configuration based on the information in the reported event.
      * Otherwise, the playback fails.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
-     * @param { boolean } secureVideoPath - Secure video path required or not. The value true means that a secure video channel
-     * is selected, and false means that a non-secure video channel is selected.
+     * @param { boolean } secureVideoPath - Secure video path required or not. The value true means that a secure
+     * video channel is selected, and false means that a non-secure video channel is selected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
