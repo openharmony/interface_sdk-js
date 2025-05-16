@@ -8349,10 +8349,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the value of a property in an image.
      * 
      * @param { PropertyKey } key Name of the property whose value is to be obtained.
-     * @returns { string } property value.
-     * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height; 2. Image source incomplete.
+     * @returns { string } property value
+     * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image source incomplete.
      * 3. Read image data failed. 4. Codec create failed.
-     * @throws { BusinessError } 7700102  - Unsupposted MIME type.
+     * @throws { BusinessError } 7700102  - Unsupported MIME type.
      * @throws { BusinessError } 7700202  - Unsupported metadata. For example, key is not supported.
      * @syscap SystemCapability.Multimedia.Image.ImageSource  
      * @since 20
