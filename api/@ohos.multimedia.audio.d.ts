@@ -2305,6 +2305,20 @@ declare namespace audio {
      * @since 12
      */
     INTERRUPT_HINT_UNDUCK = 5,
+
+    /**
+     * Mute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_MUTE = 6,
+
+    /**
+     * Unmute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_UNMUTE = 7,
   }
 
   /**
@@ -9042,6 +9056,17 @@ declare namespace audio {
      * @since 12
      */
     getOverflowCountSync(): number;
+
+    /**
+     * Set if capturer want to be muted instead of interrupted.
+     * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
+     *     instead of interrupted.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
