@@ -5155,6 +5155,19 @@ declare class UiWindow {
    * @test
    */
   isActive(): Promise<boolean>;
+
+  /**
+   * Get the displayId to which the window belongs.
+   *
+   * @returns { Promise<number> } the displayId value.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplayId(): Promise<number>;
 }
 
 /**
