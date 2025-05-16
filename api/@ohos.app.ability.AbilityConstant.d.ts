@@ -36,7 +36,8 @@
  * @since 10
  */
 /**
- * The definition of AbilityConstant.
+ * The <code>AbilityConstant</code> module defines the UIAbility-related enums, including the initial launch reasons,
+ * reasons for the last exit, ability continuation results, and window modes.
  *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -64,7 +65,9 @@ declare namespace AbilityConstant {
    * @since 10
    */
   /**
-   * Interface of launch param.
+   * Defines the parameters for starting an ability.
+   * The parameter values are automatically passed in by the system when the ability is started. You do not need to
+   * change the values.
    *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -92,7 +95,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Indicates launch reason.
+     * Ability launch reason, which is an enumerated type.
      *
      * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -104,7 +107,7 @@ declare namespace AbilityConstant {
     launchReason: LaunchReason;
 
     /**
-     * Indicates launch detailed reason.
+     * Detailed message that describes the ability launch reason.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -132,7 +135,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Indicates last exit reason.
+     * Reason for the last exit, which is an enumerated type.
      *
      * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -144,7 +147,7 @@ declare namespace AbilityConstant {
     lastExitReason: LastExitReason;
 
     /**
-     * Indicates last exit detailed reason.
+     * Reason for the last exit.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -155,7 +158,7 @@ declare namespace AbilityConstant {
     lastExitMessage: string;
 
     /**
-     * Indicates process last exit details.
+     * Detailed information about the last exit.
      *
      * @type { LastExitDetailInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -167,7 +170,7 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * The definition of detailed information of process exits
+   * Describes the detailed information about the last exit.
    *
    * @typedef LastExitDetailInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -177,7 +180,7 @@ declare namespace AbilityConstant {
    */
   export interface LastExitDetailInfo {
     /**
-     * Indicates the exited process id
+     * ID of the process where the ability is running when it exits last time.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -188,7 +191,7 @@ declare namespace AbilityConstant {
     pid: number;
 
     /**
-     * Indicates the exited process name
+     * Name of the process.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -199,7 +202,7 @@ declare namespace AbilityConstant {
     processName: string;
 
     /**
-     * Indicates the uid of exited process
+     * UID of the application.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -210,7 +213,7 @@ declare namespace AbilityConstant {
     uid: number;
 
     /**
-     * Indicates the exit sub-reason
+     * Specific reason for the last exit of the ability.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -221,7 +224,7 @@ declare namespace AbilityConstant {
     exitSubReason: number;
 
     /**
-     * Indicates the exit detailed reason
+     * Reason why the process was killed.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -232,7 +235,7 @@ declare namespace AbilityConstant {
     exitMsg: string;
 
     /**
-     * Indicates the rss value when process exit
+     * RSS value of the process.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -243,7 +246,7 @@ declare namespace AbilityConstant {
     rss: number;
 
     /**
-     * Indicates the pss value when process exit
+     * PSS value of the process.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -254,7 +257,7 @@ declare namespace AbilityConstant {
     pss: number;
 
     /**
-     * Indicates the timestamp when process exit
+     * Exact time when the ability last exits.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -283,7 +286,9 @@ declare namespace AbilityConstant {
    * @since 10
    */
   /**
-   * Type of launch reason.
+   * Enumerates the initial ability launch reasons.
+   * You can use it together with the value of <code>launchParam.launchReason</code> in
+   * <code>onCreate(want, launchParam)</code> of the UIAbility to complete different operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -307,6 +312,8 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
+     * Unknown reason.
+     * 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @crossplatform
@@ -323,7 +330,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Start ability through the startAbility interface.
+     * The ability is started by calling <code>startAbility</code>.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -340,7 +347,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Start ability through the startAbilityByCall interface.
+     * The ability is started by calling <code>startAbilityByCall</code>.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -357,7 +364,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Start ability through cross-end device migration.
+     * The ability is started by means of cross-device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -374,7 +381,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * After the application is restored, the ability is automatically restored and started when the application fails.
+     * The ability is automatically started when the application is restored from a fault.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -391,7 +398,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Start ability through the acquireShareData interface.
+     * The ability is started by means of atomic service sharing.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -401,7 +408,7 @@ declare namespace AbilityConstant {
     SHARE = 5,
 
     /**
-     * Start ability by booting it up.
+     * The ability is automatically started upon system boot.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -410,7 +417,7 @@ declare namespace AbilityConstant {
     AUTO_STARTUP = 8,
 
     /**
-     * Start ability through the insight intent interface.
+     * The ability is started by the InsightIntent framework.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -420,7 +427,7 @@ declare namespace AbilityConstant {
     INSIGHT_INTENT = 9,
 
     /**
-     * Prepare start ability through cross-end device migration.
+     * The ability is started in advance during cross-device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -448,7 +455,9 @@ declare namespace AbilityConstant {
    * @since 10
    */
   /**
-   * Type of last exit reason.
+   * Enumerates the reasons for the last exit.
+   * You can use it together with the value of <code>launchParam.lastExitReason</code> in
+   * <code>onCreate(want, launchParam)</code> of the UIAbility to complete different operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -476,8 +485,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : Unknown. The reason for the last exit of the target application is not recorded in the application
-     *               framework.
+     * Unknown reason.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -488,7 +496,7 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
-     * Exit reason : Ability is not responding.
+     * The ability does not respond.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -506,7 +514,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Exit reason : normally. App exit due to user active close.
+     * The ability exits normally because the user closes the application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -523,7 +531,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : cpp crash. The app exit due to native exception signal.
+     * The ability exits due to abnormal signals on the local host.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -540,7 +548,8 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : js error. App exit due to js error.
+     * The ability exits due to a JS_ERROR fault triggered when an application has a JS syntax error that is not
+     * captured by developers.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -557,7 +566,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : app freeze. App exit due to appFreeze error.
+     * The ability exits because watchdog detects that the application is frozen.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -574,7 +583,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : performance control. App exit due to system performance issues, such as device low memory.
+     * The ability exits due to system performance problems, for example, insufficient device memory.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -591,7 +600,14 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : resource control. App exit due to resource usage violation, such as exceed cpu/io/memory usage.
+     * The ability exits due to improper use of system resources. The specific error cause can be obtained through
+     * LaunchParam.lastExitMessage. The possible causes are as follows:
+     * - CPU Highload: The CPU load is high.
+     * - CPU_EXT Highload: A fast CPU load detection is carried out.
+     * - IO Manage Control: An I/O management and control operation is carried out.
+     * - App Memory Deterioration: The application memory usage exceeds the threshold.
+     * - Temperature Control: The temperature is too high or too low.
+     * - Memory Pressure: The system is low on memory, triggering ability exiting in ascending order of priority.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -608,7 +624,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Exit reason : upgrade. App exit due to upgrade.
+     * The ability exits due to an update.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -618,7 +634,8 @@ declare namespace AbilityConstant {
     UPGRADE = 8,
 
     /**
-     * Exit reason : USER_REQUEST. App exit due to user request.
+     * The ability exits because of an action in the multitasking center, for example, when users swipe up or hit the
+     * one-click clean button in the multitasking view.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -628,7 +645,7 @@ declare namespace AbilityConstant {
     USER_REQUEST = 9,
 
     /**
-     * Exit reason : SIGNAL. App exit due to system signal.
+     * The ability exits because it receives a kill signal from the system.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -647,7 +664,9 @@ declare namespace AbilityConstant {
    * @since 9
    */
   /**
-   * Type of onContinue result.
+   * Enumerates the ability continuation results.
+   * You can use it together with <code>onContinue(wantParam)</code> of the UIAbility to complete different
+   * operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -664,7 +683,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Agree to the result of Ability migration.
+     * The ability continuation is accepted.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -681,7 +700,9 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Reject to the result of Ability migration.
+     * The ability continuation is rejected.
+     * If the application is abnormal in onContinue, which results in abnormal display during data restoration, this
+     * error code is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -698,7 +719,9 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Mismatch to the result of Ability migration.
+     * The version does not match.
+     * The application on the initiator can obtain the version of the target application from onContinue. If the
+     * ability continuation cannot be performed due to version mismatch, this error code is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -717,7 +740,8 @@ declare namespace AbilityConstant {
    * @since 9
    */
   /**
-   * Type of memory level.
+   * Enumerates the memory levels. You can use it in <code>onMemoryLevel(level)</code> of the UIAbility to complete
+   * different operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -734,7 +758,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Memory footprint is moderate.
+     * Moderate memory usage.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -751,7 +775,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Low memory footprint.
+     * Low memory usage.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -768,7 +792,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * High memory footprint.
+     * High memory usage.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -779,7 +803,8 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of window mode.
+   * Enumerates the window mode when the ability is started.
+   * It can be used together with <code>startAbility</code> to specify the window mode for starting the ability.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -788,7 +813,7 @@ declare namespace AbilityConstant {
    */
   export enum WindowMode {
     /**
-     * The window mode is not defined.
+     * Undefined window mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -798,7 +823,7 @@ declare namespace AbilityConstant {
     WINDOW_MODE_UNDEFINED = 0,
 
     /**
-     * Full screen mode.
+     * Full screen mode. It takes effect only on 2-in-1 devices and tablets.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -807,8 +832,9 @@ declare namespace AbilityConstant {
     WINDOW_MODE_FULLSCREEN = 1,
 
     /**
-     * Primary screen in split-screen mode. If the screen is horizontal, it means the left split screen.
-     * It is valid only in intra-app redirection scenarios.
+     * Primary screen (left screen in the case of horizontal orientation) in split-screen mode. It is valid only in
+     * intra-app redirection scenarios.
+     * It takes effect only on foldable devices and tablets.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -817,8 +843,9 @@ declare namespace AbilityConstant {
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
     /**
-     * Secondary screen in split-screen mode. If the screen is horizontal, it means the right split screen.
-     * It is valid only in intra-app redirection scenarios.
+     * Secondary screen (right screen in the case of horizontal orientation) in split-screen mode. It is valid only in
+     * intra-app redirection scenarios.
+     * It takes effect only on foldable devices and tablets.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -827,7 +854,7 @@ declare namespace AbilityConstant {
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
     /**
-     * Free floating window mode.
+     * The ability is displayed in a floating window.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -846,7 +873,8 @@ declare namespace AbilityConstant {
    * @since 9
    */
   /**
-   * Type of onSave result.
+   * Enumerates the result types for the operation of saving application data. You can use it in
+   * <code>onSaveState(reason, wantParam)</code> of the UIAbility to complete different operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -863,7 +891,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Always agree to save the state.
+     * Always agreed to save the status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -880,7 +908,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Refuse to migrate the saved state.
+     * Rejected to save the status in continuation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -897,7 +925,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Migration mismatch.
+     * Continuation mismatch.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -914,7 +942,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Agree to restore the saved state.
+     * Agreed to restore the saved status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -931,7 +959,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Refuse to restore the saved state.
+     * Rejected to restore the saved status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -948,7 +976,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Always refuses to save the state.
+     * Always rejected to save the status.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -967,7 +995,8 @@ declare namespace AbilityConstant {
    * @since 9
    */
   /**
-   * Type of save state.
+   * Enumerates the scenarios for saving application data. You can use it in
+   * <code>onSaveState(reason, wantParam)</code> of the UIAbility to complete different operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -984,7 +1013,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * Migrate and save the state.
+     * Saving the status in continuation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1001,7 +1030,7 @@ declare namespace AbilityConstant {
      * @since 9
      */
     /**
-     * App recovery to restore the saved state.
+     * Saving the status in application recovery.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1020,7 +1049,8 @@ declare namespace AbilityConstant {
    * @since 10
    */
   /**
-   * Continue state.
+   * Enumerates the mission continuation states of the application. It is used in the
+   * <code>setMissionContinueState</code> API of UIAbilityContext.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1037,7 +1067,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Mission continuable inactive.
+     * Mission continuation is activated for the current application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1054,7 +1084,7 @@ declare namespace AbilityConstant {
      * @since 10
      */
     /**
-     * Mission continuable inactive.
+     * Mission continuation is not activated for the current application.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1065,7 +1095,10 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Type of collaborate result.
+   * Enumerates the collaboration request results.
+   * This enum is used in multi-device collaboration scenarios to specify whether the target application accepts the
+   * collaboration request from the caller application.
+   * It is used in <code>onCollaborate(wantParam)</code> of the UIAbility.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1074,7 +1107,7 @@ declare namespace AbilityConstant {
    */
   export enum CollaborateResult {
     /**
-     * Accept to the result of Ability collaborate.
+     * 	Accepts the collaboration request.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1083,7 +1116,7 @@ declare namespace AbilityConstant {
     ACCEPT = 0,
 
     /**
-     * Reject to the result of Ability collaborate.
+     * Rejects the collaboration request.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1093,7 +1126,8 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * PrepareTerminateAction indicates what to do prior to terminating process.
+   * Enumerates the actions triggered when an application is closed by the user. It must be used together with
+   * <code>onPrepareTermination</code> or <code>onPrepareTerminationAsync</code> of AbilityStage.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1103,7 +1137,7 @@ declare namespace AbilityConstant {
    */
   export enum PrepareTermination {
     /**
-     * Terminate process immediately.
+     * Executes the termination action immediately. This is the default behavior.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1113,7 +1147,7 @@ declare namespace AbilityConstant {
     TERMINATE_IMMEDIATELY = 0,
 
     /**
-     * Cancel terminate.
+     * Cancels the termination action.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
