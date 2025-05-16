@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Some states and flags for notifications
+ * @file The NotificationFlags module implements a NotificationFlags instance.
  * @kit NotificationKit
  */
 
 /**
- * The status of the notification flag.
+ * Enumerates the notification flag statuses.
  *
  * @enum { number }
  * @syscap SystemCapability.Notification.Notification
@@ -27,7 +27,7 @@
  * @since 8
  */
 /**
- * The status of the notification flag.
+ * Enumerates the notification flag statuses.
  *
  * @enum { number }
  * @syscap SystemCapability.Notification.Notification
@@ -35,14 +35,14 @@
  */
 export enum NotificationFlagStatus {
   /**
-   * notification flag default value
+   * The default flag is used. The effect is the same as that of TYPE_OPEN.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
    */
   /**
-   * notification flag default value
+   * The default flag is used. The effect is the same as that of TYPE_OPEN.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -50,14 +50,14 @@ export enum NotificationFlagStatus {
   TYPE_NONE = 0,
 
   /**
-   * notification flag open
+   * The notification flag is enabled.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
    */
   /**
-   * notification flag open
+   * The notification flag is enabled.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -65,14 +65,14 @@ export enum NotificationFlagStatus {
   TYPE_OPEN = 1,
 
   /**
-   * notification flag close
+   * The notification flag is disabled.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
    */
   /**
-   * notification flag close
+   * The notification flag is disabled.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11
