@@ -9528,6 +9528,16 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The window stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @deprecated since 20
+     */
     RESUMED,
     /**
      * The window stage is not interactive in the foreground.
@@ -9538,7 +9548,37 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    PAUSED
+    /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @deprecated since 20
+     */
+    PAUSED,
+    /**
+     * stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    INTERACTIVE,
+        /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    NONINTERACTIVE
   }
 
   /**
