@@ -3513,8 +3513,12 @@ declare namespace bundleManager {
 
   /**
    * Enable dynamic icon.
+   * If you need to endable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to endable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
-   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { string } bundleName - Indicates the bundleName.
    * @param { string } moduleName - Indicates the moduleName for extend resource.
    * @param { BundleOptions } [option] - Indicates the bundle option.
@@ -3551,8 +3555,12 @@ declare namespace bundleManager {
 
   /**
    * Disable dynamic icon.
+   * If you need to disable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to disable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
-   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { string } bundleName - Indicates the bundleName.
    * @param { BundleOptions } [option] - Indicates the bundle option.
    * @returns { Promise<void> } Returns disableDynamicIcon result.
@@ -3586,28 +3594,29 @@ declare namespace bundleManager {
   function getDynamicIcon(bundleName: string): Promise<string>;
 
   /**
-   * Get dynamic icon.
+   * Get dynamic icon info.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { string } bundleName - Indicates the bundleName.
-   * @param { BundleOptions } [option] - Indicates the bundle option.
-   * @returns { Promise<string> } Returns dynamic icon key.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
-   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
    */
-  function getDynamicIcon(bundleName: string, option?: BundleOptions): Promise<string>;
+  function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Get all dynamic icon info.
+   * If you need to query dynamic icon information under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to query dynamic icon information under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } [userId] - Indicates the user id, default value is to query all users.
    * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
