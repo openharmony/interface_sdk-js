@@ -76,18 +76,6 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @example
-   * import { BusinessError } from '@kit.BasicServicesKit';
-   * 
-   * let avPlayer: media.AVPlayer;
-   * media.createAVPlayer((error: BusinessError, video: media.AVPlayer) => {
-   *   if (video != null) {
-   *     avPlayer = video;
-   *     console.info('Succeeded in creating AVPlayer');
-   *   } else {
-   *     console.error(`Failed to create AVPlayer, error message:${error.message}`);
-   *   }
-   * });
    */
   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
 
@@ -125,20 +113,6 @@ declare namespace media {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @example
-   * import { BusinessError } from '@kit.BasicServicesKit';
-
-   * let avPlayer: media.AVPlayer;
-   * media.createAVPlayer().then((video: media.AVPlayer) => {
-   *   if (video != null) {
-   *     avPlayer = video;
-   *     console.info('Succeeded in creating AVPlayer');
-   *   } else {
-   *     console.error('Failed to create AVPlayer');
-   *   }
-   * }).catch((error: BusinessError) => {
-   *   console.error(`Failed to create AVPlayer, error message:${error.message}`);
-   * });
    */
   function createAVPlayer(): Promise<AVPlayer>;
 
@@ -220,27 +194,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 13
-   * @example
-   * import { common } from '@kit.AbilityKit';
-   * import { resourceManager } from '@kit.LocalizationKit';
-   * 
-   * private context: Context | undefined;
-   * constructor(context: Context) {
-   *   this.context = context; // this.getUIContext().getHostContext();
-   * }
-   * let mgr = this.context.resourceManager;
-   * let fileDescriptor = await mgr.getRawFd("xxx.m3u8");
-   * 
-   * let fd:string = fileDescriptor.fd.toString();
-   * let offset:string = fileDescriptor.offset.toString();
-   * let length:string = fileDescriptor.length.toString();
-   * let fdUrl:string = "fd://" + fd + "?offset=" + offset + "&size=" + length;
-   * 
-   * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
-   * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl(fdUrl,  headers);
-   * 
-   * let mimeType : media.AVMimeTypes = media.AVMimeTypes.APPLICATION_M3U8;
-   * mediaSource.setMimeType(mimeType);
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
@@ -254,12 +207,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 19
-   * @example
-   * let streams : Array<media.MediaStream> = [];
-   * streams.push({url: "http://xxx/480p.flv", width: 854, height: 480, bitrate: 800000});
-   * streams.push({url: "http:/xxx/720p.flv", width: 1280, height: 720, bitrate: 2000000});
-   * streams.push({url: "http:/xxx/1080p.flv", width: 1280, height: 720, bitrate: 2000000});
-   * let mediaSource : media.MediaSource = media.createMediaSourceWithStreamData(streams);
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
 
@@ -1844,16 +1791,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.prepare((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to prepare,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in preparing');
-     *   }
-     * })
      */
     prepare(callback: AsyncCallback<void>): void;
 
@@ -1892,14 +1829,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.prepare().then(() => {
-     *   console.info('Succeeded in preparing');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to prepare,error message is :' + err.message)
-     * })
      */
     prepare(): Promise<void>;
 
@@ -1926,16 +1855,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.play((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to play,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in playing');
-     *   }
-     * })
      */
     play(callback: AsyncCallback<void>): void;
 
@@ -1962,14 +1881,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.play().then(() => {
-     *   console.info('Succeeded in playing');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to play,error message is :' + err.message)
-     * })
      */
     play(): Promise<void>;
 
@@ -1996,16 +1907,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.pause((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to pause,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in pausing');
-     *   }
-     * })
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -2032,14 +1933,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.pause().then(() => {
-     *   console.info('Succeeded in pausing');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to pause,error message is :' + err.message)
-     * })
      */
     pause(): Promise<void>;
 
@@ -2069,16 +1962,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.stop((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to stop,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in stopping');
-     *   }
-     * })
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -2108,14 +1991,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.stop().then(() => {
-     *   console.info('Succeeded in stopping');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to stop,error message is :' + err.message)
-     * })
      */
     stop(): Promise<void>;
 
@@ -2145,16 +2020,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.reset((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to reset,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in resetting');
-     *   }
-     * })
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -2184,14 +2049,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.reset().then(() => {
-     *   console.info('Succeeded in resetting');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to reset,error message is :' + err.message)
-     * })
      */
     reset(): Promise<void>;
 
@@ -2218,16 +2075,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.release((err: BusinessError) => {
-     *   if (err) {
-     *     console.error('Failed to release,error message is :' + err.message)
-     *   } else {
-     *     console.info('Succeeded in releasing');
-     *   }
-     * })
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -2254,14 +2101,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.release().then(() => {
-     *   console.info('Succeeded in releasing');
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to release,error message is :' + err.message)
-     * })
      */
     release(): Promise<void>;
 
@@ -2314,9 +2153,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * let volume: number = 1.0
-     * avPlayer.setVolume(volume)
      */
     setVolume(volume: number): void;
 
@@ -2347,16 +2183,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
-     *   if ((arrList) != null) {
-     *     console.info('Succeeded in doing getTrackDescription');
-     *   } else {
-     *     console.error(`Failed to do getTrackDescription, error:${error}`);
-     *   }
-     * });
      */
     getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void;
 
@@ -2384,14 +2210,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) => {
-     *   console.info('Succeeded in getting TrackDescription');
-     * }).catch((error: BusinessError) => {
-     *   console.error(`Failed to get TrackDescription, error:${error}`);
-     * });
      */
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
@@ -2403,14 +2221,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.getSelectedTracks().then((arrList: Array<number>) => {
-     *   console.info('Succeeded in getting SelectedTracks');
-     * }).catch((error: BusinessError) => {
-     *   console.error(`Failed to get SelectedTracks, error:${error}`);
-     * });
      */
     getSelectedTracks(): Promise<Array<number>>;
 
@@ -2426,26 +2236,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * let avPlayer: media.AVPlayer = await media.createAVPlayer();
-     * let audioTrackIndex: Object = 0;
-     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
-     *   if (arrList != null) {
-     *     for (let i = 0; i < arrList.length; i++) {
-     *       if (i != 0) {
-     *         // Obtain the audio track list.
-     *         audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-     *       }
-     *     }
-     *   } else {
-     *     console.error(`Failed to get TrackDescription, error:${error}`);
-     *   }
-     * });
-     * 
-     * // Select an audio track.
-     * avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
      */
     selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
@@ -2459,28 +2249,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * let avPlayer: media.AVPlayer = await media.createAVPlayer();
-     * let audioTrackIndex: Object = 0;
-     * avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
-     *   if (arrList != null) {
-     *     for (let i = 0; i < arrList.length; i++) {
-     *       if (i != 0) {
-     *         // Obtain the audio track list.
-     *         audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-     *       }
-     *    }
-     *   } else {
-     *     console.error(`Failed to get TrackDescription, error:${error}`);
-     *   }
-     * });
-     * 
-     * // Select an audio track.
-     * avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
-     * // Deselect the audio track and restore to the default audio track.
-     * avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
      */
     deselectTrack(index: number): Promise<void>;
 
@@ -2497,19 +2265,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * let player = await media.createAVPlayer();
-     * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
-     * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl("http://xxx",  headers);
-     * let playStrategy : media.PlaybackStrategy = {
-     *   preferredWidth: 1,
-     *   preferredHeight: 2,
-     *   preferredBufferDuration: 3,
-     *   preferredHdr: false,
-     *   preferredBufferDurationForPlaying: 1,
-     *   thresholdForAutoQuickPlay: 5
-     * };
-     * player.setMediaSource(mediaSource, playStrategy);
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
@@ -2529,16 +2284,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { common } from '@kit.AbilityKit'
-     * 
-     * private context: Context | undefined;
-     * constructor(context: Context) {
-     *   this.context = context; // this.getUIContext().getHostContext();
-     * }
-     * let fileDescriptor = await this.context.resourceManager.getRawFd('xxx.srt');
-     * 
-     * avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length)
      */
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
 
@@ -2562,27 +2307,6 @@ declare namespace media {
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * let avPlayer: media.AVPlayer | undefined = undefined;
-     * let playbackInfo: media.PlaybackInfo | undefined = undefined;
-     * media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
-     *   if (player != null) {
-     *     avPlayer = player;
-     *     console.info(`Succeeded in creating AVPlayer`);
-     *     if (avPlayer) {
-     *       try {
-     *         playbackInfo = await avPlayer.getPlaybackInfo();
-     *         console.info(`AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`); // Print PlaybackInfo.
-     *       } catch (error) {
-     *         console.error(`error = ${error}`);
-     *       }
-     *     }
-     *   } else {
-     *     console.error(`Failed to create AVPlayer, error message:${err.message}`);
-     *   }
-     * });
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
@@ -2595,28 +2319,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { common } from '@kit.AbilityKit';
-     * 
-     * private context: Context | undefined;
-     * constructor(context: Context) {
-     *   this.context = context; // this.getUIContext().getHostContext();
-     * }
-     * 
-     * let player = await media.createAVPlayer();
-     * let context = getContext(this) as common.UIAbilityContext;
-     * let fileDescriptor = await this.context.resourceManager.getRawFd('xxx.mp4');
-     * player.fdSrc = fileDescriptor
-     * let playStrategy : media.PlaybackStrategy = {
-     *   preferredWidth: 1,
-     *   preferredHeight: 2,
-     *   preferredBufferDuration: 3,
-     *   preferredHdr: false,
-     *   mutedMediaType: media.MediaType.MEDIA_TYPE_AUD,
-     *   preferredBufferDurationForPlaying: 1,
-     *   thresholdForAutoQuickPlay: 5
-     * };
-     * player.setPlaybackStrategy(playStrategy);
      */
     setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
 
@@ -2631,15 +2333,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.prepare().then(() => {
-     *   console.info('Succeeded in preparing');
-     *   avPlayer.setMediaMuted(media.MediaType.MEDIA_TYPE_AUD, true)
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to prepare,error message is :' + err.message)
-     * })
      */
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
@@ -2662,15 +2355,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * import { media } from '@kit.MediaKit';
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.setPlaybackRange(0, 6000, media.SeekMode.SEEK_CLOSEST).then(() => {
-     *   console.info('Succeeded setPlaybackRange');
-     * }).catch((err: BusinessError) => {
-     *   console.error('Failed to setPlaybackRange' + err.message);
-     * });
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
@@ -2695,16 +2379,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.prepare().then(() => {
-     *   console.info('Succeeded in preparing')
-     *   let playbackPosition: number = avPlayer.getPlaybackPosition()
-     *   console.info(`AVPlayer getPlaybackPosition== ${playbackPosition}`)
-     * }, (err: BusinessError) => {
-     *   console.error('Failed to prepare,error message is :' + err.message)
-     * })
      */
     getPlaybackPosition() : number;
 
@@ -2743,8 +2417,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * avPlayer.setVideoWindowSize(1920, 1080)
      */
     setVideoWindowSize(width: number, height: number) : Promise<void>;
 
@@ -3040,8 +2712,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.setSpeed(media.PlaybackSpeed.SPEED_FORWARD_2_00_X)
      */
     setSpeed(speed: PlaybackSpeed): void;
 
@@ -3056,12 +2726,17 @@ declare namespace media {
      * @since 9
      */
     /**
-     * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
+     * Select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
      * player will select the appropriate bitrate according to the network connection speed. The
      * available bitrate list reported by {@link #on('availableBitrates')}. Set it to select
      * a specified bitrate. If the specified bitrate is not in the list of available bitrate, the player
-     * will select the minimal and closest one from the available bitrate list.
-     * @param { number } bitrate - the playback bitrate must be expressed in bits per second.
+     * will select the minimal and closest one from the available bitrate list.This API can be called
+     * only when the AVPlayer is in the prepared, playing, paused, or completed state.
+     * @param { number } bitrate - 	Bit rate to set. Obtain the available bit rates of the current HLS/DASH
+     * stream by subscribing to the {@link #on('availableBitrates')} event. If the bit rate to set is not in
+     * the list of the available bit rates, the AVPlayer selects from the list the bit rate that is closed
+     * to the bit rate to set. If the length of the available bit rate list obtained through the event is 0,
+     * no bit rate can be set and the bitrateDone callback will not be triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3090,18 +2765,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { drm } from '@kit.DrmKit';
-     * 
-     * // Create a media key system.
-     * let keySystem:drm.MediaKeySystem = drm.createMediaKeySystem('com.clearplay.drm');
-     * // Create a media key session.
-     * let keySession:drm.MediaKeySession = keySystem.createMediaKeySession(drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
-     * // Generate a media key request and set the response to the media key request.
-     * // Flag indicating whether a secure video channel is used.
-     * let secureVideoPath:boolean = false;
-     * // Set the decryption configuration.
-     * avPlayer.setDecryptionConfig(keySession, secureVideoPath);
      */
     setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
 
@@ -3117,15 +2780,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { drm } from '@kit.DrmKit';
-     * 
-     * const infos = avPlayer.getMediaKeySystemInfos();
-     * console.info('GetMediaKeySystemInfos count: ' + infos.length);
-     * for (let i = 0; i < infos.length; i++) {
-     *   console.info('GetMediaKeySystemInfos uuid: ' + infos[i]["uuid"]);
-     *   console.info('GetMediaKeySystemInfos pssh: ' + infos[i]["pssh"]);
-     * }
      */
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
@@ -3145,15 +2799,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { drm } from '@kit.DrmKit';
-     * 
-     * avPlayer.on('mediaKeySystemInfoUpdate', (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => {
-     *     for (let i = 0; i < mediaKeySystemInfo.length; i++) {
-     *       console.info('mediaKeySystemInfoUpdate happened uuid: ' + mediaKeySystemInfo[i]["uuid"]);
-     *       console.info('mediaKeySystemInfoUpdate happened pssh: ' + mediaKeySystemInfo[i]["pssh"]);
-     *     }
-     * })
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3198,41 +2843,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
-     *   switch (state) {
-     *     case 'idle':
-     *       console.info('state idle called');
-     *       break;
-     *     case 'initialized':
-     *       console.info('initialized prepared called');
-     *       break;
-     *     case 'prepared':
-     *       console.info('state prepared called');
-     *       break;
-     *     case 'playing':
-     *       console.info('state playing called');
-     *       break;
-     *     case 'paused':
-     *       console.info('state paused called');
-     *       break;
-     *     case 'completed':
-     *       console.info('state completed called');
-     *       break;
-     *     case 'stopped':
-     *       console.info('state stopped called');
-     *       break;
-     *     case 'released':
-     *       console.info('state released called');
-     *       break;
-     *     case 'error':
-     *       console.info('state error called');
-     *       break;
-     *     default:
-     *       console.info('unknown state :' + state);
-     *       break;
-     *   }
-     * })
      */
     on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3274,10 +2884,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('volumeChange', (vol: number) => {
-     *   console.info('volumeChange called,and new volume is :' + vol)
-     * })
      */
     on(type: 'volumeChange', callback: Callback<number>): void;
     /**
@@ -3314,10 +2920,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('endOfStream', () => {
-     *   console.info('endOfStream called')
-     * })
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
     /**
@@ -3364,10 +2966,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('seekDone', (seekDoneTime:number) => {
-     *   console.info('seekDone called,and seek time is:' + seekDoneTime)
-     * })
      */
     on(type: 'seekDone', callback: Callback<number>): void;
     /**
@@ -3415,10 +3013,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('speedDone', (speed:number) => {
-     *   console.info('speedDone called,and speed value is:' + speed)
-     * })
      */
     on(type: 'speedDone', callback: Callback<number>): void;
     /**
@@ -3453,10 +3047,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('bitrateDone', (bitrate:number) => {
-     *   console.info('bitrateDone called,and bitrate value is:' + bitrate)
-     * })
      */
     on(type: 'bitrateDone', callback: Callback<number>): void;
     /**
@@ -3499,10 +3089,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('timeUpdate', (time:number) => {
-     *   console.info('timeUpdate called,and new time is :' + time)
-     * })
      */
     on(type: 'timeUpdate', callback: Callback<number>): void;
     /**
@@ -3545,10 +3131,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('durationUpdate', (duration: number) => {
-     *   console.info('durationUpdate called,new duration is :' + duration)
-     * })
      */
     on(type: 'durationUpdate', callback: Callback<number>): void;
     /**
@@ -3585,10 +3167,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
-     *   console.info('bufferingUpdate called,and infoType value is:' + infoType + ', value is :' + value)
-     * })
      */
     on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void;
 
@@ -3627,10 +3205,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('startRenderFrame', () => {
-     *   console.info('startRenderFrame called')
-     * })
      */
     on(type: 'startRenderFrame', callback: Callback<void>): void;
     /**
@@ -3665,10 +3239,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('videoSizeChange', (width: number, height: number) => {
-     *   console.info('videoSizeChange called,and width is:' + width + ', height is :' + height)
-     * })
      */
     on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void;
     /**
@@ -3704,12 +3274,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @example
-     * import { audio } from '@kit.AudioKit';
-     * 
-     * avPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
-     *   console.info('audioInterrupt called,and InterruptEvent info is:' + info)
-     * })
      */
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
     /**
@@ -3849,13 +3413,6 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * avPlayer.on('error', (error: BusinessError) => {
-     *   console.info('error happened,and error message is :' + error.message)
-     *   console.info('error happened,and error code is :' + error.code)
-     * })
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
@@ -3907,12 +3464,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * import { audio } from '@kit.AudioKit';
-     * 
-     * avPlayer.on('audioOutputDeviceChangeWithInfo', (data: audio.AudioStreamDeviceChangeInfo) => {
-     *   console.info(`${JSON.stringify(data)}`);
-     * });
      */
     on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
@@ -3949,17 +3500,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('subtitleUpdate', async (info: media.SubtitleInfo) => {
-     *   if (info) {
-     *     let text = (!info.text) ? '' : info.text
-     *     let startTime = (!info.startTime) ? 0 : info.startTime
-     *     let duration = (!info.duration) ? 0 : info.duration
-     *     console.info('subtitleUpdate info: text=' + text + ' startTime=' + startTime +' duration=' + duration)
-     *   } else {
-     *     console.info('subtitleUpdate info is null')
-     *   }
-     * })
      */
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
 
@@ -3984,10 +3524,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('trackChange', (index: number, isSelect: boolean) => {
-     *   console.info('trackChange info: index=' + index + ' isSelect=' + isSelect)
-     * })
      */
     on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
@@ -4012,18 +3548,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
-     * @example
-     * avPlayer.on('trackInfoUpdate', (info: Array<media.MediaDescription>) => {
-     *   if (info) {
-     *     for (let i = 0; i < info.length; i++) {
-     *       let propertyIndex: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-     *       let propertyType: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_TYPE];
-     *       console.info('track info: index=' + propertyIndex + ' tracktype=' + propertyType)
-     *     }
-     *   } else {
-     *     console.info('track info is null')
-     *   }
-     * })
      */
     on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
 
@@ -4047,10 +3571,6 @@ declare namespace media {
      * @param { Callback<Array<number>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
-     * @example
-     * avPlayer.on('amplitudeUpdate', (value: Array<number>) => {
-     *   console.info('amplitudeUpdate called,and amplitudeUpdate = ${value}')
-     * })
      */
     on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
@@ -4078,24 +3598,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * import util from '@ohos.util';
-     * 
-     * avPlayer.on('seiMessageReceived', [5], (messages: Array<media.SeiMessage>, playbackPosition?: number) =>
-     * {
-     *   console.info('seiMessageReceived playbackPosition ' + playbackPosition)
-     * 
-     *   for (let key = 0; key < messages.length; key++) {
-     *     console.info('seiMessageReceived messages payloadType ' + messages[key].payloadType + ' payload size '
-     *     + messages[key].payload.byteLength)
-     * 
-     *     let textDecoder = util.TextDecoder.create("utf-8",{ignoreBOM: true})
-     *     let ab = messages[key]?.payload?.slice(16, messages[key].payload.byteLength)
-     *     let result: Uint8Array = new Uint8Array(ab)
-     *     let retStr: string = textDecoder.decodeToString(result)
-     *     console.info('seiMessageReceived messages payload ' + retStr)
-     *   }
-     * });
      */
     on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
 
@@ -4122,10 +3624,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
-     * @example
-     * avPlayer.on('superResolutionChanged', (enabled: boolean) => {
-     *   console.info('superResolutionChanged called, and enabled is:' + enabled)
-     * })
      */
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
@@ -4153,34 +3651,6 @@ declare namespace media {
      * key:value pair, key see @PlaybackInfoKey.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12
-     * @example
-     * import { BusinessError } from '@kit.BasicServicesKit';
-     * 
-     * function printfPlaybackInfo(obj: media.PlaybackInfo, key: string) {
-     *   let property: Object = obj[key];
-     *   console.info('key is ' + key); // // Specify a key. For details about the keys, see [PlaybackInfoKey].
-     *   console.info('value is ' + property); // Obtain the value of the key. The value can be any type.
-     * }
-     * 
-     * let avPlayer: media.AVPlayer | undefined = undefined;
-     * let playbackInfo: media.PlaybackInfo | undefined = undefined;
-     * media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
-     *   if (player != null) {
-     *     avPlayer = player;
-     *     console.info(`Succeeded in creating AVPlayer`);
-     *     if (avPlayer) {
-     *       try {
-     *         playbackInfo = await avPlayer.getPlaybackInfo();
-     *         console.info(`AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`); // Print PlaybackInfo.
-     *         printfPlaybackInfo(playbackInfo, media.PlaybackInfoKey.SERVER_IP_ADDRESS); // Print the IP address.
-     *       } catch (error) {
-     *         console.error(`error = ${error}`);
-     *       }
-     *     }
-     *   } else {
-     *     console.error(`Failed to create AVPlayer, error message:${err.message}`);
-     *   }
-     * });
      */
     [key:string]: Object;
   }
@@ -4420,19 +3890,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
-   * @example
-   * import HashMap from '@ohos.util.HashMap';
-   * 
-   * let uuid: number = 1;
-   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-   * 
-   * let sourceOpenCallback: media.SourceOpenCallback = (request: media.MediaSourceLoadingRequest) => {
-   *   console.log(`Opening resource: ${request.url}`);
-   *   // Open the resource and return a unique handle, ensuring the mapping between the UUID and request.
-   *   uuid += 1;
-   *   requests.set(uuid, request);
-   *   return uuid;
-   * }
    */
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
 
@@ -4451,11 +3908,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
-   * @example
-   * let sourceReadCallback: media.SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => {
-   *  console.log(`Reading resource with handle ${uuid}, offset: ${requestedOffset}, length: ${requestedLength}`);
-   *  // Check whether the UUID is valid and store the read request. Avoid blocking the request while pushing data and header information.
-   *}
    */
   type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
 
@@ -4469,16 +3921,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
-   * @example
-   * import HashMap from '@ohos.util.HashMap';
-   * 
-   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-   * 
-   * let sourceCloseCallback: media.SourceCloseCallback = (uuid: number) => {
-   *   console.log(`Closing resource with handle ${uuid}`);
-   *   // Clear resources related to the current UUID.
-   *   requests.remove(uuid);
-   * }
    */
   type SourceCloseCallback = (uuid: number) => void;
 
@@ -4488,39 +3930,6 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 18
-   * @example
-   * import HashMap from '@ohos.util.HashMap';
-   * 
-   * let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
-   * let mediaSource : media.MediaSource = media.createMediaSourceWithUrl("http://xxx",  headers);
-   * let uuid: number = 1;
-   * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-   * let mediaSourceLoader: media.MediaSourceLoader = {
-   *   open: (request: media.MediaSourceLoadingRequest) => {
-   *     console.log(`Opening resource: ${request.url}`);
-   *     // Open the resource and return a unique handle, ensuring the mapping between the UUID and request.
-   *     uuid += 1;
-   *     requests.set(uuid, request);
-   *     return uuid;
-   *   },
-   *   read: (uuid: number, requestedOffset: number, requestedLength: number) => {
-   *     console.log(`Reading resource with handle ${uuid}, offset: ${requestedOffset}, length: ${requestedLength}`);
-   *    // Check whether the UUID is valid and store the read request.
-   *    // Avoid blocking the request while pushing data and header information.
-   *   },
-   *   close: (uuid: number) => {
-   *     console.log(`Closing resource with handle ${uuid}`);
-   *     // Clear resources related to the current UUID.
-   *     requests.remove(uuid);
-   *   }
-   *};
-   *
-   * mediaSource.setMediaResourceLoaderDelegate(mediaSourceLoader);
-   * let playStrategy : media.PlaybackStrategy = {
-   *   preferredBufferDuration: 20,
-   * };
-   *let player = await media.createAVPlayer();
-   *player.setMediaSource(mediaSource, playStrategy);
    */
   interface MediaSourceLoader {
     /**
@@ -4655,12 +4064,6 @@ declare namespace media {
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
-     * @example
-     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-     * let uuid = 1;
-     * 
-     * let request = requests.get(uuid);
-     * let num = request.respondData(uuid, offset, buf);
      */
     respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
 
@@ -4675,22 +4078,6 @@ declare namespace media {
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
-     * @example
-     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-     * let uuid = 1;
-     * 
-     * // The application fills this in as needed.
-     * let header:Record<string, string> = {
-     *   'Transfer-Encoding':'xxx',
-     *   'Location' : 'xxx',
-     *   'Content-Type' : 'xxx',
-     *   'Content-Range' : 'xxx',
-     *   'Content-Encode' : 'xxx',
-     *   'Accept-Ranges' : 'xxx',
-     *   'content-length' : 'xxx'
-     * };
-     * let request = requests.get(uuid);
-     * request.respondHeader(uuid, header);
      */
     respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
@@ -4703,13 +4090,6 @@ declare namespace media {
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
-     * @example
-     * let requests: HashMap<number, media.MediaSourceLoadingRequest> = new HashMap();
-     * let uuid = 1;
-     * 
-     * let request = requests.get(uuid);
-     * let loadingError = media.LoadingRequestError.LOADING_ERROR_SUCCESS;
-     * request.finishLoading(uuid, loadingError);
      */
     finishLoading(uuid: number, state: LoadingRequestError): void;
   }
