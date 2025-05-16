@@ -2593,7 +2593,7 @@ declare namespace media {
      * Supported states: prepared/playing/paused/completed.
      * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 20
