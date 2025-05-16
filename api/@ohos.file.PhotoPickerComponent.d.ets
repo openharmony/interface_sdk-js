@@ -452,7 +452,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   photoBrowserCheckboxPosition?: [number, number];
 
   /**
-   * Support to set single line display mode
+   * Single-line display mode for the PhotoPickerComponent.
    *
    * @type { ?SingleLineConfig }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -620,7 +620,7 @@ export declare class MaxSelected {
 
 
 /**
- * SingleLineConfig
+ * Single-Line display mode.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -638,7 +638,7 @@ export declare class SingleLineConfig {
   itemDisplayRatio?: ItemDisplayRatio;
 
   /**
-   * item display border radius
+   * Rounded corner radius of grid items.
    *
    * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1049,9 +1049,9 @@ export declare enum VideoPlayerState {
 }
 
 /**
- * ItemDisplayRatio. include SQUARE_RATIO and ORIGINAL_SIZE_RATIO
+ * Enumerates the aspect ratios of the grid item display, including 1:1 and the original image's aspect ratio.
  *
- * @enum { number } ItemDisplayRatio
+ * @enum { number } Grid item display aspect ratio.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 20
