@@ -469,7 +469,6 @@ declare namespace restrictions {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   function setUserRestriction(admin: Want, settingsItem: string, restricted: boolean): void;
 }
