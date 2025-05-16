@@ -359,7 +359,7 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
   /**
    * The execute mode of the intent.
    * For UIAbility, the parameter can be set to insightIntent.ExecuteMode.UI_ABILITY_FOREGROUND or
-   * insightIntent.ExecuteMode.UI_ABILITY_UI_ABILITY_BACKGROUND or both of them.
+   * insightIntent.ExecuteMode.UI_ABILITY_BACKGROUND or both of them.
    *
    * @type { ?insightIntent.ExecuteMode[] }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
