@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common';
-import { ShapeAttribute } from './component/shape';
-/*** endif */
+
 
 
 /**
@@ -45,29 +42,4 @@ export declare class ShapeModifier extends ShapeAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?(instance: ShapeAttribute): void;
-}
-
-/**
- * Defines Shape Modifier
- *
- * @extends ShapeAttribute
- * @implements AttributeModifier<ShapeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ShapeModifier extends ShapeAttribute implements AttributeModifier<ShapeAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: ShapeAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: ShapeAttribute) => void);
 }

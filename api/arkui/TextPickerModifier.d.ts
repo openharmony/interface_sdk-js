@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { TextPickerAttribute } from './component/textPicker'
-/*** endif */
+
+
 
 /**
  * Defines TextPicker Modifier
@@ -45,76 +43,3 @@ export declare class TextPickerModifier extends TextPickerAttribute implements A
    */
   applyNormalAttribute?(instance: TextPickerAttribute): void;
 }
-
-/**
- * Defines TextPicker Modifier
- *
- * @extends TextPickerAttribute
- * @implements AttributeModifier<TextPickerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class TextPickerModifier extends TextPickerAttribute implements AttributeModifier<TextPickerAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: TextPickerAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute: undefined | ((instance: TextPickerAttribute) => void);
-
-  /**
-   * Defines the pressed update attribute function.
-   * 
-   * @type { undefined | ((instance: TextPickerAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute: undefined | ((instance: TextPickerAttribute) => void);
-
-  /**
-   * Defines the focused update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextPickerAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute: undefined | ((instance: TextPickerAttribute) => void);
-
-  /**
-   * Defines the disabled update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextPickerAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute: undefined | ((instance: TextPickerAttribute) => void);
-
-  /**
-   * Defines the selected update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextPickerAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute: undefined | ((instance: TextPickerAttribute) => void);
-}

@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { GridAttribute } from './component/grid'
-/*** endif */
+
+
 
 /**
  * Defines Grid Modifier
@@ -44,29 +42,4 @@ export declare class GridModifier extends GridAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: GridAttribute): void;
-}
-
-/**
- * Defines Grid Modifier
- * 
- * @extends GridAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class GridModifier extends GridAttribute implements AttributeModifier<GridAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { GridAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: GridAttribute) => void;
 }

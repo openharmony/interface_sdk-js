@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { PatternLockAttribute } from './component/patternLock'
-/*** endif */
+
+
 
 /**
  * Defines PatternLock Modifier
@@ -45,76 +43,3 @@ export declare class PatternLockModifier extends PatternLockAttribute implements
    */
   applyNormalAttribute?(instance: PatternLockAttribute): void;
 }
-
-/**
- * Defines PatternLock Modifier
- *
- * @extends PatternLockAttribute
- * @implements AttributeModifier<PatternLockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: PatternLockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute: undefined | ((instance: PatternLockAttribute) => void);
-
-  /**
-   * Defines the pressed update attribute function.
-   * 
-   * @type { undefined | ((instance: PatternLockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute: undefined | ((instance: PatternLockAttribute) => void);
-
-  /**
-   * Defines the focused update attribute function.
-   * 
-   * @type { undefined | ((instance:  PatternLockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute: undefined | ((instance: PatternLockAttribute) => void);
-
-  /**
-   * Defines the disabled update attribute function.
-   * 
-   * @type { undefined | ((instance:  PatternLockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute: undefined | ((instance: PatternLockAttribute) => void);
-
-  /**
-   * Defines the selected update attribute function.
-   * 
-   * @type { undefined | ((instance:  PatternLockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute: undefined | ((instance: PatternLockAttribute) => void);
-}

@@ -19,10 +19,7 @@
  */
 
 
-/*** if arkts 1.2 */
-import { RowSplitAttribute } from './component/rowSplit';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
 
 /**
  * Defines RowSplit Modifier
@@ -45,29 +42,4 @@ export declare class RowSplitModifier extends RowSplitAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?(instance: RowSplitAttribute): void;
-}
-
-/**
- * Defines RowSplit Modifier
- *
- * @extends RowSplitAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class RowSplitModifier extends RowSplitAttribute implements AttributeModifier<RowSplitAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { RowSplitAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: RowSplitAttribute) => void);
 }

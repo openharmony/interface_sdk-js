@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { DataPanelAttribute } from './component/dataPanel'
-/*** endif */
+
+
 
 /**
  * Defines DataPanel Modifier
@@ -45,76 +43,3 @@ export declare class DataPanelModifier extends DataPanelAttribute implements Att
    */
   applyNormalAttribute?(instance: DataPanelAttribute): void;
 }
-
-/**
- * Defines DataPanel Modifier
- *
- * @extends DataPanelAttribute
- * @implements AttributeModifier<DataPanelAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class DataPanelModifier extends DataPanelAttribute implements AttributeModifier<DataPanelAttribute> {
-
-/**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: DataPanelAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-applyNormalAttribute: undefined | ((instance: DataPanelAttribute) => void);
-
-/**
- * Defines the pressed update attribute function.
- * 
- * @type { undefined | ((instance: DataPanelAttribute) => void) }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-applyPressedAttribute: undefined | ((instance: DataPanelAttribute) => void);
-
-/**
- * Defines the focused update attribute function.
- * 
- * @type { undefined | ((instance:  DataPanelAttribute) => void) }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-applyFocusedAttribute: undefined | ((instance: DataPanelAttribute) => void);
-
-/**
- * Defines the disabled update attribute function.
- * 
- * @type { undefined | ((instance:  DataPanelAttribute) => void) }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-applyDisabledAttribute: undefined | ((instance: DataPanelAttribute) => void);
-
-/**
- * Defines the selected update attribute function.
- * 
- * @type { undefined | ((instance:  DataPanelAttribute) => void) }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-applySelectedAttribute: undefined | ((instance: DataPanelAttribute) => void);
-}

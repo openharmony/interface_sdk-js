@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { AlphabetIndexerAttribute } from './component/alphabetIndexer'
-/*** endif */
+
 
 /**
  * Defines AlphabetIndexer Modifier
@@ -44,29 +41,4 @@ export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute im
    * @since 12
    */
   applyNormalAttribute?(instance: AlphabetIndexerAttribute): void;
-}
-
-/**
- * Defines AlphabetIndexer Modifier
- *
- * @extends AlphabetIndexerAttribute
- * @implements AttributeModifier<AlphabetIndexerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute implements AttributeModifier<AlphabetIndexerAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { AlphabetIndexerAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: AlphabetIndexerAttribute) => void;
 }

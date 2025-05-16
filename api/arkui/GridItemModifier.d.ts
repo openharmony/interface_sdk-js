@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { GridItemAttribute } from './component/griditem'
-/*** endif */
+
+
 
 /**
  * Defines GridItem Modifier
@@ -44,29 +42,4 @@ export declare class GridItemModifier extends GridItemAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?(instance: GridItemAttribute): void;
-}
-
-/**
- * Defines GridItem Modifier
- *
- * @extends GridItemAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class GridItemModifier extends GridItemAttribute implements AttributeModifier<GridItemAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { GridItemAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: GridItemAttribute) => void;
 }

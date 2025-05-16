@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { GridColAttribute } from './component/gridCol';
-import { AttributeModifier } from './component/common';
-/*** endif */
 
 
 
@@ -46,29 +42,4 @@ export declare class GridColModifier extends GridColAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: GridColAttribute): void;
-}
-
-/**
- * Defines GridCol Modifier
- *
- * @extends GridColAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class GridColModifier extends GridColAttribute implements AttributeModifier<GridColAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { GridColAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: GridColAttribute) => void);
 }

@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common';
-import { PathAttribute } from './component/path';
-/*** endif */
 
 
 
@@ -46,29 +42,4 @@ export declare class PathModifier extends PathAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: PathAttribute): void;
-}
-
-/**
- * Defines Path Modifier
- *
- * @extends PathAttribute
- * @implements AttributeModifier<PathAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class PathModifier extends PathAttribute implements AttributeModifier<PathAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: PathAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: PathAttribute) => void);
 }

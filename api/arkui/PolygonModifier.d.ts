@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common';
-import { PolygonAttribute } from './component/polygon';
-/*** endif */
+
 
 
 /**
@@ -45,29 +42,4 @@ export declare class PolygonModifier extends PolygonAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: PolygonAttribute): void;
-}
-
-/**
- * Defines Polygon Modifier
- *
- * @extends PolygonAttribute
- * @implements AttributeModifier<PolygonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class PolygonModifier extends PolygonAttribute implements AttributeModifier<PolygonAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: PolygonAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: PolygonAttribute) => void);
 }
