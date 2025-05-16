@@ -34,6 +34,16 @@
  * @crossplatform
  * @since 12
  */
+/**
+ * Indicates possible value types
+ *
+ * @typedef { number | string | boolean }
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export type ValueType = number | string | boolean;
 
 /**
