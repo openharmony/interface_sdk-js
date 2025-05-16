@@ -290,7 +290,7 @@ type ServiceDieCallback = Callback<ServiceDieData>;
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } networkId - Device network id.
-     * @returns { number } - Returns device type.
+     * @returns { double } - Returns device type.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      * required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -302,7 +302,7 @@ type ServiceDieCallback = Callback<ServiceDieData>;
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getDeviceType(networkId: string): number;
+    getDeviceType(networkId: string): double;
 
     /**
      * Start to discover nearby devices.
