@@ -559,6 +559,17 @@ interface EmitterProperty {
    * @since 12
    */
   size?: SizeT<number>;
+
+  /**
+   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
+   *
+   * @type { ?ParticleAnnulusRegion }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -858,6 +869,18 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @since 18
    */
   size?: ParticleTuple<Dimension, Dimension>;
+
+  /**
+   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
+   *
+   * @type { ?ParticleAnnulusRegion }
+   * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -1763,6 +1786,15 @@ declare enum ParticleEmitterShape {
    * @since 11
    */
   ELLIPSE = 'ellipse',
+
+  /**
+   * Annulus.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ANNULUS = 'annulus',
 }
 
 /**
@@ -2090,4 +2122,68 @@ declare enum DisturbanceFieldShape {
    */
   ELLIPSE
 
+}
+
+/**
+ * Defines particle annuslus region params.
+ * @interface ParticleAnnulusRegion
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface ParticleAnnulusRegion {
+  /**
+   * The coordinates of the center of the annulus
+   *
+   * @type { ?PositionT<LengthMetrics> }
+   * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  center?: PositionT<LengthMetrics>,
+  /**
+   * The outer radius of the annulus
+   *
+   * @type { LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  outerRadius: LengthMetrics,
+  /**
+   * The inner radius of the annulus
+   *
+   * @type { LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  innerRadius: LengthMetrics,
+  /**
+   * The start angle of the annulus, in degree
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  startAngle?: number,
+  /**
+   * The end angle of the annulus, in degree
+   *
+   * @type { ?number }
+   * @default 360
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  endAngle?: number,
 }
