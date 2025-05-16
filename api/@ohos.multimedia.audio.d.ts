@@ -807,7 +807,7 @@ declare namespace audio {
      * Accessory devices, such as the mic on remote control.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 19
      */
     ACCESSORY = 26,
 
@@ -9371,7 +9371,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setInputDeviceToAccessory(): void;
   }
