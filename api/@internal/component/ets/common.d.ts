@@ -10881,6 +10881,7 @@ declare interface ClickEvent extends BaseEvent {
    * Prevent the default function.
    *
    * @type { function }
+   * @throws { BusinessError } 100017 - Component does not support prevent function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -11824,6 +11825,7 @@ declare interface TouchEvent extends BaseEvent {
    * Blocks the default event.
    *
    * @type { function }
+   * @throws { BusinessError } 100017 - Component does not support prevent function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
