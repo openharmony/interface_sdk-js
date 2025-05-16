@@ -25,7 +25,7 @@
  * @since arkts {'1.1':'14', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class AppStateData {
+declare class AppStateData {
   /**
    * The bundle name.
    *
@@ -76,3 +76,5 @@ export default class AppStateData {
    */
   isFloatingWindowMode: boolean;
 }
+
+export default AppStateData;
