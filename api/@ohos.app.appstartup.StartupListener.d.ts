@@ -25,8 +25,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export default class StartupListener {
   /**
@@ -38,15 +37,4 @@ export default class StartupListener {
    * @since 12
    */
   onCompleted?(error: BusinessError<void>): void;
-
-  /**
-   * Called when all startup tasks complete.
-   *
-   * @param { BusinessError<void> } error - Indicates the error during execution.
-   * @syscap SystemCapability.Ability.AppStartup
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  onCompleted?:(error: BusinessError<void>)=> void;
 }

@@ -43,8 +43,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface AbilityStageMonitor {
   /**
@@ -69,8 +68,7 @@ export interface AbilityStageMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   moduleName: string;
 
@@ -96,12 +94,9 @@ export interface AbilityStageMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   srcEntrance: string;
 }
 
-/*** if arkts 1.1 */
 export default AbilityStageMonitor;
-/*** endif */

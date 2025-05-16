@@ -25,8 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface AutoStartupInfo {
   /**
@@ -36,8 +35,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bundleName: string;
 
@@ -48,8 +46,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   moduleName?: string;
 
@@ -60,8 +57,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   abilityName: string;
 
@@ -72,8 +68,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   abilityTypeName?: string;
 
@@ -83,12 +78,9 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   appCloneIndex?: number;
 }
 
-/*** if arkts 1.1 */
 export default AutoStartupInfo;
-/*** endif */

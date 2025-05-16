@@ -28,10 +28,9 @@ import type CustomData from './CustomData';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
-declare class AutoFillExtensionContext extends ExtensionContext {
+export default class AutoFillExtensionContext extends ExtensionContext {
   /**
    * Reload autoFillExtension in modal window.
    *
@@ -49,5 +48,3 @@ declare class AutoFillExtensionContext extends ExtensionContext {
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }
-
-export default AutoFillExtensionContext;

@@ -18,10 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
-/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -30,8 +28,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace autoStartupManager {
   /**

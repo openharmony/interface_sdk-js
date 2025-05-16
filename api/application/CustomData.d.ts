@@ -27,8 +27,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'13', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 export default interface CustomData {
     /**
@@ -39,8 +38,7 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     data: Record<string, Object>;
   }

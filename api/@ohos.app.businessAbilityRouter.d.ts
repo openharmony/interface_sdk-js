@@ -18,22 +18,16 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
 import type * as _BusinessAbilityInfo from './application/BusinessAbilityInfo';
-/*** endif */
-/*** if arkts 1.2 */
-import { AsyncCallback } from './@ohos.base';
-import { BusinessAbilityInfo as _BusinessAbilityInfo } from './application/BusinessAbilityInfo';
-/*** endif */
+
 /**
  * This module is used to obtain business ability information of various applications installed on the current device.
  *
  * @namespace businessAbilityRouter
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare namespace businessAbilityRouter {
   /**
@@ -42,8 +36,7 @@ declare namespace businessAbilityRouter {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export enum BusinessType {
     /**
@@ -51,8 +44,7 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SHARE = 0,
 
@@ -61,8 +53,7 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     UNSPECIFIED = 255
   }
@@ -73,8 +64,7 @@ declare namespace businessAbilityRouter {
    * @typedef BusinessAbilityFilter
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   export interface BusinessAbilityFilter {
     /**
@@ -83,8 +73,7 @@ declare namespace businessAbilityRouter {
      * @type { BusinessType }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     businessType: BusinessType;
 
@@ -94,8 +83,7 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     mimeType?: string;
 
@@ -105,8 +93,7 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     uri?: string;
   }
@@ -158,17 +145,6 @@ declare namespace businessAbilityRouter {
    * @since 10
    */
   export type BusinessAbilityInfo = _BusinessAbilityInfo.BusinessAbilityInfo;
-
-  /**
-   * Obtains business ability info.
-   *
-   * @typedef { _BusinessAbilityInfo.BusinessAbilityInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type BusinessAbilityInfo = _BusinessAbilityInfo;
 }
 
 export default businessAbilityRouter;

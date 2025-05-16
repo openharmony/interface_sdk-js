@@ -39,11 +39,11 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
 import type _UIExtensionContext from './application/UIExtensionContext';
-import type _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
 import _BaseContext from './application/BaseContext';
@@ -53,16 +53,7 @@ import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
 import type _VpnExtensionContext from './application/VpnExtensionContext';
-import { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
-import { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
-import _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
-import type _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
-import _UIServiceExtensionContext from './application/UIServiceExtensionContext';
-import _UIServiceProxy from './application/UIServiceProxy';
-import _UIServiceHostProxy from './application/UIServiceHostProxy';
-import _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 /*** endif */
-import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
@@ -440,8 +431,7 @@ declare namespace common {
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type PacMap = _PacMap;
 
@@ -511,19 +501,6 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
-   * The context of auto fill extension. It allows access to
-   * AutoFillExtension-specific resources.
-   *
-   * @typedef { _AutoFillExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AutoFillExtensionContext = _AutoFillExtensionContext;
-
-  /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
    *
    * @typedef { _AbilityStartCallback }
@@ -542,8 +519,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type AutoStartupInfo = _AutoStartupInfo;
 
@@ -554,8 +530,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type AutoStartupCallback = _AutoStartupCallback;
 
@@ -596,18 +571,6 @@ declare namespace common {
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 
   /**
-   * The context of an embeddable UIAbility.
-   *
-   * @typedef { _EmbeddableUIAbilityContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-    export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext;
-
-  /**
    * The context of an photo editor extension ability.
    *
    * @typedef { _PhotoEditorExtensionContext.default }
@@ -616,17 +579,6 @@ declare namespace common {
    * @since 12
    */
     export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
-
-  /**
-   * The context of an photo editor extension ability.
-   *
-   * @typedef { _PhotoEditorExtensionContext }
-   * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-      export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext;
 
   /**
    * The context of a UI service ability.
@@ -639,18 +591,6 @@ declare namespace common {
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
-    /**
-   * The context of a UI service ability.
-   *
-   * @typedef { _UIServiceExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-    export type UIServiceExtensionContext = _UIServiceExtensionContext;
-
   /**
    * The UI service proxy.
    *
@@ -661,18 +601,6 @@ declare namespace common {
    * @since 14
    */
   export type UIServiceProxy = _UIServiceProxy.default;
-
-    /**
-   * The UI service proxy.
-   *
-   * @typedef { _UIServiceProxy }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-    export type UIServiceProxy = _UIServiceProxy;
 
   /**
    * The UI service host proxy.
@@ -685,18 +613,6 @@ declare namespace common {
    */
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
-    /**
-   * The UI service host proxy.
-   *
-   * @typedef { _UIServiceHostProxy }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-    export type UIServiceHostProxy = _UIServiceHostProxy;
-
   /**
    * The UI service extension connect callback.
    *
@@ -707,18 +623,6 @@ declare namespace common {
    * @since 14
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
-
-  /**
-   * The UI service extension connect callback.
-   *
-   * @typedef { _UIServiceExtensionConnectCallback }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
 }
 
 export default common;

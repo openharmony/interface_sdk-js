@@ -24,8 +24,7 @@
  * @typedef MissionParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 export interface MissionParameter {
   /**
@@ -35,8 +34,7 @@ export interface MissionParameter {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   deviceId: string;
 
@@ -47,8 +45,7 @@ export interface MissionParameter {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   fixConflict: boolean;
 
@@ -59,8 +56,7 @@ export interface MissionParameter {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   tag: number;
 }

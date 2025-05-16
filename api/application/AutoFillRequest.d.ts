@@ -18,12 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type { AutoFillType } from './AutoFillType';
-/*** endif */
-/*** if arkts 1.2 */
-import { AutoFillType } from './AutoFillType';
-/*** endif */
 import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
@@ -35,8 +30,7 @@ import type ViewData from './ViewData';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface FillRequest {
   /**
@@ -46,8 +40,7 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type: AutoFillType;
 
@@ -58,8 +51,7 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   viewData: ViewData;
 
@@ -70,8 +62,7 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   customData: CustomData;
 
@@ -82,8 +73,7 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   isPopup: boolean;
 }
@@ -95,8 +85,7 @@ export interface FillRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface SaveRequest {
   /**
@@ -106,8 +95,7 @@ export interface SaveRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   viewData: ViewData;
 }
@@ -119,8 +107,7 @@ export interface SaveRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface UpdateRequest {
   /**
@@ -130,8 +117,7 @@ export interface UpdateRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   viewData: ViewData;
 }
@@ -143,8 +129,7 @@ export interface UpdateRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface FillResponse {
   /**
@@ -154,8 +139,7 @@ export interface FillResponse {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   viewData: ViewData;
 }
@@ -167,8 +151,7 @@ export interface FillResponse {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'1', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface FillRequestCallback {
   /**
@@ -244,8 +227,7 @@ export interface FillRequestCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface SaveRequestCallback {
   /**

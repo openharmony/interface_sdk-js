@@ -21,7 +21,7 @@
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
-import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
+// import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 
 /**
@@ -379,8 +379,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   export type AbilityStageMonitor = _AbilityStageMonitor;
 }
