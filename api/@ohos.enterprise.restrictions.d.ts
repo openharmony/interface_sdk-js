@@ -456,18 +456,20 @@ declare namespace restrictions {
   /**
    * Restricting users from changing specified settings item on the device.
    *
-   * @permission ohos.permission.SET_USER_RESTRICTION
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows:
+   * setEthernetIp, setApn, powerKeyShutdown, setDeviceName,
+   * setBiometricsAndScreenLock.
    * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   function setUserRestriction(admin: Want, settingsItem: string, restricted: boolean): void;
 }
