@@ -381,7 +381,8 @@ declare namespace inputMethodEngine {
      * Hide soft keyboard
      *
      * @param { AsyncCallback<void> } callback - indicates the callback function of hide.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -391,7 +392,8 @@ declare namespace inputMethodEngine {
      * Hide soft keyboard
      *
      * @returns { Promise<void> } the promise returned by the function
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -419,7 +421,8 @@ declare namespace inputMethodEngine {
      * Exit the current input type. This function can only be called by default input method configured by system.
      *
      * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -430,7 +433,8 @@ declare namespace inputMethodEngine {
      * Exit the current input type. This function can only be called by default input method configured by system.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -669,7 +673,7 @@ declare namespace inputMethodEngine {
      * Get input method's security mode.
      *
      * @returns { SecurityMode } return security mode.
-     * @throws { BusinessError } 12800004 - not an input method.
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -684,7 +688,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 
-     * @throws { BusinessError } 12800004 - not an input method.
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -699,7 +703,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<Panel> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-     * @throws { BusinessError } 12800004 - not an input method.
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -892,7 +896,8 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<boolean> } callback - the callback of sendKeyFunction.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -905,7 +910,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -918,8 +924,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -932,8 +940,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -945,8 +955,10 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted forward. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800002 - input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -959,8 +971,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -973,8 +987,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -986,8 +1002,10 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted backward. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800002 - input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1000,8 +1018,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<boolean> } callback - the callback of insertText.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1014,8 +1034,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - Input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1027,8 +1049,10 @@ declare namespace inputMethodEngine {
      * @param { string } text - text which will be inserted.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800002 - input method engine error.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1041,8 +1065,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<string> } callback - the callback of getForward.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1055,8 +1081,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<string> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1069,8 +1097,10 @@ declare namespace inputMethodEngine {
      * @returns { string } the text string before cursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1083,8 +1113,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<string> } callback - the callback of getBackward.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1097,8 +1129,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<string> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1111,8 +1145,10 @@ declare namespace inputMethodEngine {
      * @returns { string } the text string after cursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1122,7 +1158,8 @@ declare namespace inputMethodEngine {
      * Get attribute about editor.
      *
      * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1132,7 +1169,8 @@ declare namespace inputMethodEngine {
      * Get attribute about editor.
      *
      * @returns { Promise<EditorAttribute> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1142,7 +1180,8 @@ declare namespace inputMethodEngine {
      * Get attribute about editor.
      *
      * @returns { EditorAttribute } the attribute of editor.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1155,7 +1194,8 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - the callback of moveCursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1168,7 +1208,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1180,7 +1221,8 @@ declare namespace inputMethodEngine {
      * @param { number } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1193,7 +1235,8 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - the callback of selectByRange.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1206,7 +1249,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1218,7 +1262,8 @@ declare namespace inputMethodEngine {
      * @param { Range } range - indicates the range of selected text in editor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1231,7 +1276,8 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1244,7 +1290,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1256,7 +1303,8 @@ declare namespace inputMethodEngine {
      * @param { Movement } movement - indicates the movement of cursor when selecting.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1267,8 +1315,10 @@ declare namespace inputMethodEngine {
      *
      * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
      *        number of text at cursor.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1279,8 +1329,10 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
      *          at cursor.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1290,8 +1342,10 @@ declare namespace inputMethodEngine {
      * Get the index number of text at cursor.
      *
      * @returns { number } the index number of text at cursor.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1304,8 +1358,10 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1318,8 +1374,10 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputmethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1332,7 +1390,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1343,7 +1402,8 @@ declare namespace inputMethodEngine {
      * Get info of the calling window.
      *
      * @returns { Promise<WindowInfo> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1359,7 +1419,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1373,7 +1434,8 @@ declare namespace inputMethodEngine {
      * @param { Range } range - the range of the text to be replaced by the preview text.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1384,7 +1446,8 @@ declare namespace inputMethodEngine {
      * Finish the text preview.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1394,7 +1457,8 @@ declare namespace inputMethodEngine {
     /**
      * Finish the text preview.
      *
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1409,7 +1473,8 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800014 - the input method is in basic mode.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
@@ -1434,7 +1499,7 @@ declare namespace inputMethodEngine {
      * @returns { AttachOptions } return attach options.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     getAttachOptions(): AttachOptions;
     /**
@@ -1444,7 +1509,7 @@ declare namespace inputMethodEngine {
      * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
@@ -1453,7 +1518,7 @@ declare namespace inputMethodEngine {
      * @param { 'attachOptionsDidChange' } type - the type of unsubscribe event.
      * @param { Callback<AttachOptions> } [callback] - optional, the callback of off('attachOptionsDidChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void;
   }
@@ -1640,31 +1705,31 @@ declare namespace inputMethodEngine {
    *
    * @enum { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 17
+   * @since 19
    */
   export enum RequestKeyboardReason {
     /**
       * The request keyboard reason is NONE.
       * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @since 17
+      * @since 19
       */
     NONE = 0,
     /**
      * The request keyboard reason is MOUSE.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     MOUSE = 1,
     /**
      * The request keyboard reason is TOUCH.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     TOUCH = 2,
     /**
      * The request keyboard reason is OTHER.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     OTHER = 20
   }
@@ -1789,7 +1854,8 @@ declare namespace inputMethodEngine {
      * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
      * <p>It's Only used for STATUS_BAR panel.</p>
      *
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1800,7 +1866,8 @@ declare namespace inputMethodEngine {
      * <p>It's Only used for STATUS_BAR panel.</p>
      *
      * @throws { BusinessError } 801 - capability not supported.
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1812,7 +1879,8 @@ declare namespace inputMethodEngine {
      * Get the ID of the display where the input method panel is located.
      *
      * @returns { Promise<number> } the promise returned by the function.
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15
@@ -2041,7 +2109,8 @@ declare namespace inputMethodEngine {
      * @param { ImmersiveMode } mode - Immersive mode.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Incorrect parameter types; 2.Parameter verification failed.
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15
@@ -2614,7 +2683,7 @@ declare namespace inputMethodEngine {
    *
    * @interface AttachOptions
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 17
+   * @since 19
    */
   export interface AttachOptions {
     /**
@@ -2622,7 +2691,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?RequestKeyboardReason }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 17
+     * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
   }

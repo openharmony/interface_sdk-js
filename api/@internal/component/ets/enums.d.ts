@@ -1278,6 +1278,46 @@ declare enum TouchType {
    * @since 11
    */
   Cancel,
+
+  /**
+   * Triggers when the touch event turns to hover enter in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_ENTER = 9,
+
+  /**
+   * Triggers when the touch event turns to hover move in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_MOVE = 10,
+
+  /**
+   * Triggers when the touch event turns to hover exit in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_EXIT = 11,
+
+  /**
+   * Triggers when the touch event turns to hover cancel in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_CANCEL = 12,
 }
 
 /**
@@ -10395,7 +10435,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum DividerMode {
   /**
@@ -10404,7 +10444,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -10414,7 +10454,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   EMBEDDED_IN_MENU = 1,
 }

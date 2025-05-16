@@ -817,6 +817,83 @@ declare interface GestureInfo {
 }
 
 /**
+ * The location info used in gesture event.
+ *
+ * @interface EventLocationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface EventLocationInfo {
+  /**
+   * X-axis coordinates relative to the upper left corner of the component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  x: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  y: number;
+
+  /**
+   * X-axis coordinates relative to the upper left corner of the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  windowX: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  windowY: number;
+
+  /**
+   * X-axis coordinates relative to the upper left corner of the screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  displayX: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  displayY: number;
+}
+
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -1098,6 +1175,16 @@ interface BaseGestureEvent extends BaseEvent {
  * @since 12
  */
 interface TapGestureEvent extends BaseGestureEvent {
+  /**
+   * The tap location info used in tap gesture.
+   * 
+   * @type {?EventLocationInfo}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  tapLocation?: EventLocationInfo;
 }
 
 /**
@@ -1798,6 +1885,17 @@ interface GestureEvent extends BaseEvent {
    * @since 11
    */
   velocity: number;
+
+  /**
+   * The tap location info used in tap gesture.
+   * 
+   * @type {?EventLocationInfo}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  tapLocation?: EventLocationInfo;
 }
 
 /**
@@ -3575,7 +3673,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   distanceMap?: Map<SourceTool, number>;
 }
@@ -4474,7 +4572,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDirection(): PanDirection;
   /**
@@ -4485,7 +4583,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDistance(): number;
   /**
@@ -4496,7 +4594,7 @@ declare class PanRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   getDistanceMap(): Map<SourceTool, number>;
 }

@@ -74,7 +74,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function grantUriPermission(
     uri: string,
@@ -128,7 +128,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
@@ -181,7 +181,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000081 - Get target application info failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
@@ -234,7 +234,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 18
+   * @since 19
    */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
@@ -287,7 +287,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 18
+   * @since 19
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 
@@ -326,7 +326,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000081 - Get target application info failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
-   * @since 18
+   * @since 19
    */
     function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
 }

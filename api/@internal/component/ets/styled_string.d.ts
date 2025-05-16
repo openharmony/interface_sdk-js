@@ -159,6 +159,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -203,6 +204,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 19
@@ -229,6 +231,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13
@@ -788,6 +791,17 @@ declare interface GestureStyleInterface {
      * @since 12
      */
     onLongPress?: Callback<GestureEvent>;
+
+    /**
+     * Trigger a touch event when touched.
+     *
+     * @type { ?Callback<TouchEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onTouch?: Callback<TouchEvent>;
 }
 
 /**

@@ -464,6 +464,7 @@ declare namespace webview {
      */
     /**
      * Get the hit test extra data.
+     * If the clicked area is an image or a link, the additional parameter information is it's URL address.
      *
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4003,6 +4004,7 @@ declare namespace webview {
      * Let the Web zoom by.
      *
      * @param { number } factor - The zoom factor.
+     *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4012,6 +4014,10 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom by.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * zoomAccess must be true.
+     * </p>
      *
      * @param { number } factor - The zoom factor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4047,6 +4053,7 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom in.
+     * Call this interface to enlarge the current page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4079,6 +4086,7 @@ declare namespace webview {
      */
     /**
      * Let the Web zoom out.
+     * Call this interface to shrink the current page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4388,6 +4396,27 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Registers the JavaScript object and method list.
+     *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
+     *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
 
@@ -4414,6 +4443,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Deletes a registered JavaScript object with given name.
+     *
+     * @param { string } name - The name of a registered JavaScript object to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     deleteJavaScriptRegister(name: string): void;
 
@@ -5054,9 +5097,10 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
+     * @param { number } x - the x of the position.Unit: vp.
+     * @param { number } y - the y of the position.Unit: vp.
      * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5096,9 +5140,14 @@ declare namespace webview {
     /**
      * Scroll by the delta position.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * <p><strong>API Note</strong>:<br>
+     * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
+     * </p>
+     *
+     * @param { number } deltaX - the delta x of the position.Unit: vp.
+     * @param { number } deltaY - the delta y of the position.Unit: vp.
      * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5300,7 +5349,7 @@ declare namespace webview {
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5311,7 +5360,7 @@ declare namespace webview {
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
      * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
-     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -5494,7 +5543,13 @@ declare namespace webview {
      * Set whether scroll is allowed
      *
      * @param { boolean } enable - Set whether scrolling is allowed
+     *                             {@code true} means scrolling is allowed.
+     *                             {@code false} means scrolling is disabled.
      * @param { ScrollType } type - Enable scrolling type
+     *                              When the input parameter enable is false, it indicates that scrolling of the ScrollType type is prohibited.When ScrollType
+     *                              is not specified,it indicates that all types of webpage scrolling are prohibited.
+     *                              When the input parameter enable is true, regardless of whether ScrollType is specified, it indicates that all types
+     *                              of webpage scrolling are allowed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.

@@ -87,7 +87,17 @@ declare interface CircleOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Defines the width property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Defines the height property.
@@ -123,7 +133,17 @@ declare interface CircleOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number;
+  /**
+   * Defines the height property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**

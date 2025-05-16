@@ -372,7 +372,7 @@ declare interface OffsetOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIScrollEvent extends UIScrollableCommonEvent {
   /**
@@ -383,7 +383,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void;
 
@@ -394,7 +394,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void;
 }

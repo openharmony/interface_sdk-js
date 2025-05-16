@@ -91,7 +91,18 @@ interface QRCodeInterface {
    * @atomicservice
    * @since 11
    */
-  (value: string): QRCodeAttribute;
+  /**
+   * Called when a QR code is set.
+   *
+   * @param { ResourceStr } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  (value: ResourceStr): QRCodeAttribute;
 }
 
 /**
