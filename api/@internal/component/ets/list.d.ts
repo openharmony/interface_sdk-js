@@ -782,7 +782,6 @@ declare interface VisibleListContentInfo {
  * @param {number} end - Information about the currently displayed last list item or list item group.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @form
  * @atomicservice
  * @since 12
  */
@@ -1587,8 +1586,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * @param { BarState } value - Scrollbar state.
    * <br><em>NOTE</em>
-   * <br>In API version 9 and earlier versions, the default value is <em>BarState.Off</em>. 
-   * Since API version 10, the default value is <em>BarState.Auto</em>.<br>Default value: <em>BarState.Auto</em>
+   * <br>Default value: <em>BarState.Auto</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
