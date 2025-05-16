@@ -66,19 +66,19 @@ declare class SectionOptions {
   crossCount?: number;
 
   /**
-   * Asks the developer for the main size in vp of the flow item with the specified index.
-   * The water flow layout uses the size measured after the flow item is created if not set.
-   *
-   * @type { ?GetItemMainSizeByIndex } onGetItemMainSizeByIndex - Callback used to obtain the main axis size,
-   * in vp, of the water flow item at a specified index during the layout process of the <em>WaterFlow</em> component.
-   * For a vertical <em>WaterFlow</em> component, this size refers to the height, and for a horizontal <em>WaterFlow</em> component, it refers to the width.
-   * <br><em>NOTE</em>
+   * Callback used to obtain the main axis size,in vp, of the water flow item at a specified index during
+   * the layout process of the WaterFlow component.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>1. When both <em>onGetItemMainSizeByIndex</em> and the width or height attribute of the water flow item are used,
    * the main axis size is determined by the return value of <em>onGetItemMainSizeByIndex</em>,
    * which will override the main axis length of water flow item.
    * <br>2. Using <em>onGetItemMainSizeByIndex</em> can improve the efficiency of jumping to a specific position or index in the <em>WaterFlow</em> component.
    * Avoid mixing the use of <em>onGetItemMainSizeByIndex</em> with sections that do not have it set, as this can cause layout exceptions.
    * <br>3. If <em>onGetItemMainSizeByIndex</em> returns a negative number, the height of the water flow item is 0.
+   * </p>
+   *
+   * @type { ?GetItemMainSizeByIndex } onGetItemMainSizeByIndex - function that returns item main size by index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -87,10 +87,11 @@ declare class SectionOptions {
   onGetItemMainSizeByIndex?: GetItemMainSizeByIndex;
 
   /**
-   * Set the spacing between columns of this section.
-   *
-   * @type { ?Dimension } columnsGap - Gap between columns. If this parameter is not set, the value of <em>columnsGap</em> for the water flow is used.
+   * Gap between columns. If this parameter is not set, the value of columnsGap for the water flow is used.
    * If this parameter is set to an invalid value, 0 vp is used.
+   * 
+   * @type { ?Dimension } columnsGap - column gap of this section
+   * same with columnsGap of WaterFlow if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -99,10 +100,11 @@ declare class SectionOptions {
   columnsGap?: Dimension;
 
   /**
-   * Set the spacing between rows of this section.
-   *
-   * @type { ?Dimension } rowsGap - Gap between rows. If this parameter is not set, the value of <em>rowsGap</em> for the water flow is used.
+   * Gap between rows. If this parameter is not set, the value of <em>rowsGap</em> for the water flow is used.
    * If this parameter is set to an invalid value, 0 vp is used.
+   *
+   * @type { ?Dimension } rowsGap - row gap of this section
+   * same with rowsGap of WaterFlow if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -111,12 +113,9 @@ declare class SectionOptions {
   rowsGap?: Dimension;
 
   /**
-   * Outer margin of this section.
+   * Padding of the section. A value of the Length type specifies the margin for all the four sides.
    *
-   * @type { ?(Margin | Dimension) } margin - Padding of the section. A value of the Length type specifies the margin for all the four sides.
-   * <br>Unit: vp
-   * <br>When <em>margin</em> is set to a percentage, the width of the <em>WaterFlow</em> component is used as the base value for the top,
-   * bottom, left, and right margins.
+   * @type { ?(Margin | Dimension) } margin - outer margin of this section
    * @default {top: 0, right: 0, bottom: 0, left: 0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -244,10 +243,9 @@ declare enum WaterFlowLayoutMode {
   /**
    * Sliding window mode. This mode only takes into account the layout in the viewport,
    * without depending on water flow items above the viewport.
-   * As such, in cases of redirection backward or switching the number of columns, only the water flow items within the viewport need to be laid out.
-   * This mode is recommended.
-   * <br><em>NOTE</em>
-   * <br>1. During a non-animated redirection to a distant location, water flow items are laid out forward or backward based on the target position.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br> 1. During a non-animated redirection to a distant location, water flow items are laid out forward or backward based on the target position.
    * If the user then swipes back to the position prior to the redirection, the layout of the content may not be consistent with its previous state.
    * This can lead to misalignment of the top nodes when the user swipes back to the top after the redirection.
    * To counteract this issue, in this layout mode, the layout will be automatically adjusted after reaching the top of the viewport to ensure that the top is aligned.
@@ -257,6 +255,7 @@ declare enum WaterFlowLayoutMode {
    * an input offset (such as from a swipe gesture or a scrolling animation) are both initiated within the same frame, both will be executed.
    * <br> 4. If the scrollToIndex API is called without animation to jump to a distant position (beyond the range of visible water flow items in the window),
    * the total offset is calculated in the sliding window mode.
+   * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -307,8 +306,7 @@ declare interface WaterFlowOptions {
    * @since 10
    */
   /**
-   * Footer of the <em>WaterFlow</em> component.
-   * <br><em>Atomic service API</em>: This API can be used in atomic services since API version 11.
+   * Footer of the WaterFlow component.
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -319,9 +317,7 @@ declare interface WaterFlowOptions {
   footer?: CustomBuilder;
 
   /**
-   * Footer of the <em>WaterFlow</em> component.
-   * <br>This parameter has a higher priority than <em>footer</em>. If both <em>footer</em> and <em>footerContent</em> are set, the component set by <em>footerContent</em> will be used.
-   * <br><em>Atomic service API</em>: This API can be used in atomic services since API version 18.
+   * Footer of the WaterFlow component.
    *
    * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -348,8 +344,10 @@ declare interface WaterFlowOptions {
    */
   /**
    * Controller of the scrollable component, bound to the scrollable component.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>The scroller cannot be bound to other scrollable components, such as ArcList, List, Grid, or Scroll.
+   * </p>
    *
    * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -360,12 +358,14 @@ declare interface WaterFlowOptions {
   scroller?: Scroller;
 
   /**
-   * Describes the sections with different cross count that compose the water flow.
-   *
-   * @type { ?WaterFlowSections } sections - Water flow item sections. Different sections can have different numbers of columns.
-   * <br><em>NOTE</em>
+   * Water flow item sections. Different sections can have different numbers of columns.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>1. When <em>sections</em> is used, the <em>columnsTemplate</em> and <em>rowsTemplate</em> attributes are ignored.
    * <br>2. When <em>sections</em> is used, the footer cannot be set separately. The last section can function as the footer. 
+   * </p>
+   *
+   * @type { ?WaterFlowSections } sections - sections with different cross count 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

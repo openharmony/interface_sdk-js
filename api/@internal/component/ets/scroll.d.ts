@@ -200,9 +200,6 @@ declare enum ScrollAlign {
    */
   /**
    * The list item is automatically aligned.
-   * <br>If the list item is fully contained within the display area, no adjustment is performed. Otherwise, 
-   * the list item is aligned so that its start or end edge is flush with the start or end edge of the list, 
-   * whichever requires a shorter scrolling distance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -224,7 +221,6 @@ declare enum ScrollAlign {
 declare interface OffsetResult {
   /**
    * Horizontal scrolling offset.
-   * <br>The unit of the return value is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -236,7 +232,6 @@ declare interface OffsetResult {
 
   /**
    * Vertical scrolling offset.
-   * <br>The unit of the return value is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -305,8 +300,10 @@ declare interface ScrollToIndexOptions {
 declare interface ScrollAnimationOptions {
   /**
    * Scrolling duration.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>A value less than 0 evaluates to the default value.
+   * </p>
    *
    * @type { ?number }
    * @default 1000
@@ -331,9 +328,11 @@ declare interface ScrollAnimationOptions {
 
   /**
    * Whether to enable overscroll.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br> Scrolling can exceed the boundary and initiate a bounce animation when this parameter is set to <em>true</em>, 
    * and the component's <em>edgeEffect</em> attribute is set to EdgeEffect.Spring.
+   * </p>
    *
    * @type { ?boolean }
    * @default false
@@ -430,10 +429,6 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  */
 /**
  * Defines a controller for scrollable container components. 
- * It can be bound to a container component to control its scrolling behavior. 
- * A single <em>Scroller</em> instance cannot control multiple container components simultaneously. 
- * Currently, it can be bound to the following components: 
- * <em>ArcList</em>, <em>ArcScrollBar</em>, <em>List</em>, <em>Scroll</em>, <em>ScrollBar</em>, <em>Grid</em>, and <em>WaterFlow</em>.
  * 
  * <p><strong>NOTE</strong>
  * <br>1. The binding of a <em>Scroller</em> instance to a scrollable container component occurs during the component creation phase.
@@ -536,7 +531,6 @@ declare class Scroller {
    */
   /**
    * Scrolls to the edge of the container, regardless of the scroll axis direction.
-   * <em>Edge.Top</em> and <em>Edge.Start</em> produce the same effect, and <em>Edge.Bottom</em> and <em>Edge.End</em> produce the same effect.
    *
    * @param { Edge } value - Edge position to scroll to.
    * <br><em>Atomic service API</em>: This API can be used in atomic services since API version 11.
@@ -842,12 +836,15 @@ declare interface ScrollOptions {
    */
   /**
    * Horizontal scrolling offset.
-   * <br><em>NOTE</em>
+   * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>This parameter cannot be set in percentage.
    * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
    * Animated scrolling stops at the starting position by default.
    * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling goes beyond the boundary.
    * <br>This parameter takes effect only when the scroll axis is the x-axis.
+   * </p>
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -876,12 +873,15 @@ declare interface ScrollOptions {
    */
   /**
    * Vertical scrolling offset.
-   * <br><em>NOTE</em>
+   * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>This parameter cannot be set in percentage.
    * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
    * Animated scrolling stops at the starting position by default.
    * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling goes beyond the boundary.
    * <br>This parameter takes effect only when the scroll axis is the y-axis.
+   * </p>
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -922,16 +922,14 @@ declare interface ScrollOptions {
    */
   /**
    * Animation configuration, which includes the following:
-   * <br>- <em>ScrollAnimationOptions</em>: custom animation settings.
-   * <br>- <em>boolean</em>: whether to enable the default spring animation.
-   * <br>Default value:
-   * <br>ScrollAnimationOptions: { duration: 1000, curve: Curve.Ease, canOverScroll: false } 
-   * <br>boolean: false
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>Currently, the <em>List</em>, <em>Scroll</em>, <em>Grid</em>, and <em>WaterFlow</em> support the <em>Boolean</em> type and <em>ICurve</em>.
+   * </p>
    *
    * @type { ?( ScrollAnimationOptions | boolean) } The ScrollAnimationOptions type provides custom animation parameters
    * and the boolean type enables default spring animation.
+   * @default ScrollAnimationOptions: { duration: 1000, curve: Curve.Ease, canOverScroll: false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -950,8 +948,8 @@ declare interface ScrollOptions {
  */
 declare interface ScrollPageOptions {
   /**
-   * Whether to turn to the next page.
-   * The value <em>true</em> means to scroll to the next page, and <em>false</em> means to scroll to the previous page.
+   * Whether to turn to the next page.The value true means to scroll to the next page,
+   * and false means to scroll to the previous page.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -962,8 +960,8 @@ declare interface ScrollPageOptions {
   next: boolean;
 
   /**
-   * Whether to enable the page-turning animation.
-   * The value <em>true</em> means to enable the page-turning animation, and <em>false</em> means the opposite.
+   * Whether to enable the page-turning animation.The value true means to enable the page-turning animation,
+   * and false means the opposite.
    *
    * @type { ?boolean }
    * @default false
@@ -1000,7 +998,6 @@ declare interface ScrollSnapOptions {
    */
   /**
    * Alignment mode for the scroll snap position.
-   * <br><em>NOTE</em>
    *
    * @type { ScrollSnapAlign }
    * @default ScrollSnapAlign.NONE
@@ -1022,13 +1019,15 @@ declare interface ScrollSnapOptions {
    */
   /**
    * Pagination points for scroll snapping.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>1. If the value is of the Dimension type, it indicates the size of each page, and the system will paginate based on this size.
    * <br>2. If the value is of the Array\<Dimension\> type, each <em>Dimension</em> represents a pagination point,
    * and the system will paginate accordingly. Each <em>Dimension</em> value must be within the [0, scrollable distance] range.
    * <br>3. If this parameter is not set or <em>Dimension</em> is set to a value less than or equal to 0, the value is regarded as an invalid value.
    * In this case, there is no scroll snapping. When the value is of the Array\<Dimension\> type, the items in the array must be monotonically increasing.
    * <br>4. When the value is a percentage, the actual size is the product of the viewport of the <em>Scroll</em> component and the percentage value.
+   * </p>
    *
    * @type { ?(Dimension | Array<Dimension>) }
    * @default 100%
@@ -1049,9 +1048,11 @@ declare interface ScrollSnapOptions {
   /**
    * Whether to enable the snap to start feature. When scroll snapping is defined for the <em>Scroll</em> component,
    * setting this parameter to <em>false</em> enables the component to scroll between the start and the first page.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>2. This attribute takes effect only when <em>snapPagination</em> is set to a value of the <em>Array\<Dimension\></em> type;
    * it does not work with values of the <em>Dimension</em> type.
+   * </p>
    *
    * @type { ?boolean }
    * @default true
@@ -1072,9 +1073,11 @@ declare interface ScrollSnapOptions {
   /**
    * Whether to enable the snap to end feature. When scroll snapping is defined for the <em>Scroll</em> component,
    * setting this parameter to <em>false</em> enables the component to scroll between the end and the last page.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>2. This attribute takes effect only when <em>snapPagination</em> is set to a value of the <em>Array\<Dimension\></em> type;
    * it does not work with values of the <em>Dimension</em> type.
+   * </p>
    *
    * @type { ?boolean }
    * @default true
@@ -1188,7 +1191,6 @@ interface OnScrollFrameBeginHandlerResult {
    */
   /**
    * Actual scroll offset.
-   * <br>Unit: vp
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1326,7 +1328,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   onWillScroll(handler: ScrollOnWillScrollCallback): ScrollAttribute;
 
   /**
-   * Triggered when the <em>Scroll</em> component scrolls.
+   * Triggered when the Scroll component scrolls.
    * 
    * <p><strong>NOTE</strong>
    * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings,
@@ -1409,6 +1411,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling start.
+   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1468,6 +1471,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   /**
    * Called when scrolling has stopped.
+   * Anonymous Object Rectification.
    *
    * @param { function } event
    * @returns { ScrollAttribute }

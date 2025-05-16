@@ -141,10 +141,7 @@ declare enum ScrollState {
    * @since 10
    */
   /**
-   * Inertial scrolling state. Triggered by all animated scroll actions. This includes:
-   * <br>- Inertial scrolling that occurs after a fling<br>- Bounce-back scrolling when the swipe reaches the edge
-   * <br>- Inertial scrolling after quickly dragging the built-in scrollbar and releasing
-   * <br>- Scrolling controlled by the animated methods provided by the scroller
+   * Inertial scrolling state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -357,7 +354,7 @@ declare enum StickyStyle {
    * @since 10
    */
   /**
-   * In the <em>ListItemGroup</em> component, the header is not pinned to the top,
+   * In the ListItemGroup component, the header is not pinned to the top,
    * and the footer is not pinned to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -384,7 +381,7 @@ declare enum StickyStyle {
    * @since 10
    */
   /**
-   * In the <em>ListItemGroup</em> component, the header is pinned to the top,
+   * In the ListItemGroup component, the header is pinned to the top,
    * and the footer is not pinned to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -494,9 +491,11 @@ declare enum ScrollSnapAlign {
    */
   /**
    * The first item in the view is aligned at the start of the list.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>When the list hits the end, the items at the end must be completely displayed.
    * In this case, the items at the start may not be aligned.
+   * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -513,9 +512,11 @@ declare enum ScrollSnapAlign {
    */
   /**
    * The middle items in the view are aligned in the center of the list.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>The top and end items can be aligned in the center of the list.
    * In this case, a blank area may result, and the first or last item is aligned to the center of the list.
+   * </pr>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -532,9 +533,11 @@ declare enum ScrollSnapAlign {
    */
   /**
    * The last item in the view is aligned at the end of the list.
-   * <br><em>NOTE</em>
+   * 
+   * <p><strong>NOTE</strong>
    * <br>When the list hits the start, the items at the start must be completely displayed.
    * In this case, the items at the end may not be aligned.
+   * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1008,9 +1011,12 @@ interface ListOptions {
    */
   /**
    * Index of the item to be displayed at the start when the list is initially loaded.
-   * <br><em>NOTE</em>
+   * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>If the set value is a negative number or is greater than the index of the last item in the list,
    * the value is invalid. In this case, the default value will be used.
+   * </p>
    *
    * @type { ?number }
    * @default 0
@@ -1057,11 +1063,13 @@ interface ListOptions {
    */
   /**
    * Spacing between list items along the main axis.
-   * <br>If the parameter type is number, the unit is vp.
-   * <br><em>NOTE</em>
+   * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list content area, the default value is used.
    * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider is used as the spacing.
    * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed, but the spacing above and below them still takes effect.
+   * </p>
    *
    * @type { ?(number | string) }
    * @default 0
@@ -1108,8 +1116,11 @@ interface ListOptions {
    */
   /**
    * Scroller, which can be bound to scrollable components.
-   * <br><em>NOTE</em>
+   * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
    * <br>The scroller cannot be bound to other scrollable components.
+   * </p>
    *
    * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1256,6 +1267,7 @@ declare interface ListDividerOptions {
    */
   /**
    * Width of the divider.
+   * Anonymous Object Rectification.
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1301,6 +1313,7 @@ declare interface ListDividerOptions {
    */
   /**
    * Color of the divider.
+   * Anonymous Object Rectification.
    *
    * @type { ?ResourceColor }
    * @default 0x08000000
@@ -1337,6 +1350,7 @@ declare interface ListDividerOptions {
    */
   /**
    * Set startMargin.
+   * Anonymous Object Rectification.
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1393,6 +1407,7 @@ declare interface ListDividerOptions {
    */
   /**
    * Distance between the divider and the end edge of the list.
+   * Anonymous Object Rectification.
    *
    * @type { ?Length }
    * @default 0vp
@@ -1453,8 +1468,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Sets the number of columns or rows in the list. If the value is set to the <em>gutter</em> type, it indicates the gap between columns.
+   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap between columns.
    * It takes effect when the number of columns is greater than 1.
+   * Anonymous Object Rectification.
    *
    * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
    * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em> 
@@ -1488,7 +1504,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Alignment mode of list items along the cross axis when the cross-axis width of the list is greater
-   * than the cross-axis width of list items multiplied by the value of <em>lanes</em>.
+   * than the cross-axis width of list items multiplied by the value of lanes.
    *
    * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
    * @returns { ListAttribute }
@@ -1912,8 +1928,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Sets whether to pin the header to the top or the footer to the bottom in the [list item group](ts-container-listitemgroup.md),
-   * if set. To support both the pin-to-top and pin-to-bottom features, set <em>sticky</em> to <em>StickyStyle.Header \| StickyStyle.Footer</em>.
+   * Sets whether to pin the header to the top or the footer to the bottom in the list item group,
    * 
    * <p><strong>NOTE</strong>:
    * <br>- Occasionally, after <em>sticky</em> is set, floating-point calculation precision may result in small gaps appearing during scrolling.
@@ -2418,7 +2433,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Triggered when the dragged item enters the drop target of the list.
    *
-   * @param { ItemDragInfo } event - Information about the drag point.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2447,9 +2462,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Triggered when the dragged item moves over the drop target of the list.
    *
-   * @param { ItemDragInfo } event - Information about the drag point.
-   * @param { number } itemIndex - Initial position of the dragged item.
-   * @param { number } Index - of the position to which the dragged item is dropped.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
