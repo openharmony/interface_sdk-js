@@ -7597,9 +7597,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web wants to display a JavaScript alert() dialog.
    *
    * @param {  Callback<OnAlertEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
-   *     {@code true} means he application can call the custom pop-up capability (including confirmation and cancellation), and needs to call
-   *                  JsResult to notify the Web component of the final confirmation result based on the user's confirmation or cancellation
-   *                  operation.
+   *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and cancellation buttons).
+   *                  Developers need to use the JsResult interface to notify the web component whether to leave the current page
+   *                  according to the user's choice.
    *     {@code false} means the pop-up processing result is considered as cancelled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
