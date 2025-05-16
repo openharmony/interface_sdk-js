@@ -146,7 +146,7 @@ declare class WaterFlowSections {
   constructor();
 
   /**
-   * Changes sections in the WaterFlow by removing or replacing existing elements and/or adding new elements in place.
+   * Changes sections by removing or replacing an existing section and/or adding a section.
    *
    * @param { number } start - Zero-based index at which the changing starts. The value is converted to an integer.
    * <br><em>NOTE</em>
@@ -170,7 +170,7 @@ declare class WaterFlowSections {
   splice(start: number, deleteCount?: number, sections?: Array<SectionOptions>): boolean;
 
   /**
-   * Pushes a new section to the end of WaterFlow.
+   * Adds the specified sections to the end of the <em>WaterFlow</em> component.
    *
    * @param { SectionOptions } section - Sections to add to the end of the <em>WaterFlow</em> component.
    * @returns { boolean } Whether the push was successful.
@@ -182,7 +182,7 @@ declare class WaterFlowSections {
   push(section: SectionOptions): boolean;
 
   /**
-   * Updates section at specified section index.
+   * Updates the configuration of a specified water flow item section.
    *
    * @param { number } sectionIndex - Zero-based index of the water flow item section to update. The value is converted to an integer.
    * <br><em>NOTE</em>
@@ -198,7 +198,7 @@ declare class WaterFlowSections {
   update(sectionIndex:number, section: SectionOptions): boolean;
 
   /**
-   * Obtains all the section options in the WaterFlow.
+   * Obtains the configuration of all sections in the <em>WaterFlow</em> component.
    *
    * @returns { Array<SectionOptions> } Returns all the section options in the WaterFlow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -209,7 +209,7 @@ declare class WaterFlowSections {
   values(): Array<SectionOptions>;
 
   /**
-   * Obtains the section counts in the WaterFlow.
+   * Obtains the number of sections in the <em>WaterFlow</em> component.
    *
    * @returns { number } Returns section counts in the WaterFlow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -543,10 +543,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * This parameter specifies the number of columns in the current waterflow.
+   * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
    *
-   * @param { string } value - Number of columns in the layout.
-   * @default '1fr'
+   * @param { string } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -573,7 +572,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * This parameter specifies the min or max size of each item.
+   * Sets the size constraints of the child components during layout.
    *
    * @param { ConstraintSizeOptions } value - Size constraints of the child components during layout.
    * If the value specified is less than 0, this parameter does not take effect.
@@ -603,10 +602,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Set the number of rows in the current waterflow.
+   * Sets the number of rows in the layout. If this attribute is not set, one row is used by default.
    *
-   * @param { string } value - Number of rows in the layout.
-   * @default '1fr'
+   * @param { string } value - Number of rows in the layout.<br>Default value: <em>'1fr'</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -633,11 +631,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Set the spacing between columns.
+   * Sets the gap between columns.
    *
-   * @param { Length } value - Gap between columns.
+   * @param { Length } value - Gap between columns.<br>Default value: <em>0</em>
    * <br>Value range: [0, +∞).
-   * @default 0
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -664,11 +661,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Set the spacing between rows.
+   * Sets the gap between rows.
    *
-   * @param { Length } value - Gap between rows.
-   * <br>Value range: [0, +∞).
-   * @default 0
+   * @param { Length } value - Gap between rows.<br>Default value: <em>0</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -695,10 +690,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Control layout direction of the WaterFlow.
+   * Sets the main axis direction of the layout.
    *
-   * @param { FlexDirection } value -  Main axis direction of the layout.
-   * @default FlexDirection.Column
+   * @param { FlexDirection } value -  Main axis direction of the layout.<br>Default value: <em>FlexDirection.Column</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -716,7 +710,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called to setting the nested scroll options.
+   * Sets the nested scrolling mode in the forward and backward directions to implement scrolling linkage with the parent component.
    *
    * @param { NestedScrollOptions } value - Nested scrolling options.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
@@ -736,9 +730,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean } value - Whether to support scroll gestures.
-   * @default true
+   * Sets whether to support scroll gestures.
+   * 
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { WaterFlowAttribute } The attribute of the waterflow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -756,7 +750,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called to setting the friction.
+   * Sets the friction coefficient. It applies only to gestures in the scrolling area,
+   * and it affects only indirectly the scroll chaining during the inertial scrolling process.
+   * 
    * @param { number | Resource } value - Friction coefficient.<br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices.
    * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
    * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
@@ -779,11 +775,12 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 11
    */
   /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * Sets the number of items to be cached.
+   *  
    * @param { number } value - Number of water flow items to be preloaded (cached).
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
    * <br>Value range: [0, +∞).
    * <br>Values less than 0 are treated as <em>1</em>.
-   * @default number of nodes visible on the screen, with the maximum value of 16
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -793,13 +790,13 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   cachedCount(value: number): WaterFlowAttribute;
 
   /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach / Repeat. 
+   * Sets the number of water flow items to be cached (preloaded) and specifies whether to display the cached nodes.
+   * 
    * @param { number } count - Number of water flow items to be preloaded (cached).
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
    * <br>Value range: [0, +∞).
    * <br>Values less than 0 are treated as <em>1</em>.
-   * @default number of nodes visible on the screen, with the maximum value of 16
    * @param { boolean } show - Whether to display the cached water flow items.
-   * @default false
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -826,7 +823,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called when the water flow begins to arrive.
+   * Triggered when the component reaches the start.
    *
    * @param { function } event
    * @returns { WaterFlowAttribute }
@@ -855,7 +852,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called when the water flow reaches the end.
+   * Triggered when the component reaches the end position.
    *
    * @param { function } event
    * @returns { WaterFlowAttribute }
@@ -876,10 +873,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 10
    */
   /**
-   * Called when scrolling begin each frame.
+   * Triggered when the component starts to scroll.
    *
-   * @param { number } offset - Amount to scroll by, in vp.
-   * @param { ScrollState } state - Current scroll state.
+   * @param { function } event
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -889,7 +885,8 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
 
   /**
-   * Called when the first or last item displayed in the waterflow changes.
+   * Triggered when the first or last item displayed in the component changes.
+   * It is triggered once when the component is initialized.
    *
    * @param { function } event - Callback function, triggered when the first or last item 
    * displayed in the waterflow changes.

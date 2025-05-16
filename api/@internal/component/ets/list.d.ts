@@ -772,7 +772,7 @@ declare interface VisibleListContentInfo {
 }
 
 /**
- * Callback of scroll visible content, using in onScrollVisibleContentChange.
+ * Called when a child component enters or leaves the list display area.
  *
  * @typedef {function} OnScrollVisibleContentChangeCallback
  * @param {number} start - Information about the currently displayed first list item or list item group.
@@ -845,7 +845,6 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the list item group in the list.
    * @param { number } indexInGroup - Index of the list item in the list item group.
    * @returns { RectResult } - Size of the list item in the list item group and its position relative to the list.
-   * <br>Unit: vp
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -886,10 +885,8 @@ declare class ListScroller extends Scroller {
    * <br>If the value set is a negative value or greater than the maximum index of the items in the list item group,
    * the value is deemed abnormal, and no scrolling will be performed.
    * @param { boolean } smooth - Whether to enable the smooth animation for scrolling to the item with the specified index.
-   * The value <em>true</em> means to enable that the smooth animation, and <em>false</em> means the opposite.
-   * @default false
-   * @param { ScrollAlign } align - How the list item to scroll to is aligned with the container.
-   * @default ScrollAlign.START
+   * The value <em>true</em> means to enable that the smooth animation, and <em>false</em> means the opposite.<br>Default value: <em>false</em>
+   * @param { ScrollAlign } align - How the list item to scroll to is aligned with the container.<br>Default value: <em>ScrollAlign.START</em>
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1011,12 +1008,12 @@ interface ListOptions {
    */
   /**
    * Index of the item to be displayed at the start when the list is initially loaded.
-   * @default <em>0</em>
    * <br><em>NOTE</em>
    * <br>If the set value is a negative number or is greater than the index of the last item in the list,
    * the value is invalid. In this case, the default value will be used.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1456,12 +1453,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when need to decide how much lanes the list will show.
+   * Sets the number of columns or rows in the list. If the value is set to the <em>gutter</em> type, it indicates the gap between columns.
+   * It takes effect when the number of columns is greater than 1.
    *
-   * @param { number | LengthConstrain } value - Number of columns or rows in the list.
-   * @default 1
-   * @param { Dimension } gutter - Gap between columns.
-   * @default 0
+   * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
+   * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em> 
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1491,10 +1487,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when need to decide how to align lanes in the direction of the cross axis.
+   * Alignment mode of list items along the cross axis when the cross-axis width of the list is greater
+   * than the cross-axis width of list items multiplied by the value of <em>lanes</em>.
    *
-   * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.
-   * @default ListItemAlign.Start
+   * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1532,10 +1528,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the arrangement direction of the list component is set.
+   * Sets the direction in which the list items are arranged.
    *
-   * @param { Axis } value - Direction in which the list items are arranged.
-   * @default Axis.Vertical
+   * @param { Axis } value - Direction in which the list items are arranged.<br>Default value: <em>Axis.Vertical</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1573,13 +1568,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the display mode of the side slider is set.
+   * Sets the scrollbar state.
    *
    * @param { BarState } value - Scrollbar state.
    * <br><em>NOTE</em>
    * <br>In API version 9 and earlier versions, the default value is <em>BarState.Off</em>. 
-   * Since API version 10, the default value is <em>BarState.Auto</em>.
-   * @default BarState.Auto
+   * Since API version 10, the default value is <em>BarState.Auto</em>.<br>Default value: <em>BarState.Auto</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1617,7 +1611,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the sliding effect is set.
+   * Sets the effect used when the scroll boundary is reached.
    *
    * <p><strong>NOTE</strong>:
    * <br>- By default, this component can produce a bounce effect only when there is more than one screen of content.
@@ -1626,10 +1620,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * </p> 
    * 
    * @param { EdgeEffect } value - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * @default EdgeEffect.Spring
+   * <br>Default value: <em>EdgeEffect.Spring</em>
    * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
    * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
-   * @default { alwaysEnabled: false }
+   * <br>Default value: <em>{ alwaysEnabled: false }</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1648,9 +1642,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   /**
-   * Called when need to decide contentStartOffset the list will show.
+   * Sets the offset from the start of the list content to the boundary of the list display area.
    * @param { number } value - Offset from the start of the list content to the boundary of the list display
-   * @default 0vp
+   * <br>Default value: <em>0</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1668,9 +1662,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   /**
-   * Called when need to decide contentEndOffset the list will show.
+   * Sets the offset from the end of the list content to the boundary of the list display area.
+   * 
    * @param { number } value - Offset from the end of the list content to the boundary of the list display area.
-   * @default 0vp
+   * <br>Default value: <em>0</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1718,11 +1713,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   /**
-   * Called when the ListItem split line style is set.
-   * Anonymous Object Rectification.
+   * Sets the style of the divider for the list items. By default, there is no divider.
    *
-   * @param { ListDividerOptions | null } value - Style of the divider for the list items.
-   * @default null
+   * @param { ListDividerOptions | null } value - Style of the divider for the list items.<br>Default value: <em>null</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1735,10 +1728,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   ): ListAttribute;
 
   /**
-   * Called when judging whether it is in editable mode.
+   * Sets whether to enable edit mode.
    *
-   * @param { boolean } value - Whether to enable edit mode.
-   * @default false
+   * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1774,12 +1766,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when judging whether it is multiSelectable.
+   * Sets whether to enable multiselect.
    *
    * @param { boolean } value - Whether to enable multiselect.
    * <br><em>false</em> (default): Multiselect is disabled.
    * <br><em>true</em>: Multiselect is enabled.
-   * @default false
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1832,13 +1823,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(value: number): ListAttribute;
 
   /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display the preloaded nodes.
    *
    * @param { number } count - Number of list items to be preloaded.
    * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
    * <br>Value range: [0, +∞)
-   * @param { boolean } show - Whether to display the preloaded list items.
-   * @default false
+   * @param { boolean } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1876,12 +1866,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether to enable chain linkage dynamic effect.
+   * Sets whether to enable chained animations, which provide a visually connected,
+   * or "chained," effect when the list is scrolled or its top or bottom edge is dragged.
    *
    * @param { boolean } value - Whether to enable chained animations.
    * <br><em>false</em> (default): Chained animations are disabled.
    * <br><em>true</em>: Chained animations are enabled.
-   * @default false
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1922,7 +1912,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when header or footer of item group will be pinned.
+   * Sets whether to pin the header to the top or the footer to the bottom in the [list item group](ts-container-listitemgroup.md),
+   * if set. To support both the pin-to-top and pin-to-bottom features, set <em>sticky</em> to <em>StickyStyle.Header \| StickyStyle.Footer</em>.
    * 
    * <p><strong>NOTE</strong>:
    * <br>- Occasionally, after <em>sticky</em> is set, floating-point calculation precision may result in small gaps appearing during scrolling.
@@ -1930,7 +1921,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * </p>
    *
    * @param { StickyStyle } value - Whether to pin the header to the top or the footer to the bottom in the list item group.
-   * @default StickyStyle.None
+   * <br> Default value: <em>StickyStyle.None</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1949,10 +1940,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called to set list item scroll end alignment effect.
+   * Sets the scroll snap alignment effect for list items.
+   * This effect aligns list items to the nearest snap point when scrolling ends.
    * 
-   * @param { ScrollSnapAlign } value - Alignment mode of the scroll snap position.
-   * @default ScrollSnapAlign.NONE
+   * @param { ScrollSnapAlign } value - Alignment mode of the scroll snap position.<br>Default value: <em>ScrollSnapAlign.NONE</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1970,7 +1961,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the nested scroll options.
+   * Sets the nested scrolling options. You can set the nested scrolling mode in the forward and backward
+   * directions to implement scrolling linkage with the parent component.
    *
    * @param { NestedScrollOptions } value - Nested scrolling options.
    * @returns { ListAttribute } the attribute of the list.
@@ -1991,10 +1983,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Sets whether to support scroll gestures. When this attribute is set to <em>false</em>,
+   * scrolling by finger or mouse is not supported, but the scroll controller API is not affected.
    *
-   * @param { boolean } value - Whether to support scroll gestures.
-   * @default true
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { ListAttribute } The attribute of the list
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2013,7 +2005,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the friction.
+   * Sets the friction coefficient. It applies only to gestures in the scrolling area,
+   * and it affects only indirectly the scroll chaining during the inertial scrolling process.
+   * A value less than or equal to 0 evaluates to the default value.
    *
    * @param { number | Resource } value - Friction coefficient.
    * <br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices.
@@ -2028,7 +2022,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   friction(value: number | Resource): ListAttribute;
 
   /**
-   * Set children main size for List.
+   * Sets the size information of the child components of a <em>List</em> component along the main axis.
    *
    * @param { ChildrenMainSize } value - children main size for List
    * @returns { ListAttribute } the attribute of the list.
@@ -2040,7 +2034,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   childrenMainSize(value: ChildrenMainSize): ListAttribute;
 
   /**
-   * Set maintain visible content position List.
+   * Sets whether the visible content position should remain unchanged when data is inserted or deleted above the visible area.
    * 
    * <p><strong>NOTE</strong>:
    * <br>- The visible content position will only remain unchanged when <em>LazyForEach</em> is used to insert or delete data outside the visible area.
@@ -2054,8 +2048,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * </p>
    *
    * @param { boolean } enabled - Whether the visible content position should remain unchanged
-   * when data is inserted or deleted above the visible area.
-   * @default false
+   * when data is inserted or deleted above the visible area.<br>Default value: <em>false</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2065,7 +2058,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
 
   /**
-   * Sets the layout of the List component from the end.
+   * Sets whether the list's layout starts from the bottom (end) rather than the top (beginning).
    * 
    * <p><strong>NOTE</strong>:
    * <br>- When <em>stackFromEnd</em> is set to <em>true</em>, the following rules apply:
@@ -2077,7 +2070,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * </p>
    *
    * @param { boolean } enabled - Whether the list's layout starts from the bottom (end) rather than the top (beginning).
-   * @default false
+   * <br>Default value: <em>false</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2114,11 +2107,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the offset and status callback of the slide are set.
+   * Triggered when the list scrolls.
    *
-   * @param { number } scrollOffset - Scroll offset of each frame.
-   * The offset is positive when the list is scrolled up and negative when the list is scrolled down.
-   * @param { ScrollState } - Current scroll state.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2158,11 +2149,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the start and end positions of the display change.
-   *
-   * @param { number } start - Index of the first child component in the list display area.
-   * @param { number } end - Index of the last child component in the list display area.
-   * @param { number } center - Index of the center child component in the list display area.
+   * Triggered when a child component enters or leaves the list display area.
+   * 
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2173,7 +2162,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
   /**
-   * Called when the list visible content changes.
+   * Triggered when a child component enters or leaves the list display area.
    *
    * @param { OnScrollVisibleContentChangeCallback } handler - Callback invoked when the displayed content changes.
    * @returns { ListAttribute }
@@ -2212,7 +2201,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the list begins to arrive.
+   * Triggered when the list reaches the start position.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2252,7 +2241,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the list reaches the end.
+   * Triggered when the list reaches the end position.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2284,7 +2273,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the slider start.
+   * Triggered when the list starts scrolling initiated by the user's finger dragging the list or its scrollbar.
+   * This event is also triggered when the animation contained in the scrolling triggered by Scroller starts.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2324,7 +2314,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when the slider stops.
+   * Triggered when the list stops scrolling after the user's finger leaves the screen.
+   * This event is also triggered when the animation contained in the scrolling triggered by Scroller stops.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2337,9 +2328,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onScrollStop(event: () => void): ListAttribute;
 
   /**
-   * Called when a list item is deleted.
-   *
-   * @param { number } index - Index of the deleted list item.
+   * Triggered when a list item is deleted.
+   * 
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -2365,10 +2356,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when a list item is moved.
+   * Triggered when a list item moves.
    *
-   * @param { number } from - Index of the item before moving.
-   * @param { number } to - Index of the item after moving.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2397,11 +2387,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * Triggered when a list item starts to be dragged.
    *
-   * @param { ItemDragInfo } event - Information about the drag point.
-   * @param { number } itemIndex - Index of the dragged item.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2428,7 +2416,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * Triggered when the dragged item enters the drop target of the list.
    *
    * @param { ItemDragInfo } event - Information about the drag point.
    * @returns { ListAttribute }
@@ -2457,7 +2445,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * Triggered when the dragged item moves over the drop target of the list.
    *
    * @param { ItemDragInfo } event - Information about the drag point.
    * @param { number } itemIndex - Initial position of the dragged item.
@@ -2488,10 +2476,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * Triggered when the dragged item leaves the drop target of the list.
    *
-   * @param { ItemDragInfo } event - Information about the drag point.
-   * @param { number } itemIndex - Index of the dragged item.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2520,13 +2507,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * Triggered when the dragged item is dropped on the drop target of the list.
    *
-   * @param { ItemDragInfo } event - Information about the drag point.
-   * @param { number } itemIndex - Initial position of the dragged item.
-   * @param { number } insertIndex - Index of the position to which the dragged item is dropped.
-   * @param { boolean } isSuccess - Whether the dragged item is successfully dropped.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2555,10 +2538,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 10
    */
   /**
-   * Called when scrolling begin each frame.
+   * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
+   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation and returns the result.
    *
-   * @param { number } offset - Amount to scroll by, in vp.
-   * @param { ScrollState } state - Current scroll state.
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
