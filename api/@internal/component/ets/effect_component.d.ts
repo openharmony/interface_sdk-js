@@ -53,6 +53,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
    *
    * @param { boolean } enable
    * @returns { EffectComponentAttribute }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 19
