@@ -431,7 +431,7 @@ declare namespace webview {
    * @since 11
    */
   /**
-   * Defines the hit test value, related to {@link getHitTestValue} method.
+   * Provides element information of the click area. related to {@link getLastHitTest} method.
    *
    * @typedef HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
@@ -3369,8 +3369,7 @@ declare namespace webview {
    */
   enum RenderProcessMode {
     /**
-     * Indicates the ArkWeb operates in single render process mode, which is the default value for
-     * mobile devices.
+     * ArkWeb single rendering subprocess mode. In this mode, multiple Web pages reuse a rendering subprocess.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3379,7 +3378,7 @@ declare namespace webview {
     SINGLE = 0,
 
     /**
-     * Indicates the ArkWeb operates in multiple render process mode.
+     * ArkWeb multi-rendering subprocess mode. In this mode, there is one rendering subprocess per Web.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3519,7 +3518,11 @@ declare namespace webview {
    * @since 10
    */
   /**
-   * Provides methods for controlling the web controller.
+   * WebviewController can control various behaviors of Web components
+   * (including page navigation, declaring cycle state, JavaScript interaction and so on).
+   * A WebviewController object can only control one Web component,
+   * and methods on the Webviewcontroller (except static methods) can only be called
+   * after the web component is bound to the WebviewController.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -3761,7 +3764,11 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web active.
+     * Call this interface to notify the Web component to enter the foreground activation state.
+     * The activation state is the state in which the application interacts with the user.
+     * The application will remain in this state until something happens,
+     * such as receiving an incoming call or closing the screen of the device,
+     * to shift the focus away from the application.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -3780,7 +3787,11 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web inactive.
+     * Call this interface to notify the Web component to enter the inactive state.
+     * In this callback, the developer can realize the appropriate behavior when the application loses focus.
+     * In this state, any content that can be safely paused will be paused as much as possible,
+     * such as animation and geographical location. However, JavaScript will not be paused.
+     * To pause JavaScript globally, please use {@link pauseAllTimers}.To reactivate the Web component, call onActive.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4107,7 +4118,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Gets the hit test value of HitTest.
+     * Get the element information of the currently clicked area.
      * @returns { HitTestValue } Return the element information of the clicked area.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4137,7 +4148,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Gets the id for the current Web.
+     * Gets the index value of the current Web component for the management of multiple Web components.
      * @returns { number } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5643,7 +5654,7 @@ declare namespace webview {
     closeCamera(): void;
 
     /**
-     * Pauses all layout, parsing, and JavaScript timers for all WebViews.
+     * Pause all WebView timers.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5654,7 +5665,7 @@ declare namespace webview {
     static pauseAllTimers(): void;
 
     /**
-     * Resumes all layout, parsing, and JavaScript timers for all WebViews.
+     * Resume all timers suspended from the pauseAllTimers() interface.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5965,6 +5976,10 @@ declare namespace webview {
      * Get render process mode of the ArkWeb.
      *
      * @returns { RenderProcessMode } mode - The render process mode of the ArkWeb.
+     *          Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device,
+     *          with an enumeration value of 0 as a single subprocess mode and an enumeration value of 1 as a multi-subprocess mode.
+     *          If the obtained value is not within the range of the RenderProcessMode enumeration value,
+     *          it defaults to the multi-rendering subprocess mode.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5972,7 +5987,11 @@ declare namespace webview {
     static getRenderProcessMode(): RenderProcessMode;
 
     /**
-     * Terminate render process associated with this controller of the ArkWeb.
+     * Destroy the rendering process.
+     * Calling this interface will actively destroy the associated rendering process.
+     * If the rendering process has not been started or destroyed, it has no effect.
+     * In addition, destroying the rendering process will also affect all other instances associated with
+     * the rendering process.
      *
      * @returns { boolean } true if it was possible to terminate the render process, otherwise false.
      *         Calling this on a not yet started, or an already terminated render will have no effect.
