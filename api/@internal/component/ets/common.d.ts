@@ -13618,6 +13618,26 @@ declare interface DragEvent {
    * @since 15
    */
   startDataLoading(options: DataSyncOptions): string;
+
+  /**
+   * Retrieve the bundle information of the drag source application.
+   *
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  getDragSource(): string;
+
+  /**
+   * Call this method to determine whether the current drag operation is a cross-device drag.
+   *
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  isRemote(): boolean;
 }
 
 /**
