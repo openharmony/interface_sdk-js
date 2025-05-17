@@ -212,10 +212,10 @@ export class UIInspector {
  */
 export class Router {
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -228,10 +228,10 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -247,10 +247,10 @@ export class Router {
   pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application. This API uses a promise to return the result.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -263,10 +263,10 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application. This API uses a promise to return the result.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -282,11 +282,11 @@ export class Router {
   pushUrl(options: router.RouterOptions): Promise<void>;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -299,11 +299,11 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -319,11 +319,11 @@ export class Router {
   pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application. This API uses a promise to return the result.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -336,11 +336,11 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application. This API uses a promise to return the result.
    *
-   * @param { router.RouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { router.RouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -494,7 +494,11 @@ export class Router {
   /**
    * Returns to the previous page or a specified page.
    *
-   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterOptions } options - Description of the page.
+   * <br>The **url** parameter indicates the URL of the page to return to. 
+   * <br>If the specified page does not exist in the page stack, the application does not respond. 
+   * <br>If no URL is set, the application returns to the previous page, and the page is not rebuilt. 
+   * <br>The page in the page stack is not reclaimed. It will be reclaimed after being popped up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -502,7 +506,11 @@ export class Router {
   /**
    * Returns to the previous page or a specified page.
    *
-   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterOptions } options - Description of the page.
+   * <br>The **url** parameter indicates the URL of the page to return to.
+   * <br>If the specified page does not exist in the page stack, the application does not respond.
+   * <br>If no URL is set, the application returns to the previous page, and the page is not rebuilt.
+   * <br>The page in the page stack is not reclaimed. It will be reclaimed after being popped up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -513,8 +521,8 @@ export class Router {
   /**
    * Returns to the specified page.
    *
-   * @param { number } index - index of page.
-   * @param { Object } [params] - params of page.
+   * @param { number } index - Index of the target page to navigate to.
+   * @param { Object } [params] - Parameters carried when returning to the page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -561,7 +569,7 @@ export class Router {
   /**
    * Obtains information about the current page state.
    *
-   * @returns { router.RouterState } Page state.
+   * @returns { router.RouterState } Page routing state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -569,7 +577,7 @@ export class Router {
   /**
    * Obtains information about the current page state.
    *
-   * @returns { router.RouterState } Page state.
+   * @returns { router.RouterState } Page routing state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -667,9 +675,9 @@ export class Router {
   getParams(): Object;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -682,9 +690,9 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -700,9 +708,9 @@ export class Router {
   pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -715,9 +723,9 @@ export class Router {
    * @since 10
    */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -733,10 +741,10 @@ export class Router {
   pushNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -749,10 +757,10 @@ export class Router {
    * @since 10
   */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -768,10 +776,10 @@ export class Router {
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -784,10 +792,10 @@ export class Router {
    * @since 10
   */
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { router.NamedRouterOptions } options - Options.
-   * @param { router.RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
+   * @param { router.NamedRouterOptions } options - Page routing parameters.
+   * @param { router.RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1626,21 +1634,27 @@ export interface OverlayManagerOptions {
  */
 export class UIObserver {
   /**
-   * Registers a callback function to be called when the navigation destination is updated.
+   * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - Specify the id of observed navigation.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @param { 'navDestinationUpdate' } type - Event type. 
+   * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event
+   * <br>of the **NavDestination** component.
+   * @param { object } options - ID of the target **NavDestination** component.
+   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current
+   * <br>state of the **NavDestination** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Registers a callback function to be called when the navigation destination is updated.
+   * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @param { 'navDestinationUpdate' } type - Event type. 
+   * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event
+   * <br>of the **NavDestination** component.
+   * @param { object } options - ID of the target **NavDestination** component.
+   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current
+   * <br>state of the **NavDestination** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1674,19 +1688,25 @@ export class UIObserver {
   off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the navigation destination is updated.
+   * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @param { 'navDestinationUpdate' } type - Event type. 
+   * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event of
+   * <br>the **NavDestination** component.
+   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current state of
+   * <brthe **NavDestination** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Registers a callback function to be called when the navigation destination is updated.
+   * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @param { 'navDestinationUpdate' } type - Event type. 
+   * The value is fixed at **'navDestinationUpdate'**,
+   * <br>which indicates the state change event of the **NavDestination** component.
+   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current state of
+   * <br>the **NavDestination** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1770,19 +1790,21 @@ export class UIObserver {
   off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
-   * Registers a callback function to be called when the router page in a ui context is updated.
+   * Unsubscribes to state changes of the page in the router.
    *
-   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
-   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+   * @param { 'routerPageUpdate' } type - Event type. 
+   * <br>The value is fixed at 'routerPageUpdate', which indicates the state change event of the page in the router.
+   * @param { Callback<observer.RouterPageInfo> } callback - Callback to be unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Registers a callback function to be called when the router page in a ui context is updated.
+   * Unsubscribes to state changes of the page in the router.
    *
-   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
-   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+   * @param { 'routerPageUpdate' } type - Event type. 
+   * <br>The value is fixed at 'routerPageUpdate', which indicates the state change event of the page in the router.
+   * @param { Callback<observer.RouterPageInfo> } callback - Callback to be unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3254,17 +3276,17 @@ export class UIContext {
   getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
 
   /**
-   * get object router.
+   * Obtains a Router object.
    *
-   * @returns { Router } object Router.
+   * @returns { Router } Router object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * get object router.
+   * Obtains a Router object.
    *
-   * @returns { Router } object Router.
+   * @returns { Router } Router object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3641,19 +3663,19 @@ export class UIContext {
   getMeasureUtils(): MeasureUtils;
 
   /**
-   * Defining keyframe animation function.
+   * Generates a key frame animation.
    *
-   * @param { KeyframeAnimateParam } param - overall animation parameters
-   * @param { Array<KeyframeState> } keyframes - all keyframe states
+   * @param { KeyframeAnimateParam } param - Global parameters of the keyframe animation.
+   * @param { Array<KeyframeState> } keyframes - Array of keyframes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Defining keyframe animation function.
+   * Generates a key frame animation.
    *
-   * @param { KeyframeAnimateParam } param - overall animation parameters
-   * @param { Array<KeyframeState> } keyframes - all keyframe states
+   * @param { KeyframeAnimateParam } param - Global parameters of the keyframe animation.
+   * @param { Array<KeyframeState> } keyframes - Array of keyframes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3911,12 +3933,20 @@ export class UIContext {
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
-   * Open the BindSheet.
+   * Creates a sheet whose content is as defined in bindSheetContent and displays the sheet.
+   * This API uses a promise to return the result.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
-   * @param { SheetOptions } sheetOptions - The options of sheet.
-   * @param { number } targetId - The uniqueId of the FrameNode to which BindSheet is attached.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { ComponentContent<T> } bindSheetContent - Content to display on the sheet.
+   * @param { SheetOptions } sheetOptions - Style of the sheet.
+   * <p>**NOTE**:
+   * <br>1. SheetOptions.uiContext cannot be set. Its value is fixed to the UIContext object of the current instance.
+   * <br>2.If targetId is not passed in, SheetOptions.preferType cannot be set to POPUP; if POPUP is set, it will be
+   * replaced with CENTER.
+   * <br>3. If targetId is not passed in, SheetOptions.mode cannot be set to EMBEDDED; the default mode is OVERLAY.
+   * <br>4. For the default values of other attributes, @see SheetOptions.
+   * </p>
+   * @param { number } targetId - ID of the component to be bound. If this parameter is not set, no component is bound.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -3956,10 +3986,13 @@ export class UIContext {
   updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
-   * Close the BindSheet.
-   *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
-   * @returns { Promise<void> } The promise returned by the function.
+   * Closes the sheet corresponding to bindSheetContent. This API uses a promise to return the result.
+   * <p>**NOTE**:
+   * <br>Closing a sheet using this API will not invoke the shouldDismiss callback.
+   * </p>
+   * 
+   * @param { ComponentContent<T> } bindSheetContent - Content to display on the sheet.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
