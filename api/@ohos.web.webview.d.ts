@@ -4207,8 +4207,8 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Gets the content height of current Web page.
-     * @returns { number } Returns the page height of the current page.
+     * Obtains the height of this web page.
+     * @returns { number } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5907,7 +5907,8 @@ declare namespace webview {
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
-     * Set enable overall web caching
+     * Enables the full drawing capability for the web page. 
+     * This API works only during Web component initialization.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
