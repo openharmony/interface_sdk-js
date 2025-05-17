@@ -2107,6 +2107,16 @@ declare namespace inputMethod {
      * @since 20
      */
     newEditBox?: boolean;
+
+    /**
+     * Indicates the capitalize mode of the edit box.
+     *
+     * @type { ?CapitalizeMode }
+     * @default CapitalizeMode.NONE
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    capitalizeMode?: CapitalizeMode;
   }
 
   /**
