@@ -6425,6 +6425,32 @@ declare namespace window {
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
+     * Register the callback of windowStatusDidChange
+     *
+     * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of windowStatusDidChange
+     *
+     * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
+
+    /**
      * Subscribes to the event indicating that the child window is closed.
      * This event is triggered only when the user clicks the system-provided close button in the upper right corner to close the child window.
      * It is not triggered when the child window is closed in other ways.
