@@ -27,8 +27,7 @@ import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityCo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export default class EmbeddableUIAbility extends UIAbility {
     /**
@@ -38,8 +37,7 @@ export default class EmbeddableUIAbility extends UIAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     context: EmbeddableUIAbilityContext;
 }

@@ -33,8 +33,7 @@ import continuationManager from '../@ohos.continuation.continuationManager';
  * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export interface ContinuationExtraParams {
   /**
@@ -50,8 +49,7 @@ export interface ContinuationExtraParams {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   deviceType?: Array<string>;
 
@@ -68,8 +66,7 @@ export interface ContinuationExtraParams {
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   targetBundle?: string;
 
@@ -86,8 +83,7 @@ export interface ContinuationExtraParams {
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   description?: string;
 
@@ -108,17 +104,6 @@ export interface ContinuationExtraParams {
    */
   filter?: any;
 
-    /**
-   * Parameters used for filtering devices, type must be { [key: string]: any }.
-   *
-   * @type { ?Object }
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  filter?: Object;
-
   /**
    * Mode of continuation.
    *
@@ -132,8 +117,7 @@ export interface ContinuationExtraParams {
    * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   continuationMode?: continuationManager.ContinuationMode;
 
@@ -158,8 +142,7 @@ export interface ContinuationExtraParams {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   authInfo?: Record<string, Object>;
 }

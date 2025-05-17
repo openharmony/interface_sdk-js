@@ -31,10 +31,9 @@ import { ConnectOptions } from '../ability/connectOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
-declare class UIServiceExtensionContext extends ExtensionContext {
+export default class UIServiceExtensionContext extends ExtensionContext {
   /**
    * UI service extension uses this method to start a specific ability.If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
@@ -154,5 +153,3 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    */
   disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }
-
-export default UIServiceExtensionContext;

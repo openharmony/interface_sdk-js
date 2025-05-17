@@ -18,12 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type { ApplicationInfo } from '../bundleManager/ApplicationInfo';
-/*** endif */
-/*** if arkts 1.2 */
-import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
-/*** endif */
 import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
 
 /**
@@ -32,8 +27,7 @@ import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
  * @typedef BusinessAbilityInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 export interface BusinessAbilityInfo {
   /**
@@ -43,8 +37,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly bundleName: string;
 
@@ -55,8 +48,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly moduleName: string;
 
@@ -67,8 +59,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly name: string;
 
@@ -79,8 +70,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly labelId: number;
 
@@ -91,8 +81,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly descriptionId: number;
 
@@ -103,8 +92,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly iconId: number;
 
@@ -115,8 +103,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly businessType: businessAbilityRouter.BusinessType;
 
@@ -127,8 +114,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   readonly applicationInfo: ApplicationInfo;
 }

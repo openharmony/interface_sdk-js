@@ -18,11 +18,13 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
+import AbilityStage from '../@ohos.app.ability.AbilityStage';
+import { AbilityStageMonitor } from './AbilityStageMonitor';
+/*** endif */
 import { AsyncCallback } from '../@ohos.base';
 import UIAbility from '../@ohos.app.ability.UIAbility';
-import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityMonitor } from './AbilityMonitor';
-import { AbilityStageMonitor } from './AbilityStageMonitor';
 import Context from './Context';
 import Want from '../@ohos.app.ability.Want';
 import { ShellCmdResult } from './shellCmdResult';

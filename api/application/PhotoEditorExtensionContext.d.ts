@@ -20,12 +20,7 @@
 
 import ExtensionContext from './ExtensionContext';
 import image from '../@ohos.multimedia.image';
-/*** if arkts 1.1 */
 import type { AbilityResult } from '../ability/abilityResult';
-/*** endif */
-/*** if arkts 1.2 */
-import { AbilityResult } from '../ability/abilityResult';
-/*** endif */
 
 /**
  * The context of Photo Editor extension. It allows access to PhotoEditorExtension-specific resources.
@@ -33,10 +28,9 @@ import { AbilityResult } from '../ability/abilityResult';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-declare class PhotoEditorExtensionContext extends ExtensionContext {
+export default class PhotoEditorExtensionContext extends ExtensionContext {
     /**
      * Save image data by uri.
      *
@@ -68,5 +62,3 @@ declare class PhotoEditorExtensionContext extends ExtensionContext {
      */
     saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>;
 }
-
-export default PhotoEditorExtensionContext;

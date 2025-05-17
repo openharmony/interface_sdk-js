@@ -19,22 +19,15 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
 import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
-/*** endif */
-/*** if arkts 1.2 */
-import { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
-import { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
-/*** endif */
 
 /**
  * This module provides the capability to start and manage child process.
  *
  * @namespace childProcessManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace childProcessManager {
 
@@ -44,8 +37,7 @@ declare namespace childProcessManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export const enum StartMode {
 
@@ -55,8 +47,7 @@ declare namespace childProcessManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SELF_FORK = 0,
 
@@ -65,8 +56,7 @@ declare namespace childProcessManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     APP_SPAWN_FORK = 1,
   }

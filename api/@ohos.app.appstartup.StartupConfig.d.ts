@@ -26,8 +26,7 @@ import StartupListener from './@ohos.app.appstartup.StartupListener';
  * @interface StartupConfig
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export default interface StartupConfig {
   /**
@@ -37,8 +36,7 @@ export default interface StartupConfig {
    * @default 10000
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   timeoutMs?: number;
 
@@ -48,8 +46,7 @@ export default interface StartupConfig {
    * @type { ?StartupListener }
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startupListener?: StartupListener;
 }

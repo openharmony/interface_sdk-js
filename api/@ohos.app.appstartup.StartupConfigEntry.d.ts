@@ -25,10 +25,9 @@ import StartupConfig from './@ohos.app.appstartup.StartupConfig';
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-declare class StartupConfigEntry {
+export default class StartupConfigEntry {
   /**
    * Called when startup initialization to configure startup mode.
    *
@@ -38,17 +37,4 @@ declare class StartupConfigEntry {
    * @since 12
    */
   onConfig?(): StartupConfig;
-
-  /**
-   * Called when startup initialization to configure startup mode.
-   *
-   * @returns { StartupConfig } The developer returns a startup configuration.
-   * @syscap SystemCapability.Ability.AppStartup
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  onConfig?:()=> StartupConfig;
 }
-
-export default StartupConfigEntry;

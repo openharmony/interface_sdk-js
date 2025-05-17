@@ -40,8 +40,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @famodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface AppVersionInfo {
   /**
@@ -72,8 +71,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   readonly appName: string;
 
@@ -105,8 +103,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   readonly versionCode: number;
 
@@ -138,8 +135,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   readonly versionName: string;
 }

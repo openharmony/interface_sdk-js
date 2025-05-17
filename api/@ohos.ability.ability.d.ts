@@ -18,15 +18,12 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';
 import { DataAbilityOperation as _DataAbilityOperation } from './ability/dataAbilityOperation';
 import { DataAbilityResult as _DataAbilityResult } from './ability/dataAbilityResult';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter } from './ability/startAbilityParameter';
-/*** endif */
-
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 
 /**
@@ -42,8 +39,7 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
  *
  * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace ability {
   /**
@@ -69,8 +65,7 @@ declare namespace ability {
    *
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type PacMap = _PacMap;
 

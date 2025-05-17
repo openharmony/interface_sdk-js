@@ -24,8 +24,7 @@
  * @interface ChildProcessArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface ChildProcessArgs {
   /**
@@ -35,8 +34,7 @@ export interface ChildProcessArgs {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   entryParams?: string;
 
@@ -46,8 +44,7 @@ export interface ChildProcessArgs {
    * @type { ?Record<string, number> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fds?: Record<string, number>;
 }

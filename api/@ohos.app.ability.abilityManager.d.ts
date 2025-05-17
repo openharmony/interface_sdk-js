@@ -18,14 +18,14 @@
  * @kit AbilityKit
  */
 
-import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
+import { ElementName } from './bundleManager/ElementName';
+/*** if arkts 1.1 */
+import { AbilityResult } from './ability/abilityResult';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName } from './bundleManager/ElementName';
-/*** if arkts 1.1 */
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -542,8 +542,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -573,8 +572,7 @@ declare namespace abilityManager {
    * @typedef { _ExtensionRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
