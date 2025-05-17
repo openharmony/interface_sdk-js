@@ -416,6 +416,27 @@ declare class XComponentController {
    * @since 12
    */
   stopImageAnalyzer(): void;
+
+  /**
+   * Get a Canvas for drawing into the surface created by XComponent.
+   *
+   * @returns { DrawingCanvas | null} Returns a Canvas for drawing into the surface created by XComponent.
+   *    Returns null if the surface is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  lockCanvas(): DrawingCanvas | null;
+
+  /**
+   * Posts the new contents of the Canvas to the surface created by XComponent and releases the Canvas.
+   *
+   * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  unlockCanvasAndPost(canvas: DrawingCanvas):void;
 }
 
 /**
