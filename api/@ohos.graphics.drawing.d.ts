@@ -2818,6 +2818,38 @@ declare namespace drawing {
     static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
       endRadius: number, colors: Array<number>, mode: TileMode,
       pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a shader with single image.
+     * @param { image.PixelMap } pixelmap - PixelMap.
+     * @param { TileMode } tileX - Indicates the type of tile mode for horizontal shader effect.
+     * @param { TileMode } tileY - Indicates the type of tile mode for vertical shader effect.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns the shader with single image ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode,
+      samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect;
+    
+    /**
+     * Creates an ShaderEffect object that generates a blend ShaderEffect object by two shaders.
+     * @param { ShaderEffect } dstShaderEffect - Indicates a destination ShaderEffect pointer.
+     * @param { ShaderEffect } srcShaderEffect - Indicates a source ShaderEffect pointer.
+     * @param { BlendMode } blendMode - BlendMode.
+     * @returns { ShaderEffect } Returns a blend ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect,
+      blendMode: BlendMode): ShaderEffect;
   }
 
   /**
@@ -2978,6 +3010,19 @@ declare namespace drawing {
      * @since 12
      */
     static createMatrixColorFilter(matrix: Array<number>): ColorFilter;
+    
+    /**
+     * Makes a color filter with the given mutColor and addColor.
+     * @param { common2D.Color | number } mutColor - The range of color channels must be [0, 255], used to multiply source color.
+     * @param { common2D.Color | number } addColor - The range of color channels must be [0, 255], used to add to source color.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createLightingColorFilter(mutColor: common2D.Color | number, addColor: common2D.Color | number): ColorFilter;
+
   }
 
   /**
@@ -3016,6 +3061,76 @@ declare namespace drawing {
      * @since 12
      */
     static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
+
+    
+    /**
+     * Makes an ImageFilter object that instance with the provided x and y offset.
+     * @param { number } dx - Indicates the offset in the X direction.
+     * @param { number } dy - Indicates the offset in the Y direction.
+     * @param { ImageFilter | null } input - Indicates the input image filter used to generate offset effects, or uses
+     * the source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createOffsetImageFilter(dx: number, dy: number, input?: ImageFilter | null): ImageFilter;
+    
+    /**
+     * Makes an ImageFilter object that applies the bitmap to the input.
+     * @param { image.PixelMap } pixelmap - The source input image.
+     * @param { common2D.Rect | null } srcRect - Indicates the input srcRect, or uses the source bitmap if this is null.
+     * @param { common2D.Rect | null } dstRect - Indicates the input dstRect, or uses the source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter;
+  
+    /**
+     * Makes an ImageFilter object that applies the blend to the input.
+     * @param { BlendMode } mode - Blendmode.
+     * @param { ImageFilter } background - Indicates the input background filter.
+     * @param { ImageFilter } foreground - Indicates the input foreground filter.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+    */
+    static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that combines the "inner" and "outer" filters, allowing the output of the "inner"
+     * filter to serve as the input source bitmap for the "outer" filter.
+     * @param { ImageFilter } cOuter - Indicates the instance to apply its effects to the output of the 'inner'
+     * filter.
+     * @param { ImageFilter } cInner - Indicates the output as input for "outer" filters.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that renders the contents of the input Shader.
+     * 
+     * @param { ShaderEffect } shader - Indicates the shader effect to be applied to the image.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createFromShaderEffect(shader: ShaderEffect): ImageFilter;
   }
   /**
    * Enumerates the join styles of a pen. The join style defines the shape of the joints of a polyline segment drawn by the pen.
