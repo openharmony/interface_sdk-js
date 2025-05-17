@@ -140,6 +140,28 @@ declare interface IntentDecoratorInfo {
    * @since 20
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The type definition of the result returned by intent call.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  result?: Record<string, Object>;
+
+  /**
+   * The example of the intent.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  example?: string;
 }
 
 /**
@@ -177,6 +199,42 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
 }
 
 /**
+ * Enum definition of the paramCategory {@link #LinkIntentParamMapping#paramCategory},
+ * paramCategory is an attribute of LinkIntentParamMapping and
+ * used in InsightIntentLink {@link #InsightIntentLink}.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ */
+declare enum LinkParamCategory {
+  /**
+   * The parameter will added to the end of link uri.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  LINK = 'link',
+
+  /**
+   * The parameter will transferred to the application as parameters of want.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  WANT = 'want',
+}
+
+/**
  * Declare interface of LinkIntentParamMapping.
  *
  * @interface LinkIntentParamMapping
@@ -209,17 +267,15 @@ declare interface LinkIntentParamMapping {
   paramMappingName?: string;
 
   /**
-   * The parameter category, the value can be "link" or "want".
-   * When the value is "link", the parameter will added to the end of link uri.
-   * When the value is "want", the parameter will transferred to the application as parameters of want.
+   * The parameter category.
    *
-   * @type { ?string }
+   * @type { ?LinkParamCategory }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 20
    */
-  paramCategory?: string;
+  paramCategory?: LinkParamCategory;
 }
 
 /**
@@ -361,13 +417,13 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
    * For UIAbility, the parameter can be set to insightIntent.ExecuteMode.UI_ABILITY_FOREGROUND or
    * insightIntent.ExecuteMode.UI_ABILITY_UI_ABILITY_BACKGROUND or both of them.
    *
-   * @type { ?insightIntent.ExecuteMode[] }
+   * @type { insightIntent.ExecuteMode[] }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 20
    */
-  executeMode?: insightIntent.ExecuteMode[];
+  executeMode: insightIntent.ExecuteMode[];
 }
 
 /**
