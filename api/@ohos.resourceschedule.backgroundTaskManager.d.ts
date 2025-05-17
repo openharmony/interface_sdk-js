@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BackgroundTasksKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
