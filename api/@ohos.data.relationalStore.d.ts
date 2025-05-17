@@ -2807,7 +2807,7 @@ declare namespace relationalStore {
      *
      * @param { number } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *                   Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2820,7 +2820,7 @@ declare namespace relationalStore {
      *
      * @param { number } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *                   Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2834,7 +2834,7 @@ declare namespace relationalStore {
      *
      * @param { number } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *                   Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2923,7 +2923,7 @@ declare namespace relationalStore {
      * Go to the first row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2932,7 +2932,7 @@ declare namespace relationalStore {
      * Go to the first row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -2942,7 +2942,7 @@ declare namespace relationalStore {
      * Go to the first row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -2973,7 +2973,7 @@ declare namespace relationalStore {
      * Go to the last row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2982,7 +2982,7 @@ declare namespace relationalStore {
      * Go to the last row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -2992,7 +2992,7 @@ declare namespace relationalStore {
      * Go to the last row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
+     * Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -3023,7 +3023,7 @@ declare namespace relationalStore {
      * Go to the next row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the last row.
+     * Returns false otherwise, for example, if the result set is already in the last row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -3032,7 +3032,7 @@ declare namespace relationalStore {
      * Go to the next row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the last row.
+     * Returns false otherwise, for example, if the result set is already in the last row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -3042,7 +3042,7 @@ declare namespace relationalStore {
      * Go to the next row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the last row.
+     * Returns false otherwise, for example, if the result set is already in the last row.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -3073,7 +3073,7 @@ declare namespace relationalStore {
      * Go to the previous row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the first row.
+     * Returns false otherwise, for example, if the result set is already in the first row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -3082,7 +3082,7 @@ declare namespace relationalStore {
      * Go to the previous row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the first row.
+     * Returns false otherwise, for example, if the result set is already in the first row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -3092,7 +3092,7 @@ declare namespace relationalStore {
      * Go to the previous row of the result set.
      *
      * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the first row.
+     * Returns false otherwise, for example, if the result set is already in the first row.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -3702,7 +3702,7 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
-     *                    Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3714,7 +3714,7 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
-     *                    Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3727,7 +3727,7 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
-     *                    Returns false otherwise.
+     * Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4392,7 +4392,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4406,7 +4406,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4422,7 +4422,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4458,7 +4458,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -4475,7 +4475,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -4517,7 +4517,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -4531,7 +4531,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -4547,7 +4547,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -4583,7 +4583,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -4600,7 +4600,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -4637,7 +4637,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -4675,7 +4675,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4694,7 +4694,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4714,7 +4714,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
@@ -4759,7 +4759,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -4778,7 +4778,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -4798,7 +4798,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } The number of affected rows.
@@ -8191,7 +8191,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -8223,7 +8223,7 @@ declare namespace relationalStore {
      * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *                         The key-value pairs are associated with column names of the database table.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
@@ -8626,7 +8626,7 @@ declare namespace relationalStore {
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config -
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained..
+   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
@@ -8653,7 +8653,7 @@ declare namespace relationalStore {
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config -
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained..
+   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
