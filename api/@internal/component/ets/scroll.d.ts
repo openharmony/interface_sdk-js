@@ -330,7 +330,7 @@ declare interface ScrollAnimationOptions {
    * Whether to enable overscroll.
    * 
    * <p><strong>NOTE</strong>
-   * <br> Scrolling can exceed the boundary and initiate a bounce animation when this parameter is set to <em>true</em>, 
+   * <br> Scrolling can exceed the boundary and initiate a bounce animation when this parameter is set to <em>true</em>,
    * and the component's <em>edgeEffect</em> attribute is set to EdgeEffect.Spring.
    * </p>
    *
@@ -432,12 +432,12 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  * 
  * <p><strong>NOTE</strong>
  * <br>1. The binding of a <em>Scroller</em> instance to a scrollable container component occurs during the component creation phase.
- * <br>2. <em>Scroller</em> APIs can only be effectively called after the <em>Scroller</em> instance is bound to a scrollable container component. 
+ * <br>2. <em>Scroller</em> APIs can only be effectively called after the <em>Scroller</em> instance is bound to a scrollable container component.
  * Otherwise, depending on the API called, it may have no effect or throw an exception.
- * <br>3. For example, with aboutToAppear, this callback is executed after a new instance of a custom component is 
- * created and before its <em>build()</em> method is called. 
- * Therefore, if a scrollable component is defined within the <em>build</em> method of a custom component, 
- * the internal scrollable component has not yet been created during the <em>aboutToAppear</em> callback 
+ * <br>3. For example, with aboutToAppear, this callback is executed after a new instance of a custom component is
+ * created and before its <em>build()</em> method is called.
+ * Therefore, if a scrollable component is defined within the <em>build</em> method of a custom component,
+ * the internal scrollable component has not yet been created during the <em>aboutToAppear</em> callback
  * of that custom component, and therefore the <em>Scroller</em> APIs cannot be called effectively.
  * </p>
  * 
@@ -549,9 +549,9 @@ declare class Scroller {
    *
    * @param { number } velocity - Initial velocity of inertial scrolling. Unit: vp/s
    * <br><em>NOTE</em>
-   * <br>If the value specified is 0, it is considered as invalid, and the scrolling for this instance will not take effect. 
+   * <br>If the value specified is 0, it is considered as invalid, and the scrolling for this instance will not take effect.
    * A positive value indicates scrolling towards the top, while a negative value indicates scrolling towards the bottom.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -752,7 +752,7 @@ declare class Scroller {
    *
    * @param { number } index - Index of the item.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -773,7 +773,7 @@ declare class Scroller {
    *
    * @param { number } index - Index of the target child component.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1825,7 +1825,7 @@ declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollS
   * <br>Unit: vp
   * @param { ScrollState } scrollState - Current scrolling state.
   * @param { ScrollSource } scrollSource - Source of the current scrolling operation.
-  * @returns { void | OffsetResult } the remain offset for the Scroll, 
+  * @returns { void | OffsetResult } the remain offset for the Scroll,
   *     same as (xOffset, yOffset) when no OffsetResult is returned.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform

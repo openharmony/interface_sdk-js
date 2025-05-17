@@ -362,10 +362,10 @@ declare interface WaterFlowOptions {
    * 
    * <p><strong>NOTE</strong>
    * <br>1. When <em>sections</em> is used, the <em>columnsTemplate</em> and <em>rowsTemplate</em> attributes are ignored.
-   * <br>2. When <em>sections</em> is used, the footer cannot be set separately. The last section can function as the footer. 
+   * <br>2. When <em>sections</em> is used, the footer cannot be set separately. The last section can function as the footer.
    * </p>
    *
-   * @type { ?WaterFlowSections } sections - sections with different cross count 
+   * @type { ?WaterFlowSections } sections - sections with different cross count
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -767,7 +767,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   friction(value: number | Resource): WaterFlowAttribute;
 
   /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach.
    * @param { number } value - number of flow items to be preloaded (cached).
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -890,7 +890,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    *
    * @param { function } event - Callback function, triggered when the first or last item 
    * displayed in the waterflow changes.
-   * "first": the index of the first item displayed in the waterflow, 
+   * "first": the index of the first item displayed in the waterflow,
    * "last": the index of the last item displayed in the waterflow.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

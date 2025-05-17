@@ -2053,7 +2053,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * <br>- The visible content position will only remain unchanged when <em>LazyForEach</em> is used to insert or delete data outside the visible area.
    * If <em>ForEach</em> is used to insert or delete data, or if <em>LazyForEach</em> is used for data reloading,
    * the visible content position will change even if <em>maintainVisibleContentPosition</em> is set to <em>true</em>.
-   * <br>- When <em>maintainVisibleContentPosition</em> is set to <em>true</em>, 
+   * <br>- When <em>maintainVisibleContentPosition</em> is set to <em>true</em>,
    * inserting or deleting data above the visible area will trigger <em>onDidScroll</em> and <em>onScrollIndex</em> events.
    * <br>- In a multi-column scenario, setting <em>maintainVisibleContentPosition</em> to <em>true</em> allows
    * you to insert or delete entire rows of data while keeping the visible content position unchanged.
