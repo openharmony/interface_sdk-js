@@ -2654,7 +2654,10 @@ declare enum ContextMenuInputFieldType {
 }
 
 /**
- * Defines the embed status, related to {@link NativeEmbedDataInfo}.
+ * Defines the lifecycle of the same-layer tag. 
+ * When the same-layer tag exists on the loaded page, 
+ * CREATE is triggered. When the same-layer tag is moved or is enlarged, 
+ * **UPDATE **is triggered. When the page exits, DESTROY is triggered.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -2663,7 +2666,7 @@ declare enum ContextMenuInputFieldType {
  */
 declare enum NativeEmbedStatus {
   /**
-   * The embed tag create.
+   * The same-layer tag is created.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2672,7 +2675,7 @@ declare enum NativeEmbedStatus {
   CREATE = 0,
 
   /**
-   * The embed tag update.
+   * The same-layer tag is updated.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2681,7 +2684,7 @@ declare enum NativeEmbedStatus {
   UPDATE = 1,
 
   /**
-   * The embed tag destroy.
+   *The same-layer tag is destroyed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2690,7 +2693,7 @@ declare enum NativeEmbedStatus {
   DESTROY = 2,
 
   /**
-   * The embed tag enter backforward cache.
+   * The same-layer tag enters the BFCache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2699,7 +2702,7 @@ declare enum NativeEmbedStatus {
   ENTER_BFCACHE = 3,
 
   /**
-   * The embed tag leave backforward cache.
+   * The same-layer tag leaves the BFCache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2863,7 +2866,8 @@ declare enum WebNavigationType {
 }
 
 /**
- * Defines the web render mode, related to {@link RenderMode}.
+ * Enumerates the rendering mode of Web components. By default, the asynchronous rendering mode is used.
+ * The asynchronous rendering mode is recommended because it has better performance and lower power consumption.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -2872,7 +2876,9 @@ declare enum WebNavigationType {
  */
 declare enum RenderMode {
   /**
-   * Web and arkui render asynchronously
+   * The Web component is rendered asynchronously. 
+   * The ArkWeb component as a graphic surface node is displayed independently. 
+   * The maximum width of the Web component is 7,680 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2881,7 +2887,9 @@ declare enum RenderMode {
   ASYNC_RENDER = 0,
 
   /**
-   * Web and arkui render synchronously
+   * The Web component is rendered synchronously. 
+   * The ArkWeb component as a graphic canvas node is displayed together with the system component. 
+   * The maximum width of the Web component is 500,000 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4355,7 +4363,11 @@ declare class WebCookie {
 }
 
 /**
- * Defines the touch event result.
+ * Represents the event consumption result sent to the Web component. 
+ * For details about the supported events, see TouchType. 
+ * If the application does not consume the event, set this parameter to false, 
+ * and the event will be consumed by the Web component. If the application has consumed the event, 
+ * set this parameter to true, and the event will not be consumed by the Web component.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -4372,9 +4384,12 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Sets the gesture event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } result -  Whether to consume the gesture event.
+   *    {@code true} Indicates the consumption of the gesture event.
+   *    {@code false} Indicates the non-consumption of the gesture event.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -4382,10 +4397,17 @@ declare class EventResult {
   setGestureEventResult(result: boolean): void;
 
   /**
-   * Set whether the event is consumed.
+   * Sets the gesture event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
-   * @param { boolean } stopPropagation - Stops the propagation of events farther along.Default value is true.
+   * @param { boolean } result -  Whether to consume the gesture event.
+   *    {@code true} Indicates the consumption of the gesture event.
+   *    {@code false} Indicates the non-consumption of the gesture event.
+   *    Default value: true.
+   * @param { boolean } stopPropagation - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true. 
+   *    {@code true} Indicates stops the propagation of events farther along.
+   *    {@code false} Indicates the propagation of events farther along.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14
    */
@@ -4721,7 +4743,9 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
-   * Sets the render mode of the web.
+   * 	Rendering mode.
+   * 	RenderMode.ASYNC_RENDER (default, cannot be dynamically adjusted): The Web component is rendered asynchronously.
+   * 	RenderMode.SYNC_RENDER: The Web component is rendered synchronously within the current execution context.
    *
    * @type { ?RenderMode }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7238,9 +7262,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets the dark mode of Web.
+   * Sets the web dark mode. By default, web dark mode is disabled. When it is enabled, 
+   * the Web component enables the dark theme defined for web pages 
+   * if the theme has been defined in prefers-color-scheme of a media query, 
+   * and remains unchanged otherwise. To enable the forcible dark mode, use this API with forceDarkAccess.
    *
-   * @param { WebDarkMode } mode - The dark mode, which can be {@link WebDarkMode}.
+   * @param { WebDarkMode } mode - Web dark mode to set.
+   *     Default value: WebDarkMode.Off.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7257,9 +7285,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * Sets whether to enable forcible dark mode for the web page. 
+   * This API is applicable only when dark mode is enabled in {@link darkMode}.
    *
-   * @param { boolean } access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   * @param { boolean } access Sets whether to enable forcible dark mode for the web page. 
+   *    {@code true} means enable forcible dark mode for the web page. ;
+   *    {@code false} means not enable forcible dark mode for the web page.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7318,10 +7350,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web access overview mode.
+   * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width. 
+   * Currently, only mobile devices are supported.
    *
-   * @param { boolean } overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } overviewModeAccess Whether to load web pages by using the overview mode.
+   *    {@code true} means the Web access overview mode; 
+   *    {@code false} means the Web not access overview mode.
+   *    Default value: true
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7440,9 +7475,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
-   * Set whether to support the viewport attribute of the meta tag in the frontend page.
+   * Sets whether the viewport property of the meta tag is enabled.
+   * 
+   * <p><strong>API Note</strong>:<br>
+   * If the device is 2-in-1, the viewport property is not supported. This means that, 
+   * regardless of whether this parameter is set to true or false, 
+   * the viewport property will not be parsed and a default layout will be used.<br>
+   * If the device is a tablet, the viewport-fit property of the meta tag is parsed regardless of 
+   * whether this parameter is set to true or false. When viewport-fit is set to cover, 
+   * the size of the safe area can be obtained through the CSS attribute.<br>
+   * The viewport parameter of the meta tag on the frontend HTML page is enabled or 
+   * disabled based on whether User-Agent contains the Mobile field. 
+   * If a User-Agent does not contain the Mobile field, the viewport property in the meta tag is disabled by default. 
+   * In this case, you can explicitly set the metaViewport property to true to overwrite the disabled state.
+   * </p>
    *
-   * @param { boolean } enabled {@code true} means support the viewport attribute of the meta tag; {@code false} otherwise.
+   * @param { boolean } enabled Whether the viewport property of the meta tag is enabled. 
+   *    {@code true} means support the viewport attribute of the meta tag,
+   *    the viewport property of the meta tag is not enabled. 
+   *    This means that the property will not be parsed and a default layout will be used.; 
+   *    {@code false} means not support the viewport attribute of the meta tag,
+   *    the viewport property of the meta tag is enabled. 
+   *    This means that the property will be parsed and used for the layout.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8629,9 +8684,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview standard font library. The default font is "sans serif".
+   * Sets the standard font family for the web page.
    *
-   * @param { string } family Standard font set series.
+   * @param { string } family Sets the standard font family for the web page. 
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8648,9 +8704,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview serif font library. The default font is "serif".
+   * Sets the standard font family for the web page.
    *
-   * @param { string } family Serif font set series.
+   * @param { string } family Sets the standard font family for the web page.
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8667,9 +8724,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * Sets the sans serif font family for the web page.
    *
-   * @param { string } family Sans serif font set series.
+   * @param { string } family Sets the sans serif font family for the web page.
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8686,9 +8744,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview fixed font library. The default font is "monospace".
+   * Sets the fixed font family for the web page.
    *
-   * @param { string } family Fixed font set series.
+   * @param { string } family Sets the fixed font family for the web page. 
+   *    Default value: monospace.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8705,9 +8764,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * Sets the fantasy font family for the web page.
    *
-   * @param { string } family fantasy font set series.
+   * @param { string } family Sets the fantasy font family for the web page.
+   *    Default value: fantasy.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8724,9 +8784,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview cursive font library. The default font is "cursive".
+   * Sets the cursive font family for the web page.
    *
-   * @param { string } family Cursive font set series.
+   * @param { string } family Sets the cursive font family for the web page. 
+   *    Default value: cursive.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8743,9 +8804,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * Sets the default font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Default fixed font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 13.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8762,9 +8826,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+   * Sets the default font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Default font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72, 
+   *    and values less than 1 are handled as 1. Default value: 16.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8781,9 +8847,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Sets the minimum font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Minimum font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8801,9 +8870,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Sets the minimum logical font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Minimum logical font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9048,9 +9120,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether enable pinch smooth mode.
+   * Sets whether to enable smooth pinch mode for the web page.
    *
-   * @param { boolean } isEnabled True if it needs to enable smooth mode.
+   * @param { boolean } isEnabled Whether to enable smooth pinch mode for the web page.
+   *    {@code true} means to enable smooth pinch mode for the web page;
+   *    {@code false} means not to enable smooth pinch mode for the web page.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9307,8 +9382,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Set web layout Mode.
-   * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
+   * Sets the web layout mode.
+   * 
+   * <p><strong>API Note</strong>:<br>
+   * Currently, only two web layout modes are supported: WebLayoutMode.NONE and WebLayoutMode.FIT_CONTENT.
+   * The following restrictions apply with the usage of WebLayoutMode.FIT_CONTENT:
+   * - If the Web component is wider or longer than 7680 px, specify the RenderMode.SYNC_RENDER mode 
+   *   when creating the Web component; otherwise, the screen may be blank.
+   * - After the Web component is created, dynamic switching of the layoutMode is not supported.
+   * - The width and height of a Web component cannot exceed 500,000 px when the RenderMode.SYNC_RENDER mode is specified, 
+   *   and cannot exceed 7680 px when the RenderMode.ASYNC_RENDER mode is specified.
+   * - Frequent changes to the page width and height will trigger a re-layout of the Web component, 
+   *   which can affect the user experience.
+   * - Waterfall web pages are not supported (drop down to the bottom to load more).
+   * - Only height adaptation is supported. Width adaptation is not supported.
+   * - Because the height is adaptive to the web page height, 
+   *   the component height cannot be changed by modifying the component height attribute.
+   * </p>
+   * 
+   * @param { WebLayoutMode } mode - The web layout mode, follow the system or adaptive layout.
+   *    The default value is WebLayoutMode.NONE.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9368,10 +9461,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
   /**
-   * Register native pattern with specific tag and type.
+   * Registers the HTML tag name and type for same-layer rendering. 
+   * The tag name only supports object and embed. 
+   * The tag type only supports visible ASCII characters.<br>
+   * If the specified type is the same as the W3C standard object or embed type, 
+   * the ArkWeb kernel identifies the type as a non-same-layer tag.<br>
+   * This API is also controlled by the enableNativeEmbedMode API and 
+   * does not take effect if same-layer rendering is not enabled. When this API is not used, 
+   * the ArkWeb engine recognizes the embed tags with the "native/" prefix as same-layer tags.
    *
-   * @param { string } tag - Tag name used by html webpage.
-   * @param { string } type - Type of the tag.
+   * @param { string } tag - Tag name.
+   * @param { string } type - Type of the tag, The kernel matches this parameter with a prefix.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9397,7 +9497,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
   /**
-   * Triggered when embed visibility changes.
+   * Called when the visibility of a same-layer tag (such as an Embed tag or an Object tag) on a web page changes in the viewport. 
+   * By default, the same-layer tag is invisible. If the rendering tag is visible when you access the page for the first time, 
+   * the callback is triggered; otherwise, it is not triggered. That is, if the same-layer tag changes from a non-zero value to 0 x 0, 
+   * the callback is triggered. If the rendering tag size changes from 0 x 0 to a non-zero value, the callback is not triggered. 
+   * If all the same-layer tags are invisible, they are reported as invisible. If all the same-layer rendering tags or part of them are visible, 
+   * they are reported as invisible.
    *
    * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
    * @returns { WebAttribute }
@@ -9447,9 +9552,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
   /**
-   * Enable whether to automatically resize text. The default value is true.
+   * Sets whether automatic text resizing is enabled.
    *
-   * @param { boolean } textAutosizing - Whether to enable text autosizing.
+   * @param { boolean } textAutosizing - Whether automatic text resizing is enabled.
+   *    {@code true} means enable text autosizing;
+   *    {@code false} means disable text autosizing.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9515,9 +9623,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
   /**
-   * Triggered when the viewport-fit meta is detected for web page.
+   * Called when the viewport-fit configuration in the web page's <meta> tag changes. 
+   * The application can adapt its layout to the viewport within this callback.
    *
-   * @param { OnViewportFitChangedCallback } callback - The callback for onViewportFitChanged.
+   * @param { OnViewportFitChangedCallback } callback - Callback invoked when the viewport-fit configuration in the web page's <meta> tag changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
