@@ -254,6 +254,17 @@ declare namespace uiEffect {
     * @since 12
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
+
+    /**
+    * Applies a high dynamic range (HDR) brightness enhancement effect to the component.
+    * @param { number } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
+    * @returns { VisualEffect } VisualEffects for the current effect have been added.
+    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @systemapi
+    * @since 20
+    */
+    hdrBrightnessRatio(ratio: number): VisualEffect;
   }
 
   /**
