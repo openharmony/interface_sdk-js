@@ -839,7 +839,7 @@ declare class ListScroller extends Scroller {
    * Otherwise, the value is considered invalid.
    * <br>- The child component for which <em>index</em> is set must be a list item group. Otherwise,
    * the <em>index </em>value is considered invalid.
-   * <br>- The value of <em>indexInGroup</em> must be the index of a list item in the list item group 
+   * <br>- The value of <em>indexInGroup</em> must be the index of a list item in the list item group
    * visible in the display area. Otherwise, the value is considered invalid.
    * <br>- When <em>index</em> or <em>indexInGroup</em> is set to an invalid value, the returned size and position are both <em>0</em>.
    * </p>
@@ -1471,7 +1471,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * It takes effect when the number of columns is greater than 1.
    *
    * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
-   * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em> 
+   * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em>
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1630,7 +1630,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * <br>- By default, this component can produce a bounce effect only when there is more than one screen of content.
    * To produce a bounce effect when there is less than one screen of content,
    * use the <em>options</em> parameter of the <em>edgeEffect</em> attribute.
-   * </p> 
+   * </p>
    * 
    * @param { EdgeEffect } value - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
    * <br>Default value: <em>EdgeEffect.Spring</em>

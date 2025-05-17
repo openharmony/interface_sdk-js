@@ -888,7 +888,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * Triggered when the first or last item displayed in the component changes.
    * It is triggered once when the component is initialized.
    *
-   * @param { function } event - Callback function, triggered when the first or last item 
+   * @param { function } event - Callback function, triggered when the first or last item
    * displayed in the waterflow changes.
    * "first": the index of the first item displayed in the waterflow,
    * "last": the index of the last item displayed in the waterflow.

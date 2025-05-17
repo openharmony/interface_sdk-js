@@ -253,7 +253,7 @@ declare interface OffsetResult {
  */
 declare interface ScrollEdgeOptions {
   /**
-   * Fixed velocity for scrolling to the edge of the container. 
+   * Fixed velocity for scrolling to the edge of the container.
    * If the value specified is less than or equal to 0, the parameter will not take effect.
    *
    * @type { ?number }
@@ -428,7 +428,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  * @since 10
  */
 /**
- * Defines a controller for scrollable container components. 
+ * Defines a controller for scrollable container components.
  * 
  * <p><strong>NOTE</strong>
  * <br>1. The binding of a <em>Scroller</em> instance to a scrollable container component occurs during the component creation phase.
