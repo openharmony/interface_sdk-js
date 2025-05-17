@@ -787,7 +787,9 @@ const apiNodeTypeArr = [
   ts.SyntaxKind.ClassDeclaration,
   ts.SyntaxKind.InterfaceDeclaration,
   ts.SyntaxKind.ModuleDeclaration,
-  ts.SyntaxKind.StructDeclaration
+  ts.SyntaxKind.StructDeclaration,
+  ts.SyntaxKind.GetAccessor,
+  ts.SyntaxKind.SetAccessor
 ];
 
 start();
