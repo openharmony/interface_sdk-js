@@ -896,7 +896,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20
    */
-  function enableGwpAsanGrayscale(options: GwpAsanOptions, duration?: number): void;
+  function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: number): void;
 
   /**
    * Disable the GWP-ASAN grayscale of your application.
