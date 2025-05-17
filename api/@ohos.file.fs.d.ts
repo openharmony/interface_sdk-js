@@ -1843,6 +1843,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
+ * @crossplatform
  * @since 20
  */
 declare function createStream(path: string, mode: string): Promise<Stream>;
@@ -1934,6 +1935,7 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
+ * @crossplatform
  * @since 20
  */
 declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
@@ -2062,6 +2064,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
+ * @crossplatform
  * @since 20
  */
 declare function createStreamSync(path: string, mode: string): Stream;
@@ -2318,6 +2321,32 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Creates a readable stream. This API returns the result synchronously.
+ *
+ * @param { string } path - Path of the file.
+ * @param { ReadStreamOptions } [options] - Defines the options used in createReadStream().
+ * @returns { ReadStream } ReadStream instance obtained.
+ * @throws { BusinessError } 401 - Parameter error
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
 /**
@@ -2346,6 +2375,34 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
+ */
+/**
+ * Creates a writeable stream. This API returns the result synchronously.
+ *
+ * @param { string } path - Path of the file.
+ * @param { WriteStreamOptions } [options] - Defines the options used in createWriteStream().
+ * @returns { WriteStream } ReadStream instance obtained.
+ * @throws { BusinessError } 401 - Parameter error
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
@@ -7872,12 +7929,29 @@ declare interface RandomAccessFile {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Defines a readable stream. You need to use fs.createReadStream to create a ReadStream instance,
+ * which is inherited from the stream base class.
+ * The data obtained by ReadStream is a decoded string. Currently, only the UTF-8 format is supported.
+ *
+ * @extends stream.Readable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare class ReadStream extends stream.Readable {
   /**
    * The ReadStream constructor.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * The ReadStream constructor.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   constructor();
 
@@ -7890,6 +7964,16 @@ declare class ReadStream extends stream.Readable {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Number of bytes read by the readable stream.
+   *
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   readonly bytesRead: number;
 
   /**
@@ -7900,6 +7984,16 @@ declare class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Path of the file corresponding to the readable stream.
+   *
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readonly path: string;
 
@@ -7917,6 +8011,21 @@ declare class ReadStream extends stream.Readable {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Adjusts the position of the readable stream offset pointer.
+   *
+   * @param { number } offset - Number of bytes to move the offset.
+   * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET,
+   * <br>which indicates the beginning of the file.
+   * @returns { number } Returns the offset relative to starting position of stream.
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900026 - Illegal seek
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   seek(offset: number, whence?: WhenceType): number;
 
   /**
@@ -7931,6 +8040,19 @@ declare class ReadStream extends stream.Readable {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Closes this readable stream.
+   *
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   close(): void;
 }
 
@@ -7942,12 +8064,28 @@ declare class ReadStream extends stream.Readable {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Defines a writeable stream. You need to use fs.createWriteStream to create a WriteStream instance,
+ * which is inherited from the stream base class.
+ *
+ * @extends stream.Writable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare class WriteStream extends stream.Writable {
   /**
    * The WriteStream constructor.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * The WriteStream constructor.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   constructor();
 
@@ -7960,6 +8098,16 @@ declare class WriteStream extends stream.Writable {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Number of bytes written to the writable stream.
+   *
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   readonly bytesWritten: number;
 
   /**
@@ -7970,6 +8118,16 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Path of the file corresponding to the writeable stream.
+   *
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readonly path: string;
 
@@ -7986,6 +8144,20 @@ declare class WriteStream extends stream.Writable {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Adjusts the position of the writeable stream offset pointer.
+   *
+   * @param { number } offset - Number of bytes to move the offset.
+   * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET, which indicates the beginning of the file.
+   * @returns { number } Position of the current offset pointer (offset relative to the file header, in bytes).
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900026 - Illegal seek
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   seek(offset: number, whence?: WhenceType): number;
 
   /**
@@ -7999,6 +8171,19 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Closes this writeable stream.
+   *
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   close(): void;
 }
@@ -8576,6 +8761,7 @@ declare interface Stat {
  * @interface Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
+ * @crossplatform
  * @since 20
  */
 declare interface Stream {
@@ -8604,6 +8790,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   close(): Promise<void>;
@@ -8633,6 +8820,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   close(callback: AsyncCallback<void>): void;
@@ -8660,6 +8848,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   closeSync(): void;
@@ -8701,6 +8890,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   flush(): Promise<void>;
@@ -8742,6 +8932,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   flush(callback: AsyncCallback<void>): void;
@@ -8781,6 +8972,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   flushSync(): void;
@@ -8857,6 +9049,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   write(
@@ -8904,6 +9097,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
@@ -8980,6 +9174,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   write(
@@ -9060,6 +9255,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   writeSync(
@@ -9146,6 +9342,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   read(
@@ -9186,6 +9383,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
@@ -9249,6 +9447,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   read(
@@ -9336,6 +9535,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
+   * @crossplatform
    * @since 20
    */
   readSync(
@@ -9851,6 +10051,14 @@ export interface RandomAccessFileOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Defines the options used in createReadStream().
+ *
+ * @interface ReadStreamOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface ReadStreamOptions {
   /**
    * Start position to read the data, in bytes. This parameter is optional. By default,
@@ -9859,6 +10067,15 @@ export interface ReadStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Start position to read the data, in bytes. This parameter is optional. By default,
+   * data is read from the current position.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   start?: number;
 
@@ -9870,6 +10087,15 @@ export interface ReadStreamOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * End position to read the data, in bytes. This parameter is optional.
+   * The default value is the end of the file.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   end?: number;
 }
 
@@ -9880,6 +10106,14 @@ export interface ReadStreamOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Defines the options used in createWriteStream().
+ *
+ * @interface WriteStreamOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface WriteStreamOptions {
   /**
    * Option for creating the writeable stream.
@@ -9887,6 +10121,14 @@ export interface WriteStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Option for creating the writeable stream.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   mode?: number;
   /**
@@ -9896,6 +10138,15 @@ export interface WriteStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Start position to write the data, in bytes. This parameter is optional.
+   * By default, data is written from the beginning of the file.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   start?: number;
 }
