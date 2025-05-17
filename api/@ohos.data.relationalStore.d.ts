@@ -7343,7 +7343,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20
-     * @arkts 1.2
      */
     on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
 
@@ -7501,7 +7500,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20
-     * @arkts 1.2
      */
     off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
     /**
