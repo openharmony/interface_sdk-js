@@ -9345,9 +9345,6 @@ declare namespace window {
      *
      * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
      * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
