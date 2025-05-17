@@ -6434,7 +6434,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
-     * @arkts 1.2
      */
     on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
 
@@ -6448,7 +6447,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
-     * @arkts 1.2
      */
     off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
 
