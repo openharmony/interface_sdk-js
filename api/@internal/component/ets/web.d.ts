@@ -4300,7 +4300,7 @@ declare class JsGeolocation {
    */
   /**
    * Sets the geolocation permission status of a web page.
-   * 
+   *
    * @param { string } origin - Index of the origin.
    * @param { boolean } allow - Geolocation permission status. {@code true} means to allow geolocation permission;
    *                            {@code false} means to disallow geolocation permission.
@@ -4308,7 +4308,7 @@ declare class JsGeolocation {
    *                             {@code true} means to allow the geolocation permission status to be saved to
    *                             the system; {@code false} means to disallow the geolocation permission status to
    *                             be saved to the system. You can manage the geolocation permissions saved
-   *                             to the system through {@link GeolocationPermissions9+}.
+   *                             to the system through {@link GeolocationPermissions}.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7148,9 +7148,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether to enable geolocation access. By default, this feature is enabled.
    * For details, see Managing Location Permissions.
    * 
-   * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations;
-   *                                        {@code false} means the Web disallows access to geographical locations;.
-   *                                        The default value is true. Mandatory parameter.
+   * @param { boolean } geolocationAccess - Whether to enable geolocation access. {@code true} means the Web
+   *                                        allows access to geographical locations; {@code false} means the
+   *                                        Web disallows access to geographical locations. The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7443,7 +7443,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
    *                                     database access; {@code false} means to disable database access.
-   *                                     The default value is false. Mandatory parameter.
+   *                                     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7670,7 +7670,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called to notify the user that the request for obtaining the geolocation information received
-   * when onGeolocationShow is called has been canceled.
+   * when {@link onGeolocationShow} is called has been canceled.
    * 
    * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
