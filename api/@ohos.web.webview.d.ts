@@ -934,7 +934,12 @@ declare namespace webview {
    * @since 11
    */
   /**
-   * Provides methods for managing web storage.3
+   * Implements a WebStorage object to manage the Web SQL database and HTML5 Web Storage APIs.
+   * All Web components in an application share a WebStorage object.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You must load the Web component before calling the APIs in WebStorage.
+   * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -958,10 +963,11 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Delete all the storage data.
+     * Deletes all data in the Web SQL Database.
      *
-     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
-     *                                {@code false} otherwise.
+     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode.
+     *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
+     *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -991,9 +997,9 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Delete the storage data with the origin.
+     * Deletes all data in the specified origin.
      *
-     * @param { string } origin - The origin which to be deleted.
+     * @param { string } origin - Index of the origin, which is obtained through {@link getOrigins}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1023,8 +1029,11 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
+     * Obtains information about all origins that are currently using the Web SQL Database.
+     * This API uses a promise to return the result.
+     * 
+     * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
+     *                                                 For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
@@ -1054,8 +1063,11 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
+     * Obtains information about all origins that are currently using the Web SQL Database.
+     * This API uses an asynchronous callback to return the result.
+     * 
+     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
+     *                                                              origins. For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
@@ -1212,7 +1224,12 @@ declare namespace webview {
    * @since 9
    */
   /**
-   * Provides methods for managing web database.
+   * Implements a WebDataBase object.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You must load the Web component before calling the APIs in WebDataBase.
+   * </p>
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1236,13 +1253,13 @@ declare namespace webview {
     static existHttpAuthCredentials(): boolean;
 
     /**
-     * Delete all http authentication credentials.
+     * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
-     * Delete all http authentication credentials.
+     * Delete all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1285,11 +1302,11 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Save http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @param { string } username - The username.
-     * @param { string } password - The password.
+     * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
+     * @param { string } host - Host to which HTTP authentication credentials apply.
+     * @param { string } realm - The realm to which HTTP authentication credentials apply.
+     * @param { string } username - User name.
+     * @param { string } password - Password.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1312,7 +1329,12 @@ declare namespace webview {
    * @since 11
    */
   /**
-   * Provides a method for managing web geographic location permissions.
+   * Implements a GeolocationPermissions object.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You must load the Web component before calling the APIs in GeolocationPermissions.
+   * </p>
+   * 
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1340,10 +1362,12 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Allow geolocation permissions for specifies source.
-     * @param { string } origin - Url source.
-     * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
-     *                                in incognito mode; {@code false} otherwise.
+     * Allows the specified origin to use the geolocation information.
+     * @param { string } origin - Index of the origin.
+     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information 
+     *                                in incognito mode. {@code true} means to allow the specified origin to use the
+     *                                geolocation information in incognito mode; {@code false} means to allow the
+     *                                specified origin to use the geolocation information in normal non-incognito mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1405,10 +1429,12 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Delete all geolocation permissions.
+     * Clears the geolocation permission status of all sources.
      *
-     * @param { boolean } incognito - {@code true} delete all geolocation in incognito mode;
-     *                                {@code false} otherwise.
+     * @param { boolean } incognito - Whether to clear the geolocation permission status of all sources in incognito
+     *                                mode. {@code true} means to clear the geolocation permission status of
+     *                                all sources in incognito mode; {@code false} means to clear the geolocation
+     *                                permission status of all sources in normal non-incognito mode.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3596,8 +3622,17 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Enables debugging of web contents.
-     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * Sets whether to enable web debugging. By default, web debugging is disabled.
+     * For details, see Debugging Frontend Pages by Using DevTools.
+     * 
+     * <p><strong>API Note</strong>:<br>
+     * Enabling web debugging allows users to check and modify the internal status of the web page,
+     * which poses security risks. Therefore, you are advised not to enable this function
+     * in the officially released version of the app.
+     * </p>
+     *
+     * @param { boolean } webDebuggingAccess - Sets whether to enable web debugging.{@code true} enable web debugging;
+                                               {@code false} disable web debugging. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5051,11 +5086,15 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Remove resource cache in application. So this method will remove all cache for all web components in the
-     * same application.
+     * Clears the cache in the application. This API will clear the cache for all webviews in the same application.
      *
-     * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
-     *                               in ram.
+     * <p><strong>API Note</strong>:<br>
+     * You can view the Webview cache in the data/storage/el2/base/cache/web/Cache directory.
+     * </p>
+     *
+     * @param { boolean } clearRom - Whether to clear the cache in the ROM and RAM at the same time.
+     *                               {@code true} means to clear the cache in the ROM and RAM at the same time;
+     *                               {@code false} means to only clear the cache in the RAM.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5514,9 +5553,9 @@ declare namespace webview {
     postUrl(url: string, postData: ArrayBuffer): void;
 
     /**
-     * Create the Web Print Document Adapter.
-     * @param { string } jobName - The name of the currently printed document.
-     * @returns { print.PrintDocumentAdapter } Return the Print Document Adapter.
+     * Creates a PrintDocumentAdapter instance to provide content for printing.
+     * @param { string } jobName - Name of the file to print.
+     * @returns { print.PrintDocumentAdapter } Return PrintDocumentAdapter instance created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -6166,17 +6205,24 @@ declare namespace webview {
     setUrlTrustList(urlTrustList: string): void;
 
     /**
-     * Set a path list, allowing cross-origin request access any origin when the file scheme URLs access resources in this
-     * path list. Also, When the path list is set, the file scheme URLs only allow access to resources within the path list.
-     * Path in the path list must meet one of the following path formats(sub path and module name must be provided):
+     * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
+     * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
+     * The behavior of fileAccess will be overwritten by that of this API. 
+     * 
+     * The paths in the list must be any of the following(sub path and module name must be provided):
      *
-     * 1. App bundle resource directory, like "/data/storage/el1/bundle/entry/resource/resfile".
-     *    You can get resource directory using Context.resourceDir in AbilityKit.
-     * 2. A sub path of app files directory, like "/data/storage/el2/base/files/example/"
+     * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
      *    or "/data/storage/el2/base/haps/entry/files/example".
-     *    You can get app files directory using Context.filesDir in AbilityKit.
+     *    The application file directory is obtained using Context.filesDir in the Ability Kit.
+     * 2. The path of application resource directory or its subdirectory, like "/data/storage/el1/bundle/entry/resource/resfile"
+     *    or "/data/storage/el1/bundle/entry/resource/resfile/example".
+     *    The application resource directory is obtained from Context.resourceDir in the Ability Kit.
      *
-     * @param { Array<string> } pathList - The path list allow universal access.
+     * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
+     * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
+     * the behavior of the fileAccess.
+     * 
+     * @param { Array<string> } pathList - The path list allow universal access. Mandatory parameter.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.

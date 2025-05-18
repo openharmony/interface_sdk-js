@@ -4299,11 +4299,16 @@ declare class JsGeolocation {
    * @since 8
    */
   /**
-   * Report the geolocation permission status from users.
-   *
-   * @param { string } origin - The origin that ask for the geolocation permission.
-   * @param { boolean } allow - The geolocation permission status.
-   * @param { boolean } retain - Whether to allow the geolocation permission status to be saved to the system.
+   * Sets the geolocation permission status of a web page.
+   * 
+   * @param { string } origin - Index of the origin.
+   * @param { boolean } allow - Geolocation permission status. {@code true} means to allow geolocation permission;
+   *                            {@code false} means to disallow geolocation permission.
+   * @param { boolean } retain - Whether the geolocation permission status can be saved to the system.
+   *                             {@code true} means to allow the geolocation permission status to be saved to
+   *                             the system; {@code false} means to disallow the geolocation permission status to
+   *                             be saved to the system. You can manage the geolocation permissions saved
+   *                             to the system through {@link GeolocationPermissions9+}.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7024,9 +7029,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to enable the DOM Storage API permission.
-   *    The default value is false.
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   * Sets whether to enable the DOM Storage API. By default, this feature is disabled.
+   * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API. {@code true} means to enable
+   *                                       the DOM Storage API; {@code false} means to disable the DOM Storage API.
+   *                                       The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7139,10 +7145,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to allow access to geographical locations.
-   *
-   * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
-   *    The default value is true.
+   * Set whether to enable geolocation access. By default, this feature is enabled.
+   * For details, see Managing Location Permissions.
+   * 
+   * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations;
+   *                                        {@code false} means the Web disallows access to geographical locations;.
+   *                                        The default value is true. Mandatory parameter.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7430,10 +7438,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web access the database.
+   * Sets whether to enable database access. By default, this feature is disabled.
+   * 
    *
-   * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
-   *    The default value is false.
+   * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
+   *                                     database access; {@code false} means to disable database access.
+   *                                     The default value is false. Mandatory parameter.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7659,9 +7669,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered when requesting to hide the geolocation.
-   *
-   * @param { function } callback The triggered function when requesting to hide the geolocation permission.
+   * Called to notify the user that the request for obtaining the geolocation information received
+   * when onGeolocationShow is called has been canceled.
+   * 
+   * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7689,9 +7700,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when requesting to show the geolocation permission.
-   *
-   * @param { Callback<OnGeolocationShowEvent> } callback The triggered function when requesting to show the geolocation permission.
+   * Called when a request to obtain the geolocation information is received.
+   * @param { Callback<OnGeolocationShowEvent> } callback - Callback invoked when a request to obtain the geolocation
+   *                                                        information is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
