@@ -1253,13 +1253,13 @@ declare namespace webview {
     static existHttpAuthCredentials(): boolean;
 
     /**
-     * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
+     * Delete all http authentication credentials.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
-     * Delete all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
+     * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1304,7 +1304,7 @@ declare namespace webview {
     /**
      * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
      * @param { string } host - Host to which HTTP authentication credentials apply.
-     * @param { string } realm - The realm to which HTTP authentication credentials apply.
+     * @param { string } realm - Realm to which HTTP authentication credentials apply.
      * @param { string } username - User name.
      * @param { string } password - Password.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6207,7 +6207,7 @@ declare namespace webview {
     /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-     * The behavior of fileAccess will be overwritten by that of this API. 
+     * The behavior of {@link fileAccess} will be overwritten by that of this API. 
      * 
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
@@ -6220,9 +6220,9 @@ declare namespace webview {
      *
      * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
      * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
-     * the behavior of the fileAccess.
+     * the behavior of the {@link fileAccess}.
      * 
-     * @param { Array<string> } pathList - The path list allow universal access. Mandatory parameter.
+     * @param { Array<string> } pathList - The path list allow universal access.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
