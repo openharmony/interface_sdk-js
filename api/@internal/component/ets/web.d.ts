@@ -7318,9 +7318,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Sets the media options.
+   * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
+   * and whether the audio of multiple Web instances in an application is exclusive.
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
+   * @param { WebMediaOptions } options Set the media policy for the web.
+   * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
+   *    Default value: {resumeInterval: 0, audioExclusive: true}
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8357,10 +8360,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
+   * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
    *
-   * @param { Callback<OnPermissionRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
+   * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
