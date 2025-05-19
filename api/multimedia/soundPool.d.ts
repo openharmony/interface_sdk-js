@@ -500,7 +500,7 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
-  on(type:'errorInfo', callback:Callback<ErrorInfo>): void;
+  on(type:'errorOccurred', callback: Callback<ErrorInfo>): void;
 
   /**
    * Cancel Listens for soundpool error events.
@@ -509,6 +509,6 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
-  off(type: 'errorInfo'): void;
+  off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
 }
 
