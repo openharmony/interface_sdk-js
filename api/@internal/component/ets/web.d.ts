@@ -969,7 +969,7 @@ declare enum WebCaptureMode {
    * @since 10
    */
   /**
-   * The home screen.
+   * Capture of the home screen.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1056,7 +1056,9 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * The time interval for audio playback to resume.
+   * Validity period for automatically resuming a paused web audio, in seconds.
+   * The maximum validity period is 60 seconds. Due to the approximate value,
+   * the validity period may have a deviation of less than 1 second.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1073,9 +1075,10 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * Whether the audio of each web is exclusive.
+   * Whether the audio of multiple Web instances in an application is exclusive.
    *
    * @type { ?boolean }
+   *    {@code true} means audio exclusivity for multiple web instances within the application, {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -2168,7 +2171,7 @@ declare enum ProtectedResourceType {
  * @since 9
  */
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
