@@ -37,7 +37,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
-  const MAX_TYPE_NUM: number;
+  const MAX_TYPE_NUM: int;
 
   /**
    * Input method setting
@@ -745,7 +745,7 @@ declare namespace inputMethod {
      * Inform the system of the window ID of the application currently bound to the input method.
      * After the correct setting, the window where the client is located can avoid the input method window.
      *
-     * @param { number } windowId - the window ID of the application currently bound to the input method.
+     * @param { int } windowId - the window ID of the application currently bound to the input method.
      * @param { AsyncCallback<void> } callback - the callback of setCallingWindow.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -755,13 +755,13 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    setCallingWindow(windowId: number, callback: AsyncCallback<void>): void;
+    setCallingWindow(windowId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Inform the system of the window ID of the application currently bound to the input method.
      * After the correct setting, the window where the client is located can avoid the input method window.
      *
-     * @param { number } windowId - the window ID of the application currently bound to the input method.
+     * @param { int } windowId - the window ID of the application currently bound to the input method.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -771,7 +771,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    setCallingWindow(windowId: number): Promise<void>;
+    setCallingWindow(windowId: int): Promise<void>;
 
     /**
      * Update Cursor and notify the input method that the current application cursor has changed.
@@ -807,8 +807,8 @@ declare namespace inputMethod {
      * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the whole input text.
-     * @param { number } start - start position of selected text.
-     * @param { number } end - end position of selected text.
+     * @param { int } start - start position of selected text.
+     * @param { int } end - end position of selected text.
      * @param { AsyncCallback<void> } callback - the callback of changeSelection.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -818,14 +818,14 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    changeSelection(text: string, start: number, end: number, callback: AsyncCallback<void>): void;
+    changeSelection(text: string, start: int, end: int, callback: AsyncCallback<void>): void;
 
     /**
      * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the selected text.
-     * @param { number } start - start position of selected text.
-     * @param { number } end - end position of selected text.
+     * @param { int } start - start position of selected text.
+     * @param { int } end - end position of selected text.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -835,7 +835,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    changeSelection(text: string, start: number, end: number): Promise<void>;
+    changeSelection(text: string, start: int, end: int): Promise<void>;
 
     /**
      * Update InputAttribute information of input text.
@@ -1060,7 +1060,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'deleteLeft', callback: (length: number) => void): void;
+    on(type: 'deleteLeft', callback: (length: int) => void): void;
 
     /**
      * Unregister the callback of deleteLeft.
@@ -1071,7 +1071,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteLeft', callback?: (length: number) => void): void;
+    off(type: 'deleteLeft', callback?: (length: int) => void): void;
 
     /**
      * Register a callback and when IME sends delete right event with length,
@@ -1087,7 +1087,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'deleteRight', callback: (length: number) => void): void;
+    on(type: 'deleteRight', callback: (length: int) => void): void;
 
     /**
      * Unregister the callback of deleteRight.
@@ -1098,7 +1098,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteRight', callback?: (length: number) => void): void;
+    off(type: 'deleteRight', callback?: (length: int) => void): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
@@ -1214,7 +1214,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void;
+    on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
 
     /**
      * Unregister the callback of getLeftTextOfCursor event.
@@ -1225,7 +1225,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
+    off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
 
     /**
      * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
@@ -1239,7 +1239,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'getRightTextOfCursor', callback: (length: number) => string): void;
+    on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
 
     /**
      * Unregister the callback of getRightTextOfCursor event.
@@ -1250,7 +1250,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
+    off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
 
     /**
      * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
@@ -1264,7 +1264,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'getTextIndexAtCursor', callback: () => number): void;
+    on(type: 'getTextIndexAtCursor', callback: () => int): void;
 
     /**
      * Unregister the callback of getTextIndexAtCursor.
@@ -1276,7 +1276,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getTextIndexAtCursor', callback?: () => number): void;
+    off(type: 'getTextIndexAtCursor', callback?: () => int): void;
   }
 
   /**
@@ -1339,11 +1339,11 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly labelId?: number;
+    readonly labelId?: double;
 
     /**
      * The icon of input method
@@ -1357,11 +1357,11 @@ declare namespace inputMethod {
     /**
      * The icon id of input method
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    readonly iconId?: number;
+    readonly iconId?: double;
 
     /**
      * The extra info of input method
@@ -1383,7 +1383,7 @@ declare namespace inputMethod {
   /**
    * Enumerates the moving direction of cursor
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1432,20 +1432,20 @@ declare namespace inputMethod {
     /**
      * Indicates the index of the first character of the selected text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    start: number;
+    start: int;
 
     /**
      * Indicates the index of the last character of the selected text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1469,7 +1469,7 @@ declare namespace inputMethod {
   /**
    * Enumerates the text input type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1558,7 +1558,7 @@ declare namespace inputMethod {
   /**
    * Enumerates the enter key type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1639,7 +1639,7 @@ declare namespace inputMethod {
   /**
    * Enumerates the keyboard status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1725,38 +1725,38 @@ declare namespace inputMethod {
     /**
      * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    left: number;
+    left: double;
 
     /**
      * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    top: number;
+    top: double;
 
     /**
      * Indicates the width point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    width: number;
+    width: double;
 
     /**
      * Indicates the height point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    height: number;
+    height: double;
   }
 
   /**
@@ -1797,17 +1797,17 @@ declare namespace inputMethod {
     /**
      * The window ID of the application currently bound to the input method.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    windowId?: number;
+    windowId?: int;
   }
 
   /**
    * Enumerates the extend action.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1865,38 +1865,38 @@ declare namespace inputMethod {
     /**
      * Indicates the abscissa of the upper-left vertex of input window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    left: number;
+    left: int;
 
     /**
      * Indicates the ordinate of the upper-left vertex of input window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    top: number;
+    top: int;
 
     /**
      * Indicates the width of the input window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    width: number;
+    width: double;
 
     /**
      * Indicates the height of the input window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    height: number;
+    height: double;
   }
 }
 

@@ -18,6 +18,10 @@
  * @kit IMEKit
  */
 
+/*** if arkts 1.1 */
+import { double } from '@ohos.base';
+/*** endif */
+
 /**
  * Input method subtype
  *
@@ -41,13 +45,13 @@ export default interface InputMethodSubtype {
   /**
    * The label id of input method subtype.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId?: number;
+  readonly labelId?: double;
 
   /**
    * The name of input method.
@@ -118,13 +122,13 @@ export default interface InputMethodSubtype {
   /**
    * The icon id of input method subtype.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId?: number;
+  readonly iconId?: double;
 
   /**
    * The extra info of input method subtype.
