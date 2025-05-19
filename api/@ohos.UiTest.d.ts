@@ -1180,7 +1180,17 @@
     * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly left: number;
+   /**
+    * The x-coordinate of the top left corner of the rectangle.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
+    * @arkts 1.1&1.2
+    */
+   left: number;
    /**
     * The y-coordinate of the top left corner of the rectangle.
     *
@@ -1209,7 +1219,17 @@
     * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly top: number;
+   /**
+    * The y-coordinate of the top left corner of the rectangle.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
+    * @arkts 1.1&1.2
+    */
+   top: number;
    /**
     * The x-coordinate at the bottom right corner of the rectangle.
     *
@@ -1238,7 +1258,17 @@
     * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly right: number;
+   /**
+    * The x-coordinate at the bottom right corner of the rectangle.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
+    * @arkts 1.1&1.2
+    */
+   right: number;
    /**
     * The y-coordinate at the bottom right corner of the rectangle.
     *
@@ -1267,7 +1297,17 @@
     * @since arkts {'1.1':'12','1.2':'20'}
     * @arkts 1.1&1.2
     */
-   readonly bottom: number;
+   /**
+    * The y-coordinate at the bottom right corner of the rectangle.
+    *
+    * @type { number }
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'20','1.2':'20'}
+    * @arkts 1.1&1.2
+    */
+   bottom: number;
  }
  
  /**
