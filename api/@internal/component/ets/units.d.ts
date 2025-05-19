@@ -3414,7 +3414,7 @@ declare interface TouchPoint {
  */
 declare interface DirectionalEdgesT<T> {
   /**
-   * Start property.
+   * Start edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3426,7 +3426,7 @@ declare interface DirectionalEdgesT<T> {
   start: T;
 
   /**
-   * End property.
+   * End edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3438,7 +3438,7 @@ declare interface DirectionalEdgesT<T> {
   end: T;
 
   /**
-   * Top property.
+   * Top edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3450,7 +3450,7 @@ declare interface DirectionalEdgesT<T> {
   top: T;
 
   /**
-   * Bottom property.
+   * Bottom edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
