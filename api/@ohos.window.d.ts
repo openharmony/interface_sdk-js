@@ -9929,7 +9929,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since 19
      */
     maximizeSupported?: boolean;
     /**
