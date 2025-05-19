@@ -545,6 +545,28 @@ declare interface TextStyleInterface {
 }
 
 /**
+ * Defines DecorationOptions for Decoration.
+ *
+ * @interface DecorationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface DecorationOptions {
+    /**
+     * Enable to show multi TextDecorationType at a time.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableMultiType?: boolean;
+}
+
+/**
  * Defines DecorationStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -564,6 +586,18 @@ declare class DecorationStyle {
      * @since 12
      */
     constructor(value: DecorationStyleInterface);
+
+    /**
+     * constructor.
+     *
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @param { DecorationOptions } [options] - decoration options.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
     /**
      * Get the text decoration type of the StyledString.
@@ -600,6 +634,30 @@ declare class DecorationStyle {
      * @since 12
      */
     readonly style?: TextDecorationStyle;
+
+    /**
+     * Get the thickness scale of the StyledString.
+     *
+     * @type { ?number } - the thickness scale of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly thicknessScale?: number;
+
+    /**
+     * Get the DecorationOptions of the StyledString.
+     *
+     * @type { ?DecorationOptions } - the decorationOptions of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly options?: DecorationOptions;
 }
 
 /**
@@ -644,6 +702,17 @@ declare interface DecorationStyleInterface {
      * @since 12
      */
     style?: TextDecorationStyle;
+
+    /**
+     * The thickness scale of the decoration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    thicknessScale?: number;
 }
 
 /**
