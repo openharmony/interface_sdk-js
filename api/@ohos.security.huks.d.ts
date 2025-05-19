@@ -2228,7 +2228,6 @@ declare namespace huks {
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
-   * @arkts 1.2
    */
   function wrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -2254,7 +2253,6 @@ declare namespace huks {
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
-   * @arkts 1.2
    */
   function unwrapKeyItem(keyAlias: string, options: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
@@ -4427,7 +4425,6 @@ declare namespace huks {
      * Tui pin auth type.
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 20
-     * @arkts 1.2
      */
     HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5
   }
@@ -4769,7 +4766,6 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
   export enum HuksKeyWrapType {
     /**
@@ -4778,7 +4774,6 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.2
      */
     HUKS_KEY_WRAP_TYPE_HUK_BASED = 2,
   }
