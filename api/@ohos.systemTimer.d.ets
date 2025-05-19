@@ -85,9 +85,9 @@ declare namespace systemTimer {
    * Starts a timer.
    *
    * @param { long } timer - The timer ID.
-   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in milliseconds.
-   *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
-   *                   value is smaller than the current time plus 5000 milliseconds.
+   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in
+   *                   milliseconds. The time will be automatically set to 5000 milliseconds after the current time if 
+   *                   the passed value is smaller than the current time plus 5000 milliseconds.
    * @param { AsyncCallback<void> } callback - The callback function.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -99,9 +99,9 @@ declare namespace systemTimer {
    * Starts a timer.
    *
    * @param { long } timer - The timer ID.
-   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in milliseconds.
-   *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
-   *                   value is smaller than the current time plus 5000 milliseconds.
+   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in
+   *                   milliseconds. The time will be automatically set to 5000 milliseconds after the current time if
+   *                   the passed value is smaller than the current time plus 5000 milliseconds.
    * @returns { Promise<void> } return a promise object.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
@@ -197,7 +197,8 @@ declare namespace systemTimer {
     /**
      * Indicates the name of the timer.
      * The default value is empty string.
-     * The length of the name cannot be longer than 64 bytes, and the name can not be set the same name as other timers under the same UID.
+     * The length of the name cannot be longer than 64 bytes, and the name can not be set the same name as other timers
+     * under the same UID.
      *
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Time

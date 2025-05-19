@@ -199,8 +199,10 @@ declare namespace request {
        * Currently support:
        * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
        * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
-       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
-       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
+       * 3: application storage path, only the base directory and its subdirectories are supported, like 
+       * "/data/storage/el1/base/path/to/file.txt".
+       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like
+       * "file://com.example.test/data/storage/el2/base/file.txt".
        * 5: user file url, like "file://media/Photo/path/to/file.png".
        *
        * @type { string }
@@ -405,8 +407,10 @@ declare namespace request {
        * Currently support:
        * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
        * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
-       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
-       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
+       * 3: application storage path, only the base directory and its subdirectories are supported, like 
+       * "/data/storage/el1/base/path/to/file.txt".
+       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like
+       * "file://com.example.test/data/storage/el2/base/file.txt".
        *
        * @type { ?string }
        * @default ./
@@ -741,7 +745,8 @@ declare namespace request {
       /**
        * The extras for an interaction.
        * Such as headers and body of response from server.
-       * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
+       * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the 
+       * body here is empty.
        * {"headers": {"key": v}, "body": "contents"}.
        * The "body" field is not supported in cross-platform scenarios.
        *
@@ -1247,7 +1252,8 @@ declare namespace request {
        * 2. Download tasks that are stopped or become FAILED.
        *
        * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling 
+       * result.
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - task service ability error.
        * @throws { BusinessError } 21900007 - task state error.
