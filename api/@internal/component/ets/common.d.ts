@@ -13638,6 +13638,17 @@ declare interface DragEvent {
    * @since 20
    */
   isRemote(): boolean;
+
+  /**
+   * Get the id of display which the drag event is occuring on.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  getDisplayId(): number;
 }
 
 /**
