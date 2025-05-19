@@ -68,7 +68,9 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
     /**
-   * Obtains the level of a notification slot
+   * SlotLevel is used to regulate the display behavior and alert mechanisms of notifications.
+   * Each value of SlotLevel determines whether the system displays notification icons in the status bar,
+   * shows banners, or plays prompt tones.
    *
    * @type { ?notificationManager.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
