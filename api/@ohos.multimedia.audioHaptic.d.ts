@@ -162,6 +162,17 @@ declare namespace audioHaptic {
      * @since 11
      */
     createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
+
+    /**
+     * Register audio and haptic file represented by fd into manager. Audio and haptic works are paired while playing.
+     * After registering source, it will returns the source id. This method uses a promise to return the source id.
+     * @param { AudioHapticFileDescriptor } audioFd : The file descriptor of audio source from file system.
+     * @param { AudioHapticFileDescriptor } hapticFd : The file descriptor of haptic source from file system.
+     * @returns { Promise<number> } Promise used to return the source id.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     */
+    registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFileDescriptor): Promise<number>;
   }
 
   /**
@@ -184,6 +195,41 @@ declare namespace audioHaptic {
      * @since 11
      */
     AUDIO_HAPTIC_TYPE_HAPTIC = 1,
+  }
+
+  /**
+   * Describes audio haptic file descriptor.
+   * Caller needs to ensure the fd is valid and the offset and length are correct.
+   * @typedef AudioHapticFileDescriptor
+   * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+   * @since 20
+   */
+  interface AudioHapticFileDescriptor {
+    /**
+     * The file descriptor of the source.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     */
+    fd: number;
+
+    /**
+     * The length in bytes of the data to be read.
+     * By default, the length is the rest of bytes in the file from the offset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     */
+    length?: number;
+
+    /**
+     * The offset into the file where the data to be read.
+     * By default, the offset is 0.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     */
+    offset?: number
   }
 
   /**
@@ -270,6 +316,86 @@ declare namespace audioHaptic {
      * @since 11
      */
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
+
+    /**
+     * Check whether the device supports vibration intensity ramp effect.
+     * @returns { boolean } - {@code true} means supported.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    isVibrationRampSupported(): boolean;
+
+    /**
+     * Enable haptics when the ringer mode is slient mode. Should be called before playback starting.
+     * @param { boolean } enable - use {@code true} if application want to enable this feature.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    enableHapticsInSlientMode(enable: boolean): void;
+
+    /**
+     * Set vibration intensity ramp effect for this player. Should be called before playback starting.
+     * This method uses a promise to return the result.
+     * @param { number } duration - ramp duration to set, unit is milliseconds.
+     *     The value should be an integer, and not less than 100.
+     * @param { number } startIntensity - Starting intensity for vibration ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @param { number } endIntensity - End intensity for vibration ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 801 - Function is not supported in current device.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400108 - Parameter out of range.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    setVibrationRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
+
+    /**
+     * Set audio volume for this player. This method uses a promise to return the result.
+     * @param { number } volume - Target audio volume.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum volume (100%).
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter out of range.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    setVolume(volume: number): Promise<void>;
+
+    /**
+     * Check whether the device supports vibration intensity adjustment.
+     * @returns { boolean } - {@code true} means supported.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    isVibrationIntensityAdjustmentSupported(): boolean;
+
+    /**
+     * Set vibration intensity for this player. This method uses a promise to return the result.
+     * @param { number } intensity - Target Vibration intensity value.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 801 - Function is not supported in current device.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400108 - Parameter out of range.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    setVibrationIntensity(intensity: number): Promise<void>;
   }
 }
 export default audioHaptic;
