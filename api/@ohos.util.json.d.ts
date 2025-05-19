@@ -25,8 +25,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1 & 1.2
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace json {
   /**
@@ -36,10 +36,11 @@ declare namespace json {
    * @param { Object } this - The object to which the parsed key value pair belongs.
    * @param { string } key - Attribute name.
    * @param { Object } value - The value of the parsed key value pair.
+   * @returns { Object | undefined | null } Return an Object, undefined or null value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null;
 
@@ -125,8 +126,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1 & 1.2
+   * @since 12
    */
   function stringify(value: Object, replacer?: Transformer, space?: string | number): string;
 
@@ -140,8 +140,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function has(obj: object, property: string): boolean;
 
@@ -165,8 +165,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const enum BigIntMode {
     /**
@@ -175,8 +175,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
     /**
@@ -185,8 +185,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARSE_AS_BIGINT = 1,
     /**
@@ -195,8 +195,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1 & 1.2
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALWAYS_PARSE_AS_BIGINT = 2,
   }
@@ -208,8 +208,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1 & 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ParseOptions {
     /**
@@ -218,8 +218,8 @@ declare namespace json {
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1 & 1.2
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     bigIntMode: BigIntMode;
   }
