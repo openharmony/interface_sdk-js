@@ -493,19 +493,20 @@ export interface SoundPool {
    */
   off(type: 'error'): void;
   /**
-   * Register listeners for soundpool error events.
+   * Register listeners for soundpool errorOccurred events.
    *
-   * @param { 'errorInfo' } type Type of the soundpool event to listen for.
-   * @param { Callback<ErrorInfo> } callback Callback used to listen for soundpool error events.
+   * @param { 'errorOccurred' } type Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } callback Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
   on(type:'errorOccurred', callback: Callback<ErrorInfo>): void;
 
   /**
-   * Cancel Listens for soundpool error events.
+   * Cancel Listens for soundpool errorOccurred events.
    *
-   * @param { 'errorInfo' } type Type of the soundpool event to listen for.
+   * @param { 'errorOccurred' } type Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } callback Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
