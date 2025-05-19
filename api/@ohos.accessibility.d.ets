@@ -125,15 +125,6 @@ declare namespace accessibility {
   type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus';
 
   /**
-   * The granularity of text move.
-   *
-   * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   */
-  type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
-
-  /**
    * The type of the observer.
    *
    * @typedef {'accessibilityStateChange' | 'touchGuideStateChange'}
@@ -141,6 +132,15 @@ declare namespace accessibility {
    * @since 7
    */
   type ObserverEventType = 'accessibilityStateChange' | 'touchGuideStateChange';
+
+  /**
+   * The granularity of text move.
+   *
+   * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 7
+   */
+  type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
   /**
    * Checks whether accessibility ability is enabled.
