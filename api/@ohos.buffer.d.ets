@@ -60,7 +60,17 @@ declare namespace buffer {
    * @atomicservice
    * @since 20
    */
-  type TypedArray = Int8Array;
+  type TypedArray = Int8Array
+    | Uint8Array
+    | Uint8ClampedArray
+    | Int16Array
+    | Uint16Array
+    | Int32Array
+    | Uint32Array
+    | Float32Array
+    | Float64Array
+    | BigInt64Array
+    | BigUint64Array;
 
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
