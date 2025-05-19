@@ -30233,9 +30233,10 @@ declare enum ContentClipMode {
  */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
-   * Scrollbar status.
+   * Sets the scrollbar state.
    *
-   * @param { BarState } barState - Scrollbar status.
+   * @param { BarState } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em> for the <em>List</em>, <em>Grid</em>,
+   * and <em>Scroll</em> components and <em>BarState.Off</em> for the <em>WaterFlow</em> component
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30245,9 +30246,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBar(barState: BarState): T;
 
   /**
-   * Color of the scrollbar.
+   * Sets the scrollbar color.
    *
-   * @param { Color | number | string } color - Color of the scrollbar.
+   * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+   * <br>A number value indicates a HEX color in RGB or ARGB format,
+   * for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30257,9 +30260,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string): T;
 
   /**
-   * Width of the scrollbar.
+   * Sets the scrollbar width.
    *
-   * @param { number | string } value  - Width of the scrollbar.
+   * @param { number | string } value  - Scrollbar width.<br>Default value: <em>4</em>
+   * <br>Unit: vp
+   * <br>If this parameter is set to a value less than or equal to 0, the default value is used.
+   * The value <em>0</em> means not to show the scrollbar.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30269,10 +30275,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string): T;
 
   /**
-   * Edge scrolling effect.
+   * Sets the effect used when the scroll boundary is reached.
    *
-   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
-   * @param { EdgeEffectOptions } options - edge scrolling effect options. 
+   * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
+   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
+   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
+   * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
+   * <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components,
+   * and <em>{ alwaysEnabled: true }</em> for the <em>Scroll</em> component
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30295,9 +30305,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
-   * Nested scrolling options.
+   * Sets the nested scrolling options.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @param { NestedScrollOptions } value - Nested scrolling options.
    * @returns { T } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30307,9 +30317,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   nestedScroll(value: NestedScrollOptions): T;
 
   /**
-   * Whether to support scroll gestures by finger or mouse.
+   * Sets whether to support scroll gestures.
    *
-   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { T } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30319,9 +30329,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollInteraction(value: boolean): T;
 
   /**
-   * Friction coefficient.
+   * Sets the friction coefficient.
    *
-   * @param { number | Resource } value - friction coefficient.
+   * @param { number | Resource } value - Friction coefficient.
    * @returns { T } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30331,7 +30341,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   friction(value: number | Resource): T;
 
   /**
-   * Called when the scrollable scrolls.
+   * Triggered when the scrollable component scrolls.
    *
    * @param { function } event - callback of scrollable,
    * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
@@ -30358,10 +30368,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
-   * Called when the scrollable did scroll.
+   * Triggered when the scrollable component scrolls.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @param { OnScrollCallback } handler - Callback triggered when the scrollable component scrolls.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30372,7 +30381,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
-   * Called when the scrollable reaches the start position.
+   * Triggered when the scrollable component reaches the start position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
    * @returns { T }
@@ -30384,7 +30393,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachStart(event: () => void): T;
 
   /**
-   * Called when the scrollable reaches the end position.
+   * Triggered when the scrollable component reaches the end position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
    * @returns { T }
@@ -30396,7 +30405,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachEnd(event: () => void): T;
 
   /**
-   * Called when the scrollable starts scrolling.
+   * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the component or its scrollbar.
    *
    * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
    * @returns { T }
@@ -30408,7 +30417,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStart(event: () => void): T;
 
   /**
-   * Called when the scrollable stops scrolling.
+   * Triggered when scrolling stops after the user's finger leaves the screen.
    *
    * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
    * @returns { T }
@@ -30420,10 +30429,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStop(event: () => void): T;
 
   /**
-   * Limit the max speed when fling.
+   * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
    *
-   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
-   *                                The unit is vp/s.
+   * @param { number } speedLimit - Maximum initial velocity at the start of the fling animation.
+   * <br>Default value: <em>9000</em>
+   * <br>Unit: vp/s
+   * <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30433,7 +30444,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   flingSpeedLimit(speedLimit: number): T;
 
   /**
-   * Clip the content of the scrollable container, excluding background.
+   * Sets the content clipping area for this scrollable component.
    * 
    * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
    * @returns { T }
@@ -30457,10 +30468,10 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
   
   /**
-   * Controls whether the scrollable scrolls back to top when status bar is clicked.
+   * Sets whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
    * 
-   * @param { boolean } backToTop - whether the scrollable scrolls back to top when status bar is clicked.
-   * The default value is false.
+   * @param { boolean } backToTop - Whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
+   * <br>Default value: <em>false</em>
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
