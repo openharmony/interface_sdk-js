@@ -430,6 +430,30 @@ declare class TextStyle {
      * @since 12
      */
     readonly fontStyle?: FontStyle;
+
+    /**
+     * Get the stroke width of the StyledString with the unit 'px'.
+     *
+     * @type { ?number } - the stroke width of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeWidth?: number;
+
+    /**
+     * Get the stroke color of the StyledString.
+     *
+     * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeColor?: ResourceColor;
 }
 
 /**
@@ -496,6 +520,28 @@ declare interface TextStyleInterface {
      * @since 12
      */
     fontStyle?: FontStyle;
+
+    /**
+     * The stroke width of the text.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth?: LengthMetrics;
+
+    /**
+     * The stroke color of the text.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeColor?: ResourceColor;
 }
 
 /**
