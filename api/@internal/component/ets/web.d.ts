@@ -131,9 +131,11 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Should playing web media by native application instead of web player.
+   * Whether to enable the application to take over the webpage media playback function.
    *
    * @type { boolean }
+   *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -141,9 +143,11 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * The contents painted by native media player should overlay web page.
+   * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
    *
    * @type { boolean }
+   *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
