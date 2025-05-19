@@ -2230,9 +2230,9 @@ declare class PermissionRequest {
    * @since 9
    */
   /**
-   * Gets the resource that the webpage is trying to access.
+   * Obtains the list of accessible resources requested for the web page.
    *
-   * @returns { Array<string> }
+   * @returns { Array<string> } List of accessible resources requested by the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -2292,7 +2292,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2308,7 +2308,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Grant origin access to a given resource.
+   * Grants the screen capture permission.
    * @param { ScreenCaptureConfig } config The screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2322,7 +2322,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Reject the request.
+   * Rejects this screen capture request.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -8389,9 +8389,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param { Callback<OnScreenCaptureRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     requesting to capture screen.
+   * Called when a screen capture request is received.
+   * 
+   * @param { Callback<OnScreenCaptureRequestEvent> } callback Called when a screen capture request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9190,9 +9190,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the playing state of audio on web page changed.
+   * Set the callback function when the audio playback status on the webpage changes.
    *
-   * @param { Callback<OnAudioStateChangedEvent> } callback The playing state of audio on web page.
+   * @param { Callback<OnAudioStateChangedEvent> } callback Callback invoked when the audio playback status on the webpage changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
