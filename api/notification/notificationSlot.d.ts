@@ -21,7 +21,9 @@
 /*** if arkts 1.1 */
 import notification from '../@ohos.notification';
 /*** endif */
+/*** if arkts 1.1&1.2 */
 import type notificationManager from '../@ohos.notificationManager';
+/*** endif */
 
 
 /**
