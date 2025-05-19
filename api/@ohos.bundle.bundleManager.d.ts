@@ -797,6 +797,14 @@ declare namespace bundleManager {
     DISTRIBUTED = 28,
 
     /**
+     * Indicates extension info with type of app service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     */
+    APP_SERVICE = 29,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3884,6 +3892,33 @@ declare namespace bundleManager {
    * @since 18
    */
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
+
+  /**
+   * Obtains sandbox data directory by bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { string } Returns the sandbox data directory.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getSandboxDataDir(bundleName: string, appIndex: number): string;
+
+  /**
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the sandbox data directory.
+   *
+   * @param { string } sandboxDataDir - Indicates the sandbox data directory.
+   * @returns { AppCloneIdentity } Returns the clone Identity contains bundleName and appIndex.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
    * Obtains configuration information about an application.

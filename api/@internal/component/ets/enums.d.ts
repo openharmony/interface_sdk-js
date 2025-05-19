@@ -3731,6 +3731,109 @@ declare enum Alignment {
 }
 
 /**
+ * Alignment enumeration description.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum LocalizedAlignment {
+  /**
+   * Top Start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP_START = "top_start",
+  /**
+   * The top is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP = "top",
+  /**
+   * Top tail end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP_END = "top_end",
+  /**
+   * The starting end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  START = "start",
+  /**
+   * Center horizontal and vertical.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  CENTER = "center",
+  /**
+   * The tail end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  END = "end",
+  /**
+   * Bottom starting end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM_START = "bottom_start",
+  /**
+   * The bottom is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM = "bottom",
+  /**
+   * Bottom end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM_END = "bottom_end",
+}
+
+/**
  * TransitionType enumeration description.
  *
  * @enum { number }
@@ -10263,6 +10366,38 @@ declare enum PageFlipMode {
    * @since 15
    */
   SINGLE = 1,
+}
+
+/**
+ * Focus wrap mode of a list or grid when moving focus using the arrow keys.
+
+ * @enum { number } FocusWrapMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum FocusWrapMode {
+  /**
+   * No wrap when moving focus using the arrow keys.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  DEFAULT = 0,
+
+  /**
+   * Auto wrap when moving focus using the arrow keys.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  WRAP_WITH_ARROW = 1,
 }
 
 /**

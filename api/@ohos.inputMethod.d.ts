@@ -2107,6 +2107,16 @@ declare namespace inputMethod {
      * @since 20
      */
     newEditBox?: boolean;
+
+    /**
+     * Indicates the capitalize mode of the edit box.
+     *
+     * @type { ?CapitalizeMode }
+     * @default CapitalizeMode.NONE
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    capitalizeMode?: CapitalizeMode;
   }
 
   /**
@@ -2309,6 +2319,47 @@ declare namespace inputMethod {
    * @since 17
    */
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
+
+ /**
+  * Enumerates the capitalization mode.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.MiscServices.InputMethodFramework
+  * @since 20
+  */
+  export enum CapitalizeMode {
+    /**
+      * Capitalize nothing.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    NONE = 0,
+
+    /**
+      * Capitalize the first letter of each sentence.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    SENTENCES,
+
+    /**
+      * Capitalize the first letter of each word.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    WORDS,
+
+    /**
+      * Capitalize each letter.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    CHARACTERS
+  }
 }
 
 export default inputMethod;

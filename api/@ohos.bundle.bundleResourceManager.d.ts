@@ -222,6 +222,27 @@ declare namespace bundleResourceManager {
   function getAllLauncherAbilityResourceInfo(resourceFlags: number): Promise<Array<LauncherAbilityResourceInfo>>;
 
   /**
+   * Obtains the abilityResourceInfo of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { bundleManager.ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
+   * <br>Currently only supported ExtensionAbilityType::INPUTMETHOD,ExtensionAbilityType::SHARE,ExtensionAbilityType::ACTION.
+   * @param { number } resourceFlags - Indicates the flag used to specify information.
+   * <br>Contained in the ExtensionAbilityResourceInfo object that will be returned.
+   * @param { number } [appIndex] - Indicates the index of the bundle.
+   * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 20
+   */
+  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: number, appIndex?: number): Array<LauncherAbilityResourceInfo>;
+
+  /**
    * Obtains resource info of a bundle.
    *
    * @typedef { _BundleResourceInfo }

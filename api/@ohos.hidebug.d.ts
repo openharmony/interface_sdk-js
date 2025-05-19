@@ -853,5 +853,66 @@ declare namespace hidebug {
    * @since 18
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
+
+  /**
+   * GwpAsan Options.
+   *
+   * @interface GwpAsanOptions
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  interface GwpAsanOptions {
+    /**
+     * Control whether to enable GWP-ASan every time
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    alwaysEnabled?: boolean;
+    /**
+     * sample rate of GWP-ASAN
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    sampleRate?: number;
+    /**
+     * the max simutaneous allocations of GWP-ASAN
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    maxSimutaneousAllocations?: number;
+  }
+
+  /**
+   * Enable the GWP-ASAN grayscale of your application.
+   * @param { GwpAsanOptions } options - The option of GWP-ASAN grayscale.
+   * @param { number } duration - The duration days of GWP-ASAN grayscale.
+   * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: number): void;
+
+  /**
+   * Disable the GWP-ASAN grayscale of your application.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function disableGwpAsanGrayscale(): void;
+
+  /**
+   * Obtain the remaining days of GWP-ASan grayscale for your application.
+   *
+   * @returns { number } The remaining days of GWP-ASan grayscale.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function getGwpAsanGrayscaleState(): number;
 }
 export default hidebug;

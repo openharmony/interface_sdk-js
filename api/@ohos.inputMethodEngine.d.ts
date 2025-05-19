@@ -1925,6 +1925,17 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18
      */
+    /**
+     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's only used for STATUS_BAR panel or SOFT_KEYBOARD panel with FLG_FLOATING or FLAG_CANDIDATE.</p>
+     *
+     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
     startMoving(): void;
 
     /**
@@ -2273,6 +2284,16 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly abilityName?: string;
+
+    /**
+     * Editor's capitalization mode.
+     *
+     * @type { ?CapitalizeMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly capitalizeMode?: CapitalizeMode;
   }
 
   /**
@@ -2766,6 +2787,47 @@ declare namespace inputMethodEngine {
      * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
+  }
+
+  /**
+   * Enumerates the capitalization mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  export enum CapitalizeMode {
+    /**
+     * Capitalize nothing.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NONE = 0,
+
+    /**
+     * Capitalize the first letter of each sentence.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    SENTENCES,
+
+    /**
+     * Capitalize the first letter of each word.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    WORDS,
+
+    /**
+     * Capitalize each letter.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    CHARACTERS
   }
 }
 

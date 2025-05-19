@@ -326,7 +326,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T;
 
