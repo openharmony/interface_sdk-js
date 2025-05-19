@@ -61,7 +61,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function isPiPEnabled(): boolean;
+  function isPiPEnabled(): boolean;
 
   /**
    * Create picture-in-picture controller
@@ -93,7 +93,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function create(config: PiPConfiguration): Promise<PiPController>;
+  function create(config: PiPConfiguration): Promise<PiPController>;
 
   /**
    * Create picture-in-picture controller
@@ -113,7 +113,7 @@ declare namespace PiPWindow {
    * @since 12
    * @arkts 1.1
    */
-  export function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
+  function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
   /**
    * PiPConfiguration
@@ -131,7 +131,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface PiPConfiguration {
+  interface PiPConfiguration {
     /**
      * Indicates window context.
      *
@@ -272,7 +272,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface PiPWindowSize {
+  interface PiPWindowSize {
     /**
      * The width of the picture-in-picture window.
      *
@@ -316,7 +316,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface PiPWindowInfo {
+  interface PiPWindowInfo {
     /**
      * Indicates target window id.
      *
@@ -356,7 +356,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum PiPTemplateType {
+  enum PiPTemplateType {
     /**
      * Indicates the content to show in picture-in-picture window is video play
      * @syscap SystemCapability.Window.SessionManager
@@ -430,7 +430,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum PiPState {
+  enum PiPState {
     /**
      * PiP window is about to start.
      *
@@ -537,7 +537,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
@@ -548,7 +548,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum VideoPlayControlGroup {
+  enum VideoPlayControlGroup {
     /**
      * Previous/Next for video.
      *
@@ -579,7 +579,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum VideoCallControlGroup {
+  enum VideoCallControlGroup {
     /**
      * Turn on/off the microphone.
      *
@@ -630,7 +630,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum VideoMeetingControlGroup {
+  enum VideoMeetingControlGroup {
     /**
      * Hang up.
      *
@@ -681,7 +681,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum VideoLiveControlGroup {
+  enum VideoLiveControlGroup {
     /**
      * Video play/pause control.
      *
@@ -712,7 +712,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum PiPControlStatus {
+  enum PiPControlStatus {
     /**
      * The video is in play mode.
      *
@@ -763,7 +763,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum PiPControlType {
+  enum PiPControlType {
     /**
      * Video play/pause control.
      *
@@ -872,7 +872,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
+  type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
   /**
    * Describe picture-in-picture video template action event type.
@@ -890,7 +890,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
+  type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
   /**
    * Describe picture-in-picture call template action event type.
@@ -908,7 +908,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
+  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture meeting template action event type.
@@ -926,7 +926,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
+  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
    * Describe picture-in-picture live template action event type.
@@ -944,7 +944,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
+  type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
    * Describe picture-in-picture control panel action event callback.
@@ -957,7 +957,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void;
+  type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void;
 
   /**
    * Describe picture-in-picture control event callback.
@@ -968,7 +968,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface ControlEventParam {
+  interface ControlEventParam {
     /**
      * The type of control.
      *
@@ -1008,7 +1008,7 @@ declare namespace PiPWindow {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface PiPController {
+  interface PiPController {
 
     /**
      * Start picture-in-picture
