@@ -3439,7 +3439,7 @@ declare namespace webview {
    */
   enum OfflineResourceType {
     /**
-     * Image resource
+     * Resource of the image type.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -3447,7 +3447,7 @@ declare namespace webview {
     IMAGE,
 
     /**
-     * CSS resource
+     * Resource of the CSS type.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -3455,7 +3455,7 @@ declare namespace webview {
     CSS,
 
     /**
-     * Classic javascript resource
+     * Javascript resource loaded through the <script src="" /> tag.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -3463,7 +3463,7 @@ declare namespace webview {
     CLASSIC_JS,
 
     /**
-     * Module javascript resource
+     * Javascript resource loaded through the <script src="" type="module" /> tag.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
@@ -5967,11 +5967,14 @@ declare namespace webview {
     webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
     /**
-     * Prefetch the resources request and save it to the memory cache. Only support post request and its Content-Type
-     * is application/x-www-form-urlencoded now.
-     * You can prefetch no more than 6 resources. If you want to prefetch the seventh resource, you can clear one of
-     * the prefetched resources that you won't use any more. Otherwise the oldest resource you prefetched will be
-     * cleared.
+     * Prefetches resource requests based on specified request information and additional HTTP request headers,
+     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
+     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
+     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
+     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
+     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
+     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the POST request.
+     * The content of the key value is the cacheKey of the corresponding cache.
      * @param { RequestInfo } request - The information of the request.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
@@ -5991,7 +5994,8 @@ declare namespace webview {
       cacheValidTime?: number): void;
 
     /**
-    * Clear the resource that you prefetch to the memory cache using API{@link prefetchResource}.
+    * Clears the cache of prefetched resources based on the specified cache key list.
+    * The cache key in the input parameter must be the prefetched resource cache key specified by API{@link prefetchResource}.
     * @param { Array<string> } cacheKeyList - The keys for memory cache.
     *    The key in cacheKeyList only support number and letters.
     * @syscap SystemCapability.Web.Webview.Core
