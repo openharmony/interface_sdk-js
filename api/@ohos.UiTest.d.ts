@@ -1177,8 +1177,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * The x-coordinate of the top left corner of the rectangle.
@@ -1216,8 +1215,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * The y-coordinate of the top left corner of the rectangle.
@@ -1255,8 +1253,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * The x-coordinate at the bottom right corner of the rectangle.
@@ -1294,8 +1291,7 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * The y-coordinate at the bottom right corner of the rectangle.
