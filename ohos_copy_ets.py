@@ -30,10 +30,10 @@ def parse_ets2_api(options):
 
     cwd_dir = os.path.abspath(os.path.join(
         options.source_root_dir, INTERFACE_PATH))
+    input_dir = os.path.abspath(options.input)
     out_dir = os.path.abspath(options.output)
-    if not os.path.exists(out_dir):
-        shutil.copytree(options.input, out_dir, dirs_exist_ok=True)
-    process = subprocess.run([nodejs, tool, "--path", out_dir, "--type",
+    process = subprocess.run([nodejs, tool, "--path", input_dir, 
+                                "--output", out_dir, "--type",
                                 options.type], shell=False,
                                cwd=os.path.abspath(os.path.join(
                                    options.source_root_dir, cwd_dir)),
