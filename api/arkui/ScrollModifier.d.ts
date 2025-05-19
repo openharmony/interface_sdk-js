@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { ScrollAttribute } from './component/scroll'
-/*** endif */
 
 
 
@@ -46,29 +42,4 @@ export declare class ScrollModifier extends ScrollAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ScrollAttribute): void;
-}
-
-/**
- * Defines Scroll Modifier
- *
- * @extends ScrollAttribute
- * @implements AttributeModifier<ScrollAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ScrollModifier extends ScrollAttribute implements AttributeModifier<ScrollAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ScrollAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: ScrollAttribute) => void;
 }

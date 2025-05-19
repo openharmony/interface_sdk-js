@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { TextClockAttribute } from './component/textClock'
-/*** endif */
+
+
 
 /**
  * Defines TextClock Modifier
@@ -45,76 +43,3 @@ export declare class TextClockModifier extends TextClockAttribute implements Att
    */
   applyNormalAttribute?(instance: TextClockAttribute): void;
 }
-
-/**
- * Defines TextClock Modifier
- *
- * @extends TextClockAttribute
- * @implements AttributeModifier<TextClockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: TextClockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute: undefined | ((instance: TextClockAttribute) => void);
-
-  /**
-   * Defines the pressed update attribute function.
-   * 
-   * @type { undefined | ((instance: TextClockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute: undefined | ((instance: TextClockAttribute) => void);
-
-  /**
-   * Defines the focused update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextClockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute: undefined | ((instance: TextClockAttribute) => void);
-
-  /**
-   * Defines the disabled update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextClockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute: undefined | ((instance: TextClockAttribute) => void);
-
-  /**
-   * Defines the selected update attribute function.
-   * 
-   * @type { undefined | ((instance:  TextClockAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute: undefined | ((instance: TextClockAttribute) => void);
-}

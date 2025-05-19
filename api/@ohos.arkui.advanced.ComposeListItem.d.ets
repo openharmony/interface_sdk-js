@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2025 Huawei Device Co., Ltd.
+* Copyright (C) 2023-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceStr } from './arkui/component/units';
-import { Prop } from './arkui/stateManagement/common';
-import { Component } from './arkui/component/customComponent';
-/*** endif */
-
 /**
  * Declare enum IconType
  * @enum { number }
@@ -37,8 +31,7 @@ import { Component } from './arkui/component/customComponent';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare enum IconType {
   /**
@@ -50,8 +43,7 @@ export declare enum IconType {
    * Badge type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BADGE = 1,
   /**
@@ -63,8 +55,7 @@ export declare enum IconType {
    * Normal icon type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NORMAL_ICON = 2,
   /**
@@ -76,8 +67,7 @@ export declare enum IconType {
    * System icon type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SYSTEM_ICON = 3,
   /**
@@ -89,8 +79,7 @@ export declare enum IconType {
    * HeadSculpture type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HEAD_SCULPTURE = 4,
   /**
@@ -102,8 +91,7 @@ export declare enum IconType {
    * App icon type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   APP_ICON = 5,
   /**
@@ -115,8 +103,7 @@ export declare enum IconType {
    * Preview type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PREVIEW = 6,
   /**
@@ -128,8 +115,7 @@ export declare enum IconType {
    * Longitudinal type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LONGITUDINAL = 7,
   /**
@@ -141,8 +127,7 @@ export declare enum IconType {
    * Vertical type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   VERTICAL = 8
 }
@@ -156,8 +141,7 @@ export declare enum IconType {
  * Declare type OperateIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class OperateIcon {
   /**
@@ -171,8 +155,7 @@ export declare class OperateIcon {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value: ResourceStr;
 
@@ -181,8 +164,7 @@ export declare class OperateIcon {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -197,8 +179,7 @@ export declare class OperateIcon {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   action?: () => void;
 
@@ -208,8 +189,7 @@ export declare class OperateIcon {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -219,8 +199,7 @@ export declare class OperateIcon {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -231,8 +210,7 @@ export declare class OperateIcon {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -246,8 +224,7 @@ export declare class OperateIcon {
  * Declare type OperateCheck
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class OperateCheck {
   /**
@@ -261,8 +238,7 @@ export declare class OperateCheck {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   isCheck?: boolean;
 
@@ -277,8 +253,7 @@ export declare class OperateCheck {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onChange?: (value: boolean) => void;
 
@@ -288,8 +263,7 @@ export declare class OperateCheck {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -299,8 +273,7 @@ export declare class OperateCheck {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -311,8 +284,7 @@ export declare class OperateCheck {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -326,8 +298,7 @@ export declare class OperateCheck {
  * Declare type OperateButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class OperateButton {
   /**
@@ -341,8 +312,7 @@ export declare class OperateButton {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text?: ResourceStr;
 
@@ -352,8 +322,7 @@ export declare class OperateButton {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -363,8 +332,7 @@ export declare class OperateButton {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -375,8 +343,7 @@ export declare class OperateButton {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -390,8 +357,7 @@ export declare class OperateButton {
  * Declare ContentItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class ContentItem {
   /**
@@ -405,8 +371,7 @@ export declare class ContentItem {
    * @type { ?IconType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   iconStyle?: IconType;
 
@@ -421,8 +386,7 @@ export declare class ContentItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   icon?: ResourceStr;
 
@@ -431,8 +395,7 @@ export declare class ContentItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -447,8 +410,7 @@ export declare class ContentItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   primaryText?: ResourceStr;
 
@@ -463,8 +425,7 @@ export declare class ContentItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   secondaryText?: ResourceStr;
 
@@ -479,8 +440,7 @@ export declare class ContentItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   description?: ResourceStr;
 }
@@ -494,8 +454,7 @@ export declare class ContentItem {
  * Declare OperateItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class OperateItem {
   /**
@@ -509,8 +468,7 @@ export declare class OperateItem {
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   icon?: OperateIcon;
 
@@ -525,8 +483,7 @@ export declare class OperateItem {
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   subIcon?: OperateIcon;
 
@@ -541,8 +498,7 @@ export declare class OperateItem {
    * @type { ?OperateButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   button?: OperateButton;
 
@@ -562,16 +518,6 @@ export declare class OperateItem {
   switch?: OperateCheck;
 
   /**
-   * Sets the switch.
-   * @type { ?OperateCheck }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since arkts {'1.2':'20'}
-   * @arkts 1.2
-   */
-  toggle?: OperateCheck;
-
-  /**
    * Sets the checkBox.
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -582,8 +528,7 @@ export declare class OperateItem {
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   checkbox?: OperateCheck;
 
@@ -598,8 +543,7 @@ export declare class OperateItem {
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   radio?: OperateCheck;
 
@@ -614,8 +558,7 @@ export declare class OperateItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   image?: ResourceStr;
 
@@ -624,8 +567,7 @@ export declare class OperateItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -640,8 +582,7 @@ export declare class OperateItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text?: ResourceStr;
 
@@ -656,8 +597,7 @@ export declare class OperateItem {
    * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrow?: OperateIcon;
 }
@@ -675,8 +615,7 @@ export declare class OperateItem {
  * @struct { ComposeListItem }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 @Component
 export declare struct ComposeListItem {
@@ -691,8 +630,7 @@ export declare struct ComposeListItem {
    * @type { ?ContentItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop contentItem?: ContentItem;
 
@@ -707,8 +645,7 @@ export declare struct ComposeListItem {
    * @type { ?OperateItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop operateItem?: OperateItem;
 }

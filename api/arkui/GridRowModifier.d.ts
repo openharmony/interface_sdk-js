@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { GridRowAttribute } from './component/gridRow';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
 
 
 /**
@@ -45,29 +42,4 @@ export declare class GridRowModifier extends GridRowAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: GridRowAttribute): void;
-}
-
-/**
- * Defines GridRow Modifier
- *
- * @extends GridRowAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class GridRowModifier extends GridRowAttribute implements AttributeModifier<GridRowAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { GridRowAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2 
-   */
-  applyNormalAttribute?: ((instance: GridRowAttribute) => void);
 }

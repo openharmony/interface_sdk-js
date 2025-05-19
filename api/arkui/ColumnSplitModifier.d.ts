@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ColumnSplitAttribute } from './component/columnSplit';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
 
 
 /**
@@ -46,29 +43,3 @@ export declare class ColumnSplitModifier extends ColumnSplitAttribute implements
    */
   applyNormalAttribute?(instance: ColumnSplitAttribute): void;
 }
-
-/**
- * Defines ColumnSplit Modifier
- *
- * @extends ColumnSplitAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ColumnSplitModifier extends ColumnSplitAttribute implements AttributeModifier<ColumnSplitAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ColumnSplitAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: ColumnSplitAttribute) => void);
-}
-

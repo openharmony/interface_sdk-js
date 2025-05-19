@@ -19,10 +19,7 @@
  */
 
 
-/*** if arkts 1.2 */
-import { RowAttribute } from './component/row';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
 
 /**
  * Defines Row Modifier
@@ -45,29 +42,4 @@ export declare class RowModifier extends RowAttribute implements AttributeModifi
    * @since 12
    */
   applyNormalAttribute?(instance: RowAttribute): void;
-}
-
-/**
- * Defines Row Modifier
- *
- * @extends RowAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class RowModifier extends RowAttribute implements AttributeModifier<RowAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { RowAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: RowAttribute) => void);
 }

@@ -19,10 +19,6 @@
  */
 
 
-/*** if arkts 1.2 */
-import { StackAttribute } from './component/stack';
-import { AttributeModifier } from './component/common';
-/*** endif */
 
 
 /**
@@ -46,29 +42,4 @@ export declare class StackModifier extends StackAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?(instance: StackAttribute): void;
-}
-
-/**
- * Defines Stack Modifier
- *
- * @extends StackAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class StackModifier extends StackAttribute implements AttributeModifier<StackAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { StackAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: StackAttribute) => void);
 }

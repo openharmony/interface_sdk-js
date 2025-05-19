@@ -19,11 +19,6 @@
  */
 
 
-/*** if arkts 1.2 */
-import { ColumnAttribute } from './component/column';
-import { AttributeModifier } from './component/common';
-/*** endif */
-
 /**
  * Defines Column Modifier
  *
@@ -45,29 +40,4 @@ export declare class ColumnModifier extends ColumnAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: ColumnAttribute): void;
-}
-
-/**
- * Defines Column Modifier
- *
- * @extends ColumnAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ColumnModifier extends ColumnAttribute implements AttributeModifier<ColumnAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ColumnAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: ColumnAttribute) => void);
 }

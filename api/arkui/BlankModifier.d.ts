@@ -19,11 +19,6 @@
  */
 
 
-/*** if arkts 1.2 */
-import { BlankAttribute } from './component/blank';
-import { AttributeModifier } from './component/common';
-/*** endif */
-
 
 /**
  * Defines Blank Modifier
@@ -46,29 +41,4 @@ export declare class BlankModifier extends BlankAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?(instance: BlankAttribute): void;
-}
-
-/**
- * Defines Blank Modifier
- *
- * @extends BlankAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class BlankModifier extends BlankAttribute implements AttributeModifier<BlankAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { BlankAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: BlankAttribute) => void);
 }
