@@ -8448,10 +8448,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether media playback needs to be triggered by user gestures.
+   * Set whether to manually play audio-only videos. The playback of muted videos is not controlled by this interface.
    *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
+   * @param { boolean } access Set whether to manually play audio-only videos.
+   *  {@code true}True means setting up automatic playback of audio videos requires users to manually click, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
