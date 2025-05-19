@@ -364,8 +364,10 @@ declare namespace drawing {
 
     /**
      * Translates this rounded rectangle by an offset along the X axis and Y axis.
-     * @param { number } dx - Horizontal distance to translate. A positive number indicates a translation towards the positive direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value is a floating point number.
-     * @param { number } dy - Vertical distance to translate. A positive number indicates a translation towards the positive direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value is a floating point number.
+     * @param { number } dx - Horizontal distance to translate. A positive number indicates a translation towards the positive direction of the X axis,
+     * and a negative number indicates a translation towards the negative direction of the X axis. The value is a floating point number.
+     * @param { number } dy - Vertical distance to translate. A positive number indicates a translation towards the positive direction of the Y axis,
+     * and a negative number indicates a translation towards the negative direction of the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -582,7 +584,8 @@ declare namespace drawing {
      * @param { number } x2 - X coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @param { number } y2 - Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @param { number } startDeg - Start angle. The start direction (0°) of the angle is the positive direction of the X axis.
-     * @param { number } sweepDeg - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by 360.
+     * @param { number } sweepDeg - Angle to sweep, in degrees. A positive number indicates a clockwise sweep,
+     * and a negative value indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by 360.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -609,7 +612,10 @@ declare namespace drawing {
      * @param { number } ctrlY - Y coordinate of the control point. The value is a floating point number.
      * @param { number } endX - X coordinate of the target point. The value is a floating point number.
      * @param { number } endY - Y coordinate of the target point. The value is a floating point number.
-     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point. If the value is less than or equal to 0, this API is equivalent to lineTo, that is, adding a line segment from the last point of the path to the target point. If the value is 1, this API is equivalent to quadTo. The value is a floating point number.
+     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value,
+     * the closer of the curve to the control point. If the value is less than or equal to 0,
+     * this API is equivalent to lineTo, that is, adding a line segment from the last point of the path to the target point.
+     * If the value is 1, this API is equivalent to quadTo. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -634,8 +640,10 @@ declare namespace drawing {
 
     /**
      * Sets the start position relative to the last point of this path. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx - X offset of the start point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy - Y offset of the start point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx - X offset of the start point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy - Y offset of the start point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -645,8 +653,10 @@ declare namespace drawing {
 
     /**
      * Draws a line segment from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -656,10 +666,14 @@ declare namespace drawing {
 
     /**
      * Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx1 - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy1 - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } dx2 - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy2 - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx1 - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy1 - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx2 - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy2 - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -669,11 +683,17 @@ declare namespace drawing {
 
     /**
      * Draws a conic curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } ctrlX - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point. If the value is less than or equal to 0, this API is equivalent to rLineTo, that is, adding a line segment from the last point of the path to the target point. If the value is 1, this API is equivalent to rQuadTo. The value is a floating point number.
+     * @param { number } ctrlX - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point.
+     * If the value is less than or equal to 0, this API is equivalent to rLineTo, that is, adding a line segment from the last point of the path
+     * to the target point. If the value is 1, this API is equivalent to rQuadTo. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -683,12 +703,18 @@ declare namespace drawing {
 
     /**
      * Draws a cubic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } ctrlX1 - X offset of the first control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY1 - Y offset of the first control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlX2 - X offset of the second control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY2 - Y offset of the second control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlX1 - X offset of the first control point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY1 - Y offset of the first control point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlX2 - X offset of the second control point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY2 - Y offset of the second control point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -699,7 +725,8 @@ declare namespace drawing {
     /**
      * Adds a polygon to this path.
      * @param { Array<common2D.Point> } points - Array that holds the vertex coordinates of the polygon.
-     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment from the start point to the end point of the path. The value true means to close the path, and false means the opposite.
+     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment from the start point
+     * to the end point of the path. The value true means to close the path, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -711,7 +738,8 @@ declare namespace drawing {
      * Combines this path with the passed-in path based on the specified operation mode.
      * @param { Path } path - Path object, which will be combined with the current path.
      * @param { PathOp } pathOp - Operation mode.
-     * @returns { boolean } boolean - Result of the path combination result. The value true means that the path combination is successful, and false means the opposite.
+     * @returns { boolean } boolean - Result of the path combination result. The value true means that the path combination is successful,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -729,8 +757,10 @@ declare namespace drawing {
      * 
      * In other cases, this API adds an arc by applying the result of sweepAngle modulo 360 to the path.
      * @param { common2D.Rect } rect - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle of the arc, in degrees. The value 0 indicates the positive direction of the X axis. The value is a floating point number.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative number indicates a counterclockwise sweep. The value is a floating point number.
+     * @param { number } startAngle - Start angle of the arc, in degrees. The value 0 indicates the positive direction of the X axis.
+     * The value is a floating point number.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. A positive number indicates a clockwise sweep,
+     * and a negative number indicates a counterclockwise sweep. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -742,7 +772,8 @@ declare namespace drawing {
      * Adds a circle to this path in the specified direction. The start point of the circle is (x + radius, y).
      * @param { number } x - X coordinate of the center of the circle. The value is a floating point number.
      * @param { number } y - Y coordinate of the center of the circle. The value is a floating point number.
-     * @param { number } radius - Radius of the circle. The value is a floating point number. If the value is less than or equal to 0, there is no effect.
+     * @param { number } radius - Radius of the circle. The value is a floating point number.
+     * If the value is less than or equal to 0, there is no effect.
      * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -754,7 +785,8 @@ declare namespace drawing {
     /**
      * Adds an oval to this path in the specified direction, where the common2D.Rect object specifies the outer tangent rectangle of the oval.
      * @param { common2D.Rect } rect - Rectangular boundary of the oval.
-     * @param { number } start - Start point of the oval, where 0, 1, 2, and 3 correspond to the upper, right, lower, and left points, respectively. The value is an integer greater than or equal to 0. If the value is greater than or equal to 4, the remainder of 4 is used.
+     * @param { number } start - Start point of the oval, where 0, 1, 2, and 3 correspond to the upper, right, lower, and left points, respectively.
+     * The value is an integer greater than or equal to 0. If the value is greater than or equal to 4, the remainder of 4 is used.
      * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -775,7 +807,10 @@ declare namespace drawing {
     addRect(rect: common2D.Rect, pathDirection?: PathDirection): void;
 
     /**
-     * Adds a rounded rectangle to this path in the specified direction. When the path direction is clockwise, the start point is at the intersection of the rounded rectangle's left boundary and its lower left corner. When the path direction is counterclockwise, the start point is at the intersection point between the left boundary and the upper left corner.
+     * Adds a rounded rectangle to this path in the specified direction. When the path direction is clockwise,
+     * the start point is at the intersection of the rounded rectangle's left boundary and its lower left corner.
+     * When the path direction is counterclockwise, the start point is at the intersection point
+     * between the left boundary and the upper left corner.
      * @param { RoundRect } roundRect - Rounded rectangle.
      * @param { PathDirection } pathDirection - The default value is CLOCKWISE.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -847,8 +882,10 @@ declare namespace drawing {
 
     /**
      * Offsets this path by specified distances along the X axis and Y axis and stores the resulting path in the Path object returned.
-     * @param { number } dx - X offset. A positive number indicates an offset towards the positive direction of the X axis, and a negative number indicates an offset towards the negative direction of the X axis. The value is a floating point number.
-     * @param { number } dy - Y offset. A positive number indicates an offset towards the positive direction of the Y axis, and a negative number indicates an offset towards the negative direction of the Y axis. The value is a floating point number.
+     * @param { number } dx - X offset. A positive number indicates an offset towards the positive direction of the X axis,
+     * and a negative number indicates an offset towards the negative direction of the X axis. The value is a floating point number.
+     * @param { number } dy - Y offset. A positive number indicates an offset towards the positive direction of the Y axis,
+     * and a negative number indicates an offset towards the negative direction of the Y axis. The value is a floating point number.
      * @returns { Path } New path generated.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -866,7 +903,9 @@ declare namespace drawing {
 
     /**
      * Obtains the path length.
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path.
+     * The value true means that the path is considered closed during measurement,
+     * and false means that the path is measured based on the actual closed status.
      * @returns { number } Return path length.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -876,11 +915,16 @@ declare namespace drawing {
     /**
      * Obtains the coordinates and tangent at a distance from the start point of this path.
      * 
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used. If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path.
+     * The value true means that the path is considered closed during measurement,
+     * and false means that the path is measured based on the actual closed status.
+     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used.
+     * If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
      * @param { common2D.Point } position - Coordinates obtained.
-     * @param { common2D.Point } tangent - Tangent obtained, where tangent.x and tangent.y represent the cosine and sine of the tangent of the point, respectively.
-     * @returns { boolean } - Check result. The value true means that they are obtained, and false means the opposite. The values of position and tangent are not changed.
+     * @param { common2D.Point } tangent - Tangent obtained, where tangent.x and tangent.y represent the cosine
+     * and sine of the tangent of the point, respectively.
+     * @returns { boolean } - Check result. The value true means that they are obtained, and false means the opposite.
+     * The values of position and tangent are not changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -891,10 +935,14 @@ declare namespace drawing {
     /**
      * Extracts a segment of this path and appends it to a destination path.
      *
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } start - Distance from the start point of the path to the start point of the segment. If it is less than 0, it defaults to 0. If it is greater than or equal to stop, the extraction fails. The value is a floating point number.
-     * @param { number } stop - Distance from the start point of the path to the end point of the segment. If it is less than or equal to start, the extraction fails. If it is greater than the path length, it defaults to the path length. The value is a floating point number.
-     * @param { boolean } startWithMoveTo - Whether to execute moveto in the destination path to move to its start point. The value true means to move to the start point, and false means the opposite.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed
+     * during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { number } start - Distance from the start point of the path to the start point of the segment. If it is less than 0, it defaults to 0.
+     * If it is greater than or equal to stop, the extraction fails. The value is a floating point number.
+     * @param { number } stop - Distance from the start point of the path to the end point of the segment. If it is less than or equal to start,
+     * the extraction fails. If it is greater than the path length, it defaults to the path length. The value is a floating point number.
+     * @param { boolean } startWithMoveTo - Whether to execute moveto in the destination path to move to its start point.
+     * The value true means to move to the start point, and false means the opposite.
      * @param { Path } dst - Destination path. If the extraction succeeds, the segment is appended to the path. If the extraction fails, nothing changes.
      * @returns { boolean } - Extraction result. The value **true** means that the extraction is successful, and **false** means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
@@ -914,8 +962,10 @@ declare namespace drawing {
     /**
      * Obtains a transformation matrix at a distance from the start point of this path.
      * 
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used. If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed
+     * during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used.
+     * If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
      * @param { Matrix } matrix - Matrix object used to store the matrix obtained.
      * @param { PathMeasureMatrixFlags } flags - Type of the matrix information obtained.
      * @returns { boolean } - Check result. The value true means that a transformation matrix is obtained, and false means the opposite.
@@ -1106,7 +1156,8 @@ declare namespace drawing {
     drawRoundRect(roundRect: RoundRect): void;
 
     /**
-     * Draws two nested rounded rectangles. The outer rectangle boundary must contain the inner rectangle boundary. Otherwise, there is no drawing effect.
+     * Draws two nested rounded rectangles. The outer rectangle boundary must contain the inner rectangle boundary.
+     * Otherwise, there is no drawing effect.
      * @param { RoundRect } outer - Outer rounded rectangle.
      * @param { RoundRect } inner - Inner rounded rectangle.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1129,7 +1180,8 @@ declare namespace drawing {
     /**
      * Draws a spot shadow and uses a given path to outline the ambient shadow.
      * @param { Path } path - Path object, which is used to outline the shadow.
-     * @param { common2D.Point3d } planeParams - 3D vector, which is used to determine the z-axis offset of an occluder relative to the canvas, based on its x and y coordinates.
+     * @param { common2D.Point3d } planeParams - 3D vector, which is used to determine the z-axis offset of an occluder relative to the canvas,
+     * based on its x and y coordinates.
      * @param { common2D.Point3d } devLightPos - Position of the light relative to the canvas.
      * @param { number } lightRadius - Radius of the light. The value is a floating point number.
      * @param { common2D.Color } ambientColor - Color of the ambient shadow.
@@ -1215,7 +1267,8 @@ declare namespace drawing {
     /**
      * Splits an image into nine sections using two horizontal and two vertical lines: four edge sections, four corner sections, and a central section.
      * If the four corner sections are smaller than the target rectangle, they will be drawn in the target rectangle without scaling.
-     * Otherwise, they will be scaled to fit the target rectangle. Any remaining space will be filled by stretching or compressing the other five sections to cover the entire target rectangle.
+     * Otherwise, they will be scaled to fit the target rectangle. Any remaining space will be filled by stretching or
+     * compressing the other five sections to cover the entire target rectangle.
      * @param { image.PixelMap } pixelmap - PixelMap to split.
      * @param { common2D.Rect } center - Central rectangle that divides the image into nine sections by extending its four edges.
      * @param { common2D.Rect } dstRect - Target rectangle drawn on the canvas.
@@ -1270,10 +1323,14 @@ declare namespace drawing {
 
     /**
      * Draws the background color. This API provides better performance and is recommended.
-     * @param { number } alpha - Alpha channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } red - Red channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } green - Green channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } blue - Blue channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } alpha - Alpha channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } red - Red channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } green - Green channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } blue - Blue channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
      * @param { BlendMode } blendMode - Blend mode. The default mode is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1304,10 +1361,17 @@ declare namespace drawing {
     drawOval(oval: common2D.Rect): void;
 
     /**
-     * Draws an arc on the canvas, with the start angle and sweep angle specified. If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
+     * Draws an arc on the canvas, with the start angle and sweep angle specified.
+     * If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
      * @param { common2D.Rect } arc - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise, and a negative number indicates that the start point is placed counterclockwise.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The valid range is from -360 degrees to 360 degrees. If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
+     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number.
+     * When the degree is 0, the start point is located at the right end of the oval.
+     * A positive number indicates that the start point is placed clockwise,
+     * and a negative number indicates that the start point is placed counterclockwise.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number.
+     * A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe.
+     * The valid range is from -360 degrees to 360 degrees. If the absolute value of the sweep angle exceeds 360 degrees,
+     * an ellipse is drawn.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1316,11 +1380,18 @@ declare namespace drawing {
     drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void;
 
     /**
-     * Draws an arc on the canvas. It enables you to define the start angle, sweep angle, and whether the arc's endpoints should connect to its center.
+     * Draws an arc on the canvas. It enables you to define the start angle, sweep angle,
+     * and whether the arc's endpoints should connect to its center.
      * @param { common2D.Rect } arc - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise, and a negative number indicates that the start point is placed counterclockwise.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The swipe angle can exceed 360 degrees, and a complete ellipse is drawn.
-     * @param { boolean } useCenter - Whether the start point and end point of the arc are connected to its center. The value true means that they are connected to the center; the value false means the opposite.
+     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number.
+     * When the degree is 0, the start point is located at the right end of the oval.
+     * A positive number indicates that the start point is placed clockwise,
+     * and a negative number indicates that the start point is placed counterclockwise.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number.
+     * A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe.
+     * The swipe angle can exceed 360 degrees, and a complete ellipse is drawn.
+     * @param { boolean } useCenter - Whether the start point and end point of the arc are connected to its center.
+     * The value true means that they are connected to the center; the value false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1359,7 +1430,8 @@ declare namespace drawing {
     drawPath(path: Path): void;
 
     /**
-     * Draws a line segment from the start point to the end point. If the coordinates of the start point are the same as those of the end point, nothing is drawn.
+     * Draws a line segment from the start point to the end point. If the coordinates of the start point are the same as those of the end point,
+     * nothing is drawn.
      * @param { number } x0 - X coordinate of the start point of the line segment. The value is a floating point number.
      * @param { number } y0 - Y coordinate of the start point of the line segment. The value is a floating point number.
      * @param { number } x1 - X coordinate of the end point of the line segment. The value is a floating point number.
@@ -1372,11 +1444,14 @@ declare namespace drawing {
     drawLine(x0: number, y0: number, x1: number, y1: number): void;
 
     /**
-     * Draws a single character. If the typeface of the current font does not support the character to draw, the system typeface is used to draw the character.
+     * Draws a single character. If the typeface of the current font does not support the character to draw,
+     * the system typeface is used to draw the character.
      * @param { string } text - Single character to draw. The length of the string must be 1.
      * @param { Font } font - Font object.
-     * @param { number } x - X coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below). The value is a floating point number.
-     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below). The value is a floating point number.
+     * @param { number } x - X coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below).
+     * The value is a floating point number.
+     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below).
+     * The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1387,8 +1462,10 @@ declare namespace drawing {
     /**
      * Draws a text blob. If the typeface used to construct blob does not support a character, that character will not be drawn.
      * @param { TextBlob } blob - TextBlob to draw.
-     * @param { number } x - X coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below). The value is a floating point number.
-     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below). The value is a floating point number.
+     * @param { number } x - X coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below).
+     * The value is a floating point number.
+     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below).
+     * The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1401,9 +1478,11 @@ declare namespace drawing {
      * @param { image.PixelMap } pixelmap - PixelMap to draw.
      * @param { number } meshWidth - Number of columns in the mesh. The value is an integer greater than 0.
      * @param { number } meshHeight - Number of rows in the mesh. The value is an integer greater than 0.
-     * @param { Array<number> } vertices - Array of vertices, which specify the position to draw. The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
+     * @param { Array<number> } vertices - Array of vertices, which specify the position to draw.
+     * The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
      * @param { number } vertOffset - Number of vert elements to skip before drawing. The value is an integer greater than or equal to 0.
-     * @param { Array<number> } colors - Array of colors, which specify the color at each vertex. The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
+     * @param { Array<number> } colors - Array of colors, which specify the color at each vertex.
+     * The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
      * @param { number } colorOffset - Number of color elements to skip before drawing. The value is an integer greater than or equal to 0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1468,8 +1547,10 @@ declare namespace drawing {
     /**
      * Saves the matrix and cropping region of the canvas, and allocates a PixelMap for subsequent drawing.
      * If you call restore, changes made to the matrix and clipping region are discarded, and the PixelMap is drawn.
-     * @param { common2D.Rect | null} rect - Rect object, which is used to limit the size of the graphics layer. The default value is the current canvas size.
-     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the bitmap is drawn. If null is passed in, no effect is applied.
+     * @param { common2D.Rect | null} rect - Rect object, which is used to limit the size of the graphics layer.
+     * The default value is the current canvas size.
+     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the bitmap is drawn.
+     * If null is passed in, no effect is applied.
      * @returns { number } Number of canvas statuses that have been saved. The value is a positive integer.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1504,7 +1585,9 @@ declare namespace drawing {
 
     /**
      * Restores to a given number of canvas statuses (canvas matrices).
-     * @param { number } count - Depth of the canvas statuses to restore. The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state. If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
+     * @param { number } count - Depth of the canvas statuses to restore.
+     * The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state.
+     * If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1565,8 +1648,12 @@ declare namespace drawing {
 
     /**
      * Skews the canvas in both the horizontal and vertical directions.
-     * @param { number } sx - Amount of tilt on the X axis. The value is a floating point number. A positive number tilts the drawing rightwards along the positive direction of the Y axis, and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
-     * @param { number } sy - Amount of tilt on the Y axis. The value is a floating point number. A positive number tilts the drawing downwards along the positive direction of the X axis, and a negative number tilts the drawing upwards along the positive direction of the X axis.
+     * @param { number } sx - Amount of tilt on the X axis. The value is a floating point number.
+     * A positive number tilts the drawing rightwards along the positive direction of the Y axis,
+     * and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
+     * @param { number } sy - Amount of tilt on the Y axis. The value is a floating point number.
+     * A positive number tilts the drawing downwards along the positive direction of the X axis,
+     * and a negative number tilts the drawing upwards along the positive direction of the X axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1576,7 +1663,8 @@ declare namespace drawing {
 
     /**
      * Rotates the canvas by a certain angle.
-     * @param { number } degrees - Angle to rotate, in degrees. The value is a floating point number. A positive value indicates a clockwise rotation, and a negative value indicates a counterclockwise rotation.
+     * @param { number } degrees - Angle to rotate, in degrees. The value is a floating point number.
+     * A positive value indicates a clockwise rotation, and a negative value indicates a counterclockwise rotation.
      * @param { number } sx - X coordinate of the rotation center. The value is a floating point number.
      * @param { number } sy - Y coordinate of the rotation center. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1602,7 +1690,8 @@ declare namespace drawing {
      * and use a clipping edge that is aliased or anti-aliased.
      * @param { Path } path - To combine with clip.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1615,7 +1704,8 @@ declare namespace drawing {
      * current clipping area and Rect, and use a clipping edge that is aliased or anti-aliased.
      * @param { common2D.Rect } rect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1624,7 +1714,8 @@ declare namespace drawing {
     clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Preconcats the existing matrix of the canvas with the passed-in matrix. The drawing operation triggered before this API is called is not affected.
+     * Preconcats the existing matrix of the canvas with the passed-in matrix.
+     * The drawing operation triggered before this API is called is not affected.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1650,7 +1741,8 @@ declare namespace drawing {
      * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
      * @param { RoundRect } roundRect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clipping mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1800,7 +1892,8 @@ declare namespace drawing {
      * Converts a value of the string type into a TextBlob object.
      * @param { string } text - Content to be used for drawing the text blob.
      * @param { Font } font - Specify text size, font, text scale, etc.
-     * @param { TextEncoding } encoding - Encoding type. The default value is TEXT_ENCODING_UTF8. Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
+     * @param { TextEncoding } encoding - Encoding type. The default value is TEXT_ENCODING_UTF8.
+     * Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1811,10 +1904,12 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
 
     /**
-     * Creates a TextBlob object from the text. The coordinates of each font in the TextBlob object are determined by the coordinate information in the points array.
+     * Creates a TextBlob object from the text.
+     * The coordinates of each font in the TextBlob object are determined by the coordinate information in the points array.
      * @param { string } text - Content to be used for drawing the text blob.
      * @param { number } len - Number of fonts. The value is an integer and is obtained from countText.
-     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font. The array length must be the same as the value of len.
+     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
+     * The array length must be the same as the value of len.
      * @param { Font } font - Specify text size, font, text scale, etc.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1884,7 +1979,11 @@ declare namespace drawing {
 
     /**
      * Constructs a typeface from a file, which must be stored in the resources/rawfile directory of the application project.
-     * @param { Resource } rawfile - Resource object corresponding to the file. Currently, only resource objects referenced in rawfile format are supported. The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project. If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf'). If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * @param { Resource } rawfile - Resource object corresponding to the file.
+     * Currently, only resource objects referenced in rawfile format are supported.
+     * The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     * If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
@@ -1968,7 +2067,8 @@ declare namespace drawing {
   class Font {
     /**
      * Enables subpixel font rendering.
-     * @param { boolean } isSubpixel - Whether to enable subpixel font rendering. The value true means to enable subpixel font rendering, and false means the opposite.
+     * @param { boolean } isSubpixel - Whether to enable subpixel font rendering.
+     * The value true means to enable subpixel font rendering, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1978,7 +2078,8 @@ declare namespace drawing {
 
     /**
      * Enables emboldened fonts.
-     * @param { boolean } isEmbolden - Whether to enable emboldened fonts. The value true means to enable emboldened fonts, and false means the opposite.
+     * @param { boolean } isEmbolden - Whether to enable emboldened fonts.
+     * The value true means to enable emboldened fonts, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1988,7 +2089,8 @@ declare namespace drawing {
 
     /**
      * Enables linear font scaling.
-     * @param { boolean } isLinearMetrics - Whether to enable linear font scaling. The value true means to enable linear font scaling, and false means the opposite.
+     * @param { boolean } isLinearMetrics - Whether to enable linear font scaling.
+     * The value true means to enable linear font scaling, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1998,7 +2100,8 @@ declare namespace drawing {
 
     /**
      * Sets the text size.
-     * @param { number } textSize - Text size. The value is a floating point number. If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
+     * @param { number } textSize - Text size. The value is a floating point number.
+     * If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2041,7 +2144,8 @@ declare namespace drawing {
     getMetrics(): FontMetrics;
 
     /**
-     * Measures the width of a single character. If the typeface of the current font does not support the character to measure, the system typeface is used to measure the character width.
+     * Measures the width of a single character.
+     * If the typeface of the current font does not support the character to measure, the system typeface is used to measure the character width.
      * @param { string } text - Single character to measure. The length of the string must be 1.
      * @returns { number } Width of the character. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2075,7 +2179,8 @@ declare namespace drawing {
 
     /**
      * Sets a horizontal skew factor for this font.
-     * @param { number } skewX - Horizontal skew factor. A positive number means a skew to the left, and a negative number means a skew to the right. The value is a floating point number.
+     * @param { number } skewX - Horizontal skew factor.
+     * A positive number means a skew to the left, and a negative number means a skew to the right. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2116,7 +2221,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to request that baselines be snapped to pixels when the current canvas matrix is axis aligned.
-     * @param { boolean } isBaselineSnap - Whether to request that baselines be snapped to pixels. The value true means to request that baselines be snapped to pixels, and false means the opposite.
+     * @param { boolean } isBaselineSnap - Whether to request that baselines be snapped to pixels.
+     * The value true means to request that baselines be snapped to pixels, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2126,7 +2232,8 @@ declare namespace drawing {
 
     /**
      * Checks whether baselines are requested to be snapped to pixels when the current canvas matrix is axis aligned.
-     * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels, and false means the opposite.
+     * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels,
+     * and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -2134,7 +2241,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to use bitmaps in this font.
-     * @param { boolean } isEmbeddedBitmaps - Whether to use bitmaps in the font. The value true means to use bitmaps in the font, and false means the opposite.
+     * @param { boolean } isEmbeddedBitmaps - Whether to use bitmaps in the font. The value true means to use bitmaps in the font,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2152,7 +2260,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to forcibly use auto hinting, that is, whether to always hint glyphs.
-     * @param { boolean } isForceAutoHinting - Whether to forcibly use auto hinting. The value true means to forcibly use auto hinting, and false means the opposite.
+     * @param { boolean } isForceAutoHinting - Whether to forcibly use auto hinting. The value true means to forcibly use auto hinting,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2182,7 +2291,8 @@ declare namespace drawing {
     /**
      * Converts text into glyph indexes.
      * @param { string } text - Text string.
-     * @param { number } glyphCount - Number of glyphs represented by the text. The value must be the same as the value obtained from countText. The default value is the number of characters in the text string. The value is an integer.
+     * @param { number } glyphCount - Number of glyphs represented by the text. The value must be the same as the value obtained from countText.
+     * The default value is the number of characters in the text string. The value is an integer.
      * @returns { Array<number> } Returns the storage for glyph indices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2273,7 +2383,8 @@ declare namespace drawing {
     /**
      * Obtains the outline path of a text.
      * @param { string } text - UTF-8 text-encoded characters.
-     * @param { number } byteLength - Length of the outline path, which is obtained based on the minimum value between the passed value of byteLength and the actual text byte size.
+     * @param { number } byteLength - Length of the outline path,
+     * which is obtained based on the minimum value between the passed value of byteLength and the actual text byte size.
      * @param { number } x - X coordinate of the text in the drawing area, with the origin as the start point.
      * @param { number } y - Y coordinate of the text in the drawing area, with the origin as the start point.
      * @returns { Path } Outline path of the text.
@@ -2285,8 +2396,10 @@ declare namespace drawing {
     getTextPath(text: string, byteLength: number, x: number, y: number): Path;
 
     /**
-     * Sets whether to follow the theme font. When followed is set to true, the theme font is used if it is enabled by the system and no typeface is set.
-     * @param { boolean } followed - Whether to follow the theme font. The value true means to follow the theme font, and false means the opposite.
+     * Sets whether to follow the theme font. When followed is set to true,
+     * the theme font is used if it is enabled by the system and no typeface is set.
+     * @param { boolean } followed - Whether to follow the theme font.
+     * The value true means to follow the theme font, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
