@@ -5982,7 +5982,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 11
    */
   result: FileSelectorResult;
 
@@ -5993,7 +5993,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 11
    */
   fileSelector: FileSelectorParam;
 }
