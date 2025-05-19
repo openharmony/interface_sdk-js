@@ -44,7 +44,7 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare namespace errorManager {
   /**
@@ -84,7 +84,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function on(type: 'error', observer: ErrorObserver): number;
 
@@ -125,7 +125,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -166,7 +166,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function off(type: 'error', observerId: number): Promise<void>;
 
@@ -336,7 +336,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
 
@@ -361,7 +361,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function off(type: 'loopObserver', observer?: LoopObserver): void;
 
@@ -388,7 +388,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
@@ -417,7 +417,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
 
@@ -473,7 +473,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   export type ErrorObserver = _ErrorObserver.default;
   /**
@@ -491,7 +491,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   export type LoopObserver = _LoopObserver;
   /**
@@ -513,7 +513,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
   /**
