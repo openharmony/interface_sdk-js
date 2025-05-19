@@ -495,8 +495,8 @@ export interface SoundPool {
   /**
    * Register listeners for soundpool errorOccurred events.
    *
-   * @param { 'errorOccurred' } type Type of the soundpool event to listen for.
-   * @param { Callback<ErrorInfo> } callback Callback used to listen for soundpool errorOccurred events.
+   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
@@ -505,8 +505,8 @@ export interface SoundPool {
   /**
    * Cancel Listens for soundpool errorOccurred events.
    *
-   * @param { 'errorOccurred' } type Type of the soundpool event to listen for.
-   * @param { Callback<ErrorInfo> } callback Callback used to listen for soundpool errorOccurred events.
+   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20
    */
