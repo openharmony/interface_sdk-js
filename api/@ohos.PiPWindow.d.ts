@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import type { Callback } from './@ohos.base';
 import type BaseContext from './application/BaseContext';
+import type { Callback } from './@ohos.base';
 import { NodeController } from './arkui/NodeController';
 /*** if arkts 1.1 */
 import { typeNode } from './arkui/FrameNode';
