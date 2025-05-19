@@ -1180,7 +1180,7 @@ declare class FullScreenExitHandler {
    * @since 11
    */
   /**
-   * Exit the full screen mode.
+   * Called when the Web component exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -2107,7 +2107,7 @@ declare enum ProtectedResourceType {
    * @since 9
    */
   /**
-   * The MidiSysex resource.
+   * The MidiSysex resource. Currently, only permission events can be reported. MIDI devices are not yet supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9582,9 +9582,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native media player to play web page media source.
+   * Enable the application takeover of web media playback feature.
    *
    * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
+   *    enable: whether to enable the feature, shouldOverlay: whether the image of the video player
+   *    taken over by the application will overlay the web page content, if this feature is enabled.
+   *    Default value: {enable: false, shouldOverlay: false}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
