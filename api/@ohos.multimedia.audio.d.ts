@@ -3047,6 +3047,27 @@ declare namespace audio {
     getAudioSceneSync(): AudioScene;
 
     /**
+     * Subscribes to audio scene change events. When system changes to communication status, registered clients
+     * will receive the callback.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used to obtain the latest audio scene.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    on(type: 'audioSceneChange', callback: Callback<AudioScene>): void;
+
+    /**
+     * Unsubscribes to audio scene change events.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used in subscription.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    off(type: 'audioSceneChange', callback?: Callback<AudioScene>): void;
+
+    /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
