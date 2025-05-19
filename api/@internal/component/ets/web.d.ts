@@ -7071,7 +7071,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable automatic image loading.
    * 
    * @param { boolean } imageAccess - Sets whether to enable automatic image loading.
-   *    {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
    *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
