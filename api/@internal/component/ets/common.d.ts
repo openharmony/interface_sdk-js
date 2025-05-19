@@ -10685,9 +10685,11 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Border image slice
+   * Slice width of the upper left corner, upper right corner, lower left corner,
+   * and lower right corner of the border image.
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -10714,9 +10716,10 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image repeat
+   * Repeat mode of the source image's slices on the border.
    *
    * @type { ?RepeatMode }
+   * @default RepeatMode.Stretch
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -10743,7 +10746,13 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image source
+   * Source or gradient color of the border image.
+   * When the type is string, this parameter sets the border image source.
+   * For details about how to reference image resources, see Loading Image Resources.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>The border image source applies only to container components, such as Row, Column, and Flex.
+   * </p>
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10782,9 +10791,10 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Border image width
+   * Width of the border image.
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -10821,9 +10831,10 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Border image outset
+   * Amount by which the border image is extended beyond the border box.
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -10850,9 +10861,12 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image center fill
+   * Whether to fill the center of the border image.
+   * true: Fill the center of the border image.
+   * false: Do not fill the center of the border image.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -21204,9 +21218,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Border image
+   * Sets the border image of the component.
    *
-   * @param { BorderImageOption } value
+   * @param { BorderImageOption } value - Border image or border gradient.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
