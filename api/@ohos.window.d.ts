@@ -33,7 +33,6 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
-import { Callback } from './@ohos.base';
 /*** endif */
 
 /*** if arkts 1.1 */
@@ -57,6 +56,20 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Defines the window callback.
+ *
+ * @typedef Callback<T, V = void>
+ * @param { T } data - the data will be used in the callback.
+ * @returns { V } - Returns result of the callback.
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 20
+ */
+export type Callback<T, V = void> = (data: T) => V;
 /*** endif */
 
 /**
@@ -6443,7 +6456,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
@@ -6459,7 +6473,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
@@ -8314,7 +8329,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimize(callback: AsyncCallback<void>): void;
 
@@ -8337,7 +8353,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimize(): Promise<void>;
 
@@ -8746,7 +8763,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
@@ -8873,7 +8891,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMoving(): Promise<void>;
 
@@ -8892,7 +8911,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMoving(offsetX: number, offsetY: number): Promise<void>;
 
@@ -8965,7 +8985,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
@@ -8992,7 +9013,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
 
@@ -9008,7 +9030,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowTitleButtonVisibleChange', callback: Callback<boolean>): void;
 
@@ -9023,7 +9046,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowTitleButtonVisibleChange', callback?: Callback<boolean>): void;
 
@@ -9133,7 +9157,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowStatus(): WindowStatusType;
 
@@ -10192,7 +10217,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
@@ -10209,7 +10235,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
 
