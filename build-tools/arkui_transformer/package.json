@@ -4,7 +4,8 @@
   "main": "build/arkui_transformer.js",
   "scripts": {
     "compile:arkui": "rollup -c",
-    "transform:arkui": "npm run compile:arkui && node . --input-dir ../../etstest --target-dir ../../api/arkui/component.test/"
+    "transform:arkui": "npm run compile:arkui && node . --input-dir ../../etstest --target-dir ../../api/arkui/component.test/",
+    "transform:arkui:m3": "npm run compile:arkui && node . --input-dir ../../etstest --target-dir ../../api/arkui/component.test/ --use-memo-m3"
   },
   "author": "",
   "license": "ISC",
