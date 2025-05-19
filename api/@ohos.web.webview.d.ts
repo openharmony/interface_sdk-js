@@ -366,7 +366,7 @@ declare namespace webview {
     NONE = 0,
 
     /**
-     * All audio and video are playing.
+     * The audio and video on the page are being played.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -374,7 +374,7 @@ declare namespace webview {
     PLAYING = 1,
 
     /**
-     * All audio and video are paused.
+     * The audio and video on the page are paused.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -382,7 +382,7 @@ declare namespace webview {
     PAUSED = 2,
 
     /**
-     * All audio and video are stopped.
+     * The audio and video on the page are stopped.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5017,7 +5017,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Query if current document has image.
+     * Asynchronous search for image existence on the current page through Promise method.
      *
      * @returns { Promise<boolean> } A promise resolved after query image has finished.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5040,7 +5040,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Query if current document has image.
+     * Asynchronous search for the presence of an image on the current page through callback method.
      *
      * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5355,7 +5355,7 @@ declare namespace webview {
      * @since 10
      */
     /**
-     * Set audio muted.
+     * Set webpage mute.
      * @param { boolean } mute - Set the audio muted or not.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -5726,7 +5726,7 @@ declare namespace webview {
     stopAllMedia(): void;
 
     /**
-     * Restart playback of all audio and video on the web page.
+     * Resumes the playback of the audio and video that are paused by the pauseAllMedia interface.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5748,7 +5748,7 @@ declare namespace webview {
     pauseAllMedia(): void;
 
     /**
-     * Close fullscreen video.
+     * Closes all full-screen videos on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -8241,14 +8241,14 @@ declare namespace webview {
    */
   enum SourceType {
     /**
-     * Source type is URL.
+     * The type of media source is URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     URL = 0,
     /**
-     * Source type is blob.
+     * The type of media source is blob.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12

@@ -131,9 +131,11 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Should playing web media by native application instead of web player.
+   * Whether to enable the application to take over the webpage media playback function.
    *
    * @type { boolean }
+   *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -141,9 +143,11 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * The contents painted by native media player should overlay web page.
+   * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
    *
    * @type { boolean }
+   *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -965,7 +969,7 @@ declare enum WebCaptureMode {
    * @since 10
    */
   /**
-   * The home screen.
+   * Capture of the home screen.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1052,7 +1056,9 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * The time interval for audio playback to resume.
+   * Validity period for automatically resuming a paused web audio, in seconds.
+   * The maximum validity period is 60 seconds. Due to the approximate value,
+   * the validity period may have a deviation of less than 1 second.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1069,9 +1075,10 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * Whether the audio of each web is exclusive.
+   * Whether the audio of multiple Web instances in an application is exclusive.
    *
    * @type { ?boolean }
+   *    {@code true} means audio exclusivity for multiple web instances within the application, {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1180,7 +1187,7 @@ declare class FullScreenExitHandler {
    * @since 11
    */
   /**
-   * Exit the full screen mode.
+   * Called when the Web component exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -2107,7 +2114,7 @@ declare enum ProtectedResourceType {
    * @since 9
    */
   /**
-   * The MidiSysex resource.
+   * The MidiSysex resource. Currently, only permission events can be reported. MIDI devices are not yet supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2164,7 +2171,7 @@ declare enum ProtectedResourceType {
  * @since 9
  */
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -2230,9 +2237,9 @@ declare class PermissionRequest {
    * @since 9
    */
   /**
-   * Gets the resource that the webpage is trying to access.
+   * Obtains the list of accessible resources requested for the web page.
    *
-   * @returns { Array<string> }
+   * @returns { Array<string> } List of accessible resources requested by the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -2292,7 +2299,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2308,7 +2315,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Grant origin access to a given resource.
+   * Grants the screen capture permission.
    * @param { ScreenCaptureConfig } config The screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2322,7 +2329,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Reject the request.
+   * Rejects this screen capture request.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -6986,11 +6993,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to allow image resources to be loaded from the network.
+   * Sets whether to enable access to online images through HTTP and HTTPS.
    *
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   *    The default value is true.
-   * {@code false} otherwise.
+   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
+   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7061,9 +7068,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether the Web can automatically load image resources.
-   *    The default value is true.
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   * Sets whether to enable automatic image loading.
+   * 
+   * @param { boolean } imageAccess - Sets whether to enable automatic image loading.
+   *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7316,9 +7325,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Sets the media options.
+   * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
+   * and whether the audio of multiple Web instances in an application is exclusive.
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
+   * @param { WebMediaOptions } options Set the media policy for the web.
+   * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
+   *    Default value: {resumeInterval: 0, audioExclusive: true}
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8355,10 +8367,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
+   * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
    *
-   * @param { Callback<OnPermissionRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
+   * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8385,9 +8396,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param { Callback<OnScreenCaptureRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     requesting to capture screen.
+   * Called when a screen capture request is received.
+   * 
+   * @param { Callback<OnScreenCaptureRequestEvent> } callback Called when a screen capture request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8446,10 +8457,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether media playback needs to be triggered by user gestures.
+   * Set whether to manually play audio-only videos. The playback of muted videos is not controlled by this interface.
    *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
+   * @param { boolean } access Set whether to manually play audio-only videos.
+   *  {@code true}True means setting up automatic playback of audio videos requires users to manually click, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9185,9 +9197,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the playing state of audio on web page changed.
+   * Set the callback function when the audio playback status on the webpage changes.
    *
-   * @param { Callback<OnAudioStateChangedEvent> } callback The playing state of audio on web page.
+   * @param { Callback<OnAudioStateChangedEvent> } callback Callback invoked when the audio playback status on the webpage changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9577,9 +9589,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native media player to play web page media source.
+   * Enable the application takeover of web media playback feature.
    *
    * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
+   *    enable: whether to enable the feature, shouldOverlay: whether the image of the video player
+   *    taken over by the application will overlay the web page content, if this feature is enabled.
+   *    Default value: {enable: false, shouldOverlay: false}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
