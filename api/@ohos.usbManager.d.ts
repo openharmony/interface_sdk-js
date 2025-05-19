@@ -2374,6 +2374,7 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
    * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
    * @throws { BusinessError } 801 - Capability not supported. Current function do not supporte due to the limitition of the device capabilities.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 - USB Service connection exception. Possible causes: 1. No USB Device plugged in.
    * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
