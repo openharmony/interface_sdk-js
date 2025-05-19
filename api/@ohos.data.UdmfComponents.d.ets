@@ -24,7 +24,6 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  * @enum { number }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
- * @arkts 1.2
  */
 declare enum FormType {
   /**
@@ -32,7 +31,6 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   TYPE_BIG = 0,
 
@@ -41,7 +39,6 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   TYPE_MID = 1,
 
@@ -50,7 +47,6 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   TYPE_SMALL = 2
 }
@@ -61,7 +57,6 @@ declare enum FormType {
  * @struct { ContentFormCard }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
- * @arkts 1.2
  */
 @Component
 declare struct ContentFormCard {
@@ -71,7 +66,6 @@ declare struct ContentFormCard {
    * @type { uniformDataStruct.ContentForm }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   contentFormData: uniformDataStruct.ContentForm;
 
@@ -81,7 +75,6 @@ declare struct ContentFormCard {
    * @type { FormType }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   @Prop
   formType: FormType;
@@ -92,7 +85,6 @@ declare struct ContentFormCard {
    * @type { ?number }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   @Prop
   formWidth?: number;
@@ -103,7 +95,6 @@ declare struct ContentFormCard {
    * @type { ?number }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   @Prop
   formHeight?: number;
@@ -114,7 +105,6 @@ declare struct ContentFormCard {
    * @type { ?Function }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
-   * @arkts 1.2
    */
   handleOnClick?: Function;
 }
