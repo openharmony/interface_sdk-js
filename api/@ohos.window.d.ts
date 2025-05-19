@@ -3423,6 +3423,23 @@ declare namespace window {
    * @since 10
    */
   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Sets starting window background color
+   *
+   * @param { string } moduleName - module Name that needs to be set.
+   * @param { string } abilityName - ability Name that needs to be set.
+   * @param { ColorMetrics } color - Color metrics.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function setStartWindowBackgroundColor(moduleName: string, abilityName: string, color: ColorMetrics): Promise<void>;
+
   /**
    * Display orientation
    *
