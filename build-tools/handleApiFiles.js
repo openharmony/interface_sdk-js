@@ -125,7 +125,6 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
     writeFile(outputPath, fileContent);
     return;
   }
-
   if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
     handleFileInSecondType(apiRelativePath, fullPath, type, output);
   } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
@@ -357,7 +356,12 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
 }
 
-function getFileJsdoc(firstNode){
+/**
+ * 获取文件jsdoc
+ * @param {*} firstNode 
+ * @returns 
+ */
+function getFileJsdoc(firstNode) {
   const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
   const jsdocs = firstNodeJSDoc.split('*/');
   let fileJSDoc = '';
@@ -401,7 +405,6 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
       writeFile(outputPath, saveLatestJsDoc(fileContent));
     }
-    // TODO：api未标标签，删除文件
     return;
   }
   let newContent = getDeletionContent(sourceFile);
@@ -625,7 +628,7 @@ function collectDeletionApiName(node) {
   }
 
   if (ts.isImportDeclaration(node) && node.importClause?.name) {
-    deleteApiSet.add(importClause.name.escapedText.toString());
+    deleteApiSet.add(node.importClause.name.escapedText.toString());
     return;
   }
   const namedBindings = node.namedBindings;
