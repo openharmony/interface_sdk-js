@@ -5601,7 +5601,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of left align.
+   * Left alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5630,7 +5632,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of right align.
+   * Right alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5659,7 +5663,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of middle align.
+   * Horizontal center alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5688,7 +5694,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of top align.
+   * Top alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5716,7 +5724,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of bottom align.
+   * Bottom alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5744,7 +5754,9 @@ declare interface AlignRuleOption {
    * @since 10
    */
   /**
-   * The param of center align.
+   * Vertical center alignment.
+   * <br>anchor: ID of the component that functions as the anchor point.
+   * <br>align: alignment mode relative to the anchor component.
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5766,7 +5778,8 @@ declare interface AlignRuleOption {
    * @since 11
    */
   /**
-   * Defines the bias ratio in horizontal and vertical direction.
+   * Offset of the component under the anchor constraints.
+   * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
    * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
@@ -5790,7 +5803,7 @@ declare interface AlignRuleOption {
  */
 declare interface LocalizedHorizontalAlignParam {
   /**
-   * The anchor of localized align param.
+   * ID of the component that serves as the anchor.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5801,7 +5814,7 @@ declare interface LocalizedHorizontalAlignParam {
   anchor: string;
 
   /**
-   * The align of localized align param.
+   * Horizontal alignment mode relative to the anchor component.
    *
    * @type { HorizontalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5823,7 +5836,7 @@ declare interface LocalizedHorizontalAlignParam {
  */
 declare interface LocalizedVerticalAlignParam {
   /**
-   * The anchor of localized align param.
+   * ID of the component that serves as the anchor.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5834,7 +5847,7 @@ declare interface LocalizedVerticalAlignParam {
   anchor: string;
 
   /**
-   * The align of localized align param.
+   * Vertical alignment mode relative to the anchor component.
    *
    * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5856,7 +5869,7 @@ declare interface LocalizedVerticalAlignParam {
  */
 declare interface LocalizedAlignRuleOptions {
   /**
-   * The param of start align.
+   * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal direction.
    *
    * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5867,7 +5880,7 @@ declare interface LocalizedAlignRuleOptions {
   start?: LocalizedHorizontalAlignParam;
 
   /**
-   * The param of end align.
+   * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal direction.
    *
    * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5878,7 +5891,7 @@ declare interface LocalizedAlignRuleOptions {
   end?: LocalizedHorizontalAlignParam;
 
   /**
-   * The param of middle align.
+   * Center alignment in the horizontal direction.
    *
    * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5889,7 +5902,7 @@ declare interface LocalizedAlignRuleOptions {
   middle?: LocalizedHorizontalAlignParam;
 
   /**
-   * The param of top align.
+   * Top alignment in the vertical direction.
    *
    * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5900,7 +5913,7 @@ declare interface LocalizedAlignRuleOptions {
   top?: LocalizedVerticalAlignParam;
 
   /**
-   * The param of bottom align.
+   * Bottom alignment in the vertical direction.
    *
    * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5911,7 +5924,7 @@ declare interface LocalizedAlignRuleOptions {
   bottom?: LocalizedVerticalAlignParam;
 
   /**
-   * The param of center align.
+   * Center alignment in the vertical direction.
    *
    * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5922,7 +5935,8 @@ declare interface LocalizedAlignRuleOptions {
   center?: LocalizedVerticalAlignParam;
 
   /**
-   * Defines the bias ratio in horizontal and vertical direction.
+   * Offset of the component under the anchor constraints.
+   * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
    * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
@@ -5935,7 +5949,7 @@ declare interface LocalizedAlignRuleOptions {
 }
 
 /**
- * Defines the style of the chain in relative container.
+ * Enumerates the chain styles in relative container.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5945,7 +5959,7 @@ declare interface LocalizedAlignRuleOptions {
  */
 declare enum ChainStyle {
   /**
-   * Elements of the chain will be spread out.
+   * Child components are evenly distributed among constraint anchors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5955,7 +5969,7 @@ declare enum ChainStyle {
   SPREAD,
 
   /**
-   * Elements except chain's head and tail will be spread out.
+   * All child components except the first and last ones are evenly distributed among constraint anchors.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5965,7 +5979,7 @@ declare enum ChainStyle {
   SPREAD_INSIDE,
 
   /**
-   * Elements of the chain will be packed together.
+   * There is no gap between child components in the chain.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10036,7 +10050,7 @@ declare interface MultiShadowOptions {
  * @since 10
  */
 /**
- * Enumerates the safe area types.
+ * The types of expanded safe areas.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10052,7 +10066,7 @@ declare enum SafeAreaType {
    * @since 10
    */
   /**
-   * Default area of the system, including the status bar and navigation bar.
+   * Default non-safe area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10068,7 +10082,7 @@ declare enum SafeAreaType {
    * @since 10
    */
   /**
-   * Notch or punch hole.
+   * Non-safe area of the device like Notch or punch hole.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10118,7 +10132,7 @@ declare enum SafeAreaEdge {
    * @since 10
    */
   /**
-   * Top edge of the safe area.
+   * Top edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10134,7 +10148,7 @@ declare enum SafeAreaEdge {
    * @since 10
    */
   /**
-   * Bottom edge of the safe area.
+   * Bottom edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10150,7 +10164,7 @@ declare enum SafeAreaEdge {
    * @since 10
    */
   /**
-   * Start edge of the safe area.
+   * Start edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10166,7 +10180,7 @@ declare enum SafeAreaEdge {
    * @since 10
    */
   /**
-   * End edge of the safe area.
+   * End edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10177,7 +10191,7 @@ declare enum SafeAreaEdge {
 }
 
 /**
- * Enumerates the safe area types can be ignored.
+ * Describe the types for expanding the safe area in layout.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10187,7 +10201,7 @@ declare enum SafeAreaEdge {
  */
 declare enum LayoutSafeAreaType {
   /**
-   * Default area of the system, including the status bar and navigation bar.
+   * Default non-safe area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10198,7 +10212,7 @@ declare enum LayoutSafeAreaType {
 }
 
 /**
- * Enumerates the safe area edges can be ignored.
+ *  Define the edges for expanding the safe area in layout.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10208,7 +10222,7 @@ declare enum LayoutSafeAreaType {
  */
 declare enum LayoutSafeAreaEdge {
   /**
-   * Top edge of the safe area.
+   * Top edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10218,7 +10232,7 @@ declare enum LayoutSafeAreaEdge {
   TOP = 0,
 
   /**
-   * Bottom edge of the safe area.
+   * Bottom edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12201,8 +12215,8 @@ declare interface AxisEvent extends BaseEvent {
 
 /**
  * Defines the callback type used in onSizeChange.
- * The value of oldValue is last size of the component.
- * The value of newValue is new size of the component.
+ * <br>oldValue - the width and height of the component before the change.
+ * <br>newValue - the width and height of the component after the change.
  *
  * @typedef { function } SizeChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19898,7 +19912,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the width of the current component.
+   * Sets the width of the component. By default, the width required to fully hold the
+   * component content is used.If the width of the component is greater than that of
+   * the parent container, the component will be drawn beyond the parent container scope.
    *
    * @param { Length } value
    * @returns { T }
@@ -19910,7 +19926,10 @@ declare class CommonMethod<T> {
    */
   width(value: Length): T;
   /**
-   * Sets the width of the current component.
+   * Sets the width of the component or its horizontal layout policy. By default, the
+   * component uses the width required for its content. If the width of the component is
+   * greater than that of the parent container, the component will be drawn beyond the
+   * parent container scope.
    *
    * @param { Length | LayoutPolicy } widthValue
    * @returns { T }
@@ -19950,7 +19969,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the height of the current component.
+   * Sets the height of the component. By default, the height required to fully hold the
+   * component content is used. If the height of the component is greater than that of
+   * the parent container, the component will be drawn beyond the parent container scope.
    *
    * @param { Length } value
    * @returns { T }
@@ -19962,7 +19983,10 @@ declare class CommonMethod<T> {
    */
   height(value: Length): T;
   /**
-   * Sets the height of the current component.
+   * Sets the height of the component or its vertical layout policy. By default, the
+   * component uses the height required for its content. If the height of the component
+   * is greater than that of the parent container, the component will be drawn beyond
+   * the parent container scope.
    *
    * @param { Length | LayoutPolicy } heightValue
    * @returns { T }
@@ -20013,7 +20037,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Expands the safe area.
+   * Sets the safe area to be expanded to.
+   * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
+   * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}
    *
    * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
    * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
@@ -20114,7 +20140,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The size of the current component.
+   * Sets the size of the component.
    *
    * @param { SizeOptions } value
    * @returns { T }
@@ -20157,8 +20183,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * constraint Size:
-   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
+   * Sets the constraint size of the component, which is used to limit the size range during component layout.
+   * Default value: **{minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}**.
    *
    * @param { ConstraintSizeOptions } value
    * @returns { T }
@@ -20262,7 +20288,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Defines the weight of the component, according to which the remain part of main-axis is allocated self-adaptively
+   * Sets the weight of the component during layout. A component with this attribute is allocated space
+   * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
+   * Default value: **0**.
    *
    * @param { number | string } value
    * @returns { T }
@@ -20275,7 +20303,8 @@ declare class CommonMethod<T> {
   layoutWeight(value: number | string): T;
 
   /**
-   * chain Weight
+   * Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
+   * <br>This API has effect only when the parent container is RelativeContainer.
    *
    * @param { ChainWeightOptions } chainWeight
    * @returns { T }
@@ -20325,7 +20354,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Inner margin.
+   * Sets the padding of the component.
+   * Default value: **0**.
    *
    * @param { Padding | Length | LocalizedPadding } value
    * @returns { T }
@@ -20338,7 +20368,9 @@ declare class CommonMethod<T> {
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
-   * Inner safeArea padding.
+   * Sets the safe area padding. It enables a container to add a component-level
+   * safe area for child components to expand into.
+   * Default value: **LengthMetrics.vp(0)**
    *
    * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
    * @returns { T }
@@ -20389,7 +20421,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Outer Margin.
+   * Sets the margin of the component.
+   * Default value: **0**.
    *
    * @param { Margin | Length | LocalizedMargin } value
    * @returns { T }
@@ -20482,9 +20515,10 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor>): T;
 
   /**
-   * PixelRound
+   * Sets the pixel rounding policy for the current component in the specified direction.
+   * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
    *
-   * @param { PixelRoundPolicy } value - indicates the pixel round policy.
+   * @param { PixelRoundPolicy } value - indicates the rounding policy for the bounds of the component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20992,8 +21026,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Border
-   * width:Border width;color:Border color;radius:Border radius;
+   * Sets the border.
    *
    * @param { BorderOptions } value
    * @returns { T }
@@ -21033,7 +21066,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Border style
+   * Sets the border style.
+   * Default value: **BorderStyle.Solid**.
    *
    * @param { BorderStyle | EdgeStyles } value
    * @returns { T }
@@ -21084,7 +21118,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Border width
+   * Sets the border width.
+   * Percentage values are not supported.
    *
    * @param { Length | EdgeWidths | LocalizedEdgeWidths } value
    * @returns { T }
@@ -21135,8 +21170,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Border color
-   *
+   * Sets the border color.
+   * Default value: **Color.Black**.
    * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21186,7 +21221,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Border radius
+   * Sets the radius of the border rounded corners.
+   * <br>The radius is restricted by the component size. The maximum value is half of the component width or height.
    *
    * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
    * @returns { T }
@@ -23855,7 +23891,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
+   * Sets the percentage of the parent container's remaining space that is allocated to the component.
+   * Default value: **0**.
    *
    * @param { number } value
    * @returns { T }
@@ -23895,7 +23932,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
+   * Sets the percentage of the parent container's shrink size that is allocated to the component.
+   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex..
    *
    * @param { number } value
    * @returns { T }
@@ -23935,7 +23973,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * Sets the base size of the component in the main axis of the parent container.
+   * Default value: **'auto'**.
    *
    * @param { number | string } value
    * @returns { T }
@@ -23975,7 +24014,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Overrides the default configuration of alignItems in the Flex Layout container.
+   * Sets the alignment mode of the child components along the cross axis of the parent container.
+   * Default value: **ItemAlign.Auto**.
    *
    * @param { ItemAlign } value
    * @returns { T }
@@ -24028,7 +24068,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
+   * Sets the display priority for the component in the layout container.
+   * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
    *
    * @param { number } value
    * @returns { T }
@@ -24158,7 +24199,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * Sets how elements are laid out along the main axis of the container.
+   * Default value: **Direction.Auto**.
    *
    * @param { Direction } value
    * @returns { T }
@@ -24198,7 +24240,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * align
+   * Sets the alignment mode of the component content in the drawing area.
+   * Default value: **Alignment.Center**.
    *
    * @param { Alignment } value
    * @returns { T }
@@ -24262,7 +24305,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * position
+   * Sets the absolute position of the component relative to the position of the parent component.
+   * <br>The attribute is not available for a layout container whose width and height are zero.
    *
    * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
@@ -24313,7 +24357,8 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   * Sets the anchor for locating the component, which is used to move the component
+   * further away from the position specified by position or offset.
    *
    * @param { Position | LocalizedPosition} value
    * @returns { T }
@@ -24368,8 +24413,9 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Coordinate offset relative to the layout completion position.
-   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   * Sets the offset of the component relative to its original position.
+   * <br>The offset attribute does not affect the layout of the parent container.
+   * It adjusts the component position only during drawing.
    *
    * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
@@ -24462,7 +24508,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Specifies the alignRules of relative container
+   * Sets the alignment rules in the relative container.
+   * This API is valid only when the container is RelativeContainer.
    *
    * @param { AlignRuleOption } value
    * @returns { T }
@@ -24475,7 +24522,11 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
-   * Specifies the localized alignRules of relative container
+   * Sets the alignment rules in the relative container.
+   * <br>This API is valid only when the container is RelativeContainer.
+   * <br>This API takes the right-to-left scripts into account, using start and end instead of
+   * left and right for alignment in the horizontal direction. Prioritize this API in aligning
+   * child components in the relative container.
    *
    * @param { LocalizedAlignRuleOptions } alignRule
    * @returns { T }
@@ -24488,7 +24539,11 @@ declare class CommonMethod<T> {
   alignRules(alignRule: LocalizedAlignRuleOptions): T;
 
   /**
-   * Specifies the direction and style of chain in relative container
+   * Sets the parameters of the chain in which the component is the head.
+   * <br>This parameter has effect only when the parent container is RelativeContainer.
+   * <br>The chain head is the first component in the chain that satisfies the chain formation rules.
+   * In a horizontal layout, it starts from the left (or from the right in a mirrored language
+   * layout). In a vertical layout, it starts from the top.
    *
    * @param { Axis } direction - indicates direction of the chain
    * @param { ChainStyle } style - indicates style of the chain
@@ -24528,7 +24583,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Specifies the aspect ratio of the current component.
+   * Sets the aspect ratio of the component, which can be obtained using the following formula: width/height.
+   * <br>If only width and aspectRatio are set, the height is calculated using the following formula: width/aspectRatio.
+   * <br>If only height and aspectRatio are set, the width is calculated using the following formula: height x aspectRatio.
+   * <br>If width, height, and aspectRatio are all set, the explicitly set height is ignored, and the effective height is
+   * calculated using the following formula: width/aspectRatio.
+   * <br>This parameter takes effect only when a valid value greater than 0 is specified.
    *
    * @param { number } value
    * @returns { T }
@@ -27068,7 +27128,8 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
-   * This callback is triggered when the size of this component change finished.
+   * This callback is triggered when the component size changes due to layout updates.
+   * This event is not triggered for render attribute changes caused by re-rendering.
    *
    * @param { SizeChangeCallback } event - event callback.
    * @returns { T }
@@ -28219,7 +28280,7 @@ declare interface LinearGradient {
 }
 
 /**
- * Defines the pixel round property.
+ * Defines the direction of pixel rounding at the component level.
  *
  * @interface PixelRoundPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28230,7 +28291,7 @@ declare interface LinearGradient {
  */
 declare interface PixelRoundPolicy {
   /**
-   * start property.
+   * Rounding for alignment with the start edge.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -28243,7 +28304,7 @@ declare interface PixelRoundPolicy {
   start?: PixelRoundCalcPolicy;
 
   /**
-   * top property.
+   * Rounding for alignment with the top edge.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -28256,7 +28317,7 @@ declare interface PixelRoundPolicy {
   top?: PixelRoundCalcPolicy;
 
   /**
-   * end property.
+   * Rounding for alignment with the end edge.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -28269,7 +28330,7 @@ declare interface PixelRoundPolicy {
   end?: PixelRoundCalcPolicy;
 
   /**
-   * bottom property.
+   * Rounding for alignment with the bottom edge.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -28623,7 +28684,7 @@ declare interface GeometryInfo extends SizeResult {
  * @since 10
  */
 /**
- * Sub component info passed from framework when layout happens.
+ * Provides the child component layout information.
  *
  * @interface Layoutable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28671,7 +28732,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
+   * Applies the specified position information to the child component.
    *
    * @param { Position } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28682,7 +28743,7 @@ declare interface Layoutable {
   layout(position: Position): void,
 
   /**
-   * Call this method to get the margin of sub component.
+   * Obtains the margin of the child component.
    *
    * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28695,7 +28756,7 @@ declare interface Layoutable {
   /**
    * Call this method to get the padding of sub component.
    *
-   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Padding of the child component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -28704,7 +28765,7 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>,
  
   /**
-   * Call this method to get the borderWidth of sub component.
+   * Obtains the border width of the child component.
    *
    * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28734,7 +28795,7 @@ declare interface Layoutable {
  */
 declare interface Measurable {
   /**
-   * Unique ID of the child component.
+   * Unique ID that the system assigns to the child component.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28754,10 +28815,10 @@ declare interface Measurable {
    * @since 10
    */
   /**
-   * Call this measure method in onMeasure callback to supply sub component size.
+   * Applies the size constraint to the child component.
    *
    * @param { ConstraintSizeOptions } constraint
-   * @returns { MeasureResult }
+   * @returns { MeasureResult } Provides the measurement result of the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -28766,9 +28827,9 @@ declare interface Measurable {
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
   /**
-   * Call this method to get the margin of sub component.
+   * Obtains the margin of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Margin of the child component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -28777,7 +28838,7 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>,
 
   /**
-   * Call this method to get the padding of sub component.
+   * Obtains the padding of the child component.
    *
    * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28788,9 +28849,9 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Call this method to get the borderWidth of sub component.
+   * Obtains the border width of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Border width of the child component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -28808,7 +28869,7 @@ declare interface Measurable {
  * @since 10
  */
 /**
- * Sub component SizeResult info.
+ * Provides the component size information.
  *
  * @interface SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28826,7 +28887,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Width obtained from the measurement result.
+   * Width obtained from the measurement result. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28845,7 +28906,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Height obtained from the measurement result.
+   * Height obtained from the measurement result. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28866,7 +28927,7 @@ declare interface SizeResult {
  * @since 10
  */
 /**
- * Sub component MeasureResult info.
+ * Provides the measurement result of the component.
  *
  * @extends SizeResult
  * @interface MeasureResult
@@ -29863,7 +29924,7 @@ declare class View {
  * @since 10
  */
 /**
- * Rect info.
+ * Describe the position, width, and height of a component.
  *
  * @interface RectResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29880,7 +29941,7 @@ declare interface RectResult {
    * @since 10
    */
   /**
-   * x:Horizontal coordinate relative to the component.
+   * Horizontal coordinate.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29898,7 +29959,7 @@ declare interface RectResult {
    * @since 10
    */
   /**
-   * y:Vertical axis coordinate relative to the component.
+   * Vertical coordinate.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29916,7 +29977,7 @@ declare interface RectResult {
    * @since 10
    */
   /**
-   * Get the width of the current textRect.
+   * Content width.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29934,7 +29995,7 @@ declare interface RectResult {
    * @since 10
    */
   /**
-   * Get the height of the current textRect.
+   * Content height.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31429,7 +31490,7 @@ declare interface UICommonEvent {
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
 
   /**
-  * Set or reset the callback which is triggered when the size of component changed.
+  * Sets the callback for the onSizeChange event.
   *
   * @param { SizeChangeCallback | undefined } callback - The callback will be triggered when the size of component changed. If set undefined will reset the target callback.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31440,7 +31501,7 @@ declare interface UICommonEvent {
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   * Sets the onVisibleAreaChange callback that limits the callback interval.
    *
    * @param { VisibleAreaEventOptions } options - The options for the visibility event.
    * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.

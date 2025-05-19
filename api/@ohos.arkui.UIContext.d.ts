@@ -3565,7 +3565,8 @@ export class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * Set KeyboardAvoidMode. The default mode is KeyboardAvoidMode.OFFSET
+   * Sets the avoidance mode for the virtual keyboard.<br>
+   * Default mode: **KeyboardAvoidMode.OFFSET**.
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3576,7 +3577,7 @@ export class UIContext {
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
   /**
-   * Get KeyboardAvoidMode.
+   * Obtains the avoidance mode of the virtual keyboard.
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4215,7 +4216,7 @@ export class UIContext {
 
 export const enum KeyboardAvoidMode {
   /**
-  * Default Type, offset the whole page when keyBoard height changed.
+  * Offset Type, the layout moves up.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -4224,7 +4225,7 @@ export const enum KeyboardAvoidMode {
   OFFSET = 0,
 
   /**
-   * Resize Type, resize the page when keyBoard height changed.
+   * Resize Type, the layout is resized.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -4233,7 +4234,7 @@ export const enum KeyboardAvoidMode {
   RESIZE = 1,
 
   /**
-  * Offset Type, offset the whole page when caret position or keyboard height changed.
+  * Offset Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -4242,7 +4243,7 @@ export const enum KeyboardAvoidMode {
   OFFSET_WITH_CARET = 2,
 
   /**
-  * Resize Type, resize the whole page when when caret position or keyboard height changed.
+  * Resize Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -4251,7 +4252,7 @@ export const enum KeyboardAvoidMode {
   RESIZE_WITH_CARET = 3,
 
   /**
-  * None Type, nothing to do when keyboard height changed.
+  * None Type, the layout is not adjusted to avoid the keyboard.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
