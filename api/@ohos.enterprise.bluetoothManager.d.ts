@@ -191,6 +191,60 @@ declare namespace bluetoothManager {
    * @since 12
    */
   function getAllowedBluetoothDevices(admin: Want): Array<string>;
+  
+  /**
+   * Adds devices to the list of bluetooth devices that are disallowed to be connected.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } deviceIds - IDs of the bluetooth devices to be added to the list.
+   *                                      The size of the array after setting cannot be greater than 1000.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function addDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void;
+
+  /**
+   * Removes devices from the list of bluetooth devices that are disallowed to be connected.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } deviceIds - IDs of the bluetooth devices to be removed from the list.
+   *                                      The size of the array after setting cannot be greater than 1000.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void;
+
+  /**
+   * Gets the devices in the list of bluetooth devices that are disallowed to be connected.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @returns { Array<string> } IDs of the bluetooth devices in the list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getDisallowedBluetoothDevices(admin: Want): Array<string>;
 }
 
 export default bluetoothManager;
