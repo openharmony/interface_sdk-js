@@ -2439,6 +2439,20 @@ declare namespace relationalStore {
      * @since 12
      */
     notLike(field: string, value: string): RdbPredicates;
+
+    /**
+     * Filters the grouped data that meets the specified conditions.
+     *
+     * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
+     * @param { Array<ValueType> } args - Parameters to be used in the conditions.
+     * @returns { RdbPredicates } - Returns the RdbPredicates object.
+     * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. conditions is empty;
+     * <br>2. The GROUP BY clause is missing.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    having(conditions:string, args?: Array<ValueType>): RdbPredicates;
   }
 
   /**
