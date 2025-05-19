@@ -82,7 +82,6 @@ declare namespace media {
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
    * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
-   *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
@@ -90,7 +89,6 @@ declare namespace media {
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
    * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
-   *  null is returned otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
@@ -203,9 +201,6 @@ declare namespace media {
    * @param { Array<MediaStream> } streams - Array of MediaStream objects.
    * The supported streaming media format is HTTP-FLV.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-   * @throws { BusinessError } 5400101 - No memory.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 19
@@ -3923,7 +3918,7 @@ declare namespace media {
    * <br>**NOTE:**<br>
    * The client must return the handle immediately after processing the request.
    * @typedef { function } SourceCloseCallback
-   * @param { number } uuid - 	ID for the resource handle.
+   * @param { number } uuid - ID for the resource handle.
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
