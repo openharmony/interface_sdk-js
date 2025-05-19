@@ -672,6 +672,21 @@ declare namespace inputMethod {
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
 
     /**
+     * Attach application to the input method service.
+     *
+     * @param { boolean } showKeyboard - show the keyboard or not when attach the input method.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+    /**
      * Show the text input and start typing.
      *
      * @param { AsyncCallback<void> } callback - the callback of showTextInput.
@@ -695,6 +710,18 @@ declare namespace inputMethod {
      */
     showTextInput(): Promise<void>;
 
+    /**
+     * Show the text input and start typing.
+     *
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
      * Hide the text input and stop typing.
      *
@@ -1897,6 +1924,39 @@ declare namespace inputMethod {
      * @since 10
      */
     height: double;
+  }
+  /**
+   *  requestKeyboardReason of input click 
+   *
+   * @enum { int }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  export enum RequestKeyboardReason {
+    /**
+      * The request keyboard reason is NONE.
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    NONE = 0,
+    /**
+     * The request keyboard reason is MOUSE.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    MOUSE = 1,
+    /**
+     * The request keyboard reason is TOUCH.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    TOUCH = 2,
+    /**
+     * The request keyboard reason is OTHER.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    OTHER = 20
   }
 }
 
