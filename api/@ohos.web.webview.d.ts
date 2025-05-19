@@ -5355,7 +5355,7 @@ declare namespace webview {
      * @since 10
      */
     /**
-     * Set audio muted.
+     * Set webpage mute.
      * @param { boolean } mute - Set the audio muted or not.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
