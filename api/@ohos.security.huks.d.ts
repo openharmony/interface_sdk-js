@@ -2215,7 +2215,7 @@ declare namespace huks {
    * Export the wrapped key protected by a specific key.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the export properties.
+   * @param { HuksOptions } params - params indicates the export properties.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2229,13 +2229,13 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
    */
-  function wrapKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+  function wrapKeyItem(keyAlias: string, params: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * Import the wrapped key protected by a specific key
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the import properties.
+   * @param { HuksOptions } params - params indicates the import properties.
    * @param { Uint8Array } wrappedKey -indicates the wrapped key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
@@ -2254,7 +2254,7 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
    */
-  function unwrapKeyItem(keyAlias: string, options: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
+  function unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
   /**
    * Interface of huks param.
