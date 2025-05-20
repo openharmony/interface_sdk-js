@@ -18,7 +18,7 @@
  * @kit ArkGraphics3D
  */
 
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -284,12 +284,12 @@ export interface SceneComponent {
   /**
    * Component properties
    * 
-   * @type { Record<string, string | number | Vec2 | Vec3 | Vec4 | Image | boolean | number[] | string[] | Image[]> }
+   * @type { Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[]> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  readonly property: Record<string, string | number | Vec2 | Vec3 | Vec4 | Image | boolean | number[] | string[] | Image[]>;
+  readonly property: Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[]>;
 }
 
 /** 
@@ -347,6 +347,16 @@ export interface RenderParameters {
  * @since 12
  */
 export class Scene {
+  /**
+   * Get default render context
+   *
+   * @returns { RenderContext | null } -- The default RenderContext instance
+   * @static
+   * @syscap SystemCapability.ArkUI.Graphic3D
+   * @since 20
+   */
+  static getDefaultRenderContext(): RenderContext | null;
+
   /**
    * Create a new scene from a ResourceStr.
    *
@@ -472,12 +482,4 @@ export class Scene {
     * @since 20
     */
   getComponent(node: Node, name: string): SceneComponent | null;
-
-  /**
-   * get render context
-   * @returns { RenderContext | null }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   */
-  getRenderContext(): RenderContext | null
 }
