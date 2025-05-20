@@ -223,6 +223,21 @@ declare namespace reminderAgentManager {
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
 
   /**
+   * Updates a reminder.
+   *
+   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
+   * @param { reminderId } number - Indicates the reminder id.
+   * @param { ReminderRequest } reminderReq - Indicates the reminder.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 1700003 - The reminder does not exist.
+   * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   */
+  function updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise<void>;
+
+  /**
    * Declares action button type.
    *
    * @enum { number }
