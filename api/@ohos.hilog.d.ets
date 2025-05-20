@@ -81,7 +81,7 @@ declare namespace hilog {
    * @since 11
    */
   export function debug(domain: number, tag: string, format: string,
-    ...args: (int|boolean|number|string|bigint|Object|undefined|null)[]): void;
+    ...args: (int | boolean | number | string | bigint | Object | undefined | null)[]): void;
 
   /**
    * Outputs info-level logs.
@@ -120,7 +120,7 @@ declare namespace hilog {
    * @since 11
    */
   export function info(domain: number, tag: string, format: string,
-    ...args: (int|boolean|number|string|bigint|Object|undefined|null)[]): void;
+    ...args: (int | boolean | number | string | bigint | Object | undefined | null)[]): void;
 
   /**
    * Outputs warning-level logs.
@@ -159,7 +159,7 @@ declare namespace hilog {
    * @since 11
    */
   export function warn(domain: number, tag: string, format: string,
-    ...args: (int|boolean|number|string|bigint|Object|undefined|null)[]): void;
+    ...args: (int | boolean | number | string | bigint | Object | undefined | null)[]): void;
 
   /**
    * Outputs error-level logs.
@@ -198,7 +198,7 @@ declare namespace hilog {
    * @since 11
    */
   export function error(domain: number, tag: string, format: string,
-    ...args: (int|boolean|number|string|bigint|Object|undefined|null)[]): void;
+    ...args: (int | boolean | number | string | bigint | Object | undefined | null)[]): void;
 
   /**
    * Outputs fatal-level logs.
@@ -237,7 +237,7 @@ declare namespace hilog {
    * @since 11
    */
   export function fatal(domain: number, tag: string, format: string,
-    ...args: (int|boolean|number|string|bigint|Object|undefined|null)[]): void;
+    ...args: (int | boolean | number | string | bigint | Object | undefined | null)[]): void;
 
   /**
    * Checks whether logs of the specified tag, and level can be printed.
