@@ -273,7 +273,7 @@ declare namespace power {
   /**
    * Sets the timeout duration(ms) for turning off the screen.
    *
-   * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -285,6 +285,21 @@ declare namespace power {
    * Sets the timeout duration(ms) for turning off the screen with permission.
    *
    * @permission ohos.permission.POWER_MANAGER
+   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 19
+   */
+  function setScreenOffTime(timeout: number): void;
+
+  /**
+   * Sets the timeout duration(ms) for turning off the screen with permission.
+   *
+   * @permission ohos.permission.POWER_MANAGER
    * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -292,8 +307,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   function setScreenOffTime(timeout: long): void;
 
