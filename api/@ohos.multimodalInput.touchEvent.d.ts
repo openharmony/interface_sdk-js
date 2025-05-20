@@ -195,7 +195,6 @@ export declare enum SourceType {
  * 
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @systemapi Hide this for inner system use.
  * @since arkts {'1.1':'18', '1.2':'20'}
  * @arkts 1.1&1.2
  */
@@ -204,7 +203,6 @@ export declare enum FixedMode {
    * Not fix.
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -214,11 +212,10 @@ export declare enum FixedMode {
    * One hand mode.
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  AUTO = 1
+  ONE_HAND = 1
 }
 
 /**
@@ -396,7 +393,6 @@ export declare interface Touch {
    * fixedDisplayX - Corrected value of the screen x coordinate.
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -406,7 +402,6 @@ export declare interface Touch {
    * fixedDisplayY - Corrected value of the screen y coordinate.
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -464,7 +459,6 @@ export declare interface TouchEvent extends InputEvent {
    * 
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
