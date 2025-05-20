@@ -1241,6 +1241,17 @@ interface DecorationStyleResult {
    * @since 12
    */
   style?: TextDecorationStyle;
+
+  /**
+   * The thicknessScale value of the decoration property object.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  thicknessScale?: number;
 }
 
 /**
