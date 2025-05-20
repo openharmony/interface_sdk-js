@@ -246,6 +246,7 @@ declare namespace accessibility {
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @atomicservice
    * @since 18
    */
   function isScreenReaderOpenSync(): boolean;
