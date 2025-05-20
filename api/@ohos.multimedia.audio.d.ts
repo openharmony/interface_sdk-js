@@ -4793,10 +4793,10 @@ declare namespace audio {
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * Subscribes to the active volume type change events.
-     * @param { 'activeVolumeTypeChange' } type - Type of the event to listen for.
+     * Subscribes to active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type Type of the event to listen for.
      * Only the activeVolumeTypeChange event is supported.
-     * @param { Callback<AudioVolumeType> } callback - Callback used to get active volume type.
+     * @param { Callback<AudioVolumeType> } callback Callback used to return the active volume type.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -4806,10 +4806,10 @@ declare namespace audio {
     on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
 
     /**
-     * Unsubscribes to the active volume type change events.
-     * @param { 'activeVolumeTypeChange' } type - Type of the event to be unregistered.
+     * Unsubscribes from active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type Type of the event unregister.
      * Only the activeVolumeTypeChange event is supported.
-     * @param { Callback<AudioVolumeType> } callback - Callback used to get active volume type.
+     * @param { Callback<AudioVolumeType> } callback Callback used to return the active volume type.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
