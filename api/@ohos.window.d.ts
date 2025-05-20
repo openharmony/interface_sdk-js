@@ -9527,16 +9527,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     */
-    /**
-     * The window stage is interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @deprecated
+     * @deprecated since 20
      * @useinstead ohos.window.WindowStageEventType#INTERACTIVE
      */
     RESUMED,
@@ -9548,16 +9539,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     */
-    /**
-     * The window stage is not interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @deprecated
+     * @deprecated since 20
      * @useinstead ohos.window.WindowStageEventType#NONINTERACTIVE
      */
     PAUSED,
