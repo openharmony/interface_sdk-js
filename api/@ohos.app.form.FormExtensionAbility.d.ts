@@ -19,7 +19,7 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-import formInfo from './@ohos.app.form.formInfo';
+// import formInfo from './@ohos.app.form.formInfo';
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
 /*** if arkts 1.1 */
