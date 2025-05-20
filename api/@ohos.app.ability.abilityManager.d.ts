@@ -528,8 +528,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 11
+   * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
 
