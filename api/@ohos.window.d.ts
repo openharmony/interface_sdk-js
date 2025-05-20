@@ -9544,7 +9544,7 @@ declare namespace window {
      */
     PAUSED,
     /**
-     * stage is interactive in the foreground.
+     * The window stage is interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -9554,7 +9554,7 @@ declare namespace window {
      */
     INTERACTIVE = 8,
     /**
-     * The window stage is not interactive in the foreground.
+     * The window stage is non-interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
