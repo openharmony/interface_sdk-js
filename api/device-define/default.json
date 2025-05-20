@@ -95,7 +95,6 @@
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
-    "SystemCapability.Telephony.CellularCall",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Telephony.SmsMms",
     "SystemCapability.Telephony.StateRegistry",
