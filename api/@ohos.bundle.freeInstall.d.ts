@@ -307,7 +307,7 @@ declare namespace freeInstall {
    * @typedef { _BundlePackInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type BundlePackInfo = _BundlePackInfo;
@@ -328,7 +328,7 @@ declare namespace freeInstall {
    * @typedef { _PackageConfig }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type PackageConfig = _PackageConfig;
@@ -349,7 +349,7 @@ declare namespace freeInstall {
    * @typedef { _PackageSummary }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type PackageSummary = _PackageSummary;
@@ -370,7 +370,7 @@ declare namespace freeInstall {
    * @typedef { _BundleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type BundleConfigInfo = _BundleConfigInfo;
@@ -391,7 +391,7 @@ declare namespace freeInstall {
    * @typedef { _ExtensionAbility }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type ExtensionAbility = _ExtensionAbility;
@@ -412,7 +412,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleConfigInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type ModuleConfigInfo = _ModuleConfigInfo;
@@ -433,7 +433,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleDistroInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type ModuleDistroInfo = _ModuleDistroInfo;
@@ -454,7 +454,7 @@ declare namespace freeInstall {
    * @typedef { _ModuleAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type ModuleAbilityInfo = _ModuleAbilityInfo;
@@ -475,7 +475,7 @@ declare namespace freeInstall {
    * @typedef { _AbilityFormInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type AbilityFormInfo = _AbilityFormInfo;
@@ -496,7 +496,7 @@ declare namespace freeInstall {
    * @typedef { _Version }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type Version = _Version;
@@ -517,7 +517,7 @@ declare namespace freeInstall {
    * @typedef { _ApiVersion }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
-   * @since arkts 20
+   * @since 20
    * @arkts 1.2
    */
   export type ApiVersion = _ApiVersion;
