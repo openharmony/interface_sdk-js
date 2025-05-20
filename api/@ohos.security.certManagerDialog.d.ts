@@ -313,16 +313,19 @@ declare namespace certificateManagerDialog {
   function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
   /**
-   * open certificate manager dialog and show the authorize page . Users can authorize the specified certificate for the application.
+   * Opens the authorization page of the certificate management dialog box. On the page displayed, the user can
+   * authorize a certificate for the application.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Hap context information
-   * @returns { Promise<string> } The uri of authorized certificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
-   * @throws { BusinessError } 29700002 - The user cancels the authorize operation.
+   * @param { common.Context } context Context of the HAP.
+   * @returns { Promise<string> } Promise used to return the URI of the certificate authorized.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   * permission required to call the API.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
+   * unspecified.
+   * 2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 Internal error.
+   * @throws { BusinessError } 29700002 The user cancels the authorization.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 20
