@@ -9535,8 +9535,9 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
-     * @deprecated since 20
+     * @since 20
+     * @deprecated
+     * @useinstead ohos.window.WindowStageEventType#INTERACTIVE
      */
     RESUMED,
     /**
@@ -9555,8 +9556,9 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
-     * @deprecated since 20
+     * @since 20
+     * @deprecated
+     * @useinstead ohos.window.WindowStageEventType#NONINTERACTIVE
      */
     PAUSED,
     /**
