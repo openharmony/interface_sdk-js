@@ -19799,6 +19799,17 @@ declare type Optional<T> = T | undefined;
 declare type TipsMessageType = ResourceStr | StyledString;
 
 /**
+ * Import the Matrix4Transit type object for common method.
+ *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
  * Define the options for background image.
  *
  * @interface BackgroundImageOptions
@@ -23689,6 +23700,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   transform(transform: Optional<object>): T;
+
+  /**
+   * Sets the transformation matrix for the current component.
+   * The interface can display the effect of three-dimensional matrix transformation.
+   *
+   * @param { Optional<Matrix4Transit> } transform - transform3D matrix
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  transform3D(transform: Optional<Matrix4Transit>): T;
 
   /**
    * This callback is triggered when a component mounts a display.
