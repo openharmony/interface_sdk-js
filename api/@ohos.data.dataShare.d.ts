@@ -175,7 +175,8 @@ declare namespace dataShare {
 
   /**
    * Specifies the {@link Template} id structure.
-   * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
+   * A template is marked by the template id. Note that the template id is auto generated
+   * in {@link DataShareHelper#addTemplate}.
    * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
    * 
    * @interface TemplateId
