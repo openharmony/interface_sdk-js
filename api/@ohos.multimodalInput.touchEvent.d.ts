@@ -18,7 +18,12 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
+/*** endif */
+/*** if arkts 1.2 */
+import { InputEvent } from './@ohos.multimodalInput.inputEvent';
+/*** endif */
 
 /**
  * Action
