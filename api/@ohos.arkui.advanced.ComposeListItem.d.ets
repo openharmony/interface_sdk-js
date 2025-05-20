@@ -569,7 +569,7 @@ export declare class OperateItem {
    * @since arkts {'1.2':'20'}
    * @arkts 1.2
    */
-  toggle?: OperateCheck;
+  public toggle?: OperateCheck;
 
   /**
    * Sets the checkBox.
