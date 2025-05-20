@@ -1719,12 +1719,11 @@ declare function copyFile(
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
 /**
- * Callback invoked immediately after the file is copied.
+ * Create class Stream.
  *
- * @param { string } path - Path or FD of the file to copy.
- * @param { string } mode - Whether to overwrite the file with the same name in the destination directory.
- * <br>The default value is 0, which is the only value supported.
- * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ * @param { string } path - path.
+ * @param { string } mode - mode.
+ * @returns { Promise<Stream> } return Promise
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2025,7 +2024,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * To close the stream, use close() of Stream.
  *
  * @param { string } path - Application sandbox path of the file.
- * @param { string } mode - -r: Open a file for reading. The file must exist.
+ * @param { string } mode - r: Open a file for reading. The file must exist.
  * <br>r+: Open a file for both reading and writing. The file must exist.
  * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
  * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
@@ -2741,7 +2740,6 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
  * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
  * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
- * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2757,7 +2755,6 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @throws { BusinessError } 13900017 - No such device
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
- * 
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900022 - Too many open files
  * @throws { BusinessError } 13900023 - Text file busy
@@ -2786,7 +2783,6 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
  * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
  * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
- * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2802,7 +2798,6 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @throws { BusinessError } 13900017 - No such device
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
- * 
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900022 - Too many open files
  * @throws { BusinessError } 13900023 - Text file busy
@@ -3139,7 +3134,7 @@ declare function listFileSync(
  * @since 11
  */
 /**
- *  Adjusts the position of the file offset pointer.
+ * Adjusts the position of the file offset pointer.
  *
  * @param { number } fd - FD of the file.
  * @param { number } offset - Number of bytes to move the offset.
@@ -4877,7 +4872,6 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
  * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
  * <br>This parameter is optional. By default, data is read from the filePointer.
- * @returns { AsyncCallback<number> } Callback used to return the length of the data read, in bytes.
  * @param { AsyncCallback<number> } callback - Callback used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -7450,7 +7444,7 @@ declare interface File {
    * Applies an exclusive lock or a shared lock on this file in non-blocking mode.
    *
    * @param { boolean } exclusive - Lock to apply. The value true means an exclusive lock,
-   * and the value false (default) means a shared lock.
+   * <br>and the value false (default) means a shared lock.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -7800,26 +7794,26 @@ declare interface RandomAccessFile {
    * @since 10
    */
   /**
-  * Reads data from a file. This API uses an asynchronous callback to return the result.
-  *
-  * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-  * @param { ReadOptions } [options] - The options are as follows:
-  * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
-  * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
-  * <br>This parameter is optional. By default, data is read from the filePointer.
-  * @param { AsyncCallback<number> } callback - Callback used to return the result.
-  * @throws { BusinessError } 13900004 - Interrupted system call
-  * @throws { BusinessError } 13900005 - I/O error
-  * @throws { BusinessError } 13900008 - Bad file descriptor
-  * @throws { BusinessError } 13900010 - Try again
-  * @throws { BusinessError } 13900013 - Bad address
-  * @throws { BusinessError } 13900019 - Is a directory
-  * @throws { BusinessError } 13900020 - Invalid argument
-  * @throws { BusinessError } 13900034 - Operation would block
-  * @throws { BusinessError } 13900042 - Unknown error
-  * @syscap SystemCapability.FileManagement.File.FileIO
-  * @since 11
-  */
+   * Reads data from a file. This API uses an asynchronous callback to return the result.
+   *
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is read from the filePointer.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   read(
     buffer: ArrayBuffer,
     options: ReadOptions,
