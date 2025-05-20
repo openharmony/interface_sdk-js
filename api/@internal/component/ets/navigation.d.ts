@@ -3274,6 +3274,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 15
    */
   enableModeChangeAnimation(isEnabled: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Set placeholder in split mode.
+   *
+   * @param { ComponentContent } placeholder - Set placeholder in split mode.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  splitPlaceholder(placeholder: ComponentContent): NavigationAttribute;
 }
 
 /**
