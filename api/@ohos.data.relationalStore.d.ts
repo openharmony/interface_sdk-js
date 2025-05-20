@@ -982,6 +982,7 @@ declare namespace relationalStore {
    *
    * @interface SqlInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since 20
    */
   interface SqlInfo {
@@ -990,6 +991,7 @@ declare namespace relationalStore {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
      */
     sql: string;
@@ -999,6 +1001,7 @@ declare namespace relationalStore {
      *
      * @type { Array<ValueType> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
      */
     args: Array<ValueType>;
@@ -8646,8 +8649,8 @@ declare namespace relationalStore {
      * @returns { SqlInfo } - Returns an SQL insert statement including parameters.
      * @throws { BusinessError } 14800001 - Invalid args.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
-     * @arkts 1.2
      */
     function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
@@ -8660,8 +8663,8 @@ declare namespace relationalStore {
      * @returns { SqlInfo } - Returns an SQL update statement including parameters.
      * @throws { BusinessError } 14800001 - Invalid args.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
-     * @arkts 1.2
      */
     function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
@@ -8670,9 +8673,10 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
      * @returns { SqlInfo } - Returns an SQL delete statement including parameters.
+     * @throws { BusinessError } 14800001 - Invalid args.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
-     * @arkts 1.2
      */
     function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
     
@@ -8682,9 +8686,10 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
      * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
      * @returns { SqlInfo } - Returns an SQL query statement including parameters.
+     * @throws { BusinessError } 14800001 - Invalid args.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 20
-     * @arkts 1.2
      */
     function getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>):SqlInfo;
 }
