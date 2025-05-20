@@ -208,7 +208,7 @@ declare interface PerfTestStrategy {
    * For example, the input parameter callback function of resetCode is defined as "(finish: Callback<boolean>)".
    * When resetCode is executed completly, "finish(true)" should be invoked, the value true indicates resetCode is successfully executed.
    * When an exception occurs, "finish(false)" should be invoked, the value false indicates resetCode is unsuccessfully executed.
-   *d
+   *
    * @type { ?Callback<Callback<boolean>> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -348,8 +348,9 @@ declare class PerfTest {
    * @param { PerfTestStrategy } strategy - test task execution strategy.
    * @returns { PerfTest } the {@link PerfTest} object.
    * @throws { BusinessError } 32400001 - Initialization failed.
-   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. Execute callback function failed.
+   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
+   * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @static
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -363,7 +364,11 @@ declare class PerfTest {
    * Start the performance test.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. Execute callback function failed.
+   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
+   * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes: 1. An exception is thrown in the callback. 2. Callback execution timed out.
+   * @throws { BusinessError } 32400005 - Failed to collect metric data.
+   * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
+   *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since arkts {'1.1':'20', '1.2':'20'}
@@ -377,8 +382,10 @@ declare class PerfTest {
    *
    * @param { PerfMetric } metric - performance metric for which the result will be get.
    * @returns { PerfMeasureResult } test results of specified performance metric.
-   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. Execute callback function failed.
+   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
+   * @throws { BusinessError } 32400006 - Failed to obtain the measurement result.
+   * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since arkts {'1.1':'20', '1.2':'20'}
@@ -388,15 +395,16 @@ declare class PerfTest {
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
 
   /**
-   * Destory the {@link PerfTest} object.
-   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. Execute callback function failed.
+   * Destroy the {@link PerfTest} object.
+   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
+   * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @test
    * @arkts 1.1&1.2
    */
-  destory(): void;
+  destroy(): void;
 }
 
 export {
