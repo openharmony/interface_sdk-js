@@ -46,6 +46,7 @@ declare namespace media {
   /**
    * Creates an AVPlayer instance.
    * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * The instance can be used to play audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
@@ -59,8 +60,17 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Creates an AVPlayer instance.
-   * @param { AsyncCallback<AVPlayer> } callback - used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an **AVPlayer** instance. This API uses an asynchronous callback to return the result.
+   * <br>**NOTE:**<br>
+   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
+   * playback scenarios.
+   * 
+   * The actual number of instances that can be created may be different. 
+   * It depends on the specifications of the device chip in use.
+   * 
+   * @param { AsyncCallback<AVPlayer> } callback - used to return the result. If the operation is successful, an
+   * **AVPlayer** instance is returned; otherwise, **null** is returned. The instance can be used to play
+   * audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -70,14 +80,14 @@ declare namespace media {
   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
 
   /**
-   * Creates an AVPlayer instance.
+   * Creates an AVPlayer instance. This API uses a promise to return the result.
    * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
    */
   /**
-   * Creates an AVPlayer instance.
+   * Creates an AVPlayer instance. This API uses a promise to return the result.
    * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -85,8 +95,17 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Creates an AVPlayer instance.
-   * @returns { Promise<AVPlayer> } A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
+   * Creates an **AVPlayer** instance. This API uses a promise to return the result.
+   * <br>**NOTE:**<br>
+   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
+   * playback scenarios.
+   * 
+   * The actual number of instances that can be created may be different. It depends on the specifications of
+   * the device chip in use.
+   * 
+   * @returns { Promise<AVPlayer> } Callback used to return the result. If the operation is successful, an 
+   * **AVPlayer** instance is returned; **null** is returned otherwise. The instance can be used to play
+   * audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -162,8 +181,9 @@ declare namespace media {
    * @since 12
    */
   /**
-   * Create MediaSource from url.
-   * @param { string } url : The location for the media source.
+   * Creates a media source for streaming media to be pre-downloaded.
+   * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
+   *  HTTP-FLV, DASH, and HTTPS.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -176,8 +196,10 @@ declare namespace media {
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
    /**
-   * Create media source from media stream array.
-   * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
+   * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate
+   * media source is supported.
+   * @param { Array<MediaStream> } streams - Array of MediaStream objects.
+   * The supported streaming media format is HTTP-FLV.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -371,7 +393,8 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Enumerates state change reason.
+   * Enumerates the reasons for the state transition of the **AVPlayer** or **AVRecorder** instance.
+   * The enum value is reported together with **state**.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -392,7 +415,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * State changed by user operation.
+     * State transition triggered by user behavior. It happens when a user or the client calls an API.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -412,7 +435,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * State changed by background action.
+     * State transition caused by background system behavior. For example, if an application does not have the permission of
+     * Media Controller, the application is forcibly suspended or stopped by the system when it switches to the background.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1257,7 +1281,7 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Enumerates ErrorCode types, return in BusinessError::code.
+   * Enumerates the media error codes, return in BusinessError::code.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1611,7 +1635,9 @@ declare namespace media {
 
    */
   /**
-   * Describes AVPlayer states.
+   * Enumerates the states of the AVPlayer. Your application can proactively obtain the AVPlayer state through the
+   * **state** attribute or obtain the reported AVPlayer state by subscribing to the
+   * [stateChange]{@link #stateChange} event.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -1621,10 +1647,10 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
-   * Define the TrackChange Event callback.
+   * Describes the callback invoked for the track change event.
    * @typedef { function } OnTrackChangeHandler
    * @param { number } index - index number for change Track.
-   * @param { boolean } isSelected - Target index number for moving elements.
+   * @param { boolean } isSelected - Status of the track, that is, whether the track is selected.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 12
@@ -1632,7 +1658,7 @@ declare namespace media {
   type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
 
   /**
-   * Defines the OnStateChange callback.
+   * Describes the callback invoked for the AVPlayer state change event.
    *
    * @typedef { function } OnAVPlayerStateChangeHandle
    * @param { AVPlayerState } state - state for AVPlayer.
@@ -1645,7 +1671,7 @@ declare namespace media {
   type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
 
   /**
-   * Defines the OnBufferingUpdateHandler callback.
+   * Describes the callback invoked for the buffering update event.
    *
    * @typedef { function } OnBufferingUpdateHandler
    * @param { BufferingInfoType } infoType - define the Buffering info Type.
@@ -1658,7 +1684,7 @@ declare namespace media {
   type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => void;
 
   /**
-   * Defines the OnVideoSizeChangeHandler callback.
+   * Describes the callback invoked for the video size change event.
    *
    * @typedef { function } OnVideoSizeChangeHandler
    * @param { number } width - Value of video Width.
@@ -1671,10 +1697,23 @@ declare namespace media {
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
 
   /**
-   * Defines the OnSuperResolutionChanged callback.
+   * Describes the callback used to listen for video super resolution status changes. If super resolution is enabled by
+   * using PlaybackStrategy, this callback is invoked to report the super resolution status changes. It is also invoked
+   * to report the initial status when the video starts. However, this callback is not invoked when super resolution is
+   * not enabled.
+   * 
+   * Super resolution is automatically disabled in either of the following cases:
+   * 
+   * 1.The current super resolution algorithm only works with videos that have a frame rate of 30 fps or lower. If the
+   * video frame rate exceeds 30 fps, or if the input frame rate exceeds the processing capability of the super 
+   * resolution algorithm in scenarios such as fast playback, super resolution is automatically disabled.
+   * 
+   * 2.The current super resolution algorithm supports input resolutions from 320 x 320 to 1920 x 1080, in px. If the
+   * input video resolution exceeds the range during playback, super resolution is automatically disabled.
    *
    * @typedef { function } OnSuperResolutionChanged
-   * @param { boolean } enabled - Super-resolution enabled or not.
+   * @param { boolean } enabled - Whether super resolution is enabled. The value **true** means that it is enabled,
+   * and **false** means the opposite.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 18
@@ -1682,7 +1721,7 @@ declare namespace media {
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
   /**
-   * SEI message.
+   * Describes the information of an SEI message.
    *
    * @typedef SeiMessage
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1710,7 +1749,8 @@ declare namespace media {
   }
 
   /**
-   * Defines the OnSeiMessageHandle callback.
+   * Describes the handle used to obtain SEI messages. This is used when in subscriptions to SEI message events,
+   * and the callback returns detailed SEI information.
    *
    * @typedef { function } OnSeiMessageHandle
    * @param { Array<SeiMessage> } messages - SEI messages.
@@ -1740,7 +1780,15 @@ declare namespace media {
    */
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
-   * to create an AVPlayer instance.
+   * to create an **AVPlayer** instance.
+   * <br>For details about the audio and video playback demo, see Audio Playback and Video Playback.
+   * <br>**NOTE:**<br>
+   * When using the **AVPlayer** instance, you are advised to register the following callbacks to proactively
+   * obtain status changes:
+   * 
+   * on('stateChange'): listens for AVPlayer state changes.
+   * 
+   * on('error'): listens for error events.
    *
    * @typedef AVPlayer
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1750,7 +1798,8 @@ declare namespace media {
    */
   interface AVPlayer {
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called
+     * only when the AVPlayer is in the initialized state.
      * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
@@ -1758,7 +1807,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called
+     * only when the AVPlayer is in the initialized state.
      * @param { AsyncCallback<void> } callback used to return the result when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
@@ -1767,7 +1817,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called only
+     * when the AVPlayer is in the initialized state.
      * 
      * <p>If your application frequently switches between short videos, you can create multiple AVPlayer
      * objects to prepare the next video in advance, thereby improving the switching performance.
@@ -1785,7 +1836,8 @@ declare namespace media {
     prepare(callback: AsyncCallback<void>): void;
 
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called
+     * only when the AVPlayer is in the initialized state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
@@ -1793,7 +1845,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called
+     * only when the AVPlayer is in the initialized state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
@@ -1802,7 +1855,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Prepare audio/video playback, it will request resource for playing. This API can be called only when the AVPlayer is in the initialized state.
+     * Prepare audio/video playback, it will request resource for playing. This API can be called
+     * only when the AVPlayer is in the initialized state.
      * 
      * <p>If your application frequently switches between short videos, you can create multiple AVPlayer
      * objects to prepare the next video in advance, thereby improving the switching performance.
@@ -1924,14 +1978,16 @@ declare namespace media {
     pause(): Promise<void>;
 
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1939,7 +1995,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @param { AsyncCallback<void> } callback used to return the result when stop completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1950,14 +2007,16 @@ declare namespace media {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1965,7 +2024,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared, playing, paused or completed state.
+     * Stop audio/video playback. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused or completed state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1976,14 +2036,16 @@ declare namespace media {
     stop(): Promise<void>;
 
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1991,7 +2053,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @param { AsyncCallback<void> } callback used to return the result when reset completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2002,14 +2065,16 @@ declare namespace media {
     reset(callback: AsyncCallback<void>): void;
 
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2017,7 +2082,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
+     * Reset AVPlayer, it will be set to idle state and can set src again. This API can be called only when
+     * the AVPlayer is in the initialized, prepared, playing, paused, completed, stopped or error state.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2080,14 +2146,16 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state.
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2095,9 +2163,14 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
-     * @param { number } timeMs - Playback position to jump, should be in [0, duration].
-     * @param { SeekMode } mode - See @SeekMode .
+     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state.
+     * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
+     * This API is not supported in live mode.
+     * @param { number } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
+     * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
+     * Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2112,8 +2185,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Sets the volume.
-     * @param { number } volume - Relative volume. The value ranges from 0.00 to 1.00. The value 1 indicates the maximum volume (100%).
+     * Sets the volume. This API can be called only when the AVPlayer is in the prepared, playing,
+     * paused, or completed state.
+     * You can check whether the setting takes effect by subscribing to the volumeChange event.
+     * @param { number } volume - Relative volume. The value ranges from 0.00 to 1.00.
+     * The value **1.00** indicates the maximum volume (100%).
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2137,8 +2213,12 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Get all track infos in MediaDescription, should be called after data loaded callback.
+     * Obtains the audio and video track information. This API can be called only when the AVPlayer is in the prepared,
+     * playing, or paused state. To obtain information about all audio and video tracks, this API must be called after
+     * the data loading callback is triggered. This API uses an asynchronous callback to return the result.
      * @param { AsyncCallback<Array<MediaDescription>> } callback - Async callback return track info in MediaDescription.
+     * If the operation is successful, err is undefined and data is the MediaDescription array obtained;
+     * otherwise, err is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2163,7 +2243,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Get all track infos in MediaDescription, should be called after data loaded callback.
+     * Obtains the audio and video track information. This API can be called only when the AVPlayer is in the prepared,
+     * playing, or paused state. This API uses a promise to return the result.
      * @returns { Promise<Array<MediaDescription>> } A Promise instance used to return the track info in MediaDescription.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2174,7 +2255,8 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
-     * Get selected tracks, should be called after prepared state.
+     * Obtains the indexes of the selected audio or video tracks. This API can be called only when the AVPlayer
+     * is in the prepared, playing, or paused state. This API uses a promise to return the result.
      * @returns { Promise<Array<number>> } A Promise instance used to return selected track index.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2184,9 +2266,11 @@ declare namespace media {
     getSelectedTracks(): Promise<Array<number>>;
 
     /**
-     * Select specific track to play.
+     * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
      * @param { number } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
-     * @param { SwitchMode } mode - set switchmode for track select behavior.
+     * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
+     * This parameter takes effect only for the switch of a video track for DASH streams.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -2197,7 +2281,8 @@ declare namespace media {
     selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
     /**
-     * Deselect specific track to play.
+     * Deselects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
      * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @returns { Promise<void> } A Promise instance used to return when deselect track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -2209,9 +2294,11 @@ declare namespace media {
     deselectTrack(index: number): Promise<void>;
 
     /**
-     * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
-     * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
-     * @param { PlaybackStrategy } strategy : Play strategy of the media source.
+     * Sets a source of streaming media that can be pre-downloaded, downloads the media data, and temporarily stores
+     * the data in the memory. For details about how to use the API, see Video Playback This API uses a promise to
+     * return the result.
+     * @param { MediaSource } src : Source of the streaming media to pre-download.
+     * @param { PlaybackStrategy } strategy : strategy for playing the pre-downloaded streaming media.
      * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -2223,8 +2310,10 @@ declare namespace media {
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
     /**
-     * Add subtitle resource represented by FD to the player.
-     * @param { number } fd : The file descriptor of subtitle source from file system.
+     * Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
+     * fdSrc of the video resource is set in an AVPlayer instance. This API uses a promise to return the result.
+     * @param { number } fd : The file descriptor of subtitle source from file system, which is obtained by
+     * calling resourceManager.getRawFd.
      * The caller is responsible to close the file descriptor.
      * @param { number } offset : The offset into the file where the data to be read, in bytes.
      * By default, the offset is zero.
@@ -2240,7 +2329,8 @@ declare namespace media {
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
 
     /**
-     * Add subtitle resource represented by url to the player. After the Promise returns,
+     * Add subtitle resource represented by url to the player. Currently, the external subtitle must be set
+     * after fdSrc of the video resource is set in an AVPlayer instance. After the Promise returns,
      * subtitle info can be obtained by @getTrackDescription
      * @param { string } url : Address of external subtitle file.
      * @returns { Promise<void> } Promise used to return the result.
@@ -2253,7 +2343,8 @@ declare namespace media {
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player.
+     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
+     * playing, or paused state.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -2261,7 +2352,7 @@ declare namespace media {
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
-     * Set playback strategy to AVPlayer.
+     * Set playback strategy to AVPlayer. This API can be called only when the AVPlayer is in the initialized state.
      * @param { PlaybackStrategy } strategy : specified strategy of the AVPlayer.
      * @returns { Promise<void> }  A Promise instance used to return when setPlaybackStrategy completed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
@@ -2273,8 +2364,10 @@ declare namespace media {
     setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
 
     /**
-     * Mute specified media stream.
-     * @param { MediaType } mediaType - specified media Type, see @MediaType..
+     * Mute specified media stream. This API can be called only when the AVPlayer is in the prepared, playing,
+     * paused, or completed state.
+     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}. 
+     * The parameter can be set only to the audio format.
      * @param { boolean } muted - true for mute, false for unmute.
      * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -2286,7 +2379,9 @@ declare namespace media {
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
     /**
-     * Set playback start position and end position.
+     * Set playback start position and end position. After the setting, only the content in the specified range of
+     * the audio or video file is played. This API uses a promise to return the result. It can be used in the
+     * initialized, prepared, paused, stopped, or completed state.
      * @param { number } startTimeMs - Playback start position, should be in [0, duration),
      *                                 -1 means that the start position is not set,
      *                                 and the playback will start from 0.
@@ -2306,7 +2401,10 @@ declare namespace media {
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
     /**
-     * Check whether the media stream currently being played by the player supports seek continuous.
+     * Checks whether the media source supports seek in SEEK_CONTINUOUS mode ([SeekMode]{@link #SeekMode}).
+     * The actual value is returned when this API is called in the prepared, playing, paused, or completed state.
+     * The value **false** is returned if it is called in other states. For devices that do not support the seek
+     * operation in SEEK_CONTINUOUS mode, false is returned.
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
      * false: seek continuous is not supported or the support status is uncertain.
@@ -2317,7 +2415,7 @@ declare namespace media {
     isSeekContinuousSupported() : boolean;
 
     /**
-     * Get current playback position.
+     * Get current playback position. This API can be used in the prepared, playing, paused, or completed state.
      * @returns { number } return the time of current playback position - millisecond(ms)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2327,7 +2425,8 @@ declare namespace media {
     getPlaybackPosition() : number;
 
     /**
-     * Enable or disable super-resolution dynamically.
+     * Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
+     * initialized, prepared, playing, paused, completed, or stopped state.
      * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
      * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
      * @param { boolean } enabled - true: super-resolution enabled; false: super-resolution disabled.
@@ -2343,11 +2442,14 @@ declare namespace media {
     setSuperResolution(enabled: boolean) : Promise<void>;
 
     /**
-     * Set video window size for super-resolution.
+     * Set video window size for super-resolution. This API can be called when the AVPlayer is in the initialized,
+     * prepared, playing, paused, completed, or stopped state. The input parameter values s must be in the range
+     * of 320 x 320 to 1920 x 1080 (in px).
+     * 
      * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
      * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
-     * @param { number } width - width of the window.
-     * @param { number } height - height of the window.
+     * @param { number } width - width of the window. The value range is [320-1920], in px.
+     * @param { number } height - height of the window. The value range is [320-1080], in px.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Return by promise.
@@ -2374,7 +2476,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Media URI. Mainstream media formats are supported.
+     * Media URI. It can be set only when the AVPlayer is in the idle state.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * Network:http://xxx
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2396,7 +2500,10 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Media file descriptor. Mainstream media formats are supported.
+     * Media file descriptor. It can be set only when the AVPlayer is in the idle state.
+     * This attribute is required when media assets of an application are continuously stored in a file.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2417,7 +2524,10 @@ declare namespace media {
      * @since 11
      */
     /**
-     * DataSource descriptor. Supports mainstream media formats.
+     * DataSource descriptor. It can be set only when the AVPlayer is in the idle state. Use scenario: An application
+     * starts playing a media file while the file is still being downloaded from the remote to the local host.
+     * The video formats MP4, MPEG-TS, and MKV are supported.
+     * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
      * @type { ?AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2432,7 +2542,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Whether to loop media playback.
+     * Whether to loop media playback. The value true means to loop playback, and false (default) means the opposite.
+     * It is a dynamic attribute and can be set only when the AVPlayer is in the prepared, playing, paused,
+     * or completed state. This setting is not supported in live mode.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2449,9 +2561,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
-     * set, the default mode will be used. Set it before calling the {@link #play()} in the
-     * first time in order for the interrupt mode to become effective thereafter.
+     * Describes audio interrupt mode. If it is not set, the default mode will be used. The default value is
+     * **SHARE_MODE**. It is a dynamic attribute and can be set only when the AVPlayer is in the prepared,
+     * playing, paused, or completed state. Set it before calling the {@link #play()} in the first time in order
+     * for the interrupt mode to become effective thereafter.
      * @type { ?audio.InterruptMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2467,8 +2580,10 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
-     * calling the {@link #prepare()} in the first time in order for the audio renderer info to
+     * Describes audio renderer info. If the media source contains videos, the default value of usage is
+     * **STREAM_USAGE_MOVIE**. Otherwise, the default value of usage is **STREAM_USAGE_MUSIC**. This parameter can
+     * be set only when the AVPlayer is in the initialized state.
+     * Set it before calling the {@link #prepare()} in the first time in order for the audio renderer info to
      * become effective thereafter.
      * @type { ?audio.AudioRendererInfo }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2483,7 +2598,9 @@ declare namespace media {
      * @since 10
      */
     /**
-     * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}.
+     * Obtains the current audio effect mode. The audio effect mode is a dynamic attribute and is restored
+     * to the default value **EFFECT_DEFAULT** when usage of audioRendererInfo is changed.
+     * It can be set only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * @type { ?audio.AudioEffectMode }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -2497,7 +2614,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Current playback position.
+     * Current playback position, in ms. It can be used as a query parameter when the AVPlayer is in the prepared,
+     * playing, paused, or completed state. The value -1 indicates an invalid value.
+     * In live mode, -1 is returned by default.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2519,7 +2638,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * Playback duration, in ms. It can be used as a query parameter when the AVPlayer is in the prepared,
+     * playing, paused, or completed state.
+     * When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2535,7 +2656,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Playback state.
+     * Playback state. It can be used as a query parameter when the AVPlayer is in any state.
      * @type { AVPlayerState }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2557,7 +2678,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Video player will use this id get a surface instance.
+     * Video player will use this id get a surface instance. This parameter can be set when the AVPlayer
+     * is in the initialized state. It can be set again when the AVPlayer is in the prepared, playing, paused,
+     * completed, or stopped state, in the prerequisite that the video window ID has been set in the initialized state.
+     * After the new setting is performed, the video is played in the new window. It is used to render the window
+     * for video playback and therefore is not required in audio-only playback scenarios.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2572,7 +2697,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video width, valid after prepared.
+     * Video width, in px, valid after prepared. It can be used as a query parameter when the AVPlayer is in the
+     * prepared, playing, paused, or completed state.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2583,12 +2709,13 @@ declare namespace media {
     readonly width: number;
 
     /**
-     * Video height, valid after prepared.
+     * Video height, in px, valid after prepared.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Video height, valid after prepared.
+     * Video height, in px, valid after prepared. It can be used as a query parameter when the AVPlayer is in the
+     * prepared, playing, paused, or completed state.
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2622,7 +2749,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Set payback speed.
+     * Set payback speed. This API can be called only when the AVPlayer is in the prepared, playing, paused,
+     * or completed state. You can check whether the setting takes effect by subscribing to the speedDone event.
+     * This API is not supported in live mode.
      * @param { PlaybackSpeed } speed - playback speed, see @PlaybackSpeed .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -2642,12 +2771,17 @@ declare namespace media {
      * @since 9
      */
     /**
-     * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
+     * Select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
      * player will select the appropriate bitrate according to the network connection speed. The
      * available bitrate list reported by {@link #on('availableBitrates')}. Set it to select
      * a specified bitrate. If the specified bitrate is not in the list of available bitrate, the player
-     * will select the minimal and closest one from the available bitrate list.
-     * @param { number } bitrate - the playback bitrate must be expressed in bits per second.
+     * will select the minimal and closest one from the available bitrate list.This API can be called
+     * only when the AVPlayer is in the prepared, playing, paused, or completed state.
+     * @param { number } bitrate - 	Bit rate to set. Obtain the available bit rates of the current HLS/DASH
+     * stream by subscribing to the {@link #on('availableBitrates')} event. If the bit rate to set is not in
+     * the list of the available bit rates, the AVPlayer selects from the list the bit rate that is closed
+     * to the bit rate to set. If the length of the available bit rate list obtained through the event is 0,
+     * no bit rate can be set and the bitrateDone callback will not be triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2665,9 +2799,12 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Set decryption session to codec module.
+     * Set decryption session to codec module. When receiving a mediaKeySystemInfoUpdate event, create the related
+     * configuration and set the decryption configuration based on the information in the reported event.
+     * Otherwise, the playback fails.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
-     * @param { boolean } secureVideoPath - Secure video path required or not.
+     * @param { boolean } secureVideoPath - Secure video path required or not. The value true means that a secure
+     * video channel is selected, and false means that a non-secure video channel is selected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2700,8 +2837,10 @@ declare namespace media {
      */
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
-     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Event type, which is **'mediaKeySystemInfoUpdate'** in this case.
+     * This event is triggered when the copyright protection information of the media asset being played changes.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
+     * It reports a **MediaKeySystemInfo** array.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -2742,8 +2881,9 @@ declare namespace media {
      */
     /**
      * Register listens for media playback stateChange event.
-     * @param { 'stateChange' } type - Type of the playback event to listen for.
-     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for the playback stateChange event.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2766,7 +2906,7 @@ declare namespace media {
     /**
      * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
-     * @param { OnAVPlayerStateChangeHandle } callback - Callback used to listen for stateChange event
+     * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2776,14 +2916,15 @@ declare namespace media {
     /**
      * Register listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Register listens for media playback volumeChange event.
-     * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * Subscribes to the event to check whether the volume is successfully set.
+     * @param { 'volumeChange' } type - This event is triggered each time **setVolume()** is called.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective volume.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2797,9 +2938,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback volumeChange event.
+     * Unsubscribes from the event that checks whether the volume is successfully set.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective volume.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -2813,9 +2955,12 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback endOfStream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * Subscribes to the event that indicates the end of the stream being played. If {@link #loop} = true is set,
+     * the AVPlayer seeks to the beginning of the stream and plays the stream again. If loop is not set,
+     * the completed state is reported through the {@link #stateChange} event.
+     * @param { 'endOfStream' } type - Type of the playback event to listen for. This event is triggered
+     * when the AVPlayer finishes playing the media asset.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2829,9 +2974,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback endOfStream event.
+     * Unsubscribes from the event that indicates the end of the stream being played.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -2853,9 +2998,15 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Register listens for media playback seekDone event.
-     * @param { 'seekDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * Subscribes to the event to check whether the seek operation takes effect.
+     * @param { 'seekDone' } type - Type of the playback event to listen for. This event is triggered each time
+     * **seek()** is called, except in SEEK_CONTINUOUS mode.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the time position requested by the user.
+     * 
+     * For video playback, {@link #SeekMode} may cause the actual position to be different from that requested by
+     * the user.The exact position can be obtained from the currentTime attribute. The time in this callback
+     * only means that the requested seek operation is complete.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2876,9 +3027,14 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for media playback seekDone event.
+     * Unsubscribes from the event that checks whether the seek operation takes effect.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the time position requested by the user.
+     * 
+     * For video playback, SeekMode may cause the actual position to be different from that requested by the user.
+     * The exact position can be obtained from the currentTime attribute. The time in this callback only means
+     * that the requested seek operation is complete.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2893,9 +3049,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback speedDone event.
+     * Subscribes to the event to check whether the playback speed is successfully set.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
+     * This event is triggered each time **setSpeed()** is called.
+     * @param { Callback<number> } callback - Callback used to return the result. When the call of
+     * setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2909,9 +3067,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback speedDone event.
+     * Unsubscribes from the event that checks whether the playback speed is successfully set.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
+     * @param { Callback<number> } callback - Callback used to return the result. When the call of
+     * setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -2925,9 +3084,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback setBitrateDone event.
+     * Subscribes to the event to check whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
+     * This event is triggered each time **setBitrate()** is called.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -2940,9 +3101,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback setBitrateDone event.
+     * Unsubscribes from the event that checks whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
@@ -2963,9 +3125,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Register listens for media playback timeUpdate event.
+     * Subscribes to playback position changes. It is used to refresh the current position of the progress bar.
+     * By default, this event is reported every 100 ms. However, it is reported immediately upon
+     * a successful seek operation.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the current time.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2986,9 +3150,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for media playback timeUpdate event.
+     * Unsubscribes from playback position changes.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the current time.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3003,9 +3167,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for media playback durationUpdate event.
+     * Subscribes to media asset duration changes. It is used to refresh the length of the progress bar. By
+     * default, this event is reported once in the prepared state. However, it can be repeatedly reported for
+     * special streams that trigger duration changes. The **'durationUpdate'** event is not supported in live mode.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the resource duration.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3019,9 +3185,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for media playback durationUpdate event.
+     * Unsubscribes from media asset duration changes.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
+     * @param { Callback<number> } callback - Callback used to return the resource duration.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
@@ -3037,10 +3203,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for video playback buffering events.
+     * Subscribes to audio and video buffer changes. This subscription is supported only in network
+     * playback scenarios.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
-	   * return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered,
+	   * and return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3056,10 +3223,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for video playback buffering events.
+     * Unsubscribes from audio and video buffer changes.
      * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
-     * @param { OnBufferingUpdateHandler } callback - Callback used to listen for the buffering update event,
-	   * return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered.,
+	   * and return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3074,9 +3241,12 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for start render video frame events.
+     * Subscribes to the event that indicates rendering starts for the first frame. This subscription is
+     * supported only in video playback scenarios. This event only means that the playback service sends
+     * the first frame to the display module. The actual rendering effect depends on the rendering performance
+     * of the display service.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback event return .
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3089,9 +3259,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for start render video frame events.
+     * Unsubscribes from the event that indicates rendering starts for the first frame.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback event return .
+     * @param { Callback<void> } callback - 	Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
@@ -3105,9 +3275,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for video size change event.
+     * Subscribes to video size (width and height) changes. This subscription is supported only in video playback
+     * scenarios. By default, this event is reported only once in the prepared state. However, it is also reported
+     * upon resolution changes in the case of HLS streams.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
+     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3121,9 +3293,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Unregister listens for video size change event.
+     * Unsubscribes from video size changes.
      * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
-     * @param { OnVideoSizeChangeHandler } callback - Callback used to listen for the playback event return video size.
+     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3138,7 +3310,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}.
+     * The application needs to perform corresponding processing based on different audio interruption events. 
+     * For details, see Handling Audio Interruption Events.
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3175,7 +3349,9 @@ declare namespace media {
      * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
      * @param { 'availableBitrates' } type - Type of the playback event to listen for.
+     * This event is triggered once after the AVPlayer switches to the prepared state.
      * @param { Callback<Array<number>> } callback - Callback used to listen for the playback event return available bitrate list.
+     * It returns an array that holds the available bit rates. If the array length is 0, no bit rate can be set.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3253,8 +3429,11 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Register listens for playback error events.
-     * @param { 'error' } type - Type of the playback error event to listen for.
+     * Subscribes to AVPlayer errors. This event is used only for error prompt and does not require the user to stop
+     * playback control. If AVPlayerState is also switched to error, call {@link #reset()} or {@link #release()}
+     * to exit the playback.
+     * @param { 'error' } type - Event type, which is **'error'** in this case. This event can be triggered by
+     * both user operations and the system.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -3295,9 +3474,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unregister listens for playback error events.
-     * @param { 'error' } type - Type of the playback error event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * Unsubscribes from AVPlayer errors.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     * @param { ErrorCallback } callback - Callback used to return the error code ID and error message.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3316,10 +3495,15 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Subscribes output device change event callback.
-     * The event is triggered when output device change for this stream.
+     * Subscribes to audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
+     * 
+     * When subscribing to this event, you are advised to implement the player behavior when the device is
+     * connected or disconnected by referring to Responding to Audio Output Device Changes.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * The event is triggered when the output device is changed.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - 	Callback used to return the output device
+     * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3338,9 +3522,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Unsubscribes output device change event callback.
+     * Unsubscribes from audio stream output device changes and reasons. This API uses an asynchronous callback
+     * to return the result.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to return the output device
+     * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3350,9 +3536,12 @@ declare namespace media {
     off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
     /**
-     * Subscribes listener for subtitle update event.
+     * Subscribes to subtitle update events. When external subtitles exist, the system notifies the application
+     * through the subscribed-to callback. An application can subscribe to only one subtitle update event. When
+     * the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
-     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * The event is triggered when the external subtitle is updated.
+     * @param { Callback<SubtitleInfo> } callback - Callback invoked when the subtitle is updated.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3360,9 +3549,10 @@ declare namespace media {
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
 
     /**
-     * Unsubscribes listener for subtitle update event.
+     * Unsubscribes from subtitle update events.
      * @param { 'subtitleUpdate' } type - Type of the event to listen for.
-     * @param { Callback<SubtitleInfo> } callback - Callback used to listen subtitle update event.
+     * @param { Callback<SubtitleInfo> } callback - Callback that has been registered to listen for subtitle
+     * update events.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3370,9 +3560,12 @@ declare namespace media {
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
 
     /**
-     * Subscribes listener for track change event.
+     * Subscribes to track change events. When the track changes, the system notifies the application through
+     * the subscribed-to callback. An application can subscribe to only one track change event. When the
+     * application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'trackChange' } type - Type of the event to listen for.
-     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3380,9 +3573,10 @@ declare namespace media {
     on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
     /**
-     * Unsubscribes listener for track change event.
+     * Unsubscribes from track change events.
      * @param { 'trackChange' } type - Type of the event to listen for.
-     * @param { OnTrackChangeHandler } callback - Callback used to listen track change event.
+     * The event is triggered when the track changes.
+     * @param { OnTrackChangeHandler } callback - Callback that has been registered to listen for track changes.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3390,9 +3584,12 @@ declare namespace media {
     off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
     /**
-     * Subscribes listener for trackinfo update event.
+     * Subscribes to track information update events. When the track information is updated, the system notifies the
+     * application through the subscribed-to callback. An application can subscribe to only one track change event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3400,9 +3597,11 @@ declare namespace media {
     on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
 
     /**
-     * Unsubscribes listener for trackinfo update event.
+     * Unsubscribes from track information update events.
      * @param { 'trackInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<MediaDescription>> } callback - Callback used to listen trackinfo update event.
+     * The event is triggered when the track information is updated.
+     * @param { Callback<Array<MediaDescription>> } callback - Callback that has been registered to listen for track
+     * information updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 12
@@ -3410,31 +3609,37 @@ declare namespace media {
     off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
 
     /**
-     * Subscrips listener for audio playback amplitude update event.
-     * In each event, an array of amplitude is reported, large index indicates closer to current time.
+     * Subscribes to update events of the maximum audio level value, which is periodically reported when audio
+     * resources are played.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<number>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
     on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
     /**
-     * UnSubscrips listener for audio playback amplitude update event
+     * Unsubscribes from update events of the maximum amplitude.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
+     * The event is triggered when the amplitude changes.
+     * @param { Callback<Array<number>> } callback - Callback that has been registered to listen for amplitude updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
     off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
 
     /**
-     * Subscribes listener for video SEI message event, only for live video streaming.
-     * Call before the {@link #prepare}, repeated invocation overwrites the last subscribed callback and payload types.
-     *
+     * Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
+     * applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
+     * You must initiate the subscription before calling {@link #prepare}. If you initiate multiple subscriptions
+     * to this event, the last subscription is applied.
      * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
-     * @param { Array<number> } payloadTypes - The subscribed payload types of the SEI message.
-     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * The event is triggered when an SEI message is received.
+     * @param { Array<number> } payloadTypes - Array of subscribed-to payload types of SEI messages. Currently,
+     * only payloadType = 5 is supported.
+     * @param { OnSeiMessageHandle } callback - Callback used to listen for SEI message events and receive the
+     * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
@@ -3442,12 +3647,14 @@ declare namespace media {
     on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
 
     /**
-     * Unsubscribes listener for video SEI message event.
+     * Unsubscribes from the events indicating that an SEI message is received.
      * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * The event is triggered when an SEI message is received.
      * @param { Array<number> } payloadTypes - The payload types of the SEI message.
      *                                        Null means unsubscribe all payload types.
 
-     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @param { OnSeiMessageHandle } callback -	Callback used to listen for SEI message events and receive the
+     * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
@@ -3455,8 +3662,9 @@ declare namespace media {
     off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
 
     /**
-     * Subscribes listener for super-resolution status changed event.
+     * Subscribes to the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * The event is triggered when super resolution is enabled or disabled.
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -3465,8 +3673,9 @@ declare namespace media {
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
     /**
-     * Unsubscribes listener for super-resolution status changed event.
+     * Unsubscribes from the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * The event is triggered when super resolution is enabled or disabled.
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -3713,10 +3922,15 @@ declare namespace media {
   /**
    * Defines the SourceOpenCallback function which is called by the service. client should process the incoming request
    * and return the unique handle to the open resource.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
+   * 
    * @typedef { function } SourceOpenCallback
-   * @param { MediaSourceLoadingRequest } request - open request parameters.
+   * @param { MediaSourceLoadingRequest } request - Parameters for the resource open request, including detailed
+   * information about the requested resource and the data push method.
    * @returns { number } - return the handle of current resource open request.
-   *                       values less than or equal to zero mean failed.
+   *                        A value greater than 0 means the request is successful.
+   *                        A value less than or equal to 0 means it fails.
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -3727,10 +3941,12 @@ declare namespace media {
   /**
    * Defines the SourceReadCallback function which is called by the service. Client should record the read requests
    * and push the data through the {@link #response} method of the request object when there is sufficient data.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
    * @typedef { function } SourceReadCallback
-   * @param { number } uuid - label the resource handle.
-   * @param { number } requestedOffset - current media data position from the start of the source.
-   * @param { number } requestedLength - current request length.
+   * @param { number } uuid - ID for the resource handle.
+   * @param { number } requestedOffset - Offset of the current media data relative to the start of the resource.
+   * @param { number } requestedLength - Length of the current request.
    *                                   - -1 means reaching the end of the source, need to inform the player
    *                                     of the end of the push through the {@link #finishLoading} method.
    * @returns { void } - client should return immediately.
@@ -3742,8 +3958,10 @@ declare namespace media {
 
   /**
    * Defines the SourceCloseCallback function which is called by the service. Client should release related resources.
+   * <br>**NOTE:**<br>
+   * The client must return the handle immediately after processing the request.
    * @typedef { function } SourceCloseCallback
-   * @param { number } uuid - label the resource handle.
+   * @param { number } uuid - ID for the resource handle.
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -3752,7 +3970,7 @@ declare namespace media {
   type SourceCloseCallback = (uuid: number) => void;
 
   /**
-   * Media data loader. User can customize media data loader.
+   * Defines a media data loader, which needs to be implemented by applications.
    * @typedef MediaSourceLoader
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -3871,7 +4089,8 @@ declare namespace media {
     url: string;
 
     /**
-     * Headers attached to network request while player request data. Client should set headers to the http request.
+     * HTTP request header. If the header exists, the application should set the header information in
+     * the HTTP request when downloading data.
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -3881,9 +4100,9 @@ declare namespace media {
 
     /**
      * The interface for application used to send requested data to AVPlayer.
-     * @param { number } uuid - label the resource handle.
-     * @param { number } offset - current media data position from start of the source.
-     * @param { ArrayBuffer } buffer - media data buffer which respond to the player.
+     * @param { number } uuid - ID for the resource handle.
+     * @param { number } offset - Offset of the current media data relative to the start of the resource.
+     * @param { ArrayBuffer } buffer - Media data sent to the player.
      * @returns { number } - accept bytes for current read. The value less than zero means failed.
      *                    - 2, means player need current data any more, the client should stop current read process.
      *                    - 3, means player buffer is full, the client should wait for next read.
@@ -3896,8 +4115,10 @@ declare namespace media {
     /**
      * The interface for application used to send respond header to AVPlayer
      * should be called before calling the {@link #respondData()} for the first time.
-     * @param { number } uuid - label the resource handle.
+     * @param { number } uuid - ID for the resource handle.
      * @param { ?Record<string, string> } [header] - header info in the http response.
+     * The application can intersect the header fields with the fields supported by the underlying layer for
+     * parsing or directly pass in all corresponding header information.
      * @param { ?string } [redirectUrl] - redirect url from the http response if exist.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -3906,9 +4127,11 @@ declare namespace media {
     respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
     /**
-     * The interface for application used to notify player current request state.
-     * @param { number } uuid - label the resource handle.
-     * @param { LoadingRequestError } state - the request state.
+     * Notifies the player of the current request status. After pushing all the data for a single resource, the
+     * application should send the **LOADING_ERROR_SUCCESS** state to notify the player that the resource push is
+     * complete.
+     * @param { number } uuid - ID for the resource handle.
+     * @param { LoadingRequestError } state - Request status.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
@@ -4237,8 +4460,9 @@ declare namespace media {
    * @since 11
    */
   /**
-   * DataSource descriptor. The caller needs to ensure that the fileSize and
-   * callback is valid.
+   * Defines the descriptor of an audio and video file, which is used in DataSource playback mode.
+   * Use scenario: An application can create a playback instance and start playback before it finishes
+   * downloading the audio and video resources.
    *
    * @typedef AVDataSrcDescriptor
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -4309,7 +4533,8 @@ declare namespace media {
   }
 
   /**
-   * Provides subtitle information.
+   * Provides subtitle information. When a subtitle update event is subscribed to, the information about the
+   * external subtitle is returned through a callback.
    * Can be synchronized to the time reported by AVPlayer#timeUpdate event
    *
    * @typedef SubtitleInfo
