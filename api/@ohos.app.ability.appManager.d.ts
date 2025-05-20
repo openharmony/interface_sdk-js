@@ -1170,7 +1170,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16300005 - The target bundle does not exist.
    * @throws { BusinessError } 16300008 - The target bundle has no MainAbility.
    * @throws { BusinessError } 16300009 - The target bundle has no status-bar ability.
-   * @throws { BusinessError } 16300010 - The target application is not attached to status bar.
+   * @throws { BusinessError } 16300010 - The target application is not attached to the status bar.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14
