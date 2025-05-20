@@ -1215,9 +1215,20 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   showInSubWindow(showInSubWindow: Optional<boolean>): SelectAttribute;
+
+  /**
+   * Set whether to display the default selected icon
+   *
+   * @param { boolean } show - whether to display the default selected icon.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showDefaultSelectedIcon(show: boolean): SelectAttribute;
 }
 
 /**
