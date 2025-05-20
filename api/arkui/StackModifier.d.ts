@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Stack Modifier
+ *
+ * @extends StackAttribute
+ * @implements AttributeModifier<StackAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class StackModifier extends StackAttribute implements AttributeModifier<StackAttribute> {
 
   /**
