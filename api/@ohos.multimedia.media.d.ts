@@ -36,6 +36,9 @@ import type drm from './@ohos.multimedia.drm';
  * @since 11
  */
 /**
+ * The multimedia subsystem provides a set of simple and easy-to-use APIs for you to access the system and
+ * use media resources.
+ *
  * @namespace media
  * @syscap SystemCapability.Multimedia.Media.Core
  * @crossplatform
@@ -312,27 +315,68 @@ declare namespace media {
   function createParallelSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
-   * Creates an AVScreenCaptureRecorder instance.
-   * @returns { Promise<AVScreenCaptureRecorder> } A Promise instance used to return AVScreenCaptureRecorder instance if the operation is successful;
-   * returns null otherwise.
+   * Creates an **AVScreenCaptureRecorder** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVScreenCaptureRecorder> } Promise used to return the result. If the operation is successful,
+   * an **AVScreenCaptureRecorder** instance is returned; otherwise, **null** is returned.
+   * The instance can be used for screen capture.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
+   * @example
+   * import { BusinessError } from '@kit.BasicServicesKit';
+   *
+   * let avScreenCaptureRecorder: media.AVScreenCaptureRecorder;
+   * media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+   *   if (captureRecorder != null) {
+   *     avScreenCaptureRecorder = captureRecorder;
+   *     console.info('Succeeded in createAVScreenCaptureRecorder');
+   *   } else {
+   *     console.error('Failed to createAVScreenCaptureRecorder');
+   *   }
+   * }).catch((error: BusinessError) => {
+   *   console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+   * });
    */
   function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>;
 
   /**
-   * Report user choice back to AVScreenCapture server
+   * Reports the user selection result in the screen capture privacy dialog box to the AVScreenCapture server to
+   * determine whether to start screen capture. Screen capture starts only when the user touches a button to
+   * continue the operation.
+   * This API is called by the system application that creates the dialog box.
    *
-   * @param {number} sessionId The AVScreenCapture server session ID.
-   * @param {string} choice Content chosen by user.
+   * @param {number} sessionId Session ID of the AVScreenCapture service, which is sent to the application when
+   * the AVScreenCapture server starts the privacy dialog box.
+   * @param {string} choice User choice, including whether screen capture is agreed, selected display ID,
+   * and window ID. For details, see JsonData in the example below.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 12
+   * @example
+   * import { BusinessError } from '@kit.BasicServicesKit';
+   * import { media } from '@kit.MediaKit';
+   * 
+   * class JsonData {
+   *   public choice: string = 'true'
+   *   public displayId: number | null = -1
+   *   public missionId: number | null = -1
+   * }
+   * let sessionId: number = 0; // Use the ID of the session that starts the process.
+   * 
+   * try {
+   *   const jsonData: JsonData = {
+   *     choice: 'true',  // Replace it with the user choice.
+   *     displayId: -1, // Replace it with the ID of the display selected by the user.
+   *     missionId: -1,   // Replace it with the ID of the window selected by the user.
+   *   }
+   *   await media.reportAVScreenCaptureUserChoice(sessionId, JSON.stringify(jsonData));
+   * } catch (error: BusinessError) {
+   *   console.error(`reportAVScreenCaptureUserChoice error, error message: ${error.message}`);
+   * }
    */
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
@@ -347,14 +391,23 @@ declare namespace media {
   function createAVTranscoder(): Promise<AVTranscoder>;
 
   /**
-   * Get the ScreenCaptureMonitor instance
+   * Obtains a **ScreenCaptureMonitor** instance. This API uses a promise to return the result.
    *
-   * @returns { Promise<ScreenCaptureMonitor> } A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful; returns null otherwise.
+   * @returns { Promise<ScreenCaptureMonitor> } Promise used to return the result. The instance can be used to query
+   * and monitor the status of the system screen recorder.<br>If the operation is successful,
+   * a **ScreenCaptureMonitor** instance is returned; otherwise, **null** is returned.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 18
+   * @example
+   * let screenCaptureMonitor: media.ScreenCaptureMonitor;
+   * try {
+   *   screenCaptureMonitor = await media.getScreenCaptureMonitor();
+   * } catch (err) {
+   *   console.error(`getScreenCaptureMonitor failed, error message:${err.message}`);
+   * }
    */
   function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor>;
 
@@ -8396,7 +8449,7 @@ declare namespace media {
   }
 
   /**
-   *  Enumerates AVScreenCaptureRecord preset types.
+   *  Enumerates the encoding and container formats used during screen capture.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8404,13 +8457,13 @@ declare namespace media {
    */
   enum AVScreenCaptureRecordPreset {
     /**
-     * Screen record normal type, h264/aac mp4
+     * The H.264 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
     /**
-     * Screen record high efficient type, h265/aac mp4
+     * The H.265 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -8418,7 +8471,7 @@ declare namespace media {
   }
 
   /**
-   *  Enumerates fill modes of video stream in screen recording.
+   *  Enumerates the video fill modes during screen capture.
    * 
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8426,13 +8479,13 @@ declare namespace media {
    */
   enum AVScreenCaptureFillMode {
     /**
-     * Keep the scale the same as that of the original image
+     * Keeps the original aspect ratio, matching the aspect ratio of the physical screen.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18
      */
     PRESERVE_ASPECT_RATIO = 0,
     /**
-     * Fit the configured width and height
+     * Stretches the image to fit the specified dimensions.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18
      */
@@ -8440,7 +8493,7 @@ declare namespace media {
   }
 
   /**
-   *  Enumerates AVScreenCapture callback state type.
+   *  Enumerates the screen capture states used in callbacks.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8448,67 +8501,67 @@ declare namespace media {
    */
   enum AVScreenCaptureStateCode {
     /**
-     * Screen capture started
+     * Screen capture is started.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STARTED = 0,
     /**
-     * Screen capture canceled
+     * Screen capture is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_CANCELED = 1,
     /**
-     * Screen capture stopped by user
+     * Screen capture is manually stopped by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
     /**
-     * Screen capture stopped by interrupt
+     * Screen capture is interrupted by another screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
     /**
-     * Screen capture stopped by phone call
+     * Screen capture is interrupted by an incoming call.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
     /**
-     * Screen capture microphone not available
+     * The microphone is unavailable during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
     /**
-     * Screen capture microphone is muted by user
+     * The microphone is muted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
     /**
-     * Screen capture microphone is unmuted by user
+     * The microphone is unmuted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
     /**
-     * Screen capture enter private scene
+     * The system enters a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
     /**
-     * Screen capture exit private scene
+     * The system exits a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
     /**
-     * Screen capture stopped by user switches
+     * Screen capture is interrupted by system user switchover.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -8545,7 +8598,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the media AVScreenCaptureRecord config definition.
+   * Defines the screen capture parameters.
    *
    * @typedef AVScreenCaptureRecordConfig
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8553,70 +8606,73 @@ declare namespace media {
    */
   interface AVScreenCaptureRecordConfig {
     /**
-     * Indicates record file descriptor.
+     * FD of the file output.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     fd: number;
     /**
-     * Indicates video frame width.
+     * Video width, in px. The default value varies according to the display in use.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameWidth?: number;
     /**
-     * Indicates video frame height.
+     * Video height, in px. The default value varies according to the display in use.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameHeight?: number;
     /**
-     * Indicates video bitrate.
+     * Video bit rate. The default value is **10000000**.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     videoBitrate?: number;
     /**
-     * Indicates audio sample rate.
+     * Audio sampling rate. This value is used for both internal capture and external capture (using microphones).
+     * Only **48000** (default value) and **16000** are supported.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioSampleRate?: number;
     /**
-     * Indicates audio channel count.
+     * Number of audio channels. This value is used for both internal capture and external capture (using microphones).
+     * Only **1** and **2** (default) are supported.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioChannelCount?: number;
     /**
-     * Indicates audio bitrate.
+     * Audio bit rate. This value is used for both internal capture and external capture (using microphones).
+     * The default value is **96000**.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioBitrate?: number;
     /**
-     * Indicates AVScreenCaptureRecordPreset, details see @AVScreenCaptureRecordPreset
+     * Encoding and container format used. The default value is **SCREEN_RECORD_PRESET_H264_AAC_MP4**.
      * @type { ?AVScreenCaptureRecordPreset }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     preset?: AVScreenCaptureRecordPreset;
     /**
-     * Indicates the screen to be recorded.
+     * ID of the display used for screen capture. By default, the main screen is captured.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 15
      */
     displayId?: number;
     /**
-     * Indicates the fill mode of video, details see @AVScreenCaptureFillMode
+     * Video fill mode during screen capture.
      * @type { ?AVScreenCaptureFillMode }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18
@@ -8633,8 +8689,8 @@ declare namespace media {
   }
 
   /**
-   * Provides screen capture record. Before calling an AVScreenCaptureRecorder method, you must use createAVScreenCaptureRecorder()
-   * to create an AVScreenCaptureRecorder instance.
+   * Provides APIs to manage screen capture. Before calling any API in **AVScreenCaptureRecorder**,
+   * you must use createAVScreenCaptureRecorder() to create an **AVScreenCaptureRecorder** instance.
    *
    * @typedef AVScreenCaptureRecorder
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8642,106 +8698,188 @@ declare namespace media {
    */
   interface AVScreenCaptureRecorder {
     /**
-     * Init AVScreenCaptureRecorder.
-     * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
-     * @returns { Promise<void> } A Promise instance used to return when init completed.
+     * Initializes screen capture and sets screen capture parameters. This API uses a promise to return the result.
+     * @param { AVScreenCaptureRecordConfig } config - Screen capture parameters to set.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let avCaptureConfig: media.AVScreenCaptureRecordConfig = {
+     *     fd: 0, // Before passing in an FD to this parameter, the file must be created by the caller and granted with the write permissions.
+     *     frameWidth: 640,
+     *     frameHeight: 480
+     *     // Add other parameters.
+     * }
+     *
+     * avScreenCaptureRecorder.init(avCaptureConfig).then(() => {
+     *     console.info('Succeeded in initing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to init avScreenCaptureRecorder, error: ' + err.message);
+     * })
      */
     init(config: AVScreenCaptureRecordConfig): Promise<void>;
 
     /**
-     * Start screen capture recording.
-     * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
+     * Starts screen capture. This API uses a promise to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.startRecording().then(() => {
+     *     console.info('Succeeded in starting avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to start avScreenCaptureRecorder, error: ' + err.message);
+     * })
      */
     startRecording(): Promise<void>;
 
     /**
-     * Stop screen capture recording.
-     * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
+     * Stops screen capture. This API uses a promise to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.stopRecording().then(() => {
+     *     console.info('Succeeded in stopping avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to stop avScreenCaptureRecorder, error: ' + err.message);
+     * })
      */
     stopRecording(): Promise<void>;
 
     /**
-     * Skip some windows' privacy mode of current app during the screen recording.
-     * @param { Array<number> } windowIDs - windowID list to be skipped privacy mode .
-     * @returns { Promise<void> } A Promise instance used to return when skipPrivacyMode completed.
+     * During screen capture, the application can exempt its privacy windows from security purposes.
+     * This API uses a promise to return the result.
+     * For example, if a user enters a password in this application during screen capture,
+     * the application will not display a black screen.
+     * @param { Array<number> } windowIDs - IDs of windows that require privacy exemption, including the main window
+     * IDs and subwindow IDs. For details about how to obtain window properties.
+     * @returns { Promise<void> } Promise used to return the window IDs.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let windowIDs = [];
+     * avScreenCaptureRecorder.skipPrivacyMode(windowIDs).then(() => {
+     *     console.info('Succeeded in skipping privacy mode');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to skip privacy mode, error: ' + err.message);
+     * })
      */
     skipPrivacyMode(windowIDs: Array<number>): Promise<void>;
 
     /**
-     * Set microphone enable or disable.
-     * @param { boolean } enable - Set microphone enable or disable during recording.
-     * @returns { Promise<void> } A Promise instance used to return when setMicEnabled completed.
+     * Enables or disables the microphone. This API uses a promise to return the result.
+     * @param { boolean } enable - Whether to enable or disable the microphone. The value **true** means to enable
+     * the microphone, and **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.setMicEnabled(true).then(() => {
+     *     console.info('Succeeded in setMicEnabled avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to setMicEnabled avScreenCaptureRecorder, error: ' + err.message);
+     * })
      */
     setMicEnabled(enable: boolean): Promise<void>;
 
     /**
-     * Release screen capture recording.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases this **AVScreenCaptureRecorder** instance. This API uses a promise to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.release().then(() => {
+     *     console.info('Succeeded in releasing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Faile to release avScreenCaptureRecorder, error: ' + err.message);
+     * })
      */
     release(): Promise<void>;
 
     /**
-     * Listens for AVScreenCaptureRecord info callback.
-     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * Subscribes to screen capture state changes. An application can subscribe to only one screen capture
+     * state change event. When the application initiates multiple subscriptions to this event,
+     * the last subscription is applied.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback invoked when the event is triggered.
+     * AVScreenCaptureStateCode indicates the new state.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * avScreenCaptureRecorder.on('stateChange', (state: media.AVScreenCaptureStateCode) => {
+     *     console.info('avScreenCaptureRecorder stateChange to ' + state);
+     * })
      */
     on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
 
     /**
-     * Listens for AVScreenCaptureRecord info callback.
-     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * Subscribes to AVScreenCaptureRecorder errors. You can handle the errors based on the application logic.
+     * An application can subscribe to only one AVScreenCaptureRecorder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
      * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * avScreenCaptureRecorder.on('error', (err: BusinessError) => {
+     *     console.error('avScreenCaptureRecorder error:' + err.message);
+     * })
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Unregister listens for AVScreenCaptureRecord info callback.
-     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * Unsubscribes from screen capture state changes. You can specify a callback to cancel the specified subscription.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used for unsubscription.
+     * AVScreenCaptureStateCode indicates the new state. If this parameter is not specified,
+     * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * avScreenCaptureRecorder.off('stateChange');
      */
     off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void;
 
     /**
-     * Unregister listens for AVScreenCaptureRecord error callback.
-     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * Unsubscribes from AVScreenCaptureRecorder errors. You can specify a callback to cancel
+     * the specified subscription.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     * @param { ErrorCallback } callback - Callback used for unsubscription. If this parameter is not specified,
+     * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
+     * @example
+     * avScreenCaptureRecorder.off('error');
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -8968,7 +9106,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates event type of Screen Capture.
+   * Enumerates the states available for the system screen recorder.
    * 
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -8977,14 +9115,14 @@ declare namespace media {
    */
   enum ScreenCaptureEvent {
     /**
-     * Screen capture started
+     * The system screen recorder starts screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18
      */
     SCREENCAPTURE_STARTED = 0,
     /**
-     * Screen capture stopped
+     * The system screen recorder stops screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18
@@ -8993,7 +9131,8 @@ declare namespace media {
   }
 
   /**
-   * Provides screen capture info.
+   * A class that provides APIs to query and monitor the system screen recorder status. Before calling any API,
+   * you must use getScreenCaptureMonitor() to obtain a ScreenCaptureMonitor instance.
    * 
    * @typedef ScreenCaptureMonitor
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -9002,29 +9141,42 @@ declare namespace media {
    */
   interface ScreenCaptureMonitor {
     /**
-     * Listens for state change of system screen recorder.
-     * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
-     * @param { Callback<ScreenCaptureEvent> } callback - Callback used to listen for the screen capture event return.
+     * Subscribes to state change events of the system screen recorder. From the ScreenCaptureEvent event reported,
+     * you can determine whether the system screen recorder is working.
+     * @param { 'systemScreenRecorder' } type - Event type, which is **'systemScreenRecorder'** in this case.
+     * This event is triggered when the state of the system screen recorder changes.
+     * @param { Callback<ScreenCaptureEvent> } callback - Callback invoked when the event is triggered,
+     * where ScreenCaptureEvent indicates the new state.
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	 * @systemapi
      * @since 18
+     * @example
+     * // This event is reported when the state of the system screen recorder changes.
+     * screenCaptureMonitor.on('systemScreenRecorder', (event: media.ScreenCaptureEvent) => {
+     *   // Set the 'systemScreenRecorder' event callback.
+     *   console.info(`system ScreenRecorder event: ${event}`);
+     * })
      */
     on(type: 'systemScreenRecorder', callback: Callback<ScreenCaptureEvent>): void;
 
     /**
-     * Unregister listens for state change of system screen recorder.
-     * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
-     * @param { Callback<ScreenCaptureEvent> } callback - Callback used to listen for the screen capture event return.
+     * Unsubscribes from state change events of the system screen recorder.
+     * @param { 'systemScreenRecorder' } type - Event type, which is **'systemScreenRecorder'** in this case.
+     * This event is triggered when the state of the system screen recorder changes.
+     * @param { Callback<ScreenCaptureEvent> } callback - Callback invoked when the event is triggered,
+     * where ScreenCaptureEvent indicates the new state. If this parameter is not specified, the last subscription event is canceled.
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 18
+     * @example
+     * screenCaptureMonitor.off('systemScreenRecorder');
      */
     off(type: 'systemScreenRecorder', callback?: Callback<ScreenCaptureEvent>): void;
 	
     /**
-     * Whether the system recorder is working.
+     * Whether the system screen recorder is working.
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
