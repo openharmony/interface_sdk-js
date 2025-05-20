@@ -9553,7 +9553,7 @@ declare namespace window {
      * @since 20
      */
     INTERACTIVE = 8,
-        /**
+    /**
      * The window stage is not interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
