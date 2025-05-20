@@ -294,7 +294,8 @@ declare namespace drawing {
   }
 
   /**
-  * Enumerates the types of matrix information obtained during path measurement.
+  * Enumerates the dimensions of matrix information in path measurement.
+  * It is often used in animation scenarios where objects move along a path.
   * @enum { number }
   * @syscap SystemCapability.Graphics.Drawing
   * @since 12
@@ -377,7 +378,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the operation modes available for a path.
+   * Enumerates the path operation types. It is often used in path combination and clipping scenarios.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -492,18 +493,7 @@ declare namespace drawing {
     constructor(path: Path);
 
     /**
-     * Get the next verb in this iterator's path, and fill entries in the point2D array
-     * with point data (if any) for that operation, the point2D array size must be 4 or more.
-     * The number of pairs of point data supplied in the resulting array depends on the PathIteratorVerb:
-     * <ul>
-     * <li>MOVE: 1 pair</li>
-     * <li>LINE: 2 pairs</li>
-     * <li>QUAD: 3 pairs</li>
-     * <li>CONIC: 3.5 pairs</li>
-     * <li>CUBIC: 4 pairs</li>
-     * <li>CLOSE: 0 pairs</li>
-     * <li>DONE: 0 pairs</li>
-     * </ul>
+     * Retrieves the next operation in this path and moves the iterator to that operation.
      * @param { Array<common2D.Point> } points - Indicates the point array.
      * @param { number } offset - Indicates the offset into the array where entries should be placed. The default value is 0.
      * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
@@ -576,9 +566,9 @@ declare namespace drawing {
     lineTo(x: number, y: number): void;
 
     /**
-     * Draws an arc to this path. This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
-     * and then a start angle and a sweep angle are specified. The arc is a portion of the ellipse defined by the start angle and the sweep angle.
-     * By default, a line segment from the last point of the path to the start point of the arc is also added.
+     * Draws an arc to this path using angle arc mode. This mode first defines a rectangle and takes its inscribed ellipse.
+     * Then, it specifies a start angle and a sweep angle. The arc is the portion of the ellipse's circumference defined by the start angle
+     * and the sweep angle. By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - X coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @param { number } y1 - Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @param { number } x2 - X coordinate of the lower right corner of the rectangle. The value is a floating point number.
@@ -783,7 +773,7 @@ declare namespace drawing {
     addCircle(x: number, y: number, radius: number, pathDirection?: PathDirection): void;
 
     /**
-     * Adds an oval to this path in the specified direction, where the common2D.Rect object specifies the outer tangent rectangle of the oval.
+     * Adds the inscribed ellipse of a rectangle to this path in the specified direction.
      * @param { common2D.Rect } rect - Rectangular boundary of the oval.
      * @param { number } start - Start point of the oval, where 0, 1, 2, and 3 correspond to the upper, right, lower, and left points, respectively.
      * The value is an integer greater than or equal to 0. If the value is greater than or equal to 4, the remainder of 4 is used.
@@ -842,7 +832,7 @@ declare namespace drawing {
     transform(matrix: Matrix): void;
 
     /**
-     * Checks whether a coordinate point is included in this path.
+     * Checks whether a coordinate point is included in this path. For details, see PathFillType.
      * @param { number } x - X coordinate. The value is a floating point number.
      * @param { number } y - Y coordinate. The value is a floating point number.
      * @returns { boolean } Check result. The value true means that the coordinate point is included in the path, and false means the opposite.
@@ -874,7 +864,7 @@ declare namespace drawing {
     getBounds(): common2D.Rect;
 
     /**
-     * Draws a line segment from the current point to the start point of this path.
+     * Closes this path by adding a line segment from the start point to the last point of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -895,7 +885,7 @@ declare namespace drawing {
     offset(dx: number, dy: number): Path;
 
     /**
-     * Resets path data.
+     * Resets the path data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -960,7 +950,7 @@ declare namespace drawing {
     isClosed(): boolean;
 
     /**
-     * Obtains a transformation matrix at a distance from the start point of this path.
+     * Obtains a transformation matrix at a specific position along the path, which represents the coordinates and orientation of that point.
      * 
      * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed
      * during measurement, and false means that the path is measured based on the actual closed status.
@@ -987,7 +977,7 @@ declare namespace drawing {
     buildFromSvgString(str: string): boolean;
 
     /**
-     * Get pathIterator from path.
+     * Obtains the operation iterator of this path.
      *
      * @returns { PathIterator } Indicates the pointer to an pathIterator object.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1048,7 +1038,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the flags used to control shadow drawing to create various shadow effects.
+   * Enumerates the shadow drawing behaviors.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1084,19 +1074,19 @@ declare namespace drawing {
   }
 
   /**
-   * Provides an interface to the drawing, and samplingOptions used when sampling from the image.
+   * Implements sampling options.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   class SamplingOptions {
     /**
-     * Constructor for the samplingOptions.
+     * Creates a SamplingOptions object. The default value of FilterMode is FILTER_MODE_NEAREST.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     constructor();
     /**
-     * Constructor for the samplingOptions with filter mode.
+     * Creates a SamplingOptions object.
      * @param { FilterMode } filterMode - Storage filter mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1113,7 +1103,7 @@ declare namespace drawing {
    */
   class Canvas {
     /**
-     * A constructor used to create a Canvas object.
+     * Creates a Canvas object that uses a PixelMap as the drawing target.
      * @param { image.PixelMap } pixelmap - PixelMap used to create the object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1282,8 +1272,7 @@ declare namespace drawing {
       filterMode: FilterMode): void;
 
     /**
-     * Draws the specified source image onto the canvas,
-     * scaled and translated to the destination rectangle.
+     * Draws an image onto a specified area of the canvas.
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
      * @param { SamplingOptions } samplingOptions - Sampling options. By default, the SamplingOptions object created using the no-argument constructor is used.
@@ -1295,8 +1284,7 @@ declare namespace drawing {
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
     /**
-     * Draws the specified source rectangle of the image onto the canvas,
-     * scaled and translated to the destination rectangle.
+     * Draws a portion of an image onto a specified area of the canvas.
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } srcRect - Rectangle object, which specifies the portion of the image to draw.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
@@ -1322,7 +1310,7 @@ declare namespace drawing {
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
-     * Draws the background color. This API provides better performance and is recommended.
+     * Fills the drawable area of the canvas with the specified color and blend mode. This API provides better performance and is recommended.
      * @param { number } alpha - Alpha channel value of the color in ARGB format.
      * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
      * @param { number } red - Red channel value of the color in ARGB format.
@@ -1351,7 +1339,7 @@ declare namespace drawing {
     drawColor(color: number, blendMode?: BlendMode): void;
 
     /**
-     * Draws an oval on the canvas. The shape and position of the oval are defined by the rectangle parameters that specify the oval boundary.
+     * Draws an oval on the canvas, where the shape and position of the oval are defined by its bounding rectangle.
      * @param { common2D.Rect } oval - Rectangle. The oval inscribed within the rectangle is the oval to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1503,7 +1491,7 @@ declare namespace drawing {
     drawRegion(region: Region): void;
 
     /**
-     * Attaches a pen to a canvas so that the canvas can use the style and color of the pen to outline a shape.
+     * Attaches a pen to the canvas. When you draw on the canvas, the pen's style is used to outline shapes.
      * @param { Pen } pen - Pen object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1513,7 +1501,7 @@ declare namespace drawing {
     attachPen(pen: Pen): void;
 
     /**
-     * Attaches a brush to a canvas so that the canvas can use the style and color of the brush to fill in a shape.
+     * Attaches a brush to the canvas. When you draw on the canvas, the brush's style is used to fill the interior of shapes.
      * @param { Brush } brush - Brush object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1523,21 +1511,21 @@ declare namespace drawing {
     attachBrush(brush: Brush): void;
 
     /**
-     * Detaches the pen from a canvas so that the canvas can no longer use the style and color of the pen to outline a shape.
+     * Detaches the pen from the canvas. When you draw on the canvas, the pen is no longer used to outline shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     detachPen(): void;
 
     /**
-     * Detaches the brush from a canvas so that the canvas can no longer use the style and color of the brush to fill in a shape.
+     * Detaches the brush from the canvas. When you draw on the canvas, the brush is no longer used to fill the interior of shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     detachBrush(): void;
 
     /**
-     * Saves the current canvas status (canvas matrix) to the top of the stack. This API must be used in pair with restore.
+     * Saves the canvas states (canvas matrix and drawable area) to the top of the stack. This API must be used in pair with restore.
      * @returns { number } Number of canvas statuses. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1559,7 +1547,7 @@ declare namespace drawing {
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
     /**
-     * Clears the canvas with a given color.
+     * Clears the canvas with a given color. This API has the same effect as drawcolor.
      * @param { common2D.Color } color - Color in ARGB format. Each color channel is an integer ranging from 0 to 255.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1577,14 +1565,14 @@ declare namespace drawing {
     clear(color: common2D.Color | number): void;
 
     /**
-     * Restores the canvas status (canvas matrix) saved on the top of the stack.
+     * Restores the canvas state (canvas matrix and clipping area) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     restore(): void;
 
     /**
-     * Restores to a given number of canvas statuses (canvas matrices).
+     * Restores the canvas state (canvas matrix and clipping area) to a specified number.
      * @param { number } count - Depth of the canvas statuses to restore.
      * The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state.
      * If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
@@ -1596,7 +1584,7 @@ declare namespace drawing {
     restoreToCount(count: number): void;
 
     /**
-     * Obtains the number of canvas statuses (canvas matrices) saved in the stack.
+     * Obtains the number of canvas states (canvas matrix and clipping area) saved in the stack.
      * @returns { number } Number of canvas statuses that have been saved. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1636,7 +1624,8 @@ declare namespace drawing {
     getTotalMatrix(): Matrix;
 
     /**
-     * Scales the canvas.
+     * Applies a scaling matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a scaling effect applied to the shapes and positions.
      * @param { number } sx - Scale ratio on the X axis. The value is a floating point number.
      * @param { number } sy - Scale ratio on the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1647,7 +1636,8 @@ declare namespace drawing {
     scale(sx: number, sy: number): void;
 
     /**
-     * Skews the canvas in both the horizontal and vertical directions.
+     * Applies a skewing matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a skewing effect applied to the shapes and positions.
      * @param { number } sx - Amount of tilt on the X axis. The value is a floating point number.
      * A positive number tilts the drawing rightwards along the positive direction of the Y axis,
      * and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
@@ -1662,7 +1652,8 @@ declare namespace drawing {
     skew(sx: number, sy: number) : void;
 
     /**
-     * Rotates the canvas by a certain angle.
+     * Applies a rotation matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a rotation effect applied to their shapes and positions.
      * @param { number } degrees - Angle to rotate, in degrees. The value is a floating point number.
      * A positive value indicates a clockwise rotation, and a negative value indicates a counterclockwise rotation.
      * @param { number } sx - X coordinate of the rotation center. The value is a floating point number.
@@ -1675,7 +1666,8 @@ declare namespace drawing {
     rotate(degrees: number, sx: number, sy: number) : void;
 
     /**
-     * Translates the canvas by a given distance.
+     * Applies a translation matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a translation effect applied to the shapes and positions.
      * @param { number } dx - Distance to translate on the X axis. The value is a floating point number.
      * @param { number } dy - Distance to translate on the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1686,8 +1678,7 @@ declare namespace drawing {
     translate(dx: number, dy: number): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference of the current clipping area and path,
-     * and use a clipping edge that is aliased or anti-aliased.
+     * Clips the drawable area of the canvas using a custom path.
      * @param { Path } path - To combine with clip.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
      * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
@@ -1700,8 +1691,7 @@ declare namespace drawing {
     clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference between the
-     * current clipping area and Rect, and use a clipping edge that is aliased or anti-aliased.
+     * Clips the drawable area of the canvas using a rectangle.
      * @param { common2D.Rect } rect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
      * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
@@ -1714,8 +1704,8 @@ declare namespace drawing {
     clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Preconcats the existing matrix of the canvas with the passed-in matrix.
-     * The drawing operation triggered before this API is called is not affected.
+     * Multiplies the current canvas matrix by the incoming matrix on the left. This API does not affect previous drawing operations,
+     * but subsequent drawing and clipping operations will be influenced by this matrix in terms of shape and position.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1725,8 +1715,7 @@ declare namespace drawing {
     concatMatrix(matrix: Matrix): void;
 
     /**
-     * Replace the clipping area with the intersection or difference of the
-     * current clipping area and Region, and use a clipping edge that is aliased or anti-aliased.
+     * Clips a region on the canvas.
      * @param { Region } region - Region object, which indicates the range to clip.
      * @param { ClipOp } clipOp - Clipping mode. The default value is INTERSECT.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1737,8 +1726,7 @@ declare namespace drawing {
     clipRegion(region: Region, clipOp?: ClipOp): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference between the
-     * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
+     * Clips a rounded rectangle on the canvas.
      * @param { RoundRect } roundRect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clipping mode. The default value is INTERSECT.
      * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
@@ -1759,7 +1747,7 @@ declare namespace drawing {
     isClipEmpty(): boolean;
 
     /**
-     * Sets a matrix for the canvas.
+     * Sets a matrix for the canvas. Subsequent drawing and clipping operations will be affected by this matrix in terms of shape and position.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1943,7 +1931,7 @@ declare namespace drawing {
     bounds(): common2D.Rect;
 
     /**
-     * Obtains the unique identifier of a text blob. The identifier is a non-zero value.
+     * Obtains the unique, non-zero identifier of this TextBlob object.
      * @returns { number } Unique ID.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1952,14 +1940,14 @@ declare namespace drawing {
   }
 
   /**
-   * Describes the typeface such as SimSun and Kaiti.
+   * Describes the style of a typeface, such as SimSun or KaiTi.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   class Typeface {
     /**
-     * Obtains the name of the typeface, that is, the name of the font family.
+     * Obtains the name of the typeface family, which is the name given to a collection of related typeface designs.
      * @returns { string } Family name.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -2118,7 +2106,7 @@ declare namespace drawing {
     getSize(): number;
 
     /**
-     * Sets Typeface to font.
+     * Sets the typeface style (including attributes such as font name, weight, and italic) for the font.
      * @param { Typeface } typeface - Font and style used to draw text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2408,7 +2396,7 @@ declare namespace drawing {
     setThemeFontFollowed(followed: boolean): void;
 
     /**
-     * Checks whether the font follows the theme font. By default, the theme font is not followed.
+     * Checks whether the font follows the theme font. By default, the font follows the theme font.
      * @returns { boolean } Check result. The value true means that the theme font is followed, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 15
@@ -3942,7 +3930,11 @@ declare namespace drawing {
      */
     getAll(): Array<number>;
     /**
-     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the source rectangle with a matrix transformation.
+     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the source rectangle
+     * with a matrix transformation. As shown in the figure below, the blue rectangle represents the source rectangle,
+     * and the yellow rectangle is the shape obtained after a matrix transformation is applied to the source rectangle.
+     * Since the edges of the yellow rectangle are not aligned with the coordinate axes, it cannot be represented by a rectangle object.
+     * To address this issue, a destination rectangle (black rectangle) is defined as the bounding rectangle.
      * @param { common2D.Rect } dst - Rectangle object, which is used to store the bounding rectangle.
      * @param { common2D.Rect } src - Source rectangle.
      * @returns { boolean } Returns true if the mapped src is equal to the dst; returns false is not equal.
