@@ -44,7 +44,7 @@ import {
   LocalizedEdgeColors,BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions,Bias,
   EdgeStyles,Position,LocalizedBorderRadiuses,Margin,ChainWeightOptions,Padding,LocalizedPadding,LocalizedMargin,
   BorderOptions,OutlineOptions,EdgeOutlineStyles,EdgeOutlineWidths,OutlineRadiuses,Edges,LocalizedEdges,LocalizedPosition,
-  AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT
+  AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT, VoidCallback
 } from './units';
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
   GestureMask, GestureHandler,GesturePriority,GestureInfo
@@ -15205,8 +15205,7 @@ declare interface BindOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DismissContentCoverAction {
   /**
@@ -15216,8 +15215,7 @@ declare interface DismissContentCoverAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
 
@@ -15228,8 +15226,43 @@ declare interface DismissContentCoverAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
+ * Component content cover dismiss
+ *
+ * @interface DismissContentCoverAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @arkts 1.2
+ * @since 20
+ */
+declare interface DismissContentCoverAction {
+  /**
+   * Defines content cover dismiss function
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @arkts 1.2
+   * @since 20
+   */
+  dismiss: VoidCallback;
+
+  /**
+   * Defines content cover dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @arkts 1.2
+   * @since 20
    */
   reason: DismissReason;
 }
@@ -15577,8 +15610,7 @@ declare enum SheetKeyboardAvoidMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SheetDismiss {
   /**
@@ -15596,10 +15628,33 @@ declare interface SheetDismiss {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: () => void;
+}
+
+/**
+ * Component sheet dismiss
+ *
+ * @interface SheetDismiss
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface SheetDismiss {
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { VoidCallback  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dismiss: VoidCallback;
 }
 
 /**
@@ -15609,8 +15664,7 @@ declare interface SheetDismiss {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DismissSheetAction {
 
@@ -15621,8 +15675,7 @@ declare interface DismissSheetAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
 
@@ -15633,8 +15686,44 @@ declare interface DismissSheetAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
+ * Component sheet dismiss
+ *
+ * @interface DismissSheetAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface DismissSheetAction {
+
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dismiss: VoidCallback;
+
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   reason: DismissReason;
 }
@@ -15646,8 +15735,7 @@ declare interface DismissSheetAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SpringBackAction {
   /**
@@ -15657,10 +15745,33 @@ declare interface SpringBackAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   springBack: Callback<void>;
+}
+
+/**
+ * Defines sheet spring back action 
+ *
+ * @interface SpringBackAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface SpringBackAction {
+  /**
+   * Defines spring back function
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  springBack: VoidCallback;
 }
 
 /**
