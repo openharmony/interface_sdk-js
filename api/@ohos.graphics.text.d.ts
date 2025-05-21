@@ -963,7 +963,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
-    unLoadFontSync(name: string): void;
+    unloadFontSync(name: string): void;
 
     /**
      * Unloads a custom font. This API uses a promise to return the result.
@@ -981,7 +981,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
-    unLoadFont(name: string): Promise<void>;
+    unloadFont(name: string): Promise<void>;
 
     /**
      * Clear font caches.
