@@ -2230,7 +2230,6 @@ declare namespace text {
      * @returns { TextDirection } Returns the text direction.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
-     * @arkts 1.2
      */
     getTextDirection: TextDirection;
 
@@ -2242,7 +2241,6 @@ declare namespace text {
      * @returns { Array<number> } Array of glyph width.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
-     * @arkts 1.2
      */
     getAdvances(range: Range): Array<number>;
   }
