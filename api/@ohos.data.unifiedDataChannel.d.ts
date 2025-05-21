@@ -2008,8 +2008,7 @@ declare namespace unifiedDataChannel {
    * system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
-   * share options.
+   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @StageModelOnly
@@ -2027,8 +2026,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
-   * share options.
+   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 14
