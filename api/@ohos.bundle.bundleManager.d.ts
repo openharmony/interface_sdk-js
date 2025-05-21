@@ -430,6 +430,14 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   */
   enum AbilityFlag {
     /**
      * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
@@ -439,6 +447,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
+     * permission, metadata and disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
      * Used to obtain the abilityInfo containing permission.
@@ -446,6 +462,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -455,6 +478,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing applicationInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
      * Used to obtain the abilityInfo containing metadata.
@@ -463,6 +493,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing metadata.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
      * Used to obtain the abilityInfo containing disabled abilityInfo.
@@ -470,6 +507,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
     /**
@@ -486,6 +530,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 11
      */
+    /**
+     * Used to obtain the abilityInfo only for system app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
     /**
      * Used to obtain the abilityInfo with domain verification.
@@ -494,6 +545,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 12
      */
+    /**
+     * Used to obtain the abilityInfo with domain verification.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
     /**
      * Used to obtain the abilityInfo with Skill
@@ -501,6 +559,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Used to obtain the abilityInfo with Skill
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_SKILL = 0x00000080,
   }
