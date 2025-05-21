@@ -53,6 +53,7 @@ function printResult(source: string, file: ComponentFile) {
 }
 
 function main() {
+  uiconfig.loadConfig(options)
   const files = getFiles(options.inputDir, f => f.endsWith(".d.ets"))
   const convertedFile = convertFiles(files)
   const program = ts.createProgram(convertedFile, { allowJs: true })
@@ -83,6 +84,7 @@ function main() {
 const options = program
   .option('--input-dir <path>', "Path of where d.ets exist")
   .option('--target-dir <path>', "Path to generate d.ets file")
+  .option('--use-memo-m3', "Generate code with m3 @memo annotations and functions with @ComponentBuilder", false)
   .parse()
   .opts()
 

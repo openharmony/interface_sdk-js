@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { OptionValues } from "commander"
 import * as fs from "fs"
 
 import path from "path"
@@ -54,7 +55,15 @@ export class ArkUIConfigUtil {
     private componentFiles: Set<string> = new Set
     private file2Attrbiute: Map<string, string> = new Map
     private shouldNotHaveAttributeModifier: Set<string> = new Set
-
+    private _useMemoM3: boolean = false
+    get useMemoM3(): boolean {
+        return this._useMemoM3
+    }
+    public loadConfig(config: OptionValues): void {
+        if (config.useMemoM3) {
+            this._useMemoM3 = true
+        }
+    }
     private getPureName(name: string): string {
         return path.basename(name).replaceAll(".d.ts", "").replaceAll(".d.ets", "").replaceAll("_","").toLowerCase()
     }

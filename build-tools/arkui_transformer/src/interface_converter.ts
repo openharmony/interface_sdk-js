@@ -22,7 +22,7 @@ import { ComponentFile } from './component_file';
 import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods, mergeUniqueOrdered } from './lib/attribute_utils'
 
 function readLangTemplate(): string {
-    return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
+    return uiconfig.useMemoM3 ? fs.readFileSync('./pattern/arkts_component_decl_m3.pattern', 'utf8') : fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
 }
 
 function extractSignatureComment(
@@ -109,7 +109,7 @@ function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCod
 }
 
 function handleComponentInterface(node: ts.InterfaceDeclaration, file: ComponentFile) {
-    const result = getAllInterfaceCallSignature(node, file.sourceFile, true)
+    const result = getAllInterfaceCallSignature(node, file.sourceFile, !uiconfig.useMemoM3);
     const declPattern = readLangTemplate()
     const declComponentFunction: string[] = []
     result.forEach(p => {
@@ -425,7 +425,7 @@ function isComponentInterface(node: ts.Node) {
 export function addMemoTransformer(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
-            if (isComponentHerirage(node)) {
+            if (isComponentHerirage(node) && !uiconfig.useMemoM3) {
                 addAttributeMemo(node as ts.ClassDeclaration, componentFile)
             }
             return ts.visitEachChild(node, visit, context);
