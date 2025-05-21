@@ -7317,7 +7317,7 @@ declare namespace audio {
     getAudioEffectMode(): Promise<AudioEffectMode>;
 
     /**
-     * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
+     * Sets audio effect mode for current audio renderer. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -7329,7 +7329,7 @@ declare namespace audio {
      */
     setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback<void>): void;
     /**
-     * Sets the current audio effect mode. This method uses a promise to return the result.
+     * Sets audio effect mode for current audio renderer. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -10084,7 +10084,7 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Audio Effect Mode effect none.
+     * Audio Effect Mode effect none. This effect mode will disable audio effect process for current audio renderer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
      * @since 12
