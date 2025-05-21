@@ -39,7 +39,7 @@ import { UICommonEvent,UIGestureEvent,CommonAttribute } from './component/common
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
-declare interface LayoutConstraint {
+export declare interface LayoutConstraint {
   /**
    * MaxSize
    *
@@ -1949,7 +1949,7 @@ export namespace typeNode {
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
-declare class NodeAdapter {
+export declare class NodeAdapter {
   /**
    * Constructor.
    *
