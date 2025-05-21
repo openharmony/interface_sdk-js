@@ -68,6 +68,7 @@ declare namespace bundleManager {
    */
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -162,7 +163,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -170,7 +172,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -190,7 +193,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -198,7 +202,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -239,9 +244,12 @@ declare namespace bundleManager {
      * @since 9
      */
     /**
-     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo, abilityInfo and extensionAbility.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIES | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -371,6 +379,7 @@ declare namespace bundleManager {
 
   /**
    * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_APPLICATION_INFO_DEFAULT | GET_APPLICATION_INFO_WITH_PERMISSION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -786,6 +795,14 @@ declare namespace bundleManager {
      * @since 18
      */
     DISTRIBUTED = 28,
+
+    /**
+     * Indicates extension info with type of app service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     */
+    APP_SERVICE = 29,
 
     /**
      * Indicates extension info with type of unspecified
@@ -2193,6 +2210,21 @@ declare namespace bundleManager {
    * @since 10
    */
   function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
+  
+  /**
+   * Get AbilityInfo by the given uri.
+   *
+   * @permission ohos.permission.GET_ABILITY_INFO
+   * @param { string } uri - Indicates the uri used for matching ability.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700003 - The ability is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getAbilityInfo(uri: string, abilityFlags: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -3512,6 +3544,31 @@ declare namespace bundleManager {
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
   /**
+   * Enable dynamic icon.
+   * If you need to endable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to endable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Disable dynamic icon.
    *
    * @permission ohos.permission.ACCESS_DYNAMIC_ICON
@@ -3529,6 +3586,29 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
   /**
+   * Disable dynamic icon.
+   * If you need to disable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to disable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3544,6 +3624,42 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
+
+  /**
+   * Get dynamic icon info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
+
+  /**
+   * Get all dynamic icon info.
+   * If you need to query dynamic icon information under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to query dynamic icon information under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } [userId] - Indicates the user id, default value is to query all users.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAllDynamicIconInfo(userId?: number): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
@@ -3860,6 +3976,34 @@ declare namespace bundleManager {
    * @since 18
    */
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
+
+  /**
+   * Obtains sandbox data directory by bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { string } Returns the sandbox data directory.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getSandboxDataDir(bundleName: string, appIndex: number): string;
+
+  /**
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the sandbox data directory.
+   *
+   * @param { string } sandboxDataDir - Indicates the sandbox data directory.
+   * @returns { AppCloneIdentity } Returns the clone Identity contains bundleName and appIndex.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
    * Obtains configuration information about an application.
@@ -4317,6 +4461,26 @@ declare namespace bundleManager {
    * @since 19
    */
   export type PluginModuleInfo = _PluginModuleInfo;
+
+  /**
+   * Contains dynamic icon.
+   *
+   * @typedef { _BundleInfo.DynamicIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type DynamicIconInfo = _BundleInfo.DynamicIconInfo;
+
+  /**
+   * Contains bundle options.
+   *
+   * @typedef { _BundleInfo.BundleOptions }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type BundleOptions = _BundleInfo.BundleOptions;
 }
 
 export default bundleManager;

@@ -1808,7 +1808,6 @@ declare namespace formInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
-   * @systemapi
    * @since 12
    */
   enum FormLocation {
@@ -1825,7 +1824,6 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     DESKTOP = 0,
@@ -1834,7 +1832,6 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     FORM_CENTER = 1,
@@ -1843,7 +1840,6 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     FORM_MANAGER = 2,
@@ -1852,7 +1848,6 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     NEGATIVE_SCREEN = 3,
@@ -1879,7 +1874,6 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     SCREEN_LOCK = 6,
@@ -1888,7 +1882,6 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     AI_SUGGESTION = 7,

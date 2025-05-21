@@ -19,7 +19,7 @@
  */
 
 /**
- * Surface Rectangle information.
+ * Describes the rectangle of the surface held by the XComponent.
  *
  * @interface SurfaceRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -37,7 +37,9 @@
  */
 declare interface SurfaceRect {
   /**
-   * The horizontal offset of the surface relative to XComponent.
+   * X coordinate of the surface rectangle relative to the upper left corner of the XComponent.
+   * Unit: px.
+   * If offsetX is not set, the surface rectangle is centered along the x-axis relative to the upper left corner of the XComponent.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -56,7 +58,9 @@ declare interface SurfaceRect {
   offsetX?: number;
 
   /**
-   * The vertical offset of the surface relative to XComponent.
+   * Y coordinate of the surface rectangle relative to the upper left corner of the XComponent.
+   * Unit: px.
+   * If offsetY is not set, the surface rectangle is centered along the y-axis relative to the upper left corner of the XComponent.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -75,7 +79,8 @@ declare interface SurfaceRect {
   offsetY?: number;
 
   /**
-   * The width of the surface created by XComponent
+   * Width of the surface rectangle.
+   * Unit: px.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -94,7 +99,8 @@ declare interface SurfaceRect {
   surfaceWidth: number;
 
   /**
-   * The height of the surface created by XComponent
+   * Height of the surface rectangle.
+   * Unit: px.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -114,7 +120,7 @@ declare interface SurfaceRect {
 }
 
 /**
- * Surface rotation options.
+ * Defines whether the orientation of the surface held by the current XComponent is locked when the screen rotates.
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -132,7 +138,8 @@ declare interface SurfaceRect {
  */
 declare interface SurfaceRotationOptions {
   /**
-   * Lock property of the surface rotation.
+   * Whether the orientation of the surface is locked when the screen rotates.
+   * If this parameter is not set, the default value false is used, indicating that the orientation is not locked.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -152,13 +159,15 @@ declare interface SurfaceRotationOptions {
 }
 
 /**
- * Defines XComponentController
+ * Defines the controller of the XComponent.
+ * You can bind the controller to the XComponent to call the component APIs through the controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Defines XComponentController
+ * Defines the controller of the XComponent.
+ * You can bind the controller to the XComponent to call the component APIs through the controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -167,13 +176,13 @@ declare interface SurfaceRotationOptions {
  */
 declare class XComponentController {
   /**
-   * Constructor.
+   * A constructor used to create a XComponentController instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Constructor.
+   * A constructor used to create a XComponentController instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -183,16 +192,18 @@ declare class XComponentController {
   constructor();
 
   /**
-   * Get the id of surface created by XComponent.
+   * Obtains the ID of the surface held by the XComponent, which can then be used for @ohos APIs.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @returns { string } The id of surface created by XComponent.
+   * @returns { string } ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
-   * Get the id of surface created by XComponent.
+   * Obtains the ID of the surface held by the XComponent, which can then be used for @ohos APIs.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @returns { string } The id of surface created by XComponent.
+   * @returns { string } ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -201,16 +212,20 @@ declare class XComponentController {
   getXComponentSurfaceId(): string;
 
   /**
-   * Get the context of native XComponent.
+   * Obtains the context of an XComponent object.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
    * @returns { Object } The context of native XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Get the context of native XComponent.
+   * Obtains the context of an XComponent object.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @returns { Object } The context of native XComponent.
+   * @returns { Object } Context of the XComponent object.
+   *                     The APIs contained in the context are defined by developers.
+   *                     The context is passed in as the first parameter of the onLoad callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -219,9 +234,10 @@ declare class XComponentController {
   getXComponentContext(): Object;
 
   /**
-   * Set the surface size created by XComponent.
+   * Sets the width and height of the surface held by the XComponent.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @param { object } value - surface size
+   * @param { object } value - Width and Height of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @deprecated since 12
@@ -233,9 +249,10 @@ declare class XComponentController {
   }): void;
 
   /**
-   * Set the rectangle information of surface created by XComponent.
+   * Sets the rectangle for the surface held by the XComponent.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @param { SurfaceRect } rect - The surface rectangle information.
+   * @param { SurfaceRect } rect - Rectangle of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -252,9 +269,10 @@ declare class XComponentController {
   setXComponentSurfaceRect(rect: SurfaceRect): void;
 
   /**
-   * Get the rectangle information of Surface created by XComponent.
+   * Obtains the rectangle of the surface held by the XComponent.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @returns { SurfaceRect } The surface rectangle information.
+   * @returns { SurfaceRect } Rectangle of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -271,9 +289,10 @@ declare class XComponentController {
   getXComponentSurfaceRect(): SurfaceRect;
 
   /**
-   * Set the rotation options of the Surface created by XComponent.
+   * Sets whether to lock the orientation of the surface held by this XComponent when the screen rotates.
+   * This API is effective only when the XComponent type is SURFACE ("surface").
    *
-   * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
+   * @param { SurfaceRotationOptions } rotationOptions - Whether to lock the orientation of the surface held by the current XComponent when the screen rotates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -290,7 +309,8 @@ declare class XComponentController {
   setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
 
   /**
-   * Get the rotation options result of the Surface created by XComponent.
+   * Obtains whether the orientation of the surface held by this XComponent is locked when the screen rotates.
+   * This API is effective only when the XComponent type is SURFACE ("surface").
    *
    * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -309,9 +329,10 @@ declare class XComponentController {
   getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
 
   /**
-   * Called after the surface is first created.
+   * Triggered when the surface held by the XComponent is created.
+   * This API works only when type of the XComponent is set to SURFACE("surface") or TEXTURE.
    *
-   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @param { string } surfaceId - ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -328,10 +349,11 @@ declare class XComponentController {
   onSurfaceCreated(surfaceId: string): void;
 
   /**
-   * Called after the surface rectangle information is changed.
+   * Triggered when the surface held by the XComponent has its size changed (including the time when the XComponent is created with the specified size).
+   * This API works only when type of the XComponent is set to SURFACE ("surface") or TEXTURE.
    *
-   * @param { string } surfaceId - The id of the surface created by XComponent.
-   * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
+   * @param { string } surfaceId - ID of the surface held by the XComponent.
+   * @param { SurfaceRect } rect - Rectangle for displaying the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -349,9 +371,10 @@ declare class XComponentController {
   onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
 
   /**
-   * Called when the surface is about to be destroyed.
+   * Triggered when the surface held by the XComponent is destroyed.
+   * This API works only when type of the XComponent is set to SURFACE ("surface") or TEXTURE.
    *
-   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @param { string } surfaceId - ID of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -368,10 +391,13 @@ declare class XComponentController {
   onSurfaceDestroyed(surfaceId: string): void;
 
   /**
-   * Start image analyzer.
+   * Starts AI image analysis in the given settings.
+   * Before calling this API, make sure the AI image analyzer is enabled.
+   * Because the image frame used for analysis is the one captured when this API is called, pay attention to the invoking time of this API.
+   * If this API is repeatedly called before the execution is complete, an error callback is triggered.
    *
-   * @param { ImageAnalyzerConfig } config - Image analyzer config.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { ImageAnalyzerConfig } config - Settings of the AI image analyzer.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
@@ -382,17 +408,39 @@ declare class XComponentController {
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
 
   /**
-   * Stop image analyzer.
+   * Stops AI image analysis.
+   * The content displayed by the AI image analyzer will be destroyed.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   stopImageAnalyzer(): void;
+
+  /**
+   * Get a Canvas for drawing into the surface created by XComponent.
+   *
+   * @returns { DrawingCanvas | null} Returns a Canvas for drawing into the surface created by XComponent.
+   *    Returns null if the surface is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  lockCanvas(): DrawingCanvas | null;
+
+  /**
+   * Posts the new contents of the Canvas to the surface created by XComponent and releases the Canvas.
+   *
+   * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  unlockCanvasAndPost(canvas: DrawingCanvas):void;
 }
 
 /**
- * Defines the xcomponent options.
+ * Defines the options of the XComponent.
  *
  * @interface XComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -410,7 +458,7 @@ declare class XComponentController {
  */
 declare interface XComponentOptions {
   /**
-   * The type of xcomponent
+   * Type of the component.
    *
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -429,7 +477,8 @@ declare interface XComponentOptions {
   type: XComponentType;
 
   /**
-   * The controller of xcomponent.
+   * Controller bound to the component, which can be used to invoke methods of the component.
+   * This parameter is valid only when type is SURFACE or TEXTURE.
    *
    * @type { XComponentController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -448,7 +497,8 @@ declare interface XComponentOptions {
   controller: XComponentController;
 
   /**
-   * Image ai options.
+   * AI image analysis options.
+   * You can configure the analysis type or bind an analyzer controller through this parameter.
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -580,11 +630,11 @@ interface XComponentInterface {
 }
 
 /**
- * Callback invoked when XComponent onload.
+ * Triggered after the surface held by the XComponent is created.
  *
  * @typedef { function } OnNativeLoadCallback
- * @param { object } [event] - Get the context of the XCompoonent instance object,
- * and the methods mounted on the context are defined by the developer in the C++layer.
+ * @param { object } [event] - Context of the XComponent object.
+ *                             The APIs contained in the context are defined at the native layer by developers.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -610,17 +660,17 @@ declare type OnNativeLoadCallback = (event?: object) => void;
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
-   * Called when judging whether the xcomponent surface is created.
+   * Triggered when the plug-in is loaded.
    *
-   * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
+   * @param { function } [callback] - Callback after the surface held by the XComponent is created.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Called when judging whether the xcomponent surface is created.
+   * Triggered when the plug-in is loaded.
    *
-   * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
+   * @param { function } [callback] - Callback after the surface held by the XComponent is created.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -628,10 +678,10 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 12
    */
   /**
-   * Called when judging whether the xcomponent surface is created.
+   * Triggered when the plug-in is loaded.
    * Anonymous Object Rectification.
    *
-   * @param { OnNativeLoadCallback } callback - Called when judging whether the xcomponent surface is created.
+   * @param { OnNativeLoadCallback } callback - Callback after the surface held by the XComponent is created.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -641,17 +691,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   onLoad(callback: OnNativeLoadCallback): XComponentAttribute;
 
   /**
-   * Called when judging whether the xcomponent is destroyed.
+   * Triggered when the plug-in is destroyed.
    *
-   * @param { function } event - Called when judging whether the xcomponent is destroyed.
+   * @param { function } event - Callback after the XComponent is destroyed.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Called when judging whether the xcomponent is destroyed.
+   * Triggered when the plug-in is destroyed.
    *
-   * @param { function } event - Called when judging whether the xcomponent is destroyed.
+   * @param { function } event - Callback after the XComponent is destroyed.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -659,10 +709,10 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 12
    */
   /**
-   * Called when judging whether the xcomponent is destroyed.
+   * Triggered when the plug-in is destroyed.
    * Anonymous Object Rectification.
    *
-   * @param { VoidCallback } event - Called when judging whether the xcomponent is destroyed.
+   * @param { VoidCallback } event - Callback after the XComponent is destroyed.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -672,9 +722,12 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   onDestroy(event: VoidCallback): XComponentAttribute;
 
   /**
-   * Enable image analyzer for XComponent.
+   * Sets whether to enable the AI image analyzer, which supports subject recognition, text recognition, and object lookup.
+   * For the settings to take effect, this attribute must be used together with StartImageAnalyzer and StopImageAnalyzer of XComponentController.
+   * This feature cannot be used together with the overlay attribute.
+   * If both are set, the CustomBuilder attribute in overlay has no effect. This feature also depends on device capabilities.
    *
-   * @param { boolean } enable
+   * @param { boolean } enable - Whether to enable the AI image analyzer.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -683,9 +736,9 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   enableAnalyzer(enable: boolean): XComponentAttribute;
 
   /**
-   * Enable privacy protection for XComponent.
+   * Sets whether to enable the secure surface to protect the content rendered within the component from being captured or recorded.
    *
-   * @param { boolean } isSecure
+   * @param { boolean } isSecure - Whether to enable the secure surface.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

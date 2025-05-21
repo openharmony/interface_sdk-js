@@ -23,14 +23,22 @@ import image from "./@ohos.multimedia.image";
 import Want from "./@ohos.app.ability.Want";
 
 /**
- * Provide methods for sharing data between different applications across unified data channels.
+ * As a part of the Unified Data Management Framework (UDMF), the unifiedDataChannel module provides unified data
+ * channels and standard data access interfaces for many-to-many data sharing across applications. It also provides
+ * definitions for uniform data types, such as text and image, to streamline data interaction between different
+ * applications and minimize the workload of data type adaptation. Although the UDMF does not parse user data, you are
+ * advised not to transfer sensitive personal data or privacy data due to low-level security of storage path.
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 10
  */
 /**
- * Provide methods for sharing data between different applications across unified data channels.
+ * As a part of the Unified Data Management Framework (UDMF), the unifiedDataChannel module provides unified data
+ * channels and standard data access interfaces for many-to-many data sharing across applications. It also provides
+ * definitions for uniform data types, such as text and image, to streamline data interaction between different
+ * applications and minimize the workload of data type adaptation. Although the UDMF does not parse user data, you are
+ * advised not to transfer sensitive personal data or privacy data due to low-level security of storage path.
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -38,7 +46,11 @@ import Want from "./@ohos.app.ability.Want";
  * @since 11
  */
 /**
- * Provide methods for sharing data between different applications across unified data channels.
+ * As a part of the Unified Data Management Framework (UDMF), the unifiedDataChannel module provides unified data
+ * channels and standard data access interfaces for many-to-many data sharing across applications. It also provides
+ * definitions for uniform data types, such as text and image, to streamline data interaction between different
+ * applications and minimize the workload of data type adaptation. Although the UDMF does not parse user data, you are
+ * advised not to transfer sensitive personal data or privacy data due to low-level security of storage path.
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -281,7 +293,11 @@ declare namespace unifiedDataChannel {
     getRecords(): Array<UnifiedRecord>;
 
     /**
-     * Checks whether there is a specified type of data in DataProperties.
+     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using
+     * the addEntry function.
+     * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
+     * called to check whether the general.image type is included, because the general.jpeg type belongs to the
+     * general.image type.
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -291,7 +307,11 @@ declare namespace unifiedDataChannel {
      * @since 12
      */
     /**
-     * Checks whether there is a specified type of data in DataProperties.
+     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using
+     * the addEntry function.
+     * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
+     * called to check whether the general.image type is included, because the general.jpeg type belongs to the
+     * general.image type.
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -331,13 +351,13 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * The data abstract supported by unified data
+   * Summarizes the data information of the unifiedData object, including the data type and size.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
   /**
-   * The data abstract supported by unified data
+   * Summarizes the data information of the unifiedData object, including the data type and size.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
@@ -390,7 +410,10 @@ declare namespace unifiedDataChannel {
    * @since 11
    */
   /**
-   * Describe the unified record
+   * An abstract definition of the data content supported by the UDMF. A UnifiedRecord object contains one or more data
+   * records, for example, a text record, an image record, or an HTML record. Since API version 15, different styles of
+   * the same content can be added to a UnifiedRecord object. Data users can obtain the corresponding styles as
+   * required.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
@@ -444,7 +467,8 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
-     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is object, parameter type must be pixel-map or want UTD type.
+     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is
+     * object, parameter type must be pixel-map or want UTD type.
      * @param { ValueType } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -456,7 +480,8 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
-     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is object, parameter type must be pixel-map or want UTD type.
+     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is
+     * object, parameter type must be pixel-map or want UTD type.
      * @param { ValueType } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -488,7 +513,8 @@ declare namespace unifiedDataChannel {
     getValue(): ValueType;
 
     /**
-     * Get the types of unified record.
+     * Obtains all the data types in the data record. This API can be called using the UnifiedRecord object to query all
+     * data types in the record, including the data types added using the addEntry function.
      *
      * @returns { Array<string> } Return the types of unified record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -498,7 +524,8 @@ declare namespace unifiedDataChannel {
     getTypes(): Array<string>;
 
     /**
-     * Add an entry into unified record
+     * Adds data of a specified data type and content to the current data record. You can use this API to add different
+     * data types and contents to the same data.
      *
      * @param { string } type - type of entry.
      * @param { ValueType } value - value of entry.
@@ -860,13 +887,13 @@ declare namespace unifiedDataChannel {
      */
     details?: Record<string, string>;
     /**
-     * Indicates the uri of file
+     * URI of the local file or online file. The local file URI can be obtained using the getUriFromPath function.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     /**
-     * Indicates the uri of file
+     * URI of the local file or online file. The local file URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -874,7 +901,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     /**
-     * Indicates the uri of file
+     * URI of the local file or online file. The local file URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -911,13 +938,13 @@ declare namespace unifiedDataChannel {
    */
   class Image extends File {
     /**
-     * Indicates the uri of image
+     * URI of the local image or online image. The local image URI can be obtained using the getUriFromPath function.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     /**
-     * Indicates the uri of image
+     * URI of the local image or online image. The local image URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -925,7 +952,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     /**
-     * Indicates the uri of image
+     * URI of the local image or online image. The local image URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -962,13 +989,13 @@ declare namespace unifiedDataChannel {
    */
   class Video extends File {
     /**
-     * Indicates the uri of video
+     * URI of the local video or online video. The local video URI can be obtained using the getUriFromPath function.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     /**
-     * Indicates the uri of video
+     * URI of the local video or online video. The local video URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -976,7 +1003,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     /**
-     * Indicates the uri of video
+     * URI of the local video or online video. The local video URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1013,13 +1040,13 @@ declare namespace unifiedDataChannel {
    */
   class Audio extends File {
     /**
-     * Indicates the uri of audio
+     * URI of the local audio or online audio. The local audio URI can be obtained using the getUriFromPath function.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     /**
-     * Indicates the uri of audio
+     * URI of the local audio or online audio. The local audio URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1027,7 +1054,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     /**
-     * Indicates the uri of audio
+     * URI of the local audio or online audio. The local audio URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1064,13 +1091,13 @@ declare namespace unifiedDataChannel {
    */
   class Folder extends File {
     /**
-     * Indicates the uri of folder
+     * URI of the local folder or online folder. The local folder URI can be obtained using the getUriFromPath function.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     /**
-     * Indicates the uri of folder
+     * URI of the local folder or online folder. The local folder URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1078,7 +1105,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     /**
-     * Indicates the uri of folder
+     * URI of the local folder or online folder. The local folder URI can be obtained using the getUriFromPath function.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1462,7 +1489,34 @@ declare namespace unifiedDataChannel {
      * @stagemodelonly
      * @since 14
      */
-     DRAG = 'Drag'
+     DRAG = 'Drag',
+
+    /**
+     * Indicates a system sharing channel.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    SYSTEM_SHARE = 'SystemShare',
+
+    /**
+     * Indicates a Picker channel.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    PICKER = 'Picker',
+
+    /**
+     * Indicates a menu channel.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    MENU = 'Menu'
   }
 
   /**
@@ -1844,8 +1898,10 @@ declare namespace unifiedDataChannel {
   /**
    * Query data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData}
+   * object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1854,8 +1910,10 @@ declare namespace unifiedDataChannel {
   /**
    * Query data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object
+   *  array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1867,7 +1925,8 @@ declare namespace unifiedDataChannel {
   /**
    * Query data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -1877,7 +1936,8 @@ declare namespace unifiedDataChannel {
   /**
    * Query data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -1890,8 +1950,10 @@ declare namespace unifiedDataChannel {
   /**
    * Delete data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData}
+   * object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1900,8 +1962,10 @@ declare namespace unifiedDataChannel {
   /**
    * Delete data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData}
+   * object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1913,7 +1977,8 @@ declare namespace unifiedDataChannel {
   /**
    * Delete data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -1923,7 +1988,8 @@ declare namespace unifiedDataChannel {
   /**
    * Delete data of unified data channel by Intention or Unique Identifier
    *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention}
+   * or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -1934,30 +2000,35 @@ declare namespace unifiedDataChannel {
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
 
   /**
-   * Set app sharing options.
+   * Sets the ShareOptions for the application data. Currently, only the drag-and-drop data channel is supported.
    *
    * @param { Intention } intention - Describe the sharing channel that UDMF support.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   * system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous share options.
+   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
+   * share options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @StageModelOnly
    * @since 12
    */
   /**
-   * Set app sharing options.
+   * Sets the ShareOptions for the application data. Currently, only the drag-and-drop data channel is supported.
    *
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
+   * intention.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous share options.
+   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
+   * share options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 14
@@ -1968,7 +2039,8 @@ declare namespace unifiedDataChannel {
     * Remove app sharing options.
     *
     * @param { Intention } intention - Describe the sharing channel that UDMF support.
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+    * uses system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *                                                                   2. Incorrect parameter types.
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1980,8 +2052,10 @@ declare namespace unifiedDataChannel {
    * Remove app sharing options.
    *
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
+   * intention.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
@@ -1992,13 +2066,14 @@ declare namespace unifiedDataChannel {
    function removeAppShareOptions(intention: Intention): void;
 
   /**
-   * It is used to convert the multi-entry structure.
-   * <br>When the input parameters use different records to represent various formats of a single data entry,
-   * and the tag in the properties is marked as "records_to_entries_data_format", this API will convert the data into a single record with multiple entries.
-   * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
+   * Converts the provided data into a multi-style data structure, which is useful when the original data uses multiple
+   * records to represent different styles of the same data. This API is used only when the following rules are met:
+   * 1.The number of records in data is greater than
+   * 2.The value of unifiedData.properties.tag is records_to_entries_data_format.
    *
-   * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @param { UnifiedData } data - {@link UnifiedData} Data to convert.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice

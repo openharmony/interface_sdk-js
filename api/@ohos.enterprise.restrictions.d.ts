@@ -452,6 +452,25 @@ declare namespace restrictions {
    * @since 14
    */
   function getDisallowedListForAccount(admin: Want, feature: string, accountId: number): Array<string>;
+
+  /**
+   * Restricting users from changing specified settings item on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows:
+   * setEthernetIp, setApn, powerKeyShutdown, setDeviceName,
+   * setBiometricsAndScreenLock.
+   * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function setUserRestriction(admin: Want, settingsItem: string, restricted: boolean): void;
 }
 
 export default restrictions;

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BackgroundTasksKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -415,7 +414,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since 17
+   * @since 19
    */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
@@ -470,7 +469,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since 17
+   * @since 19
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
 

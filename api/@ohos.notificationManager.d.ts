@@ -48,28 +48,16 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
 import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
- * Manages notifications.
- * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
- * You can specify the content of a notification to be published and the content is carried by
- * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
- * when using {@link NotificationRequest} to carry the notification content. If a notification
- * with this ID has been published and you need to use this ID to publish another notification,
- * the original notification will be updated. In addition, the notification ID can be used to cancel
- * a notification by calling the {@link #cancel(int)} method.
+ * The NotificationManager module provides notification management capabilities, covering notifications,
+ * notification slots, notification enabled status, and notification badge status.
  *
  * @namespace notificationManager
  * @syscap SystemCapability.Notification.Notification
  * @since 9
  */
 /**
- * Manages notifications.
- * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
- * You can specify the content of a notification to be published and the content is carried by
- * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
- * when using {@link NotificationRequest} to carry the notification content. If a notification
- * with this ID has been published and you need to use this ID to publish another notification,
- * the original notification will be updated. In addition, the notification ID can be used to cancel
- * a notification by calling the {@link #cancel(int)} method.
+ * The NotificationManager module provides notification management capabilities, covering notifications,
+ * notification slots, notification enabled status, and notification badge status.
  *
  * @namespace notificationManager
  * @syscap SystemCapability.Notification.Notification
@@ -79,12 +67,11 @@ import type UIAbilityContext from './application/UIAbilityContext';
  */
 declare namespace notificationManager {
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses an asynchronous callback to return the result.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -98,12 +85,11 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses an asynchronous callback to return the result.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -122,12 +108,11 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses an asynchronous callback to return the result.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -149,12 +134,11 @@ declare namespace notificationManager {
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses a promise to return the URI of the file in the destination directory.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -168,12 +152,11 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses a promise to return the URI of the file in the destination directory.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -192,12 +175,11 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Publishes a notification.
-   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
-   * this method will update the notification.
+   * Publish a notification. This API uses a promise to return the URI of the file in the destination directory.
+   * If the ID and label of the new notification are the same as that of the previous notification, the new one replaces the previous one.
    *
-   * @param { NotificationRequest } request - notification request
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -475,10 +457,10 @@ declare namespace notificationManager {
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
   /**
-   * Cancel a notification with the specified ID.
+   * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @param { number } id - Notification ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -489,10 +471,10 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Cancel a notification with the specified ID.
+   * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @param { number } id - Notification ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -506,11 +488,11 @@ declare namespace notificationManager {
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel a notification with the specified label and ID.
+   * Cancels a notification with the specified ID and label. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label - Label of the notification to cancel.
-   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @param { number } id - Notification ID.
+   * @param { string } label - Notification label.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -523,11 +505,11 @@ declare namespace notificationManager {
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel a notification with the specified label and ID.
+   * Cancels a notification with the specified ID and optional label. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } [label] - Label of the notification to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } id - Notification ID.
+   * @param { string } [label] - Notification label. This parameter is left empty by default.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -638,9 +620,9 @@ declare namespace notificationManager {
   function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
 
   /**
-   * Cancel all notifications of the current application.
+   * Cancels all notifications of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of cancelAll.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -650,9 +632,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Cancel all notifications of the current application.
+   * Cancels all notifications of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of cancelAll.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -665,9 +647,9 @@ declare namespace notificationManager {
   function cancelAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel all notifications of the current application.
+   * Cancels all notifications of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -675,9 +657,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Cancel all notifications of the current application.
+   * Cancels all notifications of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -728,10 +710,10 @@ declare namespace notificationManager {
   function addSlot(slot: NotificationSlot): Promise<void>;
 
   /**
-   * Adds a slot type.
+   * Adds a notification slot of a specified type. This API uses an asynchronous callback to return the result.
    *
-   * @param { SlotType } type - Slot type to add.
-   * @param { AsyncCallback<void> } callback - The callback of addSlot.
+   * @param { SlotType } type - Type of the notification slot to add.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -744,10 +726,10 @@ declare namespace notificationManager {
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a slot type.
+   * Adds a notification slot of a specified type. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { SlotType } type - Slot type to add.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { SlotType } type - Type of the notification slot to add.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -800,10 +782,10 @@ declare namespace notificationManager {
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
   /**
-   * Obtains a notification slot of the specified slot type.
+   * Obtains a notification slot of a specified type. This API uses an asynchronous callback to return the result.
    *
-   * @param { SlotType } slotType - Type of the notification slot to obtain.
-   * @param { AsyncCallback<NotificationSlot> } callback - The callback is used to return the NotificationSlot.
+   * @param { SlotType } slotType - Type of a notification slot, including social communication, service notification, and content consultation.
+   * @param { AsyncCallback<NotificationSlot> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -815,10 +797,10 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
   /**
-   * Obtains a notification slot of the specified slot type.
+   * Obtains a notification slot of a specified type. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { SlotType } slotType - Type of the notification slot to obtain.
-   * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
+   * @param { SlotType } slotType - Type of a notification slot, including social communication, service notification, and content consultation.
+   * @returns { Promise<NotificationSlot> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -830,10 +812,9 @@ declare namespace notificationManager {
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
   /**
-   * Obtains all NotificationSlot objects created by the current application.
+   * Obtains all notification slots of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots
-   *                                                              of this application.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return all notification slots of the current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -845,9 +826,9 @@ declare namespace notificationManager {
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
-   * Obtains all NotificationSlot objects created by the current application.
+   * Obtains all notification slots of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<Array<NotificationSlot>> } Returns all notification slots of this application.
+   * @returns { Promise<Array<NotificationSlot>> } Promise used to return all notification slots of the current application.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -873,10 +854,10 @@ declare namespace notificationManager {
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
-   * Removes a NotificationSlot of the specified SlotType created by the current application.
+   * Removes a notification slot of a specified type for this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { SlotType } slotType - Type of the NotificationSlot to remove.
-   * @param { AsyncCallback<void> } callback - The callback of removeSlot.
+   * @param { SlotType } slotType - Type of a notification slot, including social communication, service notification, and content consultation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -888,10 +869,10 @@ declare namespace notificationManager {
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a NotificationSlot of the specified SlotType created by the current application.
+   * Removes a notification slot of a specified type for this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { SlotType } slotType - Type of the NotificationSlot to remove.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { SlotType } slotType - Type of a notification slot, including social communication, service notification, and content consultation.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -903,9 +884,9 @@ declare namespace notificationManager {
   function removeSlot(slotType: SlotType): Promise<void>;
 
   /**
-   * Removes all NotificationSlot objects created by the current application.
+   * Removes all notification slots for this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of removeAllSlots.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -917,9 +898,9 @@ declare namespace notificationManager {
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all NotificationSlot objects created by the current application.
+   * Removes all notification slots for this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1011,10 +992,10 @@ declare namespace notificationManager {
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1027,9 +1008,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1041,9 +1022,9 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1058,10 +1039,10 @@ declare namespace notificationManager {
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses a promise to return the URI of the file in the destination directory.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1074,9 +1055,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1086,9 +1067,9 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Checks whether this application allows to publish notifications.
+   * Checks whether notification is enabled for the specified application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the notification is enabled, and false means the opposite.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1101,9 +1082,9 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
-   * Checks whether this application allows to publish notifications.
+   * Synchronously checks whether notification is enabled for the specified application.
    *
-   * @returns { boolean } Returned by the function.
+   * @returns { boolean } Returned result. true: enabled; false: returned.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1630,9 +1611,9 @@ declare namespace notificationManager {
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * Obtains the number of all active notifications.
+   * Obtains the number of active notifications of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - The callback of getActiveNotificationCount.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1644,9 +1625,9 @@ declare namespace notificationManager {
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of all active notifications.
+   * Obtains the number of active notifications of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1656,9 +1637,9 @@ declare namespace notificationManager {
   function getActiveNotificationCount(): Promise<number>;
 
   /**
-   * Obtains an array of active notifications.
+   * Obtains the active notifications of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback - The callback of getActiveNotifications.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1670,9 +1651,9 @@ declare namespace notificationManager {
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
   /**
-   * Obtains an array of active notifications.
+   * Obtains the active notifications of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
+   * @returns { Promise<Array<NotificationRequest>> } Promise used to return the result.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1716,10 +1697,10 @@ declare namespace notificationManager {
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
 
   /**
-   * Cancel the notification of a specified group for this application.
+   * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } groupName - The name of the group.
-   * @param { AsyncCallback<void> } callback - The callback of cancelGroup.
+   * @param { string } groupName - Name of the notification group, which is specified through NotificationRequest when the notification is published.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1731,10 +1712,10 @@ declare namespace notificationManager {
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel the notification of a specified group for this application.
+   * Cancels notifications under a notification group of this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { string } groupName - The name of the group.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } groupName - Name of the notification group, which is specified through NotificationRequest when the notification is published.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2141,10 +2122,10 @@ declare namespace notificationManager {
   function isSupportDoNotDisturbMode(): Promise<boolean>;
 
   /**
-   * Obtains whether the template is supported by the system.
+   * Checks whether a specified template is supported. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } templateName - Name of template to be Obtained.
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the template is supported.
+   * @param { string } templateName - Template name. Currently, only downloadTemplate is supported.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the specified template is supported, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2156,10 +2137,10 @@ declare namespace notificationManager {
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains whether the template is supported by the system.
+   * Checks whether a specified template is supported. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { string } templateName - Name of template to be Obtained.
-   * @returns { Promise<boolean> } Returns whether the template is supported.
+   * @param { string } templateName - Template name. Currently, only downloadTemplate is supported.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the specified template is supported, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2171,9 +2152,9 @@ declare namespace notificationManager {
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2183,9 +2164,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2197,9 +2178,9 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2216,10 +2197,10 @@ declare namespace notificationManager {
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses an asynchronous callback to return the result.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2230,10 +2211,10 @@ declare namespace notificationManager {
    * @since 10
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses an asynchronous callback to return the result.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2246,10 +2227,10 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses an asynchronous callback to return the result.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2265,9 +2246,9 @@ declare namespace notificationManager {
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2275,9 +2256,9 @@ declare namespace notificationManager {
    * @since 9
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2287,9 +2268,9 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2304,10 +2285,10 @@ declare namespace notificationManager {
   function requestEnableNotification(): Promise<void>;
 
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2318,10 +2299,10 @@ declare namespace notificationManager {
    * @since 10
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2334,10 +2315,10 @@ declare namespace notificationManager {
    * @since 11
    */
   /**
-   * Request permission to send notification.
+   * Requests notification to be enabled for this application in a modal. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UIAbilityContext } context - Ability context bound to the notification dialog box.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2431,10 +2412,9 @@ declare namespace notificationManager {
   function setDistributedEnable(enable: boolean): Promise<void>;
 
   /**
-   * Obtains whether the device supports distributed notification.
+   * Checks whether distributed notification is enabled on this device. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
-   *                                              notification is supported.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that distributed notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2447,9 +2427,9 @@ declare namespace notificationManager {
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains whether the device supports distributed notification.
+   * Checks whether distributed notification is enabled on this device. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that distributed notification is enabled, and false means the opposite.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3274,10 +3254,11 @@ declare namespace notificationManager {
   function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
 
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses an asynchronous callback to return the result.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3288,10 +3269,11 @@ declare namespace notificationManager {
    * @since 10
    */
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses an asynchronous callback to return the result.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3303,10 +3285,11 @@ declare namespace notificationManager {
    * @since 12
    */
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses an asynchronous callback to return the result.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3321,10 +3304,11 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses a promise to return the URI of the file in the destination directory.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3335,10 +3319,11 @@ declare namespace notificationManager {
    * @since 10
    */
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses a promise to return the URI of the file in the destination directory.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3350,10 +3335,11 @@ declare namespace notificationManager {
    * @since 12
    */
   /**
-   * Set badge number.
+   * Sets the notification badge number. This API uses a promise to return the URI of the file in the destination directory.
+   * If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
    *
-   * @param { number } badgeNumber - Badge number.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } badgeNumber - Notification badge number to set.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3800,9 +3786,10 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<number>;
 
   /**
-   * Request open the notification settings pop-up window.
+   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
+   * the notification enabling and notification mode. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3812,9 +3799,10 @@ declare namespace notificationManager {
    * @since 13
    */
   /**
-   * Request open the notification settings pop-up window.
+   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
+   * the notification enabling and notification mode. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -4124,14 +4112,14 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes NotificationSlot types.
+   * Enumerates the notification slot types.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
   /**
-   * Describes NotificationSlot types.
+   * Enumerates the notification slot types.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
@@ -4140,13 +4128,13 @@ declare namespace notificationManager {
    */
   export enum SlotType {
     /**
-     * NotificationSlot of an unknown type.
+     * Unknown type. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
     /**
-     * NotificationSlot of an unknown type.
+     * Unknown type. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4155,13 +4143,13 @@ declare namespace notificationManager {
     UNKNOWN_TYPE = 0,
 
     /**
-     * NotificationSlot for social communication.
+     * Notification slot for social communication. This type corresponds to SlotLevel being LEVEL_HIGH.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
     /**
-     * NotificationSlot for social communication.
+     * Notification slot for social communication. This type corresponds to SlotLevel being LEVEL_HIGH.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4170,13 +4158,13 @@ declare namespace notificationManager {
     SOCIAL_COMMUNICATION = 1,
 
     /**
-     * NotificationSlot for service information.
+     * Notification slot for service information. This type corresponds to SlotLevel being LEVEL_HIGH.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
     /**
-     * NotificationSlot for service information.
+     * Notification slot for service information. This type corresponds to SlotLevel being LEVEL_HIGH.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4185,13 +4173,13 @@ declare namespace notificationManager {
     SERVICE_INFORMATION = 2,
 
     /**
-     * NotificationSlot for content information.
+     * Notification slot for content consultation. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
     /**
-     * NotificationSlot for content information.
+     * Notification slot for content consultation. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4200,13 +4188,15 @@ declare namespace notificationManager {
     CONTENT_INFORMATION = 3,
 
     /**
-     * NotificationSlot for live view.
+     * Live view. A third-party application cannot directly create a notification of this slot type. After the system proxy creates a system live view,
+     * the third-party application releases a notification with the same ID to update the specified content. This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
     /**
-     * NotificationSlot for live view.
+     * Live view. A third-party application cannot directly create a notification of this slot type. After the system proxy creates a system live view,
+     * the third-party application releases a notification with the same ID to update the specified content. This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4215,13 +4205,15 @@ declare namespace notificationManager {
     LIVE_VIEW = 4,
 
     /**
-     * NotificationSlot for customer service.
+     * Customer service message. This type is used for messages between users and customer service providers. The messages must be initiated by users.
+     * This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
     /**
-     * NotificationSlot for customer service.
+     * Customer service message. This type is used for messages between users and customer service providers. The messages must be initiated by users.
+     * This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4239,13 +4231,13 @@ declare namespace notificationManager {
     EMERGENCY_INFORMATION = 10,
 
     /**
-     * NotificationSlot for other purposes.
+     * Notification slot for other purposes. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
     /**
-     * NotificationSlot for other purposes.
+     * Notification slot for other purposes. This type corresponds to SlotLevel being LEVEL_MIN.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4255,14 +4247,14 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes notification content types.
+   * Enumerates the notification content types.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
   /**
-   * Describes notification content types.
+   * Enumerates the notification content types.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
@@ -4350,13 +4342,15 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_MULTILINE,
 
     /**
-     * System local live view notification.
+     * Live view notification. A third-party application cannot directly create a notification of this type.
+     * After the system proxy creates a system live view, the third-party application releases a notification with the same ID to update the specified content.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
     /**
-     * System local live view notification.
+     * Live view notification. A third-party application cannot directly create a notification of this type.
+     * After the system proxy creates a system live view, the third-party application releases a notification with the same ID to update the specified content.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4365,13 +4359,13 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
     /**
-     * Common live view notification.
+     * Common live view notification. Only system applications are supported.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
     /**
-     * Common live view notification.
+     * Common live view notification. Only system applications are supported.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
@@ -4381,7 +4375,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * Indicates the level of the slot
+   * Enumerates the notification level.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
@@ -4389,7 +4383,7 @@ declare namespace notificationManager {
    */
   export enum SlotLevel {
     /**
-     * Indicates that the notification function is disabled.
+     * Notification is disabled.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
@@ -4397,8 +4391,7 @@ declare namespace notificationManager {
     LEVEL_NONE = 0,
 
     /**
-     * Indicates that the notification function is enabled but notification
-     * icons are not displayed in the status bar, with no banner or prompt tone.
+     * Notification is enabled, but the notification icon is not displayed in the status bar, with no banner and alert tone.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
@@ -4406,8 +4399,7 @@ declare namespace notificationManager {
     LEVEL_MIN = 1,
 
     /**
-     * Indicates that the notification function is enabled and notification
-     * icons are displayed in the status bar, with no banner or prompt tone.
+     * Notification is enabled, and the notification icon is displayed in the status bar, with no banner and alert tone.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
@@ -4415,8 +4407,7 @@ declare namespace notificationManager {
     LEVEL_LOW = 2,
 
     /**
-     * Indicates that the notification function is enabled and notification
-     * icons are displayed in the status bar, with no banner but with a prompt tone.
+     * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone but no banner.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
@@ -4424,8 +4415,7 @@ declare namespace notificationManager {
     LEVEL_DEFAULT = 3,
 
     /**
-     * Indicates that the notification function is enabled and notification
-     * icons are displayed in the status bar, with a banner and a prompt tone.
+     * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone and banner.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9

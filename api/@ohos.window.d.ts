@@ -50,6 +50,16 @@ declare interface Callback<T, V = void> {
 }
 
 /**
+   * Defines the window animation curve param.
+   *
+   * @typedef { Array<number> } AnimationCurveParam
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+declare type WindowAnimationCurveParam = Array<number>;
+
+/**
  * Window manager.
  *
  * @namespace window
@@ -3202,6 +3212,24 @@ declare namespace window {
   function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
+   * Shift window touch event within the same application. And the window type contains only main window and subwindow.
+   *
+   * @param { number } sourceWindowId - Window id which the touch event shift from.
+   * @param { number } targetWindowId - Window id which the touch event shift to.
+   * @param { number } fingerId - Finger id in touch event.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 801 - Capability not supported. Function shiftAppWindowTouchEvent can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function shiftAppWindowTouchEvent(sourceWindowId: number, targetWindowId: number, fingerId: number): Promise<void>;
+
+  /**
    * Get info of visible windows.
    *
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
@@ -3289,6 +3317,20 @@ declare namespace window {
    * @since 19
    */
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
+
+  /**
+   * List the window modes of the foreground window on the specified display.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @returns { Promise<number> } Promise used to return the window modes.
+   * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function getGlobalWindowMode(displayId?: number): Promise<number>;
 
   /**
    * Register the callback of systemBarTintChange
@@ -3381,6 +3423,23 @@ declare namespace window {
    * @since 10
    */
   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Sets starting window background color
+   *
+   * @param { string } moduleName - module Name that needs to be set.
+   * @param { string } abilityName - ability Name that needs to be set.
+   * @param { ColorMetrics } color - Color metrics.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function setStartWindowBackgroundColor(moduleName: string, abilityName: string, color: ColorMetrics): Promise<void>;
+
   /**
    * Display orientation
    *
@@ -3893,6 +3952,74 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
+   * Describes the window animation curve
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum WindowAnimationCurve {
+    /**
+     * animation curve type linear
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    LINEAR = 0,
+
+    /**
+     * animation curve type interpolation spring
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    INTERPOLATION_SPRING = 1,
+  }
+
+  /**
+   * window animation config
+   *
+   * @interface WindowAnimationConfig
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface WindowAnimationConfig {
+    /**
+     * curve of the animation
+     *
+     * @type { WindowAnimationCurve }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    curve: WindowAnimationCurve;
+
+    /**
+     * duration of the animation
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    duration?: number;
+
+    /**
+     * param of animation curve
+     *
+     * @type { ?WindowAnimationCurveParam }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    param?: WindowAnimationCurveParam;
+  }
+
+  /**
    * The information of keyboard
    *
    * @interface KeyboardInfo
@@ -3920,6 +4047,26 @@ declare namespace window {
      * @since 18
      */
     endRect: Rect;
+
+    /**
+     * Indicates whether animation exists.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animated?: boolean;
+
+    /**
+     * The configuration of keyboard animation.
+     *
+     * @type { ?WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    config?: WindowAnimationConfig;
   }
 
   /**
@@ -5951,6 +6098,58 @@ declare namespace window {
     off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
+     * Register the callback of keyboardWillShow
+     *
+     * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'keyboardWillShow', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardWillShow
+     *
+     * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'keyboardWillShow', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Register the callback of keyboardWillHide
+     *
+     * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'keyboardWillHide', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardWillHide
+     *
+     * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'keyboardWillHide', callback?: Callback<KeyboardInfo>): void;
+
+    /**
      * Register the callback of keyboardDidShow
      *
      * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
@@ -6391,6 +6590,32 @@ declare namespace window {
      * @since 12
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
+
+    /**
+     * Register the callback of windowStatusDidChange
+     *
+     * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of windowStatusDidChange
+     *
+     * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
 
     /**
      * Subscribes to the event indicating that the child window is closed.
@@ -8980,6 +9205,18 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
+    /**
+     * Enable drag window.
+     *
+     * @param { boolean } enable - The value true means to enable window dragging, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
     enableDrag(enable: boolean): Promise<void>;
 
     /**
@@ -9160,7 +9397,36 @@ declare namespace window {
      * @atomicservice
      * @since 19
      */
-    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;    
+    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+
+    /**
+     * UIExtension in window secure limit change callback on.
+     * 
+     * @param { 'uiExtensionSecureLimitChange' } eventType The value is fixed at 'uiExtensionSecureLimitChange', indicating the UIExtension secure limit change.
+     * @param { Callback<boolean> } callback Callback used to return the result whether the APP has uiextension secure limit. 
+     * @throws { BusinessError } 801 - Capability not supported.Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
+
+    /**
+     * UIExtension in window secure limit change callback off.
+     *
+     * @param { 'uiExtensionSecureLimitChange' } eventType The value is fixed at 'uiExtensionSecureLimitChange', indicating the UIExtension secure limit change.
+     * @param { Callback<boolean> } callback Callback used to return the result whether the APP has uiextension secure limit. 
+     * @throws { BusinessError } 801 - Capability not supported.Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
+ 
 
     /**
      * Set gray scale of window.
@@ -9680,7 +9946,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since 19
      */
     maximizeSupported?: boolean;
     /**
@@ -10556,6 +10822,24 @@ declare namespace window {
      * @since 15
      */
     setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>;
+
+    /**
+     * Sets Image for recent.
+     *
+     * @param { number } imgResourceId - This value is resource ID for the recent image.
+     * @param { ImageFit } value - Sets the zoom type of an image.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. 3. Incorrect parameter format.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 20
+     */
+    setImageForRecent(imgResourceId: number, value: ImageFit): Promise<void>;
   }
 
   /**
@@ -10695,6 +10979,52 @@ declare namespace window {
      * @since 15
      */
     windowRect: Rect;
+  }
+
+  /**
+   * Enum for window mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum GlobalWindowMode {
+    /**
+     * Fullscreen
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    FULLSCREEN = 1,
+
+    /**
+     * Split
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    SPLIT = 1 << 1,
+
+    /**
+     * Float
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    FLOAT = 1 << 2,
+
+    /**
+     * Picture in picture
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    PIP = 1 << 3
   }
 
   /**

@@ -674,6 +674,16 @@ declare interface DismissDialogAction {
 }
 
 /**
+ * Import the CommonState type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').promptAction.CommonState } PromptActionCommonState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type PromptActionCommonState = import('../api/@ohos.promptAction').promptAction.CommonState;
+
+/**
  * Use the CustomDialogController class to display the custom pop-up window.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -766,4 +776,15 @@ declare class CustomDialogController {
    * @since 11
    */
   close();
+
+  /**
+   * Get the state of the custom pop-up window.
+   *
+   * @returns { PromptActionCommonState } return the state of dialog.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  getState(): PromptActionCommonState;
 }

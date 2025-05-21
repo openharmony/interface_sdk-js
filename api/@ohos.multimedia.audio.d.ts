@@ -218,7 +218,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -239,7 +239,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -807,7 +807,7 @@ declare namespace audio {
      * Accessory devices, such as the mic on remote control.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 19
      */
     ACCESSORY = 26,
 
@@ -2305,6 +2305,20 @@ declare namespace audio {
      * @since 12
      */
     INTERRUPT_HINT_UNDUCK = 5,
+
+    /**
+     * Mute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_MUTE = 6,
+
+    /**
+     * Unmute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_UNMUTE = 7,
   }
 
   /**
@@ -3031,6 +3045,27 @@ declare namespace audio {
      * @since 12
      */
     getAudioSceneSync(): AudioScene;
+
+    /**
+     * Subscribes to audio scene change events. When system changes to communication status, registered clients
+     * will receive the callback.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used to obtain the latest audio scene.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    on(type: 'audioSceneChange', callback: Callback<AudioScene>): void;
+
+    /**
+     * Unsubscribes to audio scene change events.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used in subscription.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    off(type: 'audioSceneChange', callback?: Callback<AudioScene>): void;
 
     /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
@@ -4774,6 +4809,32 @@ declare namespace audio {
      * @since 19
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Subscribes to active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to listen for.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
+
+    /**
+     * Unsubscribes from active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
   }
 
   /**
@@ -7055,7 +7116,7 @@ declare namespace audio {
    * Audio timestamp info.
    * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
-   * @since 18
+   * @since 19
    */
   interface AudioTimestampInfo {
     /**
@@ -7063,7 +7124,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly framePos: number;
 
@@ -7072,7 +7133,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly timestamp: number;
   }
@@ -7391,7 +7452,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -7401,7 +7462,7 @@ declare namespace audio {
      * @returns { AudioTimestampInfo } The returned timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -8454,7 +8515,7 @@ declare namespace audio {
      */
     SOURCE_TYPE_UNPROCESSED = 14,
     /**
-     * live broadcast source type. 
+     * live broadcast source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -8880,7 +8941,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -8890,7 +8951,7 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-      * @since 18
+      * @since 19
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -9042,6 +9103,17 @@ declare namespace audio {
      * @since 12
      */
     getOverflowCountSync(): number;
+
+    /**
+     * Set if capturer want to be muted instead of interrupted.
+     * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
+     *     instead of interrupted.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
@@ -9361,17 +9433,17 @@ declare namespace audio {
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY. 
+     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
      * Other capturers' devices will not be affected by this method.
      * This method can only be used before the capture stream starts. Besides,
      * if audio accessory is not connected, this method will report fail. After
      * calling this function, the input device of this capturer will not be affected
      * by other interfaces.
-     * @throws { BusinessError } 202 - Caller is not a system application.     
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setInputDeviceToAccessory(): void;
   }

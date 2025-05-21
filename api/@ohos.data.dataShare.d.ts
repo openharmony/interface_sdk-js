@@ -83,6 +83,21 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 9
    */
+  /**
+   * Obtains the dataShareHelper.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
+   *         2. Incorrect parameters types.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
+   */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
   /**
    * Obtains the dataShareHelper.
@@ -98,6 +113,22 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Obtains the dataShareHelper.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
+   * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
+   *         2. Incorrect parameters types.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
    */
   function createDataShareHelper(
     context: Context,
@@ -135,6 +166,22 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 10
    */
+  /**
+   * Obtains the dataShareHelper.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
+   * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
+   *         2. Incorrect parameters types.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
+   */
   function createDataShareHelper(
     context: Context,
     uri: string,
@@ -155,6 +202,21 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Enables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
+   *         2. Incorrect parameters types.
+   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
+   */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
 
   /**
@@ -170,6 +232,21 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Disables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
+   *         2. Incorrect parameters types.
+   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 19
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -1613,6 +1690,18 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12
+     */
+    /**
+     * Close the connection between datashare and extension.
+     * 
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
+     *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 19
      */
     close(): Promise<void>;
   }

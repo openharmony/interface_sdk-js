@@ -159,6 +159,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -203,6 +204,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 19
@@ -229,6 +231,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13
@@ -427,6 +430,30 @@ declare class TextStyle {
      * @since 12
      */
     readonly fontStyle?: FontStyle;
+
+    /**
+     * Get the stroke width of the StyledString with the unit 'px'.
+     *
+     * @type { ?number } - the stroke width of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeWidth?: number;
+
+    /**
+     * Get the stroke color of the StyledString.
+     *
+     * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeColor?: ResourceColor;
 }
 
 /**
@@ -493,6 +520,50 @@ declare interface TextStyleInterface {
      * @since 12
      */
     fontStyle?: FontStyle;
+
+    /**
+     * The stroke width of the text.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth?: LengthMetrics;
+
+    /**
+     * The stroke color of the text.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeColor?: ResourceColor;
+}
+
+/**
+ * Defines DecorationOptions for Decoration.
+ *
+ * @interface DecorationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface DecorationOptions {
+    /**
+     * Enable to show multi TextDecorationType at a time.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableMultiType?: boolean;
 }
 
 /**
@@ -515,6 +586,18 @@ declare class DecorationStyle {
      * @since 12
      */
     constructor(value: DecorationStyleInterface);
+
+    /**
+     * constructor.
+     *
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @param { DecorationOptions } [options] - decoration options.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
     /**
      * Get the text decoration type of the StyledString.
@@ -551,6 +634,30 @@ declare class DecorationStyle {
      * @since 12
      */
     readonly style?: TextDecorationStyle;
+
+    /**
+     * Get the thickness scale of the StyledString.
+     *
+     * @type { ?number } - the thickness scale of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly thicknessScale?: number;
+
+    /**
+     * Get the DecorationOptions of the StyledString.
+     *
+     * @type { ?DecorationOptions } - the decorationOptions of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly options?: DecorationOptions;
 }
 
 /**
@@ -595,6 +702,17 @@ declare interface DecorationStyleInterface {
      * @since 12
      */
     style?: TextDecorationStyle;
+
+    /**
+     * The thickness scale of the decoration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    thicknessScale?: number;
 }
 
 /**
@@ -788,6 +906,17 @@ declare interface GestureStyleInterface {
      * @since 12
      */
     onLongPress?: Callback<GestureEvent>;
+
+    /**
+     * Trigger a touch event when touched.
+     *
+     * @type { ?Callback<TouchEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onTouch?: Callback<TouchEvent>;
 }
 
 /**

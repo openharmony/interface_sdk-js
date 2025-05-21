@@ -68,6 +68,7 @@ declare namespace freeInstall {
 
   /**
    * Used to query the enumeration value of bundlePackInfo.
+   * Multiple value input, such as GET_PACKAGES | GET_BUNDLE_SUMMARY.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework

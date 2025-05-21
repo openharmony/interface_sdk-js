@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Description of the notification channel
+ * @file The NotificationSlot module provides APIs for defining the notification slot.
  * @kit NotificationKit
  */
 
@@ -22,7 +22,7 @@ import notification from '../@ohos.notification';
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
- * Describes a NotificationSlot instance.
+ * The NotificationSlot module provides APIs for defining the notification slot.
  *
  * @typedef NotificationSlot
  * @syscap SystemCapability.Notification.Notification
@@ -30,7 +30,7 @@ import type notificationManager from '../@ohos.notificationManager';
  */
 export interface NotificationSlot {
   /**
-   * Obtains the type of a notification slot.
+   * Notification slot type.
    *
    * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
@@ -50,7 +50,7 @@ export interface NotificationSlot {
   notificationType?: notificationManager.SlotType;
 
   /**
-   * Obtains the level of a notification slot
+   * Notification level.
    *
    * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
@@ -59,7 +59,7 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
   /**
-   * Obtains the description of a notification slot.
+   * Notification slot description.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -68,7 +68,7 @@ export interface NotificationSlot {
   desc?: string;
 
   /**
-   * Obtains the application icon badge status of a notification slot.
+   * Whether to display the badge.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -77,7 +77,7 @@ export interface NotificationSlot {
   badgeFlag?: boolean;
 
   /**
-   * Obtains whether DND mode is bypassed for a notification slot.
+   * Whether to bypass DND mode in the system.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -86,7 +86,7 @@ export interface NotificationSlot {
   bypassDnd?: boolean;
 
   /**
-   * Whether and how to display notifications on the lock screen.
+   * Mode for displaying the notification on the lock screen.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -95,7 +95,7 @@ export interface NotificationSlot {
   lockscreenVisibility?: number;
 
   /**
-   * Obtains the vibration status of the notification slot.
+   * Whether to enable vibration for the notification.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -104,7 +104,7 @@ export interface NotificationSlot {
   vibrationEnabled?: boolean;
 
   /**
-   * Obtains the prompt tone of the notification slot.
+   * Notification alert tone.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -113,7 +113,7 @@ export interface NotificationSlot {
   sound?: string;
 
   /**
-   * Obtains whether the notification light is enabled in a notification slot.
+   * Whether the indicator blinks for the notification.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -122,7 +122,7 @@ export interface NotificationSlot {
   lightEnabled?: boolean;
 
   /**
-   * Obtains the color of the notification light in a notification slot.
+   * Indicator color of the notification.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -131,7 +131,7 @@ export interface NotificationSlot {
   lightColor?: number;
 
   /**
-   * Obtains the vibration style of notifications in this notification slot.
+   * Vibration mode of the notification.
    *
    * @type { ?Array<number> }
    * @syscap SystemCapability.Notification.Notification
@@ -140,7 +140,7 @@ export interface NotificationSlot {
   vibrationValues?: Array<number>;
 
   /**
-   * Read-only enabled status in this notification slot.
+   * Whether the notification slot is enabled. The value true means to enable the notification slot, and false means the opposite.
    *
    * @type { ?boolean }
    * @readonly

@@ -74,7 +74,8 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint}
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object |
+   * bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12
@@ -250,10 +251,10 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
-   *        preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * preferences file name.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -265,10 +266,10 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
-   *        preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * preferences file name.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -281,10 +282,10 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
-   *        preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * preferences file name.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -301,10 +302,10 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
-   *        preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * preferences file name.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -320,10 +321,10 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
-   *        preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * preferences file name.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -343,9 +344,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -357,9 +358,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -372,9 +373,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -391,9 +392,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -409,9 +410,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -432,9 +433,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -451,9 +452,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -486,9 +487,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
@@ -504,9 +505,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -523,9 +524,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -546,9 +547,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -568,9 +569,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
@@ -594,9 +595,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
@@ -612,9 +613,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -631,9 +632,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -654,9 +655,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -676,9 +677,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
@@ -701,9 +702,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -717,9 +718,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -734,9 +735,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -755,9 +756,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -775,9 +776,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -799,9 +800,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -815,9 +816,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -832,9 +833,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -853,9 +854,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -873,9 +874,9 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -896,9 +897,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -912,9 +913,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -932,9 +933,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
@@ -951,9 +952,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -1007,13 +1008,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
-     *        returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1022,13 +1023,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
-     *        returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1038,13 +1039,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
-     *        returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1058,13 +1059,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
-     *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1073,13 +1074,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
-     *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1089,13 +1090,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
-     *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1109,13 +1110,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { ValueType } The value matching the specified key if it is found;
-     *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1125,13 +1126,13 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { ValueType } The value matching the specified key if it is found;
-     *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1223,12 +1224,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
-     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
-     *         with the specified key;returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a
+     * preferences with the specified key;returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1236,12 +1237,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
-     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
-     *         with the specified key;returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a
+     * preferences with the specified key;returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1250,12 +1251,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
-     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
-     *         with the specified key;returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a
+     *  preferences with the specified key;returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1268,12 +1269,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
-     *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1281,12 +1282,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
-     *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1295,12 +1296,12 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
-     *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1314,12 +1315,12 @@ declare namespace preferences {
      * is executed synchronously.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { boolean } {@code true} if the {@link Preferences} object contains
-     *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1329,12 +1330,12 @@ declare namespace preferences {
      * is executed synchronously.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { boolean } {@code true} if the {@link Preferences} object contains
-     *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1349,13 +1350,13 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1369,13 +1370,13 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1390,13 +1391,13 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1415,13 +1416,13 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1433,15 +1434,15 @@ declare namespace preferences {
      * Otherwise, the format of the persistent file is incorrect and the file is damaged.
      * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
-     * 
+     *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1456,13 +1457,13 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1481,12 +1482,12 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_VALUE_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1501,12 +1502,12 @@ declare namespace preferences {
      * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_VALUE_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1517,44 +1518,41 @@ declare namespace preferences {
 
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1565,44 +1563,41 @@ declare namespace preferences {
 
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
-     * file.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1617,10 +1612,10 @@ declare namespace preferences {
      * object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1631,10 +1626,10 @@ declare namespace preferences {
      * object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1798,9 +1793,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1809,9 +1804,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1821,9 +1816,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1837,9 +1832,9 @@ declare namespace preferences {
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
@@ -1849,9 +1844,9 @@ declare namespace preferences {
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1866,9 +1861,9 @@ declare namespace preferences {
      * @param { 'dataChange' } type - Indicates the type of the event to observe.
      * @param { Array<string> } keys - Indicates one or more keys to listen for.
      * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -1881,9 +1876,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -1892,9 +1887,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -1904,9 +1899,9 @@ declare namespace preferences {
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1920,9 +1915,9 @@ declare namespace preferences {
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
      */
@@ -1931,9 +1926,9 @@ declare namespace preferences {
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -1947,9 +1942,9 @@ declare namespace preferences {
      * @param { 'dataChange' } type - Indicates the event type.
      * @param { Array<string> } keys - Indicates the data whose changes are not observed.
      * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice

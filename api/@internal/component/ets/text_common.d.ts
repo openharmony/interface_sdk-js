@@ -1050,6 +1050,66 @@ declare class TextMenuItemId {
    * @since 18
    */
   static readonly SHARE: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open url.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly url: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open email.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly email: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to call the phone number.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly phoneNumber: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open map.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly address: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open calendar.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly dateTime: TextMenuItemId;
 }
 
 /**
@@ -1402,4 +1462,25 @@ declare enum KeyboardAppearance {
    * @since 15
    */
   DARK_IMMERSIVE = 3,
+}
+
+  /**
+   * Defines the line spacing options.
+   * @interface LineSpacingOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  declare interface LineSpacingOptions {
+  /**
+   * Used to set whether it will only take effect between lines. 
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onlyBetweenLines?: boolean;
 }
