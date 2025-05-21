@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod } from './common'
-import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units'
+import { CommonMethod } from './common';
+import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
 /*** endif */
 
 /**

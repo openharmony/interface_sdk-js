@@ -19,16 +19,16 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from "../../global/resource";
+import { Resource } from '../../global/resource';
 import {
   VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors,
   EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses
-} from './units'
+} from './units';
 import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, 
-  ShadowStyle,BackgroundBlurStyleOptions,BackgroundEffectOptions } from "./common";
+  ShadowStyle, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { DialogButtonStyle, BorderStyle } from './enums';
 import { DialogAlignment } from './alertDialog';
-import { LevelOrder,LevelMode,ImmersiveMode } from '../../@ohos.promptAction'
+import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
 /*** endif */
 
 /**

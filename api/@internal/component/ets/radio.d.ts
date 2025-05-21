@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod,ContentModifier,CommonConfiguration,Callback } from './common'
-import { CustomBuilder } from './builder'
-import { ResourceColor } from './units'
+import { CommonMethod, ContentModifier, CommonConfiguration, Callback } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceColor } from './units';
 /*** endif */
 
 /**
