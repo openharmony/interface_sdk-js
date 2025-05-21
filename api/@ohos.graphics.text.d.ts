@@ -976,8 +976,6 @@ declare namespace text {
      * @param { string } name - The alias of the font to unload.
      * This must exactly match the name used when loading the font through.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
