@@ -1278,6 +1278,17 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Photo type, image or video
+     *
+     * @type { PhotoType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     readonly photoType: PhotoType;
     /**
      * Display name (with a file name extension) of the asset.
@@ -1295,6 +1306,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Display name (with a file name extension) of the asset.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     readonly displayName: string;
     /**
@@ -1321,6 +1343,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains a PhotoAsset member parameter.
+     *
+     * @param { string } member - Photo asset member. for example : get(PhotoKeys.SIZE)
+     * @returns { MemberType } Returns the value of the specified photo asset member
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     get(member: string): MemberType;
     /**
@@ -2012,6 +2049,15 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Enumeration of photo asset members
+   *
+   * @enum { string } PhotoKeys
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   enum PhotoKeys {
     /**
      * Asset uri, read only
@@ -2040,6 +2086,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Photo type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     PHOTO_TYPE = 'media_type',
     /**
      * Asset name, read only
@@ -2053,6 +2108,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Asset name, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DISPLAY_NAME = 'display_name',
     /**
@@ -2068,6 +2132,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Size of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     SIZE = 'size',
     /**
      * Creation date of the asset, read only
@@ -2081,6 +2154,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Creation date of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DATE_ADDED = 'date_added',
     /**
@@ -2110,6 +2192,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Duration of video files, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     DURATION = 'duration',
     /**
      * Width of the image asset, read only
@@ -2123,6 +2214,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Width of the image asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     WIDTH = 'width',
     /**
@@ -2138,6 +2238,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Height of the image asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     HEIGHT = 'height',
     /**
      * Date taken of the asset, read only
@@ -2151,6 +2260,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Date taken of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DATE_TAKEN = 'date_taken',
     /**
@@ -2166,6 +2284,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Orientation of the image asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     ORIENTATION = 'orientation',
     /**
      * Favorite state of the asset, read only
@@ -2179,6 +2306,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Favorite state of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     FAVORITE = 'is_favorite',
     /**
@@ -2194,6 +2330,15 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Title of the asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     TITLE = 'title',
     /**
      * Asset position, read only
@@ -2207,6 +2352,14 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 16
+     */
+    /**
+     * Asset position, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     POSITION = 'position',
     /**
@@ -2279,12 +2432,28 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Creation time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     DATE_ADDED_MS = 'date_added_ms',
     /**
      * Modified time of the asset in milliseconds, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Modified time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DATE_MODIFIED_MS = 'date_modified_ms',
     /**
@@ -2301,6 +2470,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Photo subtype of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     PHOTO_SUBTYPE = 'subtype',
     /**
      * Effect mode of moving photo, read only
@@ -2316,6 +2493,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
      * Cover position of the asset, read only
@@ -2323,12 +2508,28 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     COVER_POSITION = 'cover_position',
     /**
      * Unique uuid of the burst photos, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Unique uuid of the burst photos, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     BURST_KEY = 'burst_key',
     /**
@@ -2345,12 +2546,28 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Width and height information of lcd picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     LCD_SIZE = 'lcd_size',
     /**
      * Width and height information of thumbnail picture, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Width and height information of thumbnail picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     THM_SIZE = 'thm_size',
     /**
@@ -2359,12 +2576,28 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13
      */
+    /**
+     * Detail time of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     DETAIL_TIME = 'detail_time',
     /**
      * Date taken of the asset in milliseconds, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13
+     */
+    /**
+     * Date taken of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DATE_TAKEN_MS = 'date_taken_ms',
     /**
@@ -2461,6 +2694,14 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * URI of the album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     URI = 'uri',
     /**
      * Name of the album.
@@ -2498,6 +2739,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18
+     */
+    /**
+     * Timestamp when the album was modified, in milliseconds.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DATE_MODIFIED = 'date_modified',
   }
@@ -2543,6 +2793,15 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12
+   */  /**
+   * Defines the options for fetching media files.
+   *
+   * @interface FetchOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   interface FetchOptions {
     /**
@@ -2560,6 +2819,16 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Indicates the members to query.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     fetchColumns: Array<string>;
     /**
      * Predicates that specify the fetch criteria.
@@ -2575,6 +2844,16 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Predicates that specify the fetch criteria.
+     *
+     * @type { dataSharePredicates.DataSharePredicates }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -2801,6 +3080,16 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Provides APIs to manage the file retrieval result.
+   *
+   * @interface FetchResult
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   interface FetchResult<T> {
     /**
      * Obtains the total number of files in the result set.
@@ -2824,6 +3113,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains the total number of files in the result set.
+     *
+     * @returns { number } Total number of objects.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getCount(): number;
     /**
@@ -2851,6 +3154,21 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Checks whether the cursor is in the last row of the result set.
+     * You need to check whether the object is the last one before calling getNextObject.
+     *
+     * @returns { boolean } Whether the object is the last one in the fetch result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     isAfterLast(): boolean;
     /**
      * Obtains the first file asset in the result set. This API uses an asynchronous callback to return the result.
@@ -2875,6 +3193,20 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains the first file asset in the result set. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<T> } callback - Callback used to return the first file asset obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
      * Obtains the first file asset in the result set. This API uses a promise to return the result.
@@ -2898,6 +3230,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains the first file asset in the result set. This API uses a promise to return the result.
+     *
+     * @returns { Promise<T> } Returns the first object in the fetch result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getFirstObject(): Promise<T>;
     /**
@@ -2925,6 +3271,21 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains the next file asset in the result set. This API uses an asynchronous callback to return the result.
+     * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
+     *
+     * @param { AsyncCallback<T> } callback - Callback used to return the next file asset obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
      * Obtains the next file asset in the result set. This API uses a promise to return the result.
@@ -2951,6 +3312,21 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains the next file asset in the result set. This API uses a promise to return the result.
+     * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
+     *
+     * @returns { Promise<T> } Returns the next object
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getNextObject(): Promise<T>;
     /**
      * Obtains the last file asset in the result set. This API uses an asynchronous callback to return the result.
@@ -2975,6 +3351,20 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains the last file asset in the result set. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<T> } callback - Callback used to return the last file asset obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
      * Obtains the last file asset in the result set. This API uses a promise to return the result.
@@ -2998,6 +3388,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains the last file asset in the result set. This API uses a promise to return the result.
+     *
+     * @returns { Promise<T> } Returns the last object
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getLastObject(): Promise<T>;
     /**
@@ -3025,6 +3429,21 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains a file asset with the specified index in the result set. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } index - Index of the file asset to obtain. The value starts from 0.
+     * @param { AsyncCallback<T> } callback - Callback used to return the file asset obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getObjectByPosition(index: number, callback: AsyncCallback<T>): void;
     /**
      * Obtains a file asset with the specified index in the result set. This API uses a promise to return the result.
@@ -3051,6 +3470,21 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains a file asset with the specified index in the result set. This API uses a promise to return the result.
+     *
+     * @param { number } index - Index of the file asset to obtain. The value starts from 0.
+     * @returns { Promise<T> } Returns the object
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getObjectByPosition(index: number): Promise<T>;
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
@@ -3074,6 +3508,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<Array<T>> } callback - Callback used to return an array of all file assets in the result set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getAllObjects(callback: AsyncCallback<Array<T>>): void;
     /**
@@ -3099,6 +3547,20 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains all the file assets in the result set. This API uses a promise to return the result.
+     *
+     * @returns { Promise<Array<T>> } Returns all the objects
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getAllObjects(): Promise<Array<T>>;
     /**
      * Closes this FetchResult instance to invalidate it. After this instance is released, the APIs in this instance cannot be invoked.
@@ -3120,6 +3582,19 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Closes this FetchResult instance to invalidate it. After this instance is released, the APIs in this instance cannot be invoked.
+     *
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     close(): void;
   }
@@ -3603,6 +4078,23 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Fetch assets in an album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Fetch shared photo assets in an album.
@@ -4028,6 +4520,22 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Obtains burst assets. This API uses a promise to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } burstKey - UUID of a set of burst photos (BURST_KEY of PhotoKeys). The value is a string of 36 characters.
+     * @param { FetchOptions } options - Options for fetching the burst photos.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
