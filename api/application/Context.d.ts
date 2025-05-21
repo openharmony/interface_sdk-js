@@ -496,7 +496,7 @@ export default class Context extends BaseContext {
    * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
-   * @throws { BusinessError } 16400001 - If the input bundleName is not system hsp.
+   * @throws { BusinessError } 16400001 - The input bundleName is not a system HSP.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
