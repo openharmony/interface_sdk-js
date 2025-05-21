@@ -1651,7 +1651,6 @@ declare namespace text {
      * @param { common2D.Color } color - Color of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
-     * @arkts 1.2
      */
     updateColor(color: common2D.Color): void;
 
@@ -1660,7 +1659,6 @@ declare namespace text {
      * @param { Decoration } decoration - Decoration of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
-     * @arkts 1.2
      */
     updateDecoration(decoration: Decoration): void;
   }
