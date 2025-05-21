@@ -18,14 +18,22 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
+/*** endif */
+/*** if arkts 1.2 */
+import { InputEvent } from './@ohos.multimodalInput.inputEvent';
+import { KeyCode } from './@ohos.multimodalInput.keyCode';
+/*** endif */
+
 /**
  * Action
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Action
@@ -33,21 +41,24 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum Action {
   /**
    * Cancel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Cancel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CANCEL = 0,
 
@@ -55,14 +66,16 @@ export declare enum Action {
    * Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DOWN = 1,
 
@@ -70,14 +83,16 @@ export declare enum Action {
    * Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UP = 2
 }
@@ -87,7 +102,8 @@ export declare enum Action {
  *
  * @interface Key
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Key
@@ -95,21 +111,24 @@ export declare enum Action {
  * @typedef Key
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface Key {
   /**
    * Key code
    * @type { KeyCode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Key code
    * @type { KeyCode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code: KeyCode;
 
@@ -117,14 +136,16 @@ export declare interface Key {
    * Time when the key is pressed
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Time when the key is pressed
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressedTime: number;
 
@@ -132,14 +153,16 @@ export declare interface Key {
    * Device to which the key belongs
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Device to which the key belongs
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   deviceId: number;
 }
@@ -149,7 +172,8 @@ export declare interface Key {
  *
  * @interface KeyEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * KeyEvent
@@ -158,21 +182,24 @@ export declare interface Key {
  * @extends InputEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface KeyEvent extends InputEvent {
   /**
    * Key action
    * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Key action
    * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action: Action;
 
@@ -180,14 +207,16 @@ export declare interface KeyEvent extends InputEvent {
    * Key that has changed
    * @type { Key }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Key that has changed
    * @type { Key }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   key: Key;
 
@@ -195,14 +224,16 @@ export declare interface KeyEvent extends InputEvent {
    * Unicode character corresponding to the key
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Unicode character corresponding to the key
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   unicodeChar: number;
 
@@ -210,14 +241,16 @@ export declare interface KeyEvent extends InputEvent {
    * List of pressed keys
    * @type { Key[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * List of pressed keys
    * @type { Key[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keys: Key[];
 
@@ -225,14 +258,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether ctrlKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether ctrlKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ctrlKey: boolean;
 
@@ -240,14 +275,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether altKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether altKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   altKey: boolean;
 
@@ -255,14 +292,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether shiftKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether shiftKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shiftKey: boolean;
 
@@ -270,14 +309,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether logoKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether logoKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   logoKey: boolean;
 
@@ -285,14 +326,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether fnKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether fnKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fnKey: boolean;
 
@@ -300,14 +343,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether capsLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether capsLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   capsLock: boolean;
 
@@ -315,14 +360,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether numLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether numLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   numLock: boolean;
 
@@ -330,14 +377,16 @@ export declare interface KeyEvent extends InputEvent {
    * Whether scrollLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Whether scrollLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scrollLock: boolean;
 }
