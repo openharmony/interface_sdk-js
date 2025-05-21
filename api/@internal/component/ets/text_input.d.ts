@@ -3315,6 +3315,30 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
+   /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextInputAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
+
   /**
    * Sets whether enable auto fill animation effect or not.
    *

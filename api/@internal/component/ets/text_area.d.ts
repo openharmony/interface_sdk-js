@@ -1899,6 +1899,30 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
 
   /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextAreaAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): TextAreaAttribute;
+
+  /**
    * Whether to enable automatic spacing between Chinese and Latin characters.
    *
    * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
