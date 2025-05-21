@@ -7086,6 +7086,16 @@ declare namespace media {
      * @since 12
      */
     VIDEO_SCALE_TYPE_FIT_CROP = 1,
+
+    /**
+     * The content is scaled proportionally to fit the display area.
+     * If the aspect ratios of the two are inconsistent, the short side will be centered.
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    VIDEO_SCALE_TYPE_FIT_ASPECT = 2,
   }
 
   /**
