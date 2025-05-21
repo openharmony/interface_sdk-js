@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { Scene } from './../../../api/@ohos.graphics.scene'
-import { ResourceStr, Dimension } from './units'
-import { CommonMethod } from './common'
+import { Scene } from './../../../api/@ohos.graphics.scene';
+import { ResourceStr, Dimension } from './units';
+import { CommonMethod } from './common';
 /*** endif */
 
 /**
