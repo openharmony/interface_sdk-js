@@ -625,6 +625,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 18
    */
   enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @param { Optional<boolean> } isLoop
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */  
+    canLoop(isLoop: Optional<boolean>): DatePickerAttribute;  
 }
 
 /**
@@ -1337,6 +1349,18 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 18
    */
   enableHapticFeedback?: boolean;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  canLoop?: boolean;
 }
 
 /**
