@@ -613,7 +613,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KeyEncodingConfig {
     /**
@@ -623,7 +624,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     password: string;
 
@@ -634,7 +636,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cipherName: string;
   }
@@ -811,7 +814,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clearMem(): void;
   }
@@ -864,7 +868,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clearMem(): void;
 
@@ -905,7 +910,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -921,7 +927,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -937,7 +944,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncodedPem(format: string): string;
 
@@ -954,7 +962,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
   }
@@ -1025,7 +1034,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -1041,7 +1051,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -1057,7 +1068,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncodedPem(format: string): string;
   }
@@ -1726,7 +1738,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
 
@@ -1744,7 +1757,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
@@ -1761,7 +1775,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
@@ -1779,7 +1794,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
@@ -2126,7 +2142,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MacSpec {
     /**
@@ -2136,7 +2153,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     algName: string;
   }
@@ -2149,7 +2167,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HmacSpec extends MacSpec {
     /**
@@ -2159,7 +2178,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mdName: string;
   }
@@ -2172,7 +2192,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CmacSpec extends MacSpec {
     /**
@@ -2182,7 +2203,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cipherName: string;
   }
@@ -2595,7 +2617,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createMac(macSpec: MacSpec): Mac;
 
@@ -3824,7 +3847,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
 
@@ -3871,7 +3895,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
 
@@ -3977,7 +4002,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Sign {
     /**
@@ -4020,7 +4046,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
 
@@ -4064,7 +4091,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     init(priKey: PriKey): Promise<void>;
 
@@ -4080,7 +4108,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     initSync(priKey: PriKey): void;
 
@@ -4124,7 +4153,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -4168,7 +4198,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     update(data: DataBlob): Promise<void>;
 
@@ -4184,7 +4215,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateSync(data: DataBlob): void;
 
@@ -4272,7 +4304,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
@@ -4360,7 +4393,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
 
@@ -4377,7 +4411,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     signSync(data: DataBlob | null): DataBlob;
 
@@ -4457,7 +4492,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -4504,7 +4540,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSignSpec(itemType: SignSpecItem): string | int;
 
@@ -4533,7 +4570,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly algName: string;
   }
@@ -5001,7 +5039,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
@@ -5019,7 +5058,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
@@ -5099,7 +5139,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -5146,7 +5187,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVerifySpec(itemType: SignSpecItem): string | int;
 
@@ -5218,7 +5260,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSign(algName: string): Sign;
 
@@ -5286,7 +5329,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KeyAgreement {
     /**
@@ -5332,7 +5376,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
 
@@ -5379,7 +5424,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
@@ -5397,7 +5443,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
@@ -5426,7 +5473,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly algName: string;
   }
@@ -5468,7 +5516,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createKeyAgreement(algName: string): KeyAgreement;
 
@@ -7357,7 +7406,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class ECCKeyUtil {
     /**
@@ -7387,7 +7437,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
 
@@ -7405,7 +7456,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
 
@@ -7424,7 +7476,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
   }
@@ -7730,7 +7783,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class DHKeyUtil {
     /**
@@ -7764,7 +7818,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static genDHCommonParamsSpec(pLen: int, skLen?: int): DHCommonParamsSpec;
   }
@@ -9142,7 +9197,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SM2CipherTextSpec {
     /**
@@ -9152,7 +9208,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     xCoordinate: bigint;
 
@@ -9163,7 +9220,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     yCoordinate: bigint;
 
@@ -9174,7 +9232,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cipherTextData: Uint8Array;
 
@@ -9185,7 +9244,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hashData: Uint8Array;
   }
@@ -9196,7 +9256,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class SM2CryptoUtil {
     /**
@@ -9213,7 +9274,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
 
@@ -9231,7 +9293,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
   }
