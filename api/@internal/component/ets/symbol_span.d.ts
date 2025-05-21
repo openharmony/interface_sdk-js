@@ -19,11 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod, AttributeModifier } from './common'
-import { ResourceColor } from './units'
-import { FontWeight } from './enums'
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph'
+import { Resource } from './../../../api/global/resource';
+import { CommonMethod, AttributeModifier } from './common';
+import { ResourceColor } from './units';
+import { FontWeight } from './enums';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 /*** endif */
 
 /**

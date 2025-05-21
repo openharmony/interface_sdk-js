@@ -19,15 +19,15 @@
  */
 
 /*** if arkts 1.2 */
-import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions } from './common'
-import { CustomBuilder } from './builder'
-import { ResourceStr,Length,ResourceColor ,Dimension,Font} from './units'
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions,KeyboardAppearance,EditableTextChangeValue,AutoCapitalizationMode } from './textCommon'
-import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from './textInput'
-import { CopyOptions,TextAlign } from './enums'
-import { KeyboardOptions } from './richEditor'
-import { Resource } from '../../global/resource'
-import { SymbolGlyphModifier } from '../SymbolGlyphModifier'
+import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceStr,Length,ResourceColor ,Dimension,Font} from './units';
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions,KeyboardAppearance,EditableTextChangeValue,AutoCapitalizationMode } from './textCommon';
+import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from './textInput';
+import { CopyOptions,TextAlign } from './enums';
+import { KeyboardOptions } from './richEditor';
+import { Resource } from '../../global/resource';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 /*** endif */
 
 /**
