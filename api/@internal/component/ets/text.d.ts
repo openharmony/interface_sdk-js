@@ -1606,6 +1606,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextAttribute;
 }
 
 /**

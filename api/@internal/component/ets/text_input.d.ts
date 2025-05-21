@@ -3325,6 +3325,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 20
    */
   enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextInputAttribute;
 }
 
 /**
