@@ -1146,6 +1146,14 @@ declare namespace text {
     tab?: TextTab;
 
     /**
+     * Whether to optimize white spaces at the end of each line.
+     * @type { ?boolean } Boolean type data.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    trailingSpaceOptimized?: boolean;
+
+    /**
      * Whether to enable automatic spacing between Chinese and English for paragraph.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
@@ -1645,6 +1653,22 @@ declare namespace text {
      * @since 12
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
+
+    /**
+     * Synchronously updates the text color of the typography.
+     * @param { common2D.Color } color - Color of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    updateColor(color: common2D.Color): void;
+
+    /**
+     * Synchronously updates text decoration.
+     * @param { Decoration } decoration - Decoration of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    updateDecoration(decoration: Decoration): void;
   }
 
   /**
