@@ -10616,6 +10616,36 @@ declare enum EventQueryType {
 }
 
 /**
+ * Define ColorSpace enumeration.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum ColorSpace {
+  /**
+   * SRGB ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SRGB = 0,
+  /**
+   * Display-P3 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  DISPLAY_P3 = 1,
+}
+
+/**
  * Define the property type enumeration used in animation.
  *
  * @enum { number }
