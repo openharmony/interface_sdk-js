@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Position,ResourceColor,Length,SizeOptions } from './arkui/component/units'
+import { Position, ResourceColor, Length, SizeOptions } from './arkui/component/units'
 
 
 /**
