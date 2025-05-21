@@ -179,8 +179,7 @@ export interface MediaQueryList {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
 export default class MediaQuery {
   /**
@@ -198,8 +197,29 @@ export default class MediaQuery {
    * @returns { MediaQueryList }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  static matchMedia(condition: string): MediaQueryList;
+}
+
+/**
+ * Defines the mediaquery interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class MediaQuery {
+  /**
+   * Queries a media item and returns a MediaQueryList object.
+   *
+   * @param { string } condition
+   * @returns { MediaQueryList }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   static matchMedia(condition: string): MediaQueryList;
 }
