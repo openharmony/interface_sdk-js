@@ -16317,6 +16317,19 @@ declare interface SheetOptions extends BindOptions {
 }
 
 /**
+ * The custom styles function block.
+ *
+ * @typedef { function } CustomStyles
+ * @param { CommonMethod } instance - The component instance which can be used to set common attributes.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type CustomStyles = (instance: CommonMethod) => void;
+
+/**
  * Component State Styles.
  *
  * @interface StateStyles
@@ -16348,7 +16361,8 @@ declare interface SheetOptions extends BindOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface StateStyles {
   /**
@@ -16387,6 +16401,20 @@ declare interface StateStyles {
    */
   normal?: any;
 
+
+  /**
+   * Defines normal state styles.
+   *
+   * @type { ?CustomStyles }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  normal?: CustomStyles;
+
   /**
    * Defines pressed state styles.
    *
@@ -16422,6 +16450,19 @@ declare interface StateStyles {
    * @since 11
    */
   pressed?: any;
+
+  /**
+   * Defines pressed state styles.
+   *
+   * @type { ?CustomStyles }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pressed?: CustomStyles;
 
   /**
    * Defines disabled state styles.
@@ -16460,6 +16501,19 @@ declare interface StateStyles {
   disabled?: any;
 
   /**
+   * Defines disabled state styles.
+   *
+   * @type { ?CustomStyles }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  disabled?: CustomStyles;
+  
+  /**
    * Defines focused state styles.
    *
    * @type { ?any }
@@ -16494,6 +16548,19 @@ declare interface StateStyles {
    * @since 11
    */
   focused?: any;
+
+  /**
+   * Defines focused state styles.
+   *
+   * @type { ?CustomStyles }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  focused?: CustomStyles;
 
   /**
    * Defines clicked state styles.
@@ -16532,6 +16599,19 @@ declare interface StateStyles {
   clicked?: any;
 
   /**
+   * Defines clicked state styles.
+   *
+   * @type { ?CustomStyles }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  clicked?: CustomStyles;
+  
+  /**
    * Defines selected state styles.
    *
    * @type { ?object }
@@ -16551,97 +16631,6 @@ declare interface StateStyles {
    * @since 11
    */
   selected?: object;
-}
-
-/**
- * The custom styles function block.
- *
- * @typedef { function } CustomStyles
- * @param { CommonMethod } instance - The component instance which can be used to set common attributes.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type CustomStyles = (instance: CommonMethod) => void;
-
-/**
- * Component State Styles.
- *
- * @interface StateStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface StateStyles {
-  /**
-   * Defines normal state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  normal?: CustomStyles;
-
-  /**
-   * Defines pressed state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pressed?: CustomStyles;
-
-  /**
-   * Defines disabled state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  disabled?: CustomStyles;
-
-  /**
-   * Defines focused state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  focused?: CustomStyles;
-
-  /**
-   * Defines clicked state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  clicked?: CustomStyles;
 
   /**
    * Defines selected state styles.
@@ -16655,6 +16644,7 @@ declare interface StateStyles {
    * @arkts 1.2
    */
   selected?: CustomStyles;
+  
 }
 
 /**
