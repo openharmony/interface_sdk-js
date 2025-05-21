@@ -19,17 +19,17 @@
  */
 
 /*** if arkts 1.2 */
-import { KeyboardOptions, PasteEvent } from './richEditor'
+import { KeyboardOptions, PasteEvent } from './richEditor';
 import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue,
-  AutoCapitalizationMode,EditableTextChangeValue,KeyboardAppearance } from './textCommon'
+  AutoCapitalizationMode,EditableTextChangeValue,KeyboardAppearance } from './textCommon';
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow,
-    TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from './enums'
-import { EnterKeyType, SubmitEvent, ContentType } from './textInput'
-import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units'
+    TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from './enums';
+import { EnterKeyType, SubmitEvent, ContentType } from './textInput';
+import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units';
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions,
-    TextDecorationOptions, CommonMethod, Callback, Optional } from './common'
-import { CustomBuilder } from './builder'
-import { Resource } from '../../global/resource'
+    TextDecorationOptions, CommonMethod, Callback, Optional } from './common';
+import { CustomBuilder } from './builder';
+import { Resource } from '../../global/resource';
 /*** endif */
 
 /**
