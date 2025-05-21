@@ -9364,7 +9364,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { string[] } Returns an array of the supported image formats.
    * @syscap SystemCapability.Multimedia.ImageSource
    * @since 20
-   * @arkts 1.2
    */
   function getImageSourceSupportedFormats(): string[];
 
@@ -9374,7 +9373,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { string[] } Returns an array of the supported image formats.
    * @syscap SystemCapability.Multimedia.ImagePacker
    * @since 20
-   * @arkts 1.2
    */
   function getImagePackerSupportedFormats(): string[];
 }
