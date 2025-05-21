@@ -2224,6 +2224,27 @@ declare namespace text {
      * @since 18
      */
     getImageBounds(): common2D.Rect;
+
+    /**
+     * Obtains the text direction of the run.
+     * @returns { TextDirection } Returns the text direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.2
+     */
+    getTextDirection: TextDirection;
+
+    /**
+     * Gets the glyph width array within the range.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * the run.
+     * @returns { Array<number> } Array of glyph width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.2
+     */
+    getAdvances(range: Range): Array<number>;
   }
 
   /**
