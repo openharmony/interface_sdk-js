@@ -55,6 +55,9 @@ declare namespace fastbuffer {
      * @param { string | FastBuffer | number } [fill] - fill [fill=0] A value to pre-fill the new FastBuffer with
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
      * @returns { FastBuffer } Return a new allocated FastBuffer
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -66,6 +69,9 @@ declare namespace fastbuffer {
      *
      * @param { number } size - size size The desired length of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -77,6 +83,9 @@ declare namespace fastbuffer {
      *
      * @param { number } size - size size The desired length of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -91,6 +100,9 @@ declare namespace fastbuffer {
      * @param { string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
      * @returns { number } The number of bytes contained within `string`
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -103,7 +115,9 @@ declare namespace fastbuffer {
      * @param { FastBuffer[] | Uint8Array[] } list - list list List of `FastBuffer` or Uint8Array instances to concatenate
      * @param { number } [totalLength] - totalLength totalLength Total length of the `FastBuffer` instances in `list` when concatenated
      * @returns { FastBuffer } Return a new allocated FastBuffer
-     * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max. Received value is: [length]
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -115,6 +129,9 @@ declare namespace fastbuffer {
      *
      * @param { number[] } array - array array an array of bytes in the range 0 – 255
      * @returns { FastBuffer } Return a new allocated FastBuffer
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -129,8 +146,12 @@ declare namespace fastbuffer {
      * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
      * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
      * @returns { FastBuffer } Return a view of the ArrayBuffer
-     * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-     * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
+     * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+     * 1.The buffer is detached;
+     * 2.Reference a nullptr.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -142,6 +163,12 @@ declare namespace fastbuffer {
      *
      * @param { FastBuffer | Uint8Array } buffer - buffer buffer An existing FastBuffer or Uint8Array from which to copy data
      * @returns { FastBuffer } Return a new allocated FastBuffer
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
+     * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+     * 1.The buffer is detached;
+     * 2.Reference a nullptr.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -155,6 +182,9 @@ declare namespace fastbuffer {
      * @param { string } string - string string  A string to encode
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
      * @returns { FastBuffer } Return a new FastBuffer containing string
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -191,6 +221,9 @@ declare namespace fastbuffer {
      * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
+     * @throws { BusinessError } 10200001 - Range error. Possible causes:
+     * 1.The value of the parameter is not within the specified range;
+     * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -225,19 +258,22 @@ declare namespace fastbuffer {
          * @param { number | FastBuffer | Uint8Array | ArrayBuffer | SharedArrayBuffer | Array<number> | string } value - value for construct fastbuffer.
          * @param { number | string } [byteOffsetOrEncoding] - byteOffsetOrEncoding [byteOffsetOrEncoding] The encoding of string or index of first byte to expose
          * @param { number } [length] - length [length] Number of bytes to expose
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
          * @throws { BusinessError } 10200012 - The FastBuffer's constructor cannot be directly invoked.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
          * @since 20
          */
-        constructor (value: number | FastBuffer | Uint8Array | ArrayBuffer | SharedArrayBuffer | Array<number> | string,
+        constructor(value: number | FastBuffer | Uint8Array | ArrayBuffer | SharedArrayBuffer | Array<number> | string,
           byteOffsetOrEncoding?: number | string, length?: number);
         /**
          * Returns the number of bytes in buf
          *
          * @type { number }
-         * @throws { BusinessError } 10200013 - Length  cannot be set for the buffer that has only a getter.
+         * @throws { BusinessError } 10200013 - Length  Cannot set property on Container.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -248,7 +284,7 @@ declare namespace fastbuffer {
          * The byteOffset of the Buffers underlying ArrayBuffer object
          *
          * @type { number }
-         * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
+         * @throws { BusinessError } 10200013 - ByteOffset  Cannot set property on Container.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -264,7 +300,12 @@ declare namespace fastbuffer {
          * @param { number } [end] - end [end = buf.length] Where to stop filling buf (not inclusive)
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding for value if value is a string
          * @returns { FastBuffer } A reference to buf
-         * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
+         * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+         * 1.The buffer is detached;
+         * 2.Reference a nullptr.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -283,8 +324,9 @@ declare namespace fastbuffer {
          * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
          *         1 is returned if target should come before buf when sorted.
          *        -1 is returned if target should come after buf when sorted.
-         * @throws { BusinessError } 10200001 - The value of "[targetStart/targetEnd/sourceStart/sourceEnd]" is out of range.
-         *         It must be >= 0 and <= [right range]. Received value is: [targetStart/targetEnd/sourceStart/sourceEnd]
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -300,8 +342,12 @@ declare namespace fastbuffer {
          * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
          * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
          * @returns { number } The number of bytes copied
-         * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must be >= 0.
-         *                                    Received value is: [targetStart/sourceStart/sourceEnd]
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
+         * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+         * 1.The buffer is detached;
+         * 2.Reference a nullptr.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -313,6 +359,12 @@ declare namespace fastbuffer {
          *
          * @param { Uint8Array | FastBuffer } otherBuffer - otherBuffer otherBuffer A FastBuffer or Uint8Array with which to compare buf
          * @returns { boolean } true or false
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
+         * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+         * 1.The buffer is detached;
+         * 2.Reference a nullptr.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -326,6 +378,9 @@ declare namespace fastbuffer {
          * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string, this is its encoding
          * @returns { boolean } true or false
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -340,6 +395,9 @@ declare namespace fastbuffer {
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
          * this is the encoding used to determine the binary representation of the string that will be searched for in buf
          * @returns { number } The index of the first occurrence of value in buf, or -1 if buf does not contain value
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -387,6 +445,9 @@ declare namespace fastbuffer {
          * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
          * this is the encoding used to determine the binary representation of the string that will be searched for in buf
          * @returns { number } The index of the last occurrence of value in buf, or -1 if buf does not contain value
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -727,6 +788,12 @@ declare namespace fastbuffer {
          * @param { number } [start] - start [start = 0] The byte offset to start decoding at
          * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
          * @returns { string }
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
+         * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+         * 1.The buffer is detached;
+         * 2.Reference a nullptr.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -741,7 +808,12 @@ declare namespace fastbuffer {
          * @param { number } [length] - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
          * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding of string.
          * @returns { number } Number of bytes written.
-         * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <= buf.length. Received value is: [offset/length]
+         * @throws { BusinessError } 10200001 - Range error. Possible causes:
+         * 1.The value of the parameter is not within the specified range;
+         * 2.Parameter verification failed.
+         * @throws { BusinessError } 10200301 - Reference error. Possible causes:
+         * 1.The buffer is detached;
+         * 2.Reference a nullptr.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
