@@ -942,6 +942,46 @@ declare namespace relationalStore {
   }
 
   /**
+   * Defines an exception message.
+   *
+   * @interface ExceptionMessage
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  interface ExceptionMessage {
+    /**
+     * Error code returned by SQLite, see {@link https://www.sqlite.org/rescode.html}.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    code: number;
+
+    /**
+     * Error message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    message: string;
+
+    /**
+     * SQL statement executed when the exception occurs.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    sql: string;
+  }
+
+  /**
    * Describes the {@code RdbStore} type.
    *
    * @enum { number }
@@ -7526,6 +7566,18 @@ declare namespace relationalStore {
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
     /**
+     * Subscribes to the SQL execution error logs.
+     * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
+     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -7669,6 +7721,18 @@ declare namespace relationalStore {
      * @since 12
      */
     off(event: 'statistics', observer?: Callback<SqlExecutionInfo> ): void;
+
+    /**
+     * Unsubscribes from the SQL execution error logs.
+     * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
+     * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
