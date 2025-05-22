@@ -233,6 +233,18 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Register the callback for display changes.
+   *
+   * @param { 'add' | 'remove' | 'change' } type the event of display change
+   * @param { Callback<number> } callback the display id of changed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
   /**
@@ -255,6 +267,18 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Unregister the callback for display changes.
+   *
+   * @param { 'add' | 'remove' | 'change' } type the event of display change event
+   * @param { Callback<number> } callback the display id of changed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -303,6 +327,16 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Check whether the device is foldable.
+   *
+   * @returns { boolean } true means the device is foldable.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function isFoldable(): boolean;
 
   /**
@@ -321,6 +355,16 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the current fold status of the foldable device.
+   *
+   * @returns { FoldStatus } fold status of device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function getFoldStatus(): FoldStatus;
 
@@ -347,6 +391,19 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Register the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
   /**
@@ -371,6 +428,19 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Unregister the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -738,6 +808,15 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Enumerates the fold status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   enum FoldStatus {
     /**
      * Fold Status Unknown.
@@ -752,6 +831,14 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Fold Status Unknown.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FOLD_STATUS_UNKNOWN = 0,
     /**
      * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
@@ -765,6 +852,14 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Fold Status Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FOLD_STATUS_EXPANDED,
     /**
@@ -793,6 +888,14 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Fold Status Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FOLD_STATUS_HALF_FOLDED,
     /**
@@ -859,6 +962,15 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Enumerates the fold display mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   enum FoldDisplayMode {
     /**
@@ -1867,6 +1979,15 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
+    /**
+     * DPI on the x-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     xDPI: number;
 
     /**
@@ -1883,6 +2004,15 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * DPI on the y-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     yDPI: number;
 
