@@ -19,10 +19,10 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from '../../global/resource'
-import { ResourceStr,ResourceColor,Length, Font } from './units'
-import { TextOverflow, FontWeight, FontStyle,TextHeightAdaptivePolicy } from './enums'
-import { CommonConfiguration,CommonMethod,ContentModifier } from './common' 
+import { Resource } from '../../global/resource';
+import { ResourceStr, ResourceColor, Length, Font } from './units';
+import { TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';
+import { CommonConfiguration, CommonMethod, ContentModifier } from './common';
 /*** endif */
 
 /**

@@ -19,13 +19,13 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration,CommonMethod,ContentModifier,Optional,BlurStyle } from './common'
-import { ControlSize } from './button'
-import { DividerOptions } from './textPicker'
-import { ResourceStr,Dimension,EdgeOutlineWidths,ResourceColor,EdgeColors,Resource,Font,Length,Offset,DividerStyleOptions } from './units'
-import { SymbolGlyphModifier } from '../SymbolGlyphModifier'
-import { TextModifier } from '../TextModifier'
-import { OptionWidthMode } from './enums'
+import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle } from './common';
+import { ControlSize } from './button';
+import { DividerOptions } from './textPicker';
+import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { TextModifier } from '../TextModifier';
+import { OptionWidthMode } from './enums';
 /*** endif */
 
 /**

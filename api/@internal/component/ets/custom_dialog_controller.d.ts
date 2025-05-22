@@ -21,13 +21,13 @@
 /*** if arkts 1.2 */
 import {
   Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType,
-  DismissReason,BackgroundBlurStyleOptions,BackgroundEffectOptions
-} from './common'
-import { DialogAlignment } from './alertDialog'
-import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units'
-import { BorderStyle } from './enums'
+  DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions
+} from './common';
+import { DialogAlignment } from './alertDialog';
+import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
+import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
-import { LevelMode,LevelOrder,ImmersiveMode } from '../../@ohos.promptAction'
+import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 /*** endif */
 
 /**

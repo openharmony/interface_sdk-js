@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration,Callback,CommonMethod,ContentModifier, Optional } from './common';
-import { CustomBuilder } from './builder'
-import { ResourceColor,MarkStyle } from './units';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
 /*** endif */
 

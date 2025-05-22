@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { CommonMethod, Optional } from './common';
-import { ResourceColor,MarkStyle } from './units';
+import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
 /*** endif */
 
