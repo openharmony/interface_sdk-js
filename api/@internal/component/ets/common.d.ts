@@ -58,7 +58,7 @@ import {
   ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, IlluminatedType, TextDecorationType,
   TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction,
   FocusDrawLevel, CrownSensitivity
-} from './enums'
+} from './enums';
 import { TextRange } from './textCommon';
 import { StyledString } from './styledString';
 import { CircleAttribute } from './circle';
