@@ -19,11 +19,15 @@
  */
 
 /*** if arkts 1.1 */
-import { int, double, AsyncCallback, Callback } from './@ohos.base';
-/*** else */
-import { AsyncCallback, Callback } from './@ohos.base';
+import { int, double } from './@ohos.base';
 /*** endif */
-import { WantAgent } from './@ohos.wantAgent';
+import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts 1.1 */
+import { WantAgent } from '@ohos.wantAgent';
+/*** endif */
+/*** if arkts 1.2 */
+import { WantAgent } from '@ohos.app.ability.wantAgent';
+/*** endif */
 import { NotificationRequest } from './notification/notificationRequest';
 
 /**
