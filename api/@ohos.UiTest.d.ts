@@ -3947,7 +3947,7 @@ declare class Driver {
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.
+   * @param { number } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
