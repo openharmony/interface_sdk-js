@@ -210,7 +210,7 @@ export default class MediaQuery {
  * @since 20
  * @arkts 1.2
  */
-export declare class MediaQuery {
+declare class MediaQuery {
   /**
    * Queries a media item and returns a MediaQueryList object.
    *
@@ -223,3 +223,7 @@ export declare class MediaQuery {
    */
   static matchMedia(condition: string): MediaQueryList;
 }
+
+/*** if arkts 1.2 */
+export default MediaQuery;
+/*** endif */
