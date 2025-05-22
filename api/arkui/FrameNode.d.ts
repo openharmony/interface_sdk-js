@@ -963,7 +963,7 @@ export declare class TypedFrameNode<C, T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace TypeNode {
+export namespace typeNode {
   /**
    * Define the FrameNode type for Text.
    * 
