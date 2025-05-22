@@ -14427,6 +14427,18 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Set contentCover content adapts to safeArea.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableSafeArea?: boolean;
 }
 
 /**
