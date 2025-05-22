@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { FillMode, PlayMode } from './arkui/component/enums'
-import { ExpectedFrameRateRange } from './arkui/component/common'
+import { FillMode, PlayMode } from './arkui/component/enums';
+import { ExpectedFrameRateRange } from './arkui/component/common';
 /*** endif */
 
 /**
@@ -857,4 +857,4 @@ declare class Animator {
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }
 
-export default Animator
+export default Animator;

@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { TabsAttribute } from './component/tabs'
-/*** endif */
+
+
 
 /**
  * Defines Tabs Modifier
@@ -44,29 +42,4 @@ export declare class TabsModifier extends TabsAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: TabsAttribute): void;
-}
-
-/**
- * Defines Tabs Modifier
- *
- * @extends TabsAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class TabsModifier extends TabsAttribute implements AttributeModifier<TabsAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { TabsAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: TabsAttribute) => void);
 }

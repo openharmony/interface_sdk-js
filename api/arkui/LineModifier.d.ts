@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common';
-import { LineAttribute } from './component/line';
-/*** endif */
 
 /**
  * Defines Line Modifier
@@ -44,29 +40,4 @@ export declare class LineModifier extends LineAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: LineAttribute): void;
-}
-
-/**
- * Defines Line Modifier
- *
- * @extends LineAttribute
- * @implements AttributeModifier<LineAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class LineModifier extends LineAttribute implements AttributeModifier<LineAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: LineAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: LineAttribute) => void);
 }

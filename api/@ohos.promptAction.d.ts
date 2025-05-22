@@ -26,11 +26,11 @@ import { AsyncCallback } from './@ohos.base';
 import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors,EdgeWidths, BorderRadiuses } from './arkui/component/units';
 import { AsyncCallback, Callback } from './@ohos.base';
 import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason,
-  BackgroundBlurStyleOptions,BackgroundEffectOptions } from './arkui/component/common';
-import { CustomBuilder } from './arkui/component/builder'
+  BackgroundBlurStyleOptions, BackgroundEffectOptions } from './arkui/component/common';
+import { CustomBuilder } from './arkui/component/builder';
 import { DialogAlignment } from './arkui/component/alertDialog';
 import { BorderStyle,Alignment } from './arkui/component/enums';
-import { Resource } from './global/resource'
+import { Resource } from './global/resource';
 import { LengthMetrics } from './arkui/Graphics';
 /*** endif */
 
@@ -124,7 +124,7 @@ export declare class LevelOrder {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static clamp(order: number): LevelOrder
+  static clamp(order: number): LevelOrder;
 
   /**
    * Get the order from LevelOrder object.
@@ -136,7 +136,7 @@ export declare class LevelOrder {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getOrder(): number
+  getOrder(): number;
 }
 
 /**

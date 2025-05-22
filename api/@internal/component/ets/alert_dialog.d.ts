@@ -25,8 +25,8 @@ import {
 } from './units';
 import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
 import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason,
-  BackgroundBlurStyleOptions,BackgroundEffectOptions } from './common';
-import { LevelOrder,ImmersiveMode,LevelMode } from '../../@ohos.promptAction'
+  BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
+import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
 /*** endif */
 
 /**

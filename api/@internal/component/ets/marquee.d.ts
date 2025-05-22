@@ -19,10 +19,10 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor, Length } from './units'
-import { CommonMethod } from './common'
-import { FontWeight, MarqueeUpdateStrategy } from './enums'
-import { Resource } from './../../../api/global/resource'
+import { ResourceColor, Length } from './units';
+import { CommonMethod } from './common';
+import { FontWeight, MarqueeUpdateStrategy } from './enums';
+import { Resource } from './../../../api/global/resource';
 /*** endif */
 
 /**

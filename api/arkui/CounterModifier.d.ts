@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { CounterAttribute } from './component/counter'
-/*** endif */
+
+
 
 /**
  * Defines Counter Modifier
@@ -44,77 +42,4 @@ export declare class CounterModifier extends CounterAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: CounterAttribute): void;
-}
-
-/**
- * Defines Counter Modifier
- *
- * @extends CounterAttribute
- * @implements AttributeModifier<CounterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class CounterModifier extends CounterAttribute implements AttributeModifier<CounterAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: CounterAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute: undefined | ((instance: CounterAttribute) => void);
-
-  /**
-   * Defines the pressed update attribute function.
-   * 
-   * @type { undefined | ((instance: CounterAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute: undefined | ((instance: CounterAttribute) => void);
-
-  /**
-   * Defines the focused update attribute function.
-   * 
-   * @type { undefined | ((instance:  CounterAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute: undefined | ((instance: CounterAttribute) => void);
-
-  /**
-   * Defines the disabled update attribute function.
-   * 
-   * @type { undefined | ((instance:  CounterAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute: undefined | ((instance: CounterAttribute) => void);
-
-  /**
-   * Defines the selected update attribute function.
-   * 
-   * @type { undefined | ((instance:  CounterAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute: undefined | ((instance: CounterAttribute) => void);
 }

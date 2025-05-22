@@ -18,13 +18,9 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceStr } from './arkui/component/units';
-import { SelectOption } from './arkui/component/select';
-import { Prop } from './arkui/stateManagement/common';
-import { Component } from './arkui/component/customComponent';
-import { SelectOption } from './arkui/component/select';
-/*** endif */
+
+
+
 
 /**
  * Declaration of the menu item on the right side.
@@ -35,8 +31,7 @@ import { SelectOption } from './arkui/component/select';
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export declare class SelectTitleBarMenuItem {
   /**
@@ -50,10 +45,10 @@ export declare class SelectTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value: ResourceStr;
+
   /**
    * Symbol resource for this menu item.
    * @type { ?SymbolGlyphModifier }.
@@ -62,6 +57,7 @@ export declare class SelectTitleBarMenuItem {
    * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
+
   /**
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
@@ -70,6 +66,7 @@ export declare class SelectTitleBarMenuItem {
    * @since 13
    */
   label?: ResourceStr;
+
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
@@ -81,10 +78,10 @@ export declare class SelectTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   isEnabled?: boolean;
+
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
@@ -96,10 +93,10 @@ export declare class SelectTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   action?: () => void;
+
   /**
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }
@@ -108,6 +105,7 @@ export declare class SelectTitleBarMenuItem {
    * @since 18
    */
   accessibilityText?: ResourceStr;
+
   /**
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
@@ -116,6 +114,7 @@ export declare class SelectTitleBarMenuItem {
    * @since 18
    */
   accessibilityDescription?: ResourceStr;
+
   /**
    * The accessibilityLevel of this menu item.
    * @type { ?string }
@@ -136,8 +135,7 @@ export declare class SelectTitleBarMenuItem {
  * Declaration of the selectable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 @Component
 export declare struct SelectTitleBar {
@@ -154,10 +152,10 @@ export declare struct SelectTitleBar {
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop selected: number;
+
   /**
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
@@ -169,10 +167,10 @@ export declare struct SelectTitleBar {
    * @type { Array<SelectOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   options: Array<SelectOption>;
+
   /**
    * Menu items on the right side.
    * @type { ?Array<SelectTitleBarMenuItem> }.
@@ -184,10 +182,10 @@ export declare struct SelectTitleBar {
    * @type { ?Array<SelectTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   menuItems?: Array<SelectTitleBarMenuItem>;
+
   /**
    * Sub-title of this title bar.
    * @type { ?ResourceStr }.
@@ -199,10 +197,10 @@ export declare struct SelectTitleBar {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   subtitle?: ResourceStr;
+
   /**
    * The number displayed in a badge.
    * @type { ?number }.
@@ -214,10 +212,10 @@ export declare struct SelectTitleBar {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   badgeValue?: number;
+
   /**
    * Whether to hide the back arrow at the left side.
    * @type { ?boolean }.
@@ -229,10 +227,10 @@ export declare struct SelectTitleBar {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   hidesBackButton?: boolean;
+
   /**
    * Callback function when an option is selected
    * @type { ?(index: number) => void }.
@@ -244,8 +242,7 @@ export declare struct SelectTitleBar {
    * @type { ?(index: number) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onSelected?: ((index: number) => void);
 }

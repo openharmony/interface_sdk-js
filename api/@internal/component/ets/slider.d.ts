@@ -19,14 +19,14 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod,CommonConfiguration,ContentModifier,Optional } from './common'
-import { Axis,CrownSensitivity } from './enums'
-import { ResourceStr,ResourceColor,Length,Dimension,SizeOptions } from './units' 
+import { CommonMethod, CommonConfiguration, ContentModifier, Optional } from './common';
+import { Axis, CrownSensitivity } from './enums';
+import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleAttribute } from './circle';
 import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
-import { LinearGradient } from './dataPanel'
+import { LinearGradient } from './dataPanel';
 
 /*** endif */
 

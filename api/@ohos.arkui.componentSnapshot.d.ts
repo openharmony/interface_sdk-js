@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CustomBuilder } from './arkui/component/builder'
+/*** endif */
+
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image'
 
@@ -249,7 +253,8 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
@@ -283,7 +288,8 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
@@ -321,7 +327,8 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */
@@ -360,7 +367,8 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */

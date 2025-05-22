@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource } from '../../global/resource'
-import { ResourceColor } from './units'
-import { CommonConfiguration,Callback,CommonMethod,ContentModifier } from './common'
+import { Resource } from '../../global/resource';
+import { ResourceColor } from './units';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier } from './common';
 /*** endif */
 
 /**

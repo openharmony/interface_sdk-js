@@ -70,13 +70,13 @@ function handleImportDeclaration(node: ts.ImportDeclaration): [ts.Node, boolean]
                 const existingImports = namedImports.map((element) => element.name.text);
                 existingImports.forEach((element) => {
                     if (uiconfig.isUIHeritage(element)) {
-                        uiprefixImports.add(`UI${element}`)
+                        uiconfig.useMemoM3 || uiprefixImports.add(`UI${element}`)
                     }
                 })
                 if (moduleText.includes("common")) {
-                    uiprefixImports.add('AttributeModifier')
-                    uiprefixImports.add('CommonMethod')
-                    uiprefixImports.add('UICommonMethod')
+                    uiprefixImports.add('AttributeModifier');
+                    uiprefixImports.add('CommonMethod');
+                    uiconfig.useMemoM3 || uiprefixImports.add('UICommonMethod');
                 }
 
                 const addedImports = Array.from(uiprefixImports).filter((im) => !existingImports.includes(im));
@@ -146,7 +146,9 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
                 ts.factory.createNamedImports([
                     ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("AttributeModifier")),
                     ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("CommonMethod")),
-                    ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("UICommonMethod")),
+                    ...(uiconfig.useMemoM3 !== true ? [
+                        ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("UICommonMethod"))
+                    ] : [])
                 ])
             ),
             ts.factory.createStringLiteral("./common"),

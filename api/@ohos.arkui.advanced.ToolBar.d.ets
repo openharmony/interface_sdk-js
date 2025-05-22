@@ -23,12 +23,6 @@
 
 import { SymbolGlyphModifier, DividerModifier } from './@ohos.arkui.modifier';
 import { LengthMetrics } from './@ohos.arkui.node';
-/*** if arkts 1.2 */
-import { Observed, ObjectLink, Prop } from './arkui/stateManagement/common';
-import { ResourceStr, Resource, ResourceColor } from './arkui/component/units';
-import { Component } from './arkui/component/customComponent';
-import { TabsController } from './arkui/component/tabs';
-/*** endif */
 /**
  * Declare enum ItemState
  * @enum { ItemState }
@@ -48,8 +42,7 @@ import { TabsController } from './arkui/component/tabs';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare enum ItemState {
   /**
@@ -68,8 +61,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLE = 1,
   /**
@@ -88,8 +80,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   DISABLE = 2,
   /**
@@ -108,8 +99,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ACTIVATE = 3
 }
@@ -128,8 +118,7 @@ export declare enum ItemState {
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 export interface ToolBarSymbolGlyphOptions {
 
@@ -147,8 +136,7 @@ export interface ToolBarSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   normal?: SymbolGlyphModifier;
 
@@ -166,8 +154,7 @@ export interface ToolBarSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   activated?: SymbolGlyphModifier;
 }
@@ -188,8 +175,7 @@ export interface ToolBarSymbolGlyphOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 @Observed
 export declare class ToolBarOption {
@@ -212,8 +198,7 @@ export declare class ToolBarOption {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+  * @since 18
   */
   content: ResourceStr;
   /**
@@ -235,8 +220,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   action?: () => void;
   /**
@@ -258,8 +242,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   icon?: Resource;
   /**
@@ -281,8 +264,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   state?: ItemState;
   /**
@@ -298,8 +280,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   textColor?: ResourceColor;
   /**
@@ -315,8 +296,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   activatedTextColor?: ResourceColor;
   /**
@@ -332,8 +312,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   iconColor?: ResourceColor;
   /**
@@ -349,8 +328,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   activatedIconColor?: ResourceColor;
   /**
@@ -367,8 +345,7 @@ export declare class ToolBarOption {
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
@@ -377,8 +354,7 @@ export declare class ToolBarOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityText?: ResourceStr;
   /**
@@ -387,8 +363,7 @@ export declare class ToolBarOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
   /**
@@ -398,8 +373,7 @@ export declare class ToolBarOption {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -420,8 +394,7 @@ export declare class ToolBarOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
@@ -438,8 +411,7 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class ToolBarModifier {
   /**
@@ -459,8 +431,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   height(height: LengthMetrics): ToolBarModifier;
   /**
@@ -480,8 +451,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
@@ -501,8 +471,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   padding(padding: LengthMetrics): ToolBarModifier;
   /**
@@ -522,8 +491,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   stateEffect(stateEffect: boolean): ToolBarModifier;
 }
@@ -544,8 +512,7 @@ export declare class ToolBarModifier {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 @Component
 export declare struct ToolBar {
@@ -568,8 +535,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   @ObjectLink toolBarList: ToolBarOptions;
   /**
@@ -591,8 +557,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   @Prop activateIndex?: number;
   /**
@@ -614,8 +579,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   controller: TabsController;
   /**
@@ -631,8 +595,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   @Prop dividerModifier?: DividerModifier;
   /**
@@ -648,8 +611,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   @Prop toolBarModifier?: ToolBarModifier;
 }

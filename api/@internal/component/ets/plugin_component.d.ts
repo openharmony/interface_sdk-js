@@ -146,7 +146,8 @@ type PluginErrorCallback = (info: PluginErrorData) => void
  * @interface PluginComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PluginComponentInterface {
   /**
@@ -165,7 +166,8 @@ interface PluginComponentInterface {
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: PluginComponentOptions): PluginComponentAttribute;
 }

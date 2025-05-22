@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ListItemGroupAttribute } from './component/ListItemGroup';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
+
 
 /**
  * Defines ListItemGroup Modifier
@@ -44,29 +42,4 @@ export declare class ListItemGroupModifier extends ListItemGroupAttribute implem
    * @since 12
    */
   applyNormalAttribute?(instance: ListItemGroupAttribute): void;
-}
-
-/**
- * Defines ListItemGroup Modifier
- *
- * @extends ListItemGroupAttribute
- * @implements AttributeModifier<ListItemGroupAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ListItemGroupModifier extends ListItemGroupAttribute implements AttributeModifier<ListItemGroupAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ListItemGroupAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: ListItemGroupAttribute) => void;
 }

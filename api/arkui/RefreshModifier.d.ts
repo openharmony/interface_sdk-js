@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { RefreshAttribute } from './component/refresh'
-/*** endif */
+
 
 
 /**
@@ -47,30 +44,4 @@ export declare class RefreshModifier extends RefreshAttribute implements Attribu
      */
     applyNormalAttribute?(instance: RefreshAttribute): void;
   }
-
-/**
- * Defines Refresh Modifier
- *
- * @extends RefreshAttribute
- * @implements AttributeModifier<RefreshAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class RefreshModifier extends RefreshAttribute implements AttributeModifier<RefreshAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { RefreshAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: RefreshAttribute) => void;
-}
   

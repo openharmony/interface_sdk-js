@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common';
-import { VideoAttribute } from './component/video';
-/*** endif */
+
 
 
 /**
@@ -46,29 +43,3 @@ export declare class VideoModifier extends VideoAttribute implements AttributeMo
    */
   applyNormalAttribute?(instance: VideoAttribute): void;
 }
-
-/**
- * Defines Video Modifier
- *
- * @extends VideoAttribute
- * @implements AttributeModifier<VideoAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class VideoModifier extends VideoAttribute implements AttributeModifier<VideoAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: VideoAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: VideoAttribute) => void);
-}
-

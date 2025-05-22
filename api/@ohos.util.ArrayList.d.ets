@@ -74,6 +74,7 @@ declare class ArrayList<T> {
    * @param { number } index - index at which the specified element is to be inserted
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length}.
    * Received value is: ${index}
+   * @throws { BusinessError } 401 - The type of "index" must be small integer. Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -112,8 +113,10 @@ declare class ArrayList<T> {
    *
    * @param { number } index - the index in the arrayList
    * @returns { T } the deleted element
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= 2147483647.
+   * @throws { BusinessError } 401 - The type of "index" must be small integer. Received value is: ${index}
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
    * Received value is: ${index}
+   * @throws { BusinessError } 10200001 - Container is empty
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -153,10 +156,15 @@ declare class ArrayList<T> {
    *
    * @param { number } fromIndex - the starting position of the index, containing the value at that index position
    * @param { number } toIndex - the end of the index, excluding the value at that index
+   * @throws { BusinessError } 10200001 - Container is empty
    * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range.
    * It must be >= 0 && <= ${min(length - 1, toIndex - 1)}. Received value is: ${fromIndex}
+   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range.
+   * It must be >= 0 && <= ${min(length - 1, toIndex - 1)}. Received value is: ${fromIndex - 4294967296}
    * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= ${length}.
    * Received value is: ${toIndex}
+   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= ${length}.
+   * Received value is: ${toIndex - 4294967296}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -212,10 +220,15 @@ declare class ArrayList<T> {
    * @param { number } fromIndex - the starting position of the index, containing the value at that index position
    * @param { number } toIndex - the end of the index, excluding the value at that index
    * @returns { ArrayList<T> }
+   * @throws { BusinessError } 10200001 - Container is empty
    * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range.
    * It must be >= 0 && <= ${min(length - 1, toIndex - 1)}. Received value is: ${fromIndex}
    * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= ${length}.
    * Received value is: ${toIndex}
+   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range.
+   * It must be >= 0 && <= ${min(length - 1, toIndex - 1)}. Received value is: ${fromIndex - 4294967296}
+   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= ${length}.
+   * Received value is: ${toIndex - 4294967296}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -283,7 +296,9 @@ declare class ArrayList<T> {
    * 
    * @param { number } index - The zero-based index of the desired code unit.
    * @returns { T } The element in the arrayList matching the given index.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= 2147483647.
+   * @throws { BusinessError } 401 - The type of "index" must be small integer.
+   * @throws { BusinessError } 10200001 - Container is empty
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
    * Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -296,7 +311,8 @@ declare class ArrayList<T> {
    *
    * @param { number } index - The index of the element to set.
    * @param { T } value - The value to set at the specified index.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= 2147483647.
+   * @throws { BusinessError } 10200001 - Container is empty
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
    * Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice

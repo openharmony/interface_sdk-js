@@ -43,28 +43,3 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
    */
   applyNormalAttribute?(instance: RichEditorAttribute): void;
 }
-
-/**
- * Defines RichEditor Modifier
- *
- * @extends RichEditorAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class RichEditorModifier extends RichEditorAttribute implements AttributeModifier<RichEditorAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?((instance: RichEditorAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: RichEditorAttribute) => void);
-}

@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource, ResourceColor, ResourceStr, Dimension, Length, BorderRadiuses } from '../api/@internal/component/ets/units';
-import { Direction } from '../api/@internal/component/ets/enums';
-/*** endif */
-
 /**
  * Defines the popup text options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34,9 +29,10 @@ import { Direction } from '../api/@internal/component/ets/enums';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
+
+
 export interface PopupTextOptions {
   /**
    * Set the text display content.
@@ -51,8 +47,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   text: ResourceStr;
 
@@ -69,8 +64,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontSize?: number | string | Resource;
 
@@ -87,8 +81,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontColor?: ResourceColor;
 
@@ -105,8 +98,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontWeight?: number | FontWeight | string;
 }
@@ -122,8 +114,7 @@ export interface PopupTextOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PopupButtonOptions {
   /**
@@ -139,8 +130,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   text: ResourceStr;
 
@@ -157,8 +147,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   action?: () => void;
 
@@ -175,8 +164,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontSize?: number | string | Resource;
 
@@ -193,8 +181,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontColor?: ResourceColor;
 }
@@ -210,8 +197,7 @@ export interface PopupButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PopupIconOptions {
   /**
@@ -227,8 +213,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   image: ResourceStr;
 
@@ -245,8 +230,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Dimension;
 
@@ -263,8 +247,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height?: Dimension;
 
@@ -281,8 +264,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fillColor?: ResourceColor;
 
@@ -299,8 +281,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
 }
@@ -316,8 +297,7 @@ export interface PopupIconOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PopupOptions {
   /**
@@ -335,8 +315,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   icon?: PopupIconOptions;
 
@@ -355,8 +334,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   title?: PopupTextOptions;
 
@@ -375,8 +353,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   message: PopupTextOptions;
 
@@ -395,8 +372,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showClose?: boolean | Resource;
 
@@ -415,8 +391,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onClose?: () => void;
 
@@ -435,8 +410,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
@@ -447,8 +421,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    direction?: Direction;
 
@@ -459,8 +432,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   maxWidth?: Dimension;
 }

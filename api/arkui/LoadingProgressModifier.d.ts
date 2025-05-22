@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { LoadingProgressAttribute } from './component/loadingProgress'
-/*** endif */
+
 
 
 /**
@@ -46,76 +43,3 @@ export declare class LoadingProgressModifier extends LoadingProgressAttribute im
    */
   applyNormalAttribute?(instance: LoadingProgressAttribute): void;
 }
-
-/**
- * Defines LoadingProgress Modifier
- *
- * @extends LoadingProgressAttribute
- * @implements AttributeModifier<LoadingProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { undefined | ((instance: LoadingProgressAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
-
-  /**
-   * Defines the pressed update attribute function.
-   * 
-   * @type { undefined | ((instance: LoadingProgressAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
-
-  /**
-   * Defines the focused update attribute function.
-   * 
-   * @type { undefined | ((instance:  LoadingProgressAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
-
-  /**
-   * Defines the disabled update attribute function.
-   * 
-   * @type { undefined | ((instance:  LoadingProgressAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
-
-  /**
-   * Defines the selected update attribute function.
-   * 
-   * @type { undefined | ((instance:  LoadingProgressAttribute) => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
-}

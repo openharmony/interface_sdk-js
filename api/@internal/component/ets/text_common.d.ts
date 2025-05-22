@@ -19,11 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor, ResourceStr, Length } from './units'
-import { DecorationStyleInterface, MutableStyledString, StyledString } from './styled_string'
-import { SelectionOptions, Callback } from './common'
-import { TextDecorationType, TextDecorationStyle } from './enums'
-import text from '../../@ohos.graphics.text'
+import { ResourceColor, ResourceStr, Length } from './units';
+import { DecorationStyleInterface, MutableStyledString, StyledString } from './styled_string';
+import { SelectionOptions, Callback } from './common';
+import { TextDecorationType, TextDecorationStyle } from './enums';
+import text from '../../@ohos.graphics.text';
 /*** endif */
 
 /**

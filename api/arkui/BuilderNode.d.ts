@@ -21,6 +21,9 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
+/*** if arkts 1.2 */
+import { WrappedBuilder, TouchEvent} from './component/common';
+/*** endif */
 
 /**
  * Render type of the node using for indicating that
@@ -41,7 +44,18 @@ import { Size } from './Graphics';
  * @atomicservice
  * @since 12
  */
-declare enum NodeRenderType {
+/**
+ * Render type of the node using for indicating that
+ * if the node will be shown on the display or rendered to a texture
+ *
+ * @enum { number } Render type
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
@@ -55,7 +69,8 @@ declare enum NodeRenderType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RENDER_TYPE_DISPLAY = 0,
 
@@ -70,7 +85,8 @@ declare enum NodeRenderType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RENDER_TYPE_TEXTURE = 1,
 }
@@ -90,7 +106,8 @@ declare enum NodeRenderType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RenderOptions {
   /**
@@ -106,7 +123,8 @@ export interface RenderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selfIdealSize?: Size;
 
@@ -121,7 +139,8 @@ export interface RenderOptions {
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: NodeRenderType;
 
@@ -136,7 +155,8 @@ export interface RenderOptions {
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   surfaceId?: string;
 }
@@ -149,7 +169,8 @@ export interface RenderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BuildOptions {
 
@@ -161,7 +182,8 @@ export interface BuildOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nestingBuilderSupported?: boolean;
 
@@ -182,7 +204,16 @@ export interface BuildOptions {
  * @atomicservice
  * @since 12
  */
-export class BuilderNode<Args extends Object[]> {
+/**
+ * Defines BuilderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class BuilderNode<Args extends Object[]> {
   /**
    * Constructor.
    *
@@ -200,7 +231,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
 
@@ -221,7 +253,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
 
@@ -234,7 +267,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   build(builder: WrappedBuilder<Args>, arg: Object, options: BuildOptions): void;
 
@@ -253,7 +287,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   update(arg: Object): void;
 
@@ -272,7 +307,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getFrameNode(): FrameNode | null;
 
@@ -293,7 +329,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -303,7 +340,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dispose(): void;
 
@@ -314,7 +352,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reuse(param?: Object): void;
 
@@ -324,7 +363,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   recycle(): void;
 
@@ -334,7 +374,8 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    updateConfiguration(): void;
 }

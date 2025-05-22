@@ -18,10 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { DividerAttribute } from './component/divider';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
 
 
 /**
@@ -45,29 +42,4 @@ export declare class DividerModifier extends DividerAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: DividerAttribute): void;
-}
-
-/**
- * Defines Divider Modifier
- *
- * @extends DividerAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class DividerModifier extends DividerAttribute implements AttributeModifier<DividerAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { DividerAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ((instance: DividerAttribute) => void);
 }

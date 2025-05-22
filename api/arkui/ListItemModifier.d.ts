@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ListItemAttribute } from './component/ListItem';
-import { AttributeModifier } from './component/common';
-/*** endif */
+
+
 
 /**
  * Defines ListItem Modifier
@@ -44,29 +42,4 @@ export declare class ListItemModifier extends ListItemAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?(instance: ListItemAttribute): void;
-}
-
-/**
- * Defines ListItem Modifier
- *
- * @extends ListItemAttribute
- * @implements AttributeModifier<ListItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class ListItemModifier extends ListItemAttribute implements AttributeModifier<ListItemAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ListItemAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: ListItemAttribute) => void;
 }

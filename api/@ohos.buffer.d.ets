@@ -51,16 +51,25 @@ declare namespace buffer {
     | 'binary'
     | 'hex';
   /**
-   * TypedArray inherits the features and methods of Int8Array
+   * TypedArray  features and methods
    * 
-   * @extends Int8Array
-   * @typedef TypedArray
+   * @typedef { Int8Array | Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array | BigInt64Array | BigUint64Array }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  type TypedArray = Int8Array;
+  type TypedArray = Int8Array
+    | Uint8Array
+    | Uint8ClampedArray
+    | Int16Array
+    | Uint16Array
+    | Int32Array
+    | Uint32Array
+    | Float32Array
+    | Float64Array
+    | BigInt64Array
+    | BigUint64Array;
 
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
@@ -293,7 +302,6 @@ declare namespace buffer {
    * @since 20
    */
   function transcode(source: Buffer | Uint8Array, fromEnc: string, toEnc: string): Buffer
-
   /**
    * The Buffer object is a method of handling buffers dedicated to binary data.
    *
@@ -1391,7 +1399,7 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
+     * @param { Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob> } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
      * @param { BlobOptions } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
@@ -1404,7 +1412,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 20
      */
-    constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[], options?: BlobOptions)
+    constructor(sources: Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob>, options?: BlobOptions);
 
     /**
      * The total size of the Blob in bytes

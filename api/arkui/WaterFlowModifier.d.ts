@@ -18,10 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { AttributeModifier } from './component/common'
-import { WaterFlowAttribute } from './component/waterFlow'
-/*** endif */
+
+
 
 /**
  * Defines WaterFlow Modifier
@@ -44,29 +42,4 @@ export declare class WaterFlowModifier extends WaterFlowAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?(instance: WaterFlowAttribute): void;
-}
-
-/**
- * Defines WaterFlow Modifier
- *
- * @extends WaterFlowAttribute
- * @implements AttributeModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
-*/
-export declare class WaterFlowModifier extends WaterFlowAttribute implements AttributeModifier<WaterFlowAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { WaterFlowAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: (instance: WaterFlowAttribute) => void;
 }

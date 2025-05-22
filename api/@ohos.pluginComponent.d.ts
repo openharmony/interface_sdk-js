@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.1&1.2 */
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
+/*** endif */
 
 /**
  * Plugin component template property.

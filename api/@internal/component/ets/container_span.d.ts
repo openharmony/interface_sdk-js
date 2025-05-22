@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { TextBackgroundStyle } from './span'
-import { AttributeModifier } from './common'
+import { TextBackgroundStyle } from './span';
+import { AttributeModifier } from './common';
 /*** endif */
 
 /**

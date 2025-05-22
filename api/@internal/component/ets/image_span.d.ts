@@ -19,12 +19,12 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceStr, ColorFilter} from './units'
-import { BaseSpan } from './span'
-import { ImageSpanAlignment, ImageFit } from './enums'
-import { ImageErrorCallback } from './image'
-import drawing from '../../@ohos.graphics.drawing'
-import image from '../../@ohos.multimedia.image'
+import { ResourceStr, ColorFilter} from './units';
+import { BaseSpan } from './span';
+import { ImageSpanAlignment, ImageFit } from './enums';
+import { ImageErrorCallback } from './image';
+import drawing from '../../@ohos.graphics.drawing';
+import image from '../../@ohos.multimedia.image';
 /*** endif */
 
 /**
