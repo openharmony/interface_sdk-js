@@ -6772,50 +6772,13 @@ declare enum WebResponseType {
  */
 declare enum AudioSessionType {
   /**
-   * Playback audio, which is used for video or music playback, etc.
-   * They should not mix with other playback audio.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  PLAYBACK = 0,
-  /**
-   * Transient audio, such as a notification ping. 
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 
-   */
-  TRANSIENT=1,
-  /**
-   * Transient solo audio, such as driving directions. 
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  TRANSIENT_SOLO=2,
-  /**
    * Ambient audio, which is mixable with other types of audio. 
    * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
    * 
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
-  AMBIENT=3,
-  /**
-   * Play and record audio, which is used for recording audio. 
-   * This is useful in cases microphone is being used or in video conferencing applications.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  PLAY_AND_RECORD=4,
-  /**
-   * This is the default type of AudioSession.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  AUTO=5
+  AMBIENT=3
 }
 
 /**
