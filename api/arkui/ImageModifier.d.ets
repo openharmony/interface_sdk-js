@@ -19,7 +19,7 @@
  */
 
 import { ImageAttribute } from './component/image'
-import { AttributeModifier }from './component/common'
+import { AttributeModifier } from './component/common'
 
 /**
  * Defines Image Modifier
