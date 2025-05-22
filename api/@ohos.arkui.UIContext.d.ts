@@ -46,21 +46,21 @@ import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import {
   ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam,
   KeyframeState, SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional
-} from './arkui/component/common'
-import { CustomBuilder } from './arkui/component/builder'
-import { GestureEvent, GestureRecognizer } from './arkui/component/gesture'
-import { ResourceStr, SizeOptions } from './arkui/component/units'
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from './arkui/component/enums'
-import { TimePickerDialogOptions } from './arkui/component/timePicker'
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog'
-import { ActionSheetOptions } from './arkui/component/actionSheet'
-import { TextPickerDialogOptions } from './arkui/component/textPicker'
-import { LocalStorage } from '@ohos.arkui.stateManagement'
-import { DatePickerDialogOptions } from './arkui/component/datePicker'
-import { TabsController } from './arkui/component/tabs'
-import { Scroller } from './arkui/component/scroll'
-import { KeyProcessingMode } from './arkui/component/focus'
-import { TextMenuOptions } from './arkui/component/textCommon'
+} from './arkui/component/common';
+import { CustomBuilder } from './arkui/component/builder';
+import { GestureEvent, GestureRecognizer } from './arkui/component/gesture';
+import { ResourceStr, SizeOptions } from './arkui/component/units';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from './arkui/component/enums';
+import { TimePickerDialogOptions } from './arkui/component/timePicker';
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
+import { ActionSheetOptions } from './arkui/component/actionSheet';
+import { TextPickerDialogOptions } from './arkui/component/textPicker';
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { DatePickerDialogOptions } from './arkui/component/datePicker';
+import { TabsController } from './arkui/component/tabs';
+import { Scroller } from './arkui/component/scroll';
+import { KeyProcessingMode } from './arkui/component/focus';
+import { TextMenuOptions } from './arkui/component/textCommon';
 /*** endif */
 /**
  * class Font

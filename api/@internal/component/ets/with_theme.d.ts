@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomTheme } from "../../@ohos.arkui.theme";
-import { ThemeColorMode } from "./common";
+import { CustomTheme } from '../../@ohos.arkui.theme';
+import { ThemeColorMode } from './common';
 /*** endif */
 
 /**

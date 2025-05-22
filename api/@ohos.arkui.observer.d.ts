@@ -49,7 +49,7 @@ import type { NavigationOperation, NavBar } from '../component/navigation';
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare namespace uiObserver {
+declare namespace UIObserver {
   /**
    * NavDestination state.
    *

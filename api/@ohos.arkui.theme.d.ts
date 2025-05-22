@@ -20,7 +20,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor } from "./arkui/component/units"
+import { ResourceColor } from './arkui/component/units';
 /*** endif */
 
 /**

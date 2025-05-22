@@ -27,7 +27,7 @@ import { ComponentContent } from './ComponentContent';
 
 /*** if arkts 1.2 */
 import { UIContext } from '@ohos.arkui.UIContext';
-import { UICommonEvent,UIGestureEvent,CommonAttribute } from './component/common'
+import { UICommonEvent, UIGestureEvent, CommonAttribute } from './component/common'
 /*** endif */
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -963,7 +963,7 @@ export declare class TypedFrameNode<C, T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace typeNode {
+export namespace TypeNode {
   /**
    * Define the FrameNode type for Text.
    * 
