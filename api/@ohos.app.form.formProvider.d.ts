@@ -411,22 +411,6 @@ declare namespace formProvider {
   function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Open the view of forms belonging to current bundle.
-   * Client to communication with FormManagerService.
-   *
-   * @param { Want } want - The want of the form to open.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 18
-   */
-  function openFormManager(want: Want): void;
-
-  /**
    * Open the form edit ability
    *
    * @param { string } abilityName - Indicates the form edit ability name.
@@ -443,5 +427,21 @@ declare namespace formProvider {
    * @since 18
    */
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
+
+  /**
+   * Open the view of forms belonging to current bundle.
+   * Client to communication with FormManagerService.
+   *
+   * @param { Want } want - The want of the form to open.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 18
+   */
+  function openFormManager(want: Want): void;
 }
 export default formProvider;
