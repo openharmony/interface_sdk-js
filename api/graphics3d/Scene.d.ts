@@ -352,7 +352,7 @@ export class Scene {
    *
    * @returns { RenderContext | null } -- The default RenderContext instance
    * @static
-   * @syscap SystemCapability.ArkUI.Graphic3D
+   * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
   static getDefaultRenderContext(): RenderContext | null;
