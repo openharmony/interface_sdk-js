@@ -233,6 +233,7 @@
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
-    "SystemCapability.Resourceschedule.BackgroundProcessManager"
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.Test.PerfTest"
   ]
 }
