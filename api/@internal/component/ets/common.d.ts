@@ -23,50 +23,50 @@ import Context from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
 import image from '../../@ohos.multimedia.image';
-import  unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
-import promptAction from '../../@ohos.promptAction'
+import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
+import promptAction from '../../@ohos.promptAction';
 import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { ImageModifier } from '../../arkui/ImageModifier';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-import { CircleShape,EllipseShape,PathShape,RectShape } from '../../@ohos.arkui.shape';
+import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiobserver from '../../@ohos.arkui.observer';
 import { UIContext } from '../../@ohos.arkui.UIContext';
 import { DrawContext, LengthMetrics } from '../../arkui/Graphics';
 import uiEffect from '../../@ohos.graphics.uiEffect';
-import { FocusBoxStyle, FocusPriority} from './focus';
-import { ComponentContent } from '../../arkui/ComponentContent'
-import { ResizableOptions } from './image'
+import { FocusBoxStyle, FocusPriority } from './focus';
+import { ComponentContent } from '../../arkui/ComponentContent';
+import { ResizableOptions } from './image';
 import { Theme } from '../../@ohos.arkui.theme';
-import { ButtonType, ButtonStyleMode,ButtonRole } from './button'
+import { ButtonType, ButtonStyleMode, ButtonRole } from './button';
 import {
   Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
-  LocalizedEdgeColors,BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions,Bias,
-  EdgeStyles,Position,LocalizedBorderRadiuses,Margin,ChainWeightOptions,Padding,LocalizedPadding,LocalizedMargin,
-  BorderOptions,OutlineOptions,EdgeOutlineStyles,EdgeOutlineWidths,OutlineRadiuses,Edges,LocalizedEdges,LocalizedPosition,
-  AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT, VoidCallback
-} from './units';
+  LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias,
+  EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin,
+  BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition,
+  AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback
+ } from './units';
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
-  GestureMask, GestureHandler,GesturePriority,GestureInfo
+  GestureMask, GestureHandler, GesturePriority, GestureInfo
  } from './gesture';
 import { ScrollState } from './list';
 import {
-  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource,BorderStyle,
-  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight,TouchType,
-  FontStyle, Color, ColoringStrategy,Placement,ArrowPointPosition,ClickEffectLevel,NestedScrollMode,HitTestMode,
-  Alignment,ImageRepeat,ImageSize,HoverEffect,Visibility,ItemAlign,Direction,Axis,GradientDirection,FunctionKey,
-  ModifierKey,ObscuredReasons,RenderFit,LineCapStyle,LineJoinStyle,PixelRoundCalcPolicy,IlluminatedType,TextDecorationType,
-  TextDecorationStyle,KeyType, ResponseType, BarState, EdgeEffect,ScrollSource,InteractionHand,AxisAction,AxisModel,CrownAction,
-  FocusDrawLevel,CrownSensitivity
+  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle,
+  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight, TouchType,
+  FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode,
+  Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey,
+  ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, IlluminatedType, TextDecorationType,
+  TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction,
+  FocusDrawLevel, CrownSensitivity
 } from './enums'
-import { TextRange } from './textCommon'
-import { StyledString } from './styledString'
+import { TextRange } from './textCommon';
+import { StyledString } from './styledString';
 import { CircleAttribute } from './circle';
 import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
-import { LocalStorage } from '../stateManagement/storages/localStorage'
-import { CustomBuilder } from './builder'
+import { LocalStorage } from '../stateManagement/storages/localStorage';
+import { CustomBuilder } from './builder';
 /*** endif */
 
 /**
@@ -6741,7 +6741,7 @@ declare interface AsymmetricOptions {
  * @since 20
  * @arkts 1.2
  */
-declare interface TransitionEffects  {
+declare interface TransitionEffects {
   /**
   * identity
   *
@@ -7506,7 +7506,8 @@ declare class TransitionEffect {
    *
    * @param { TransitionEffect } appear - the transition which will be attached when the component is appear
    * @param { TransitionEffect } disappear - the transition which will be attached when the component is disappear
-   * @returns { TransitionEffect<"asymmetric"> }
+   * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7514,7 +7515,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  static asymmetric(appear: TransitionEffect,disappear: TransitionEffect): TransitionEffect;
+  static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
 
  
   /**
@@ -7555,7 +7556,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'move',effect:TransitionEdge);
+  constructor(type: 'move', effect:TransitionEdge);
   /**
    * TransitionEffect constructor
    *
@@ -7568,7 +7569,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'translate',effect:TranslateOptions);
+  constructor(type: 'translate', effect:TranslateOptions);
   /**
    * TransitionEffect constructor
    *
@@ -7581,7 +7582,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'rotate',effect:RotateOptions);
+  constructor(type: 'rotate', effect: RotateOptions);
   /**
    * TransitionEffect constructor
    *
@@ -7594,7 +7595,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'scale',effect:ScaleOptions);
+  constructor(type: 'scale', effect: ScaleOptions);
   /**
    * TransitionEffect constructor
    *
@@ -7607,7 +7608,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'asymmetric',effect:AsymmetricOptions);
+  constructor(type: 'asymmetric', effect: AsymmetricOptions);
   /**
    * Set the animation of current transition effect
    *
@@ -17344,7 +17345,7 @@ declare interface PopupStateEvent {
  * @since 20
  * @arkts 1.2
  */
-declare interface PopupMaskOptions{ 
+declare interface PopupMaskOptions { 
   /**
    * color
    *
@@ -23448,7 +23449,7 @@ declare class CommonMethod<T> {
   /**
    * Transition parameter
    *
-   * @param { TransitionOptions | TransitionEffect } value - transition options or transition effect
+   * @param { TransitionEffect } value - transition options or transition effect
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -23457,7 +23458,7 @@ declare class CommonMethod<T> {
    * @since 20
    * @arkts 1.2
    */
-  transition(value:  TransitionEffect): T;
+  transition(value: TransitionEffect): T;
 
   /**
    * Set the transition effect of component when it appears and disappears.
@@ -32187,14 +32188,17 @@ declare interface Callback<T, V = void> {
 
 /**
  * Defines the callback
- *
+ * 
+ * @typedef { function } Callback<T, V = void>
+ * @param { T } data 
+ * @returns { V } 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type Callback<T,V = void> = (data: T) => V
+declare type Callback<T, V = void> = (data: T) => V;
 
 /**
  * Defines the callback type used in hover events.
@@ -32210,7 +32214,7 @@ declare type Callback<T,V = void> = (data: T) => V
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
+declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
 
 /**
  * Defines the callback type used in accessibility hover events.
@@ -32226,7 +32230,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
 /**
  * Defines the options about VisibleAreaEvent.

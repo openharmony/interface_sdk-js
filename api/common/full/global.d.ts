@@ -378,14 +378,14 @@ export declare class OffscreenCanvas {
   /**
    * Gets the context object for off-screen drawing.
    *
-   * @param { "2d" } contextId - creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
+   * @param { '2d' } contextId - creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
    * @param { CanvasRenderingContext2DSettings } [options] - object representing a three-dimensional rendering context.
    * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  getContext(contextId: "2d", options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
+  getContext(contextId: '2d', options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
 
   /**
    * Converts the draw contents of the current off-screen draw object to a string in the form of a Blob.

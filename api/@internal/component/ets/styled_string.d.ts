@@ -19,15 +19,15 @@
  */
 
 /*** if arkts 1.2 */
-import { Callback, ShadowOptions, ClickEvent,Optional } from "./common";
+import { Callback, ShadowOptions, ClickEvent, Optional } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses,ColorFilter } from './units';
-import { TextBackgroundStyle } from "./span";
+import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
+import { TextBackgroundStyle } from './span';
 import { GestureEvent } from "./gesture";
 import { LeadingMarginPlaceholder } from './richEditor';
-import image from '../../@ohos.multimedia.image'
-import drawing from "../../@ohos.graphics.drawing";
-import { DrawContext } from '../../arkui/Graphics'
+import image from '../../@ohos.multimedia.image';
+import drawing from '../../@ohos.graphics.drawing';
+import { DrawContext } from '../../arkui/Graphics';
 /*** endif */
 
 /**
