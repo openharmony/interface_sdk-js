@@ -515,22 +515,21 @@ declare namespace wifiManager {
    * This method connect to a configuration at a time.
    * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { number } networkId - Network ID witch will be connected. The value of networkId cannot be less than 0.
+   * @param { int } networkId - Network ID witch will be connected. The value of networkId cannot be less than 0.
    * @returns { Promise<void> } Returns the promise object that used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @throws {BusinessError} 2501005 - user does not respond
    * @throws {BusinessError} 2501006 - user refuse the action
+   * @throws {BusinessError} 2501007 - parameter validation failed
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 20
    */
-  function connectToCandidateConfigWithUserAction(networkId: number): Promise<void>;
+  function connectToCandidateConfigWithUserAction(networkId: int): Promise<void>;
 
   /**
    * Connect to Wi-Fi hotspot by networkId.
