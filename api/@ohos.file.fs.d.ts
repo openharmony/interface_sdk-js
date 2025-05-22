@@ -2110,6 +2110,23 @@ declare function createStreamSync(path: string, mode: string): Stream;
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
  * @returns { Promise<RandomAccessFile> } Promise used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2188,6 +2205,23 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2260,6 +2294,23 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
  * @returns { RandomAccessFile } RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2324,7 +2375,11 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  * Creates a readable stream. This API returns the result synchronously.
  *
  * @param { string } path - Path of the file.
- * @param { ReadStreamOptions } [options] - Defines the options used in createReadStream().
+ * @param { ReadStreamOptions } [options] - The options are as follows:
+ * <br>start (number): start position of the data to read in the file. This parameter is optional.
+ * <br>By default, data is read from the current position.
+ * <br>end (number): end position of the data to read in the file. This parameter is optional.
+ * <br>The default value is the end of the file.
  * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2379,7 +2434,11 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  * Creates a writeable stream. This API returns the result synchronously.
  *
  * @param { string } path - Path of the file.
- * @param { WriteStreamOptions } [options] - Defines the options used in createWriteStream().
+ * @param { WriteStreamOptions } [options] - The options are as follows:
+ * <br>start (number): start position to write the data in the file. This parameter is optional.
+ * <br>By default, data is written from the current position.
+ * <br>mode (number): mode for creating the writeable stream. This parameter is optional.
+ * <br>The default value is the write-only mode.
  * @returns { WriteStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -6429,7 +6488,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  * Truncates a file. This API uses an asynchronous callback to return the result.
  *
  * @param { string | number } file - Application sandbox path or FD of the file.
- * @param { number } [len = 0] - File length, in bytes, after truncation. The default value is 0.
+ * @param { number } len - File length, in bytes, after truncation.
  * @param { AsyncCallback<void> } callback - Callback that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -7554,7 +7613,12 @@ declare interface RandomAccessFile {
    * Writes data into a file. This API uses a promise to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - Defines the options use din write(). It inherits from Options.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
    * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -7623,7 +7687,12 @@ declare interface RandomAccessFile {
    * Writes data to a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - Defines the options use din write(). It inherits from Options.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -7671,7 +7740,12 @@ declare interface RandomAccessFile {
    * Writes data to a file. This API returns the result synchronously.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - Defines the options use din write(). It inherits from Options.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
    * @returns { number } Length of the data written in the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -8352,15 +8426,15 @@ declare interface Stat {
   /**
    * File permissions. The meaning of each bit is as follows:
    * The following values are in octal format. The return values are in decimal format. You need to convert the values.
-   * <br>0o400: The user has the read permission on a regular file or a directory entry.
-   * <br>0o200: The user has the permission to write a regular file or create and delete a directory entry.
-   * <br>0o100: The user has the permission to execute a regular file or search for the specified path in a directory.
-   * <br>0o040: The user group has the read permission on a regular file or a directory entry.
-   * <br>0o020: The user group has the permission to write a regular file or create and delete a directory entry.
-   * <br>0o010: The user group has the permission to execute a regular file or search for the specified path in a directory.
-   * <br>0o004: Other users have the permission to read a regular file or read a directory entry.
-   * <br>0o002: Other users have the permission to write a regular file or create and delete a directory entry.
-   * <br>0o001: Other users have the permission to execute a regular file or search for the specified path in a directory.
+   * 0o400: The user has the read permission on a regular file or a directory entry.
+   * 0o200: The user has the permission to write a regular file or create and delete a directory entry.
+   * 0o100: The user has the permission to execute a regular file or search for the specified path in a directory.
+   * 0o040: The user group has the read permission on a regular file or a directory entry.
+   * 0o020: The user group has the permission to write a regular file or create and delete a directory entry.
+   * 0o010: The user group has the permission to execute a regular file or search for the specified path in a directory.
+   * 0o004: Other users have the permission to read a regular file or read a directory entry.
+   * 0o002: Other users have the permission to write a regular file or create and delete a directory entry.
+   * 0o001: Other users have the permission to execute a regular file or search for the specified path in a directory.
    *
    * @type { number }
    * @readonly
@@ -8465,7 +8539,7 @@ declare interface Stat {
    */
   /**
    * Time when the file was last accessed. The value is the number of seconds elapsed since 00:00:00 on January 1, 1970.
-   * NOTE Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
+   * NOTE: Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
    *
    * @type { number }
    * @readonly
@@ -8531,7 +8605,10 @@ declare interface Stat {
   readonly ctime: number;
 
   /**
-   * Returns nanosecond of the access time.
+   * Time of the last access to the file. The value is the number of nanoseconds elapsed
+   * since 00:00:00 on January 1, 1970.
+   * NOTE: Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
+   *
    * @type { bigint }
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
@@ -8541,9 +8618,8 @@ declare interface Stat {
   readonly atimeNs?:bigint;
 
   /**
-   * Time of the last access to the file. The value is the number of nanoseconds elapsed
-   * since 00:00:00 on January 1, 1970.
-   * NOTE Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
+   * Time of the last modification to the file. The value is the number of
+   * nanoseconds elapsed since 00:00:00 on January 1, 1970.
    *
    * @type { bigint }
    * @readonly
@@ -8932,7 +9008,7 @@ declare interface Stream {
   flush(callback: AsyncCallback<void>): void;
 
   /**
-   * Flushes this stream. This API uses an asynchronous callback to return the result.
+   * Flushes this stream. This API returns the result synchronously.
    *
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -9575,7 +9651,20 @@ export interface WatchEvent {
   readonly fileName: string;
 
   /**
-   * Events to observe.
+   * Events to observe. Multiple events can be separated by a bitwise OR operator (|).
+   * 0x1: IN_ACCESS: A file is accessed.
+   * 0x2: IN_MODIFY: The file content is modified.
+   * 0x4: IN_ATTRIB: The file metadata is modified.
+   * 0x8: IN_CLOSE_WRITE: A file is opened, written with data, and then closed.
+   * 0x10: IN_CLOSE_NOWRITE: A file or directory is opened and then closed without data written.
+   * 0x20: IN_OPEN: A file or directory is opened.
+   * 0x40: IN_MOVED_FROM: A file in the observed directory is moved.
+   * 0x80: IN_MOVED_TO: A file is moved to the observed directory.
+   * 0x100: IN_CREATE: A file or directory is created in the observed directory.
+   * 0x200: IN_DELETE: A file or directory is deleted from the observed directory.
+   * 0x400: IN_DELETE_SELF: The observed directory is deleted. After the directory is deleted, the listening stops.
+   * 0x800: IN_MOVE_SELF: The observed file or directory is moved. After the file or directory is moved, the listening continues.
+   * 0xfff: IN_ALL_EVENTS: All events.
    *
    * @type { number }
    * @readonly
@@ -9585,7 +9674,8 @@ export interface WatchEvent {
   readonly event: number;
 
   /**
-   * Cookie bound with the event.
+   * Cookie bound with the event. Currently, only the IN_MOVED_FROM and IN_MOVED_TO events are supported.
+   * The IN_MOVED_FROM and IN_MOVED_TO events of the same file have the same cookie value.
    *
    * @type { number }
    * @readonly
@@ -9948,8 +10038,20 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is written from the filePointer.
+   * Option for creating the writeable stream. You must specify one of the following options.
+   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
+   * OpenMode.WRITE_ONLY(0o1): write-only.
+   * OpenMode.READ_WRITE(0o2): read/write.
+   * You can also specify the following options, separated by a bitwise OR operator (|).
+   * By default, no additional options are given.
+   * OpenMode.CREATE(0o100): If the file does not exist, create it.
+   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
