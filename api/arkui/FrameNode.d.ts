@@ -27,7 +27,7 @@ import { ComponentContent } from './ComponentContent';
 
 /*** if arkts 1.2 */
 import { UIContext } from '@ohos.arkui.UIContext';
-import { UICommonEvent,UIGestureEvent,CommonAttribute } from './component/common'
+import { UICommonEvent, UIGestureEvent, CommonAttribute } from './component/common'
 /*** endif */
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
