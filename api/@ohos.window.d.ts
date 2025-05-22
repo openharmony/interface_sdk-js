@@ -62,9 +62,7 @@ declare interface Callback<T, V = void> {
 /**
  * Defines the window callback.
  *
- * @typedef Callback<T, V = void>
- * @param { T } data - the data will be used in the callback.
- * @returns { V } - Returns result of the callback.
+ * @typedef { Callback<T, V = void> }
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice
  * @since 20
