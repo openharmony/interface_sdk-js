@@ -22,7 +22,7 @@
 import { Resource as _Resource } from '../../global/resource';
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode} from './enums';
 import { OutlineStyle } from './common';
-import { LengthMetricsUnit as _LengthMetricsUnit,LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
+import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 /*** endif */
 
 /**
@@ -422,7 +422,7 @@ declare type ResourceStr = string | Resource;
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface Padding  {
+declare interface Padding {
   /**
    * top property.
    *
@@ -722,7 +722,7 @@ declare type EdgeWidth = EdgeWidths;
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface EdgeWidths  {
+declare interface EdgeWidths {
   /**
    * top property.
    *
@@ -928,7 +928,7 @@ declare interface LocalizedEdgeWidths {
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface EdgeOutlineWidths  {
+declare interface EdgeOutlineWidths {
   /**
    * top outline width property.
    *
@@ -1046,7 +1046,7 @@ declare interface EdgeOutlineWidths  {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface BorderRadiuses  {
+declare interface BorderRadiuses {
   /**
    * top-left property.
    *
@@ -1371,7 +1371,7 @@ declare interface OutlineRadiuses {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface EdgeColors  {
+declare interface EdgeColors {
   /**
    * top property.
    *
@@ -1599,7 +1599,7 @@ declare type LocalizedMargin = LocalizedPadding;
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface EdgeStyles  {
+declare interface EdgeStyles {
   /**
    * top property.
    *
@@ -1741,7 +1741,7 @@ declare interface EdgeStyles  {
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface EdgeOutlineStyles  {
+declare interface EdgeOutlineStyles {
   /**
    * top property.
    *
@@ -1856,7 +1856,7 @@ declare interface EdgeOutlineStyles  {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface Offset  {
+declare interface Offset {
   /**
    * dx property.
    *
@@ -1977,7 +1977,7 @@ declare type ResourceColor = Color | number | string | Resource;
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface LengthConstrain  {
+declare interface LengthConstrain {
   /**
    * minimum length.
    *

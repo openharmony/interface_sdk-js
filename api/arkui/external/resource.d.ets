@@ -18,7 +18,7 @@
  * @arkts 1.2
  */
 
-import { Resource as __Resource__ } from "../../global/resource";
+import { Resource as __Resource__ } from '../../global/resource';
 
 export type Resource = __Resource__;
 

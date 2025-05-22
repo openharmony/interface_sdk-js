@@ -146,7 +146,7 @@ export class ComponentContent<T extends Object> extends Content{
  * @since 20
  * @arkts 1.2
  */
-export declare class ComponentContent<T extends Object = object> extends Content{
+export declare class ComponentContent<T extends Object = object> extends Content {
   /**
    * Constructor.
    *
