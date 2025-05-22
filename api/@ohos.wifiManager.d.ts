@@ -511,20 +511,20 @@ declare namespace wifiManager {
 
   /**
    * Connect to a specified candidate hotspot by networkId, and wait for user respond result.
-   * Only the configuration witch is added by ourself is allowed to be connected. 
+   * Only the configuration which is added by ourself is allowed to be connected. 
    * This method connect to a configuration at a time.
    * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { int } networkId - Network ID witch will be connected. The value of networkId cannot be less than 0.
-   * @returns { Promise<void> } Returns the promise object that used to return the operation result.
+   * @returns { Promise<void> } - Returns the promise object that used to return the operation result.
    * If the operation fails, an error message is returned.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
-   * @throws {BusinessError} 2501005 - user does not respond
-   * @throws {BusinessError} 2501006 - user refuse the action
-   * @throws {BusinessError} 2501007 - parameter validation failed
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @throws { BusinessError } 2501001 - Wi-Fi STA disabled.
+   * @throws { BusinessError } 2501005 - user does not respond
+   * @throws { BusinessError } 2501006 - user refuse the action
+   * @throws { BusinessError } 2501007 - parameter validation failed
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 20
