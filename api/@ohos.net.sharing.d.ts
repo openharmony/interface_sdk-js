@@ -21,18 +21,25 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
+/*** if arkts 1.1 */
+import { int } from './@ohos.base';
+/*** endif */
+
+
 /**
  * Provides network sharing related interfaces.
  * @namespace sharing
  * @syscap SystemCapability.Communication.NetManager.NetSharing
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace sharing {
   /**
    * Get the handle of the data network.
    * @typedef { connection.NetHandle }
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type NetHandle = connection.NetHandle;
 
@@ -48,7 +55,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
   */
   function isSharingSupported(callback: AsyncCallback<boolean>): void;
 
@@ -63,7 +71,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSharingSupported(): Promise<boolean>;
 
@@ -79,7 +88,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSharing(callback: AsyncCallback<boolean>): void;
 
@@ -94,7 +104,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use. 
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSharing(): Promise<boolean>;
 
@@ -116,7 +127,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
@@ -138,7 +150,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startSharing(type: SharingIfaceType): Promise<void>;
 
@@ -159,7 +172,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
@@ -180,14 +194,15 @@ declare namespace sharing {
    * @throws { BusinessError } 2202011 - Cannot get network sharing configuration.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopSharing(type: SharingIfaceType): Promise<void>;
 
   /**
    * Obtains the number of downlink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<number> } callback - Returns the number of downlink data bytes of the sharing network interfaces.
+   * @param { AsyncCallback<int> } callback - Returns the number of downlink data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -195,29 +210,30 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsRxBytes(callback: AsyncCallback<number>): void;
+  function getStatsRxBytes(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the number of downlink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsRxBytes(): Promise<number>;
+  function getStatsRxBytes(): Promise<int>;
 
   /**
    * Obtains the number of uplink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<number> } callback - Returns the number of uplink data bytes of the sharing network interfaces.
+   * @param { AsyncCallback<int> } callback - Returns the number of uplink data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -225,29 +241,30 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsTxBytes(callback: AsyncCallback<number>): void;
+  function getStatsTxBytes(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the number of uplink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsTxBytes(): Promise<number>;
+  function getStatsTxBytes(): Promise<int>;
 
   /**
    * Obtains the number of total data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<number> } callback - Returns the number of total data bytes of the sharing network interfaces.
+   * @param { AsyncCallback<int> } callback - Returns the number of total data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -255,24 +272,25 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsTotalBytes(callback: AsyncCallback<number>): void;
+  function getStatsTotalBytes(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the number of total data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getStatsTotalBytes(): Promise<number>;
+  function getStatsTotalBytes(): Promise<int>;
 
   /**
    * Obtains the names of interfaces in each sharing state.
@@ -287,7 +305,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
 
@@ -304,7 +323,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
 
@@ -321,7 +341,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
 
@@ -338,7 +359,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
 
@@ -355,7 +377,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
 
@@ -372,7 +395,8 @@ declare namespace sharing {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
 
@@ -489,14 +513,16 @@ declare namespace sharing {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SharingIfaceState {
     /**
      * Indicates the names of the NICs that are serving as network sharing.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_NIC_SERVING = 1,
 
@@ -504,7 +530,8 @@ declare namespace sharing {
      * Indicates the names of the NICs that can serve as network sharing.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_NIC_CAN_SERVER = 2,
 
@@ -512,7 +539,8 @@ declare namespace sharing {
      * Indicates the names of the NICs that serving error.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_NIC_ERROR = 3
   }
@@ -522,7 +550,8 @@ declare namespace sharing {
    * @interface InterfaceSharingStateInfo
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InterfaceSharingStateInfo {
     /**
@@ -530,7 +559,8 @@ declare namespace sharing {
      * @type { SharingIfaceType }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: SharingIfaceType;
     /**
@@ -538,7 +568,8 @@ declare namespace sharing {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     iface: string;
     /**
@@ -546,7 +577,8 @@ declare namespace sharing {
      * @type { SharingIfaceState }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: SharingIfaceState;
   }
@@ -556,14 +588,16 @@ declare namespace sharing {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SharingIfaceType {
     /**
      * Network sharing type for Wi-Fi.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_WIFI = 0,
 
@@ -571,7 +605,8 @@ declare namespace sharing {
      * Network sharing type for USB.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_USB = 1,
 
@@ -579,7 +614,8 @@ declare namespace sharing {
      * Network sharing type for BLUETOOTH.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARING_BLUETOOTH = 2
   }
