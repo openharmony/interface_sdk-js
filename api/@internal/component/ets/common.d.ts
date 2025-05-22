@@ -14768,6 +14768,18 @@ declare interface SheetOptions extends BindOptions {
   dragBar?: boolean;
 
   /**
+   * Defines whether the sheet dragbar is floating, when it's displayed.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableFloatingDragBar?: boolean;
+
+  /**
    * Mask color of the sheet.
    * 
    * @type { ?ResourceColor }
