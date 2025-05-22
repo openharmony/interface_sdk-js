@@ -1564,7 +1564,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
-   * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
+   * @throws { BusinessError } 26500001 - Invalid windowId.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15
    */
