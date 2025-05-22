@@ -8356,7 +8356,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700202  - Unsupported metadata. For example, key is not supported.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 20
-     * @arkts 1.2
      */
     getImagePropertySync(key: PropertyKey): string;
 
