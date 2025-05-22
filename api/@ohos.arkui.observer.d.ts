@@ -511,6 +511,17 @@ declare namespace uiObserver {
      * @since 12
      */
     pathStack: NavPathStack;
+
+    /**
+     * The uniqueId of the navigation.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    uniqueId?: number;
   }
 
   /**
