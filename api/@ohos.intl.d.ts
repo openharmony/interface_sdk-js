@@ -130,6 +130,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.calendar
      */
     calendar?: string;
 
@@ -174,6 +176,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.collation
      */
     collation?: string;
 
@@ -217,6 +221,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.hourCycle
      */
     hourCycle?: string;
 
@@ -265,6 +271,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.numberingSystem
      */
     numberingSystem?: string;
 
@@ -309,6 +317,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.numeric
      */
     numeric?: boolean;
 
@@ -352,6 +362,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.caseFirst
      */
     caseFirst?: string;
   }
@@ -416,6 +428,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead i18n.System.getSystemLocaleObject
      */
     constructor();
 
@@ -459,6 +473,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.constructor
      */
     constructor(locale: string, options?: LocaleOptions);
 
@@ -492,6 +508,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.language
      */
     language: string;
 
@@ -525,6 +543,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.script
      */
     script: string;
 
@@ -558,6 +578,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.region
      */
     region: string;
 
@@ -594,6 +616,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.baseName
      */
     baseName: string;
 
@@ -628,6 +652,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.caseFirst
      */
     caseFirst: string;
 
@@ -663,6 +689,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.calendar
      */
     calendar: string;
 
@@ -697,6 +725,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.collation
      */
     collation: string;
 
@@ -730,6 +760,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.hourCycle
      */
     hourCycle: string;
 
@@ -768,6 +800,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.numberingSystem
      */
     numberingSystem: string;
 
@@ -802,6 +836,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.numeric
      */
     numeric: boolean;
 
@@ -838,6 +874,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.toString
      */
     toString(): string;
 
@@ -874,6 +912,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.maximize
      */
     maximize(): Locale;
 
@@ -910,6 +950,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.minimize
      */
     minimize(): Locale;
   }
@@ -990,6 +1032,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.locale
      */
     locale?: string;
 
@@ -1033,6 +1077,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.dateStyle
      */
     dateStyle?: string;
 
@@ -1076,6 +1122,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeStyle
      */
     timeStyle?: string;
 
@@ -1119,6 +1167,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hourCycle
      */
     hourCycle?: string;
 
@@ -1162,6 +1212,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeZone
      */
     timeZone?: string;
 
@@ -1210,6 +1262,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.numberingSystem
      */
     numberingSystem?: string;
 
@@ -1255,6 +1309,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hour12
      */
     hour12?: boolean;
 
@@ -1298,6 +1354,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.weekday
      */
     weekday?: string;
 
@@ -1341,6 +1399,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.era
      */
     era?: string;
 
@@ -1384,6 +1444,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.year
      */
     year?: string;
 
@@ -1427,6 +1489,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.month
      */
     month?: string;
 
@@ -1470,6 +1534,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.day
      */
     day?: string;
 
@@ -1513,6 +1579,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hour
      */
     hour?: string;
 
@@ -1556,6 +1624,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.minute
      */
     minute?: string;
 
@@ -1599,6 +1669,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.second
      */
     second?: string;
 
@@ -1642,6 +1714,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeZoneName
      */
     timeZoneName?: string;
 
@@ -1685,6 +1759,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.dayPeriod
      */
     dayPeriod?: string;
 
@@ -1730,6 +1806,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.localeMatcher
      */
     localeMatcher?: string;
 
@@ -1775,6 +1853,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.formatMatcher
      */
     formatMatcher?: string;
   }
@@ -1839,6 +1919,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.constructor
      */
     constructor();
 
@@ -1884,6 +1966,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.constructor
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
@@ -1924,6 +2008,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.format
      */
     format(date: Date): string;
 
@@ -1969,6 +2055,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.formatRange
      */
     formatRange(startDate: Date, endDate: Date): string;
 
@@ -2005,6 +2093,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.resolvedOptions
      */
     resolvedOptions(): DateTimeOptions;
   }
@@ -2065,6 +2155,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.locale
      */
     locale?: string;
 
@@ -2100,6 +2192,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currency
      */
     currency?: string;
 
@@ -2133,6 +2227,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currencySign
      */
     currencySign?: string;
 
@@ -2167,6 +2263,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currencyDisplay
      */
     currencyDisplay?: string;
 
@@ -2203,6 +2301,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.unit
      */
     unit?: string;
 
@@ -2236,6 +2336,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.unitDisplay
      */
     unitDisplay?: string;
 
@@ -2274,6 +2376,7 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
      */
     unitUsage?: string;
 
@@ -2312,6 +2415,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.signDisplay
      */
     signDisplay?: string;
 
@@ -2345,6 +2450,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.compactDisplay
      */
     compactDisplay?: string;
 
@@ -2379,6 +2486,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.notation
      */
     notation?: string;
 
@@ -2412,6 +2521,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.localeMatcher
      */
     localeMatcher?: string;
 
@@ -2446,6 +2557,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.style
      */
     style?: string;
 
@@ -2484,6 +2597,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.numberingSystem
      */
     numberingSystem?: string;
 
@@ -2518,6 +2633,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.useGrouping
      */
     useGrouping?: boolean;
 
@@ -2552,6 +2669,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumIntegerDigits
      */
     minimumIntegerDigits?: number;
 
@@ -2586,6 +2705,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumFractionDigits
      */
     minimumFractionDigits?: number;
 
@@ -2620,6 +2741,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.maximumFractionDigits
      */
     maximumFractionDigits?: number;
 
@@ -2653,6 +2776,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumSignificantDigits
      */
     minimumSignificantDigits?: number;
 
@@ -2686,6 +2811,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.maximumSignificantDigits
      */
     maximumSignificantDigits?: number;
 
@@ -2699,6 +2826,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingPriority
      */
     roundingPriority?: string;
 
@@ -2710,6 +2839,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingIncrement
      */
     roundingIncrement?: number;
 
@@ -2737,6 +2868,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingMode
      */
     roundingMode?: string;
   }
@@ -2783,6 +2916,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.constructor
      */
     constructor();
 
@@ -2815,6 +2950,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.constructor
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
@@ -2844,6 +2981,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.format
      */
     format(number: number): string;
 
@@ -2856,6 +2995,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.formatRange
      */
     formatRange(startRange: number, endRange: number): string;
 
@@ -2882,6 +3023,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.resolvedOptions
      */
     resolvedOptions(): NumberOptions;
   }
@@ -2944,6 +3087,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.localeMatcher
      */
     localeMatcher?: string;
 
@@ -2981,6 +3126,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.usage
      */
     usage?: string;
 
@@ -3036,6 +3183,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.sensitivity
      */
     sensitivity?: string;
 
@@ -3070,9 +3219,10 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.ignorePunctuation
      */
     ignorePunctuation?: boolean;
-
     /**
      * Variant collations for certain locales.
      *
@@ -3105,6 +3255,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.collation
      */
     collation?: string;
 
@@ -3139,6 +3291,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.numeric
      */
     numeric?: boolean;
 
@@ -3176,6 +3330,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.caseFirst
      */
     caseFirst?: string;
   }
@@ -3222,6 +3378,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Collator.constructor
      */
     constructor();
     /**
@@ -3253,6 +3411,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Collator.constructor
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -3293,6 +3453,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Collator.compare
      */
     compare(first: string, second: string): number;
 
@@ -3321,6 +3483,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Collator.resolvedOptions
      */
     resolvedOptions(): CollatorOptions;
   }
@@ -3383,6 +3547,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.localeMatcher
      */
     localeMatcher?: string;
 
@@ -3417,6 +3583,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.type
      */
     type?: string;
 
@@ -3454,6 +3622,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumIntegerDigits
      */
     minimumIntegerDigits?: number;
 
@@ -3491,6 +3661,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumFractionDigits
      */
     minimumFractionDigits?: number;
 
@@ -3531,6 +3703,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.maximumFractionDigits
      */
     maximumFractionDigits?: number;
 
@@ -3567,6 +3741,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumSignificantDigits
      */
     minimumSignificantDigits?: number;
 
@@ -3603,6 +3779,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.maximumSignificantDigits
      */
     maximumSignificantDigits?: number;
   }
@@ -3649,6 +3827,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.constructor
      */
     constructor();
 
@@ -3681,6 +3861,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.constructor
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
@@ -3714,6 +3896,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.select
      */
     select(n: number): string;
   }
@@ -3776,6 +3960,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.localeMatcher
      */
     localeMatcher?: string;
 
@@ -3812,6 +3998,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.numeric
      */
     numeric?: string;
 
@@ -3849,6 +4037,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.style
      */
     style?: string;
   }
@@ -3899,6 +4089,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.locale
      */
     locale: string;
 
@@ -3925,6 +4117,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.style
      */
     style: string;
 
@@ -3951,6 +4145,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.numeric
      */
     numeric: string;
 
@@ -3980,6 +4176,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.numberingSystem
      */
     numberingSystem: string;
   }
@@ -4029,6 +4227,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.constructor
      */
     constructor();
 
@@ -4061,6 +4261,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.constructor
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
@@ -4096,6 +4298,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.format
      */
     format(value: number, unit: string): string;
 
@@ -4133,6 +4337,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.formatToParts
      */
     formatToParts(value: number, unit: string): Array<object>;
 
@@ -4161,6 +4367,8 @@ declare namespace intl {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.resolvedOptions
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
   }

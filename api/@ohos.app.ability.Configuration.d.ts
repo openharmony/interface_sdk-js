@@ -241,4 +241,14 @@ export interface Configuration {
    * @since 12
    */
   mnc?: string;
+
+  /**
+   * Current locale.
+   *
+   * @type { ?Intl.Locale }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 20
+   */
+    locale?: Intl.Locale;
 }

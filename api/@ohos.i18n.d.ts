@@ -19,7 +19,7 @@
  */
 
 import { BusinessError } from './@ohos.base';
-import intl from '@ohos.intl';
+import intl from './@ohos.intl';
 
 /**
  * Provides international settings related APIs.
@@ -395,8 +395,22 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.System.getSystemLocaleInstance
      */
     static getSystemLocale(): string;
+
+    /**
+     * Obtains the locale object currently used by the system.
+     *
+     * @returns { Intl.Locale } the locale object currently used by the system.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static getSystemLocaleInstance(): Intl.Locale;
 
     /**
      * Sets the system locale.
@@ -411,8 +425,23 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9
+     * @deprecated since 20
+     * @useinstead ohos.System.setSystemLocaleInstance
      */
     static setSystemLocale(locale: string): void;
+
+    /**
+     * Set the locale object currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { Intl.Locale } locale - The locale to be used. It must be a valid locale.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     * permission required tocall the API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @since 20
+     */
+    static setSystemLocaleInstance(locale: Intl.Locale): void;
 
     /**
      * Check out whether system is 24-hour system.
@@ -692,6 +721,204 @@ declare namespace i18n {
      * @since 18
      */
     static getFirstDayOfWeek(): WeekDay;
+
+    /**
+     * Gets collations supported by system locale.
+     *
+     * @returns { Map<string, string> } The map will containing the collation's identifier and name.
+     * If the map is empty of the collation for given locale does not need to be set.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemCollations(): Map<string, string>;
+
+    /**
+     * Gets collation currently used by system locale.
+     *
+     * @returns { string } The identifier of the collation model used by system locale will be return.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getUsingCollation(): string;
+
+    /**
+     * Sets the system collation mode.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } identifier - Identifier of the collation mode.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static setSystemCollation(identifier: string): void;
+
+    /**
+     * Gets measurements supported by system locale.
+     *
+     * @returns { Map<string, string> } a map will containing identifier and name of measurements supported by system locale.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemMeasurements(): Map<string, string>;
+
+    /**
+     * Gets measurement currently used by system locale.
+     *
+     * @returns { string } The identifier of measurement system using by system locale
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getUsingMeasurement(): string;
+
+    /**
+     * Sets the measurement system used by the system locale.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } identifier - Identifier of the measurement system.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static setSystemMeasurement(identifier: string):void;
+
+    /**
+     * Gets numbering system currently used by system locale.
+     *
+     * @returns { string } the numbering systems's identifier.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getUsingNumberingSystems(): string;
+
+    /**
+     * Sets the numbering system used by the system locale.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } identifier - Identifier of the numbering system.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static setSystemNumberingSystem(identifier: string):void;
+
+    /**
+     * Gets numbering systems supported by system locale.
+     *
+     * @returns { Map<string,string> } a map will containing the numbering system 's identifier and sample.
+     * If the map is empty, there is no local digit for given locale.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemNumberingSystems(): Map<string, string>;
+
+    /**
+     * Gets commonly used number patterns for system locale.
+     *
+     * @returns { Map<string,string> } a map containing the used number patterns and example of system locale.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemNumberPatterns(): Map<string, string>;
+
+    /**
+     * Sets the number pattern used by the system locale.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } pattern - Identifier of the number pattern.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static setSystemNumberPattern(pattern: string): void;
+
+
+    /**
+     * Gets number pattern used by system locale.
+     *
+     * @returns { string } The number pattern identifier used by system locale
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getUsingNumberPattern(): string;
+
+    /**
+     * Gets numerical date patterns and examples supported by system locale.
+     *
+     * @returns { Map<string, string> } a map containing the date patterns and examples
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemNumericalDatePatterns(): Map<string, string>;
+
+    /**
+     * Sets the numerical date pattern used by the system locale.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } identifier - Identifier of the numerical date pattern.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static setSystemNumericalDatePattern(identifier : string): void;
+
+    /**
+     * Gets numerical date pattern currently used by system locale.
+     *
+     * @returns { string } The numerical date pattern used by system locale
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getUsingNumericalDatePattern(): string;
   }
 
   /**
@@ -1011,8 +1238,26 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
+
+    /**
+     * Get the localized file path.
+     * Return the mirrored file path if the locale is RTL. Otherwise return the input file path.
+     * The default value of locale is current system locale.
+     *
+     * @param { string } path - the file path that needs to be localized.
+     * @param [ string ] delimiter - the file path's delimiter.
+     * @param [ Intl.Locale ] locale - the locale object used to localized file path.
+     * @returns { string } the localized file path.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
   }
 
   /**
@@ -1301,27 +1546,27 @@ declare namespace i18n {
    */
   export function getCalendar(locale: string, type?: string): Calendar;
 
-    /**
-     * Provides the API for accessing Calendar name, time and date related information.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @since 7
-     */
-    /**
-     * Provides the API for accessing Calendar name, time and date related information.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Provides the API for accessing Calendar name, time and date related information.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
+  /**
+   * Provides the API for accessing Calendar name, time and date related information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 7
+   */
+  /**
+   * Provides the API for accessing Calendar name, time and date related information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Provides the API for accessing Calendar name, time and date related information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export class Calendar {
     /**
      * set the date.
@@ -1713,7 +1958,7 @@ declare namespace i18n {
      * Returns days comparison result.
      *
      * @param { Date } date - Date object to be compared.
-     * @returns { number }  value of of the comparison result. A positive value indicates that the date is later, 
+     * @returns { number }  value of of the comparison result. A positive value indicates that the date is later,
      * and a negative value indicates that the date is earlier.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
@@ -2832,6 +3077,75 @@ declare namespace i18n {
      * @since 12
      */
     static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
+
+    /**
+     * Get the zone rules object corresponds to the timezone objects.
+     *
+     * @returns { ZoneRules } Returns a ZoneRuels object which defines timezone offset changing rule.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    public getZoneRules(): ZoneRules;
+  }
+
+  /**
+   * Provides the API for obtaining timezone offset changing rules information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 20
+   */
+  export class ZoneRules {
+    /**
+     * Get the next timezone offset transition after date.
+     *
+     * @param { number } [ date ] - Indicates milliseconds.
+     * @returns { ZoneOffsetTransition } Returns a timezone offset transition after date.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    public nextTransition(date?: number): ZoneOffsetTransition;
+  }
+
+  /**
+   * Provides the API for obtaining a timezone transition information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 20
+   */
+  export class ZoneOffsetTransition {
+    /**
+     * Obtains the timestamp of the change in the time zone offset.
+     *
+     * @returns { number } Timestamp of the change in the time zone offset.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    public getMilliseconds(): number;
+
+    /**
+     * Get the offset after time zone offset trasition.
+     *
+     * @returns { number } Returns the offset after time zone offset trasition.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    public getOffsetAfter(): number;
+
+    /**
+     * Get the offset before time zone offset trasition.
+     *
+     * @returns { number } Returns the offset before time zone offset trasition.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    public getOffsetBefore(): number;
   }
 
   /**
@@ -3715,8 +4029,23 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18
+   * @deprecated since 20
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
+
+  /**
+   * Create a SimpleDateTimeFormat object by pattern and locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } pattern - the pattern used to create SimpleDateTimeFormat object.
+   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create Intl.SimpleDateTimeFormat object.
+   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from pattern.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 20
+   */
+  export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
   /**
    * Obtains a SimpleDateTimeFormat object based on the specified skeleton. For details about the display differences
@@ -3731,8 +4060,24 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18
+   * @deprecated since 20
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
+
+  /**
+   * Create a SimpleDateTimeFormat object by skeleton and locale. This method create a pattern by locale and skeleton, the pattern
+   * includes locale specific separators, and the fields'order will be adjust for that locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } skeleton - the skeleton used to create SimpleDateTimeFormat object.
+   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create SimpleDateTimeFormat object.
+   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from skeleton.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 20
+   */
+  export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
   /**
    * Provide a simple date time formatting interface.
@@ -3752,7 +4097,7 @@ declare namespace i18n {
      * @since 18
      */
     format(date: Date): string;
- }
+  }
 
   /**
    * Obtains a SimpleNumberFormat object based on the specified skeleton.
@@ -3766,8 +4111,24 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 18
+   * @deprecated since 20
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
+
+  /**
+   * Create a SimpleNumberFormat object by pattern and locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } skeleton - the skeleton used to create SimpleNumberFormat object.
+   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create SimpleNumberFormat object.
+   * @returns { SimpleNumberFormat } a SimpleNumberFormat object created from pattern.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleNumberFormat;
 
   /**
    * Provide a simple number formatting interface.
@@ -3787,7 +4148,7 @@ declare namespace i18n {
      * @since 18
      */
     format(value: number): string;
- }
+  }
 
   /**
    * Provide a number formatting interface which could format number to StyleString.
@@ -3806,8 +4167,21 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18
+     * @deprecated since 20
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
+
+    /**
+     * A constructor used to create a StyledNumberFormat object.
+     *
+     * @param { Intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
+     * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20
+     */
+    constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
+
 
     /**
      * Formats a number as a rich text object.
@@ -3819,7 +4193,7 @@ declare namespace i18n {
      * @since 18
      */
     format(value: number): StyledString;
- }
+  }
 
   /**
    * Represents optional configuration items for the NumberFormat object.
@@ -3869,6 +4243,6 @@ declare namespace i18n {
      * @since 18
      */
     unit?: TextStyle;
- }
+  }
 }
 export default i18n;
