@@ -12310,7 +12310,21 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+/**
+ * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ *
+ * @typedef { function } GestureRecognizerJudgeBeginCallback
+ * @param { BaseGestureEvent } event - the event information
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { Array<TouchRecognizer> } touchRecognizers - the touch recognizers of the component on the response chain
+ * @returns { GestureJudgeResult } the gesture judge result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
