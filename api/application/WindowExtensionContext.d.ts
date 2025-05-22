@@ -20,7 +20,12 @@
 
 import { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
+/*** if arkts 1.1 */
 import Want from '../@ohos.application.Want';
+/*** endif */
+/*** if arkts 1.2 */
+import Want from '../@ohos.app.ability.Want';
+/*** endif */
 import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
@@ -31,7 +36,8 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class WindowExtensionContext extends ExtensionContext {
   /**
@@ -59,7 +65,8 @@ export default class WindowExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -88,7 +95,8 @@ export default class WindowExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 }
