@@ -114,7 +114,6 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009
   }
@@ -1121,7 +1120,6 @@ declare namespace certificateManager {
    * @enum { number }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   export enum CertAlgorithm {
     /**
@@ -1129,7 +1127,6 @@ declare namespace certificateManager {
      * 
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     INTERNATIONAL = 1,
 
@@ -1138,7 +1135,6 @@ declare namespace certificateManager {
      * 
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     SM = 2,
   }
@@ -1175,7 +1171,6 @@ declare namespace certificateManager {
      * @type { ?CertAlgorithm }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     certAlg?: CertAlgorithm;
   }
@@ -1202,7 +1197,6 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500009 - The device does not support the specified certificate store path, such as the overseas device does not support the certificate which algorithm is SM.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 

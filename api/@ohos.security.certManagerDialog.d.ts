@@ -329,7 +329,6 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 }
