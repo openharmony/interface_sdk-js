@@ -390,23 +390,6 @@ declare namespace backgroundTaskManager {
    * @atomicservice
    * @since 12
    */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 17
-   */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
   /**
@@ -443,23 +426,6 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12
-   */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 17
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
 
