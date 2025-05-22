@@ -18,8 +18,13 @@
  * @kit NotificationKit
  */
 
+/*** if arkts 1.1 */
 import notification from '../@ohos.notification';
+/*** endif */
+/*** if arkts 1.1&1.2 */
 import type notificationManager from '../@ohos.notificationManager';
+/*** endif */
+
 
 /**
  * Describes a NotificationSlot instance.
@@ -56,10 +61,23 @@ export interface NotificationSlot {
    *
    * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
+   * @deprecated since 20
+   * @useinstead NotificationSlot#notificationLevel
    */
   level?: notification.SlotLevel;
+
+  /**
+   * SlotLevel is used to regulate the display behavior and alert mechanisms of notifications.
+   * Each value of SlotLevel determines whether the system displays notification icons in the status bar,
+   * shows banners, or plays prompt tones.
+   *
+   * @type { ?notificationManager.SlotLevel }
+   * @syscap SystemCapability.Notification.Notification
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+    notificationLevel?: notificationManager.SlotLevel;
 
   /**
    * Obtains the description of a notification slot.
