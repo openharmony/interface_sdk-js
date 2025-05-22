@@ -10209,6 +10209,26 @@ declare enum LayoutSafeAreaType {
    * @since 12
    */
   SYSTEM = 0,
+
+  /**
+   * Soft keyboard area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  KEYBOARD = 1,
+
+  /**
+   * All safe area regions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ALL = 2,
 }
 
 /**
@@ -10240,6 +10260,56 @@ declare enum LayoutSafeAreaEdge {
    * @since 12
    */
   BOTTOM = 1,
+
+  /**
+   * Start edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  START = 2,
+
+  /**
+   * End edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  END = 3,
+
+  /**
+   * Vertical edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  VERTICAL = 4,
+
+  /**
+   * Horizontal edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HORIZONTAL = 5,
+
+  /**
+   * All edges of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ALL = 6,
 }
 
 /**
@@ -19871,6 +19941,56 @@ interface BackgroundImageOptions {
 }
 
 /**
+ * Defines background options.
+ *
+ * @interface BackgroundOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface BackgroundOptions {
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * @type { ?Alignment} align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * @type { ?Alignment} align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?Alignment }
+   * @default Alignment.Center
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  align?: Alignment;
+  /**
+   * The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * @type { ?Array<LayoutSafeAreaEdge> }
+   * @default LayoutSafeAreaEdge.ALL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20084,6 +20204,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
+
+  /**
+   * Expands the layout safe area of a component.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): T;
 
   /**
    * Sets the response region of the current component.
@@ -20494,6 +20627,20 @@ declare class CommonMethod<T> {
    * @since 11
    */
   background(builder: CustomBuilder, options?: { align?: Alignment }): T;
+
+  /**
+   * Add a background for the component.
+   *
+   * Anonymous Object Rectification.
+   * @param { CustomBuilder | ResourceColor } content
+   * @param { BackgroundOptions } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
 
   /**
    * Background color
