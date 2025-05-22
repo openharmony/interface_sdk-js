@@ -3292,7 +3292,6 @@ declare namespace drawing {
      */
     static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
 
-    
     /**
      * Makes an ImageFilter object that instance with the provided x and y offset.
      * @param { number } dx - Indicates the offset in the X direction.
@@ -3300,8 +3299,6 @@ declare namespace drawing {
      * @param { ImageFilter | null } input - Indicates the input image filter used to generate offset effects, or uses
      * the source bitmap if this is null.
      * @returns { ImageFilter } ImageFilter object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -3328,6 +3325,7 @@ declare namespace drawing {
      * @param { ImageFilter } background - Indicates the input background filter.
      * @param { ImageFilter } foreground - Indicates the input foreground filter.
      * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -3342,7 +3340,6 @@ declare namespace drawing {
      * filter.
      * @param { ImageFilter } cInner - Indicates the output as input for "outer" filters.
      * @returns { ImageFilter } ImageFilter object.
-     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
