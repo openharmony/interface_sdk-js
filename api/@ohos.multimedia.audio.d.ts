@@ -156,6 +156,7 @@ declare namespace audio {
    */
   /**
    * Obtains an {@link AudioManager} instance.
+   * Note: The {@link AudioManager} instance is not a singleton.
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -2577,7 +2578,7 @@ declare namespace audio {
    * @since 7
    */
   /**
-   * Implements audio volume and audio device management.
+   * Implements audio stream, volume, device, effect and many other management functions.
    * @typedef AudioManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -7407,10 +7408,11 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
-     * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
      */
@@ -7438,8 +7440,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -8912,9 +8915,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
-     * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the  audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8927,8 +8931,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
