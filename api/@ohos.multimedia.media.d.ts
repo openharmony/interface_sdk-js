@@ -5012,7 +5012,7 @@ declare namespace media {
    * @typedef { function } OnAVRecorderStateChangeHandler
    * @param { AVRecorderState } state - state value for AVRecorder.
    * @param { StateChangeReason } reason - reason for state change.
-   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
    * @since 12
