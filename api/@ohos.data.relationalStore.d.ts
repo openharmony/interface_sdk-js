@@ -7578,6 +7578,18 @@ declare namespace relationalStore {
     on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
 
     /**
+     * Subscribes to the SQL performance statistics.
+     * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -7733,6 +7745,18 @@ declare namespace relationalStore {
      * @since 20
      */
     off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
+
+    /**
+     * Unsubscribes from the SQL performance statistics.
+     * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
