@@ -4777,6 +4777,18 @@ declare interface SweepGradientOptions {
    * @since 18
    */
   colors: Array<[ResourceColor, number]>;
+  
+  /**
+   * Defines color description in ColorMetrics format for gradients.
+   * This parameter takes precedence over colors parameter.
+   *
+   * @type { ?Array<[ColorMetrics, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  metricsColors?: Array<[ColorMetrics, number]>;
 
   /**
    * repeating:repeating. The default value is false
@@ -20720,6 +20732,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   backgroundColor(color: Optional<ResourceColor>): T;
+
+  /**
+   * Background color
+   *
+   * @param { Optional<ResourceColor | ColorMetrics> } color
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
 
   /**
    * Sets the pixel rounding policy for the current component in the specified direction.
