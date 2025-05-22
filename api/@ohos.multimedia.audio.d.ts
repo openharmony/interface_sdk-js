@@ -2919,7 +2919,8 @@ declare namespace audio {
     getExtraParameters(mainKey: string, subKeys?: Array<string>): Promise<Record<string, string>>;
 
     /**
-     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * Sets a device to the active state. Applications that are not in a call state cannot modify the calling device by this method.
+     * This method uses an asynchronous callback to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active
      *        status, and false means the opposite.
@@ -2931,7 +2932,8 @@ declare namespace audio {
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets a device to the active state. This method uses a promise to return the result.
+     * Sets a device to the active state. Applications that are not in a call state cannot modify the calling device by this method.
+     * This method uses a promise to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active
      *        status, and false means the opposite.
@@ -3471,7 +3473,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * Sets a device to the active state. Only the current calling application can be set to take effect.
+     * This method uses an asynchronous callback to return the result.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to
      *  the active status, and false means the opposite.
@@ -3491,7 +3494,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Sets a device to the active state. This method uses a promise to return the result.
+     * Sets a device to the active state. Only the current calling application can be set to take effect.
+     * This method uses a promise to return the result.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active status,
      * and false means the opposite.
@@ -6976,7 +6980,7 @@ declare namespace audio {
      * @since 11
      */
     /**
-     * Unknown.
+     * This is default device change reason.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
