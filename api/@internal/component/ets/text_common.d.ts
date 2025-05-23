@@ -1485,6 +1485,121 @@ declare enum KeyboardAppearance {
   onlyBetweenLines?: boolean;
 }
 
-declare enum TextChangeReason {
 
+/**
+ * Defines the reason for text changes.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextChangeReason {
+  /**
+   * Default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNKNOWN = 0,
+
+  /**
+   * Reason for input from input method.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  IME_INPUT = 1,
+
+  /**
+   * Reason for paste.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  PASTE = 2,
+
+  /**
+   * Reason for cut.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CUT = 3,
+
+  /**
+   * Reason for drag.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  DRAG = 4,
+
+  /**
+   * Reason for auto fill.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AUTO_FILL = 5,
+
+  /**
+   * Reason for ai write.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AI_WRITE = 6,
+
+  /**
+   * Reason for redo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  REDO = 7,
+
+  /**
+   * Reason for undo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNDO = 8,
+
+  /**
+   * Reason for controller methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CONTROLLER = 9,
+
+  /**
+   * Reason for accessibilty methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ACCESSIBILITY = 10,
+
+  /**
+   * Reason for input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  INPUT = 1
 }
