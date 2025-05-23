@@ -39,6 +39,16 @@ import { UICommonEvent,UIGestureEvent,CommonAttribute } from './component/common
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
+/**
+ * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ *
+ * @interface LayoutConstraint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
 export declare interface LayoutConstraint {
   /**
    * MaxSize
@@ -1947,6 +1957,15 @@ export namespace typeNode {
  * @crossplatform
  * @atomicservice
  * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
+ */
+/**
+ * Used for lazy loading of typeNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare class NodeAdapter {
