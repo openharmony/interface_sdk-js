@@ -214,7 +214,6 @@ declare namespace sendableRelationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 20
-   * @arkts 1.2
    */
   function fromSendableValues(values: collections.Array<ValueType>): NonSendableValues;
 
@@ -226,7 +225,6 @@ declare namespace sendableRelationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 20
-   * @arkts 1.2
    */
   function toSendableValues(values: NonSendableValues): collections.Array<ValueType>;
 }
