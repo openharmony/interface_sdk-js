@@ -145,8 +145,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -217,8 +216,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -300,8 +298,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ ’1.1’:’18’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -383,8 +380,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ ’1.1’:’18’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -415,8 +411,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ ’1.1’:’9’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function publishAsBundle(
     request: NotificationRequest,
@@ -452,8 +447,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ ’1.1’:’9’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
@@ -483,8 +477,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
