@@ -21,6 +21,9 @@ export class ComponentFile {
   public outFileName: string
 
   static snake2Camel(name: string, low: boolean = false): string {
+    if (!name.includes('_')) {
+      return name;
+    }
     return name
       .split('_')
       .filter(word => word !== '')
@@ -34,21 +37,21 @@ export class ComponentFile {
   }
 
   public appendAttribute(str: string) {
-    this.attributeSource = this.attributeSource.concat(str)
+    this.attributeSource.push(str)
   }
 
   public appendFunction(str: string) {
-    this.functionSource = this.attributeSource.concat(str)
+    this.functionSource = str
   }
 
   get concactSource() {
-    return [this.attributeSource, this.functionSource].join('\n')
+    return [...this.attributeSource, this.functionSource].join('\n')
   }
 
   constructor(
     public fileName: string,
     public sourceFile: ts.SourceFile,
-    public attributeSource: string = '',
+    public attributeSource: string[] = [],
     public functionSource: string = '',
   ) {
     const pureName = path.basename(this.fileName).replaceAll(".d.ts", "");
