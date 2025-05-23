@@ -7698,7 +7698,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
-     * @arkts 1.2
      */
     snapshotSync(): image.PixelMap;
 
