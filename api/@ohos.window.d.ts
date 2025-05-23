@@ -7689,7 +7689,7 @@ declare namespace window {
     snapshot(): Promise<image.PixelMap>;
 
     /**
-     * Obtains snapshot of window.
+     * Obtains snapshot of window
      *
      * @returns { image.PixelMap } Return pixel map of snapshot.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
