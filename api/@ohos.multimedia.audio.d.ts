@@ -156,7 +156,10 @@ declare namespace audio {
    */
   /**
    * Obtains an {@link AudioManager} instance.
-   * Note: The {@link AudioManager} instance is not a singleton.
+   * <p><strong>NOTE</strong>:
+   * The {@link AudioManager} instance is not a singleton.
+   * </p>
+   * 
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
