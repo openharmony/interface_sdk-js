@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines TimePicker Modifier
+ *
+ * @extends TimePickerAttribute
+ * @implements AttributeModifier<TimePickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {
 
   /**

@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines TextInput Modifier
+ *
+ * @extends TextInputAttribute
+ * @implements AttributeModifier<TextInputAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class TextInputModifier extends TextInputAttribute implements AttributeModifier<TextInputAttribute> {
 
   /**

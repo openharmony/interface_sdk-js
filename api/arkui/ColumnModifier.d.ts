@@ -28,6 +28,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Column Modifier
+ *
+ * @extends ColumnAttribute
+ * @implements AttributeModifier<ColumnAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ColumnModifier extends ColumnAttribute implements AttributeModifier<ColumnAttribute> {
 
   /**
