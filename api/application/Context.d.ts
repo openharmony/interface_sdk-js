@@ -293,8 +293,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bundleCodeDir: string;
 
@@ -313,8 +312,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   distributedFilesDir: string;
 
@@ -326,8 +324,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   resourceDir: string;
 
@@ -338,8 +335,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   cloudFileDir: string;
 

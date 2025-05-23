@@ -48,16 +48,14 @@ declare namespace abilityManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   export enum AbilityState {
     /**
      * Ability is initialized.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     INITIAL = 0,
 
@@ -65,8 +63,7 @@ declare namespace abilityManager {
      * Ability is in the state of getting focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     FOCUS = 2,
 
@@ -74,8 +71,7 @@ declare namespace abilityManager {
      * Ability is in the foreground state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     FOREGROUND = 9,
 
@@ -83,8 +79,7 @@ declare namespace abilityManager {
      * Ability is in the background state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     BACKGROUND = 10,
 
@@ -92,8 +87,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling at the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     FOREGROUNDING = 11,
 
@@ -101,8 +95,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     BACKGROUNDING = 12
   }
@@ -114,8 +107,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum UserStatus {
     /**
@@ -124,8 +116,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     ASSERT_TERMINATE = 0,
 
@@ -135,8 +126,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     ASSERT_CONTINUE = 1,
 
@@ -146,8 +136,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     ASSERT_RETRY = 2
   }
@@ -159,8 +148,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -169,8 +157,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isOpenAllowed: boolean;
 
@@ -180,8 +167,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isEmbeddedAllowed: boolean;
   }
