@@ -141,10 +141,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -211,10 +213,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -292,10 +296,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts{ ’1.1’:’18’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -373,10 +379,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts{ ’1.1’:’18’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -403,10 +411,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts{ ’1.1’:’9’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publishAsBundle(
     request: NotificationRequest,
@@ -438,10 +448,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts{ ’1.1’:’9’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
@@ -467,10 +479,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts{ ’1.1’:’12’,’1.2’:’20’}
+   * @arkts 1.1&1.2
    */
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
