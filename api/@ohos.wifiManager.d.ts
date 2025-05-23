@@ -523,7 +523,7 @@ declare namespace wifiManager {
    * @throws { BusinessError } 2501000 - Operation failed.
    * @throws { BusinessError } 2501001 - Wi-Fi STA disabled.
    * @throws { BusinessError } 2501005 - The user does not respond.
-   * @throws { BusinessError } 2501006 - The user refuse the action.
+   * @throws { BusinessError } 2501006 - The user refused the action.
    * @throws { BusinessError } 2501007 - Parameter validation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
