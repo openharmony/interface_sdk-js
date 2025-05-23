@@ -8118,6 +8118,19 @@ declare namespace window {
     snapshot(): Promise<image.PixelMap>;
 
     /**
+     * Obtains snapshot of window
+     *
+     * @returns { image.PixelMap } Return pixel map of snapshot.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300018 - Timeout.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    snapshotSync(): image.PixelMap;
+
+    /**
      * Obtains snapshot of window even set the privacy mode.
      *
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
