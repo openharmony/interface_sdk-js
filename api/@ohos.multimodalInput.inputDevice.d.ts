@@ -31,7 +31,8 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  */
 declare namespace inputDevice {
   /**
-   * Add or remove device
+   * Enumerates hot swap events.
+   * 
    * @typedef { 'add' | 'remove' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
@@ -39,7 +40,8 @@ declare namespace inputDevice {
   type ChangedType = 'add' | 'remove';
 
   /**
-   * The type of input device
+   * Enumerates input source types of the axis. For example, if a mouse reports an x-axis event, the input source of the x-axis is the mouse.
+   * 
    * @typedef { 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
@@ -47,7 +49,8 @@ declare namespace inputDevice {
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
-   * Axis Type of the input event
+   * Defines the axis type of an input device.
+   * 
    * @typedef { 'touchmajor'| 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9
@@ -104,7 +107,7 @@ declare namespace inputDevice {
     DIGITAL_KEYBOARD = 3,
 
     /**
-     * Stylus
+     * Stylus.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9
@@ -112,7 +115,7 @@ declare namespace inputDevice {
     HANDWRITING_PEN = 4,
 
     /**
-     * Remote control
+     * Remote control.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9
@@ -192,9 +195,7 @@ declare namespace inputDevice {
   function off(type: 'change', listener?: Callback<DeviceListener>): void;
 
   /**
-   * Defines axis information about events that can be reported by an input device.
-   * For example, a touchscreen may report information such as x, y, and pressure,
-   * which indicate the x-axis coordinate, y-axis coordinate, and pressure, respectively.
+   * Defines the axis range of an input device.
    *
    * @interface AxisRange
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -202,8 +203,7 @@ declare namespace inputDevice {
    */
   interface AxisRange {
     /**
-     * Input source type of the axis. For example, if a mouse reports an x-axis event,
-     * the source of the x-axis is the mouse.
+     * Input source type of the axis.
      *
      * @type { SourceType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -212,7 +212,7 @@ declare namespace inputDevice {
     source: SourceType;
 
     /**
-     * Type of the axis. for example, the x-axis, y-axis, and pressure axis.
+     * Axis type.
      *
      * @type { AxisType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -221,7 +221,7 @@ declare namespace inputDevice {
     axis: AxisType;
 
     /**
-     * Maximum value of the data reported on this axis.
+     * Maximum value of the axis.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -230,7 +230,7 @@ declare namespace inputDevice {
     max: number;
 
     /**
-     * Minimum value of the data reported on this axis.
+     * Minimum value of the axis.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -239,7 +239,7 @@ declare namespace inputDevice {
     min: number;
 
     /**
-     * Fuzz value of the data reported on this axis.
+     * Fuzzy value of the axis.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -248,7 +248,7 @@ declare namespace inputDevice {
     fuzz: number;
 
     /**
-     * Flat value of the data reported on this axis.
+     * Benchmark value of the axis.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -257,7 +257,7 @@ declare namespace inputDevice {
     flat: number;
 
     /**
-     * Resolution value of the data reported on this axis.
+     * Resolution of the axis.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -304,7 +304,7 @@ declare namespace inputDevice {
     sources: Array<SourceType>;
 
     /**
-     * Axis range of the input device.
+     * Axis information of the input device.
      *
      * @type { Array<AxisRange> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -322,7 +322,7 @@ declare namespace inputDevice {
     bus: number;
 
     /**
-     * Product of the input device.
+     * Product information of the input device.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -395,7 +395,7 @@ declare namespace inputDevice {
    * Obtains the information about the input device with the specified ID.
    * This API uses an asynchronous callback to return the result.
    * 
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @param { number } deviceId - ID of the input device.
    * @param { AsyncCallback<InputDeviceData> } callback - Callback used to return the information about the input device.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8
@@ -408,7 +408,7 @@ declare namespace inputDevice {
    * Obtains the information about the input device with the specified ID.
    * This API uses a promise to return the result.
    * 
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @param { number } deviceId - ID of the input device.
    * @returns { Promise<InputDeviceData> } Promise used to return the information about the input device.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8
@@ -443,7 +443,7 @@ declare namespace inputDevice {
    * Obtains the information about the input device with the specified ID.
    * This API uses an asynchronous callback to return the result.
    * 
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @param { number } deviceId - ID of the input device.
    * @param { AsyncCallback<InputDeviceData> } callback - Callback used to return the information about the input device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -456,7 +456,7 @@ declare namespace inputDevice {
    * Obtains the information about the input device with the specified ID.
    * This API uses a promise to return the result.
    * 
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @param { number } deviceId - ID of the input device.
    * @returns { Promise<InputDeviceData> } Promise used to return the information about the input device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -468,7 +468,7 @@ declare namespace inputDevice {
   /**
    * Obtains information about the specified input device.
    *
-   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @param { number } deviceId - ID of the input device.
    * @returns { InputDeviceData } Information about the input device, including device ID, name, supported source,
    * physical address, version information, and product information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -548,7 +548,7 @@ declare namespace inputDevice {
    * Obtains the keyboard type of the input device.
    *
    * @param { number } deviceId - Unique ID of the input device. If the same physical device is repeatedly inserted and removed, its ID changes.
-   * @returns { KeyboardType } Returns the keyboard type.
+   * @returns { KeyboardType } Keyboard type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice

@@ -245,12 +245,12 @@ declare namespace inputMonitor {
   function off(type: 'pinch', receiver?: Callback<Pinch>): void;
 
   /**
-   * Listens for touchPad fingers pinch events.
+   * Enables listening for global touchpad pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - Event type, which is **pinch**.
-   * @param { number } fingers - the number of fingers.
-   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @param { number } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
+   * @param { Callback<Pinch> } receiver - Callback used to return pinch events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -262,12 +262,13 @@ declare namespace inputMonitor {
   function on(type: 'pinch', fingers: number, receiver: Callback<Pinch>): void;
 
   /**
-   * Cancel listening for touchPad fingers pinch events.
+   * Disables listening for global touchpad pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'pinch' } type - Event type, which is **pinch**.
-   * @param { number } fingers - the number of fingers.
-   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @param { 'pinch' } type - Event type. This field has a fixed value of pinch.
+   * @param { number } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
+   * @param { Callback<Pinch> } receiver - Callback for which listening is disabled. 
+   * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

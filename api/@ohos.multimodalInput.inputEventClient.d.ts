@@ -107,7 +107,7 @@ declare namespace inputEventClient {
    */
   interface TouchEventData {
     /**
-     * Touchscreen event data
+     * Touchscreen event data.
      *
      * @type { TouchEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator

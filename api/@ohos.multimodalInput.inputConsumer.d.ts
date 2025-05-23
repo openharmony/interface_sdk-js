@@ -22,7 +22,7 @@ import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
- * The event of key input management module is configured to subscribe and unsubscribe system keys.
+ * The inputConsumer module implements listening for combination key events.
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -97,7 +97,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Defines the shortcut key structure.
+   * Defines shortcut key options.
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -116,7 +116,7 @@ declare namespace inputConsumer {
 
     /**
      * Modified key, which is the key other than the modifier key and meta key.
-     *For example, in Ctrl+Shift+Esc, Esc is the modified key.
+     * For example, in Ctrl+Shift+Esc, Esc is the modified key.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -144,7 +144,7 @@ declare namespace inputConsumer {
    */
   interface KeyPressedConfig {
     /**
-     * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
+     * Key value. Currently, only the KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys are supported.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -153,8 +153,9 @@ declare namespace inputConsumer {
     key: number;
 
     /**
-     * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently, the value can only be 1.
-     * listening is supported only for key press events.
+     * Key event type. Currently, the value can only be 1.
+     * 1: Key press.
+     * 2: Key release.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -283,7 +284,7 @@ declare namespace inputConsumer {
   /**
    * Obtains all system hotkeys. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
+   * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system shortcut keys.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
