@@ -341,7 +341,7 @@ declare namespace emitter {
      * @atomicservice
      * @since 12
      */
-    data?: Record<string,Object>;
+    data?: Record<string, Object>;
   }
 
   /**
