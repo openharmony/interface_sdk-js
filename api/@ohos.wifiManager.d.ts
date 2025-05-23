@@ -515,7 +515,7 @@ declare namespace wifiManager {
    * This method connect to a configuration at a time.
    * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { int } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
+   * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
    * @returns { Promise<void> } - Returns the promise object that used to return the operation result.
    * If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
@@ -529,7 +529,7 @@ declare namespace wifiManager {
    * @atomicservice
    * @since 20
    */
-  function connectToCandidateConfigWithUserAction(networkId: int): Promise<void>;
+  function connectToCandidateConfigWithUserAction(networkId: number): Promise<void>;
 
   /**
    * Connect to Wi-Fi hotspot by networkId.
