@@ -223,7 +223,8 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - Indicate the event type.
-   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } callback - The callback of continueStateChange.
+   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } callback - The callback of
+   * continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -251,7 +252,8 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - Indicate the event type.
-   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } [callback] - The callback of continueStateChange.
+   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } [callback] - The callback of
+   * continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
