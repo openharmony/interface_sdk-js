@@ -581,9 +581,9 @@ function deleteApi(sourceFile) {
 const transformExportApi = (context) => {
   return (rootNode) => {
     const visit = (node) => {
-      //struct节点下面会自动生成constructor节点, 置为undefined
-      if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
-        return undefined;
+      // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
+      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(node.name?.getText())) {
+        deleteApiSet.delete(node.name?.getText());
       }
       // 判断是否为要删除的变量声明
       if (ts.isExportAssignment(node) && deleteApiSet.has(node.expression.escapedText.toString())) {
