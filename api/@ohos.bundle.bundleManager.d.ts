@@ -3604,9 +3604,9 @@ declare namespace bundleManager {
 
   /**
    * Enable dynamic icon.
-   * If you need to endable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * If you need to enable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
    * needs to be applied for.
-   * If you need to endable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * If you need to enable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
    * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
    * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
