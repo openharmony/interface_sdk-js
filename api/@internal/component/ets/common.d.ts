@@ -8083,20 +8083,10 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts{'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pixelMap?: PixelMap;
-  /**
-   * Uses the pixelMap object for drawing.
-   *
-   * @type { ?PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pixelMap?: image.PixelMap;
 
   /**
    * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
@@ -11041,6 +11031,20 @@ declare enum SheetSize {
 }
 
 /**
+ * The modifier key state query function block.
+ *
+ * @typedef { function } ModifierKeyStateGetter
+ * @param { Array<string> } keys - Indicate the modifier keys to query.
+ * @returns { boolean } - the query result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
+
+/**
  * Defines the base event.
  *
  * @interface BaseEvent
@@ -11360,18 +11364,16 @@ declare interface BaseEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
    *
-   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @type { ?ModifierKeyStateGetter }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  getModifierKeyState?:(keys: Array<string>)=> boolean;
+  getModifierKeyState?: ModifierKeyStateGetter;
 
   /**
    * Indicates the ID of the input device that triggers the current event.
@@ -13314,6 +13316,7 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @since 15
  */
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
+
 /** 
  * Import the UniformDataType type object for ui component.
  *
@@ -14327,20 +14330,10 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setData(unifiedData: UnifiedData): void;
-  /**
-   * Set dragData into DragEvent.
-   *
-   * @param { UnifiedData } unifiedData - dragData.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setData(unifiedData: unifiedDataChannel.UnifiedData): void;
 
   /**
    * Get dragData from DragEvent.
@@ -14361,25 +14354,12 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getData(): UnifiedData;
 
   /**
-   * Get dragData from DragEvent.
-   *
-   * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - Data not found.
-   * @throws { BusinessError } 190002 - Data error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getData(): unifiedDataChannel.UnifiedData;
-
-  /**
    * Get dragData summary from DragEvent.
    *
    * @returns { Summary } - get Summary Data.
@@ -14394,21 +14374,10 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getSummary(): Summary;
-
-  /**
-   * Get dragData summary from DragEvent.
-   *
-   * @returns { unifiedDataChannel.Summary } - get Summary Data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getSummary(): unifiedDataChannel.Summary;
 
   /**
    * Set dragEvent result to DragEvent.
@@ -14575,18 +14544,17 @@ declare interface DragEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
    *
-   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @type { ?ModifierKeyStateGetter }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  getModifierKeyState?:(keys: Array<string>)=> boolean;
+  getModifierKeyState?: ModifierKeyStateGetter;
+
   /**
    * Setup one drop animation execution callback, which will be triggered by system when user drops.
    * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
@@ -14970,18 +14938,16 @@ declare interface KeyEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
    *
-   * @param { Array<string> } keys - indicate the modifier keys.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @type { ?ModifierKeyStateGetter }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  getModifierKeyState?:(keys: Array<string>)=> boolean;
+  getModifierKeyState?: ModifierKeyStateGetter;
 
   /**
    * Unicode of a key
