@@ -1484,3 +1484,7 @@ declare enum KeyboardAppearance {
    */
   onlyBetweenLines?: boolean;
 }
+
+declare enum TextChangeReason {
+
+}
