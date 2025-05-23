@@ -1680,6 +1680,24 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 18
    */
+   /**
+   * Called when the minimum font scale of the font is set.
+   * Value range: [0, 1]
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The undefined type is supported.
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
    minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
@@ -1697,6 +1715,23 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 18
+    */
+   /**
+    * Called when the maximum font scale of the font is set.
+    * Value range: [1, +∞)
+    * 
+    * <p><strong>NOTE</strong>:
+    * <br>The undefined type is supported.
+    * <br>A value less than 1 is handled as 1.
+    * <br>Abnormal values are ineffective by default.
+    * </p>
+    * 
+    * @param { Optional<number | Resource> } scale
+    * @returns { SearchAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
     */
    maxFontScale(scale: Optional<number | Resource>): SearchAttribute;
    
