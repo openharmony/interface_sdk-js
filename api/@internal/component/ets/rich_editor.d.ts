@@ -3477,6 +3477,15 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @atomicservice
    * @since 12
    */
+  /**
+   * Get the StyledString of the RichEditor.
+   *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   getStyledString(): MutableStyledString;
 
   /**
