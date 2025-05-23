@@ -2781,11 +2781,11 @@ declare interface RichEditorChangeValue {
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
 
   /**
-   * Symbol spans to replace.
+   * The reason for text changes.
    *
-   * @type { Array<RichEditorTextSpanResult> }
+   * @type { ?TextChangeReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @systemapi
    * @atomicservice
    * @since 20
    */
