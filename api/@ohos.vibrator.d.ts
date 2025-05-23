@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,7 +33,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace vibrator
  * @syscap SystemCapability.Sensors.MiscDevice
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace vibrator {
   /**
@@ -117,7 +118,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
 
@@ -150,7 +152,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
@@ -245,7 +248,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportEffect(effectId: string, callback: AsyncCallback<boolean>): void;
 
@@ -258,7 +262,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportEffect(effectId: string): Promise<boolean>;
 
@@ -425,7 +430,8 @@ declare namespace vibrator {
    * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
   'touch' | 'media' | 'physicalFeedback' | 'simulateReality';
@@ -443,7 +449,8 @@ declare namespace vibrator {
    * @interface VibrateAttribute
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibrateAttribute {
   /**
@@ -458,7 +465,8 @@ declare namespace vibrator {
    * @type { ?number }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     id?: number;
 
@@ -474,7 +482,8 @@ declare namespace vibrator {
    * @type { Usage }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     usage: Usage;
 
@@ -484,7 +493,8 @@ declare namespace vibrator {
    * @type { ?boolean }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     systemUsage?: boolean;
   }
@@ -517,7 +527,8 @@ declare namespace vibrator {
    * @typedef { VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern;
 
@@ -534,7 +545,8 @@ declare namespace vibrator {
    * @interface VibrateTime
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibrateTime {
     /**
@@ -549,7 +561,8 @@ declare namespace vibrator {
      * @type { 'time' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: 'time';
 
@@ -565,7 +578,8 @@ declare namespace vibrator {
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration: number; /** The duration of the vibration, in ms */
   }
@@ -575,7 +589,8 @@ declare namespace vibrator {
    *
    * @interface VibratePreset
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibratePreset {
     /**
@@ -583,7 +598,8 @@ declare namespace vibrator {
      *
      * @type { 'preset' }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: 'preset';
 
@@ -592,7 +608,8 @@ declare namespace vibrator {
      *
      * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     effectId: string;
 
@@ -607,7 +624,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     count?: number;
 
@@ -616,7 +634,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     intensity?: number;
   }
@@ -626,7 +645,8 @@ declare namespace vibrator {
    *
    * @interface VibrateFromFile
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibrateFromFile {
   /**
@@ -634,7 +654,8 @@ declare namespace vibrator {
    *
    * @type { 'file' }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     type: 'file';
 
@@ -643,7 +664,8 @@ declare namespace vibrator {
    *
    * @type { HapticFileDescriptor }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     hapticFd: HapticFileDescriptor;
   }
@@ -654,7 +676,8 @@ declare namespace vibrator {
    *
    * @interface HapticFileDescriptor
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HapticFileDescriptor {
     /**
@@ -663,7 +686,8 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fd: number;
 
@@ -673,7 +697,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset?: number;
 
@@ -683,7 +708,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     length?: number;
   }
@@ -693,14 +719,16 @@ declare namespace vibrator {
    *
    * @enum { number }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VibratorEventType {
     /**
      * Steady state long vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONTINUOUS = 0,
 
@@ -708,7 +736,8 @@ declare namespace vibrator {
      * Transient short vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSIENT = 1,
   }
@@ -718,7 +747,8 @@ declare namespace vibrator {
    *
    * @interface VibratorCurvePoint
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibratorCurvePoint {
     /**
@@ -726,7 +756,8 @@ declare namespace vibrator {
       *
       * @type { number }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 18
+      * @since arkts {'1.1':'18', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     time: number;
 
@@ -735,7 +766,8 @@ declare namespace vibrator {
       *
       * @type { ?number }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 18
+      * @since arkts {'1.1':'18', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     intensity?: number;
     /**
@@ -743,7 +775,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frequency?: number;
   }
@@ -753,7 +786,8 @@ declare namespace vibrator {
    *
    * @interface VibratorEvent
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibratorEvent {
     /**
@@ -761,7 +795,8 @@ declare namespace vibrator {
      *
      * @type { VibratorEventType }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventType: VibratorEventType;
 
@@ -770,7 +805,8 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     time: number;
 
@@ -779,7 +815,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration?: number;
 
@@ -788,7 +825,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     intensity?: number;
 
@@ -797,7 +835,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frequency?: number;
 
@@ -806,7 +845,8 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     index?: number;
 
@@ -815,7 +855,8 @@ declare namespace vibrator {
      *
      * @type { ?Array<VibratorCurvePoint> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     points?: Array<VibratorCurvePoint>;
   }
@@ -825,7 +866,8 @@ declare namespace vibrator {
    *
    * @interface VibratorPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibratorPattern {
     /**
@@ -833,7 +875,8 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     time: number;
 
@@ -842,7 +885,8 @@ declare namespace vibrator {
      *
      * @type { Array<VibratorEvent> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     events: Array<VibratorEvent>;
   }
@@ -976,7 +1020,8 @@ declare namespace vibrator {
    *
    * @interface VibrateFromPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VibrateFromPattern {
     /**
@@ -984,7 +1029,8 @@ declare namespace vibrator {
      *
      * @type { 'pattern' }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: 'pattern';
 
@@ -993,7 +1039,8 @@ declare namespace vibrator {
      *
      * @type { VibratorPattern }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pattern: VibratorPattern;
   }
