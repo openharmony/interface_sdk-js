@@ -20,7 +20,7 @@
 
 
 
-import  { AsyncCallback, BusinessError, Callback } from './@ohos.base';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve, CustomBuilder } from './arkui/component/common';
 import { TouchPoint, ResourceColor } from './arkui/component/units';
