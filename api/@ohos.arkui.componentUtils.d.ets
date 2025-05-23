@@ -270,7 +270,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  export  interface Size {
+  export interface Size {
 
     /**
     * Defines the width property.
