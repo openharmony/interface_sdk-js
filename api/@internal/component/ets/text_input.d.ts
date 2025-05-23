@@ -2939,6 +2939,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   minFontScale(scale: Optional<number | Resource>): TextInputAttribute;
 
   /**
@@ -2949,6 +2959,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxFontScale(scale: Optional<number | Resource>): TextInputAttribute;
   
