@@ -2111,7 +2111,7 @@ declare namespace formInfo {
     /**
      * The sub bundle name used by game engine.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
