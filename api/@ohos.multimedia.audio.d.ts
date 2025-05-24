@@ -1565,7 +1565,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Voice communication usage.
+     * Used for network voice call, such as WeChat voice call, QQ voice call, etc.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -1738,7 +1738,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
-     * Video call usage.
+     * Used for network video call.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12
@@ -1926,7 +1926,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Audio renderer flags.
+     * Audio renderer flags. This method is currently reserved, suggest setting the default value to 0.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
@@ -2154,19 +2154,19 @@ declare namespace audio {
    */
   enum AudioRendererRate {
     /**
-     * Normal rate.
+     * Normal playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_NORMAL = 0,
     /**
-     * Double rate.
+     * Double playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_DOUBLE = 1,
     /**
-     * Half rate.
+     * Half playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -7588,6 +7588,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses an asynchronous callback to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -7602,6 +7607,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses a promise to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -8155,6 +8165,11 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
+     * <p><strong>NOTE</strong>:
+     * Before renderer release, the value of internal records frames will continue to increase,
+     * and operations such as stop/pause/flush/drain will not reset this value.
+     * </p>
+     *
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
@@ -8237,7 +8252,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Subscribes audio state change event callback.
+     * Subscribes audio renderer state change event callback.
      * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
