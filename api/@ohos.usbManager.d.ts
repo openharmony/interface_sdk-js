@@ -2380,7 +2380,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    * <br>1.Unrecognized discard error code.
    * @throws { BusinessError } 14400013 - The USBDevicePipe validity check failed. Possible causes:
-   * <br>1.The input parameters fails the validation check.
+   * <br>1.The input parameters fail the validation check.
    * <br>2.The call chain used to obtain the input parameters is not resonable.
    * @syscap SystemCapability.USB.USBManager
    * @since 20
