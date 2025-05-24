@@ -1287,7 +1287,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     readonly photoType: PhotoType;
     /**
@@ -1316,7 +1315,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     readonly displayName: string;
     /**
@@ -1357,7 +1355,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     get(member: string): MemberType;
     /**
@@ -2056,7 +2053,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum PhotoKeys {
     /**
@@ -2093,7 +2089,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     PHOTO_TYPE = 'media_type',
     /**
@@ -2116,7 +2111,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DISPLAY_NAME = 'display_name',
     /**
@@ -2139,7 +2133,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     SIZE = 'size',
     /**
@@ -2162,7 +2155,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DATE_ADDED = 'date_added',
     /**
@@ -2199,7 +2191,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DURATION = 'duration',
     /**
@@ -2222,7 +2213,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     WIDTH = 'width',
     /**
@@ -2245,7 +2235,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     HEIGHT = 'height',
     /**
@@ -2268,7 +2257,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
+
      */
     DATE_TAKEN = 'date_taken',
     /**
@@ -2291,7 +2280,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     ORIENTATION = 'orientation',
     /**
@@ -2314,7 +2302,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     FAVORITE = 'is_favorite',
     /**
@@ -2337,7 +2324,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     TITLE = 'title',
     /**
@@ -2359,7 +2345,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     POSITION = 'position',
     /**
@@ -2438,7 +2423,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DATE_ADDED_MS = 'date_added_ms',
     /**
@@ -2453,7 +2437,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DATE_MODIFIED_MS = 'date_modified_ms',
     /**
@@ -2476,7 +2459,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     PHOTO_SUBTYPE = 'subtype',
     /**
@@ -2499,7 +2481,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
@@ -2514,7 +2495,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     COVER_POSITION = 'cover_position',
     /**
@@ -2529,7 +2509,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     BURST_KEY = 'burst_key',
     /**
@@ -2552,7 +2531,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     LCD_SIZE = 'lcd_size',
     /**
@@ -2567,7 +2545,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     THM_SIZE = 'thm_size',
     /**
@@ -2582,7 +2559,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DETAIL_TIME = 'detail_time',
     /**
@@ -2597,7 +2573,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DATE_TAKEN_MS = 'date_taken_ms',
     /**
@@ -2700,7 +2675,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     URI = 'uri',
     /**
@@ -2747,7 +2721,6 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DATE_MODIFIED = 'date_modified',
   }
@@ -2793,7 +2766,8 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12
-   */  /**
+   */  
+  /**
    * Defines the options for fetching media files.
    *
    * @interface FetchOptions
@@ -2801,7 +2775,6 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface FetchOptions {
     /**
@@ -2827,7 +2800,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     fetchColumns: Array<string>;
     /**
@@ -2853,7 +2825,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -3088,7 +3059,6 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface FetchResult<T> {
     /**
@@ -3126,7 +3096,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getCount(): number;
     /**
@@ -3167,7 +3136,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     isAfterLast(): boolean;
     /**
@@ -3205,7 +3173,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
@@ -3243,7 +3210,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getFirstObject(): Promise<T>;
     /**
@@ -3284,7 +3250,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
@@ -3325,7 +3290,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getNextObject(): Promise<T>;
     /**
@@ -3363,7 +3327,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
@@ -3401,7 +3364,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getLastObject(): Promise<T>;
     /**
@@ -3442,7 +3404,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getObjectByPosition(index: number, callback: AsyncCallback<T>): void;
     /**
@@ -3483,7 +3444,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getObjectByPosition(index: number): Promise<T>;
     /**
@@ -3521,7 +3481,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getAllObjects(callback: AsyncCallback<Array<T>>): void;
     /**
@@ -3559,7 +3518,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getAllObjects(): Promise<Array<T>>;
     /**
@@ -3594,7 +3552,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     close(): void;
   }
@@ -4093,7 +4050,6 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
@@ -4535,7 +4491,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
