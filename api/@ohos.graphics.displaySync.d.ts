@@ -20,6 +20,9 @@
  */
 
 import type { Callback } from './@ohos.base';
+/*** if arkts 1.2 */
+import { ExpectedFrameRateRange } from './arkui/component/common';
+/*** endif */
 
 /**
  * Provides functions of applying an independent draw frame rate used for drawing the UI.
