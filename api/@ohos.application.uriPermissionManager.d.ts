@@ -152,7 +152,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
-   * @throws { BusinessError } 16000081 - Get target application info failed.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 14
@@ -178,7 +178,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
-   * @throws { BusinessError } 16000081 - Get target application info failed.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19
@@ -304,7 +304,7 @@ declare namespace uriPermissionManager {
    *                                 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
-   * @throws { BusinessError } 16000081 - Get target application info failed.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 14
@@ -323,7 +323,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
-   * @throws { BusinessError } 16000081 - Get target application info failed.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19
