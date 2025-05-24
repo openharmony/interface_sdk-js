@@ -489,7 +489,7 @@ export default class Context extends BaseContext {
   createModuleContext(bundleName: string, moduleName: string): Context;
 
   /**
-   * Creates a resource manager object for a module of the system-level HSP.
+   * This API allows OEM manufacturers to set up their own ResourceManager in the pre-installed system HSP.
    *
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
