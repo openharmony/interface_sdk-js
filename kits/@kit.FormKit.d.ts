@@ -32,4 +32,4 @@ import LiveFormExtensionAbility, { LiveFormInfo } from '@ohos.app.form.LiveFormE
 export {
     FormExtensionAbility, formAgent, formBindingData, formError, formHost, formInfo, formObserver, formProvider,
     FormEditExtensionAbility, LiveFormExtensionAbility, LiveFormInfo
- };
+};
