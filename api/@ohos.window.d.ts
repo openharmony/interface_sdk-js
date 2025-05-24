@@ -2372,6 +2372,16 @@ declare namespace window {
      * @since 20
      */
     zIndex?: number;
+
+    /**
+     * Indicates whether enable window default density.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    defaultDensityEnabled?: boolean;
   }
 
   /**
