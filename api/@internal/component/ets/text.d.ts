@@ -1372,6 +1372,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
   /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle } shader - The shader style of the text.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  shaderStyle(shader: ShaderStyle): TextAttribute;
+
+  /**
    * Set the ellipsis mode.
    *
    * @param { EllipsisMode } value - The ellipsis mode.

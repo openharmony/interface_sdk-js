@@ -1505,6 +1505,123 @@ declare enum KeyboardAppearance {
   DARK_IMMERSIVE = 3,
 }
 
+/**
+ * Defines shader style class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ShaderStyle {
+}
+
+/**
+ * Defines linear gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class LinearGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { LinearGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: LinearGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * angle: Angle of linear gradient.
+   * direction: Direction of Linear Gradient.
+   * colors: Color description for gradients.
+   * repeating: if the gradient colors with repeated coloring.
+   *
+   * @type { LinearGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: LinearGradientOptions;
+}
+
+/**
+ * Defines radial gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class RadialGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { RadialGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: RadialGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * center: Center point of radial gradient
+   * radius: Radius of Radial Gradient. value range [0, +∞)
+   * colors: Color description for gradients
+   * repeating: Refill. The default value is false
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: RadialGradientOptions;
+}
+
+/**
+ * Defines a shader with single color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ColorShaderStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { ResourceColor } color - The color used by shader.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(color: ResourceColor);
+  
+  /**
+   * The color of the shader.
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  color: ResourceColor;
+}
+
   /**
    * Defines the line spacing options.
    * @interface LineSpacingOptions
