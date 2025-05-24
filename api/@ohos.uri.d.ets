@@ -86,13 +86,13 @@ declare namespace uri {
          * Searches the query string for the first value with the given key.
          *
          * @param { string } key - Given the first value of the key.
-         * @returns { string } Return decoded value.
+         * @returns { string | null } Return decoded value, If no corresponding value is found return a null object
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
          * @since 20
          */
-        getQueryValue(key: string): string;
+        getQueryValue(key: string): string | null;
         /**
          * Encodes the key and value and then appends the result to the query string.
          *
