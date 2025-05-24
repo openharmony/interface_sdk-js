@@ -1288,7 +1288,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_1_2 = 1,
+    Dimension_1_2 = 1,
 
     /**
      * 2 x 2 form
@@ -1304,7 +1304,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_2_2 = 2,
+    Dimension_2_2,
 
     /**
      * 2 x 4 form
@@ -1320,7 +1320,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_2_4 = 3,
+    Dimension_2_4,
 
     /**
      * 4 x 4 form
@@ -1336,7 +1336,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_4_4 = 4,
+    Dimension_4_4,
 
     /**
      * 2 x 1 form
@@ -1352,7 +1352,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_2_1 = 5,
+    Dimension_2_1,
 
     /**
      * 1 x 1 form
