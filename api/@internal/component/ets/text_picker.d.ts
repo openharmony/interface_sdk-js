@@ -292,7 +292,7 @@ declare interface TextPickerOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface TextPickerInterface {
+interface TextPickerInterface {
   /**
    * Defines the TextPicker constructor.
    *
@@ -442,25 +442,12 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
 
 /**
- * Callback of the listened scroll stop event.
- *
- * @typedef {function} TextPickerScrollStopCallback
- * @param { string | string[] } value - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
-
-/**
  * Callback of TextPicker item is selected event.
  *
  * @typedef {function} OnTextPickerChangeCallback
@@ -469,25 +456,12 @@ export type TextPickerScrollStopCallback = (value: string | string[], index: num
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
 
 /**
- * Callback of TextPicker item is selected event.
- *
- * @typedef {function} OnTextPickerChangeCallback
- * @param { string | string[] } selectItem - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
-
-/**
  * Callback of the listened onEnterSelectedArea event.
  *
  * @typedef {function} TextPickerEnterSelectedAreaCallback
@@ -496,23 +470,10 @@ export type OnTextPickerChangeCallback = (selectItem: string | string[], index: 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
-
-/**
- * Callback of the listened onEnterSelectedArea event.
- *
- * @typedef {function} TextPickerEnterSelectedAreaCallback
- * @param { string | string[] } value - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
 
 /**
  * Style the text selector.
