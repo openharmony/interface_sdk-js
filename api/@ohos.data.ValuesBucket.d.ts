@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkData
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -32,7 +33,7 @@
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
  */
 export type ValueType = number | string | boolean;
 
@@ -42,6 +43,6 @@ export type ValueType = number | string | boolean;
  * @typedef { Record<string, ValueType | Uint8Array | null> }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
  */
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;

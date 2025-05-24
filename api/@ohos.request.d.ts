@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,7 +43,8 @@ import BaseContext from './application/BaseContext';
  * @syscap SystemCapability.Request.FileTransferAgent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace request {
   /**
@@ -2426,7 +2427,8 @@ declare namespace request {
    * @syscap SystemCapability.Request.FileTransferAgent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace agent {
     /**
@@ -2443,7 +2445,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum Action {
       /**
@@ -2458,7 +2461,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
        */
       DOWNLOAD,
       /**
@@ -2473,7 +2477,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
        */
       UPLOAD
     }
@@ -2492,7 +2497,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum Mode {
       /**
@@ -2506,7 +2512,8 @@ declare namespace request {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       BACKGROUND,
       /**
@@ -2521,7 +2528,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       FOREGROUND
     }
@@ -2540,7 +2548,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum Network {
       /**
@@ -2555,7 +2564,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       ANY,
       /**
@@ -2570,7 +2580,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       WIFI,
       /**
@@ -2585,7 +2596,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       CELLULAR
     }
@@ -2595,7 +2607,8 @@ declare namespace request {
      *
      * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum BroadcastEvent {
       /**
@@ -2604,7 +2617,8 @@ declare namespace request {
        * The data in the commonEventData contains the id of the task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
@@ -2623,7 +2637,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface FileSpec {
       /**
@@ -2655,7 +2670,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       path: string;
       /**
@@ -2685,7 +2701,8 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 18
+       * @since arkts {'1.1':'18', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       contentType?: string;
       /**
@@ -2702,7 +2719,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       filename?: string;
       /**
@@ -2719,7 +2737,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       extras?: object;
     }
@@ -2738,7 +2757,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface FormItem {
       /**
@@ -2755,7 +2775,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       name: string;
       /**
@@ -2772,7 +2793,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       value: string | FileSpec | Array<FileSpec>;
     }
@@ -2825,7 +2847,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface Config {
       /**
@@ -2842,7 +2865,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       action: Action;
       /**
@@ -2868,14 +2892,15 @@ declare namespace request {
        */
       /**
        * The Universal Resource Locator for a task.
-       * The maximum length is 8192 characters.
+       * The maximum length is 2048 characters.
        * Using raw `url` option, even url parameters in it.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 15
+       * @since arkts {'1.1':'15', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       url: string;
       /**
@@ -2896,7 +2921,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       title?: string;
       /**
@@ -2917,7 +2943,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       description?: string;
       /**
@@ -2941,7 +2968,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
 
       mode?: Mode;
@@ -2966,7 +2994,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       overwrite?: boolean;
       /**
@@ -2989,7 +3018,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       method?: string;
       /**
@@ -3010,7 +3040,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       headers?: object;
       /**
@@ -3033,7 +3064,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       data?: string | Array<FormItem>;
       /**
@@ -3073,7 +3105,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       saveas?: string;
       /**
@@ -3092,7 +3125,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       network?: Network;
       /**
@@ -3113,7 +3147,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       metered?: boolean;
       /**
@@ -3132,7 +3167,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       roaming?: boolean;
       /**
@@ -3150,7 +3186,8 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       retry?: boolean;
       /**
@@ -3169,7 +3206,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       redirect?: boolean;
       /**
@@ -3179,7 +3217,8 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       proxy?: string;
       /**
@@ -3200,7 +3239,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       index?: number;
       /**
@@ -3225,7 +3265,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       begins?: number;
       /**
@@ -3250,7 +3291,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       ends?: number;
       /**
@@ -3270,7 +3312,8 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       gauge?: boolean;
       /**
@@ -3291,7 +3334,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       precise?: boolean;
       /**
@@ -3320,7 +3364,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       token?: string;
       /**
@@ -3331,7 +3376,8 @@ declare namespace request {
        *
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       priority?: number;
       /**
@@ -3348,7 +3394,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       extras?: object;
       /**
@@ -3386,7 +3433,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum State {
       /**
@@ -3401,7 +3449,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       INITIALIZED = 0x00,
       /**
@@ -3416,7 +3465,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       WAITING = 0x10,
       /**
@@ -3431,7 +3481,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       RUNNING = 0x20,
       /**
@@ -3446,7 +3497,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       RETRYING = 0x21,
       /**
@@ -3461,7 +3513,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       PAUSED = 0x30,
       /**
@@ -3476,7 +3529,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       STOPPED = 0x31,
       /**
@@ -3491,7 +3545,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       COMPLETED = 0x40,
       /**
@@ -3506,7 +3561,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       FAILED = 0x41,
       /**
@@ -3521,7 +3577,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       REMOVED = 0x50
     }
@@ -3556,7 +3613,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface Progress {
       /**
@@ -3575,7 +3633,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly state: State;
       /**
@@ -3594,7 +3653,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly index: number;
       /**
@@ -3613,7 +3673,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly processed: number;
       /**
@@ -3632,7 +3693,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly sizes: Array<number>;
       /**
@@ -3658,7 +3720,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly extras?: object;
     }
@@ -3677,7 +3740,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum Faults {
       /**
@@ -3692,7 +3756,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       OTHERS = 0xFF,
       /**
@@ -3707,7 +3772,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       DISCONNECTED = 0x00,
       /**
@@ -3722,7 +3788,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       TIMEOUT = 0x10,
       /**
@@ -3737,7 +3804,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       PROTOCOL = 0x20,
       /**
@@ -3746,7 +3814,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       PARAM = 0x30,
       /**
@@ -3761,7 +3830,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       FSIO = 0x40,
       /**
@@ -3770,7 +3840,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       DNS = 0x50,
       /**
@@ -3779,7 +3850,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       TCP = 0x60,
       /**
@@ -3788,7 +3860,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SSL = 0x70,
       /**
@@ -3797,7 +3870,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       REDIRECT = 0x80
     }
@@ -3940,7 +4014,8 @@ declare namespace request {
      * @typedef TaskInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface TaskInfo {
       /**
@@ -3951,7 +4026,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 10
+       * @since arkts {'1.1':'10', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly uid?: string;
       /**
@@ -3962,7 +4038,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 10
+       * @since arkts {'1.1':'10', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly bundle?: string;
       /**
@@ -3979,7 +4056,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly saveas?: string;
       /**
@@ -4000,7 +4078,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly url?: string;
       /**
@@ -4020,7 +4099,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly data?: string | Array<FormItem>;
       /**
@@ -4038,7 +4118,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly tid: string;
       /**
@@ -4056,7 +4137,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly title: string;
       /**
@@ -4074,7 +4156,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly description: string;
       /**
@@ -4092,7 +4175,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly action: Action;
       /**
@@ -4111,7 +4195,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly mode: Mode;
       /**
@@ -4123,7 +4208,8 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly priority: number;
       /**
@@ -4141,7 +4227,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly mimeType: string;
       /**
@@ -4159,7 +4246,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly progress: Progress;
       /**
@@ -4168,7 +4256,8 @@ declare namespace request {
        * @type { boolean }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since arkts {'1.1':'10', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly gauge: boolean;
       /**
@@ -4188,7 +4277,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly ctime: number;
       /**
@@ -4208,7 +4298,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly mtime: number;
       /**
@@ -4218,7 +4309,8 @@ declare namespace request {
        * @type { boolean }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since arkts {'1.1':'10', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly retry: boolean;
       /**
@@ -4227,7 +4319,8 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since arkts {'1.1':'10', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly tries: number;
       /**
@@ -4245,7 +4338,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly faults: Faults;
       /**
@@ -4263,7 +4357,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly reason: string;
       /**
@@ -4284,7 +4379,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly extras?: object;
     }
@@ -4295,7 +4391,8 @@ declare namespace request {
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface HttpResponse {
       /**
@@ -4305,7 +4402,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly version: string,
       /**
@@ -4315,7 +4413,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly statusCode: number,
       /**
@@ -4325,7 +4424,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly reason: string,
       /**
@@ -4335,7 +4435,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly headers: Map<string, Array<string>>,
     }
@@ -4364,7 +4465,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     interface Task {
       /**
@@ -4385,7 +4487,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly tid: string;
       /**
@@ -4402,7 +4505,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       config: Config;
       /**
@@ -4474,7 +4578,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
@@ -4624,7 +4729,8 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**
@@ -4676,7 +4782,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       start(callback: AsyncCallback<void>): void;
       /**
@@ -4716,7 +4823,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       start(): Promise<void>;
       /**
@@ -4905,7 +5013,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
@@ -4950,7 +5059,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function create(context: BaseContext, config: Config): Promise<Task>;
 
