@@ -2779,6 +2779,17 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * The reason for text changes.
+   *
+   * @type { ?TextChangeReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 20
+   */
+  changeReason?: TextChangeReason;
 }
 
 /**
