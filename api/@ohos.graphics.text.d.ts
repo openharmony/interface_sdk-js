@@ -16,16 +16,20 @@
 /**
  * @file
  * @kit ArkGraphics2D
+ * @arkts 1.1&1.2
  */
 import type drawing from './@ohos.graphics.drawing';
 import type common2D from './@ohos.graphics.common2D';
+/*** if arkts 1.2 */
+import { Resource } from './global/resource';
+/*** endif */
 
 /**
  * Provides functions such as 2D graphics text paragraphs, text styles.
  *
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
  */
 declare namespace text {
 
@@ -33,48 +37,48 @@ declare namespace text {
    * Refers to how to align the horizontal position of text when displaying text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextAlign {
     /**
      * Use the left side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     LEFT = 0,
 
     /**
      * Use the right side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     RIGHT = 1,
 
     /**
      * Use the midpoint line the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     CENTER = 2,
 
     /**
      * Align the text at the start and end of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     JUSTIFY = 3,
 
     /**
      * Align text from start, based on the direction of text, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     START = 4,
 
     /**
      * Align text from end, based on the direction of text, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     END = 5,
   }
@@ -83,20 +87,20 @@ declare namespace text {
    * Enumerate text runs direction.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextDirection {
     /**
      * The text is oriented from right to left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     RTL,
 
     /**
      * The text is oriented from left to right.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     LTR,
   }
@@ -105,27 +109,27 @@ declare namespace text {
    * Enumerate text segmentation strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum BreakStrategy {
     /**
      * The segmentation strategy is greedy.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     GREEDY,
 
     /**
      * The segmentation strategy is high quality.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     HIGH_QUALITY,
 
     /**
      * The segmentation strategy is balanced.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     BALANCED,
   }
@@ -134,34 +138,34 @@ declare namespace text {
    * Enumerate word break strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum WordBreak {
     /**
      * Normal word break strategy.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     NORMAL,
 
     /**
      * Breaks word by character.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     BREAK_ALL,
 
     /**
      * Breaks word by phrase.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     BREAK_WORD,
 
     /**
      * Breaks word by hyphen.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     BREAK_HYPHEN,
   }
@@ -170,14 +174,14 @@ declare namespace text {
    * Decoration for text.
    * @typedef Decoration
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface Decoration {
     /**
      * Decorates text by line.
      * @type { ?TextDecorationType }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textDecoration?: TextDecorationType;
 
@@ -185,7 +189,7 @@ declare namespace text {
      * Text color.
      * @type { ?common2D.Color }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     color?: common2D.Color;
 
@@ -193,7 +197,7 @@ declare namespace text {
      * Text decoration style.
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     decorationStyle?: TextDecorationStyle;
 
@@ -201,7 +205,7 @@ declare namespace text {
      * The thickness scale of decoration line.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     decorationThicknessScale?: number;
   }
@@ -210,34 +214,34 @@ declare namespace text {
    * Enumerates decoration line for text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextDecorationType {
     /**
      * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     NONE,
 
     /**
      * There is a decoration line below the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     UNDERLINE,
 
     /**
      * There is a decoration line above the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     OVERLINE,
 
     /**
      * There is a decoration line through the middle of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     LINE_THROUGH,
   }
@@ -246,41 +250,41 @@ declare namespace text {
    * Enumerates decoration line style.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextDecorationStyle {
     /**
      * Decoration line is solid line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     SOLID,
 
     /**
      * Decoration line is double line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DOUBLE,
 
     /**
      * Decoration line is dotted line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DOTTED,
 
     /**
      * Decoration line is dashed line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DASHED,
 
     /**
      * Decoration line is wavy line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     WAVY,
   }
@@ -289,69 +293,69 @@ declare namespace text {
    * Enumeration of font weight of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum FontWeight {
     /**
      * Thin
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W100,
 
     /**
      * Extra-light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W200,
 
     /**
      * Light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W300,
 
     /**
      * Normal/Regular
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W400,
 
     /**
      * Medium
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W500,
 
     /**
      * Semi-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W600,
 
     /**
      * Bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W700,
 
     /**
      * Extra-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W800,
 
     /**
      * Black
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     W900,
   }
@@ -360,27 +364,27 @@ declare namespace text {
    * Enumeration of font style of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum FontStyle {
     /**
      * Upright font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     NORMAL,
 
     /**
      * Slant font.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ITALIC,
 
     /**
      * Oblique font.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     OBLIQUE,
   }
@@ -389,69 +393,69 @@ declare namespace text {
    * Enumeration of font width of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum FontWidth {
     /**
      * Ultra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ULTRA_CONDENSED = 1,
 
     /**
      * Extra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     EXTRA_CONDENSED = 2,
 
     /**
      * Condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     CONDENSED = 3,
 
     /**
      * Semi condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     SEMI_CONDENSED = 4,
 
     /**
      * Normal font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     NORMAL = 5,
 
     /**
      * Semi expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     SEMI_EXPANDED = 6,
 
     /**
      * Expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     EXPANDED = 7,
 
     /**
      * Extra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     EXTRA_EXPANDED = 8,
 
     /**
      * Ultra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ULTRA_EXPANDED = 9,
   }
@@ -460,34 +464,34 @@ declare namespace text {
    * Enumerates of height mode of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextHeightBehavior {
     /**
      * Both ascend of first row and last row style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ALL = 0x0,
 
     /**
      * Forbidding ascend of first row style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DISABLE_FIRST_ASCENT = 0x1,
 
     /**
      * Forbidding ascend of last row style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DISABLE_LAST_ASCENT = 0x2,
 
     /**
      * Neither ascend of first row nor last row style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DISABLE_ALL = 0x1 | 0x2,
   }
@@ -496,14 +500,14 @@ declare namespace text {
    * Enumeration the type of text baseline.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum TextBaseline {
     /**
      * The alphabetic baseline, typically used for Latin-based scripts where the baseline aligns
      * with the base of lowercase letters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ALPHABETIC,
 
@@ -511,7 +515,7 @@ declare namespace text {
      * The ideographic baseline, commonly used for ideographic scripts such as Chinese, Japanese, and Korean,
      * where the baseline aligns with the center of characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     IDEOGRAPHIC,
   }
@@ -520,27 +524,27 @@ declare namespace text {
    * Enumerates of ellipsis mode.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum EllipsisMode {
     /**
      * The ellipsis is shown in the start of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     START,
 
     /**
      * The ellipsis is shown in the middle of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     MIDDLE,
 
     /**
      * The ellipsis is shown in the end of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     END,
   }
@@ -549,28 +553,28 @@ declare namespace text {
    * Describes shadow of text.
    * @typedef TextShadow
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface TextShadow {
     /**
      * The color of text shadow.
      * @type { ?common2D.Color } The color of text shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     color?: common2D.Color;
     /**
      * The value sets offset of text shadow that based on the original text.
      * @type { ?common2D.Point } The point of shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     point?: common2D.Point;
     /**
      * The value sets special effect radius of blurring text, it default is 0.
      * @type { ?number } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     blurRadius?: number;
   }
@@ -579,14 +583,14 @@ declare namespace text {
    * Describes rect style of text.
    * @typedef RectStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface RectStyle {
     /**
      * The color of rect style.
      * @type { common2D.Color } The color of rect style
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     color: common2D.Color;
 
@@ -594,7 +598,7 @@ declare namespace text {
      * Radius in left top of rect style.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     leftTopRadius: number;
 
@@ -602,7 +606,7 @@ declare namespace text {
      * Radius in right top of rect style.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     rightTopRadius: number;
 
@@ -610,7 +614,7 @@ declare namespace text {
      * Radius in right bottom of rect style.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     rightBottomRadius: number;
 
@@ -618,7 +622,7 @@ declare namespace text {
      * Radius in left bottom of rect style.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     leftBottomRadius: number;
   }
@@ -627,21 +631,21 @@ declare namespace text {
    * Describes font feature of text.
    * @typedef FontFeature
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface FontFeature {
     /**
      * The name of font feature.
      * @type { string } feature name
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     name: string;
     /**
      * The value of font feature.
      * @type { number } feature value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     value: number;
   }
@@ -650,21 +654,21 @@ declare namespace text {
    * Describes font variation of text.
    * @typedef FontVariation
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface FontVariation {
     /**
      * The axis of font variation.
      * @type { string } variation axis
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     axis: string;
     /**
      * The value of font variation.
      * @type { number } variation value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     value: number;
   }
@@ -673,7 +677,7 @@ declare namespace text {
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface TextStyle {
 
@@ -681,7 +685,7 @@ declare namespace text {
      * Decoration of text.
      * @type { ?Decoration } decoration for text
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     decoration?: Decoration;
 
@@ -689,7 +693,7 @@ declare namespace text {
      * Color of text.
      * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     color?: common2D.Color;
 
@@ -697,7 +701,7 @@ declare namespace text {
      * Font weight of text.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontWeight?: FontWeight;
 
@@ -705,7 +709,7 @@ declare namespace text {
      * Font style of text.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontStyle?: FontStyle;
 
@@ -713,7 +717,7 @@ declare namespace text {
      * Base line of text.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     baseline?: TextBaseline;
 
@@ -721,7 +725,7 @@ declare namespace text {
      * Font Families of text.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontFamilies?: Array<string>;
 
@@ -729,7 +733,7 @@ declare namespace text {
      * Font size of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontSize?: number;
 
@@ -737,7 +741,7 @@ declare namespace text {
      * Letter spacing of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     letterSpacing?: number;
 
@@ -745,7 +749,7 @@ declare namespace text {
      * Word spacing of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     wordSpacing?: number;
 
@@ -753,7 +757,7 @@ declare namespace text {
      * Height scale of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     heightScale?: number;
 
@@ -761,7 +765,7 @@ declare namespace text {
      * Half leading of text.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     halfLeading?: boolean;
 
@@ -770,7 +774,7 @@ declare namespace text {
      * the font size, false means by the line height and leading.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     heightOnly?: boolean;
 
@@ -778,7 +782,7 @@ declare namespace text {
      * Text ellipsis.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ellipsis?: string;
 
@@ -786,7 +790,7 @@ declare namespace text {
      * Text ellipsis mode.
      * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ellipsisMode?: EllipsisMode;
 
@@ -794,7 +798,7 @@ declare namespace text {
      * Text locale.
      * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     locale?: string;
 
@@ -802,7 +806,7 @@ declare namespace text {
      * The offset distance that the underline of text.
      * @type { ?number } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     baselineShift?: number;
 
@@ -810,7 +814,7 @@ declare namespace text {
      * Text Style available font features.
      * @type { ?Array<FontFeature> } A collection of font features.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontFeatures?: Array<FontFeature>;
 
@@ -818,7 +822,7 @@ declare namespace text {
      * Text shadows of text.
      * @type { ?Array<TextShadow> } textShadow gather.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textShadows?: Array<TextShadow>;
 
@@ -826,7 +830,7 @@ declare namespace text {
      * Rect style of text.
      * @type { ?RectStyle } rect style for text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     backgroundRect?: RectStyle;
 
@@ -834,7 +838,7 @@ declare namespace text {
      * Text Style available font variations.
      * @type { ?Array<FontVariation> } A collection of font variations.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontVariations?: Array<FontVariation>;
   }
@@ -842,14 +846,14 @@ declare namespace text {
   /**
    * Provides the basis for graphics.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   class FontCollection {
     /**
      * Get global FontCollection instance of the application.
      * @returns { FontCollection } The FontCollection object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     static getGlobalInstance(): FontCollection;
 
@@ -858,7 +862,7 @@ declare namespace text {
      * @param { string } name - the font name.
      * @param { string | Resource } path - the path of the font file.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     loadFontSync(name: string, path: string | Resource): void;
 
@@ -870,14 +874,14 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
      * Clear font caches.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
      clearCaches(): void;
   }
@@ -886,14 +890,14 @@ declare namespace text {
    * Describes strut style.
    * @typedef StrutStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface StrutStyle {
     /**
      * The families of the font to use when calculating the strut.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontFamilies?: Array<string>;
 
@@ -901,7 +905,7 @@ declare namespace text {
      * The font style to use when calculating the strut.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontStyle?: FontStyle;
 
@@ -909,7 +913,7 @@ declare namespace text {
      * The font width to use when calculating the strut.
      * @type { ?FontWidth } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontWidth?: FontWidth;
 
@@ -917,7 +921,7 @@ declare namespace text {
      * The font weight to use when calculating the strut.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontWeight?: FontWeight;
 
@@ -925,7 +929,7 @@ declare namespace text {
      * The size of the ascent plus descent in logical pixels.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontSize?: number;
 
@@ -933,7 +937,7 @@ declare namespace text {
      * The minimum height of the strut, as a multiple of fontSize.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     height?: number;
 
@@ -941,7 +945,7 @@ declare namespace text {
      * The additional leading to apply to the strut as a multiple of Size.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     leading?: number;
 
@@ -949,7 +953,7 @@ declare namespace text {
      * Whether the strut height should be forced.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     forceHeight?: boolean;
 
@@ -957,7 +961,7 @@ declare namespace text {
      * Whether the strut style should be enable.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     enabled?: boolean;
 
@@ -965,7 +969,7 @@ declare namespace text {
      * Whether the height is override.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     heightOverride?: boolean;
 
@@ -973,7 +977,7 @@ declare namespace text {
      * Whether the half leading is enable.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     halfLeading?: boolean;
   }
@@ -982,14 +986,14 @@ declare namespace text {
    * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
    * @typedef ParagraphStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface ParagraphStyle {
     /**
      * Text style of paragraph.
      * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textStyle?: TextStyle;
 
@@ -997,7 +1001,7 @@ declare namespace text {
      * Text runs direction.
      * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textDirection?: TextDirection;
 
@@ -1005,7 +1009,7 @@ declare namespace text {
      * Refers to how to align the horizontal position of text when displaying text.
      * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     align?: TextAlign;
 
@@ -1013,7 +1017,7 @@ declare namespace text {
      * Word break strategy.
      * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     wordBreak?: WordBreak;
 
@@ -1021,7 +1025,7 @@ declare namespace text {
      * Maximum number of lines.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     maxLines?: number;
 
@@ -1029,7 +1033,7 @@ declare namespace text {
      * text segmentation strategy.
      * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     breakStrategy?: BreakStrategy;
 
@@ -1037,7 +1041,7 @@ declare namespace text {
      * Strut style of paragraph.
      * @type { ?StrutStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     strutStyle?: StrutStyle;
 
@@ -1045,7 +1049,7 @@ declare namespace text {
      * Text height behavior of paragraph.
      * @type { ?TextHeightBehavior }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textHeightBehavior?: TextHeightBehavior;
 
@@ -1056,7 +1060,7 @@ declare namespace text {
      * according to this tab effect.
      * @type { ?TextTab }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     tab?: TextTab;
   }
@@ -1065,13 +1069,13 @@ declare namespace text {
    * Where to vertically align the placeholder relative to the surrounding text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum PlaceholderAlignment {
     /**
      * Match the baseline of the placeholder with the baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     OFFSET_AT_BASELINE,
 
@@ -1079,7 +1083,7 @@ declare namespace text {
      * Align the bottom edge of the placeholder with the baseline such that the placeholder
      * sits on top of the baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ABOVE_BASELINE,
 
@@ -1087,7 +1091,7 @@ declare namespace text {
      * Align the top edge of the placeholder with the baseline specified in such that the placeholder
      * hangs below the baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     BELOW_BASELINE,
 
@@ -1095,7 +1099,7 @@ declare namespace text {
      * Align the top edge of the placeholder with the top edge of the font. When the placeholder is very tall,
      * the extra space will hang from the top and extend through the bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     TOP_OF_ROW_BOX,
 
@@ -1103,7 +1107,7 @@ declare namespace text {
      * Align the bottom edge of the placeholder with the bottom edge of the text. When the placeholder is very tall,
      * the extra space will rise from the bottom and extend through the top of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     BOTTOM_OF_ROW_BOX,
 
@@ -1111,7 +1115,7 @@ declare namespace text {
      * Align the middle of the placeholder with the middle of the text.When the placeholder is very tall,
      * the extra space will grow equally from the top and bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     CENTER_OF_ROW_BOX,
   }
@@ -1120,14 +1124,14 @@ declare namespace text {
    * Provide a description of placeholder scope in creating typography.
    * @typedef PlaceholderSpan
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface PlaceholderSpan {
     /**
      * The width of the placeholder.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     width: number;
 
@@ -1135,7 +1139,7 @@ declare namespace text {
      * The height of the placeholder.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     height: number;
 
@@ -1143,7 +1147,7 @@ declare namespace text {
      * Alignment mode of placeholder.
      * @type { PlaceholderAlignment }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     align: PlaceholderAlignment;
 
@@ -1151,7 +1155,7 @@ declare namespace text {
      * Baseline of placeholder.
      * @type { TextBaseline }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     baseline: TextBaseline;
 
@@ -1159,7 +1163,7 @@ declare namespace text {
      * Baseline offset of placeholder.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     baselineOffset: number;
   }
@@ -1168,14 +1172,14 @@ declare namespace text {
    * Provides the definition of the range.
    * @typedef Range
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface Range {
     /**
      * Left index.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     start: number;
 
@@ -1183,7 +1187,7 @@ declare namespace text {
      * Right index.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     end: number;
   }
@@ -1192,41 +1196,41 @@ declare namespace text {
    * An enumeration of system font types.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
    */
   enum SystemFontType {
     /**
      * All font types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     ALL = 1 << 0,
 
     /**
      * System generic font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     GENERIC = 1 << 1,
 
     /**
      * Stylish font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     STYLISH = 1 << 2,
 
     /**
      * Installed font types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     INSTALLED = 1 << 3,
 
     /**
      * Customized font types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     CUSTOMIZED = 1 << 4,
   }
@@ -1235,14 +1239,14 @@ declare namespace text {
    * Font descriptor
    * @typedef FontDescriptor
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
    */
   interface FontDescriptor {
     /**
      * Font file path
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     path?: string;
 
@@ -1250,7 +1254,7 @@ declare namespace text {
      * Font postScript name
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     postScriptName?: string;
 
@@ -1258,7 +1262,7 @@ declare namespace text {
      * Full font name
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     fullName?: string;
 
@@ -1266,7 +1270,7 @@ declare namespace text {
      * Font family name
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     fontFamily?: string;
 
@@ -1274,7 +1278,7 @@ declare namespace text {
      * Font subfamily name
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     fontSubfamily?: string;
 
@@ -1282,7 +1286,7 @@ declare namespace text {
      * Font weight
      * @type { ?FontWeight }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     weight?: FontWeight;
 
@@ -1290,7 +1294,7 @@ declare namespace text {
      * Font width
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     width?: number;
 
@@ -1298,7 +1302,7 @@ declare namespace text {
      * Font slant, non-0 means italic.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     italic?: number;
 
@@ -1306,7 +1310,7 @@ declare namespace text {
      * Whether the font is monospaced
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     monoSpace?: boolean;
 
@@ -1314,7 +1318,7 @@ declare namespace text {
      * Whether to support symbols
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
      */
     symbolic?: boolean;
   }
@@ -1322,14 +1326,14 @@ declare namespace text {
   /**
    * A paragraph retains the size and position of each glyph in the text and can be efficiently resized and painted.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   class Paragraph {
     /**
      * Calculates the positioning of all the glyphs.
      * @param { number } width - Control how wide the text is allowed to be.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     layoutSync(width: number): void;
 
@@ -1340,7 +1344,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     layout(width: number): Promise<void>;
 
@@ -1350,7 +1354,7 @@ declare namespace text {
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
@@ -1361,7 +1365,7 @@ declare namespace text {
      * @param { number } hOffset - Horizontal offset along the path.
      * @param { number } vOffset - Vertical offset along the path.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
 
@@ -1369,7 +1373,7 @@ declare namespace text {
      * Get max width of horizontal space this paragraph occupied.
      * @returns { number } Max width of horizontal space.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getMaxWidth(): number;
 
@@ -1377,7 +1381,7 @@ declare namespace text {
      * Get height of horizontal space this paragraph occupies.
      * @returns { number } Height of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getHeight(): number;
 
@@ -1385,7 +1389,7 @@ declare namespace text {
      * Get the longest line of horizontal space this paragraph occupies.
      * @returns { number } The longest line of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLongestLine(): number;
 
@@ -1394,7 +1398,7 @@ declare namespace text {
      * of indent.
      * @returns { number } The longest line with indent of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
      */
     getLongestLineWithIndent(): number;
 
@@ -1402,7 +1406,7 @@ declare namespace text {
      * Get the min intrinsic width of horizontal space this paragraph occupies.
      * @returns { number } The min intrinsic width of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getMinIntrinsicWidth(): number;
 
@@ -1410,7 +1414,7 @@ declare namespace text {
      * Get the max intrinsic width.
      * @returns { number } Intrinsic Width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getMaxIntrinsicWidth(): number;
 
@@ -1418,7 +1422,7 @@ declare namespace text {
      * Get the alphabetic baseline.
      * @returns { number } Alphabetic Baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getAlphabeticBaseline(): number;
 
@@ -1426,7 +1430,7 @@ declare namespace text {
      * Get the ideographic baseline.
      * @returns { number } Ideographic Baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getIdeographicBaseline(): number;
 
@@ -1437,7 +1441,7 @@ declare namespace text {
      * @param { RectHeightStyle } heightStyle - Height style to set.
      * @returns { Array<TextBox> } The rects for range.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
@@ -1445,7 +1449,7 @@ declare namespace text {
      * Get the rects for placeholders.
      * @returns { Array<TextBox> } The rects for placeholders.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getRectsForPlaceholders(): Array<TextBox>;
 
@@ -1455,7 +1459,7 @@ declare namespace text {
      * @param { number } y - the positionY of typography to set.
      * @returns { PositionWithAffinity } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
@@ -1464,7 +1468,7 @@ declare namespace text {
      * @param { number } offset - offset value
      * @returns { Range } The range value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getWordBoundary(offset: number): Range;
 
@@ -1472,7 +1476,7 @@ declare namespace text {
      * Get line count.
      * @returns { number } The line count value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLineCount(): number;
 
@@ -1481,7 +1485,7 @@ declare namespace text {
      * @param { number } line - line number
      * @returns { number } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLineHeight(line: number): number;
 
@@ -1490,7 +1494,7 @@ declare namespace text {
      * @param { number } line - line number
      * @returns { number } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLineWidth(line: number): number;
 
@@ -1498,7 +1502,7 @@ declare namespace text {
      * Return whether it exceed the maximum lines of typography.
      * @returns { boolean } The true indicates exceeding, the false indicates not exceeding.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     didExceedMaxLines(): boolean;
 
@@ -1506,7 +1510,7 @@ declare namespace text {
      * Get the text lines of paragraph.
      * @returns { Array<TextLine> } the tuple of TextLine.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getTextLines(): Array<TextLine>;
 
@@ -1516,7 +1520,7 @@ declare namespace text {
      * @param { boolean } includeSpaces - indicates if the whitespaces should be included
      * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getActualTextRange(lineNumber: number, includeSpaces: boolean): Range;
 
@@ -1524,7 +1528,7 @@ declare namespace text {
      * Returns the array of line metrics for a line of text.
      * @returns { Array<LineMetrics> } Array of line metrics.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLineMetrics(): Array<LineMetrics>;
 
@@ -1533,7 +1537,7 @@ declare namespace text {
      * @param { number } lineNumber - a line number
      * @returns { LineMetrics | undefined } line metrics.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
   }
@@ -1541,7 +1545,7 @@ declare namespace text {
   /**
    * Provides the abilities to typeset by line.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    */
   class LineTypeset {
     /**
@@ -1552,7 +1556,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getLineBreak(startIndex: number, width: number): number;
 
@@ -1564,7 +1568,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     createLine(startIndex: number, count: number): TextLine;
   }
@@ -1573,14 +1577,14 @@ declare namespace text {
    * Box that contain text.
    * @typedef TextBox
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface TextBox{
     /**
      * Rect of text box.
      * @type { common2D.Rect }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     rect: common2D.Rect;
 
@@ -1588,7 +1592,7 @@ declare namespace text {
      * Text direction.
      * @type { TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     direction: TextDirection;
   }
@@ -1597,14 +1601,14 @@ declare namespace text {
    * Position and affinity.
    * @typedef PositionWithAffinity
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface PositionWithAffinity {
     /**
      * Position of text.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     position: number;
 
@@ -1612,7 +1616,7 @@ declare namespace text {
      * Affinity of text.
      * @type { Affinity }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     affinity: Affinity;
   }
@@ -1621,20 +1625,20 @@ declare namespace text {
    * Enumerates rect width style.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum RectWidthStyle {
     /**
      * Tight width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     TIGHT,
 
     /**
      * Max width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     MAX,
   }
@@ -1643,13 +1647,13 @@ declare namespace text {
    * Enumerates rect height style.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum RectHeightStyle {
     /**
      * Provide tight bounding boxes that fit heights per run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     TIGHT,
 
@@ -1657,35 +1661,35 @@ declare namespace text {
      * The height of the boxes will be the maximum height of all runs in the line. All rects in the same
      * line will be the same height.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     MAX,
 
     /**
      * The top and bottom of each rect will cover half of the space above and half of the space below the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     INCLUDE_LINE_SPACE_MIDDLE,
 
     /**
      * The line spacing will be added to the top of the rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     INCLUDE_LINE_SPACE_TOP,
 
     /**
      * The line spacing will be added to the bottom of the rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     INCLUDE_LINE_SPACE_BOTTOM,
 
     /**
      * The height of the boxes will be calculated by text strut.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     STRUT,
   }
@@ -1696,20 +1700,20 @@ declare namespace text {
    * closer to.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   enum Affinity {
     /**
      * The position has affinity for the upstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
 
     UPSTREAM,
     /**
      * The position has affinity for the downstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     DOWNSTREAM,
   }
@@ -1717,7 +1721,7 @@ declare namespace text {
   /**
    * Builds a Paragraph containing text with the given styling information.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   class ParagraphBuilder {
     /**
@@ -1725,7 +1729,7 @@ declare namespace text {
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
      * @param { FontCollection } fontCollection - Font collection {@link FontCollection}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection);
 
@@ -1733,14 +1737,14 @@ declare namespace text {
      * Push a style to the stack.
      * @param { TextStyle } textStyle - Text style {@link TextStyle}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     pushStyle(textStyle: TextStyle): void;
 
     /**
      * Remove a style from the stack.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     popStyle(): void;
 
@@ -1748,7 +1752,7 @@ declare namespace text {
      * Adds text to the builder.
      * @param { string } text - Text string
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     addText(text: string): void;
 
@@ -1756,7 +1760,7 @@ declare namespace text {
      * Add placeholder.
      * @param { PlaceholderSpan } placeholderSpan - Placeholder Span {@link PlaceholderSpan}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
@@ -1764,7 +1768,7 @@ declare namespace text {
      * Create paragraph object.
      * @returns { Paragraph } The paragraph value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     build(): Paragraph;
 
@@ -1772,7 +1776,7 @@ declare namespace text {
      * Create LineTypeset object.
      * @returns { LineTypeset } The LineTypeset value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     buildLineTypeset(): LineTypeset;
 
@@ -1780,7 +1784,7 @@ declare namespace text {
      * Add symbolId.
      * @param { number } symbolId - Symbol Id
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     addSymbol(symbolId: number): void;
   }
@@ -1789,14 +1793,14 @@ declare namespace text {
    * Provides the definition of the typographic bounds.
    * @typedef TypographicBounds
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    */
   interface TypographicBounds {
     /**
      * Distance Retained Above Baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     ascent: number;
 
@@ -1804,7 +1808,7 @@ declare namespace text {
      * The distance that remains below the baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     descent: number;
 
@@ -1812,7 +1816,7 @@ declare namespace text {
      * Line Spacing.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     leading: number;
 
@@ -1820,7 +1824,7 @@ declare namespace text {
      * The total width of the typesetting border.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     width: number;
   }
@@ -1836,21 +1840,21 @@ declare namespace text {
    * @returns { boolean } The return value of the user-defined callback function. If false is returned, the traversal
    * continues. If true is returned, the traversal stops.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    */
   type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean;
 
   /**
    * The structure of text line that provides the basis of paragraph for graphics.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   class TextLine {
     /**
      * Get the count of glyphs.
      * @returns { number } The counts of glyphs.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getGlyphCount(): number;
 
@@ -1858,7 +1862,7 @@ declare namespace text {
      * Get the range of text line.
      * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getTextRange(): Range;
 
@@ -1866,7 +1870,7 @@ declare namespace text {
      * Get the glyph runs of text line.
      * @returns { Array<Run> } The tuple of glyph runs of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getGlyphRuns(): Array<Run>;
 
@@ -1876,7 +1880,7 @@ declare namespace text {
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
@@ -1889,7 +1893,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
@@ -1897,7 +1901,7 @@ declare namespace text {
      * Gets the text line typographic bounds.
      * @returns { TypographicBounds } The text line of typographic bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getTypographicBounds(): TypographicBounds;
 
@@ -1905,7 +1909,7 @@ declare namespace text {
      * Gets the text line image bounds.
      * @returns { common2D.Rect } Rect of text line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getImageBounds(): common2D.Rect;
 
@@ -1913,7 +1917,7 @@ declare namespace text {
      * Gets the tail space width.
      * @returns { number } The tail space width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getTrailingSpaceWidth(): number;
 
@@ -1924,7 +1928,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getStringIndexForPosition(point: common2D.Point): number;
 
@@ -1935,7 +1939,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getOffsetForStringIndex(index: number): number;
 
@@ -1945,7 +1949,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     enumerateCaretOffsets(callback: CaretOffsetsCallback): void;
 
@@ -1960,7 +1964,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number;
   }
@@ -1968,14 +1972,14 @@ declare namespace text {
   /**
    * Independent rendering of text layout.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   class Run {
     /**
      * Gets the number of glyph.
      * @returns { number } The number of glyph.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getGlyphCount(): number;
 
@@ -1983,7 +1987,7 @@ declare namespace text {
      * Gets the glyph identifier for each character.
      * @returns { Array<number> } Glyph identifier.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getGlyphs(): Array<number>;
 
@@ -1995,7 +1999,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getGlyphs(range: Range): Array<number>;
 
@@ -2003,7 +2007,7 @@ declare namespace text {
      * Gets the font position offset.
      * @returns { Array<common2D.Point> } The position of the font in the layout.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getPositions(): Array<common2D.Point>;
 
@@ -2015,7 +2019,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getPositions(range: Range): Array<common2D.Point>;
 
@@ -2023,7 +2027,7 @@ declare namespace text {
      * Gets the font position offset array.
      * @returns { Array<common2D.Point> } The position offset of the font in the layout.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getOffsets(): Array<common2D.Point>;
 
@@ -2031,7 +2035,7 @@ declare namespace text {
      * Gets the font object instance.
      * @returns { drawing.Font } The font object instance.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     getFont(): drawing.Font;
 
@@ -2041,7 +2045,7 @@ declare namespace text {
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
@@ -2053,7 +2057,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getStringIndices(range?: Range): Array<number>;
 
@@ -2061,7 +2065,7 @@ declare namespace text {
      * Gets the run glyph location and length.
      * @returns { Range } The run of glyph location and length, Range.start is location, Range.end is length.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getStringRange(): Range;
 
@@ -2069,7 +2073,7 @@ declare namespace text {
      * Gets the run typographic bounds.
      * @returns { TypographicBounds } The run of typographic bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getTypographicBounds(): TypographicBounds;
 
@@ -2077,7 +2081,7 @@ declare namespace text {
      * Gets the run image bounds.
      * @returns { common2D.Rect } The run rect bounds.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     getImageBounds(): common2D.Rect;
   }
@@ -2086,14 +2090,14 @@ declare namespace text {
    * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
    * @typedef RunMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface RunMetrics {
     /**
      * The metrics of an Font.
      * @type { TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     textStyle: TextStyle;
 
@@ -2101,7 +2105,7 @@ declare namespace text {
      * Describes text style.
      * @type { drawing.FontMetrics }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     fontMetrics: drawing.FontMetrics;
   }
@@ -2110,14 +2114,14 @@ declare namespace text {
    * Describes the metric information for a line of text in a text layout.
    * @typedef LineMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    */
   interface LineMetrics {
     /**
      * The indexes in the text buffer the line begins.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     startIndex: number;
 
@@ -2125,7 +2129,7 @@ declare namespace text {
      * The indexes in the text buffer the line ends.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     endIndex: number;
 
@@ -2133,7 +2137,7 @@ declare namespace text {
      * The height of the text rise, the distance from the baseline to the top of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     ascent: number;
 
@@ -2141,7 +2145,7 @@ declare namespace text {
      * The height of the text drop, the distance from the baseline to the bottom of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     descent: number;
 
@@ -2149,7 +2153,7 @@ declare namespace text {
      * The height of the current line is `round(ascent + descent)`.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     height: number;
 
@@ -2157,7 +2161,7 @@ declare namespace text {
      * Width of the line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     width: number;
 
@@ -2165,7 +2169,7 @@ declare namespace text {
      * The left edge of the line. The right edge can be obtained with `left + width`.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     left: number;
 
@@ -2173,7 +2177,7 @@ declare namespace text {
      * The y position of the baseline for this line from the top of the paragraph.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     baseline: number;
 
@@ -2181,7 +2185,7 @@ declare namespace text {
      * Zero indexed line number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     lineNumber: number;
 
@@ -2189,7 +2193,7 @@ declare namespace text {
      * Height from the top.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     topHeight: number;
 
@@ -2199,7 +2203,7 @@ declare namespace text {
      * are before layout and are the base values we calculate from.
      * @type { Map<number, RunMetrics> }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      */
     runMetrics: Map<number, RunMetrics>;
   }
@@ -2211,7 +2215,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
    */
   function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>;
 
@@ -2224,7 +2228,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
    */
   function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>;
 
@@ -2237,7 +2241,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    */
   function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>;
 
@@ -2245,7 +2249,7 @@ declare namespace text {
    * Text tab contains alignment type and location in paragraph style.
    * @typedef TextTab
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    */
   interface TextTab {
     /**
@@ -2253,15 +2257,15 @@ declare namespace text {
      * other enumeration values are left alignment effect.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     alignment: TextAlign;
-    
+
     /**
      * The position of the tab relative to the start of the line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      */
     location: number;
   }
