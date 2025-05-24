@@ -151,8 +151,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum AbilityLifecycleState {
     /**
@@ -174,8 +173,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     UNINITIALIZED,
 
@@ -198,8 +196,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     CREATE,
 
@@ -222,8 +219,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FOREGROUND,
 
@@ -246,8 +242,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     BACKGROUND,
 
@@ -270,8 +265,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     DESTROY
   }

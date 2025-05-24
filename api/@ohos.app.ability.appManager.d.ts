@@ -241,8 +241,7 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
     export enum KeepAliveAppType {
       /**
@@ -250,8 +249,7 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       ALL = 0,
   
@@ -260,8 +258,7 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       THIRD_PARTY = 1,
   
@@ -270,8 +267,7 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       SYSTEM = 2
     }
@@ -281,8 +277,7 @@ declare namespace appManager {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     export enum KeepAliveSetter {
       /**
@@ -290,8 +285,7 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       SYSTEM = 0,
   
@@ -300,8 +294,7 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       USER = 1
     }
@@ -312,8 +305,7 @@ declare namespace appManager {
      * @typedef KeepAliveBundleInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     export interface KeepAliveBundleInfo {
       /**
@@ -322,8 +314,7 @@ declare namespace appManager {
        * @type { string }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       bundleName: string;
   
@@ -333,8 +324,7 @@ declare namespace appManager {
        * @type { KeepAliveAppType }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       type: KeepAliveAppType;
   
@@ -344,8 +334,7 @@ declare namespace appManager {
        * @type { KeepAliveSetter }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since arkts {'1.1':'14', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       setter: KeepAliveSetter;
     }
