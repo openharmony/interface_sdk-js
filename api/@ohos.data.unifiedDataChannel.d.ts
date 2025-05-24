@@ -1793,6 +1793,16 @@ declare namespace unifiedDataChannel {
      * @since 15
      */
     fileConflictOptions?: FileConflictOptions;
+
+    /**
+     * Indicates the supported data information.
+     *
+     * @type { ?DataLoadInfo }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    acceptableInfo?: DataLoadInfo;
   }
 
   /**
@@ -1802,7 +1812,6 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataLoadInfo {
     /**
@@ -1813,7 +1822,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     types?: Set<string>;
 
@@ -1824,7 +1832,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     recordCount?: number;
   }
@@ -1838,7 +1845,6 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null;
 
@@ -1849,7 +1855,6 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataLoadParams {
     /**
@@ -1859,7 +1864,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     loadHandler: DataLoadHandler;
 
@@ -1869,7 +1873,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     dataLoadInfo: DataLoadInfo;
   }
