@@ -17,6 +17,9 @@
  * @file
  * @kit ArkUI
  */
+/*** if arkts 1.2 */
+import { CommonMethod} from './common';
+/*** endif */
 
 /**
  * Defines the FormLink options.
