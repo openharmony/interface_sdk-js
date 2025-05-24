@@ -214,6 +214,72 @@ declare namespace insightIntentDriver {
    * @since 11
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Enum for intent type.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  enum InsightIntentType {
+    /**
+     * Link insight intent.
+     * {@link InsightIntentDecorator#InsightIntentLink}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    LINK = '@InsightIntentLink',
+
+    /**
+     * Page insight intent.
+     * {@link InsightIntentDecorator#InsightIntentPage}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    PAGE = '@InsightIntentPage',
+
+    /**
+     * Entry insight intent.
+     * {@link InsightIntentDecorator#InsightIntentEntry}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    ENTRY = '@InsightIntentEntry',
+
+    /**
+     * Function insight intent.
+     * {@link InsightIntentDecorator#InsightIntentFunction}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    FUNCTION = '@InsightIntentFunctionMethod',
+
+    /**
+     * Form insight intent.
+     * {@link InsightIntentDecorator#InsightIntentForm}
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    FORM = '@InsightIntentForm',
+  }
   
   /**
    * The insight intent information.
@@ -358,24 +424,24 @@ declare namespace insightIntentDriver {
     readonly keywords: string[];
 
     /**
-     * The intent type, including "link", "page", "function", "form", "entry".
+     * The intent type.
      *
-     * @type { string }
+     * @type { InsightIntentType }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20
      */
-    readonly intentType: string;
+    readonly intentType: InsightIntentType;
 
     /**
      * The sub intent information.
-     * If the intentType is "link", subIntentInfo is a LinkIntentInfo.
-     * If the intentType is "page", subIntentInfo is a PageIntentInfo.
-     * If the intentType is "function", subIntentInfo is a FunctionIntentInfo.
-     * If the intentType is "form", subIntentInfo is a FormIntentInfo.
-     * If the intentType is "entry", subIntentInfo is a EntryIntentInfo.
+     * If the intentType is "@InsightIntentLink", subIntentInfo is a LinkIntentInfo.
+     * If the intentType is "@InsightIntentPage", subIntentInfo is a PageIntentInfo.
+     * If the intentType is "@InsightIntentFunctionMethod", subIntentInfo is a FunctionIntentInfo.
+     * If the intentType is "@InsightIntentForm", subIntentInfo is a FormIntentInfo.
+     * If the intentType is "@InsightIntentEntry", subIntentInfo is a EntryIntentInfo.
      *
      * @type { LinkIntentInfo | PageIntentInfo | FunctionIntentInfo | FormIntentInfo | EntryIntentInfo }
      * @readonly
@@ -397,6 +463,18 @@ declare namespace insightIntentDriver {
      * @since 20
      */
     readonly parameters: Record<string, Object>;
+
+    /**
+     * The type definition of the result returned by intent call.
+     *
+     * @type { Record<string, Object> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly result: Record<string, Object>;
   }
 
   /**
@@ -445,7 +523,7 @@ declare namespace insightIntentDriver {
     readonly uiAbility: string;
 
     /**
-     * The pageRouterName.
+     * The page path.
      *
      * @type { string }
      * @readonly
@@ -454,7 +532,7 @@ declare namespace insightIntentDriver {
      * @stagemodelonly
      * @since 20
      */
-    readonly pageRouterName: string;
+    readonly pagePath: string;
 
     /**
      * The navigationId.
@@ -469,7 +547,7 @@ declare namespace insightIntentDriver {
     readonly navigationId: string;
 
     /**
-     * The navigation destination.
+     * The navigation destination name.
      *
      * @type { string }
      * @readonly
@@ -478,7 +556,7 @@ declare namespace insightIntentDriver {
      * @stagemodelonly
      * @since 20
      */
-    readonly navDestination: string;
+    readonly navDestinationName: string;
   }
 
   /**
