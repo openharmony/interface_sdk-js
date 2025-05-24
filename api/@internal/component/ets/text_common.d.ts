@@ -1485,7 +1485,6 @@ declare enum KeyboardAppearance {
   onlyBetweenLines?: boolean;
 }
 
-
 /**
  * Defines the reason for text changes.
  *
