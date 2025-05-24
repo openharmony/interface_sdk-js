@@ -23,8 +23,7 @@
  *
  * @namespace formError
  * @syscap SystemCapability.Ability.Form
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8
  */
 declare namespace formError {
   /**
@@ -32,16 +31,14 @@ declare namespace formError {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   enum FormError {
     /**
      * A common internal error occurs during form processing.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_COMMON = 1,
 
@@ -51,8 +48,7 @@ declare namespace formError {
      * and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED permissions.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_PERMISSION_DENY = 2,
 
@@ -62,8 +58,7 @@ declare namespace formError {
      * consistent with those provided by the form provider.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_GET_INFO_FAILED = 4,
 
@@ -72,8 +67,7 @@ declare namespace formError {
      * Ensure that the bundle to which the form to be added belongs is available.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_GET_BUNDLE_FAILED = 5,
 
@@ -82,8 +76,7 @@ declare namespace formError {
      * Ensure that the grid style of the form is supported by the form provider.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_GET_LAYOUT_FAILED = 6,
 
@@ -92,8 +85,7 @@ declare namespace formError {
      * parameters are valid.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_ADD_INVALID_PARAM = 7,
 
@@ -102,8 +94,7 @@ declare namespace formError {
      * different from that obtained for the first time.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_CFG_NOT_MATCH_ID = 8,
 
@@ -111,8 +102,7 @@ declare namespace formError {
      * The ID of the form to be operated does not exist in the Form Manager Service.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_NOT_EXIST_ID = 9,
 
@@ -120,8 +110,7 @@ declare namespace formError {
      * Failed to bind the Form Manager Service to the provider service.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_BIND_PROVIDER_FAILED = 10,
 
@@ -129,8 +118,7 @@ declare namespace formError {
      * The total number of added forms exceeds the maximum allowed by the system.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_MAX_SYSTEM_FORMS = 11,
 
@@ -139,8 +127,7 @@ declare namespace formError {
      * exceeds the maximum allowed by the system.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_MAX_INSTANCES_PER_FORM = 12,
 
@@ -149,8 +136,7 @@ declare namespace formError {
      * operated by the current application.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_OPERATION_FORM_NOT_SELF = 13,
 
@@ -158,8 +144,7 @@ declare namespace formError {
      * The Form Manager Service failed to instruct the form provider to delete the form.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_PROVIDER_DEL_FAIL = 14,
 
@@ -167,8 +152,7 @@ declare namespace formError {
      * The total number of added forms exceeds the maximum per client.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_MAX_FORMS_PER_CLIENT = 15,
 
@@ -176,8 +160,7 @@ declare namespace formError {
      * The total number of added temp forms exceeds the maximum in system.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_MAX_SYSTEM_TEMP_FORMS = 16,
 
@@ -185,8 +168,7 @@ declare namespace formError {
      * The module can not be find in system.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_FORM_NO_SUCH_MODULE = 17,
 
@@ -194,8 +176,7 @@ declare namespace formError {
      * The ability can not be find in system.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_FORM_NO_SUCH_ABILITY = 18,
 
@@ -203,8 +184,7 @@ declare namespace formError {
      * The dimension is not exist in the form.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_FORM_NO_SUCH_DIMENSION = 19,
 
@@ -212,8 +192,7 @@ declare namespace formError {
      * The ability is not installed.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_FORM_FA_NOT_INSTALLED = 20,
 
@@ -222,8 +201,7 @@ declare namespace formError {
      * the service is not started.Please try again after the service is started.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_SYSTEM_RESPONSES_FAILED = 30,
 
@@ -235,8 +213,7 @@ declare namespace formError {
      * the request parameters.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_FORM_DUPLICATE_ADDED = 31,
 
@@ -245,8 +222,7 @@ declare namespace formError {
      * the restoration is complete.
      *
      * @syscap SystemCapability.Ability.Form
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     ERR_IN_RECOVERY = 36,
 
@@ -255,8 +231,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     ERR_DISTRIBUTED_SCHEDULE_FAILED = 37
   }
