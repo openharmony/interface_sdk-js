@@ -3187,6 +3187,14 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
+     * Obtains the file descriptor of the TLSSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the TLSSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 16
+     */
+    getSocketFd(): Promise<number>;
+
+    /**
      * Sets up a connection to the specified IP address and port number.
      * Only TCP is supported.
      * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
