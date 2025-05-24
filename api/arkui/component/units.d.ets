@@ -28,7 +28,6 @@ import { BorderStyle, Color, FontWeight, FontStyle } from './enums'
 import { OutlineStyle } from './common'
 import _want from '../../../api/@ohos.app.ability.Want'
 import _context from '../../application/Context'
-import _drawing from '../../../api/@ohos.graphics.drawing'
 import _image from '../../../api/@ohos.multimedia.image'
 import _pointer from '../../../api/@ohos.multimodalInput.pointer'
 import _unifieddatachannel from '../../../api/@ohos.data.unifiedDataChannel'
@@ -37,12 +36,8 @@ import _observer from '../../../api/@ohos.arkui.observer'
 import _uieffect from '../../../api/@ohos.graphics.uiEffect'
 import _intl from '../../../api/@ohos.intl'
 import _window from '../../../api/@ohos.window'
-import _text from '../../../api/@ohos.graphics.text'
 export type Want = _want
 export type Context = _context
-export type DrawingCanvas = _drawing.Canvas 
-export type DrawingColorFilter = _drawing.ColorFilter 
-export type DrawingLattice = _drawing.Lattice 
 export type PixelMap = _image.PixelMap
 export type ResolutionQuality = NullishType
 export type PointerStyle = _pointer.PointerStyle
@@ -58,11 +53,6 @@ export type Blender = NullishType
 export type DateTimeOptions = _intl.DateTimeOptions
 export type WindowStatusType = _window.WindowStatusType
 export type SystemBarStyle = _window.SystemBarStyle
-export type Affinity = _text.Affinity
-export type LineMetrics = _text.LineMetrics
-export type RectWidthStyle = _text.RectWidthStyle
-export type RectHeightStyle = _text.RectHeightStyle
-export type TextBox = _text.TextBox
 export type RestrictedWorker = string
 export type Length = string | number | Resource_;
 export type PX = string;
