@@ -928,6 +928,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1053,6 +1054,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1178,6 +1180,7 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
