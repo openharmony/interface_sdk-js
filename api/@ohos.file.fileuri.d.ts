@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,6 +36,7 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
  * @since arkts {'1.1':'15', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace fileUri {
   /**
@@ -52,6 +53,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class FileUri extends uri.URI {
     /**
@@ -76,6 +78,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(uriOrPath: string);
 
@@ -98,7 +101,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
      */
     readonly name: string;
 
@@ -121,7 +124,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
      */
     getFullDirectoryUri(): string;
 
@@ -140,7 +143,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
      */
     isRemoteUri(): boolean;
   }
@@ -165,6 +168,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUriFromPath(path: string): string;
 }
