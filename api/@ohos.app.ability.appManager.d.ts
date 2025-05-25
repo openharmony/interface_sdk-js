@@ -1170,7 +1170,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16300005 - The target bundle does not exist.
    * @throws { BusinessError } 16300008 - The target bundle has no MainAbility.
    * @throws { BusinessError } 16300009 - The target bundle has no status-bar ability.
-   * @throws { BusinessError } 16300010 - The target application is not attached to status bar.
+   * @throws { BusinessError } 16300010 - The target application is not attached to the status bar.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14
@@ -1219,8 +1219,7 @@ declare namespace appManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
 
@@ -1229,8 +1228,7 @@ declare namespace appManager {
    *
    * @typedef { _AppStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AppStateData = _AppStateData.default;
 
@@ -1274,8 +1272,7 @@ declare namespace appManager {
    *
    * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
+   * @since 14
    */
   export type ProcessData = _ProcessData.default;
 

@@ -127,6 +127,7 @@
 /// <reference path="./text_timer.d.ts" />
 /// <reference path="./time_picker.d.ts" />
 /// <reference path="./toggle.d.ts" />
+/// <reference path="./toolbar.d.ts" />
 /// <reference path="./with_theme.d.ts" />
 /// <reference path="./units.d.ts" />
 /// <reference path="./video.d.ts" />

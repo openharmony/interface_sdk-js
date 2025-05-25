@@ -983,15 +983,15 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Mp2 audio format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     MP2 = 'general.mp2',
 
     /**
-     * Mpeg audio format data type.
-     * 
+     * MPEG audio format. This type belongs to AUDIO.
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -999,7 +999,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Ulaw audio format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -1172,7 +1172,7 @@ declare namespace uniformTypeDescriptor {
     JAVA_ARCHIVE = 'com.sun.java-archive',
 
     /**
-     * GNU archive data type.
+     * GNU. This type belongs to ARCHIVE.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -1611,7 +1611,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Ofd data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -1619,7 +1619,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Cad data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -1627,7 +1627,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Octet stream data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -1635,15 +1635,15 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * File uri data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
     FILE_URI = 'general.file-uri',
 
     /**
-     * Content form data type.
-     * 
+     * Content widget type. This type belongs to OBJECT.
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
@@ -1791,12 +1791,14 @@ declare namespace uniformTypeDescriptor {
   function getTypeDescriptor(typeId: string): TypeDescriptor;
 
   /**
-   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
+   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it
+   * belongs to.
    *
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1819,12 +1821,14 @@ declare namespace uniformTypeDescriptor {
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 
   /**
-   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it belongs to.
+   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it
+   * belongs to.
    *
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and
+   * the uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1833,12 +1837,14 @@ declare namespace uniformTypeDescriptor {
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
   /**
-   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
+   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs
+   * to.
    *
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the
+   * uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does
+   * not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core

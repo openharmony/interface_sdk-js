@@ -99,7 +99,8 @@ declare namespace display {
   function getDefaultDisplaySync(): Display;
 
   /**
-   * Obtain the primary display.
+   * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
+   * For 2in1 devices with an external screen, the Display object obtained is the primary screen. For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
    *
    * @returns { Display } the result of primary display
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -232,6 +233,18 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Register the callback for display changes.
+   *
+   * @param { 'add' | 'remove' | 'change' } type the event of display change
+   * @param { Callback<number> } callback the display id of changed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
   /**
@@ -254,6 +267,18 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Unregister the callback for display changes.
+   *
+   * @param { 'add' | 'remove' | 'change' } type the event of display change event
+   * @param { Callback<number> } callback the display id of changed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -302,6 +327,16 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Check whether the device is foldable.
+   *
+   * @returns { boolean } true means the device is foldable.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function isFoldable(): boolean;
 
   /**
@@ -320,6 +355,16 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the current fold status of the foldable device.
+   *
+   * @returns { FoldStatus } fold status of device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function getFoldStatus(): FoldStatus;
 
@@ -346,6 +391,19 @@ declare namespace display {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Register the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
   /**
@@ -370,6 +428,19 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Unregister the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -402,10 +473,10 @@ declare namespace display {
   function off(type: 'foldAngleChange', callback?: Callback<Array<number>>): void;
 
   /**
-   * Register the callback for device capture status changes.
+   * Register the callback for device capture, casting, or recording status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -416,10 +487,10 @@ declare namespace display {
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture status changes.
+   * Unregister the callback for device capture, casting, or recording status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status .
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -431,9 +502,9 @@ declare namespace display {
 
 
   /**
-   * Check whether the device is captured.
+   * Check whether the device is captured, projected, or recorded.
    *
-   * @returns { boolean } true means the device is captured.
+   * @returns { boolean } true means the device is captured, projected, or recorded.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -723,19 +794,28 @@ declare namespace display {
   }
 
   /**
-   * Enumerates the fold status.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
    */
   /**
-   * Enumerates the fold status.
+   * Enumerates the fold status.For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Enumerates the fold status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   enum FoldStatus {
     /**
@@ -751,29 +831,45 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Fold Status Unknown.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FOLD_STATUS_UNKNOWN = 0,
     /**
-     * Fold Status Expanded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Expanded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
      */
+    /**
+     * Fold Status Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     FOLD_STATUS_EXPANDED,
     /**
-     * Fold Status Folded.
+     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Folded.
+     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -781,17 +877,25 @@ declare namespace display {
      */
     FOLD_STATUS_FOLDED,
     /**
-     * Fold Status Half Folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Half Folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Fold Status Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     FOLD_STATUS_HALF_FOLDED,
     /**
@@ -858,6 +962,15 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Enumerates the fold display mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   enum FoldDisplayMode {
     /**
@@ -1617,14 +1730,14 @@ declare namespace display {
     name: string;
 
     /**
-     * The display is alive.
+     * Whether the display is alive.
      *
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The display is alive.
+     * Whether the display is alive.
      *
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1763,14 +1876,14 @@ declare namespace display {
     availableHeight: number;
 
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1778,7 +1891,7 @@ declare namespace display {
      * @since 11
      */
     /**
-     * Display resolution.
+     * Display resolution, that is, the number of pixels per inch.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1808,14 +1921,14 @@ declare namespace display {
     orientation: Orientation;
 
     /**
-     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1866,6 +1979,15 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
+    /**
+     * DPI on the x-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     xDPI: number;
 
     /**
@@ -1882,6 +2004,15 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * DPI on the y-axis.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     yDPI: number;
 

@@ -76,7 +76,7 @@ export { NodeController } from './arkui/NodeController';
  * @atomicservice
  * @since 12
  */
-export { FrameNode, LayoutConstraint, ExpandMode } from './arkui/FrameNode';
+export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
 
 /**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.

@@ -107,7 +107,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18
      */
-    CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007
+    CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
+
+    /**
+     * Indicates that the device does not support the specified certificate store path.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20
+     */
+    CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009
   }
 
   /**
@@ -1106,6 +1114,31 @@ declare namespace certificateManager {
     GLOBAL_USER = 2
   }
 
+  /**
+   * Enum for the certificate algorithm type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 20
+   */
+  export enum CertAlgorithm {
+    /**
+     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
+     * 
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20
+     */
+    INTERNATIONAL = 1,
+
+    /**
+     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
+     * 
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20
+     */
+    SM = 2,
+  }
+
  /**
    * Provides the certificate file store property type.
    *
@@ -1131,6 +1164,15 @@ declare namespace certificateManager {
      * @since 18
      */
     certScope?: CertScope;
+
+    /**
+     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
+     * 
+     * @type { ?CertAlgorithm }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20
+     */
+    certAlg?: CertAlgorithm;
   }
 
   /**
@@ -1143,6 +1185,18 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18
+   */
+  /**
+   * Get the certificate file store path.
+   * 
+   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
+   * @returns { string } the certificate file store path.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500009 - The device does not support the specified certificate store path, such as the overseas device does not support the certificate which algorithm is SM.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 20
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 

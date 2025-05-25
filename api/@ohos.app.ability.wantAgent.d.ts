@@ -22,18 +22,25 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
+import Context from './application/Context';
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
- * the bundle name, UID of an {@link WantAgent} object.
+ * the bundle name, UID of an WantAgent object.
  *
  * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
 /**
- * Provide the method obtain trigger, cancel, and compare and to obtain
- * the bundle name, UID of an {@link WantAgent} object.
+ * app.ability.WantAgent is a class that encapsulates a {@link Want} object and allows the application to execute the
+ * Want at a future time point.The module provides APIs for creating and comparing WantAgent objects, and obtaining
+ * the user ID and bundle name of a WantAgent object.
+ * 
+ * A typical use scenario of WantAgent is notification processing. For example, when a user touches a notification,
+ * the {@link trigger} API of WantAgent is triggered and the target application is started. For details, see
+ * {@link Notification}. You are advised to use this module, since it will replace the @ohos.wantAgent module
+ * in the near future.
  *
  * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -48,20 +55,21 @@ declare namespace wantAgent {
    * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Obtains the bundle name of a WantAgent.
+   * Obtains the bundle name of a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { AsyncCallback<string> } callback - Callback used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -75,20 +83,21 @@ declare namespace wantAgent {
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Obtains the bundle name of a WantAgent.
+   * Obtains the bundle name of a WantAgent object.
+   * This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<string> } Returns the bundle name.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @returns { Promise<string> } Promise used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -102,20 +111,21 @@ declare namespace wantAgent {
    * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Obtains the UID of a WantAgent.
+   * Obtains the user ID of a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { AsyncCallback<number> } callback - Callback used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -129,20 +139,21 @@ declare namespace wantAgent {
    * @returns { Promise<number> } Returns the UID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Obtains the UID of a WantAgent.
+   * Obtains the user ID of a WantAgent object.
+   * This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<number> } Returns the UID.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @returns { Promise<number> } Promise used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -150,15 +161,16 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * Obtains the Want in a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<Want> } callback - The callback is used to return the Want.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -166,15 +178,16 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * Obtains the Want in a WantAgent object.
+   * This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<Want> } Returns the Want.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @returns { Promise<Want> } Promise used to return the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -188,20 +201,21 @@ declare namespace wantAgent {
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancels a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -215,20 +229,21 @@ declare namespace wantAgent {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancels a WantAgent object.
+   * This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -247,11 +262,12 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Triggers a WantAgent.
+   * Proactively triggers a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { AsyncCallback<CompleteData> } [callback] - The callback is used to return the CompleteData.
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { TriggerInfo } triggerInfo - {@link TriggerInfo} object.
+   * @param { AsyncCallback<CompleteData> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -259,6 +275,24 @@ declare namespace wantAgent {
    * @since 12
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
+
+  /**
+   * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger information.
+   *
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
+   * @param { Context } context - Indicates current context.
+   * @returns { Promise<CompleteData> } Returns the CompleteData.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000020 - The context is not ability context.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000153 - The Wantagent has been canceled.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
   /**
    * Checks whether two WantAgent objects are equal.
@@ -272,11 +306,14 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Checks whether two WantAgent objects are equal.
+   * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
+   * same application.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
-   * @param { AsyncCallback<boolean> } callback - Returns true if the two WantAgents are the same.
+   * @param { WantAgent } agent - The first WantAgent object.
+   * @param { WantAgent } otherAgent - The second WantAgent object.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value <code>true</code> means
+   * that the two WantAgent objects are equal, and <code>false</code> means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -297,11 +334,14 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Checks whether two WantAgent objects are equal.
+   * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
+   * same application.
+   * This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
-   * @returns { Promise<boolean> } Returns true if the two WantAgents are the same.
+   * @param { WantAgent } agent - The first WantAgent object.
+   * @param { WantAgent } otherAgent - The second WantAgent object.
+   * @returns { Promise<boolean> } Promise used to return the result. The value <code>true</code> means that the two
+   * WantAgent objects are equal, and <code>false</code> means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -317,20 +357,26 @@ declare namespace wantAgent {
    * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
    * Obtains a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
+   * If the creation fails, a null WantAgent object is returned.
+   * 
+   * <p>**NOTE**:
+   * <br>Third-party applications can set only their own abilities.
+   * </p>
    *
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
+   * @param { AsyncCallback<WantAgent> } callback - Callback used to return the WantAgent object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -344,20 +390,26 @@ declare namespace wantAgent {
    * @returns { Promise<WantAgent> } Returns the created WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
    * Obtains a WantAgent object.
+   * This API uses a promise to return the result.
+   * If the creation fails, a null WantAgent object is returned.
    *
+   * <p>**NOTE**:
+   * <br>Third-party applications can set only their own abilities.
+   * </p>
+   * 
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Returns the created WantAgent.
+   * @returns { Promise<WantAgent> } Promise used to return the WantAgent object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -365,20 +417,7 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
   /**
-   * Obtains the {@link OperationType} of a {@link WantAgent}.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtains the {@link OperationType} of a {@link WantAgent}.
+   * Obtains the {@link OperationType} of a WantAgent.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
@@ -386,7 +425,21 @@ declare namespace wantAgent {
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  /**
+   * Obtains the operation type of a WantAgent object.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @param { WantAgent } agent - Target WantAgent object.
+   * @param { AsyncCallback<number> } callback - Callback used to return the operation type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -394,20 +447,7 @@ declare namespace wantAgent {
   function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the {@link OperationType} of a {@link WantAgent}.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<number> } Returns the OperationType of the WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
-   * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtains the {@link OperationType} of a {@link WantAgent}.
+   * Obtains the {@link OperationType} of a WantAgent.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<number> } Returns the OperationType of the WantAgent.
@@ -415,7 +455,21 @@ declare namespace wantAgent {
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  /**
+   * Obtains the operation type of a WantAgent object.
+   * This API uses a promise to return the result.
+   *
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<number> } Returns the OperationType of the WantAgent.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -423,9 +477,10 @@ declare namespace wantAgent {
   function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
-   * Set the wantagent within the process to support multithreading.
+   * Enables or disables the WantAgent multithreading feature.
    *
-   * @param { boolean } isMultithreadingSupported - Indicates the WantAgent support multithreading or not.
+   * @param { boolean } isMultithreadingSupported - Whether to enable the multithreading feature. The value
+   * <code>true</code> means to enable multithreading, and <code>false</code> means the opposite.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
@@ -444,7 +499,7 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Enumerates flags for using a WantAgent.
+   * Enumerates the flags used by the WantAgent objects.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -460,8 +515,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the WantAgent can be used only once.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The WantAgent object can be used only once.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -477,8 +531,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that null is returned if the WantAgent does not exist.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The WantAgent object does not exist and hence it is not created. In this case, <code>null</code> is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -494,8 +547,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the existing WantAgent should be canceled before a new object is generated.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The existing WantAgent object should be canceled before a new object is generated.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -511,8 +563,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the system only replaces the extra data of the existing WantAgent with that of the new object.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * 	Extra information of the existing WantAgent object is replaced with that of the new object.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -527,7 +578,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the created WantAgent should be immutable.
+     * The WantAgent object is immutable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -542,7 +593,12 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the current value of element can be replaced when the WantAgent is triggered.
+     * The element property in the current Want can be replaced by the element property in the Want passed in
+     * WantAgent.trigger().
+     * 
+     * <p>**NOTE**:
+     * <br>This processing is not supported yet.
+     * </p>
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -557,7 +613,12 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the current value of action can be replaced when the WantAgent is triggered.
+     * The action property in the current Want can be replaced by the action property in the Want passed in
+     * WantAgent.trigger().
+     * 
+     * <p>**NOTE**:
+     * <br>This processing is not supported yet.
+     * </p>
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -572,7 +633,12 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
+     * The uri property in the current Want can be replaced by the uri property in the Want passed in
+     * WantAgent.trigger().
+     * 
+     * <p>**NOTE**:
+     * <br>This processing is not supported yet.
+     * </p>
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -587,7 +653,12 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
+     * The <code>entities</code> property in the current Want can be replaced by the <code>entities</code> property in
+     * the Want passed in WantAgent.trigger().
+     * 
+     * <p>**NOTE**:
+     * <br>This processing is not supported yet.
+     * </p>
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -602,7 +673,12 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
+     * The <code>bundleName</code> property in the current Want can be replaced by the <code>bundleName</code> property
+     * in the Want passed in WantAgent.trigger().
+     * 
+     * <p>**NOTE**:
+     * <br>This processing is not supported yet.
+     * </p>
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -619,7 +695,7 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
+   * Enumerates the operation types of the WantAgent objects.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -634,7 +710,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Unknown operation.
+     * Unknown operation type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -679,7 +755,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Starts an ability without a UI.
+     * Starts an ability without a UI (valid only in the FA model).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
@@ -721,7 +797,7 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Describes the data returned by after wantAgent.trigger is called.
+   * Describes the data returned by the operation of proactive triggering a WantAgent object.
    *
    * @typedef CompleteData
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -737,7 +813,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Triggered WantAgent.
+     * WantAgent object that is triggered.
      *
      * @type { WantAgent }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -771,7 +847,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * Request code used to trigger the WantAgent.
+     * Request code that triggers the WantAgent object.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -812,7 +888,7 @@ declare namespace wantAgent {
      * @since 11
      */
     /**
-     * Extra data collected by the common event.
+     * Extra information.
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -830,7 +906,7 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Provides the information required for triggering a WantAgent.
+   * Defines the TriggerInfo object.
    *
    * @typedef { _TriggerInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -847,7 +923,7 @@ declare namespace wantAgent {
    * @since 9
    */
   /**
-   * Provides the information required for triggering a WantAgent.
+   * Defines the WantAgentInfo object.
    *
    * @typedef { _WantAgentInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -858,7 +934,7 @@ declare namespace wantAgent {
 }
 
 /**
- * WantAgent object.
+ * Target WantAgent object.
  *
  * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

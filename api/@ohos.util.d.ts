@@ -425,6 +425,17 @@ declare namespace util {
   function getHash(object: object): number;
 
   /**
+   * Get stack trace of main thread.
+   *
+   * @returns { string } Return a stack trace of main thread.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function getMainThreadStackTrace(): string;
+
+  /**
    * Describes decoding-related options, which include fatal and ignoreBOM.
    *
    * @interface TextDecoderOptions

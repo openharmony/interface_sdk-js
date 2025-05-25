@@ -25,6 +25,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
+ *
+ * @extends SymbolSpanAttribute
+ * @implements AttributeModifier<SymbolSpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
     /**
      * constructor
@@ -34,6 +44,15 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @atomicservice
      * @since 12
      */
+    /**
+     * constructor
+     *
+     * @param { Resource } src
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     constructor(src?: Resource);
     /**
      * Defines the normal update attribute function.
@@ -42,6 +61,15 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @param { SymbolSpanAttribute } attribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
 }

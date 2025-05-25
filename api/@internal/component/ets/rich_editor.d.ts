@@ -155,6 +155,37 @@ declare enum RichEditorSpanType {
 }
 
 /**
+ * Defines undo style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum UndoStyle {
+  /**
+   * Undo without style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLEAR_STYLE = 0,
+
+  /**
+   * Undo keep style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  KEEP_STYLE = 1,
+}
+
+/**
  * ResponseType for contextMenu
  *
  * @enum { number }
@@ -2748,6 +2779,17 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * The reason for text changes.
+   *
+   * @type { ?TextChangeReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 20
+   */
+  changeReason?: TextChangeReason;
 }
 
 /**
@@ -3049,6 +3091,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setTypingStyle(value: RichEditorTextStyle): void;
 
   /**
+   * Set the typing paragraph style.
+   *
+   * @param { RichEditorParagraphStyle } style - set the typing paragraph style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  setTypingParagraphStyle(style: RichEditorParagraphStyle): void;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the rich editor.
    *
    * @param { number } selectionStart - The start position of the selected text.
@@ -3169,7 +3222,18 @@ declare class RichEditorController extends RichEditorBaseController {
    * @atomicservice
    * @since 11
    */
-  addTextSpan(value: string, options?: RichEditorTextSpanOptions): number;
+   /**
+   * Add a text span.
+   *
+   * @param { ResourceStr } content - text value.
+   * @param { RichEditorTextSpanOptions } [options] - span info.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
 
   /**
    * Add a image span.
@@ -3423,6 +3487,15 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the StyledString of the RichEditor.
+   *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   getStyledString(): MutableStyledString;
 
@@ -4039,6 +4112,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 18
    */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Set undo style.
+   *
+   * @param { Optional<UndoStyle> } style - Default value is UndoStyle.CLEAR_STYLE.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
 }
 
 /**

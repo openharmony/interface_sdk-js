@@ -74,7 +74,17 @@ declare interface RectOptions {
    * @atomicservice
    * @since 18
    */
-  width?: number | string;
+  /**
+   * Rectangle width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Rectangle height.
@@ -121,7 +131,17 @@ declare interface RectOptions {
    * @atomicservice
    * @since 18
    */
-  height?: number | string;
+  /**
+   * Rectangle height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 
   /**
    * Corner radius of the rectangle.
@@ -168,7 +188,17 @@ declare interface RectOptions {
    * @atomicservice
    * @since 18
    */
-  radius?: number | string | Array<any>;
+  /**
+   * Corner radius of the rectangle.
+   *
+   * @type { ?(Length | Array<any>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radius?: Length | Array<any>;
 }
 
 /**
@@ -227,7 +257,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 18
    */
-  width?: number | string;
+  /**
+   * Rectangle width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Rectangle height.
@@ -274,7 +314,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 18
    */
-  height?: number | string;
+  /**
+   * Rectangle height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 
   /**
    * Width of the corner radius.
@@ -321,7 +371,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 18
    */
-  radiusWidth?: number | string;
+  /**
+   * Width of the corner radius.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radiusWidth?: Length;
 
   /**
    * Height of the corner radius.
@@ -368,7 +428,17 @@ declare interface RoundedRectOptions {
    * @atomicservice
    * @since 18
    */
-  radiusHeight?: number | string;
+  /**
+   * Height of the corner radius.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radiusHeight?: Length;
 }
 
 /**
@@ -592,7 +662,18 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @atomicservice
    * @since 11
    */
-  radiusWidth(value: number | string): RectAttribute;
+  /**
+   * Called when the fillet width is set.
+   *
+   * @param { Length } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radiusWidth(value: Length): RectAttribute;
 
   /**
    * Called when the fillet height is set.
@@ -632,7 +713,18 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @atomicservice
    * @since 11
    */
-  radiusHeight(value: number | string): RectAttribute;
+  /**
+   * Called when the fillet height is set.
+   *
+   * @param { Length } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radiusHeight(value: Length): RectAttribute;
 
   /**
    * Called when the fillet size is set.
@@ -672,7 +764,18 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @atomicservice
    * @since 11
    */
-  radius(value: number | string | Array<any>): RectAttribute;
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { Length | Array<any> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  radius(value: Length | Array<any>): RectAttribute;
 }
 
 /**

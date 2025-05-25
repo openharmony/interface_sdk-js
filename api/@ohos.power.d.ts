@@ -135,7 +135,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function wakeup(detail: string): void;
 
@@ -171,7 +171,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -251,7 +251,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -277,7 +277,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function setScreenOffTime(timeout: number): void;
 

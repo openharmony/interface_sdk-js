@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines WaterFlow Modifier
+ *
+ * @extends WaterFlowAttribute
+ * @implements AttributeModifier<WaterFlowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class WaterFlowModifier extends WaterFlowAttribute implements AttributeModifier<WaterFlowAttribute> {
 
   /**

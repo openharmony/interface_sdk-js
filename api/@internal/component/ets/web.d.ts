@@ -131,9 +131,11 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Should playing web media by native application instead of web player.
+   * Whether to enable the application to take over the webpage media playback function.
    *
    * @type { boolean }
+   *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -141,9 +143,11 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * The contents painted by native media player should overlay web page.
+   * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
    *
    * @type { boolean }
+   *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
+   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -280,7 +284,7 @@ declare class WebKeyboardController {
   constructor();
 
   /**
-   * Insert text into Editor.
+   * Insert characters in the Web input field.
    *
    * @param { string } text - text which will be inserted.
    * @syscap SystemCapability.Web.Webview.Core
@@ -289,7 +293,7 @@ declare class WebKeyboardController {
   insertText(text: string): void;
 
   /**
-   * Delete text from back to front.
+   * Deletes the specified length of characters from the back to the front in the Web input field.
    *
    * @param { number } length - length of text, which will be deleted from back to front.
    * @syscap SystemCapability.Web.Webview.Core
@@ -298,7 +302,7 @@ declare class WebKeyboardController {
   deleteForward(length: number): void;
 
   /**
-   * Delete text from front to back.
+   * Delete the specified length of characters in the Web input field from the beginning to the end.
    *
    * @param { number } length - length of text, which will be deleted from front to back.
    * @syscap SystemCapability.Web.Webview.Core
@@ -965,7 +969,7 @@ declare enum WebCaptureMode {
    * @since 10
    */
   /**
-   * The home screen.
+   * Capture of the home screen.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1052,7 +1056,9 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * The time interval for audio playback to resume.
+   * Validity period for automatically resuming a paused web audio, in seconds.
+   * The maximum validity period is 60 seconds. Due to the approximate value,
+   * the validity period may have a deviation of less than 1 second.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1069,9 +1075,10 @@ declare interface WebMediaOptions {
    * @since 10
    */
   /**
-   * Whether the audio of each web is exclusive.
+   * Whether the audio of multiple Web instances in an application is exclusive.
    *
    * @type { ?boolean }
+   *    {@code true} means audio exclusivity for multiple web instances within the application, {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1180,7 +1187,7 @@ declare class FullScreenExitHandler {
    * @since 11
    */
   /**
-   * Exit the full screen mode.
+   * Called when the Web component exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -1340,7 +1347,7 @@ declare enum RenderExitReason {
    * @since 9
    */
   /**
-   * Segmentation fault.
+   * The rendering process crashes and exits, such as a segment error.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1593,7 +1600,7 @@ declare enum RenderProcessNotRespondingReason {
   INPUT_TIMEOUT = 0,
 
   /**
-   * Timeout for navigation commit.
+   * The new webpage loading navigation response timed out.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
@@ -1780,7 +1787,7 @@ declare class JsResult {
   /**
    * Handle the user's JavaScript result if confirm the prompt dialog.
    *
-   * @param { string } result
+   * @param { string } result - The content of the dialog box entered by the user.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1830,7 +1837,7 @@ declare class FileSelectorResult {
   /**
    * select a list of files.
    *
-   * @param { Array<string> } fileList
+   * @param { Array<string> } fileList - List of files that need to be operated.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -2107,7 +2114,7 @@ declare enum ProtectedResourceType {
    * @since 9
    */
   /**
-   * The MidiSysex resource.
+   * The MidiSysex resource. Currently, only permission events can be reported. MIDI devices are not yet supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2164,7 +2171,7 @@ declare enum ProtectedResourceType {
  * @since 9
  */
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -2230,9 +2237,9 @@ declare class PermissionRequest {
    * @since 9
    */
   /**
-   * Gets the resource that the webpage is trying to access.
+   * Obtains the list of accessible resources requested for the web page.
    *
-   * @returns { Array<string> }
+   * @returns { Array<string> } List of accessible resources requested by the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -2292,7 +2299,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2308,7 +2315,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Grant origin access to a given resource.
+   * Grants the screen capture permission.
    * @param { ScreenCaptureConfig } config The screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2322,7 +2329,7 @@ declare class ScreenCaptureHandler {
    * @since 10
    */
   /**
-   * Reject the request.
+   * Rejects this screen capture request.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -2428,7 +2435,7 @@ declare class ControllerHandler {
    */
   /**
    * Set WebController object.
-   *
+   * Set to null if you don't need to open a new window.
    * @param { WebviewController } controller
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2654,7 +2661,10 @@ declare enum ContextMenuInputFieldType {
 }
 
 /**
- * Defines the embed status, related to {@link NativeEmbedDataInfo}.
+ * Defines the lifecycle of the same-layer tag. 
+ * When the same-layer tag exists on the loaded page, 
+ * CREATE is triggered. When the same-layer tag is moved or is enlarged, 
+ * **UPDATE **is triggered. When the page exits, DESTROY is triggered.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -2663,7 +2673,7 @@ declare enum ContextMenuInputFieldType {
  */
 declare enum NativeEmbedStatus {
   /**
-   * The embed tag create.
+   * The same-layer tag is created.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2672,7 +2682,7 @@ declare enum NativeEmbedStatus {
   CREATE = 0,
 
   /**
-   * The embed tag update.
+   * The same-layer tag is updated.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2681,7 +2691,7 @@ declare enum NativeEmbedStatus {
   UPDATE = 1,
 
   /**
-   * The embed tag destroy.
+   *The same-layer tag is destroyed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2690,7 +2700,7 @@ declare enum NativeEmbedStatus {
   DESTROY = 2,
 
   /**
-   * The embed tag enter backforward cache.
+   * The same-layer tag enters the BFCache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2699,7 +2709,7 @@ declare enum NativeEmbedStatus {
   ENTER_BFCACHE = 3,
 
   /**
-   * The embed tag leave backforward cache.
+   * The same-layer tag leaves the BFCache.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2776,7 +2786,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 9
    */
   /**
-   * Support for pasting.
+   * Pasting is supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2863,7 +2873,8 @@ declare enum WebNavigationType {
 }
 
 /**
- * Defines the web render mode, related to {@link RenderMode}.
+ * Enumerates the rendering mode of Web components. By default, the asynchronous rendering mode is used.
+ * The asynchronous rendering mode is recommended because it has better performance and lower power consumption.
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -2872,7 +2883,9 @@ declare enum WebNavigationType {
  */
 declare enum RenderMode {
   /**
-   * Web and arkui render asynchronously
+   * The Web component is rendered asynchronously. 
+   * The ArkWeb component as a graphic surface node is displayed independently. 
+   * The maximum width of the Web component is 7,680 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2881,7 +2894,9 @@ declare enum RenderMode {
   ASYNC_RENDER = 0,
 
   /**
-   * Web and arkui render synchronously
+   * The Web component is rendered synchronously. 
+   * The ArkWeb component as a graphic canvas node is displayed together with the system component. 
+   * The maximum width of the Web component is 500,000 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2969,6 +2984,8 @@ declare class WebContextMenuParam {
    * Horizontal offset coordinates of the menu within the Web component.
    *
    * @returns { number } The context menu x coordinate.
+   *                     Returns a non-negative integer if normal, otherwise returns -1.
+   *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -2986,6 +3003,8 @@ declare class WebContextMenuParam {
    * Vertical offset coordinates for the menu within the Web component.
    *
    * @returns { number } The context menu y coordinate.
+   *                     Returns a non-negative integer if normal, otherwise returns -1.
+   *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3087,7 +3106,7 @@ declare class WebContextMenuParam {
   /**
    * Returns the text of the selection.
    *
-   * @returns { string } Returns the text of the selection.
+   * @returns { string } Returns the text of the selection, or return null if no text is selected.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3267,6 +3286,10 @@ declare class WebContextMenuResult {
    */
   /**
    * Executes the paste operation related to this context menu.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
+   * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4283,11 +4306,16 @@ declare class JsGeolocation {
    * @since 8
    */
   /**
-   * Report the geolocation permission status from users.
+   * Sets the geolocation permission status of a web page.
    *
-   * @param { string } origin - The origin that ask for the geolocation permission.
-   * @param { boolean } allow - The geolocation permission status.
-   * @param { boolean } retain - Whether to allow the geolocation permission status to be saved to the system.
+   * @param { string } origin - Index of the origin.
+   * @param { boolean } allow - Geolocation permission status. {@code true} means to allow geolocation permission;
+   *                            {@code false} means to disallow geolocation permission.
+   * @param { boolean } retain - Whether the geolocation permission status can be saved to the system.
+   *                             {@code true} means to allow the geolocation permission status to be saved to
+   *                             the system; {@code false} means to disallow the geolocation permission status to
+   *                             be saved to the system. You can manage the geolocation permissions saved
+   *                             to the system through {@link GeolocationPermissions}.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -4347,7 +4375,11 @@ declare class WebCookie {
 }
 
 /**
- * Defines the touch event result.
+ * Represents the event consumption result sent to the Web component. 
+ * For details about the supported events, see TouchType. 
+ * If the application does not consume the event, set this parameter to false, 
+ * and the event will be consumed by the Web component. If the application has consumed the event, 
+ * set this parameter to true, and the event will not be consumed by the Web component.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -4364,9 +4396,12 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Sets the gesture event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } result -  Whether to consume the gesture event.
+   *    {@code true} Indicates the consumption of the gesture event.
+   *    {@code false} Indicates the non-consumption of the gesture event.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -4374,10 +4409,17 @@ declare class EventResult {
   setGestureEventResult(result: boolean): void;
 
   /**
-   * Set whether the event is consumed.
+   * Sets the gesture event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
-   * @param { boolean } stopPropagation - Stops the propagation of events farther along.Default value is true.
+   * @param { boolean } result -  Whether to consume the gesture event.
+   *    {@code true} Indicates the consumption of the gesture event.
+   *    {@code false} Indicates the non-consumption of the gesture event.
+   *    Default value: true.
+   * @param { boolean } stopPropagation - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true. 
+   *    {@code true} Indicates stops the propagation of events farther along.
+   *    {@code false} Indicates the propagation of events farther along.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14
    */
@@ -4404,6 +4446,7 @@ declare class WebController {
 
   /**
    * Let the Web inactive.
+   * It is no longer maintained since API version 9, and it is recommended to use {@link onInactive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -4414,6 +4457,7 @@ declare class WebController {
 
   /**
    * Let the Web active.
+   * It is no longer maintained since API version 9, and it is recommended to use {@link onActive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -4662,7 +4706,11 @@ declare interface WebOptions {
    * @since 10
    */
   /**
-   * Sets the address of the web page to be displayed.
+   * Web resource address. If accessing local resource files, please use $rawfile or resource protocol.
+   * If you load a local resource file that applies the sandbox path outside the package (files support html and txt types),
+   * please use the file:// sandbox file path.
+   * Src cannot dynamically change the address through state variables (for example: @State).
+   * If you need to change it, please reload it through {@link loadUrl}.
    *
    * @type { string | Resource }
    * @syscap SystemCapability.Web.Webview.Core
@@ -4695,8 +4743,9 @@ declare interface WebOptions {
    * @since 10
    */
   /**
-   * Sets the controller of the Web.
-   *
+   * Controller, through which you can control various behaviors of Web components
+   * (including page navigation, declaring cycle state, JavaScript interaction and other behaviors).
+   * Since API Version 9, WebController is no longer maintained, so it is recommended to use WebviewController instead.
    * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4706,7 +4755,9 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
-   * Sets the render mode of the web.
+   * 	Rendering mode.
+   * 	RenderMode.ASYNC_RENDER (default, cannot be dynamically adjusted): The Web component is rendered asynchronously.
+   * 	RenderMode.SYNC_RENDER: The Web component is rendered synchronously within the current execution context.
    *
    * @type { ?RenderMode }
    * @syscap SystemCapability.Web.Webview.Core
@@ -4739,11 +4790,11 @@ declare interface WebOptions {
   incognitoMode? : boolean;
 
   /**
-   * Sets the shared render process token of the web.
-   * When the web is in multiprocess mode, web with the same
-   * sharedRenderProcessToken will attempt to reuse the same render process.
-   * The shared render process will remain active until all associated
-   * web are destroyed.
+   * A token indicating that the current Web component specifies a shared rendering process.
+   * In the multi-rendering process mode, Web components with the same token will preferentially try to reuse
+   * the rendering process bound to the token.
+   * The binding of token to the rendering process occurs in the initialization stage of the rendering process.
+   * When the rendering process has no associated Web component, its binding relationship with token will be removed.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5931,7 +5982,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   result: FileSelectorResult;
 
@@ -5942,7 +5993,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   fileSelector: FileSelectorParam;
 }
@@ -6535,6 +6586,7 @@ declare interface OnLoadInterceptEvent {
 declare interface OnOverScrollEvent {
   /**
    * Based on the leftmost part of the page, the horizontal scroll offset is over.
+   * Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6545,6 +6597,7 @@ declare interface OnOverScrollEvent {
 
   /**
    * Based on the top of the page, the vertical scroll offset is over.
+   * Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6693,7 +6746,7 @@ declare interface JavaScriptProxy {
  */
 declare enum WebKeyboardAvoidMode {
   /**
-   * Resize the visual viewport when keyboard avoidance occurs.
+   * When the soft keyboard avoids, only the size of the visual viewport is adjusted, not the size of the layout viewport.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6702,7 +6755,8 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_VISUAL = 0,
 
   /**
-   * Resize the visual and layout viewport when keyboard avoidance occurs.
+   * By default, when the soft keyboard avoids,
+   * the sizes of the visual viewport and the layout viewport are adjusted at the same time.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6711,7 +6765,7 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_CONTENT = 1,
 
   /**
-   * Do not resize any viewport when keyboard avoidance occurs.
+   * Without adjusting any viewport size, soft keyboard avoidance will not be triggered.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6734,7 +6788,15 @@ declare enum WebElementType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  IMAGE = 1
+  IMAGE = 1,
+
+  /**
+   * Link,corresponding link type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  LINK = 2
 }
 
 /**
@@ -6909,7 +6971,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * fileAccess is disabled by default since API version 12.
    * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
    * directory can still be accessed through the file protocol.
-   * </p> 
+   * </p>
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is false.
@@ -6931,11 +6993,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to allow image resources to be loaded from the network.
+   * Sets whether to enable access to online images through HTTP and HTTPS.
    *
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   *    The default value is true.
-   * {@code false} otherwise.
+   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
+   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6974,9 +7036,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to enable the DOM Storage API permission.
-   *    The default value is false.
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   * Sets whether to enable the DOM Storage API. By default, this feature is disabled.
+   * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API. {@code true} means to enable
+   *                                       the DOM Storage API; {@code false} means to disable the DOM Storage API.
+   *                                       The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7005,9 +7068,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether the Web can automatically load image resources.
-   *    The default value is true.
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   * Sets whether to enable automatic image loading.
+   * 
+   * @param { boolean } imageAccess - Sets whether to enable automatic image loading.
+   *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7036,7 +7101,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
-  * 
+  *
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7089,10 +7154,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to allow access to geographical locations.
-   *
-   * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
-   *    The default value is true.
+   * Set whether to enable geolocation access. By default, this feature is enabled.
+   * For details, see Managing Location Permissions.
+   * 
+   * @param { boolean } geolocationAccess - Whether to enable geolocation access. {@code true} means the Web
+   *                                        allows access to geographical locations; {@code false} means the
+   *                                        Web disallows access to geographical locations. The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7212,9 +7279,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets the dark mode of Web.
+   * Sets the web dark mode. By default, web dark mode is disabled. When it is enabled, 
+   * the Web component enables the dark theme defined for web pages 
+   * if the theme has been defined in prefers-color-scheme of a media query, 
+   * and remains unchanged otherwise. To enable the forcible dark mode, use this API with forceDarkAccess.
    *
-   * @param { WebDarkMode } mode - The dark mode, which can be {@link WebDarkMode}.
+   * @param { WebDarkMode } mode - Web dark mode to set.
+   *     Default value: WebDarkMode.Off.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7231,9 +7302,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * Sets whether to enable forcible dark mode for the web page. 
+   * This API is applicable only when dark mode is enabled in {@link darkMode}.
    *
-   * @param { boolean } access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   * @param { boolean } access Sets whether to enable forcible dark mode for the web page. 
+   *    {@code true} means enable forcible dark mode for the web page. ;
+   *    {@code false} means not enable forcible dark mode for the web page.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7250,9 +7325,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Sets the media options.
+   * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
+   * and whether the audio of multiple Web instances in an application is exclusive.
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
+   * @param { WebMediaOptions } options Set the media policy for the web.
+   * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
+   *    Default value: {resumeInterval: 0, audioExclusive: true}
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7292,10 +7370,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web access overview mode.
+   * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width. 
+   * Currently, only mobile devices are supported.
    *
-   * @param { boolean } overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } overviewModeAccess Whether to load web pages by using the overview mode.
+   *    {@code true} means the Web access overview mode; 
+   *    {@code false} means the Web not access overview mode.
+   *    Default value: true
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7305,8 +7386,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the over-scroll mode for web
+   * When the scrolling mode is enabled, when the user slides to the edge on the web root page, the web will bounce back
+   * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce back.
    *
    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+   *    The default value is OverScrollMode.NEVER.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7366,10 +7450,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web access the database.
+   * Sets whether to enable database access. By default, this feature is disabled.
+   * 
    *
-   * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
-   *    The default value is false.
+   * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
+   *                                     database access; {@code false} means to disable database access.
+   *                                     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7389,6 +7475,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets the initial scale for the Web.
    *
    * @param { number } percent the initial scale for the Web.
+   *                           Value range: (0, 1000].
+   *                           Default value: 100.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7409,9 +7497,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
-   * Set whether to support the viewport attribute of the meta tag in the frontend page.
+   * Sets whether the viewport property of the meta tag is enabled.
+   * 
+   * <p><strong>API Note</strong>:<br>
+   * If the device is 2-in-1, the viewport property is not supported. This means that, 
+   * regardless of whether this parameter is set to true or false, 
+   * the viewport property will not be parsed and a default layout will be used.<br>
+   * If the device is a tablet, the viewport-fit property of the meta tag is parsed regardless of 
+   * whether this parameter is set to true or false. When viewport-fit is set to cover, 
+   * the size of the safe area can be obtained through the CSS attribute.<br>
+   * The viewport parameter of the meta tag on the frontend HTML page is enabled or 
+   * disabled based on whether User-Agent contains the Mobile field. 
+   * If a User-Agent does not contain the Mobile field, the viewport property in the meta tag is disabled by default. 
+   * In this case, you can explicitly set the metaViewport property to true to overwrite the disabled state.
+   * </p>
    *
-   * @param { boolean } enabled {@code true} means support the viewport attribute of the meta tag; {@code false} otherwise.
+   * @param { boolean } enabled Whether the viewport property of the meta tag is enabled. 
+   *    {@code true} means support the viewport attribute of the meta tag,
+   *    the viewport property of the meta tag is not enabled. 
+   *    This means that the property will not be parsed and a default layout will be used.; 
+   *    {@code false} means not support the viewport attribute of the meta tag,
+   *    the viewport property of the meta tag is enabled. 
+   *    This means that the property will be parsed and used for the layout.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7471,7 +7579,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered at the begin of web page loading. 
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7573,9 +7681,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered when requesting to hide the geolocation.
-   *
-   * @param { function } callback The triggered function when requesting to hide the geolocation permission.
+   * Called to notify the user that the request for obtaining the geolocation information received
+   * when {@link onGeolocationShow} is called has been canceled.
+   * 
+   * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7603,9 +7712,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when requesting to show the geolocation permission.
-   *
-   * @param { Callback<OnGeolocationShowEvent> } callback The triggered function when requesting to show the geolocation permission.
+   * Called when a request to obtain the geolocation information is received.
+   * @param { Callback<OnGeolocationShowEvent> } callback - Callback invoked when a request to obtain the geolocation
+   *                                                        information is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7655,6 +7764,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web wants to display a JavaScript alert() dialog.
    *
    * @param {  Callback<OnAlertEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and cancellation buttons).
+   *                  Developers need to use the JsResult interface to notify the web component whether to leave the current page
+   *                  according to the user's choice.
+   *     {@code false} means the pop-up processing result is considered as cancelled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7723,6 +7836,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
    *
    * @param { Callback<OnConfirmEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript confirm() dialog.
+   *     {@code true} means the application can call the custom pop-up capability (including confirmation and cancellation), and needs to call JsResult
+   *                  to notify the Web component whether to leave the current page based on the user's confirmation or cancellation operation.
+   *     {@code false} means the custom pop-up drawn in the function is invalid.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7753,6 +7869,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
    *
    * @param { Callback<OnPromptEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript prompt() dialog.
+   *     {@code true} means the application can call the custom pop-up window capability (including confirmation, cancellation, and input),and needs to
+   *                   call JsResult to notify the Web component of the final processing result based on the user's confirmation or cancellation operation.
+   *     {@code false} means the pop-up window processing result is considered as a cancellation.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7783,6 +7902,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the web page receives a JavaScript console message.
    *
    * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a JavaScript console message.
+   *     {@code true} means the message will no longer be printed to the console.
+   *     {@code false} means it will still be printed to the console.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7971,7 +8092,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the render process exits.
-   *
+   * Multiple Web components may share a single rendering process, and each affected Web component will trigger the callback.
+   * When the application handles this callback, it can call the related interface of the bound webviewController to
+   * restore the page. Such as {@link refresh}, {@link loadUrl}, etc.
+   * For details of component lifecycle callback, please refer to the lifecycle of Web components.
    * @param { Callback<OnRenderExitedEvent> } callback The triggered when the render process exits.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8000,8 +8124,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the file selector shows.
+   * Call this function to handle HTML forms with a "file" input type. If this function is not called or returns false,
+   * the web component provides the default "select file" handling interface. If it returns true, the application can customize
+   * the "select file" response behavior.
    *
    * @param { Callback<OnShowFileSelectorEvent, boolean> } callback The triggered when the file selector shows.
+   *     {@code true} means the user can call the system-provided pop-up window capability.
+   *     {@code false} means the custom pop-up window drawn in the function is invalid.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8238,10 +8367,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
+   * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
    *
-   * @param { Callback<OnPermissionRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
+   * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8268,9 +8396,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param { Callback<OnScreenCaptureRequestEvent> } callback The triggered callback when the host application that web content from the specified origin is
-   *     requesting to capture screen.
+   * Called when a screen capture request is received.
+   * 
+   * @param { Callback<OnScreenCaptureRequestEvent> } callback Called when a screen capture request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8299,6 +8427,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when called to allow custom display of the context menu.
    *
    * @param { Callback<OnContextMenuShowEvent, boolean> } callback The triggered callback when called to allow custom display of the context menu.
+   *     {@code true} means the custom menu is triggered.
+   *     {@code false} means the custom menu is invalid.
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8327,10 +8457,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether media playback needs to be triggered by user gestures.
+   * Set whether to manually play audio-only videos. The playback of muted videos is not controlled by this interface.
    *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
+   * @param { boolean } access Set whether to manually play audio-only videos.
+   *  {@code true}True means setting up automatic playback of audio videos requires users to manually click, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8490,7 +8621,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when web page requires the user to create a window.
-   *
+   * If the {@link setWebController} interface is not called, the render process will be blocked.
+   * If no new window is created, it is set to null when calling the {@link setWebController} interface,
+   * informing the Web that no new window is created.
+   * The new window should avoid being directly overlaid on the original Web component,
+   * and its URL (such as address bar) should be clearly displayed in the same form as the main page to
+   * prevent users from being confused. If credible URL visualization management cannot be achieved,
+   * it is necessary to consider prohibiting the creation of new windows. It should be noted that the source of
+   * the new window request cannot be traced reliably, and it may be initiated by a third party iframe.
+   * The application needs to take defensive measures such as sandbox isolation and permission restriction
+   * by default to ensure security.
    * @param {  Callback<OnWindowNewEvent> } callback The triggered callback when web page requires the user to create a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8508,8 +8648,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Triggered when web page requires the user to close a window.
-   *
+   * Notifies the user of the window closing request.
+   * Like {@link onWindowNew}, from a security perspective, applications should ensure that users can know that
+   * the page they interact with is closed.
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8529,7 +8670,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Set whether multiple windows are supported.
-   *
+   * When multiple windows permissions are enabled, the {@link onWindowNew} event needs to be implemented.
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
    *    The default value is false.
    * @returns { WebAttribute }
@@ -8549,7 +8690,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Key events notify the application before the WebView consumes them.
-   *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
@@ -8567,9 +8707,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview standard font library. The default font is "sans serif".
+   * Sets the standard font family for the web page.
    *
-   * @param { string } family Standard font set series.
+   * @param { string } family Sets the standard font family for the web page. 
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8586,9 +8727,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview serif font library. The default font is "serif".
+   * Sets the standard font family for the web page.
    *
-   * @param { string } family Serif font set series.
+   * @param { string } family Sets the standard font family for the web page.
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8605,9 +8747,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * Sets the sans serif font family for the web page.
    *
-   * @param { string } family Sans serif font set series.
+   * @param { string } family Sets the sans serif font family for the web page.
+   *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8624,9 +8767,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview fixed font library. The default font is "monospace".
+   * Sets the fixed font family for the web page.
    *
-   * @param { string } family Fixed font set series.
+   * @param { string } family Sets the fixed font family for the web page. 
+   *    Default value: monospace.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8643,9 +8787,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * Sets the fantasy font family for the web page.
    *
-   * @param { string } family fantasy font set series.
+   * @param { string } family Sets the fantasy font family for the web page.
+   *    Default value: fantasy.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8662,9 +8807,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the font of webview cursive font library. The default font is "cursive".
+   * Sets the cursive font family for the web page.
    *
-   * @param { string } family Cursive font set series.
+   * @param { string } family Sets the cursive font family for the web page. 
+   *    Default value: cursive.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8681,9 +8827,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * Sets the default font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Default fixed font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 13.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8700,9 +8849,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+   * Sets the default font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Default font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72, 
+   *    and values less than 1 are handled as 1. Default value: 16.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8719,9 +8870,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Sets the minimum font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Minimum font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8739,9 +8893,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Sets the minimum logical font size for the web page.
    *
-   * @param { number } size Font size.
+   * @param { number } size Minimum logical font size to set, in px. 
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8812,6 +8969,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether paint horizontal scroll bar.
    *
+   * <p><strong>API Note</strong>:<br>
+   * After controlling the horizontal scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
+   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
+   * </p>
+   *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
    *    The default value is true.
    * @returns { WebAttribute }
@@ -8832,7 +8994,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether paint vertical scroll bar.
+   * Set whether paint vertical scroll bar, including the system default scrollbar and user-defined scrollbar.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * After controlling the vertical scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
+   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
+   * </p>
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
    *    The default value is true.
@@ -8976,9 +9143,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Set whether enable pinch smooth mode.
+   * Sets whether to enable smooth pinch mode for the web page.
    *
-   * @param { boolean } isEnabled True if it needs to enable smooth mode.
+   * @param { boolean } isEnabled Whether to enable smooth pinch mode for the web page.
+   *    {@code true} means to enable smooth pinch mode for the web page;
+   *    {@code false} means not to enable smooth pinch mode for the web page.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9027,9 +9197,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the playing state of audio on web page changed.
+   * Set the callback function when the audio playback status on the webpage changes.
    *
-   * @param { Callback<OnAudioStateChangedEvent> } callback The playing state of audio on web page.
+   * @param { Callback<OnAudioStateChangedEvent> } callback Callback invoked when the audio playback status on the webpage changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9126,8 +9296,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
-   * This callback can not use the interface about manipulating web pages.
+   * The callback is triggered when the Controller is successfully bound to the Web component,
+   * and the Controller must be a WebviewController, and it is forbidden to call the interface related to
+   * the Web component before the event callback, otherwise a js-error exception will be thrown.
+   * Because the webpage has not been loaded when the callback is called, it is impossible to use interfaces related to
+   * operating webpages in the callback, such as {@link zoomIn} and {@link zoomOut}, and you can use interfaces unrelated to
+   * operating webpages such as {@link loadUrl} and {@link getWebId}.
    * @param { function } callback The triggered callback when web controller initialization success.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9231,8 +9405,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Set web layout Mode.
-   * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
+   * Sets the web layout mode.
+   * 
+   * <p><strong>API Note</strong>:<br>
+   * Currently, only two web layout modes are supported: WebLayoutMode.NONE and WebLayoutMode.FIT_CONTENT.
+   * The following restrictions apply with the usage of WebLayoutMode.FIT_CONTENT:
+   * - If the Web component is wider or longer than 7680 px, specify the RenderMode.SYNC_RENDER mode 
+   *   when creating the Web component; otherwise, the screen may be blank.
+   * - After the Web component is created, dynamic switching of the layoutMode is not supported.
+   * - The width and height of a Web component cannot exceed 500,000 px when the RenderMode.SYNC_RENDER mode is specified, 
+   *   and cannot exceed 7680 px when the RenderMode.ASYNC_RENDER mode is specified.
+   * - Frequent changes to the page width and height will trigger a re-layout of the Web component, 
+   *   which can affect the user experience.
+   * - Waterfall web pages are not supported (drop down to the bottom to load more).
+   * - Only height adaptation is supported. Width adaptation is not supported.
+   * - Because the height is adaptive to the web page height, 
+   *   the component height cannot be changed by modifying the component height attribute.
+   * </p>
+   * 
+   * @param { WebLayoutMode } mode - The web layout mode, follow the system or adaptive layout.
+   *    The default value is WebLayoutMode.NONE.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9251,6 +9443,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called to setting the nested scroll options.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
+   * to achieve scrolling linkage with the parent component.<br>
+   * When value is of type NestedScrollOptionsExt (four directions: up, down, left, and right), the default scrolling options
+   * for scrollUp, scrollDown, scrollLeft, and scrollRight are NestedScrollMode.SELF_FIRST.<br>
+   * When value is of type NestedScrollOptions (two directions: forward and backward), the default scrolling options for scrollForward
+   * and scrollBackward are NestedScrollMode.SELF_FIRST.<br>
+   * Supported nested scrolling containers: Grid, List, Scroll, Swiper, Tabs, WaterFlow, Refresh, bindSheet.<br>
+   * Supported nested scrolling input events: gestures, mouse, and trackpad.<br>
+   * In nested scrolling scenarios, since web scrolling to the edge will prioritize triggering the overscroll bounce effect,
+   * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
+   * </p>
    *
    * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
    *     nested scrolling.
@@ -9279,10 +9484,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
   /**
-   * Register native pattern with specific tag and type.
+   * Registers the HTML tag name and type for same-layer rendering. 
+   * The tag name only supports object and embed. 
+   * The tag type only supports visible ASCII characters.<br>
+   * If the specified type is the same as the W3C standard object or embed type, 
+   * the ArkWeb kernel identifies the type as a non-same-layer tag.<br>
+   * This API is also controlled by the enableNativeEmbedMode API and 
+   * does not take effect if same-layer rendering is not enabled. When this API is not used, 
+   * the ArkWeb engine recognizes the embed tags with the "native/" prefix as same-layer tags.
    *
-   * @param { string } tag - Tag name used by html webpage.
-   * @param { string } type - Type of the tag.
+   * @param { string } tag - Tag name.
+   * @param { string } type - Type of the tag, The kernel matches this parameter with a prefix.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9308,7 +9520,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
   /**
-   * Triggered when embed visibility changes.
+   * Called when the visibility of a same-layer tag (such as an Embed tag or an Object tag) on a web page changes in the viewport. 
+   * By default, the same-layer tag is invisible. If the rendering tag is visible when you access the page for the first time, 
+   * the callback is triggered; otherwise, it is not triggered. That is, if the same-layer tag changes from a non-zero value to 0 x 0, 
+   * the callback is triggered. If the rendering tag size changes from 0 x 0 to a non-zero value, the callback is not triggered. 
+   * If all the same-layer tags are invisible, they are reported as invisible. If all the same-layer rendering tags or part of them are visible, 
+   * they are reported as invisible.
    *
    * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
    * @returns { WebAttribute }
@@ -9337,7 +9554,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Called to set copy option
    *
-   * @param { CopyOptions } value - copy option.
+   * @param { CopyOptions } value - copy option.The default value is CopyOptions.LocalDevice.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9358,9 +9575,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
   /**
-   * Enable whether to automatically resize text. The default value is true.
+   * Sets whether automatic text resizing is enabled.
    *
-   * @param { boolean } textAutosizing - Whether to enable text autosizing.
+   * @param { boolean } textAutosizing - Whether automatic text resizing is enabled.
+   *    {@code true} means enable text autosizing;
+   *    {@code false} means disable text autosizing.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9369,9 +9589,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native media player to play web page media source.
+   * Enable the application takeover of web media playback feature.
    *
    * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
+   *    enable: whether to enable the feature, shouldOverlay: whether the image of the video player
+   *    taken over by the application will overlay the web page content, if this feature is enabled.
+   *    Default value: {enable: false, shouldOverlay: false}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9381,7 +9604,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when render process not responding.
-   *
+   * If the Web component can't handle the input event, or can't navigate to the new URL within a reasonable time range,
+   * the Web page process is considered unresponsive and the callback will be triggered.
+   * As long as the web process has been unresponsive, this callback may continue to trigger until
+   * the web process responds again, at which time {@link onRenderProcessResponding} will trigger.
+   * Applications can terminate the associated rendering process through the WebviewController interface {@link terminateRenderProcess},
+   * which may affect other Web components in the same rendering process.
    * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9390,7 +9618,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
 
   /**
-   * Triggered when the unresponsive render process becomes responsive.
+   * This callback function is triggered when the rendering process changes from unresponsive state to normal operation state,
+   * which indicates that the webpage is not really stuck.
    *
    * @param { OnRenderProcessRespondingCallback } callback The triggered function when the unresponsive render process becomes responsive.
    * @returns { WebAttribute }
@@ -9401,8 +9630,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Set the custom text menu.
+   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon, and callback method.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * This interface only supports selecting plain text. When the selected content contains images and other non-text content,
+   * garbled characters will be displayed in the action information.
+   * </p>
    *
    * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   *                                                                 The number of menu items, the content size of the menu, and the startIcon
+   *                                                                 icon size are consistent with the ArkUI Menu component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
@@ -9412,9 +9649,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
   /**
-   * Triggered when the viewport-fit meta is detected for web page.
+   * Called when the viewport-fit configuration in the web page's <meta> tag changes. 
+   * The application can adapt its layout to the viewport within this callback.
    *
-   * @param { OnViewportFitChangedCallback } callback - The callback for onViewportFitChanged.
+   * @param { OnViewportFitChangedCallback } callback - Callback invoked when the viewport-fit configuration in the web page's <meta> tag changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9423,10 +9661,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 
   /**
-   * When the soft keyboard is about to be displayed on the current Web,
-   * it gives the application the opportunity to intercept the system keyboard attachment.
-   * The application can return the keyboard options to control the web to
-   * pull up the soft keyboard of the different type.
+   * Editable elements (such as input labels) in web pages will call back to this interface before pulling up
+   * the soft keyboard. Applications can use this interface to intercept the pop-up of the system soft keyboard
+   * and configure the application-customized soft keyboard (according to this interface,
+   * the application can decide to use the system default soft keyboard/the system soft keyboard with
+   * the enter key customized/all the soft keyboards customized by the application).
    *
    * @param { WebKeyboardCallback } callback - The callback for onInterceptKeyboardAttach.
    * @returns { WebAttribute }
@@ -9450,9 +9689,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 
   /**
-   * Set web avoidance keyboard mode. The default value is WebKeyboardAvoidMode.RESIZE_CONTENT.
-   *
+   * When the keyboard avoidance mode set by UIContext is {@link KeyboardAvoidMode.RESIZE} mode,
+   * the interface function will not take effect.
    * @param { WebKeyboardAvoidMode } mode - The web keyboard avoid mode, which can be {@link WebKeyboardAvoidMode}.
+   *                                        Web soft keyboard avoidance is not recommended in nested scrolling scenes,
+   *                                        including RESIZE_VISUAL and RESIZE_CONTENT.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9463,7 +9704,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set the custom text menu.
    *
+   * <p><strong>API Note</strong>:<br>
+   * The onCreateMenu interface is used to modify, add, and delete menu options.If you want to hide the text menu,
+   * you need to return an empty array.<br>
+   * The onMenuItemClick interface allows you to define the callback function for menu options.This function is
+   * triggered when a menu option is clicked, and it determines whether to execute the system's default callback
+   * based on the return value. Returning true prevents the system callback from executing, while returning false
+   * continues with the system callback.<br>
+   * The editMenuOptions interface makes the selectionMenuOptions (deprecated) not work when used at the same time.
+   * </p>
+   *
    * @param { EditMenuOptions } editMenu - Customize text menu options.
+   *                                       The number of menu items, as well as the content size and icon size of the menu,
+   *                                       should be consistent with the ArkUI Menu component.
+   *                                       The system-provided id enumeration values (TextMenuItemId) in the menu are only
+   *                                       supportedfor CUT, COPY, PASTE, and SELECT_ALL in the web.
+   *                                       The textRange parameter in the onMenuItemClick function is meaningless in the web,
+   *                                       and the input value is -1.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12

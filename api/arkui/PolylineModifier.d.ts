@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Polyline Modifier
+ *
+ * @extends PolylineAttribute
+ * @implements AttributeModifier<PolylineAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class PolylineModifier extends PolylineAttribute implements AttributeModifier<PolylineAttribute> {
 
   /**

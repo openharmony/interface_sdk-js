@@ -156,6 +156,10 @@ declare namespace audio {
    */
   /**
    * Obtains an {@link AudioManager} instance.
+   * <p><strong>NOTE</strong>:
+   * The {@link AudioManager} instance is not a singleton.
+   * </p>
+   * 
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -218,7 +222,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -239,7 +243,7 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -807,7 +811,7 @@ declare namespace audio {
      * Accessory devices, such as the mic on remote control.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 19
      */
     ACCESSORY = 26,
 
@@ -1561,7 +1565,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Voice communication usage.
+     * Used for network voice call, such as WeChat voice call, QQ voice call, etc.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -1734,7 +1738,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
-     * Video call usage.
+     * Used for network video call.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12
@@ -1922,7 +1926,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Audio renderer flags.
+     * Audio renderer flags. This method is currently reserved, suggest setting the default value to 0.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
@@ -2150,19 +2154,19 @@ declare namespace audio {
    */
   enum AudioRendererRate {
     /**
-     * Normal rate.
+     * Normal playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_NORMAL = 0,
     /**
-     * Double rate.
+     * Double playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_DOUBLE = 1,
     /**
-     * Half rate.
+     * Half playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -2305,6 +2309,20 @@ declare namespace audio {
      * @since 12
      */
     INTERRUPT_HINT_UNDUCK = 5,
+
+    /**
+     * Mute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_MUTE = 6,
+
+    /**
+     * Unmute the stream.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    INTERRUPT_HINT_UNMUTE = 7,
   }
 
   /**
@@ -2563,7 +2581,7 @@ declare namespace audio {
    * @since 7
    */
   /**
-   * Implements audio volume and audio device management.
+   * Implements audio stream, volume, device, effect and many other management functions.
    * @typedef AudioManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -2905,7 +2923,8 @@ declare namespace audio {
     getExtraParameters(mainKey: string, subKeys?: Array<string>): Promise<Record<string, string>>;
 
     /**
-     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * Sets a device to the active state. Applications that are not in a call state cannot modify the calling device by this method.
+     * This method uses an asynchronous callback to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active
      *        status, and false means the opposite.
@@ -2917,7 +2936,8 @@ declare namespace audio {
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets a device to the active state. This method uses a promise to return the result.
+     * Sets a device to the active state. Applications that are not in a call state cannot modify the calling device by this method.
+     * This method uses a promise to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active
      *        status, and false means the opposite.
@@ -3031,6 +3051,27 @@ declare namespace audio {
      * @since 12
      */
     getAudioSceneSync(): AudioScene;
+
+    /**
+     * Subscribes to audio scene change events. When system changes to communication status, registered clients
+     * will receive the callback.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used to obtain the latest audio scene.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    on(type: 'audioSceneChange', callback: Callback<AudioScene>): void;
+
+    /**
+     * Unsubscribes to audio scene change events.
+     * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
+     * supported.
+     * @param { Callback<AudioScene> } callback - Callback used in subscription.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 20
+     */
+    off(type: 'audioSceneChange', callback?: Callback<AudioScene>): void;
 
     /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
@@ -3436,7 +3477,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * Sets a device to the active state. Only the current calling application can be set to take effect.
+     * This method uses an asynchronous callback to return the result.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to
      *  the active status, and false means the opposite.
@@ -3456,7 +3498,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Sets a device to the active state. This method uses a promise to return the result.
+     * Sets a device to the active state. Only the current calling application can be set to take effect.
+     * This method uses a promise to return the result.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to the active status,
      * and false means the opposite.
@@ -4311,6 +4354,15 @@ declare namespace audio {
      * @since 12
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+    /**
+     * Checks whether the specified audio source type supports echo cancellation
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+     isAcousticEchoCancelerSupported(sourceType: SourceType): boolean;
   }
 
   /**
@@ -4765,6 +4817,32 @@ declare namespace audio {
      * @since 19
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Subscribes to active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to listen for.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
+
+    /**
+     * Unsubscribes from active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
   }
 
   /**
@@ -6906,7 +6984,7 @@ declare namespace audio {
      * @since 11
      */
     /**
-     * Unknown.
+     * This is default device change reason.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -7046,7 +7124,7 @@ declare namespace audio {
    * Audio timestamp info.
    * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
-   * @since 18
+   * @since 19
    */
   interface AudioTimestampInfo {
     /**
@@ -7054,7 +7132,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly framePos: number;
 
@@ -7063,7 +7141,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 18
+     * @since 19
      */
     readonly timestamp: number;
   }
@@ -7247,7 +7325,7 @@ declare namespace audio {
     getAudioEffectMode(): Promise<AudioEffectMode>;
 
     /**
-     * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
+     * Sets audio effect mode for current audio renderer. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -7259,7 +7337,7 @@ declare namespace audio {
      */
     setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback<void>): void;
     /**
-     * Sets the current audio effect mode. This method uses a promise to return the result.
+     * Sets audio effect mode for current audio renderer. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -7337,10 +7415,11 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
-     * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
      */
@@ -7368,8 +7447,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -7382,7 +7462,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -7392,7 +7472,7 @@ declare namespace audio {
      * @returns { AudioTimestampInfo } The returned timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -7508,6 +7588,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses an asynchronous callback to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -7522,6 +7607,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses a promise to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -8075,6 +8165,11 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
+     * <p><strong>NOTE</strong>:
+     * Before renderer release, the value of internal records frames will continue to increase,
+     * and operations such as stop/pause/flush/drain will not reset this value.
+     * </p>
+     *
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
@@ -8157,7 +8252,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Subscribes audio state change event callback.
+     * Subscribes audio renderer state change event callback.
      * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -8443,7 +8538,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 14
      */
-    SOURCE_TYPE_UNPROCESSED = 14
+    SOURCE_TYPE_UNPROCESSED = 14,
+    /**
+     * live broadcast source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    SOURCE_TYPE_LIVE = 17
   }
 
   /**
@@ -8836,9 +8937,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
-     * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the  audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8851,8 +8953,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8865,7 +8968,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 18
+     * @since 19
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -8875,7 +8978,7 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-      * @since 18
+      * @since 19
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -9027,6 +9130,17 @@ declare namespace audio {
      * @since 12
      */
     getOverflowCountSync(): number;
+
+    /**
+     * Set if capturer want to be muted instead of interrupted.
+     * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
+     *     instead of interrupted.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
@@ -9346,17 +9460,17 @@ declare namespace audio {
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY. 
+     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
      * Other capturers' devices will not be affected by this method.
      * This method can only be used before the capture stream starts. Besides,
      * if audio accessory is not connected, this method will report fail. After
      * calling this function, the input device of this capturer will not be affected
      * by other interfaces.
-     * @throws { BusinessError } 202 - Caller is not a system application.     
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 18
+     * @since 19
      */
     setInputDeviceToAccessory(): void;
   }
@@ -9997,7 +10111,7 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Audio Effect Mode effect none.
+     * Audio Effect Mode effect none. This effect mode will disable audio effect process for current audio renderer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
      * @since 12
