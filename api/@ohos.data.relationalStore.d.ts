@@ -942,6 +942,36 @@ declare namespace relationalStore {
   }
 
   /**
+   * Defines an SQL statement.
+   *
+   * @interface SqlInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  interface SqlInfo {
+    /**
+     * SQL statement.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    sql: string;
+
+    /**
+     * Parameters of the SQL statement.
+     *
+     * @type { Array<ValueType> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    args: Array<ValueType>;
+  }
+
+  /**
    * Describes the {@code RdbStore} type.
    *
    * @enum { number }
@@ -8489,6 +8519,57 @@ declare namespace relationalStore {
    * @since 18
    */
     function isTokenizerSupported(tokenizer: Tokenizer): boolean;
+
+  /**
+   * Obtains an SQL statement used for inserting data.
+   *
+   * @param { string } table - Name of the target table.
+   * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
+   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
+   * @returns { SqlInfo } - Returns an SQL insert statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
+  /**
+   * Obtains an SQL statement used for updating data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for updating data. For details, see {@link RdbPredicates}.
+   * @param { ValuesBucket } values - Row of data to be updated in the database.
+   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
+   * @returns { SqlInfo } - Returns an SQL update statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
+  /**
+   * Obtains an SQL statement used for deleting data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
+   * @returns { SqlInfo } - Returns an SQL delete statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
+  
+  /**
+   * Obtains an SQL statement used for querying data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
+   * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
+   * @returns { SqlInfo } - Returns an SQL query statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>):SqlInfo;
 }
 
 export default relationalStore;
