@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import { CommonConfiguration,Callback,CommonMethod,Optional,ContentModifier } from './common'
+import { ResourceStr } from './units';
 /*** endif */
 
 /**
@@ -153,10 +154,21 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Background URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  backgroundUri: string;
+  backgroundUri: ResourceStr;
 
   /**
    * Foreground URI option.
@@ -190,10 +202,21 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts 11
+   */
+  /**
+   * Foreground URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  foregroundUri: string;
+  foregroundUri: ResourceStr;
 
   /**
    * Secondary URI option.
@@ -227,10 +250,21 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts 11
+   */
+  /**
+   * Secondary URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  secondaryUri?: string
+  secondaryUri?: ResourceStr
 }
 
 /**

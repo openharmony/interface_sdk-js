@@ -116,6 +116,78 @@ export interface Button {
 }
 
 /**
+ * Defines the one-button array.
+ *
+ * @typedef { [Button] } PromptSingleButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptSingleButton = [Button];
+
+/**
+ * Defines the two-buttons array.
+ *
+ * @typedef { [Button, Button | undefined] } PromptDoubleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptDoubleButtons = [Button, Button | undefined];
+
+/**
+ * Defines the three-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined] } PromptTripleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptTripleButtons = [Button, Button | undefined, Button | undefined];
+
+/**
+ * Defines the four-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined] } PromptQuadrupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptQuadrupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined];
+
+/**
+ * Defines the five-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptQuintupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptQuintupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+
+/**
+ * Defines the six-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptSextupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptSextupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+
+/**
  * Defines the response of ShowDialog.
  *
  * @interface ShowDialogSuccessResponse
@@ -230,13 +302,13 @@ export interface ShowDialogOptions {
    * The array structure is {text:'button', color: '#666666'}.
    * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
    *
-   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @type { ?(PromptSingleButton | PromptDoubleButtons | PromptTripleButtons) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  buttons?: [Button, Button | undefined, Button | undefined];
+  buttons?: PromptSingleButton | PromptDoubleButtons | PromptTripleButtons;
 
   /**
    * Called when the dialog box is displayed.
@@ -354,13 +426,13 @@ export interface ShowActionMenuOptions {
    * The array structure is {text:'button', color: '#666666'}.
    * One to six buttons are supported.
    *
-   * @type { ?[Button, Button | undefined, Button | undefined] }
+   * @type { PromptSingleButton | PromptDoubleButtons | PromptTripleButtons | PromptQuadrupleButtons | PromptQuintupleButtons | PromptSextupleButtons }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  buttons?: [Button, Button | undefined, Button | undefined];
+  buttons: PromptSingleButton | PromptDoubleButtons | PromptTripleButtons | PromptQuadrupleButtons | PromptQuintupleButtons | PromptSextupleButtons;
 
   /**
    * Called when the dialog box is displayed.

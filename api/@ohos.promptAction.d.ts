@@ -160,17 +160,23 @@ export declare class LevelOrder {
  */
 declare namespace promptAction {
   /**
+   * Defines the option of show toast.
+   *
    * @typedef ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines the option of show toast.
+   *
    * @typedef ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines the option of show toast.
+   *
    * @typedef ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -445,17 +451,23 @@ declare namespace promptAction {
   }
 
   /**
+   * Defines button in promptAction.
+   *
    * @typedef Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines button in promptAction.
+   *
    * @typedef Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines button in promptAction.
+   *
    * @typedef Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -532,17 +544,95 @@ declare namespace promptAction {
   }
 
   /**
+   * Defines the one-button array.
+   *
+   * @typedef { [Button] } PromptActionSingleButton
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionSingleButton = [Button];
+
+  /**
+   * Defines the two-buttons array.
+   *
+   * @typedef { [Button, Button | undefined] } PromptActionDoubleButtons
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionDoubleButtons = [Button, Button | undefined];
+
+  /**
+   * Defines the three-buttons array.
+   *
+   * @typedef { [Button, Button | undefined, Button | undefined] } PromptActionTripleButtons
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionTripleButtons = [Button, Button | undefined, Button | undefined];
+
+  /**
+   * Defines the four-buttons array.
+   *
+   * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined] } PromptActionQuadrupleButtons
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionQuadrupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined];
+
+  /**
+   * Defines the five-buttons array.
+   *
+   * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptActionQuintupleButtons
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionQuintupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+
+  /**
+   * Defines the six-buttons array.
+   *
+   * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptActionSextupleButtons
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PromptActionSextupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+
+  /**
+   * Defines success response of show dialog.
+   *
    * @typedef ShowDialogSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines success response of show dialog.
+   *
    * @typedef ShowDialogSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines success response of show dialog.
+   *
    * @typedef ShowDialogSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -581,17 +671,23 @@ declare namespace promptAction {
   }
 
   /**
+   * Defines the option of show dialog.
+   *
    * @typedef ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines the option of show dialog.
+   *
    * @typedef ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines the option of show dialog.
+   *
    * @typedef ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1740,17 +1836,23 @@ declare namespace promptAction {
   }
 
   /**
+   * Defines success response of action menu.
+   *
    * @typedef ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines success response of action menu.
+   *
    * @typedef ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines success response of action menu.
+   *
    * @typedef ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1788,17 +1890,23 @@ declare namespace promptAction {
   }
 
   /**
+   * Defines the option of action menu.
+   *
    * @typedef ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
+   * Defines the option of action menu.
+   *
    * @typedef ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
+   * Defines the option of action menu.
+   *
    * @typedef ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1871,14 +1979,14 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
-     * @type { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] }
+     * @type { PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    buttons: [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+    buttons: PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons;
 
     /**
      * Whether to display in the sub window.
