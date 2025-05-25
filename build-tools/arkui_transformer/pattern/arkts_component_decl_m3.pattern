@@ -5,4 +5,4 @@ export declare function %COMPONENT_NAME%(
     %FUNCTION_PARAMETERS%
     @memo
     content_?: () => void,
-): UI%COMPONENT_NAME%Attribute
+): %COMPONENT_NAME%Attribute
