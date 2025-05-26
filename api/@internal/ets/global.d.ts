@@ -772,7 +772,7 @@ export declare function canIUse(syscap: string): boolean;
  * }
  *
  */
-export declare function isApiVersionGreaterOrEqual(apiversion: string): boolean;
+export declare function isApiVersionGreaterOrEqual(apiVersion: string): boolean;
 
 /**
  * Obtains all attributes of the component with the specified ID.
