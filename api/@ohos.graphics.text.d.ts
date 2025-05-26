@@ -956,7 +956,7 @@ declare namespace text {
      * Any text component using this alias in its `fontFamilies` property will fall back to the default system font.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
-     * unload a font that is currently in use by UI components may lead to text rendering anomalies,
+     * unload a font that is currently in used may lead to text rendering anomalies,
      * including garbled characters or missing glyphs.
      * @param { string } name - The alias of the font to unload.
      * This must exactly match the name used when loading the font through.
@@ -971,7 +971,7 @@ declare namespace text {
      * Any text component using this alias in its `fontFamilies` property will fall back to the default system font.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
-     * unload a font that is currently in use by UI components may lead to text rendering anomalies,
+     * unload a font that is currently in used may lead to text rendering anomalies,
      * including garbled characters or missing glyphs.
      * @param { string } name - The alias of the font to unload.
      * This must exactly match the name used when loading the font through.
