@@ -214,6 +214,15 @@ declare interface AccessibilityEvent {
    * @since 12
    */
   textAnnouncedForAccessibility?: string;
+
+  /**
+   * The content of add/remove accessibility extraInfo text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+  extraInfo?: string;
 }
 
 /**
