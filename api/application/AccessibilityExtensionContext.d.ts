@@ -307,7 +307,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   holdRunningLockSync(): void;
 
@@ -320,7 +319,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   unholdRunningLockSync(): void;
 
@@ -335,7 +333,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   on(type: 'preDisconnect', callback: Callback<void>): void;
 
@@ -350,7 +347,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   off(type: 'preDisconnect', callback?: Callback<void>): void;
 
@@ -363,7 +359,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   notifyDisconnect(): void;
 }
