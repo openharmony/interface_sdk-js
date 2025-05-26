@@ -323,11 +323,9 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the form.
    * @param { formInfo.FormLocation } newLocation - Indicates the new form location of the form.
-   *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 20
-   * @arkts 1.2
    */
   onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
 }
