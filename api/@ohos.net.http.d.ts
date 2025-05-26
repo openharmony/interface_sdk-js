@@ -928,12 +928,53 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1054,12 +1095,54 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1180,12 +1263,54 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } [options] - Optional parameters {@link HttpRequestOptions}.
+     * @returns { Promise<HttpResponse> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
