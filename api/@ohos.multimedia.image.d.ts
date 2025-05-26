@@ -4976,7 +4976,8 @@ declare namespace image {
    * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions, callback: AsyncCallback<PixelMap>): void;
 
@@ -4997,7 +4998,8 @@ declare namespace image {
    * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
@@ -5131,7 +5133,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createPixelMapFromSurface(surfaceId: string, region: Region): Promise<PixelMap>;
 
@@ -5366,7 +5369,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -5410,7 +5414,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
@@ -5423,7 +5428,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
@@ -5516,13 +5522,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
    * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
    *            {@link ImageFormat} constants.
-   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @param { int } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function createImageReceiver(size: Size, format: ImageFormat, capacity: number): ImageReceiver;
+  function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver;
 
   /**
    * Creates an ImageCreator instance.
@@ -5546,13 +5553,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { Size } size - The default {@link Size} in pixels of the Images that this creator will produce.
    * @param { ImageFormat } format - The format of the Image that this creator will produce. This must be one of the
    *            {@link ImageFormat} constants.
-   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @param { int } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator;
+  function createImageCreator(size: Size, format: ImageFormat, capacity: int): ImageCreator;
   /**
    * PixelMap instance.
    *
@@ -6117,7 +6125,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -7422,7 +7431,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Releases this Picture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): void
   }
@@ -7463,7 +7473,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
@@ -8166,7 +8177,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700302 - Memory allocation failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise<PixelMap>;
 
@@ -8202,7 +8214,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700302 - Memory allocation failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap;
 
@@ -8258,7 +8271,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
@@ -8310,7 +8324,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -8366,7 +8381,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -8392,7 +8408,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
-     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8406,9 +8422,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getDelayTimeList(): Promise<Array<number>>;
+    getDelayTimeList(): Promise<Array<int>>;
 
     /**
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
@@ -8432,7 +8449,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
-     * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
+     * @param { AsyncCallback<Array<int>> } callback Callback used to return the array.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8446,9 +8463,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
+    getDelayTimeList(callback: AsyncCallback<Array<int>>): void;
 
     /**
      * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
@@ -8942,7 +8960,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly supportedFormats: Array<string>;
   }
@@ -9188,7 +9207,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Compresses or packs an image into a file and uses a callback to return the result.
      *
      * @param { ImageSource } source Image to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { int } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
      * @throws { BusinessError } 62980096 - The Operation failed.
@@ -9202,15 +9221,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    packToFile(source: ImageSource, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+    packToFile(source: ImageSource, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
     /**
      * Compresses or packs an image into a file and uses a promise to return the result.
      *
      * @param { ImageSource } source Image to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { int } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 62980096 - The Operation failed.
@@ -9224,15 +9244,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    packToFile(source: ImageSource, fd: number, options: PackingOption): Promise<void>;
+    packToFile(source: ImageSource, fd: int, options: PackingOption): Promise<void>;
 
     /**
      * Compresses or packs an image into a file and uses a callback to return the result.
      *
      * @param { PixelMap } source PixelMap to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { int } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
      * @throws { BusinessError } 62980096 - The Operation failed.
@@ -9246,15 +9267,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    packToFile(source: PixelMap, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+    packToFile(source: PixelMap, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
     /**
      * Compresses or packs an image into a file and uses a promise to return the result.
      *
      * @param { PixelMap } source PixelMap to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { int } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 62980096 - The Operation failed.
@@ -9268,9 +9290,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
+    packToFile(source: PixelMap, fd: int, options: PackingOption): Promise<void>;
 
     /**
      * Compresses a Pixelmap sequence into gif.
@@ -9334,7 +9357,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9342,16 +9366,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Compresses or packs an image into a file and uses a promise to return the result.
      *
      * @param { Picture } picture Picture to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { int } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
+    packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
 
     /**
      * Supported image formats.
@@ -9368,7 +9393,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly supportedFormats: Array<string>;
   }
@@ -9378,7 +9404,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Image {
     /**
@@ -9386,7 +9413,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clipRect: Region;
 
@@ -9396,19 +9424,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { Size }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly size: Size;
 
     /**
      * Image format.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly format: number;
+    readonly format: int;
 
     /**
      * Image timestamp.
@@ -9416,7 +9446,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly timestamp: number;
 
@@ -9426,7 +9457,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ComponentType } componentType The component type of image.
      * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
 
@@ -9436,7 +9468,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ComponentType } componentType The component type of image.
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getComponent(componentType: ComponentType): Promise<Component>;
 
@@ -9445,7 +9478,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9454,7 +9488,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -9464,7 +9499,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImageReceiver {
     /**
@@ -9473,19 +9509,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { Size }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly size: Size;
 
     /**
      * Image capacity.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly capacity: number;
+    readonly capacity: int;
 
     /**
      * Image format.
@@ -9493,7 +9531,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { ImageFormat }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly format: ImageFormat;
 
@@ -9503,7 +9542,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<string> } callback Callback used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getReceivingSurfaceId(callback: AsyncCallback<string>): void;
 
@@ -9513,7 +9553,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getReceivingSurfaceId(): Promise<string>;
 
@@ -9522,7 +9563,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readLatestImage(callback: AsyncCallback<Image>): void;
 
@@ -9531,7 +9573,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readLatestImage(): Promise<Image>;
 
@@ -9559,7 +9602,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageArrival' } type Callback used to return the next image.
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
@@ -9569,7 +9613,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageArrival' } type - Event type.
      * @param { AsyncCallback<void> } callback Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
 
@@ -9578,7 +9623,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9587,7 +9633,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -9597,18 +9644,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef ImageCreator
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ImageCreator {
     /**
      * Image capacity.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly capacity: number;
+    readonly capacity: int;
 
     /**
      * Image format.
@@ -9616,7 +9665,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { ImageFormat }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly format: ImageFormat;
 
@@ -9683,7 +9733,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9692,7 +9743,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
