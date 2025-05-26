@@ -816,7 +816,7 @@ declare namespace asset {
    * This function is used to query the synchronization result.
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be synchronized.
-   * @returns { Promise<SyncResult> } a promise that resolves with the result of asset synchronization.
+   * @returns { Promise<SyncResult> } a promise object that can be resolved into the result of asset synchronization.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
    * @throws { BusinessError } 24000010 - IPC failed.
