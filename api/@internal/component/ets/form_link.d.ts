@@ -227,8 +227,7 @@ declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const FormLink: FormLinkInterface;
 
@@ -245,7 +244,6 @@ declare const FormLink: FormLinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const FormLinkInstance: FormLinkAttribute;
