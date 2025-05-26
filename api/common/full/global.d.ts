@@ -144,7 +144,7 @@ export declare function canIUse(syscap: string): boolean;
  * }
  *
  */
-export declare function isApiVersionGreaterOrEqual(apiversion: string): boolean;
+export declare function isApiVersionGreaterOrEqual(apiVersion: string): boolean;
 
 /**
  * Obtain the objects exposed in app.js
