@@ -19,6 +19,8 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type common2D from './@ohos.graphics.common2D';
+import type image from './@ohos.multimedia.image';
 
 
 /**
@@ -116,6 +118,79 @@ declare namespace uiEffect {
      * @since 19
      */
     radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
+
+    /**
+     * Sets the deformation effect controlled by bezier curves of the component.
+     *
+     * @param { Array<common2D.Point> } controlPoints - The bezier control points, 12 points needed.
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    bezierWarp(controlPoints: Array<common2D.Point>): Filter;
+
+    /**
+     * Sets the color gradient filter, may blend with alpha mask.
+     *
+     * @param { Array<Color> } colors
+     * @param { Array<common2D.Point> } positions
+     * @param { Array<number> } strengths
+     * @param { Mask } [alphaMask]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<number>,
+        alphaMask?: Mask): Filter;
+
+    /**
+     * Detects and glows edges of contents.
+     *
+     * @param { number } alpha
+     * @param { Color } [color]
+     * @param { Mask } [mask]
+     * @param { boolean } [bloom]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    edgeLight(alpha: number, color?: Color, mask?: Mask, bloom?: boolean): Filter;
+
+    /**
+     * Sets distort effect with displacement map.
+     *
+     * @param { Mask } displacementMap
+     * @param { [number, number] } [factor]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    displacementDistort(displacementMap: Mask, factor?: [number, number]): Filter;
+
+    /**
+     * Sets dispersion effect with mask map.
+     *
+     * @param { Mask } dispersionMap
+     * @param { number } alpha
+     * @param { [number, number] } [rFactor]
+     * @param { [number, number] } [gFactor]
+     * @param { [number, number] } [bFactor]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    maskDispersion(dispersionMap: Mask, alpha: number, rFactor?: [number, number], gFactor?: [number, number],
+      bFactor?: [number, number]): Filter;
   }
 
   /**
@@ -363,6 +438,83 @@ declare namespace uiEffect {
      * @since 12
      */
     fraction: number;
+  }
+
+  /**
+   * The Color of Light.
+   * @typedef Color
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  interface Color {
+    /**
+     * Red component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    red: number;
+    /**
+     * Green component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    green: number;
+    /**
+     * Blue component of color
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    blue: number;
+    /**
+     * Alpha component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    alpha: number;
+  }
+
+  /**
+   * Defines the mask for Filter or VisualEffect.
+   * @typedef { Mask }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   */
+  class Mask {
+    /**
+     * Create a Mask of ripple.
+     * @param { common2D.Point } center
+     * @param { number } radius
+     * @param { number } width
+     * @param { number } [offset]
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createRippleMask(center: common2D.Point, radius: number, width: number, offset?: number): Mask;
+
+    /**
+     * Create a Mask of pixelmap.
+     * @param { image.PixelMap } pixelMap
+     * @param { common2D.Rect } srcRect
+     * @param { common2D.Rect } dstRect
+     * @param { Color } [fillColor]
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
+      fillColor?: Color): Mask;
   }
 
   /**
