@@ -18,7 +18,7 @@
  * @kit AccessibilityKit
  */
 
-import type { AsyncCallback, BusinessError } from '../@ohos.base';
+import type { AsyncCallback, BusinessError, Callback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
@@ -297,6 +297,75 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @since 18
    */
   getDefaultFocusedElementIds(windowId: number): Promise<Array<number>>;
+
+  /**
+   * Hold running lock to prevent screen turning off automatically.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  holdRunningLockSync(): void;
+
+  /**
+   * Unhold running lock.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  unholdRunningLockSync(): void;
+
+  /**
+   * Register accessibilityExtensionAbility disconnect callback.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { 'preDisconnect' } type Indicates the accessibilityExtensionAbility pre disconnect.
+   * @param { Callback<void> } callback Indicates the callback function.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  on(type: 'preDisconnect', callback: Callback<void>): void;
+
+  /**
+   * Unregister accessibilityExtensionAbility disconnect callback.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { 'preDisconnect' } type Indicates the accessibilityExtensionAbility pre disconnect.
+   * @param { Callback<void> } callback Indicates the callback function.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  off(type: 'preDisconnect', callback?: Callback<void>): void;
+
+  /**
+   * Notify accessibility when accessibilityExtensionAbility is ready to disconnect.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  notifyDisconnect(): void;
 }
 
 /**
