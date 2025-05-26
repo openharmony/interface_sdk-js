@@ -475,6 +475,18 @@ declare namespace insightIntentDriver {
      * @since 20
      */
     readonly result: Record<string, Object>;
+
+    /**
+     * The entity informations.
+     *
+     * @type { Array<EntityInfo> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly entities: Array<EntityInfo>;
   }
 
   /**
@@ -579,7 +591,31 @@ declare namespace insightIntentDriver {
    * @stagemodelonly
    * @since 20
    */
-  interface FormIntentInfo {}
+  interface FormIntentInfo {
+    /**
+     * The form extension ability name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly abilityName: string;
+
+    /**
+     * The form name of the form extension ability.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly formName: string;
+  }
 
   /**
    * The form intent information.
@@ -645,6 +681,87 @@ declare namespace insightIntentDriver {
      * @since 20
      */
     GET_SUMMARY_INSIGHT_INTENT = 0x00000002,
+
+    /**
+     * Get entities info.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    GET_ENTITY_INFO = 0x00000004,
+  }
+
+  /**
+   * The entity information.
+   *
+   * @interface EntityInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  interface EntityInfo {
+    /**
+     * The entity class name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly className: string;
+
+    /**
+     * The entity Id.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly entityId: string;
+
+    /**
+     * The entity category.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly entityCategory: string;
+
+    /**
+     * The parameters of intent entity.
+     *
+     * @type { Record<string, Object> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly parameters: Record<string, Object>;
+
+    /**
+     * The entity class name of parent.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly parentClassName: string;
   }
 
   /**
