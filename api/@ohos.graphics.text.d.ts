@@ -953,7 +953,6 @@ declare namespace text {
     /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
-     * Any text component using this alias in its `fontFamilies` property will fall back to the default system font.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
      * unload a font that is currently in used may lead to text rendering anomalies,
@@ -968,7 +967,6 @@ declare namespace text {
     /**
      * Unloads a custom font. This API uses a promise to return the result.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
-     * Any text component using this alias in its `fontFamilies` property will fall back to the default system font.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
      * unload a font that is currently in used may lead to text rendering anomalies,
@@ -2491,9 +2489,8 @@ declare namespace text {
    */
   enum TextNoGlyphShow {
     /**
-     * Use the font's built-in .notdef glyph. This respects the font designer's
-     * default representation for missing characters, which might be an empty box,
-     * blank space, or custom symbol.
+     * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
+     * which might be an empty box, blank space, or custom symbol.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
@@ -2510,6 +2507,7 @@ declare namespace text {
 
   /**
    * Sets the glyph type to use when a character maps to the .notdef (undefined) glyph.
+   * affects all text rendered after this call.
    * This configuration affects how the renderer displays characters that are not defined in the font:
    * - The default behavior follows font's internal .notdef glyph design
    * - Tofu blocks explicitly show missing characters as visible squares
