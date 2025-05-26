@@ -322,7 +322,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing menu configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_MENU | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -332,7 +333,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ROUTER_MAP | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -342,7 +344,9 @@ declare namespace bundleManager {
     /**
      * Used to obtain the skillInfo contained in abilityInfo and extensionInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
-     * GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIE
+     * or GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
