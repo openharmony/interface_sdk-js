@@ -4748,7 +4748,7 @@ declare namespace audio {
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
 
     /**
-     * Unsubscribes to the volume type change events..
+     * Unsubscribes to the volume change events..
      * @param { 'volumeChange' } type - Type of the event to be unregistered. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
