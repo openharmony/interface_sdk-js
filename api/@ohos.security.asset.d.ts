@@ -812,10 +812,11 @@ declare namespace asset {
   function postQuerySync(handle: AssetMap): void;
 
   /**
-   * Query the result of synchronization.
+   * The ASSET service provides the ability to synchronize Assets between devices.
+   * This function is used to query the synchronization result.
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be synchronized.
-   * @returns { Promise<SyncResult> } the promise object returned by the function.
+   * @returns { Promise<SyncResult> } a promise that resolves with the result of asset synchronization.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
    * @throws { BusinessError } 24000010 - IPC failed.
