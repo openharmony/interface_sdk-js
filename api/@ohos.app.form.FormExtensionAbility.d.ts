@@ -56,7 +56,7 @@ type OnStopFn = () => void;
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class FormExtensionAbility {
+export default class FormExtensionAbility {
   /**
    * Indicates form extension context.
    *
@@ -340,7 +340,7 @@ declare class FormExtensionAbility {
    * @since 12
    */
   onStop?(): void;
-  
+
   /**
    * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
    *
@@ -353,5 +353,3 @@ declare class FormExtensionAbility {
    */
   onStop?: OnStopFn;
 }
-
-export default FormExtensionAbility;
