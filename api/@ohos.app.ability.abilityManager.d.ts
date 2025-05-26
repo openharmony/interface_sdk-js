@@ -528,7 +528,7 @@ declare namespace abilityManager {
    * @param { Context } context - The context that initiates the restart.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
+   * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @throws { BusinessError } 16000086 - The context is not UIAbilityContext.
    * @throws { BusinessError } 16000090 - Caller is not atomic service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

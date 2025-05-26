@@ -156,6 +156,10 @@ declare namespace audio {
    */
   /**
    * Obtains an {@link AudioManager} instance.
+   * <p><strong>NOTE</strong>:
+   * The {@link AudioManager} instance is not a singleton.
+   * </p>
+   * 
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -407,7 +411,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Audio streams for voice calls.
+     * Audio volume type for voice calls.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -419,7 +423,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Audio streams for ringtones.
+     * Audio volume type for ringtones.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -431,7 +435,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Audio streams for media purpose.
+     * Audio volume type for media purpose. 
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -443,7 +447,7 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Audio volume for alarm purpose.
+     * Audio volume type for alarm purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -455,27 +459,27 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Audio volume for accessibility purpose.
+     * Audio volume type for accessibility purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
      */
     ACCESSIBILITY = 5,
     /**
-     * Audio stream for voice assistant.
+     * Audio volume type for voice assistant.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 8
      */
     VOICE_ASSISTANT = 9,
     /**
-     * Audio volume for ultrasonic.
+     * Audio volume type for ultrasonic.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 10
      */
     ULTRASONIC = 10,
     /**
-     * Audio stream for all common.
+     * Audio volume type for all common.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -1561,7 +1565,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Voice communication usage.
+     * Used for network voice call, such as WeChat voice call, QQ voice call, etc.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -1734,7 +1738,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
-     * Video call usage.
+     * Used for network video call.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12
@@ -1922,7 +1926,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Audio renderer flags.
+     * Audio renderer flags. This method is currently reserved, suggest setting the default value to 0.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
@@ -2150,19 +2154,19 @@ declare namespace audio {
    */
   enum AudioRendererRate {
     /**
-     * Normal rate.
+     * Normal playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_NORMAL = 0,
     /**
-     * Double rate.
+     * Double playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     RENDER_RATE_DOUBLE = 1,
     /**
-     * Half rate.
+     * Half playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -2577,7 +2581,7 @@ declare namespace audio {
    * @since 7
    */
   /**
-   * Implements audio volume and audio device management.
+   * Implements audio stream, volume, device, effect and many other management functions.
    * @typedef AudioManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -2585,9 +2589,9 @@ declare namespace audio {
    */
   interface AudioManager {
     /**
-     * Sets the volume for a stream. This method uses an asynchronous callback to return the result.
+     * Sets the volume for a volume type. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2597,9 +2601,9 @@ declare namespace audio {
      */
     setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
     /**
-     * Sets the volume for a stream. This method uses a promise to return the result.
+     * Sets the volume for a volume type. This method uses a promise to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2609,8 +2613,8 @@ declare namespace audio {
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
     /**
-     * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the volume of a volume type. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { AsyncCallback<number> } callback - Callback used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -2619,8 +2623,8 @@ declare namespace audio {
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
-     * Obtains the volume of a stream. This method uses a promise to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the volume of a volume type. This method uses a promise to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { Promise<number> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -2649,8 +2653,8 @@ declare namespace audio {
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the maximum volume allowed for a volume type. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { AsyncCallback<number> } callback - Callback used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -2659,8 +2663,8 @@ declare namespace audio {
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the maximum volume allowed for a volume type. This method uses a promise to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { Promise<number> } Promise used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -2689,9 +2693,9 @@ declare namespace audio {
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
-     * Mutes a stream. This method uses an asynchronous callback to return the result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { boolean } mute - Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * Mutes a volume type. This method uses an asynchronous callback to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { boolean } mute - Mute status to set. The value true means to mute the volume type, and false means the opposite.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -2700,9 +2704,9 @@ declare namespace audio {
      */
     mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Mutes a stream. This method uses a promise to return the result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { boolean } mute -  Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * Mutes a volume type. This method uses a promise to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { boolean } mute -  Mute status to set. The value true means to mute the volume type, and false means the opposite.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
@@ -4602,7 +4606,7 @@ declare namespace audio {
      */
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses a promise to return the result.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { number } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
      * @returns { Promise<AudioVolumeGroupManager> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -4622,7 +4626,7 @@ declare namespace audio {
      */
     /**
      * Obtains an AudioVolumeGroupManager instance.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { number } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4917,8 +4921,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the volume of a volume type. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { AsyncCallback<number> } callback - Callback used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -4933,8 +4937,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the volume of a stream. This method uses a promise to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the volume of a volume type. This method uses a promise to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { Promise<number> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -4953,8 +4957,8 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the volume of a stream.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the volume of a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { number } Current system volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4974,8 +4978,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the minimum volume allowed for a volume type. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { AsyncCallback<number> } callback - Callback used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -4990,8 +4994,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the minimum volume allowed for a volume type. This method uses a promise to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { Promise<number> } Promise used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -5010,8 +5014,8 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the minimum volume allowed for a stream.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the minimum volume allowed for a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { number } Min volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5031,8 +5035,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the maximum volume allowed for a volume type. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { AsyncCallback<number> } callback - Callback used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -5047,8 +5051,8 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the maximum volume allowed for a volume type. This method uses a promise to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { Promise<number> } Promise used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
@@ -5067,8 +5071,8 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the maximum volume allowed for a stream.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * Obtains the maximum volume allowed for a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
      * @returns { number } Max volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5112,10 +5116,10 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Checks whether a stream is muted. This method uses an asynchronous callback to return the query result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the mute status of the stream. The
-     * value true means that the stream is muted, and false means the opposite.
+     * Checks whether a volume type is muted. This method uses an asynchronous callback to return the query result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the mute status of the volume type. The
+     * value true means that the volume type is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -5130,10 +5134,10 @@ declare namespace audio {
      * @since 9
      */
     /**
-     * Checks whether a stream is muted. This method uses a promise to return the result.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { Promise<boolean> } Promise used to return the mute status of the stream. The value true
-     * means that the stream is muted, and false means the opposite.
+     * Checks whether a volume type is muted. This method uses a promise to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { Promise<boolean> } Promise used to return the mute status of the volume type. The value true
+     * means that the volume type is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -5152,10 +5156,10 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Checks whether a stream is muted.
-     * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { boolean } The mute status of the stream. The value true
-     * means that the stream is muted, and false means the opposite.
+     * Checks whether a volume type is muted.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { boolean } The mute status of the volume type. The value true
+     * means that the volume type is muted, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -7411,10 +7415,11 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
-     * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
      */
@@ -7442,8 +7447,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -7582,6 +7588,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses an asynchronous callback to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -7596,6 +7607,11 @@ declare namespace audio {
      */
     /**
      * Releases the renderer. This method uses a promise to return the result.
+     * <p><strong>NOTE</strong>:
+     * The framework will not actively release audio streams in the Stop/Pause state.
+     * Please make sure to call this method to release the stream when it is no longer needed.
+     * </p>
+     *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -8149,6 +8165,11 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
+     * <p><strong>NOTE</strong>:
+     * Before renderer release, the value of internal records frames will continue to increase,
+     * and operations such as stop/pause/flush/drain will not reset this value.
+     * </p>
+     *
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
@@ -8231,7 +8252,7 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Subscribes audio state change event callback.
+     * Subscribes audio renderer state change event callback.
      * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -8916,9 +8937,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
-     * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the  audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8931,8 +8953,9 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12

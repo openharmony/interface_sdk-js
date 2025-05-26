@@ -510,6 +510,28 @@ declare namespace wifiManager {
   function connectToCandidateConfig(networkId: number): void;
 
   /**
+   * Connect to a specified candidate hotspot by networkId, and wait for user respond result.
+   * Only the configuration which is added by ourself is allowed to be connected.
+   * This method connect to a configuration at a time.
+   * The app must be in the foreground.
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
+   * @returns { Promise<void> } - Returns the promise object that used to return the operation result.
+   * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @throws { BusinessError } 2501001 - Wi-Fi STA disabled.
+   * @throws { BusinessError } 2501005 - The user does not respond.
+   * @throws { BusinessError } 2501006 - The user refused the action.
+   * @throws { BusinessError } 2501007 - Parameter validation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
+   * @since 20
+   */
+  function connectToCandidateConfigWithUserAction(networkId: number): Promise<void>;
+
+  /**
    * Connect to Wi-Fi hotspot by networkId.
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION or ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
    * @param { number } networkId - ID of the connected network. The value of networkId cannot be less than 0.

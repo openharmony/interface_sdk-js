@@ -672,7 +672,7 @@ export default class ApplicationContext extends Context {
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -732,7 +732,7 @@ export default class ApplicationContext extends Context {
    *
    * @returns { number } Index of the current application clone.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000071 - The MultiAppMode is not APP_CLONE.
+   * @throws { BusinessError } 16000071 - App clone is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

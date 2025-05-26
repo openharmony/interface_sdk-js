@@ -489,14 +489,14 @@ export default class Context extends BaseContext {
   createModuleContext(bundleName: string, moduleName: string): Context;
 
   /**
-   * Creates a resource manager object for a module of the system-level HSP.
+   * This API allows OEM manufacturers to set up their own ResourceManager in the pre-installed system HSP.
    *
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
    * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
-   * @throws { BusinessError } 16400001 - If the input bundleName is not system hsp.
+   * @throws { BusinessError } 16400001 - The input bundleName is not a system HSP.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
