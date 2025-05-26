@@ -29,6 +29,7 @@ import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColor
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
+import { CustomBuilder } from './builder';
 /*** endif */
 
 /**
@@ -82,6 +83,7 @@ declare interface CustomDialogControllerOptions {
    * @since 11
    */
   builder: any;
+
   /**
    * Custom builder function.
    *

@@ -16779,6 +16779,7 @@ declare interface DismissPopupAction {
 declare interface PopupStateChangeParam {
   /**
    * is Visible.
+   * Anonymous Object Rectification.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16892,7 +16893,7 @@ declare interface PopupCommonOptions {
   /**
    * on State Change
    *
-   * @type { ?function }
+   * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17230,16 +17231,16 @@ declare interface TipsOptions {
 }
 
 /**
- * Defines the popup button options.
+ * Defines the popup button.
  *
- * @interface PopupButtonOptions
+ * @interface PopupButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare interface PopupButtonOptions {
+declare interface PopupButton {
 
   /**
    * Button text value
@@ -17256,63 +17257,14 @@ declare interface PopupButtonOptions {
   /**
    * action
    *
-   * @type { function }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  action: () => void;
-}
-
-/**
- * Defines the popup state events.
- *
- * @interface PopupStateEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface PopupStateEvent {
-
-  /**
-   * is Visible.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  isVisible: boolean
-}
-
-/**
- * Defines the popup mask options.
- *
- * @interface PopupMaskOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface PopupMaskOptions { 
-  /**
-   * color
-   *
-   * @type { ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */  
-  color: ResourceColor
+  action: Callback<void>;
 }
 
 /**
@@ -17484,14 +17436,14 @@ declare interface PopupOptions {
   /**
    * The first button.
    *
-   * @type { ?PopupButtonOptions }
+   * @type { ?PopupButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  primaryButton?: PopupButtonOptions;
+  primaryButton?: PopupButton;
   /**
    * The second button.
    *
@@ -17573,14 +17525,14 @@ declare interface PopupOptions {
   /**
    * The second button.
    *
-   * @type { ?PopupButtonOptions }
+   * @type { ?PopupButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  secondaryButton?:PopupButtonOptions
+  secondaryButton?:PopupButton
 
   /**
    * on State Change
@@ -17626,17 +17578,19 @@ declare interface PopupOptions {
      */
     isVisible: boolean
   }) => void;
+
   /**
    * on State Change
    *
-   * @type { ?function }
+   * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  onStateChange?: (event: PopupStateEvent) => void;
+  onStateChange?: PopupStateChangeCallback;
+
   /**
    * The offset of the sharp corner of popup.
    *
@@ -17719,14 +17673,14 @@ declare interface PopupOptions {
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
    *
-   * @type { ?(boolean | PopupMaskOptions) }
+   * @type { ?(boolean | PopupMaskType) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  mask?: boolean | PopupMaskOptions;
+  mask?: boolean | PopupMaskType;
 
   /**
    * Sets the options of popup message.
@@ -18284,14 +18238,15 @@ declare interface CustomPopupOptions {
   /**
    * on State Change
    *
-   * @type { ?function }
+   * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  onStateChange?: (event: PopupStateEvent) => void; 
+  onStateChange?: PopupStateChangeCallback;
+
   /**
    * The offset of the sharp corner of popup.
    *
@@ -18374,14 +18329,14 @@ declare interface CustomPopupOptions {
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
    *
-   * @type { ?(boolean | PopupMaskOptions) }
+   * @type { ?(boolean | PopupMaskType) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  mask?: boolean | PopupMaskOptions;
+  mask?: boolean | PopupMaskType;
 
   /**
    * Sets the space of between the popup and target.
