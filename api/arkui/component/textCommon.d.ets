@@ -23,7 +23,7 @@
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { Callback_String_Void } from './gridRow'
-import { ResourceColor, LineMetrics, TextBox, RectWidthStyle, RectHeightStyle, Affinity, Length, ResourceStr } from './units'
+import { ResourceColor, Length, ResourceStr } from './units'
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString'
 import { SelectionOptions } from './common'
 import { TextDecorationType, TextDecorationStyle } from './enums'
@@ -92,12 +92,9 @@ export interface StyledStringChangeValue {
 export interface LayoutManager {
     getLineCount(): number
     getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity
-    getLineMetrics(lineNumber: number): LineMetrics
-    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>
 }
 export interface PositionWithAffinity {
     position: number;
-    affinity: Affinity;
 }
 export interface CaretStyle {
     width?: Length;

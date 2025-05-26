@@ -24,7 +24,7 @@
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { LengthMetricsUnit, LengthMetrics } from './../Graphics'
 import { Matrix2D } from './matrix2d'
-import { PixelMap, DrawingCanvas, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, VoidCallback } from './units'
+import { PixelMap, VisualEffect, Filter, UniformDataType, Blender, Length, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, ResourceColor, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, Dimension, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, ResourceStr, AccessibilityOptions, VoidCallback } from './units'
 import { FrameNode } from './../FrameNode'
 import { ImageAnalyzerConfig, ImageAIOptions } from './imageCommon'
 import { Callback_Void } from './abilityComponent'
@@ -185,7 +185,6 @@ export interface Size {
 }
 export interface DrawingRenderingContext {
     readonly size: Size;
-    readonly canvas: DrawingCanvas;
     invalidate(): void
 }
 export interface CanvasInterface {

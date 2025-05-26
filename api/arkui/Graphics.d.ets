@@ -17,8 +17,6 @@
  * @file
  * @kit ArkUI
  */
-import drawing from '../@ohos.graphics.drawing';
-import common2D from '../@ohos.graphics.common2D';
 import { Resource } from '../global/resource';
 import { BorderStyle } from './component/enums';
 import { ResourceColor } from './component/units';
@@ -126,25 +124,6 @@ export declare class DrawContext {
    * @since 12
    */
   get sizeInPixel(): Size;
-
-  /**
-   * Get canvas of the DrawContext.
-   *
-   * @returns { drawing.Canvas } The canvas of the DrawContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get canvas of the DrawContext.
-   *
-   * @returns { drawing.Canvas } The canvas of the DrawContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  get canvas(): drawing.Canvas;
 }
 
 /**
@@ -1078,17 +1057,6 @@ export type CornerRadius = Corners<Vector2>;
 export type BorderRadiuses = Corners<number>;
 
 /**
- * Rect info.
- *
- * @typedef { common2D.Rect } Rect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-export type Rect = common2D.Rect;
-
-/**
  * Defines the RoundRect.
  *
  * @interface RoundRect
@@ -1098,16 +1066,6 @@ export type Rect = common2D.Rect;
  * @since 12
  */
 export interface RoundRect {
-  /**
-   * Rect property.
-   *
-   * @type { Rect }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  rect: common2D.Rect,
 
   /**
    * Corners property.
@@ -1207,17 +1165,6 @@ export declare class ShapeMask {
   constructor();
 
   /**
-   * Set the rect shape of the ShapeMask.
-   *
-   * @param { Rect } rect - The rect shape will be set.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setRectShape(rect: common2D.Rect): void;
-
-  /**
    * Set the round rect shape of the ShapeMask.
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
@@ -1238,17 +1185,6 @@ export declare class ShapeMask {
    * @since 12
    */
   setCircleShape(circle: Circle): void;
-
-  /**
-   * Set the oval shape of the ShapeMask.
-   *
-   * @param { Rect } oval - The oval shape will be set.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setOvalShape(oval: common2D.Rect): void;
 
   /**
    * Set the command path of the ShapeMask.
@@ -1319,17 +1255,6 @@ export declare class ShapeClip {
   constructor();
 
   /**
-   * Set the rect shape of the ShapeClip.
-   *
-   * @param { Rect } rect - The rect shape will be set.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setRectShape(rect: common2D.Rect): void;
-
-  /**
    * Set the round rect shape of the ShapeClip.
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
@@ -1350,17 +1275,6 @@ export declare class ShapeClip {
    * @since 12
    */
   setCircleShape(circle: Circle): void;
-
-  /**
-   * Set the oval shape of the ShapeClip.
-   *
-   * @param { Rect } oval - The oval shape will be set.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setOvalShape(oval: common2D.Rect): void;
 
   /**
    * Set the command path of the ShapeClip.
