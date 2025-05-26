@@ -27,7 +27,6 @@ import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
 import promptAction from '../../@ohos.promptAction';
 import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
-import { ImageModifier } from '../../arkui/ImageModifier';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiobserver from '../../@ohos.arkui.observer';
@@ -20722,8 +20721,7 @@ declare interface DragPreviewOptions {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   modifier?: ImageModifier;
 
