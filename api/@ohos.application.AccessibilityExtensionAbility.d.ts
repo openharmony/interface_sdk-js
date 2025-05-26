@@ -220,7 +220,7 @@ declare interface AccessibilityEvent {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since 20
    */
   extraInfo?: string;
 }
