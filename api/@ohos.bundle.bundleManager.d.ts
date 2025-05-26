@@ -870,6 +870,15 @@ declare namespace bundleManager {
     APP_SERVICE = 29,
 
     /**
+     * Indicates extension info with type of the live form
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
+    LIVE_FORM = 30,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
