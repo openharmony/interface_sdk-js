@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ArrayList<T> {
   /**
@@ -65,7 +66,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -94,6 +96,17 @@ declare class ArrayList<T> {
    */
   length: number;
   /**
+   * Gets the element number of the ArrayList.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+  /**
    * Appends the specified element to the end of this arraylist.
    *
    * @param { T } element - element element to be appended to this arraylist
@@ -121,7 +134,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(element: T): boolean;
   /**
@@ -173,7 +187,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   insert(element: T, index: number): void;
   /**
@@ -204,7 +219,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(element: T): boolean;
   /**
@@ -238,7 +254,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOf(element: T): number;
   /**
@@ -278,7 +295,7 @@ declare class ArrayList<T> {
    *
    * @param { number } index - index index the index in the arraylist
    * @returns { T } the T type ,returns undefined if arraylist is empty,If the index is
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -287,7 +304,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeByIndex(index: number): T;
   /**
@@ -324,7 +342,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   remove(element: T): boolean;
   /**
@@ -358,7 +377,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLastIndexOf(element: T): number;
   /**
@@ -404,7 +424,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeByRange(fromIndex: number, toIndex: number): void;
   /**
@@ -459,6 +480,19 @@ declare class ArrayList<T> {
    * @since 12
    */
   replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T, thisArg?: Object): void;
+
+  /**
+   * Replaces each element of this arrayList with the result of applying the operator to that element.
+   *
+   * @param { ArrayListCbFn1<T> } callbackFn - A callback function to execute for each element.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  replaceAllElements(callbackFn: ArrayListCbFn1<T>): void;
+
   /**
    * Executes a provided function once for each value in the arraylist object.
    *
@@ -511,6 +545,19 @@ declare class ArrayList<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Iterates over elements in a generic ArrayList and executes a callback function for each element.
+   *
+   * @param { ArrayListCbFn<T> } callbackFn - A callback function to execute for each element.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: ArrayListCbFn<T>): void;
+
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
    * it will default to ASCII sorting
@@ -560,7 +607,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sort(comparator?: (firstValue: T, secondValue: T) => number): void;
   /**
@@ -609,7 +657,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subArrayList(fromIndex: number, toIndex: number): ArrayList<T>;
   /**
@@ -637,7 +686,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -665,7 +715,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clone(): ArrayList<T>;
   /**
@@ -693,7 +744,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getCapacity(): number;
   /**
@@ -721,7 +773,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   convertToArray(): Array<T>;
   /**
@@ -749,7 +802,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -765,6 +819,33 @@ declare class ArrayList<T> {
    * @since 12
    */
   [index: number]: T;
+
+  /**
+   * Returns the item at that index.
+   * 
+   * @param { number } index - The zero-based index of the desired code unit.
+   * @returns { T } The element in the arrayList matching the given index.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_get(index: number): T;
+
+  /**
+   * Set the value of item at that index.
+   *
+   * @param { number } index - The index of the element to set.
+   * @param { T } value - The value to set at the specified index.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_set(index: number, value: T): void;
+
   /**
    * If the newCapacity provided by the user is greater than or equal to length,
    * change the capacity of the arraylist to newCapacity, otherwise the capacity will not be changed
@@ -802,7 +883,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   increaseCapacityTo(newCapacity: number): void;
   /**
@@ -827,7 +909,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trimToCurrentLength(): void;
   /**
@@ -858,6 +941,48 @@ declare class ArrayList<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * Returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<T> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
 }
+
+  /**
+   * The type of ArrayList callback function.
+   *
+   * @typedef { function } ArrayListCbFn
+   * @param { T } value - The current element being processed
+   * @param { number } index - The index of the current element
+   * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
+   * @returns { void } This callback does not return a value
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type ArrayListCbFn<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
+
+  /**
+   * The type of ArrayList callback function.
+   *
+   * @typedef { function } ArrayListCbFn
+   * @param { T } value - The current element being processed
+   * @param { number } index - The index of the current element
+   * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
+   * @returns { T } This callback does not return a value
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type ArrayListCbFn1<T> =  (value: T, index?: number, arrlist?: ArrayList<T>) => T;  
 
 export default ArrayList;
