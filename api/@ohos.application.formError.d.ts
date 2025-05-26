@@ -19,14 +19,14 @@
  */
 
 /**
- * interface of FormError.
+ * interface of formError.
  *
- * @namespace FormError
+ * @namespace formError
  * @syscap SystemCapability.Ability.Form
  * @since arkts {'1.1':'8', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare namespace FormError {
+declare namespace formError {
   /**
    * Error of form.
    *
@@ -261,4 +261,4 @@ declare namespace FormError {
     ERR_DISTRIBUTED_SCHEDULE_FAILED = 37
   }
 }
-export default FormError;
+export default formError;
