@@ -1165,7 +1165,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   * @returns { ImageAttribute }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 20
+  * @since 19
   */
  hdrBrightness(brightness: number): ImageAttribute;
 
