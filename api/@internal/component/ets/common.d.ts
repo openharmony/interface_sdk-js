@@ -6915,7 +6915,7 @@ declare class DrawModifier {
    * @since 20
    * @arkts 1.2
    */
-  drawBehind?:(drawContext: DrawContext)=> void;
+  drawBehind(drawContext: DrawContext): void;
 
   /**
    * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced 
@@ -6928,7 +6928,7 @@ declare class DrawModifier {
    * @since 20
    * @arkts 1.2
    */
-  drawContent?:(drawContext: DrawContext)=> void;
+  drawContent(drawContext: DrawContext): void;
   
   /**
    * drawFront Method. Executed after drawing associated Node.
@@ -6940,7 +6940,7 @@ declare class DrawModifier {
    * @since 20
    * @arkts 1.2
    */
-  drawFront?:(drawContext: DrawContext)=> void;
+  drawFront(drawContext: DrawContext): void;
   
   /**
    * Invalidate the component, which will cause a re-render of the component.
