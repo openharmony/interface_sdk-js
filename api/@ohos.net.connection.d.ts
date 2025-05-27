@@ -19,8 +19,11 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+
+/*** if arkts 1.1 */
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
+/*** endif */
 
 /**
  * Provides interfaces to manage and use data networks.
@@ -1452,7 +1455,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     netId: number;
 
