@@ -50,11 +50,13 @@ import type { NotificationCheckRequest as _NotificationCheckRequest } from './no
 import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 /*** if arkts 1.2 */
+import { AsyncCallback } from '@ohos.base';
 import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
 import { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
 import { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
+import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 
 /**
@@ -155,7 +157,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -225,7 +228,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -306,7 +310,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -387,7 +392,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -512,7 +518,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
@@ -529,7 +536,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
@@ -546,7 +554,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, label?: string): Promise<void>;
 
@@ -567,7 +576,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(representativeBundle: BundleOption, id: number): Promise<void>;
 
@@ -671,7 +681,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -694,7 +705,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAll(): Promise<void>;
 
@@ -956,7 +968,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -977,7 +990,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -997,7 +1011,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1017,7 +1032,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -1064,7 +1080,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -1107,7 +1124,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -1139,7 +1157,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
 
@@ -1159,7 +1178,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
@@ -1200,7 +1220,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1241,7 +1262,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1280,7 +1302,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1319,7 +1342,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -1440,7 +1464,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -1522,7 +1547,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -1619,7 +1645,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1636,7 +1663,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1662,7 +1690,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationCount(): Promise<number>;
 
@@ -1676,7 +1705,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1688,7 +1718,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -2269,7 +2300,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
@@ -2357,7 +2389,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2945,7 +2978,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -2999,7 +3033,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3074,7 +3109,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
@@ -3115,7 +3151,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
@@ -3156,7 +3193,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
@@ -3563,7 +3601,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
 
@@ -3598,7 +3637,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
@@ -3639,7 +3679,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
 
@@ -3678,7 +3719,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
@@ -3717,7 +3759,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -3756,7 +3799,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
