@@ -5686,7 +5686,7 @@ declare namespace webview {
 
     /**
      * Start current camera.
-     * 
+     *
      * @permission ohos.permission.CAMERA
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
