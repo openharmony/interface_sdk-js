@@ -23,7 +23,6 @@ import { ResourceStr, ColorFilter} from './units';
 import { BaseSpan } from './span';
 import { ImageSpanAlignment, ImageFit } from './enums';
 import { ImageErrorCallback } from './image';
-import drawing from '../../@ohos.graphics.drawing';
 import image from '../../@ohos.multimedia.image';
 /*** endif */
 
@@ -136,7 +135,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
    * Sets the color filter effect on the image span.
    *
-   * @param { ColorFilter | drawing.ColorFilter } filter ColorFilter object.
+   * @param { ColorFilter } filter ColorFilter object.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -144,7 +143,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 20
    * @arkts 1.2
    */
-  colorFilter(filter: ColorFilter | drawing.ColorFilter): ImageSpanAttribute;  
+  colorFilter(filter: ColorFilter): ImageSpanAttribute;  
 
   /**
    * Sets the zoom type of an image.

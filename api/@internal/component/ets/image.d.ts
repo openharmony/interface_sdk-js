@@ -20,7 +20,6 @@
 
 /*** if arkts 1.2 */
 import image from '../../@ohos.multimedia.image';
-import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4'
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
@@ -1514,7 +1513,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the color filter effect on the image.
    *
-   * @param { ColorFilter | drawing.ColorFilter } value ColorFilter object.
+   * @param { ColorFilter } value ColorFilter object.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1523,7 +1522,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 20
    * @arkts 1.2
    */
-  colorFilter(value: ColorFilter | drawing.ColorFilter): ImageAttribute;
+  colorFilter(value: ColorFilter): ImageAttribute;
 
   /**
    * Allow replication.
@@ -2395,16 +2394,4 @@ declare interface ResizableOptions {
    * @arkts 1.2
    */
   slice?: EdgeWidths;
-
-  /**
-   * Image lattice.
-   *
-   * @type { ?drawing.Lattice }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  lattice?: drawing.Lattice;
 }
