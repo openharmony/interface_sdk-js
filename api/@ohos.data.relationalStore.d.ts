@@ -23,6 +23,7 @@ import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 /*** if arkts 1.1 */
 import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
+import { int, long, double } from './@ohos.base';
 /*** endif */
 /**
  * Provides methods for rdbStore create and delete.
@@ -214,14 +215,14 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array } ValueType
+   * @typedef { null | long | double | string | boolean | Uint8Array } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets } ValueType
+   * @typedef { null | long | double | string | boolean | Uint8Array | Asset | Assets } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -229,13 +230,13 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
+   * @typedef { null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
+  type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -265,12 +266,12 @@ declare namespace relationalStore {
   /**
    * The type of the priority key can be number or string
    *
-   * @typedef { number | string } PRIKeyType
+   * @typedef { long | double | string } PRIKeyType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type PRIKeyType = number | string;
+  type PRIKeyType = long | double | string;
 
   /**
    * The time is in UTC format.
@@ -396,8 +397,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isSearchable?: boolean;
 
@@ -448,8 +448,7 @@ declare namespace relationalStore {
      * @type { ?HAMode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     haMode?: HAMode;
 
@@ -540,12 +539,12 @@ declare namespace relationalStore {
      * Default number is 10000.
      * When the number is set to 0, use default iteration number and encryption algorithm.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    iterationCount?: number;
+    iterationCount?: int;
 
     /**
      * Specifies the encryption algorithm when opening an encrypted database.
@@ -584,12 +583,12 @@ declare namespace relationalStore {
      * Specifies the page size used when opening an encrypted database.
      * Default crypto page size is 1024.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    cryptoPageSize?: number;
+    cryptoPageSize?: int;
   }
 
   /**
@@ -774,42 +773,42 @@ declare namespace relationalStore {
     /**
      * Describes the total number of data to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    total: number;
+    total: int;
 
     /**
      * Describes the number of successfully synced data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    successful: number;
+    successful: int;
 
     /**
      * Describes the number of data failed to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    failed: number;
+    failed: int;
 
     /**
      * Describes the number of data remained to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    remained: number;
+    remained: int;
   }
 
   /**
@@ -992,42 +991,42 @@ declare namespace relationalStore {
     /**
      * Total time used for executing the SQL statements, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    totalTime: number;
+    totalTime: long;
 
     /**
      * Maximum time allowed to obtain the SQL file handle, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    waitTime: number;
+    waitTime: long;
 
     /**
      * Time used to prepare SQL and args, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    prepareTime: number;
+    prepareTime: long;
 
     /**
      * Time used to execute the SQL statements, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    executeTime: number;
+    executeTime: long;
   }
 
   /**
@@ -1275,34 +1274,34 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the inserted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<int> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    inserted: Array<string> | Array<number>;
+    inserted: Array<string> | Array<int>;
 
     /**
      * Indicates if there is a string primary key, the updated will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<int> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    updated: Array<string> | Array<number>;
+    updated: Array<string> | Array<int>;
 
     /**
      * Indicates if there is a string primary key, the deleted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<int> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deleted: Array<string> | Array<number>;
+    deleted: Array<string> | Array<int>;
   }
 
   /**
@@ -1646,14 +1645,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TransactionType {
     /**
      * The DEFERRED transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFERRED,
 
@@ -1661,7 +1662,8 @@ declare namespace relationalStore {
      * The IMMEDIATE transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMMEDIATE,
 
@@ -1669,7 +1671,8 @@ declare namespace relationalStore {
      * The EXCLUSIVE transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXCLUSIVE
   }
@@ -1679,7 +1682,8 @@ declare namespace relationalStore {
    *
    * @interface TransactionOptions
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -1687,7 +1691,8 @@ declare namespace relationalStore {
      *
      * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
@@ -1831,7 +1836,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inDevices(devices: Array<string>): RdbPredicates;
 
@@ -1841,7 +1847,8 @@ declare namespace relationalStore {
      *
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inAllDevices(): RdbPredicates;
 
@@ -1870,7 +1877,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     equalTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1899,7 +1907,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1918,7 +1927,8 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginWrap(): RdbPredicates;
 
@@ -1937,7 +1947,8 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endWrap(): RdbPredicates;
 
@@ -1956,7 +1967,8 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     or(): RdbPredicates;
 
@@ -1975,7 +1987,8 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the and condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     and(): RdbPredicates;
 
@@ -2004,7 +2017,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contains(field: string, value: string): RdbPredicates;
 
@@ -2033,7 +2047,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginsWith(field: string, value: string): RdbPredicates;
 
@@ -2062,7 +2077,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endsWith(field: string, value: string): RdbPredicates;
 
@@ -2087,7 +2103,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNull(field: string): RdbPredicates;
 
@@ -2112,7 +2129,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNotNull(field: string): RdbPredicates;
 
@@ -2141,7 +2159,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     like(field: string, value: string): RdbPredicates;
 
@@ -2170,7 +2189,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     glob(field: string, value: string): RdbPredicates;
 
@@ -2197,7 +2217,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -2224,7 +2245,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -2249,7 +2271,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     greaterThan(field: string, value: ValueType): RdbPredicates;
 
@@ -2274,7 +2297,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lessThan(field: string, value: ValueType): RdbPredicates;
 
@@ -2299,7 +2323,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -2324,7 +2349,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -2349,7 +2375,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     orderByAsc(field: string): RdbPredicates;
 
@@ -2374,7 +2401,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     orderByDesc(field: string): RdbPredicates;
 
@@ -2391,14 +2419,15 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     distinct(): RdbPredicates;
 
     /**
      * Restricts the max number of return records.
      *
-     * @param { number } value - Indicates the max length of the return list.
+     * @param { int } value - Indicates the max length of the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2408,21 +2437,22 @@ declare namespace relationalStore {
     /**
      * Restricts the max number of return records.
      *
-     * @param { number } value - Indicates the max length of the return list.
+     * @param { int } value - Indicates the max length of the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    limitAs(value: number): RdbPredicates;
+    limitAs(value: int): RdbPredicates;
 
     /**
      * Configure RdbPredicates to specify the start position of the returned result.
      * Use this method together with limit(number).
      *
-     * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
+     * @param { int } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2433,15 +2463,16 @@ declare namespace relationalStore {
      * Configure RdbPredicates to specify the start position of the returned result.
      * Use this method together with limit(number).
      *
-     * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
+     * @param { int } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    offsetAs(rowOffset: number): RdbPredicates;
+    offsetAs(rowOffset: int): RdbPredicates;
 
     /**
      * Configure RdbPredicates to group query results by specified columns.
@@ -2462,7 +2493,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupBy(fields: Array<string>): RdbPredicates;
 
@@ -2487,7 +2519,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     indexedBy(field: string): RdbPredicates;
 
@@ -2514,7 +2547,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -2541,7 +2575,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -2556,7 +2591,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notContains(field: string, value: string): RdbPredicates;
 
@@ -2571,7 +2607,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notLike(field: string, value: string): RdbPredicates;
   }
@@ -2626,12 +2663,13 @@ declare namespace relationalStore {
      * The returned number is equal to the length of the string array returned by the
      * columnNames method.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    columnCount: number;
+    columnCount: int;
 
     /**
      * Obtains the number of rows in the result set.
@@ -2642,12 +2680,13 @@ declare namespace relationalStore {
     /**
      * Obtains the number of rows in the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rowCount: number;
+    rowCount: int;
 
     /**
      * Obtains the current index of the result set.
@@ -2660,12 +2699,13 @@ declare namespace relationalStore {
      * Obtains the current index of the result set.
      * The result set index starts from 0.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rowIndex: number;
+    rowIndex: int;
 
     /**
      * Checks whether the cursor is positioned at the first row.
@@ -2679,7 +2719,8 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAtFirstRow: boolean;
 
@@ -2695,7 +2736,8 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAtLastRow: boolean;
 
@@ -2711,7 +2753,8 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEnded: boolean;
 
@@ -2727,7 +2770,8 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isStarted: boolean;
 
@@ -2745,7 +2789,8 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isClosed: boolean;
 
@@ -2754,7 +2799,7 @@ declare namespace relationalStore {
      * The column name is passed as an input parameter.
      *
      * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
+     * @returns { int } The index of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2766,7 +2811,7 @@ declare namespace relationalStore {
      * The column name is passed as an input parameter.
      *
      * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
+     * @returns { int } The index of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2779,7 +2824,7 @@ declare namespace relationalStore {
      * The column name is passed as an input parameter.
      *
      * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
+     * @returns { int } The index of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2806,13 +2851,13 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColumnIndex(columnName: string): number;
+    getColumnIndex(columnName: string): int;
 
     /**
      * Obtains the column name based on the specified column index.
      * The column index is passed as an input parameter.
      *
-     * @param { number } columnIndex - Indicates the index of the specified column in the result set.
+     * @param { int } columnIndex - Indicates the index of the specified column in the result set.
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2824,7 +2869,7 @@ declare namespace relationalStore {
      * Obtains the column name based on the specified column index.
      * The column index is passed as an input parameter.
      *
-     * @param { number } columnIndex - Indicates the index of the specified column in the result set.
+     * @param { int } columnIndex - Indicates the index of the specified column in the result set.
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2837,7 +2882,7 @@ declare namespace relationalStore {
      * Obtains the column name based on the specified column index.
      * The column index is passed as an input parameter.
      *
-     * @param { number } columnIndex - Indicates the index of the specified column in the result set.
+     * @param { int } columnIndex - Indicates the index of the specified column in the result set.
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2862,9 +2907,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getColumnName(columnIndex: number): string;
+    getColumnName(columnIndex: int): string;
 
     /**
      * Obtains the column data type based on the specified column index.
@@ -2938,7 +2984,7 @@ declare namespace relationalStore {
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
      * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
      *
-     * @param { number } offset - Indicates the offset relative to the current position.
+     * @param { int } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
      *                   Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
@@ -2951,7 +2997,7 @@ declare namespace relationalStore {
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
      * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
      *
-     * @param { number } offset - Indicates the offset relative to the current position.
+     * @param { int } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
      *                   Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
@@ -2965,7 +3011,7 @@ declare namespace relationalStore {
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
      * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
      *
-     * @param { number } offset - Indicates the offset relative to the current position.
+     * @param { int } offset - Indicates the offset relative to the current position.
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
      *                   Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2991,14 +3037,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    goTo(offset: number): boolean;
+    goTo(offset: int): boolean;
 
     /**
      * Go to the specified row of the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @param { int } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3009,7 +3056,7 @@ declare namespace relationalStore {
     /**
      * Go to the specified row of the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @param { int } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3021,7 +3068,7 @@ declare namespace relationalStore {
     /**
      * Go to the specified row of the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @param { int } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3046,9 +3093,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    goToRow(position: number): boolean;
+    goToRow(position: int): boolean;
 
     /**
      * Go to the first row of the result set.
@@ -3145,7 +3193,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goToLastRow(): boolean;
 
@@ -3194,7 +3243,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goToNextRow(): boolean;
 
@@ -3243,7 +3293,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goToPreviousRow(): boolean;
 
@@ -3252,7 +3303,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Blob type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3265,7 +3316,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Blob type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3279,7 +3330,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Blob type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3304,16 +3355,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBlob(columnIndex: number): Uint8Array;
+    getBlob(columnIndex: int): Uint8Array;
 
     /**
      * Obtains the value of the specified column in the current row as string.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the string type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3326,7 +3378,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the string type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3340,7 +3392,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the string type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3368,15 +3420,15 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getString(columnIndex: number): string;
+    getString(columnIndex: int): string;
 
     /**
      * Obtains the value of the specified column in the current row as long.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a long.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { long } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3388,8 +3440,8 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a long.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { long } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3402,8 +3454,8 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a long.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { long } The value of the specified column as a long.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3430,15 +3482,15 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLong(columnIndex: number): number;
+    getLong(columnIndex: int): long;
 
     /**
      * Obtains the value of the specified column in the current row as double.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the double type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a double.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { double } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3450,8 +3502,8 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the double type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a double.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { double } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3464,8 +3516,8 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the double type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a double.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { double } The value of the specified column as a double.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3489,16 +3541,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getDouble(columnIndex: number): number;
+    getDouble(columnIndex: int): double;
 
     /**
      * Obtains the value of the specified column in the current row as an asset.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Asset type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Asset } The value of the specified column as an asset.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3512,7 +3565,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Asset type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Asset } The value of the specified column as an asset.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3537,16 +3590,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAsset(columnIndex: number): Asset;
+    getAsset(columnIndex: int): Asset;
 
     /**
      * Obtains the value of the specified column in the current row as assets.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Assets type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Assets } The value of the specified column as assets.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3560,7 +3614,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Assets type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Assets } The value of the specified column as assets.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3585,16 +3639,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAssets(columnIndex: number): Assets;
+    getAssets(columnIndex: int): Assets;
 
     /**
      * Obtains the value of the specified column in the current row.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Assets type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3627,7 +3682,7 @@ declare namespace relationalStore {
      * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
      * the obtained value was null.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3651,17 +3706,19 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getValue(columnIndex: number): ValueType;
+    getValue(columnIndex: int): ValueType;
 
     /**
      * Obtains the value of the specified column in the current row as a float array.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the float array type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Float32Array } The value of the specified column as a float array.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
@@ -3684,9 +3741,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getFloat32Array(columnIndex: number): Float32Array;
+    getFloat32Array(columnIndex: int): Float32Array;
 
     /**
      * Obtains the values of all columns in the specified row.
@@ -3751,7 +3809,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRow(): ValuesBucket;
 
@@ -3816,7 +3875,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the value of the specified column in the current row is null.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
      *                    Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
@@ -3828,7 +3887,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the value of the specified column in the current row is null.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
      *                    Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
@@ -3841,7 +3900,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the value of the specified column in the current row is null.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { boolean } True if the value of the specified column in the current row is null;
      *                    Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3867,9 +3926,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    isColumnNull(columnIndex: number): boolean;
+    isColumnNull(columnIndex: int): boolean;
 
     /**
      * Closes the result set.
@@ -3896,7 +3956,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800012 - Row out of bounds.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(): void;
   }
@@ -3943,7 +4004,7 @@ declare namespace relationalStore {
      * Set RdbStore version. The version number must be an integer greater than 0.
      * Obtains the RdbStore version.
      *
-     * @type { number }
+     * @type { int }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3961,9 +4022,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    version: number;
+    version: int;
 
     /**
      * Set whether the database is rebuilt.
@@ -3979,7 +4041,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3991,7 +4053,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4005,7 +4067,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4029,9 +4091,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
+    insert(table: string, values: ValuesBucket, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a row of data into the target table.
@@ -4039,7 +4102,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4054,7 +4117,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4078,16 +4141,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
+    insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a row of data into the target table.
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4099,7 +4163,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4113,7 +4177,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4137,9 +4201,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket): Promise<number>;
+    insert(table: string, values: ValuesBucket): Promise<long>;
 
     /**
      * Inserts a row of data into the target table.
@@ -4147,7 +4212,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4162,7 +4227,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4186,9 +4251,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<number>;
+    insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a row of data into the target table with sync interface.
@@ -4196,7 +4262,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { long } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4220,9 +4286,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution): number;
+    insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution): long;
 
     /**
      * Inserts a row of data into the target table with sync interface.
@@ -4263,7 +4330,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4275,7 +4342,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4289,7 +4356,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4316,14 +4383,14 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a batch of data into the target table.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4335,7 +4402,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4349,7 +4416,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4376,14 +4443,14 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4410,7 +4477,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batchInsertSync(table: string, values: Array<ValuesBucket>): number;
+    batchInsertSync(table: string, values: Array<ValuesBucket>): long;
 
     /**
      * Inserts a batch of data into the target table.
@@ -4418,7 +4485,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4442,16 +4509,18 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
+    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4475,9 +4544,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -4485,7 +4555,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4498,7 +4568,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4513,7 +4583,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4537,9 +4607,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -4548,7 +4619,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4564,7 +4635,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4588,13 +4659,14 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     update(
       values: ValuesBucket,
       predicates: RdbPredicates,
       conflict: ConflictResolution,
-      callback: AsyncCallback<number>
+      callback: AsyncCallback<long>
     ): void;
 
     /**
@@ -4603,7 +4675,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4616,7 +4688,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4631,7 +4703,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4655,9 +4727,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
+    update(values: ValuesBucket, predicates: RdbPredicates): Promise<long>;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -4666,7 +4739,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4682,7 +4755,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4706,9 +4779,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<number>;
+    update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
@@ -4717,7 +4791,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The number of affected rows.
+     * @returns { long } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4741,9 +4815,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number;
+    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): long;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -4904,7 +4979,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4915,7 +4990,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4928,7 +5003,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4955,7 +5030,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+    delete(predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -4972,7 +5047,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<number> } return the number of affected rows.
+     * @returns { Promise<long> } return the number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4985,7 +5060,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<number> } return the number of affected rows.
+     * @returns { Promise<long> } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5012,13 +5087,13 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    delete(predicates: RdbPredicates): Promise<number>;
+    delete(predicates: RdbPredicates): Promise<long>;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates with sync interface.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { number } return the number of affected rows.
+     * @returns { long } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5045,7 +5120,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deleteSync(predicates: RdbPredicates): number;
+    deleteSync(predicates: RdbPredicates): long;
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
@@ -5210,7 +5285,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -5252,7 +5328,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -5294,7 +5371,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -5432,7 +5510,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySync(predicates: RdbPredicates, columns?: Array<string>): ResultSet;
 
@@ -5460,7 +5539,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySql(sql: string, callback: AsyncCallback<ResultSet>): void;
 
@@ -5502,7 +5582,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -5544,7 +5625,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
@@ -6155,7 +6237,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -6189,7 +6272,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     execute(sql: string, txId: number, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -6222,7 +6306,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
 
@@ -6351,7 +6436,7 @@ declare namespace relationalStore {
     /**
      * Commits the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -6374,9 +6459,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    commit(txId : number): Promise<void>;
+    commit(txId : long): Promise<void>;
 
     /**
      * Roll back the sql you have already executed.
@@ -6425,7 +6511,7 @@ declare namespace relationalStore {
     /**
      * Rolls back the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800011 - Database corrupted.
@@ -6449,7 +6535,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    rollback(txId : number): Promise<void>;
+    rollback(txId : long): Promise<void>;
 
     /**
      * Backs up a database in a specified name.
@@ -6501,7 +6587,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backup(destName: string, callback: AsyncCallback<void>): void;
 
@@ -6555,7 +6642,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backup(destName: string): Promise<void>;
 
@@ -6609,7 +6697,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     restore(srcName: string, callback: AsyncCallback<void>): void;
 
@@ -6663,7 +6752,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     restore(srcName: string): Promise<void>;
 
@@ -6693,7 +6783,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     restore(): Promise<void>;
 
@@ -7574,7 +7665,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(): Promise<void>;
 
@@ -7817,7 +7909,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createTransaction(options?: TransactionOptions): Promise<Transaction>;
   }
@@ -7828,7 +7921,8 @@ declare namespace relationalStore {
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Transaction {
     /**
@@ -7846,7 +7940,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     commit(): Promise<void>;
 
@@ -7865,7 +7960,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rollback(): Promise<void>;
 
@@ -7875,7 +7971,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -7894,9 +7990,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise<number>;
+    insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a row of data into the target table with sync interface, just use in TaskPool or Worker.
@@ -7932,7 +8029,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -7951,16 +8048,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -7979,9 +8077,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    batchInsertSync(table: string, values: Array<ValuesBucket>): number;
+    batchInsertSync(table: string, values: Array<ValuesBucket>): long;
 
     /**
      * Inserts a batch of data into the target table.
@@ -8054,7 +8153,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8073,9 +8172,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise<number>;
+    update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise<long>;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
@@ -8084,7 +8184,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The number of affected rows.
+     * @returns { long } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8103,15 +8203,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number;
+    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): long;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<number> } return the number of affected rows.
+     * @returns { Promise<long> } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8130,15 +8231,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    delete(predicates: RdbPredicates): Promise<number>;
+    delete(predicates: RdbPredicates): Promise<long>;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates with sync interface.
      *
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { number } return the number of affected rows.
+     * @returns { long } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8157,9 +8259,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    deleteSync(predicates: RdbPredicates): number;
+    deleteSync(predicates: RdbPredicates): long;
 
     /**
      * Queries data in the database based on specified conditions.
@@ -8180,7 +8283,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -8204,7 +8308,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySync(predicates: RdbPredicates, columns?: Array<string>): ResultSet;
 
@@ -8228,7 +8333,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySql(sql: string, args?: Array<ValueType>): Promise<ResultSet>;
 
@@ -8252,7 +8358,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySqlSync(sql: string, args?: Array<ValueType>): ResultSet;
 
@@ -8280,7 +8387,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -8309,7 +8417,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
   }
@@ -8525,7 +8634,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -8544,7 +8654,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
@@ -8590,7 +8701,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 
@@ -8627,7 +8739,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 
