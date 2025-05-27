@@ -7415,11 +7415,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp for audio frame that passed by system framework most recently.
-     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
-     * This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
+     * asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
      */
@@ -8921,9 +8920,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
-     * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8940,7 +8940,7 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the  audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
