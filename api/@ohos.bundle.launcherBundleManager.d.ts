@@ -22,6 +22,7 @@ import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 import { StartOptions } from './@ohos.app.ability.StartOptions';
+import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 
 /**
  * Launcher bundle manager.
@@ -208,6 +209,24 @@ declare namespace launcherBundleManager {
    * @since 12
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
+
+  /**
+   * Starts shortcut with start reason.
+   *
+   * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
+   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
+   * @param { string } startReason {@link AbilityConstant} - Indicates the start reason.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   */
+  function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
