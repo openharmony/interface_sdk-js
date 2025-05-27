@@ -18,16 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { Callback } from './@ohos.base';
 import { AsyncCallback } from './@ohos.base';
 import type { ContinuationResult as _ContinuationResult } from './continuation/continuationResult';
 import type { ContinuationExtraParams as _ContinuationExtraParams } from './continuation/continuationExtraParams';
-/*** endif */
-/*** if arkts 1.2 */
-import { ContinuationResult as _ContinuationResult } from './continuation/continuationResult';
-import { ContinuationExtraParams as _ContinuationExtraParams } from './continuation/continuationExtraParams';
-/*** endif */
 
 /**
  * Provides methods for interacting with the continuation manager service, including methods for registering and
@@ -46,8 +40,7 @@ import { ContinuationExtraParams as _ContinuationExtraParams } from './continuat
  * @namespace continuationManager
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace continuationManager {
   /**
@@ -775,8 +768,7 @@ declare namespace continuationManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum DeviceConnectState {
     /**
@@ -790,8 +782,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     IDLE = 0,
 
@@ -806,8 +797,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     CONNECTING = 1,
 
@@ -822,8 +812,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     CONNECTED = 2,
 
@@ -838,8 +827,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     DISCONNECTING = 3
   }
@@ -857,8 +845,7 @@ declare namespace continuationManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum ContinuationMode {
     /**
@@ -872,8 +859,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     COLLABORATION_SINGLE = 0,
 
@@ -888,8 +874,7 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     COLLABORATION_MULTIPLE = 1
   }
@@ -905,8 +890,7 @@ declare namespace continuationManager {
    * @typedef { _ContinuationResult }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ContinuationResult = _ContinuationResult;
 
@@ -921,8 +905,7 @@ declare namespace continuationManager {
    * @typedef { _ContinuationExtraParams }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export type ContinuationExtraParams = _ContinuationExtraParams;
 }

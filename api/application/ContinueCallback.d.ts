@@ -24,8 +24,7 @@
  * @interface ContinueCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 export interface ContinueCallback {
   /**
