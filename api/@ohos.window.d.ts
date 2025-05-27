@@ -67,7 +67,7 @@ declare interface Callback<T, V = void> {
  * @atomicservice
  * @since 20
  */
-export type Callback<T, V = void> = (data: T) => V;
+type Callback<T, V = void> = (data: T) => V;
 /*** endif */
 
 /**
