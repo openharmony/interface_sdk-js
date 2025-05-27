@@ -17842,6 +17842,17 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   hoverScale?: AnimationRange<number>;
+
+  /**
+   * Sets whether support to interrupt the process of hover scale.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  hoverScaleInterruption?: boolean;
 }
 
 /**
