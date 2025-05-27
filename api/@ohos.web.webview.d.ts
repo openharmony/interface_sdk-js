@@ -6408,6 +6408,22 @@ declare namespace webview {
      * @since 20
      */
     waitForAttached(timeout: number): Promise<ControllerAttachState>;
+
+    /**
+     * Enables debugging of web contents.
+     * <p><strong>API Note</strong>:<br>
+     * Port numbers from 0 to 1024 are not allowed.
+     * </p>
+     *
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
+     *                        socket is created instead of a unix domain socket.
+     * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
   }
 
   /**
