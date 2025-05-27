@@ -25,7 +25,8 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace statfs {
   /**
@@ -47,7 +48,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFreeSize(path: string): Promise<number>;
 
@@ -70,7 +72,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFreeSize(path: string, callback: AsyncCallback<number>): void;
 
@@ -93,7 +96,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFreeSizeSync(path: string): number;
 
@@ -116,7 +120,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTotalSize(path: string): Promise<number>;
 
@@ -139,7 +144,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTotalSize(path: string, callback: AsyncCallback<number>): void;
 
@@ -162,7 +168,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900038 - Value too large for defined data type
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTotalSizeSync(path: string): number;
 }
