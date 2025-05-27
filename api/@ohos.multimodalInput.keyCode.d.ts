@@ -67,6 +67,14 @@ export declare enum KeyCode {
   KEYCODE_BACK = 2,
 
   /**
+   * KEYCODE_HEADSETHOOK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   */
+  KEYCODE_HEADSETHOOK = 6,
+
+  /**
    * KEYCODE_SEARCH
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
