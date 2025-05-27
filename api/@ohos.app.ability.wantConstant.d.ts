@@ -360,7 +360,16 @@ declare namespace wantConstant {
     * @atomicservice
     * @since 17
     */
-    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList'
+    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
+
+    /**
+    * Indicates the unified data key used to share file uri.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 20
+    */
+    ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey'
   }
 
   /**
