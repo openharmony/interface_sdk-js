@@ -1521,7 +1521,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
+   * @crossplatform
    * @since 11
    */
   /**
@@ -1535,7 +1535,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
