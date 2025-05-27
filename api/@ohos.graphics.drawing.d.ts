@@ -402,7 +402,7 @@ declare namespace drawing {
     DIFFERENCE = 0,
 
     /**
-     * Intersect operation.
+     * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -416,7 +416,7 @@ declare namespace drawing {
     UNION = 2,
 
     /**
-     * Xor operation.
+     * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1363,7 +1363,7 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * Fills clip with color color. Mode determines how ARGB is combined with destination.
+     * Draws the background color.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2973,7 +2973,7 @@ declare namespace drawing {
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
-     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
+     * The radial gradient transitions colors from the center to the ending shape in a radial manner.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { number } radius - Radius of the gradient. A negative number is invalid. The value is a floating point number.
      * @param { Array<number> } colors - Array of colors to distribute between the center and ending shape of the circle.
@@ -2995,8 +2995,8 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
-     * either in a clockwise or counterclockwise direction.
+     * Creates a ShaderEffect object that generates a sweep gradient based on the center.
+     * A sweep gradient paints a gradient of colors in a clockwise or counterclockwise direction based on a given circle center.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      * The values in the array are 32-bit (ARGB) unsigned integers.
@@ -3582,7 +3582,6 @@ declare namespace drawing {
 
     /**
     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
-    * If this API is not called, anti-aliasing is disabled by default.
     *
     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3701,7 +3700,7 @@ declare namespace drawing {
     setDither(dither: boolean): void;
 
     /**
-     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
+     * Sets the join style for this pen.
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3721,7 +3720,7 @@ declare namespace drawing {
     getJoinStyle(): JoinStyle;
 
     /**
-     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
+     * Sets the cap style for this pen.
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3838,7 +3837,6 @@ declare namespace drawing {
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
-     * If this API is not called, anti-aliasing is disabled by default.
      * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3931,7 +3929,7 @@ declare namespace drawing {
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
     /**
-     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * Sets a blend mode for this brush.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4660,8 +4658,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the constraints on the source rectangle.
-   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
+   * Enumerates the constraint types of the source rectangle.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
