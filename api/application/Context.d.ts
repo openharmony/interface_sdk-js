@@ -47,7 +47,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  */
 /**
  * The Context module, inherited frome {@link BaseContext}, provides context for abilities or applications, including
- * accessto application-specific resources.
+ * access to application-specific resources.
  *
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
