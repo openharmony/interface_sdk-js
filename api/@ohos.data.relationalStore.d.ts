@@ -8599,10 +8599,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8618,10 +8616,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8701,10 +8697,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8720,10 +8714,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8799,8 +8791,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8814,8 +8805,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8833,8 +8823,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8853,8 +8842,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8868,8 +8856,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8902,8 +8889,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
