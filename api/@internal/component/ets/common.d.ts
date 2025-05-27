@@ -13352,6 +13352,16 @@ declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
  */
 declare enum DragResult {
   /**
+   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  UNKNOWN = -1,
+  /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
