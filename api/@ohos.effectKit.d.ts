@@ -84,7 +84,8 @@ declare namespace effectKit {
     */
     /**
     * Adds the blur effect to the filter linked list, and returns the head node of the linked list.
-    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value. A larger value indicates a more obvious effect.
+    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    *  A larger value indicates a more obvious effect.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
@@ -96,8 +97,10 @@ declare namespace effectKit {
 
     /**
     * Adds the blur effect to the filter linked list, and returns the head node of the linked list.
-    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value. A larger value indicates a more obvious effect.
-    * @param { TileMode } tileMode - Tile mode of the shader effect. The blur effect of image edges is affected. Currently, only CPU rendering is supported. Therefore, the tile mode supports only DECAL.
+    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    *  A larger value indicates a more obvious effect.
+    * @param { TileMode } tileMode - Tile mode of the shader effect. The blur effect of image edges is affected. Currently,
+    *  only CPU rendering is supported. Therefore, the tile mode supports only DECAL.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 14
@@ -185,7 +188,9 @@ declare namespace effectKit {
      * Adds a custom effect to the filter linked list, and returns the head node of the linked list.
      *
      * @param { Array<number> } colorMatrix - Custom color matrix.
-A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1], where 0 indicates that the color channel is not involved in the calculation, and 1 indicates that the color channel is involved in the calculation and retains the original weight.
+     * A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1], 
+     * where 0 indicates that the color channel is not involved in the calculation, 
+     * and 1 indicates that the color channel is involved in the calculation and retains the original weight.
      * @returns { Filter } Final image effect.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -344,9 +349,9 @@ A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1], 
      * Obtains a given number of colors with the top proportions in the image. This API returns the result synchronously.
      * @param { number } colorCount - Number of colors to obtain. The value range is [1, 10]. If a non-integer is passed in, the value will be rounded down.
      * @returns { Array<Color | null> } Array of colors, sorted by proportion.
-     *                                 - If the number of colors obtained is less than the value of colorCount, the array size is the actual number obtained.
-     *                                 - If the colors fail to be obtained or the number of colors obtained is less than 1, [null] is returned.
-     *                                 - If the value of colorCount is greater than 10, an array holding the first 10 colors with the top proportions is returned.
+     * - If the number of colors obtained is less than the value of colorCount, the array size is the actual number obtained.
+     * - If the colors fail to be obtained or the number of colors obtained is less than 1, [null] is returned.
+     * - If the value of colorCount is greater than 10, an array holding the first 10 colors with the top proportions is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -578,7 +583,8 @@ A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1], 
    */
   /**
    * Creates a Filter instance based on a pixel map.
-   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained by decoding an image or directly created. For details, see Image Overview.
+   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained 
+   * by decoding an image or directly created. For details, see Image Overview.
    * @returns { Filter } Head node of the filter linked list without any effect. If the operation fails, null is returned.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
