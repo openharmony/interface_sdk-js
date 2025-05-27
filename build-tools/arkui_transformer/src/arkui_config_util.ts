@@ -26,10 +26,6 @@ interface NoneUIConfig {
     files: Array<string>
 }
 
-interface UseM3Config {
-    useM3: Array<string>
-}
-
 export class ArkUIConfigUtil {
     static instance: ArkUIConfigUtil = new ArkUIConfigUtil
     constructor() {
@@ -41,8 +37,6 @@ export class ArkUIConfigUtil {
         this.noneUIconfig.files.forEach(f => {
             this.noneUIFielSet.add(f)
         })
-        const useM3Config: UseM3Config = JSON.parse(fs.readFileSync("./config/arkui_m3_white_list.json", 'utf-8'))
-        this._useM3Files = useM3Config.useM3
     }
     // ui components
     private config: ArkUIConfig
@@ -62,22 +56,9 @@ export class ArkUIConfigUtil {
     private file2Attrbiute: Map<string, string> = new Map
     private shouldNotHaveAttributeModifier: Set<string> = new Set
     private _useMemoM3: boolean = false
-    private _useM3Files: Array<string> = []
     get useMemoM3(): boolean {
         return this._useMemoM3
     }
-
-    set useMemoM3(value: boolean) {
-        this._useMemoM3 = value
-    }
-
-    withM3File(file: string): boolean {
-        if (this._useMemoM3) {
-            return true;
-        }
-        return this._useM3Files.includes(path.basename(file))
-    }
-
     public loadConfig(config: OptionValues): void {
         if (config.useMemoM3) {
             this._useMemoM3 = true
