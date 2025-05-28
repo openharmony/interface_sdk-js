@@ -1679,7 +1679,37 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Starts authentication.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>Each UserAuthInstance can be used for authentication only once.
+     * <br>Starting from API version 20, only system applications can apply for the
+     * ohos.permission.USER_AUTH_FROM_BACKGROUND permission.
+     * </p>
+     * 
+     * @permission ohos.permission.ACCESS_BIOMETRIC or ohos.permission.USER_AUTH_FROM_BACKGROUND
+     * @throws { BusinessError } 201 - Permission verification failed. Possible causes:
+     * <br>1. No permission to access biometric.
+     * <br>2. No permission to start authentication from background.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * <br>1. Incorrect parameter types.
+     * @throws { BusinessError } 12500001 - Authentication failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500003 - Authentication canceled.
+     * @throws { BusinessError } 12500004 - Authentication timeout.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     * @throws { BusinessError } 12500007 - Authentication service is busy.
+     * @throws { BusinessError } 12500009 - Authentication is locked out.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+     * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
+     * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     start(): void;
