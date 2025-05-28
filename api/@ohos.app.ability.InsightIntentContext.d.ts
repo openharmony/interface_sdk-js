@@ -18,10 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
-/*** endif */
 
 /**
  * The context of insight intent executor.
@@ -59,7 +57,8 @@ declare class InsightIntentContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -89,7 +88,8 @@ declare class InsightIntentContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want): Promise<void>;
 }
