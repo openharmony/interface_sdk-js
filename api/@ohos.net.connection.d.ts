@@ -75,6 +75,7 @@ declare namespace connection {
    * @typedef { socket.TCPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   type TCPSocket = socket.TCPSocket;
@@ -89,6 +90,7 @@ declare namespace connection {
    * @typedef { socket.UDPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   type UDPSocket = socket.UDPSocket;
@@ -1854,6 +1856,7 @@ declare namespace connection {
      * Indicates that the network is based on a bluetooth network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     BEARER_BLUETOOTH = 2,
