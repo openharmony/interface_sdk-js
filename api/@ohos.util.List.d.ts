@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class List<T> {
   /**
@@ -65,7 +66,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -93,6 +95,19 @@ declare class List<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the List.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Appends the specified element to the end of this list.
    *
@@ -121,7 +136,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(element: T): boolean;
   /**
@@ -167,7 +183,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   insert(element: T, index: number): void;
   /**
@@ -213,6 +230,21 @@ declare class List<T> {
    * @since 12
    */
   get(index: number): T;
+
+  /**
+   * Returns the element at the specified position in this list,
+   * or returns undefined if this list is empty
+   *
+   * @param { number } index - specified position
+   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(index: number): T | undefined;
+
   /**
    * Check if list contains the specified element
    *
@@ -241,7 +273,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(element: T): boolean;
   /**
@@ -275,7 +308,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOf(element: T): number;
   /**
@@ -324,6 +358,23 @@ declare class List<T> {
    * @since 12
    */
   removeByIndex(index: number): T;
+
+  /**
+   * Find the corresponding element according to the index.
+   *
+   * @param { number } index - the index in the linkedList
+   * @returns { T | undefined } the T type, if the index is
+   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
+   * Received value is: ${index}
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  removeByIndex(index: number): T | undefined;
+
   /**
    * Removes the first occurrence of the specified element from this list,
    * if it is present.  If the list does not contain the element, it is
@@ -358,7 +409,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   remove(element: T): boolean;
   /**
@@ -392,7 +444,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLastIndexOf(element: T): number;
   /**
@@ -457,6 +510,33 @@ declare class List<T> {
    * @since 12
    */
   getLast(): T;
+
+  /**
+   * Returns the first element (the item at index 0) of this list.
+   * or returns undefined if list is empty
+   *
+   * @returns { T | undefined } the T type, returns undefined if list is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFirst(): T | undefined;
+
+  /**
+   * Returns the Last element (the item at index length-1) of this list.
+   * or returns undefined if list is empty
+   *
+   * @returns { T | undefined } the T type, returns undefined if list is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLast(): T | undefined;
+
   /**
    * Replaces the element at the specified position in this List with the specified element
    *
@@ -504,6 +584,21 @@ declare class List<T> {
    */
   set(index: number, element: T): T;
   /**
+   * Replaces the element at the specified position in this List with the specified element
+   *
+   * @param { number } index - index to find
+   * @param { T } element - replaced element
+   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
+   * Received value is: ${index}
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set(index: number, element: T): T | undefined;
+  /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
    *
@@ -534,7 +629,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   equal(obj: Object): boolean;
   /**
@@ -589,6 +685,19 @@ declare class List<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Replaces each element of this list with the result of applying the operator to that element.
+   *
+   * @param { ListForEachCb } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackfn: ListForEachCb<T>): void;
+
   /**
    * Sorts this list according to the order induced by the specified comparator
    *
@@ -635,7 +744,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sort(comparator: (firstValue: T, secondValue: T) => number): void;
   /**
@@ -663,7 +773,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -709,7 +820,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getSubList(fromIndex: number, toIndex: number): List<T>;
   /**
@@ -764,6 +876,19 @@ declare class List<T> {
    * @since 12
    */
   replaceAllElements(callbackFn: (value: T, index?: number, list?: List<T>) => T, thisArg?: Object): void;
+
+  /**
+   * Replaces each element of this list with the result of applying the operator to that element.
+   *
+   * @param { ListReplaceCb } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  replaceAllElements(callbackfn: ListReplaceCb<T>): void;
+
   /**
    * convert list to array
    *
@@ -789,7 +914,8 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   convertToArray(): Array<T>;
   /**
@@ -817,9 +943,36 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
+  /**
+     * Returns the item at that index
+     *
+     * @param { number } index - the zero-based index of the desired code unit.
+     * @returns { T | undefined } the element in the list matching the given index,
+     * or undefined if the index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    $_get(index: number): T | undefined;
+
+    /**
+     * Set the value of item at that index.
+     *
+     * @param { number } index – the index of the element to set.
+     * @param { T } value – the value to set at the specified index
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    $_set(index: number, value: T): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
@@ -848,6 +1001,49 @@ declare class List<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<T> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
 }
+
+/**
+ * The type of List callback function.
+ *
+ * @typedef { function } ListForEachCb
+ * @param { T } value - The value of current element
+ * @param { number } index - The index of current element
+ * @param { List<T> } list - The List instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type ListForEachCb<T> = (value: T, index: number, list: List<T>) => void
+
+/**
+ * The type of List callback function.
+ *
+ * @typedef { function } LinkedListForEachCb
+ * @param { T } value - The old value of current element
+ * @param { number } index - The index of current element
+ * @param { List<T> } list - The List instance being traversed
+ * @returns { T } - The new value of current element
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type ListReplaceCb<T> = (value: T, index: number, list: List<T>) => T
 
 export default List;

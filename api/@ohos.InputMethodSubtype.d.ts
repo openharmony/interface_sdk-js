@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,6 @@
  * @file
  * @kit IMEKit
  */
-
-/*** if arkts 1.1 */
-import { double } from '@ohos.base';
-/*** endif */
 
 /**
  * Input method subtype
@@ -45,13 +41,13 @@ export default interface InputMethodSubtype {
   /**
    * The label id of input method subtype.
    *
-   * @type { ?double }
+   * @type { ?number }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId?: double;
+  readonly labelId?: number;
 
   /**
    * The name of input method.
@@ -122,13 +118,13 @@ export default interface InputMethodSubtype {
   /**
    * The icon id of input method subtype.
    *
-   * @type { ?double }
+   * @type { ?number }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId?: double;
+  readonly iconId?: number;
 
   /**
    * The extra info of input method subtype.

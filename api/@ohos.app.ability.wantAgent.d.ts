@@ -121,7 +121,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
 

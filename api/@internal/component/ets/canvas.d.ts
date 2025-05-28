@@ -20,7 +20,6 @@
 
 /*** if arkts 1.2 */
 import { CommonMethod, Callback, PixelMap } from './common';
-import drawing from '../../@ohos.graphics.drawing';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
@@ -37,18 +36,6 @@ import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
  * @since 12
  */
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
-
-/**
- * Import the drawing canvas type object for Canvas.
- *
- * @typedef { drawing.Canvas } DrawingCanvas
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DrawingCanvas = drawing.Canvas;
 
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -6211,8 +6198,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get canvas(): DrawingCanvas;
 

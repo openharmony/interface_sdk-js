@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class HashMap<K, V> {
   /**
@@ -65,7 +66,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -93,6 +95,17 @@ declare class HashMap<K, V> {
    * @since 12
    */
   length: number;
+    /**
+   * Gets the element number of the HashMap.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
   /**
    * Returns whether the Map object contains elements
    *
@@ -118,7 +131,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -149,7 +163,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasKey(key: K): boolean;
   /**
@@ -180,7 +195,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasValue(value: V): boolean;
   /**
@@ -214,6 +230,20 @@ declare class HashMap<K, V> {
    * @since 12
    */
   get(key: K): V;
+
+  /**
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
+   *
+   * @param { K } key - key key the index in HashMap
+   * @returns { V | undefined } value or undefined
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(key: K): V | undefined;
+
   /**
    * Adds all element groups in one map to another map
    *
@@ -248,7 +278,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAll(map: HashMap<K, V>): void;
   /**
@@ -288,7 +319,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   set(key: K, value: V): Object;
   /**
@@ -322,6 +354,20 @@ declare class HashMap<K, V> {
    * @since 12
    */
   remove(key: K): V;
+
+  /**
+   * Remove a specified element from a Map object
+   *
+   * @param { K } key - key key Target to be deleted
+   * @returns { V | undefined } Tthe value associated with the key if it was removed, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: K): V | undefined;
+
   /**
    * Clear all element groups in the map
    *
@@ -344,7 +390,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -372,7 +419,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keys(): IterableIterator<K>;
   /**
@@ -400,7 +448,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<V>;
   /**
@@ -434,7 +483,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -492,6 +542,19 @@ declare class HashMap<K, V> {
    * @since 12
    */
   forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void;
+
+  /**
+   * Iterates over all key-value pairs in the HashMap and executes a callback function for each entry.
+   *
+   * @param { HashMapCbFn<K, V> } callbackFn - A callback function to execute for each key-value pair.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: HashMapCbFn<K, V>): void;
+
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    *
@@ -517,7 +580,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -548,6 +612,33 @@ declare class HashMap<K, V> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
+
+  /**
+   * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<[K, V]> } an iterator for the HashMap
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<[K, V]>;
 }
+
+  /**
+   * The type of HashMap callback function.
+   *
+   * @typedef { function } HashMapCbFn
+   * @param { V } value - The value of the current entry
+   * @param { K } key - The key of the current entry
+   * @param { HashMap<K, V> } map - The HashMap instance being traversed
+   * @returns { void } This callback does not return a value
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
 
 export default HashMap;

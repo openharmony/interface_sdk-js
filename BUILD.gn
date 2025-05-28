@@ -31,41 +31,34 @@ has_interface_file =
     exec_script(exists_path_tools, exists_path_args, "trim string")
 
 if (has_interface_file != "True") {
-  public_sdk_config_parser_arkts = "//build/ohos/sdk/parse_interface_sdk.py"
-  ohos_sdk_pub_description_file_arkts =
+  arkts_sdk_config_parser = "//build/ohos/sdk/parse_interface_sdk.py"
+  ohos_sdk_arkts_description_file =
       "//out/sdk-interface/ohos_sdk_pub_description_std.json"
-  public_sdk_args_arkts = [
+  if (host_os == "mac") {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
+    npm_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
+  } else {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
+    npm_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
+  }
+  arkts_sdk_args = [
     "--sdk-description-file",
     rebase_path("//build/ohos/sdk/ohos_sdk_description_std.json",
                 root_build_dir),
     "--root-build-dir",
     rebase_path("//", root_build_dir),
     "--node-js",
-    rebase_path(nodejs, root_build_dir),
-    "--output-pub-sdk-desc-file",
-    rebase_path(ohos_sdk_pub_description_file_arkts, root_build_dir),
+    rebase_path(node_path, root_build_dir),
+    "--output-arkts-sdk-desc-file",
+    rebase_path(ohos_sdk_arkts_description_file, root_build_dir),
     "--sdk-build-public",
     "${sdk_build_public}",
-  ]
-  exec_script(public_sdk_config_parser_arkts, public_sdk_args_arkts)
-}
-
-template("arkui_transformer") {
-  forward_variables_from(invoker, "*")
-  process_script = "//interface/sdk-js/arkui_transformer.py"
-  process_arguments = [
-    "--input",
-    rebase_path(input_dir, root_build_dir),
-    "--output",
-    rebase_path(output_dir, root_build_dir),
-    "--source_root_dir",
-    rebase_path("//", root_build_dir),
+    "--sdk-build-arkts",
+    "${sdk_build_arkts}",
     "--npm-path",
     rebase_path(npm_path, root_build_dir),
-    "--node-js",
-    rebase_path(node_path, root_build_dir),
   ]
-  exec_script(process_script, process_arguments)
+  exec_script(arkts_sdk_config_parser, arkts_sdk_args)
 }
 
 template("ohos_copy_internal") {
@@ -196,22 +189,6 @@ if (!sdk_build_public) {
         [ target_out_dir + "/${sdk_type}/${target_name}/{{source_file_part}}" ]
     module_source_dir = target_out_dir + "/${sdk_type}/${target_name}"
     module_install_name = ""
-  }
-}
-
-arkui_transformer("transform_arkui_file") {
-  input_dir = interface_sdk_path_ets2 + "/api/@internal/component/ets"
-  output_dir = "//out/arkui_transformer_api"
-
-  if (host_os == "mac") {
-    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
-  } else {
-    node_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
   }
 }
 

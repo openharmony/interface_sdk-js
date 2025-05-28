@@ -506,7 +506,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setLanguage(language: string): void;
 
@@ -625,7 +626,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setFontSizeScale(fontSizeScale: number): void;
 

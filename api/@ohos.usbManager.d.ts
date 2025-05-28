@@ -2419,6 +2419,26 @@ declare namespace usbManager {
    * @since 18
    */
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
+
+  /**
+   * Perform a USB port reset to reinitialize a usb device. The operation will attempt to restore the previous configuration
+   * and alternate interface settings after the reset has completed.
+   *
+   * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
+   * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
+   * @throws { BusinessError } 801 - Capability not supported. Current function do not supporte due to the limitition of the device capabilities.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 - USB Service connection exception. Possible causes: 1. No USB Device plugged in.
+   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
+   * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
+   * <br>1.Unrecognized discard error code.
+   * @throws { BusinessError } 14400013 - The USBDevicePipe validity check failed. Possible causes:
+   * <br>1.The input parameters fail the validation check.
+   * <br>2.The call chain used to obtain the input parameters is not resonable.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 20
+   */
+  function resetUsbDevice(pipe: USBDevicePipe): boolean;
 }
 
 export default usbManager;

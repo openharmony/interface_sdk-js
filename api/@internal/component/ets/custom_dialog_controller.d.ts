@@ -23,11 +23,13 @@ import {
   Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType,
   DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions
 } from './common';
+import { CustomBuilder } from './builder';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
+import { CustomBuilder } from './builder';
 /*** endif */
 
 /**
@@ -81,17 +83,18 @@ declare interface CustomDialogControllerOptions {
    * @since 11
    */
   builder: any;
+
   /**
    * Custom builder function.
    *
-   * @type { Object }
+   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  builder: Object;
+  builder: CustomBuilder;
 
   /**
    * Defines the cancel function.

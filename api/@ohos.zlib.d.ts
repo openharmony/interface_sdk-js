@@ -1077,7 +1077,8 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
@@ -1215,7 +1216,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOriginalSize(compressedFile: string): Promise<number>;
 
@@ -1225,7 +1227,8 @@ declare namespace zlib {
    * @returns { Promise<Checksum> } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksum(): Promise<Checksum>;
 

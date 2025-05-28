@@ -111,7 +111,6 @@
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
     "SystemCapability.HiviewDFX.HiChecker",
-    "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",

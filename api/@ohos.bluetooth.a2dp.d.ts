@@ -34,7 +34,8 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @namespace a2dp
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace a2dp {
   /**
@@ -65,7 +66,8 @@ declare namespace a2dp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createA2dpSrcProfile(): A2dpSourceProfile;
 
@@ -83,7 +85,8 @@ declare namespace a2dp {
    * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface A2dpSourceProfile extends BaseProfile {
     /**

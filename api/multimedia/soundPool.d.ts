@@ -18,38 +18,42 @@
  * @kit MediaKit
  */
 
-import type { ErrorCallback, AsyncCallback, Callback } from '../@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 
 /**
  * Interface for play parameters.
  * @typedef PlayParameters
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PlayParameters {
   /**
    * loop mode (0 = no loop, -1 = loop forever)
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  loop?: number;
+  loop?: int;
   /**
    * playback rate
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  rate?: number;
+  rate?: int;
   /**
    * left volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   leftVolume?: number;
   /**
@@ -57,24 +61,27 @@ export interface PlayParameters {
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rightVolume?: number;
   /**
    * stream priority (0 = lowest priority)
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  priority?: number;
+  priority?: int;
   /**
    * Flag indicating that the sound effect and audio can be played in parallel.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   parallelPlayFlag?: boolean;
 }
@@ -84,133 +91,143 @@ export interface PlayParameters {
  * to create an SoundPool instance.
  * @typedef SoundPool
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SoundPool {
   /**
    * Load the sound from the specified path.
    *
    * @param {string} uri The path to the audio file
-   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * @param {AsyncCallback<int>} callback Callback a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  load(uri: string, callback: AsyncCallback<number>): void;
+  load(uri: string, callback: AsyncCallback<int>): void;
   /**
    * Load the sound from the specified path.
    *
    * @param {string} uri The path to the audio file
-   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
+   * @returns {Promise<int>} Promise a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  load(uri: string): Promise<number>;
+  load(uri: string): Promise<int>;
   /**
    * Load the sound from a FileDescriptor.
    *
-   * @param {number} fd A FileDescriptor object
+   * @param {int} fd A FileDescriptor object
    * @param {number} offset Offset to the start of the sound
    * @param {number} length Length of the sound
-   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * @param {AsyncCallback<int>} callback Callback a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void;
+  load(fd: int, offset: number, length: number, callback: AsyncCallback<int>): void;
   /**
    * Load the sound from a FileDescriptor.
    *
-   * @param {number} fd A FileDescriptor object
+   * @param {int} fd A FileDescriptor object
    * @param {number} offset Offset to the start of the sound
    * @param {number} length Length of the sound
-   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
+   * @returns {Promise<int>} Promise a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  load(fd: number, offset: number, length: number): Promise<number>;
+  load(fd: int, offset: number, length: number): Promise<int>;
   /**
    * Play a sound from a sound ID.
    *
-   * @param {number} soundID Returned by the load()
+   * @param {int} soundID Returned by the load()
    * @param {PlayParameters} params Player parameters
-   * @param {AsyncCallback<number>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
+   * @param {AsyncCallback<int>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void;
+  play(soundID: int, params: PlayParameters, callback: AsyncCallback<int>): void;
   /**
    * Play a sound from a sound ID.
    *
-   * @param {number} soundID Returned by the load()
-   * @param {AsyncCallback<number>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
+   * @param {int} soundID Returned by the load()
+   * @param {AsyncCallback<int>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  play(soundID: number, callback: AsyncCallback<number>): void;
+  play(soundID: int, callback: AsyncCallback<int>): void;
   /**
    * Play a sound from a sound ID.
    *
-   * @param {number} soundID Returned by the load()
+   * @param {int} soundID Returned by the load()
    * @param {PlayParameters} [params] Player parameters
-   * @returns {Promise<number>} Promise used to return a non-zero streamID if successful, zero if it fails.
+   * @returns {Promise<int>} Promise used to return a non-zero streamID if successful, zero if it fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  play(soundID: number, params?: PlayParameters): Promise<number>;
+  play(soundID: int, params?: PlayParameters): Promise<int>;
   /**
    * Stop a stream which is playing.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  stop(streamID: number, callback: AsyncCallback<void>): void;
+  stop(streamID: int, callback: AsyncCallback<void>): void;
   /**
    * Stop a stream which is playing.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  stop(streamID: number): Promise<void>;
+  stop(streamID: int): Promise<void>;
   /**
    * Set loop mode.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} loop Loop mode (0 = no loop, -1 = loop forever)
+   * @param {int} streamID Returned by the play()
+   * @param {int} loop Loop mode (0 = no loop, -1 = loop forever)
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
@@ -219,12 +236,12 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void;
+  setLoop(streamID: int, loop: int, callback: AsyncCallback<void>): void;
   /**
    * Set loop mode.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} loop Loop mode (0 = no loop, -1 = loop forever)
+   * @param {int} streamID Returned by the play()
+   * @param {int} loop Loop mode (0 = no loop, -1 = loop forever)
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
@@ -233,12 +250,12 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setLoop(streamID: number, loop: number): Promise<void>;
+  setLoop(streamID: int, loop: int): Promise<void>;
   /**
    * Set stream priority.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} priority Stream priority (0 = lowest priority)
+   * @param {int} streamID Returned by the play()
+   * @param {int} priority Stream priority (0 = lowest priority)
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
@@ -247,12 +264,12 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void;
+  setPriority(streamID: int, priority: int, callback: AsyncCallback<void>): void;
   /**
    * Set stream priority.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} priority Stream priority (0 = lowest priority)
+   * @param {int} streamID Returned by the play()
+   * @param {int} priority Stream priority (0 = lowest priority)
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
@@ -261,11 +278,11 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setPriority(streamID: number, priority: number): Promise<void>;
+  setPriority(streamID: int, priority: int): Promise<void>;
   /**
    * Set playback rate.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @param {audio.AudioRendererRate} rate Playback rate
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -275,11 +292,11 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
+  setRate(streamID: int, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
   /**
    * Set playback rate.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @param {audio.AudioRendererRate} rate Playback rate
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -289,11 +306,11 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>;
+  setRate(streamID: int, rate: audio.AudioRendererRate): Promise<void>;
   /**
    * Set stream volume.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @param {AsyncCallback<void>} callback Callback used to return the result.
@@ -304,11 +321,11 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
+  setVolume(streamID: int, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
   /**
    * Set stream volume.
    *
-   * @param {number} streamID Returned by the play()
+   * @param {int} streamID Returned by the play()
    * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @returns {Promise<void>} Promise used to return the result.
@@ -319,38 +336,41 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>;
+  setVolume(streamID: int, leftVolume: number, rightVolume: number): Promise<void>;
   /**
    * Unload a sound from a sound ID.
    *
-   * @param {number} soundID Returned by the load()
+   * @param {int} soundID Returned by the load()
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  unload(soundID: number, callback: AsyncCallback<void>): void;
+  unload(soundID: int, callback: AsyncCallback<void>): void;
   /**
    * Unload a sound from a sound ID.
    *
-   * @param {number} soundID Returned by the load()
+   * @param {int} soundID Returned by the load()
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  unload(soundID: number): Promise<void>;
+  unload(soundID: int): Promise<void>;
   /**
    * Releases the soundPool. This method uses an asynchronous callback to return the result.
    *
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -359,7 +379,8 @@ export interface SoundPool {
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(): Promise<void>;
   /**
@@ -368,70 +389,79 @@ export interface SoundPool {
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @param {Callback<number>} callback Callback used to listen for load result event
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  on(type: 'loadComplete', callback: Callback<number>): void;
+//   on(type: 'loadComplete', callback: Callback<number>): void;
   /**
    * Cancel Listens for load result event.
    *
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  off(type: 'loadComplete'): void;
+//   off(type: 'loadComplete'): void;
   /**
    * Register the listener for playing finished event. The conditions which this event is called
    * are the same as {@link #playFinished}, additionally, this event can callback the streamId of finishing playing.
    * If this event and the {@link #playFinished} event are registered at the same time,
    * only this event will be called, and the {@link #playFinished} event will not be called.
    *
-   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
-   * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
+   * @param {'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete'} type name of the play finished event to listen for. 
+   * @param {Callback<int> | Callback<void> | ErrorCallback<BusinessError>} callback Callback used to listen which stream id has finished playback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
-   /**
-    * Cancel listening for playing finished event.
-    *
-    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
-    * @syscap SystemCapability.Multimedia.Media.SoundPool
-    * @since 18
-    */
-  off(type: 'playFinishedWithStreamId'): void;
+  on(type: 'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete',
+    callback: Callback<int> | Callback<void> | ErrorCallback<BusinessError>): void;
+  /**
+   * Cancel listening for playing finished event.
+   *
+   * @param {'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'} type name of the play finished event to listen for.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  off(type: 'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'): void;
   /**
    * Register listens for play finish event.
    *
    * @param {'playFinished'} type Type of the play finish event to listen for.
    * @param {Callback<void>} callback Callback used to listen for the play finish
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  on(type: 'playFinished', callback: Callback<void>): void;
+//   on(type: 'playFinished', callback: Callback<void>): void;
   /**
    * Cancel Listens for play finish event.
    *
    * @param {'playFinished'} type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  off(type: 'playFinished'): void;
+//   off(type: 'playFinished'): void;
   /**
    * Register listens for sound play error events.
    *
    * @param {'error'} type Type of the sound play error event to listen for.
    * @param {ErrorCallback} callback Callback used to listen for sound play error events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  on(type: 'error', callback: ErrorCallback): void;
+//   on(type: 'error', callback: ErrorCallback): void;
   /**
    * Cancel Listens for sound play error events.
    *
    * @param {'error'} type Type of the sound play error event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  off(type: 'error'): void;
+//   off(type: 'error'): void;
 }
 

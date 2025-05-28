@@ -19,11 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
+import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Length, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
-import { ScrollState } from './list'
-import { BarState, Color, EdgeEffect } from './enums'
+import { ScrollState } from './list';
+import { BarState, Color, EdgeEffect } from './enums';
 /*** endif */
 
 /**
@@ -993,7 +993,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { function } event
+   * @param { OnItemDragStartCallback } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1001,7 +1001,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 20
    * @arkts 1.2
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => Object) | undefined): GridAttribute;
+  onItemDragStart(event: OnItemDragStartCallback): GridAttribute;
   
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
