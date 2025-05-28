@@ -133,19 +133,6 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 
   /**
-   * Sets the color filter effect on the image span.
-   *
-   * @param { ColorFilter } filter ColorFilter object.
-   * @returns { ImageSpanAttribute } The attribute of the image span.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  colorFilter(filter: ColorFilter): ImageSpanAttribute;  
-
-  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value - Image display mode.
