@@ -817,7 +817,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 20
    */
   const sdkMinorApiVersion: number;
 
@@ -828,7 +828,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 20
    */
   const sdkPatchApiVersion: number;
 }
