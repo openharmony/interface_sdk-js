@@ -629,6 +629,17 @@ declare interface RichEditorParagraphStyle {
   textAlign?: TextAlign;
 
   /**
+   * Vertical alignment of text.
+   *
+   * @type { ?TextVerticalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textVerticalAlign?: TextVerticalAlign;
+
+  /**
    * Leading margin.
    *
    * @type { ?(Dimension | LeadingMarginPlaceholder) }
