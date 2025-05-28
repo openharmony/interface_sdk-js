@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,7 +17,7 @@
  * @file
  * @kit IMEKit
  */
-import type { Callback, AsyncCallback, /*** if arkts 1.1 */int, double, /*** endif */ } from './@ohos.base';
+import type { Callback, AsyncCallback, /*** if arkts 1.1 */int /*** endif */} from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 /*** if arkts 1.1 */
 import type { ElementName } from './bundleManager/ElementName';
@@ -1478,13 +1478,13 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly labelId?: double;
+    readonly labelId?: number;
 
     /**
      * The icon of input method
@@ -1500,13 +1500,13 @@ declare namespace inputMethod {
     /**
      * The icon id of input method
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly iconId?: double;
+    readonly iconId?: number;
 
     /**
      * The extra info of input method
@@ -1911,42 +1911,42 @@ declare namespace inputMethod {
     /**
      * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left: double;
+    left: number;
 
     /**
      * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top: double;
+    top: number;
 
     /**
      * Indicates the width point of the cursor info.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: double;
+    width: number;
 
     /**
      * Indicates the height point of the cursor info.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: double;
+    height: number;
   }
 
   /**
@@ -2087,22 +2087,22 @@ declare namespace inputMethod {
     /**
      * Indicates the width of the input window.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: double;
+    width: number;
 
     /**
      * Indicates the height of the input window.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: double;
+    height: number;
   }
 
   /**
