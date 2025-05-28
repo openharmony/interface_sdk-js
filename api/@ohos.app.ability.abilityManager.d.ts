@@ -22,15 +22,14 @@ import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
-import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
 /*** if arkts 1.1 */
+import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
 /*** if arkts 1.2 */
-import _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 /*** endif */
 
@@ -539,8 +538,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -584,17 +582,6 @@ declare namespace abilityManager {
    * @since 11
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
-  
-  /**
-   * The ability foreground state observer.
-   *
-   * @typedef { _AbilityForegroundStateObserver }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 }
 
 export default abilityManager;
