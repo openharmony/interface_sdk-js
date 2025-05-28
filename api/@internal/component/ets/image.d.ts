@@ -1511,20 +1511,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
   /**
-   * Sets the color filter effect on the image.
-   *
-   * @param { ColorFilter } value ColorFilter object.
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  colorFilter(value: ColorFilter): ImageAttribute;
-
-  /**
    * Allow replication.
    *
    * @param { CopyOptions } value
