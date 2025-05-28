@@ -16,12 +16,11 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 /*** if arkts 1.1 */
-import { int, long } from './@ohos.base';
+import { int } from './@ohos.base';
 /*** endif */
 
 /**
