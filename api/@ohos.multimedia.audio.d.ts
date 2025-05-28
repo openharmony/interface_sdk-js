@@ -9132,7 +9132,7 @@ declare namespace audio {
     getOverflowCountSync(): number;
 
     /**
-     * Set if capturer want to be muted instead of interrupted.
+     * Set if capturer want to be muted instead of interrupted. should be set before start
      * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
      *     instead of interrupted.
      * @returns { Promise<void> } Promise used to return the result.
