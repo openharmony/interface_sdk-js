@@ -310,7 +310,7 @@ declare namespace screenshot {
      * @systemapi Hide this for inner system use.
      * @since 19
      */
-    isFullScreenCapture?: boolean;
+    isCaptureFullOfScreen?: boolean;
   }
 }
 
