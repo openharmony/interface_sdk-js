@@ -41,7 +41,7 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class ExtensionContext extends Context {
+declare class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
@@ -102,3 +102,5 @@ export default class ExtensionContext extends Context {
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }
+
+export default ExtensionContext;
