@@ -1753,6 +1753,92 @@ declare namespace inputMethodEngine {
   }
 
   /**
+   *  Gradient mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  export enum GradientMode {
+    /**
+     * Disable gradient mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NONE = 0,
+    /**
+     * Linear gradient mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    LINEAR_GRADIENT = 1,
+  }
+
+  /**
+   *  Fluid light mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 20
+   */
+  export enum FluidLightMode {
+    /**
+     * Disable fluid light mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    NONE = 0,
+
+    /**
+     * Background fluid light mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    BACKGROUND_FLUID_LIGHT = 1,
+  }
+
+  /**
+   * Defines the immersive effect.
+   *
+   * @interface ImmersiveEffect
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  interface ImmersiveEffect {
+
+    /**
+     * The height of the gradient effect.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    gradientHeight: number;
+
+    /**
+     * Gradient mode.
+     *
+     * @type { GradientMode }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    gradientMode: GradientMode;
+
+    /**
+     * Fluid light mode.
+     *
+     * @type { ?FluidLightMode }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    fluidLightMode?: FluidLightMode;
+  }
+
+  /**
    *  RequestKeyboardReason of input click. 
    *
    * @enum { number }
@@ -2188,6 +2274,25 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     getImmersiveMode(): ImmersiveMode;
+
+    /**
+     * Set immersive effect.
+     * 
+     * @param { ImmersiveEffect } effect - immersive effect.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1. input method panel not created. 2. the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800020 - invalid immersive effect.
+     *    1. The gradient mode and the fluid light mode can only be used when the immersive mode is enabled.
+     *    2. The fluid light mode can only be used when the gradient mode is enabled.
+     *    3. When the gradient mode is not enabled, the gradient height can only be 0.
+     * @throws { BusinessError } 12800021 - this operation is allowed only after adjustPanelRect or resize is called.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    setImmersiveEffect(effect: ImmersiveEffect): void;
   }
 
   /**
@@ -2294,6 +2399,27 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly capitalizeMode?: CapitalizeMode;
+
+    /**
+     * Gradient mode.
+     *
+     * @type { ?GradientMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly gradientMode?: GradientMode;
+
+    /**
+     * Fluid light mode.
+     *
+     * @type { ?FluidLightMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    readonly fluidLightMode?: FluidLightMode;
   }
 
   /**
