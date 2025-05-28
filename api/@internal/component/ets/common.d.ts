@@ -30,7 +30,7 @@ import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { ImageModifier } from '../../arkui/ImageModifier';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
-import uiobserver from '../../@ohos.arkui.observer';
+import uiObserver from '../../@ohos.arkui.observer';
 import { UIContext } from '../../@ohos.arkui.UIContext';
 import { DrawContext, LengthMetrics } from '../../arkui/Graphics';
 import uiEffect from '../../@ohos.graphics.uiEffect';
@@ -29582,25 +29582,25 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
 /**
  * The navigation destination information.
  *
- * @typedef {uiobserver.NavDestinationInfo} NavDestinationInfo
+ * @typedef {uiObserver.NavDestinationInfo} NavDestinationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type NavDestinationInfo = uiobserver.NavDestinationInfo;
+declare type NavDestinationInfo = uiObserver.NavDestinationInfo;
 /**
  * The navigation information.
  *
- * @typedef {  uiobserver.NavigationInfo } NavigationInfo
+ * @typedef {  uiObserver.NavigationInfo } NavigationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type NavigationInfo = uiobserver.NavigationInfo;
+declare type NavigationInfo = uiObserver.NavigationInfo;
 
 /**
  * The navigation information.
@@ -29627,14 +29627,14 @@ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.Rout
 /**
  * The router page information.
  *
- * @typedef {uiobserver.RouterPageInfo} RouterPageInfo
+ * @typedef {uiObserver.RouterPageInfo} RouterPageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type RouterPageInfo = uiobserver.RouterPageInfo;
+declare type RouterPageInfo = uiObserver.RouterPageInfo;
 
 /**
  * UIContext

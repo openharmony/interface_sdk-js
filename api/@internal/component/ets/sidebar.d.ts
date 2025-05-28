@@ -21,8 +21,7 @@
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource'
 import { Length, ResourceColor, Dimension } from './units'
-import { CommonMethod } from './common'
-import image from '../../@ohos.multimedia.image';
+import { CommonMethod, PixelMap } from './common'
 /*** endif */
 
 /**
@@ -198,7 +197,7 @@ declare enum SideBarPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare interface ButtonIconOptions {
@@ -226,18 +225,19 @@ declare interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  shown: string | PixelMap | Resource;
   /**
    * Defines whether an icon is shown.
    *
+   * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  shown: string | image.PixelMap | Resource;
+  shown: string | PixelMap | Resource;
+
   /**
    * Defines whether an icon is hidden.
    *
@@ -262,18 +262,18 @@ declare interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  hidden: string | PixelMap | Resource;
   /**
    * Defines whether an icon is hidden.
    *
+   * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  hidden: string | image.PixelMap | Resource;
+  hidden: string | PixelMap | Resource;
 
   /**
    * Defines whether an icon is switching.
@@ -299,18 +299,18 @@ declare interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  switching?: string | PixelMap | Resource;
   /**
    * Defines whether an icon is switching.
    *
-   * @type { ?(string | image.PixelMap | Resource) }
+   * Anonymous Object Rectification.
+   * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  switching?: string | image.PixelMap | Resource;
+  switching?: string | PixelMap | Resource;
 }
 
 /**
@@ -1085,7 +1085,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @arkts 1.1&1.2
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
-  
+
   /**
    * Sets the min length of content.
    * default value is 360vp.
