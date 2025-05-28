@@ -2232,6 +2232,7 @@ declare namespace wifiManager {
     /**
      * real device address
      * @syscap SystemCapability.Communication.WiFi.Core
+     * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -2845,7 +2846,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preSharedKey: string;
 
