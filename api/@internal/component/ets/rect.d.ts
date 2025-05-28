@@ -19,8 +19,21 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonShapeMethod,CommonMethod } from './common';
+import { CommonShapeMethod } from './common';
+import { Length } from './units';
 /*** endif */
+
+/**
+ * Defines the RadiusItem, the first element is the width of the rounded corner, the second is the height of the rounded corner.
+ * 
+ * @typedef { [Length, Length] } RadiusItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type RadiusItem = [Length, Length]
 
 /**
  * Define options used to construct a rectangle.
@@ -30,7 +43,8 @@ import { CommonShapeMethod,CommonMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RectOptions {
   /**
@@ -67,7 +81,29 @@ declare interface RectOptions {
    * @atomicservice
    * @since 11
    */
-  width?: number | string;
+  /**
+   * Rectangle width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Rectangle width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  width?: Length;
 
   /**
    * Rectangle height.
@@ -103,7 +139,29 @@ declare interface RectOptions {
    * @atomicservice
    * @since 11
    */
-  height?: number | string;
+  /**
+   * Rectangle height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Rectangle height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  height?: Length;
 
   /**
    * Corner radius of the rectangle.
@@ -140,6 +198,19 @@ declare interface RectOptions {
    * @since 11
    */
   radius?: number | string | Array<any>;
+
+  /**
+   * Corner radius of the rectangle.
+   *
+   * @type { ?(Length | Array<RadiusItem>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  radius?: Length | Array<RadiusItem>;
 }
 
 /**
@@ -678,58 +749,6 @@ declare const RectInStance: RectAttribute;
  * @since 11
  */
 declare const RectInstance: RectAttribute;
-
-/**
- * Define options used to construct a rectangle.
- *
- * @interface RectOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface RectOptions {
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: number | string;
-
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: number | string;
-
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(number | string | Array<number | string>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  radius?: number | string | Array<number | string>;
-}
 
 /**
  * Provides an interface for drawing rectangles.

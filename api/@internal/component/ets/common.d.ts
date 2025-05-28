@@ -28711,7 +28711,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<Object> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -28720,7 +28720,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 20
    * @arkts 1.2
    */
-  strokeDashArray(value: Array<Object>): T;
+  strokeDashArray(value: Array<Length>): T;
 }
 
 /**
