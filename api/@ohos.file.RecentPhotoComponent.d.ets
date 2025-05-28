@@ -19,7 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-import { BaseItemInfo } from '@ohos.file.PhotoPickerComponent';
+import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
 
 /**
  * Declare struct RecentPhotoComponent
@@ -142,6 +142,28 @@ export declare class RecentPhotoOptions {
    * @since 12
    */
   photoSource?: PhotoSource;
+
+  /**
+   * isSupportAutoRefresh
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  isAutoRefreshSupported?: boolean;
+
+  /**
+   * color mode of recentPhotoComponent placeholder
+   *
+   * @type { ?PickerColorMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  colorMode?: PickerColorMode;
 }
 
 /**
