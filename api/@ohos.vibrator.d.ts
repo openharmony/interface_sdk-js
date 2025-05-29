@@ -240,7 +240,7 @@ declare namespace vibrator {
    * Stop the vibrator on the specified device. When all parameters are set to default, stop all local vibrators.
    *
    * @permission ohos.permission.VIBRATE
-   * @param { VibratorInfoParam } param - Indicate the device and vibrator information that needs to be controlled,
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
    * <br> {@code VibratorInfoParam}.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -293,7 +293,7 @@ declare namespace vibrator {
    * Get effect information by device ID and vibrator ID.
    *
    * @param { string } effectId - The effect type to query.
-   * @param { VibratorInfoParam } param - Indicate the device and vibrator information that needs to be controlled,
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
    * <br> {@code VibratorInfoParam}. By default, query local vibrators.
    * @returns { EffectInfo } Returns information about the specified effect.
    * @throws { BusinessError } 14600101 - Device operation failed.
@@ -1059,7 +1059,6 @@ declare namespace vibrator {
   /**
   * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
   * the local default vibrator.
-  *
   * @interface VibratorInfoParam
   * @syscap SystemCapability.Sensors.MiscDevice
   * @since 19
@@ -1086,8 +1085,7 @@ declare namespace vibrator {
   }
 
   /**
-   * @brief Represents the information about a vibrator device in the system.
-   *
+   * Represents the information about a vibrator device in the system.
    * @interface VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19
@@ -1143,9 +1141,9 @@ declare namespace vibrator {
   /**
    * Retrieve the list of vibrator information about one or all devices.
    *
-   * @param { VibratorInfoParam } param - Indicate the device and vibrator information that needs to be controlled,
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
    * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on local device when param is unspecified.
-   * @returns { Promise<Array<VibratorInfo>> } Promise used to return a list of vibrator IDs containing information
+   * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
    * <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19
@@ -1155,25 +1153,25 @@ declare namespace vibrator {
   /**
    * Register a callback function to be called when a vibrator plugin or unplug event occurs.
    *
-   * @param { 'VibratorStateChange' } type - Event of the listening.
+   * @param { 'vibratorStateChange' } type - Event of the listening.
    * @param { Callback<VibratorStatusEvent> } callback - The callback function to be executed when
    * <br> the event is triggered.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19
    */
-  function on(type: 'VibratorStateChange', callback: Callback<VibratorStatusEvent>): void;
+  function on(type: 'vibratorStateChange', callback: Callback<VibratorStatusEvent>): void;
 
   /**
    * Unregister a callback function for vibrator plugin or unplug events.
    *
-   * @param { 'VibratorStateChange' } type - Event of the listening.
-   * @param { Callback<VibratorStatusEvent> } callback - The callback function to be removed from the event listener.
+   * @param { 'vibratorStateChange' } type - Event of the listening.
+   * @param { Callback<VibratorStatusEvent> } [callback] - The callback function to be removed from the event listener.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19
    */
-  function off(type: 'VibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
+  function off(type: 'vibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
 
   /**
    * Indicates information about vibrator online or offline events.
@@ -1207,7 +1205,7 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19
      */
-    vibratorCnt: number;
+    vibratorCount: number;
 
     /**
      * Indicates the device's online and offline status, true indicates online, false indicates offline.

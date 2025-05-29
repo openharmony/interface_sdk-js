@@ -975,10 +975,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to color sensor data.
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<ColorResponse> } callback - callback color data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<ColorResponse> } [callback] - callback color data.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -1014,10 +1012,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to sar sensor data.
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<SarResponse> } callback - callback sar data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<SarResponse> } [callback] - callback sar data.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -1056,11 +1052,9 @@ declare namespace sensor {
    * Unsubscribe to accelerometer sensor data.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AccelerometerResponse> } [callback] - callback accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1088,11 +1082,9 @@ declare namespace sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - callback uncalibrated accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1114,10 +1106,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to ambient light sensor data.
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<LightResponse> } callback - callback ambient data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<LightResponse> } [callback] - callback ambient data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1139,10 +1129,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to ambient temperature sensor data.
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AmbientTemperatureResponse> } [callback] - callback temperature data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1164,10 +1152,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to barometer sensor data.
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<BarometerResponse> } [callback] - callback barometer data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1189,10 +1175,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to gravity sensor data.
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GravityResponse> } [callback] - callback gravity data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1229,11 +1213,9 @@ declare namespace sensor {
    * Unsubscribe to gyroscope sensor data.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GyroscopeResponse> } [callback] - callback gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1259,11 +1241,9 @@ declare namespace sensor {
    * Unsubscribe to uncalibrated gyroscope sensor data.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1285,10 +1265,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to hall sensor data.
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HallResponse> } [callback] - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1313,11 +1291,9 @@ declare namespace sensor {
    * Unsubscribe to heart rate sensor data.
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HeartRateResponse> } [callback] - callback heart rate data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1339,10 +1315,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to humidity sensor data.
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HumidityResponse> } [callback] - callback humidity data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1367,11 +1341,9 @@ declare namespace sensor {
    * Unsubscribe to linear acceleration sensor data.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<LinearAccelerometerResponse> } [callback] - callback linear acceleration data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1393,10 +1365,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to magnetic field sensor data.
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<MagneticFieldResponse> } [callback] - callback magnetic field data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1420,10 +1390,8 @@ declare namespace sensor {
    * Unsubscribe to uncalibrated magnetic field sensor data.
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1455,10 +1423,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to orientation sensor data.
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1484,11 +1450,9 @@ declare namespace sensor {
    * Unsubscribe to pedometer sensor data.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<PedometerResponse> } [callback] - callback pedometer data.
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1513,11 +1477,9 @@ declare namespace sensor {
    * Unsubscribe to pedometer detection sensor data.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<PedometerDetectionResponse> } [callback] - callback pedometer detection data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1539,10 +1501,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to proximity sensor data.
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<ProximityResponse> } [callback] - callback proximity data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1564,10 +1524,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to rotation vector sensor data.
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<RotationVectorResponse> } [callback] - callback rotation vector data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1589,10 +1547,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to significant motion sensor data.
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<SignificantMotionResponse> } [callback] - callback significant motion data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -1614,10 +1570,8 @@ declare namespace sensor {
   /**
    * Unsubscribe to wear detection sensor data.
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
-   * @param { SensorInfoParam } sensorInfoParam - Parameters of sensor on the device.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<WearDetectionResponse> } [callback] - callback wear detection data.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2635,8 +2589,8 @@ declare namespace sensor {
   /**
    * Synchronously obtains the sensor information of the specified device and type.
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @param { number } deviceId - Device ID which the sensors attached. If not specified, the local device will be used.
-   * @returns { Sensor } Returns sensor information.
+   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @returns { Array<Sensor> } Returns sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19
    */
@@ -2678,7 +2632,7 @@ declare namespace sensor {
 
   /**
    * Synchronously obtains all sensor information on the device.
-   * @param { number } deviceId - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
    * @returns { Array<Sensor> } Return a list of sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19
@@ -4320,25 +4274,25 @@ declare namespace sensor {
 
   /**
    * Start listening on device status changes.
-   * @param { 'SensorStatusChange' } type - event of the listening.
+   * @param { 'sensorStatusChange' } type - event of the listening.
    * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19
    */
-  function on(type: 'SensorStatusChange', callback: Callback<SensorStatusEvent>): void;
+  function on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>): void;
 
   /**
    * Stop listening on device status changes.
-   * @param { 'SensorStatusChange' } type - event of the listening
-   * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
+   * @param { 'sensorStatusChange' } type - event of the listening
+   * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19
    */
-  function off(type: 'SensorStatusChange', callback?: Callback<SensorStatusEvent>): void;
+  function off(type: 'sensorStatusChange', callback?: Callback<SensorStatusEvent>): void;
 
   /**
    * Defines the data structure of the device status change event.
@@ -4398,9 +4352,8 @@ declare namespace sensor {
   }
 
   /**
-  * @brief Parameters of sensor on the device.
-  *
-  * @interface SensorInfoParam
+  * Parameters of sensor on the device.
+  * @typedef SensorInfoParam
   * @syscap SystemCapability.Sensors.Sensor
   * @since 19
   */
