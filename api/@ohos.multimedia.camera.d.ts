@@ -4335,12 +4335,27 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
+  /**
+   * Enumerates the camera white balance modes.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
   enum WhiteBalanceMode {
     /**
      * Automatic white balance mode.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Automatic white balance mode.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO = 0,
 
@@ -4351,6 +4366,14 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Cloudy white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     CLOUDY = 1,
 
     /**
@@ -4359,6 +4382,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Incandescent white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     INCANDESCENT = 2,
 
@@ -4369,6 +4400,14 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Fluorescent white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     FLUORESCENT = 3,
 
     /**
@@ -4377,6 +4416,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Daylight white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DAYLIGHT = 4,
 
@@ -4387,6 +4434,14 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Manual white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     MANUAL = 5,
 
     /**
@@ -4395,6 +4450,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Lock white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     LOCKED = 6
   }
@@ -4406,6 +4469,14 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
+   */
+  /**
+   * White Balance Query object.
+   *
+   * @interface WhiteBalanceQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
    */
   interface WhiteBalanceQuery {
     /**
@@ -4420,6 +4491,17 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Checks whether the specified white balance mode is supported.
+     * @param { WhiteBalanceMode } mode White balance mode.
+     * @returns { boolean } Check result.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean;
 
     /**
@@ -4431,6 +4513,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Query the white balance mode range.
+     *
+     * @returns { Array<number> } The array of white balance mode range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getWhiteBalanceRange(): Array<number>;
   }
@@ -4444,6 +4535,15 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
+  /**
+   * WhiteBalance object.
+   *
+   * @extends WhiteBalanceQuery
+   * @interface WhiteBalance
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
   interface WhiteBalance extends WhiteBalanceQuery {
     /**
      * Gets current white balance mode.
@@ -4454,6 +4554,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Obtains the white balance mode in use.
+     * @returns { WhiteBalanceMode } White balance mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getWhiteBalanceMode(): WhiteBalanceMode;
 
@@ -4468,6 +4577,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Sets white balance mode.
+     *
+     * @param { WhiteBalanceMode } mode - Target white balance mode.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     setWhiteBalanceMode(mode: WhiteBalanceMode): void;
 
     /**
@@ -4479,6 +4598,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Gets current white balance.
+     *
+     * @returns { number } The current white balance.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     getWhiteBalance(): number;
 
@@ -4492,6 +4621,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Sets white balance.
+     *
+     * @param { number } whiteBalance - White balance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     setWhiteBalance(whiteBalance: number): void;
   }
