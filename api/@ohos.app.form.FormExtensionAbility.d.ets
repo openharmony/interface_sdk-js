@@ -19,7 +19,6 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-// import formInfo from './@ohos.app.form.formInfo';
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
@@ -233,35 +232,6 @@ declare class FormExtensionAbility {
    * @since 11
    */
   onConfigurationUpdate(newConfig: Configuration): void;
-
-  /**
-   * Called to return a {@link FormState} object.
-   * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
-   * this method returns {@link FormState#DEFAULT} by default.</p>
-   *
-   * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
-   *                        is obtained. The description covers the bundle name, ability name, module name,
-   *                        form name, and form dimensions.
-   * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
-   * @syscap SystemCapability.Ability.Form
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called to return a {@link FormState} object.
-   * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
-   * this method returns {@link FormState#DEFAULT} by default.</p>
-   *
-   * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
-   *                        is obtained. The description covers the bundle name, ability name, module name,
-   *                        form name, and form dimensions.
-   * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
-   * @syscap SystemCapability.Ability.Form
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  // onAcquireFormState?: (want: Want) => formInfo.FormState;
 
   /**
    * Called when the system shares the form.
