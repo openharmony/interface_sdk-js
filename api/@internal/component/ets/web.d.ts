@@ -7004,10 +7004,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to allow image resources to be loaded from the network.
-   *    The default value is true.
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   * {@code false} otherwise.
+   * Sets whether to enable access to online images through HTTP and HTTPS.
+   *
+   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
+   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
