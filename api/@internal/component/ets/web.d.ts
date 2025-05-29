@@ -9379,6 +9379,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * The script is executed in the lexicographic order, not array order.
    * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
+   * When scripts with identical content are injected multiple times,
+   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
+   * and the scriptRules used during the first injection will be adopted.
    * </p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
@@ -9395,8 +9398,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * <p><strong>API NOTE</strong>:<br>
    * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not the array order.
-   * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
+   * If the array order is required, you are advised to use the runJavaScriptinDocumentEnd interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
+   * When scripts with identical content are injected multiple times,
+   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
+   * and the scriptRules used during the first injection will be adopted.
    * <p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
