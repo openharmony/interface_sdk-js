@@ -19,7 +19,7 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-import formInfo from './@ohos.app.form.formInfo';
+// import formInfo from './@ohos.app.form.formInfo';
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
@@ -261,7 +261,7 @@ declare class FormExtensionAbility {
    * @atomicservice
    * @since 11
    */
-  onAcquireFormState?: (want: Want) => formInfo.FormState;
+  // onAcquireFormState?: (want: Want) => formInfo.FormState;
 
   /**
    * Called when the system shares the form.
