@@ -28,6 +28,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Line Modifier
+ *
+ * @extends LineAttribute
+ * @implements AttributeModifier<LineAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class LineModifier extends LineAttribute implements AttributeModifier<LineAttribute> {
 
   /**

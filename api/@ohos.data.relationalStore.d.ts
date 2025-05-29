@@ -445,6 +445,16 @@ declare namespace relationalStore {
      */
 
     persist?: boolean;
+
+    /**
+     * Specifies whether the database enable the capabilities for semantic indexing processing.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+
+    enableSemanticIndex?: boolean;
   }
 
   /**
@@ -939,6 +949,46 @@ declare namespace relationalStore {
      * @since 12
      */
     executeTime: number;
+  }
+
+  /**
+   * Defines an exception message.
+   *
+   * @interface ExceptionMessage
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  interface ExceptionMessage {
+    /**
+     * Error code returned by SQLite, see {@link https://www.sqlite.org/rescode.html}.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    code: number;
+
+    /**
+     * Error message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    message: string;
+
+    /**
+     * SQL statement executed when the exception occurs.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    sql: string;
   }
 
   /**
@@ -7526,6 +7576,30 @@ declare namespace relationalStore {
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
     /**
+     * Subscribes to the SQL execution error logs.
+     * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
+     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
+
+    /**
+     * Subscribes to the SQL performance statistics.
+     * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -7669,6 +7743,30 @@ declare namespace relationalStore {
      * @since 12
      */
     off(event: 'statistics', observer?: Callback<SqlExecutionInfo> ): void;
+
+    /**
+     * Unsubscribes from the SQL execution error logs.
+     * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
+     * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
+
+    /**
+     * Unsubscribes from the SQL performance statistics.
+     * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -8501,10 +8599,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8520,10 +8616,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8603,10 +8697,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8622,10 +8714,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8701,8 +8791,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8716,8 +8805,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8735,8 +8823,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8755,8 +8842,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8770,8 +8856,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8804,8 +8889,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core

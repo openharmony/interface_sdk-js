@@ -125,8 +125,10 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Creates an AVRecorder instance.
-   * @param { AsyncCallback<AVRecorder> } callback - used to return AVRecorder instance if the operation is successful; returns null otherwise.
+   * Creates an **AVRecorder** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVRecorder> } callback - Callback used to return the result. If the operation is successful,
+   * an **AVRecorder** instance is returned; otherwise, **null** is returned. The instance can be used to record audio
+   * and video.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
@@ -142,8 +144,10 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Creates an AVRecorder instance.
-   * @returns { Promise<AVRecorder> } A Promise instance used to return AVRecorder instance if the operation is successful; returns null otherwise.
+   * Creates an **AVRecorder** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVRecorder> } Promise used to return the result. If the operation is successful,
+   * an **AVRecorder** instance is returned; otherwise, **null** is returned.
+   * The instance can be used to record audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
@@ -273,11 +277,23 @@ declare namespace media {
   function createVideoRecorder(): Promise<VideoRecorder>;
 
   /**
-   * Creates a soundPool instance.
+   * Creates a **SoundPool** instance. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
-   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
-   * @param {AsyncCallback<SoundPool>} callback Callback used to return soundPool instance if the operation is successful; returns null otherwise.
+   * **NOTE**
+   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
+   * mode. Therefore, an application process can create only one **SoundPool** instance.
+   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
+   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   *
+   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   * The value is an integer ranging from 1 to 32.
+   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters. When the **usage** parameter
+   * in **audioRenderInfo** is set to **STREAM_USAGE_UNKNOWN**, **STREAM_USAGE_MUSIC**, **STREAM_USAGE_MOVIE**, or
+   * **STREAM_USAGE_AUDIOBOOK**, the SoundPool uses the audio mixing mode when playing a short sound, without
+   * interrupting the playback of other audios.
+   * @param {AsyncCallback<SoundPool>} callback - Callback used to return the result. If the operation is successful, a
+   * **SoundPool** instance is returned; otherwise, **null** is returned.
+   * The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
@@ -289,11 +305,20 @@ declare namespace media {
   ): void;
 
   /**
-   * Creates a soundPool instance.
+   * Creates a **SoundPool** instance. This API uses a promise to return the result.
    *
-   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
-   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
-   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * **NOTE**
+   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
+   * mode. Therefore, an application process can create only one **SoundPool** instance.
+   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
+   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   *
+   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   * The value is an integer ranging from 1 to 32.
+   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters.
+   * @returns {Promise<SoundPool>} Promise used to return the result. If the operation is successful,
+   * a **SoundPool** instance is returned; otherwise, **null** is returned.
+   * The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
@@ -301,11 +326,17 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
-   * Create a SoundPool that supports parallel playback of audio with the same SoundID.
+   * Creates a **SoundPool** instance. This API uses a promise to return the result.
    *
-   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
-   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
-   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * If a **SoundPool** instance created using [createSoundPool]{@link #createSoundPool} is used to play the same sound again,
+   * it stops the current audio and restarts the audio. However, if the instance is created using
+   * **createParallelSoundPool**, it keeps playing the first audio and starts the new one alongside it.
+   *
+   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   * The value is an integer ranging from 1 to 32.
+   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters.
+   * @returns {Promise<SoundPool>} Promise used to return the result. If the operation is successful, a **SoundPool**
+   * instance is returned; otherwise, **null** is returned. The instance is used for loading and playback.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @throws { BusinessError } 202 - System API error. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -381,9 +412,15 @@ declare namespace media {
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
   /**
-   * Creates a AVTranscoder instance.
+   * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
    *
-   * @returns {Promise<AVTranscoder>} A Promise instance used to return AVTranscoder instance if the operation is successful; returns null otherwise.
+   * **NOTE**
+   *
+   * A maximum of 2 **AVTranscoder** instances can be created.
+   *
+   * @returns {Promise<AVTranscoder>} Promise used to return the result. If the operation is successful, an
+   * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
+   * transcoding.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 12
@@ -412,8 +449,8 @@ declare namespace media {
   function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor>;
 
   /**
-   * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
-   * to create an SoundPool instance.
+   * Provides APIs for loading, unloading, playing, and stopping playing system sounds, setting the volume,
+   * and setting the number of loops.
    *
    * @typedef { _SoundPool }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -422,7 +459,7 @@ declare namespace media {
   type SoundPool = _SoundPool;
 
   /**
-   * Describes play parameters.
+   * Playback parameters of the sound pool.
    *
    * @typedef { _PlayParameters }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -507,7 +544,7 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Creates an AVMetadataExtractor instance.
+   * Creates an **AVMetadataExtractor** instance. This API uses a promise to return the result.
    * @returns { Promise<AVMetadataExtractor> } A Promise instance used to return AVMetadataExtractor instance
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
@@ -526,9 +563,10 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Creates an AVMetadataExtractor instance.
-   * @param { AsyncCallback<AVMetadataExtractor> } callback - Callback used to return AVMetadataExtractor instance
-   * if the operation is successful; returns null otherwise.
+   * Creates an **AVMetadataExtractor** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVMetadataExtractor> } callback - Callback used to return the result. If the operation is
+   * successful, **err** is **undefined** and **data** is the **AVMetadataExtractor** instance created;
+   * otherwise, **err** is an error object.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
@@ -537,9 +575,10 @@ declare namespace media {
   function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor>): void;
 
   /**
-   * Creates an AVImageGenerator instance.
-   * @returns { Promise<AVImageGenerator> } A Promise instance used to return AVImageGenerator instance
-   * if the operation is successful; returns null otherwise.
+   * Creates an **AVImageGenerator** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVImageGenerator> } Promise used to return the result. If the operation is successful,
+   * an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
+   * The API can be used to obtain a video thumbnail.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12
@@ -547,9 +586,10 @@ declare namespace media {
   function createAVImageGenerator(): Promise<AVImageGenerator>;
 
   /**
-   * Creates an AVImageGenerator instance.
-   * @param { AsyncCallback<AVImageGenerator> } callback - Callback used to return AVImageGenerator instance
-   * if the operation is successful; returns null otherwise.
+   * Creates an **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVImageGenerator> } callback - Callback used to return the result.
+   * If the operation is successful, an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
+   * The API can be used to obtain a video thumbnail.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12
@@ -564,8 +604,10 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Fetch media meta data or audio art picture from source. Before calling an AVMetadataExtractor method,
-   * you must use createAVMetadataExtractor() to create an AVMetadataExtractor instance.
+   * Fetch media meta data or audio art picture from source. Before calling an **AVMetadataExtractor** method,
+   * you must use [createAVMetadataExtractor()]{@link #createAVMetadataExtractor} to create an
+   * **AVMetadataExtractor** instance.
+   *
    * @typedef AVMetadataExtractor
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
@@ -579,7 +621,20 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Media file descriptor.
+     * Media file descriptor, which specifies the data source. Before obtaining metadata,
+     * you must set the data source through either **fdSrc** or **dataSrc**.
+     *
+     * **Example:**
+     *
+     * There is a media file that stores continuous assets, the address offset is 0, and the byte length is 100.
+     * Its file descriptor is **AVFileDescriptor { fd = resourceHandle; offset = 0; length = 100; }**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVMetadataExtractor** instance,
+     * do not use the resource handle to perform other read and write operations, including but not limited to
+     * transferring this handle to other **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**,
+     * or **AVTranscoder** instance. Competition occurs when multiple **AVMetadataExtractor** use the same resource
+     * handle to read and write files at the same time, resulting in errors in obtaining data.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -594,7 +649,11 @@ declare namespace media {
      * @since 11
      */
     /**
-     * DataSource descriptor.
+     * Streaming media resource descriptor, which specifies the data source. Before obtaining metadata,
+     * you must set the data source through either **fdSrc** or **dataSrc**.
+     *
+     * When an application obtains a media file from the remote, you can set **dataSrc** to obtain the metadata before
+     * the application finishes the downloading.
      * @type { ?AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -611,8 +670,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * It will extract the resource to fetch media meta data info.
-     * @param { AsyncCallback<AVMetadata> } callback - A callback instance used to return when fetchMetadata completed.
+     * Obtains media metadata. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AVMetadata> } callback - Callback used to return the result,
+     * which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -630,8 +690,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * It will extract the resource to fetch media meta data info.
-     * @returns { Promise<AVMetadata> } A Promise instance used to return when fetchMetadata completed.
+     * Obtains media metadata. This API uses a promise to return the result.
+     * @returns { Promise<AVMetadata> } Promise used to return the result, which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -650,8 +710,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * It will extract the audio resource to fetch an album cover.
-     * @param { AsyncCallback<image.PixelMap> } callback - A callback instance used
+     * Obtains the cover of the audio album. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the album cover.
      * to return when fetchAlbumCover completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
@@ -670,8 +730,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * It will extract the audio resource to fetch an album cover.
-     * @returns { Promise<image.PixelMap> } A Promise instance used to return when fetchAlbumCover completed.
+     * Obtains the cover of the audio album. This API uses a promise to return the result.
+     * @returns { Promise<image.PixelMap> } Promise used to return the album cover.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -708,9 +768,9 @@ declare namespace media {
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
     /**
-     * Get timestamp according to frame index.
-     * @param { number } index - Index of the frame.
-     * @returns { Promise<number> } A Promise instance used to return frame timestamp, in microseconds.
+     * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
+     * @param { number } index - Video frame number.
+     * @returns { Promise<number> } Promise used to return the timestamp, in microseconds.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
@@ -721,9 +781,9 @@ declare namespace media {
     getTimeByFrameIndex(index: number): Promise<number>;
 
     /**
-     * Get frame index according to the given timestamp.
-     * @param { number } timeUs - Timestamp of the frame, in microseconds.
-     * @returns { Promise<number> } A Promise instance used to return frame index.
+     * Obtains the video frame number corresponding to a video timestamp. Only MP4 video files are supported.
+     * @param { number } timeUs - Video timestamp, in microseconds.
+     * @returns { Promise<number> } Promise used to return the video frame number.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
@@ -741,8 +801,9 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Release resources used for AVMetadataExtractor.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
+     * Releases this **AVMetadataExtractor** instance. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -758,8 +819,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Release resources used for AVMetadataExtractor.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases this **AVMetadataExtractor** instance. This API uses a promise to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -775,7 +836,9 @@ declare namespace media {
    * @since 11
    */
   /**
-   * Provides the container definition for media meta data.
+   * Defines the audio and video metadata. Parameters that are not declared as read-only in
+   * [AVRecorderConfig]{@link #AVRecorderConfig} can be used as input parameters for recording of
+   * [AVRecorder]{@link #AVRecorder}.
    * @typedef AVMetadata
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
@@ -790,8 +853,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the album title
-     * of the media source. This field is readonly in current version.
+     * Title of the album. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -807,8 +869,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the performer or
-     * artist associated with the media source. This field is readonly in current version.
+     * Artist of the album. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -824,8 +885,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the artist of
-     * the media source. This field is readonly in current version.
+     * Artist of the media asset. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -841,8 +901,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the author of
-     * the media source. This field is readonly in current version.
+     * Author of the media asset. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -858,8 +917,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the created time of
-     * the media source. This field is readonly in current version.
+     * Time when the media asset is created. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -875,8 +933,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the created or modified time
-     * with the specific date format of the media source. This field is readonly in current version.
+     * Time when the media asset is created. The value is in the YYYY-MM-DD HH:mm:ss format.
+     * This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -892,8 +950,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the composer of
-     * the media source. This field is readonly in current version.
+     * Composer of the media asset. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -908,7 +965,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the playback duration of the media source. This field is readonly in current version.
+     * Duration of the media asset. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -924,8 +981,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the content type or genre of the data
-     * source.
+     * Type or genre of the media asset.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -940,7 +996,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * If this value exists the media contains audio content. This field is readonly in current version.
+     * Whether the media asset contains audio. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -955,7 +1011,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * If this value exists the media contains video content. This field is readonly in current version.
+     * Whether the media asset contains a video. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -971,8 +1027,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the mime type of the media source. Some
-     * example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb". This field is readonly in current version.
+     * MIME type of the media asset. This parameter is read-only in the current version.
+     * Some example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb".
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -988,8 +1044,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the number of tracks, such as audio, video,
-     * text, in the media source, such as a mp4 or 3gpp file. This field is readonly in current version.
+     * Number of tracks of the media asset. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1004,7 +1059,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * It is the audio sample rate, if available. This field is readonly in current version.
+     * Audio sampling rate, in Hz. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1019,7 +1074,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the media source title. This field is readonly in current version.
+     * Title of the media asset. This parameter is read-only in the current version.
+     * This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1034,7 +1090,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * If the media contains video, this key retrieves its height. This field is readonly in current version.
+     * Video height, in px. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1049,7 +1105,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * If the media contains video, this key retrieves its width. This field is readonly in current version.
+     * Video width, in px. This parameter is read-only in the current version.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1065,8 +1121,7 @@ declare namespace media {
      * @since 11
      */
     /**
-     * The metadata to retrieve the information about the video
-     * orientation.
+     * Video rotation direction, in degrees.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1075,7 +1130,7 @@ declare namespace media {
     videoOrientation?: string;
 
      /**
-     * This value exists if the video is HDR video.This field is readonly in current version.
+     * HDR type of the media asset. This parameter is read-only in the current version.
      * @type { ?HdrType }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1084,7 +1139,7 @@ declare namespace media {
     hdrType?: HdrType;
 
     /**
-     * The geographical location info of the video.
+     * Geographical location of the media asset.
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12
@@ -1092,7 +1147,7 @@ declare namespace media {
     location?: Location;
 
     /**
-     * Custom parameter key-value map read from moov.meta.list.
+     * Custom key-value mappings obtained from **moov.meta.list**.
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12
@@ -1155,15 +1210,28 @@ declare namespace media {
   }
 
   /**
-   * Generate an image from a video resource with the specific time. Before calling an AVImageGenerator method,
-   * you must use createAVImageGenerator() to create an AVImageGenerator instance.
+   * Provides APIs to obtain a thumbnail from a video. Before calling any API of **AVImageGenerator**,
+   * you must use [createAVImageGenerator()]{@link #createAVImageGenerator} to create an **AVImageGenerator** instance.
+   *
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12
    */
   interface AVImageGenerator {
     /**
-     * Media file descriptor.
+     * Media file descriptor, which specifies the data source.
+     *
+     * **Example:**
+     *
+     * There is a media file that stores continuous assets, the address offset is 0, and the byte length is 100.
+     * Its file descriptor is **AVFileDescriptor { fd = resourceHandle; offset = 0; length = 100; }**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVImageGenerator** instance,
+     * do not use the resource handle to perform other read and write operations, including but not limited to
+     * transferring this handle to other **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**,
+     * or **AVTranscoder** instance. Competition occurs when multiple **AVImageGenerator**
+     * use the same resource handle to read and write files at the same time, resulting in errors in obtaining data.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
@@ -1171,14 +1239,13 @@ declare namespace media {
     fdSrc ?: AVFileDescriptor;
 
     /**
-     * It will fetch a picture at @timeUs from the given video resource.
-     * @param { number } timeUs - The time expected to fetch picture from the video resource.
-     * The unit is microsecond(us).
-     * @param { AVImageQueryOptions } options - The time options about the relationship
-     * between the given timeUs and a key frame, see @AVImageQueryOptions .
-     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
-     * @param { AsyncCallback<image.PixelMap> } callback - A callback instance used
-     * to return when fetchFrameByTime completed.
+     * Obtains a video thumbnail. This API uses an asynchronous callback to return the result.
+     * @param { number } timeUs - Time of the video for which a thumbnail is to be obtained, in μs.
+     * @param { AVImageQueryOptions } options - Relationship between the time passed in and the video frame.
+     * @param { PixelMapParams } param - Format parameters of the thumbnail to be obtained.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the result. If the operation is
+     * successful, **err** is **undefined** and **data** is the **PixelMap** instance obtained; otherwise,
+     * **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1188,15 +1255,11 @@ declare namespace media {
       callback: AsyncCallback<image.PixelMap>): void;
 
     /**
-     * It will decode the given video resource. Then fetch a picture
-     * at @timeUs according the given @options and @param .
-     * @param { number } timeUs - The time expected to fetch picture from the video resource.
-     * The unit is microsecond(us).
-     * @param { AVImageQueryOptions } options - The time options about the relationship
-     * between the given timeUs and a key frame, see @AVImageQueryOptions .
-     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
-     * @returns { Promise<image.PixelMap> } A Promise instance used to return the pixel map
-     * when fetchFrameByTime completed.
+     * Obtains a video thumbnail. This API uses a promise to return the result.
+     * @param { number } timeUs - Time of the video for which a thumbnail is to be obtained, in μs.
+     * @param { AVImageQueryOptions } options - Relationship between the time passed in and the video frame.
+     * @param { PixelMapParams } param - Format parameters of the thumbnail to be obtained.
+     * @returns { Promise<image.PixelMap> } Promise used to return the video thumbnail.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1206,9 +1269,10 @@ declare namespace media {
 
     /**
      * Supports extracting video thumbnails by proportional scaling
-     * @param { number } timeUs The time expected to fetch picture from the video resource. The unit is microsecond(us).
-     * @param { AVImageQueryOptions } queryMode Specify how to position the video frame
-     * @param { OutputSize } outputSize This field is used to define the output size of frame.
+     * @param { number } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } queryMode - Specify how to position the video frame
+     * @param { OutputSize } outputSize - This field is used to define the output size of frame.
      * @returns { Promise<image.PixelMap> }  Returns the output image object
      * @throws { BusinessError  } 5400102 Operation not allowed. Returned by promise.
      * @throws { BusinessError  } 5400106 Unsupported format. Returned by promise.
@@ -1219,8 +1283,9 @@ declare namespace media {
       Promise<image.PixelMap>;
 
     /**
-     * Release resources used for AVImageGenerator.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
+     * Releases this **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
@@ -1228,8 +1293,8 @@ declare namespace media {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Release resources used for AVImageGenerator.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases this **AVImageGenerator** instance. This API uses a promise to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
@@ -1238,39 +1303,38 @@ declare namespace media {
   }
 
   /**
-   * Enumerates options about the relationship between the given timeUs and a key frame.
+   * Enumerates the relationship between the video frame and the time at which the video thumbnail is obtained.
+   *
+   * The time passed in for obtaining the thumbnail may be different from the time of the video frame for which
+   * the thumbnail is actually obtained. Therefore, you need to specify their relationship.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12
    */
   enum AVImageQueryOptions {
     /**
-     * This option is used to fetch a key frame from the given media
-     * resource that is located right after or at the given time.
+     * The key frame at or next to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
     /**
-     * This option is used to fetch a key frame from the given media
-     * resource that is located right before or at the given time.
+     * The key frame at or prior to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
     /**
-     * This option is used to fetch a key frame from the given media
-     * resource that is located closest to or at the given time.
+     * The key frame closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
     /**
-     * This option is used to fetch a frame (maybe not keyframe) from
-     * the given media resource that is located closest to or at the given time.
+     * The frame (not necessarily a key frame) closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
@@ -1278,15 +1342,15 @@ declare namespace media {
   }
 
   /**
-   * Expected pixel map format for the fetched image from video resource.
+   * Defines the format parameters of the video thumbnail to be obtained.
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12
    */
   interface PixelMapParams {
     /**
-     * Expected pixelmap's width, -1 means to keep consistent with the
-     * original dimensions of the given video resource.
+     * Width of the thumbnail. The value must be greater than 0 and less than or equal to the width of the original
+     * video. Otherwise, the returned thumbnail will not be scaled.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
@@ -1294,8 +1358,8 @@ declare namespace media {
     width?: number;
 
     /**
-     * Expected pixelmap's width, -1 means to keep consistent with the
-     * original dimensions of the given video resource.
+     * Height of the thumbnail. The value must be greater than 0 and less than or equal to the height of the original
+     * video. Otherwise, the returned thumbnail will not be scaled.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
@@ -1303,7 +1367,9 @@ declare namespace media {
     height?: number;
 
     /**
-     * Expected pixelmap's color format, see {@link PixelFormat}.
+     * Color format of the thumbnail.
+     *
+     * **System API**: This is a system API.
      * @type { ?PixelFormat }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
@@ -1313,7 +1379,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates options about the expected color options for the fetched image.
+   * Enumerates the color formats supported by the video thumbnail.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @systemapi
@@ -1321,7 +1387,7 @@ declare namespace media {
    */
   enum PixelFormat {
     /**
-     * RGB_565 options.
+     * RGB_565.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11
@@ -1329,7 +1395,7 @@ declare namespace media {
     RGB_565 = 2,
 
     /**
-     * RGBA_8888 options.
+     * RGBA_8888.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11
@@ -1337,7 +1403,7 @@ declare namespace media {
     RGBA_8888 = 3,
 
     /**
-     * RGB_888 options.
+     * RGB_888.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
      * @since 11
@@ -1840,6 +1906,17 @@ declare namespace media {
    * @since 18
    */
   type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
+
+  /**
+   * Defines the OnPlaybackRateDone callback.
+   *
+   * @typedef { function } OnPlaybackRateDone
+   * @param { number } rate - playback rate.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 20
+   */
+  type OnPlaybackRateDone = (rate: number) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -2841,6 +2918,18 @@ declare namespace media {
     setSpeed(speed: PlaybackSpeed): void;
 
     /**
+     * Set playback rate.
+     * Supported states: prepared/playing/paused/completed.
+     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    setPlaybackRate(rate: number): void;
+
+    /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
      * player will select the appropriate bitrate according to the network connection speed. The
      * available bitrate list reported by {@link #on('availableBitrates')}. Set it to select
@@ -3156,6 +3245,25 @@ declare namespace media {
      * @since 12
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
+    /**
+     * Register listens for media playbackRateDone event.
+     * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
+     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'playbackRateDone', callback: OnPlaybackRateDone): void;
+
+    /**
+     * Unregister listens for media playbackRateDone event.
+     * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
+     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'playbackRateDone', callback?: OnPlaybackRateDone): void;
     /**
      * Register listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
@@ -4887,19 +4995,19 @@ declare namespace media {
   }
 
   /**
-  * Describes media recorder states.
-  * @typedef {'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error'}
-  * @syscap SystemCapability.Multimedia.Media.AVRecorder
-  * @since 9
-  */
+   * Describes media recorder states.
+   * @typedef {'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error'}
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @since 9
+   */
   /**
-  * Describes media recorder states.
-  * @typedef {'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error'}
-  * @syscap SystemCapability.Multimedia.Media.AVRecorder
-  * @crossplatform
-  * @atomicservice
-  * @since 12
-  */
+   * Describes media recorder states.
+   * @typedef {'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error'}
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error';
 
   /**
@@ -4908,7 +5016,7 @@ declare namespace media {
    * @typedef { function } OnAVRecorderStateChangeHandler
    * @param { AVRecorderState } state - state value for AVRecorder.
    * @param { StateChangeReason } reason - reason for state change.
-   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -4948,18 +5056,52 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Prepares for recording.
+     * Sets audio and video recording parameters. This API uses an asynchronous callback to return the result.
      * @permission ohos.permission.MICROPHONE
-     * @param { AVRecorderConfig } config - Recording parameters.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
+     * @param { AVRecorderConfig } config - Audio and video recording parameters to set.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * // Configure the parameters based on those supported by the hardware device.
+     * let avRecorderProfile: media.AVRecorderProfile = {
+     *   audioBitrate : 48000,
+     *   audioChannels : 2,
+     *   audioCodec : media.CodecMimeType.AUDIO_AAC,
+     *   audioSampleRate : 48000,
+     *   fileFormat : media.ContainerFormatType.CFT_MPEG_4,
+     *   videoBitrate : 2000000,
+     *   videoCodec : media.CodecMimeType.VIDEO_AVC,
+     *   videoFrameWidth : 640,
+     *   videoFrameHeight : 480,
+     *   videoFrameRate : 30
+     * }
+     * let avRecorderConfig: media.AVRecorderConfig = {
+     *   audioSourceType : media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
+     *   videoSourceType : media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
+     *   profile : avRecorderProfile,
+     *   url : 'fd://', // Before passing in an FD to this parameter, the file must be created by the caller and granted with the read and write permissions. Example value: fd://45.
+     *   rotation: 0, // The value can be 0, 90, 180, or 270. If any other value is used, prepare() reports an error.
+     *   location : { latitude : 30, longitude : 130 }
+     * }
+     *
+     * avRecorder.prepare(avRecorderConfig, (err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to prepare and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in preparing');
+     *   }
+     * })
      */
     prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void;
 
@@ -4976,8 +5118,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Prepares for recording.
+     * Sets audio and video recording parameters. This API uses a promise to return the result.
      * @permission ohos.permission.MICROPHONE
+     * This permission is required only if audio recording is involved.
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
@@ -4989,50 +5132,142 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * // Configure the parameters based on those supported by the hardware device.
+     * let avRecorderProfile: media.AVRecorderProfile = {
+     *   audioBitrate : 48000,
+     *   audioChannels : 2,
+     *   audioCodec : media.CodecMimeType.AUDIO_AAC,
+     *   audioSampleRate : 48000,
+     *   fileFormat : media.ContainerFormatType.CFT_MPEG_4,
+     *   videoBitrate : 2000000,
+     *   videoCodec : media.CodecMimeType.VIDEO_AVC,
+     *   videoFrameWidth : 640,
+     *   videoFrameHeight : 480,
+     *   videoFrameRate : 30
+     * }
+     * let avRecorderConfig: media.AVRecorderConfig = {
+     *   audioSourceType : media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
+     *   videoSourceType : media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
+     *   profile : avRecorderProfile,
+     *   url : 'fd://', // Before passing in an FD to this parameter, the file must be created by the caller and granted with the read and write permissions. Example value: fd://45.
+     *   rotation: 0, // The value can be 0, 90, 180, or 270. If any other value is used, prepare() reports an error.
+     *   location : { latitude : 30, longitude : 130 }
+     * }
+     *
+     * avRecorder.prepare(avRecorderConfig).then(() => {
+     *   console.info('Succeeded in preparing');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to prepare and catch error is ' + err.message);
+     * });
      */
     prepare(config: AVRecorderConfig): Promise<void>;
 
     /**
-     * Get AVRecorderConfig.it must be called after prepare.
-     * @param { AsyncCallback<AVRecorderConfig> } callback - Callback used to return the input config in AVRecorderConfig.
+     * Obtains the real-time configuration of this AVRecorder.
+     * This API uses an asynchronous callback to return the result.
+     * This API can be called only after prepare() is called.
+     * @param { AsyncCallback<AVRecorderConfig> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the real-time configuration obtained;
+     * otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let avConfig: media.AVRecorderConfig;
+     *
+     * avRecorder.getAVRecorderConfig((err: BusinessError, config: media.AVRecorderConfig) => {
+     *   if (err) {
+     *     console.error('Failed to get avConfig and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting AVRecorderConfig');
+     *     avConfig = config;
+     *   }
+     * });
      */
     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
 
     /**
-     * Get AVRecorderConfig.it must be called after prepare.
-     * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
+     * Obtains the real-time configuration of this AVRecorder. This API uses a promise to return the result.
+     * This API can be called only after prepare() is called.
+     * @returns { Promise<AVRecorderConfig> } Promise used to return the real-time configuration.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let avConfig: media.AVRecorderConfig;
+     *
+     * avRecorder.getAVRecorderConfig().then((config: media.AVRecorderConfig) => {
+     *   console.info('Succeeded in getting AVRecorderConfig');
+     *   avConfig = config;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get AVRecorderConfig and catch error is ' + err.message);
+     * });
      */
     getAVRecorderConfig(): Promise<AVRecorderConfig>;
 
     /**
-     * Get input surface.it must be called between prepare completed and start.
-     * @param { AsyncCallback<string> } callback - Callback used to return the input surface id in string.
+     * Obtains the surface required for recording. This API uses an asynchronous callback to return the result.
+     * The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     *
+     * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp
+     * must be based on the system startup time.
+     *
+     * This API can be called only after the prepare() API is called.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined** and **data** is the surface ID obtained; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
+     *
+     * avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
+     *   if (err) {
+     *     console.error('Failed to do getInputSurface and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in doing getInputSurface');
+     *     surfaceID = surfaceId;
+     *   }
+     * });
      */
     getInputSurface(callback: AsyncCallback<string>): void;
 
     /**
-     * Get input surface. it must be called between prepare completed and start.
-     * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
+     * Obtains the surface required for recording. This API uses a promise to return the result. The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     *
+     * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp must be based on the system startup time.
+     *
+     * This API can be called only after the prepare() API is called.
+     * @returns { Promise<string> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
+     *
+     * avRecorder.getInputSurface().then((surfaceId: string) => {
+     *   console.info('Succeeded in getting InputSurface');
+     *   surfaceID = surfaceId;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get InputSurface and catch error is ' + err.message);
+     * });
      */
     getInputSurface(): Promise<string>;
 
@@ -5053,53 +5288,104 @@ declare namespace media {
     getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
     /**
-     * Check if the avrecorder has watermark capability.
-     * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
+     * Checks whether the device supports the hardware digital watermark. This API uses a promise to return the result.
+     *
+     * This API can be called after the prepare(), start(), or paused() event is triggered.
+     * @returns { Promise<boolean> } Promise used to return the check result. The value **true** means that
+     * the device supports the hardware digital watermark, and **false** means the opposite.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 13
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.isWatermarkSupported().then((isWatermarkSupported: boolean) => {
+     *   console.info(`Succeeded in get, isWatermarkSupported: ${isWatermarkSupported}`);
+     * }).catch((error: BusinessError) => {
+     *   console.error(`Failed to get and catch error is ${error.message}`);
+     * });
      */
     isWatermarkSupported(): Promise<boolean>;
     /**
-     * Set watermark image to recorder.
+     * Sets a watermark for the AVRecorder. This API uses a promise to return the result.
+     *
+     * This API can be called only after the prepare() event is triggered and before
+     * the start() event is triggered.
      * @param { image.PixelMap } watermark : Watermark image.
      * @param { WatermarkConfig } config : Configures of the watermark.
-     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 13
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * import { image } from '@kit.ImageKit';
+     *
+     * let watermark: image.PixelMap|undefined = undefined; // need data.
+     * let watermarkConfig: media.WatermarkConfig = { top: 100, left: 100 }
+     *
+     * avRecorder.setWatermark(watermark, watermarkConfig).then(() => {
+     *   console.info('Succeeded in setWatermark');
+     * }).catch((error: BusinessError) => {
+     *   console.error(`Failed to setWatermark and catch error is ${error.message}`);
+     * });
      */
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
 
     /**
-     * Set metadata.
+     * Sets custom metadata for the recording file of AVRecorder.
+     *
+     * This API can be called only after the prepare() event is successfully triggered and
+     * before the stop() API is called.
      * Can be called after start, before stop.
-     * @param { Record<string, string> } metadata - Metadata to set.
+     * @param { Record<string, string> } metadata - Tag and value of the metadata in key-value pairs.
+     * <br>- The first string is the tag.<br>- The second string is the value.
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 19
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let meta : Record<string, string> = {
+     *    'com.openharmony.userdefine':'10',
+     *    'com.openharmony.userdefine2':'20'
+     * };
+     *
+     * avRecorder.setMetadata(meta);
      */
     setMetadata(metadata: Record<string, string>): void;
 
     /**
-     * Update the video orientation before recorder start.
-     * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
+     * Updates the video rotation angle. This API uses a promise to return the result.
+     *
+     * This API can be called only after the prepare() event is triggered and before the start() API is called.
+     * @param { number } rotation - Rotation angle, which can only be 0, 90, 180, or 270 degrees.
      * @returns { Promise<void> } A Promise instance used to return when the function is finished.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let rotation = 90
+     *
+     * avRecorder.updateRotation(rotation).then(() => {
+     *   console.info('Succeeded in updateRotation');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to updateRotation and catch error is ' + err.message);
+     * });
      */
     updateRotation(rotation: number): Promise<void>;
 
     /**
-     * Set if recorder want to be muted instead of interrupted.
+     * Set if recorder want to be muted instead of interrupted. only available before prepare state
      * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
      *     instead of interrupted.
      * @returns { Promise<void> } A Promise instance used to return when the function is finished.
@@ -5120,14 +5406,28 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Start AVRecorder, it will to started state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when start completed.
+     * Starts recording. This API uses an asynchronous callback to return the result.
+     *
+     * For audio-only recording, this API can be called only after the prepare() API is called.
+     * For video-only recording, this API can be called only after the getInputSurface() API is called.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.start((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to start AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in starting AVRecorder');
+     *   }
+     * });
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -5141,8 +5441,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Start AVRecorder, it will to started state.
-     * @returns { Promise<void> } A Promise instance used to return when start completed.
+     * Starts recording. This API uses a promise to return the result.
+     *
+     * For audio-only recording, this API can be called only after the prepare() API is called.
+     * For video-only recording, this API can be called only after the getInputSurface() API is called.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5150,6 +5453,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.start().then(() => {
+     *   console.info('Succeeded in starting AVRecorder');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to start AVRecorder and catch error is ' + err.message);
+     * });
      */
     start(): Promise<void>;
 
@@ -5163,14 +5474,27 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Start AVRecorder, it will to paused state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when pause completed.
+     * Pauses recording. This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the start() API is called. You can call resume() to resume recording.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.pause((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to pause AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in pausing');
+     *   }
+     * });
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -5184,8 +5508,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Start AVRecorder, it will to paused state.
-     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * Pauses recording. This API uses a promise to return the result.
+     *
+     * This API can be called only after the start()API is called. You can call resume() to resume recording.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5193,6 +5519,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.pause().then(() => {
+     *   console.info('Succeeded in pausing');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to pause AVRecorder and catch error is ' + err.message);
+     * });
      */
     pause(): Promise<void>;
 
@@ -5206,14 +5540,27 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Resume AVRecorder, it will to started state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when resume completed.
+     * Resumes recording. This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the pause() API is called.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.resume((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to resume AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in resuming AVRecorder');
+     *   }
+     * });
      */
     resume(callback: AsyncCallback<void>): void;
 
@@ -5227,8 +5574,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Resume AVRecorder, it will to started state.
-     * @returns { Promise<void> } A Promise instance used to return when resume completed.
+     * Resumes recording. This API uses a promise to return the result.
+     *
+     * This API can be called only after the pause() API is called.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5236,6 +5585,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.resume().then(() => {
+     *   console.info('Succeeded in resuming AVRecorder');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to resume  AVRecorder failed and catch error is ' + err.message);
+     * });
      */
     resume(): Promise<void>;
 
@@ -5249,14 +5606,30 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Stop AVRecorder, it will to stopped state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when stop completed.
+     * Stops recording. This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the start() or pause() API is called.
+     *
+     * For audio-only recording, you can call prepare() again for re-recording.
+     * For video-only recording or audio and video recording, you can call prepare() and getInputSurface() again for re-recording.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.stop((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to stop AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in stopping AVRecorder');
+     *   }
+     * });
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -5270,8 +5643,14 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Stop AVRecorder, it will to stopped state.
-     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * Stops recording. This API uses a promise to return the result.
+     *
+     * This API can be called only after the start() or pause() API is called.
+     *
+     * For audio-only recording, you can call prepare() again for re-recording.
+     * For video-only recording or audio and video recording,
+     * you can call prepare() getInputSurface() again for re-recording.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5279,6 +5658,14 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.stop().then(() => {
+     *   console.info('Succeeded in stopping AVRecorder');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to stop AVRecorder and catch error is ' + err.message);
+     * });
      */
     stop(): Promise<void>;
 
@@ -5291,13 +5678,28 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Reset AVRecorder, it will to idle state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when reset completed.
+     * Resets audio and video recording. This API uses an asynchronous callback to return the result.
+     *
+     * For audio-only recording, you can call prepare() again for re-recording.
+     * For video-only recording or audio and video recording,
+     * you can call prepare() and getInputSurface() again for re-recording.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.reset((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to reset AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in resetting AVRecorder');
+     *   }
+     * });
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -5310,13 +5712,25 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Reset AVRecorder, it will to idle state.
-     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * Resets audio and video recording. This API uses a promise to return the result.
+     *
+     * For audio-only recording, you can call prepare() again for re-recording.
+     * For video-only recording or audio and video recording,
+     * you can call prepare() and getInputSurface() again for re-recording.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.reset().then(() => {
+     *   console.info('Succeeded in resetting AVRecorder');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to reset and catch error is ' + err.message);
+     * });
      */
     reset(): Promise<void>;
 
@@ -5328,12 +5742,25 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Releases resources used for AVRecorder, it will to released state.
-     * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
+     * Releases the audio and video recording resources. This API uses an asynchronous callback to return the result.
+     *
+     * After the resources are released, you can no longer perform any operation on the **AVRecorder** instance.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.release((err: BusinessError) => {
+     *   if (err) {
+     *     console.error('Failed to release AVRecorder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in releasing AVRecorder');
+     *   }
+     * });
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -5345,75 +5772,177 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Releases resources used for AVRecorder, it will to released state.
-     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * Releases the audio and video recording resources. This API uses a promise to return the result.
+     *
+     * After the resources are released, you can no longer perform any operation on the **AVRecorder** instance.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.release().then(() => {
+     *   console.info('Succeeded in releasing AVRecorder');
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to release AVRecorder and catch error is ' + err.message);
+     * });
      */
     release(): Promise<void>;
 
     /**
-     * Get AudioCapturer info from current AVRecorder.
-     * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - A callback used to return AudioCapturerChangeInfo.
+     * Obtains the information about the current audio capturer.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the
+     * **audio.AudioCapturerChangeInfo** object obtained; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     *
+     * let currentCapturerInfo: audio.AudioCapturerChangeInfo;
+     *
+     * avRecorder.getCurrentAudioCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapturerChangeInfo) => {
+     *   if (err) {
+     *     console.error('Failed to get CurrentAudioCapturerInfo and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting CurrentAudioCapturerInfo');
+     *     currentCapturerInfo = capturerInfo;
+     *   }
+     * });
      */
     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * Get AudioCapturer info from current AVRecorder.
-     * @returns { Promise<audio.AudioCapturerChangeInfo> } A Promise instance used to return AudioCapturerChangeInfo.
+     * Obtains the information about the current audio capturer. This API uses a promise to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     * @returns { Promise<audio.AudioCapturerChangeInfo> } Promise used to return the audio capturer information.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     *
+     * let currentCapturerInfo: audio.AudioCapturerChangeInfo;
+     *
+     * avRecorder.getCurrentAudioCapturerInfo().then((capturerInfo: audio.AudioCapturerChangeInfo) => {
+     *   console.info('Succeeded in getting CurrentAudioCapturerInfo');
+     *   currentCapturerInfo = capturerInfo;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get CurrentAudioCapturerInfo and catch error is ' + err.message);
+     * });
      */
     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
 
     /**
-     * Get max audio capturer amplitude from current AVRecorder.
-     * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
+     * Obtains the maximum amplitude of the current audio capturer.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     *
+     * The return value is the maximum amplitude within the duration from the time the maximum amplitude
+     * is obtained last time to the current time. For example, if you have obtained the maximum amplitude at 1s
+     * and you call this API again at 2s, then the return value is the maximum amplitude
+     * within the duration from 1s to 2s.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is successful,
+     * **err** is **undefined** and **data** is the maximum amplitude obtained; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * let maxAmplitude: number;
+     *
+     * avRecorder.getAudioCapturerMaxAmplitude((err: BusinessError, amplitude: number) => {
+     *   if (err) {
+     *     console.error('Failed to get AudioCapturerMaxAmplitude and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting AudioCapturerMaxAmplitude');
+     *     maxAmplitude = amplitude;
+     *   }
+     * });
      */
     getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
 
     /**
-     * Get max audio capturer amplitude from current AVRecorder.
-     * @returns { Promise<number> } A Promise instance used to return max Amplitude.
+     * Obtains the maximum amplitude of the current audio capturer. This API uses a promise to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     *
+     * The return value is the maximum amplitude within the duration from the time the maximum amplitude
+     * is obtained last time to the current time. For example, if you have obtained the maximum amplitude
+     * at 1s and you call this API again at 2s, then the return value is the maximum amplitude
+     * within the duration from 1s to 2s.
+     * @returns { Promise<number> } Promise used to return the maximum amplitude obtained.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * let maxAmplitude: number;
+     *
+     * avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: number) => {
+     *   console.info('Succeeded in getting AudioCapturerMaxAmplitude');
+     *   maxAmplitude = amplitude;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get AudioCapturerMaxAmplitude and catch error is ' + err.message);
+     * });
      */
     getAudioCapturerMaxAmplitude(): Promise<number>;
 
     /**
-     * Get available encoder and encoder info for AVRecorder.
-     * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
+     * Obtains available encoders. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<Array<EncoderInfo>> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the available encoders obtained; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * let encoderInfo: media.EncoderInfo;
+     *
+     * avRecorder.getAvailableEncoder((err: BusinessError, info: media.EncoderInfo[]) => {
+     *   if (err) {
+     *     console.error('Failed to get AvailableEncoder and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting AvailableEncoder');
+     *     encoderInfo = info[0];
+     *   }
+     * });
      */
     getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
 
     /**
-     * Get available encoder and encoder info for AVRecorder.
-     * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
+     * Obtains available encoders. This API uses an asynchronous callback to return the result.
+     * @returns { Promise<Array<EncoderInfo>> } Promise used to return the information about the available encoders.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
+     * @example
+     * let encoderInfo: media.EncoderInfo;
+     *
+     * avRecorder.getAvailableEncoder().then((info: media.EncoderInfo[]) => {
+     *   console.info('Succeeded in getting AvailableEncoder');
+     *   encoderInfo = info[0];
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get AvailableEncoder and catch error is ' + err.message);
+     * });
      */
     getAvailableEncoder(): Promise<Array<EncoderInfo>>;
 
@@ -5423,7 +5952,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Recorder state.
+     * Enumerates the AVRecorder states. You can obtain the state through the **state** attribute.
      * @type { AVRecorderState }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -5434,20 +5963,29 @@ declare namespace media {
     readonly state: AVRecorderState;
 
     /**
-     * Listens for recording audioCapturerChange events.
-     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * Subscribes to audio capturer configuration changes. Any configuration change triggers the callback that
+     * returns the entire configuration information.
+     *
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'audioCapturerChange' } type - Event type, which is **'audioCapturerChange'** in this case.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the entire configuration
+     * information about the audio capturer.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * Listens for photo asset events.
-     * @param { 'photoAssetAvailable' } type - Type of the recording event to listen for.
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to listen for the photo asset event.
+     * Subscribes to media asset callback events. When FileGenerationMode is used during media file creation,
+     * the PhotoAsset object is called back to the application after the stop operation is complete.
+     *
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'photoAssetAvailable' } type - Event type, which is **'photoAssetAvailable'** in this case.
+     * The event is triggered when a photo asset is available.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the
+     * **PhotoAsset** object corresponding to the resource file created by the system.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -5464,9 +6002,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Listens for recording stateChange events.
-     * @param { 'stateChange' } type - Type of the recording event to listen for.
-     * @param { OnAVRecorderStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
+     * Subscribes to AVRecorder state changes. An application can subscribe to only one AVRecorder state change event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -5510,9 +6050,14 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Listens for recording error events.
-     * @param { 'error' } type - Type of the recording error event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
+     * Subscribes to AVRecorder errors. This event is used only for error prompt and does not require the user to
+     * stop recording control. If the AVRecorderState is also switched to error, call reset() or release()
+     * to exit the recording.
+     *
+     * An application can subscribe to only one AVRecorder error event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     * This event is triggered when an error occurs during recording.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5538,9 +6083,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Cancel Listens for recording stateChange events.
-     * @param { 'stateChange' } type - Type of the recording stateChange event to listen for.
-     * @param { OnAVRecorderStateChangeHandler } callback - Callback used to listen for the recorder stateChange event.
+     * Unsubscribes from AVRecorder state changes.
+     * @param { 'stateChange' } type - Event type, which is **'stateChange'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
+     * This parameter is supported since API version 12.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5555,9 +6102,12 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Cancel Listens for recording error events.
-     * @param { 'error' } type - Type of the recording error event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
+     * Unsubscribes from AVRecorder errors. After the unsubscription,
+     * your application can no longer receive AVRecorder errors.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.<br>This event is triggered when
+     * an error occurs during recording.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * This parameter is supported since API version 12.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5572,18 +6122,21 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Cancel Listens for recording audioCapturerChange events.
-     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * Subscribes to audio capturer configuration changes.
+     * @param { 'audioCapturerChange' } type - Event type, which is **'audioCapturerChange'** in this case.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the entire configuration
+     * information about the audio capturer.
+     * This parameter is supported since API version 12.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
     off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * Cancel Listens for photo asset events.
-     * @param { 'photoAssetAvailable' } type - Type of the recording event to listen for.
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to listen for the photo asset event.
+     * Unsubscribes from media asset callback events.
+     * @param { 'photoAssetAvailable' } type - Event type, which is **'photoAssetAvailable'** in this case.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the **PhotoAsset** object
+     * corresponding to the resource file created by the system.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
@@ -6982,6 +7535,16 @@ declare namespace media {
      * @since 12
      */
     VIDEO_SCALE_TYPE_FIT_CROP = 1,
+
+    /**
+     * The content is scaled proportionally to fit the display area.
+     * If the aspect ratios of the two are inconsistent, the short side will be centered.
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    VIDEO_SCALE_TYPE_FIT_ASPECT = 2,
   }
 
   /**
@@ -7502,7 +8065,7 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Enumerates audio source type for recorder.
+   * Enumerates the audio source types for video recording.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7517,7 +8080,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Default audio source type.
+     * Default audio input source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -7529,7 +8092,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Source type mic.
+     *  Microphone audio input source.
+     *  <br>**Atomic service API**: This API can be used in atomic services since API version 12.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -7537,29 +8101,29 @@ declare namespace media {
      */
     AUDIO_SOURCE_TYPE_MIC = 1,
     /**
-    * Source type Voice recognition.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 12
-    */
+     * Audio source in speech recognition scenarios.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
     AUDIO_SOURCE_TYPE_VOICE_RECOGNITION = 2,
 
     /**
-    * Source type Voice communication.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 12
-    */
+     * Voice communication source.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
     AUDIO_SOURCE_TYPE_VOICE_COMMUNICATION = 7,
     /**
-    * Source type Voice message.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 12
-    */
+     * Voice message source.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
     AUDIO_SOURCE_TYPE_VOICE_MESSAGE = 10,
     /**
-    * Source type Camcorder.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 12
-    */
+     * Audio source in camera recording scenarios.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
     AUDIO_SOURCE_TYPE_CAMCORDER = 13,
   }
 
@@ -7571,7 +8135,7 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Enumerates video source type for recorder.
+   * Enumerates the video source types for video recording.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7585,7 +8149,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Surface raw data.
+     * The input surface carries raw data.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -7597,7 +8161,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Surface ES data.
+     * The input surface carries ES data.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @since 12
@@ -7624,7 +8188,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates mode of creating recorder file
+   * Enumerates the modes for creating media files.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7632,13 +8196,14 @@ declare namespace media {
    */
   enum FileGenerationMode {
     /**
-     * file created by app
+     * The application creates a media file in the sandbox.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
     APP_CREATE = 0,
     /**
-     * file created by system, valid only in camera scene.
+     * The system creates a media file. Currently, this mode takes effect only in camera recording scenarios.
+     * The URL set by the application is ignored.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
@@ -7708,7 +8273,7 @@ declare namespace media {
   }
 
   /**
-   * Provides encoder info.
+   * Describes the information about an encoder.
    *
    * @typedef EncoderInfo
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7716,7 +8281,7 @@ declare namespace media {
    */
   interface EncoderInfo {
     /**
-     * encoder format MIME
+     * MIME type of the encoder.
      * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7724,7 +8289,7 @@ declare namespace media {
     mimeType: CodecMimeType;
 
     /**
-     * encoder type, audio or video
+     * Encoder type. The value **audio** means an audio encoder, and **video** means a video encoder.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7732,7 +8297,7 @@ declare namespace media {
     type: string;
 
     /**
-     * audio or video encoder bitRate range
+     * Bit rate range of the encoder, with the minimum and maximum bit rates specified.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7740,7 +8305,8 @@ declare namespace media {
     bitRate?: Range;
 
     /**
-     * video encoder frame rate range
+     * Video frame rate range, with the minimum and maximum frame rates specified.
+     * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7748,7 +8314,8 @@ declare namespace media {
     frameRate?: Range;
 
     /**
-     * video encoder width range
+     * Video frame width range, with the minimum and maximum widths specified.
+     * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7756,7 +8323,8 @@ declare namespace media {
     width?: Range;
 
     /**
-     * video encoder height range
+     * Video frame height range, with the minimum and maximum heights specified.
+     * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7764,7 +8332,8 @@ declare namespace media {
     height?: Range;
 
     /**
-     * audio encoder channel range
+     * Number of audio channels for the audio capturer, with the minimum and maximum numbers of audio channels specified.
+     * This parameter is available only for audio encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7772,7 +8341,8 @@ declare namespace media {
     channels?: Range;
 
     /**
-     * audio encoder sample rate collection
+     * Audio sampling rate, including all available audio sampling rates. The value depends on the encoder type,
+     * and this parameter is available only for audio encoders.
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7789,7 +8359,7 @@ declare namespace media {
    */
   interface Range {
     /**
-     * lower limit of the range
+     * Minimum value.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7797,7 +8367,7 @@ declare namespace media {
     min: number;
 
     /**
-     * upper limit of the range
+     * Maximum value.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -7813,7 +8383,7 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Provides the media recorder profile definitions.
+   * Describes the audio and video recording profile.
    *
    * @typedef AVRecorderProfile
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7828,7 +8398,16 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the audio bitrate.
+     * Audio encoding bit rate. This parameter is mandatory for audio recording.<br>Supported bit rate ranges:
+     * <br>- Range [32000 - 500000] for the AAC encoding format.<br>- Range [64000] for the G.711 μ-law encoding format.
+     * <br>- Range [8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000,
+     * 224000, 256000, 320000] for the MP3 encoding format.<br>When the MP3 encoding format is used,
+     * the mapping between the sampling rate and bit rate is as follows:<br>- When the sampling rate is lower than
+     * 16 kHZ, the bit rate range is [8000 - 64000].<br>- When the sampling rate ranges from 16 kHz to 32 kHz,
+     * the bit rate range is [8000 - 160000].<br>- When the sampling rate is greater than 32 kHz, the bit rate range
+     * is [32000 - 320000].<br>- Range [4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200] for
+     * the AMR-NB encoding format.<br>- Range [6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850] for the
+     * AMR-WB encoding format.<br>**Atomic service API**: This API can be used in atomic services since API version 12.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7843,7 +8422,10 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the number of audio channels.
+     * Number of audio channels. This parameter is mandatory for audio recording.<br>- Range [1 - 8] for the
+     * AAC encoding format.<br>- Range [1] for the G.711 μ-law encoding format.<br>- Range [1 - 2] for the MP3 encoding
+     * format.<br>- Range [1] for the AMR-NB and AMR-WB encoding formats.<br>**Atomic service API**: This API can be
+     * used in atomic services since API version 12.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7858,7 +8440,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the audio encoding format.
+     * Audio encoding format. This parameter is mandatory for audio recording. Currently, AUDIO_AAC, AUDIO_MP3,
+     * AUDIO_G711MU, AUDIO_AMR_NB, and AUDIO_AMR_WB are supported.<br>**Atomic service API**: This API can be used in
+     * atomic services since API version 12.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7873,7 +8457,12 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the audio sampling rate.
+     * Audio sampling rate. This parameter is mandatory for audio recording.<br>Supported sampling rate ranges:
+     * <br>- Range [8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000] for the AAC
+     * encoding format.<br>- Range [8000] for the G.711 μ-law encoding format.<br>- Range [8000, 11025, 12000, 16000,
+     * 22050, 24000, 32000, 44100, 48000] for the MP3 encoding format.<br>- Range [8000] for the AMR-NB encoding format.
+     * <br>- Range [16000] for the AMR-WB encoding format.<br>Variable bit rate. The bit rate is for reference only.
+     * <br>**Atomic service API**: This API can be used in atomic services since API version 12.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7888,7 +8477,9 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the output file format.
+     * Container format of a file. This parameter is mandatory. Currently, the MP4, M4A, MP3, WAV, and AMR container
+     * formats are supported. The AUDIO_MP3 encoding format cannot be used in the MP4 container format.<br>**Atomic
+     * service API**: This API can be used in atomic services since API version 12.
      * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7903,7 +8494,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the video bitrate.
+     * Video encoding bit rate. This parameter is mandatory for video recording. The value range is [10000 - 100000000].
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7917,7 +8508,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the video encoding format.
+     * Video encoding format. This parameter is mandatory for video recording. Currently, VIDEO_AVC is supported.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7931,7 +8522,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the video width.
+     * Width of a video frame. This parameter is mandatory for video recording. The value range is [176 - 4096].
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7945,7 +8536,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the video height.
+     * Height of a video frame. This parameter is mandatory for video recording. The value range is [144 - 4096].
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7959,7 +8550,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Indicates the video frame rate.
+     * Video frame rate. This parameter is mandatory for video recording. The value range is [1 - 60].
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7974,7 +8565,8 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Whether to record HDR video.
+     * HDR encoding. This parameter is optional for video recording. The default value is **false**, and there is no
+     * requirement on the encoding format. When **isHdr** is set to **true**, the encoding format must be **video/hevc**.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7983,7 +8575,9 @@ declare namespace media {
     isHdr?: boolean;
 
     /**
-     * Whether to encode the video in temporal scale mode.
+     * Whether temporal layered encoding is supported. This parameter is optional for video recording. The default value
+     * is **false**. If this parameter is set to **true**, some frames in the video output streams can be skipped
+     * without being encoded.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -7992,7 +8586,7 @@ declare namespace media {
     enableTemporalScale?: boolean;
 
     /**
-     * Whether to enble video encoding policy to quality stable encoding.
+     * Whether to enable video encoding policy to quality stable encoding.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
@@ -8009,7 +8603,12 @@ declare namespace media {
    * @since 9
    */
   /**
-   * Provides the media recorder configuration definitions.
+   * Describes the audio and video recording parameters.
+   *
+   * The **audioSourceType** and **videoSourceType** parameters are used to distinguish audio-only recording,
+   * video-only recording, and audio and video recording. For audio-only recording, set only **audioSourceType**.
+   * For video-only recording, set only **videoSourceType**. For audio and video recording, set both **audioSourceType**
+   * and **videoSourceType**.
    *
    * @typedef AVRecorderConfig
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -8024,7 +8623,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Audio source type, details see @AudioSourceType .
+     * Type of the audio source to record. This parameter is mandatory for audio recording.<br>**Atomic service API**:
+     * This API can be used in atomic services since API version 12.
      * @type { ?AudioSourceType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -8038,7 +8638,7 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video source type, details see @VideoSourceType .
+     * Type of the video source to record. This parameter is mandatory for video recording.
      * @type { ?VideoSourceType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -8059,7 +8659,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Video recorder profile, details see @AVRecorderProfile .
+     * Recording profile. This parameter is mandatory.<br>**Atomic service API**: This API can be used in atomic
+     * services since API version 12.
      * @type { AVRecorderProfile }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -8074,8 +8675,8 @@ declare namespace media {
      * @since 9
      */
     /**
-     * File output uri, support a kind of uri now.
-     * format like: "fd://" + "context".
+     * Recording output URL: fd://xx (fd number).<br>This parameter is mandatory.<br>**Atomic service API**:
+     * This API can be used in atomic services since API version 12.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -8085,15 +8686,16 @@ declare namespace media {
     url: string;
 
     /**
-     * Mode of creating recorder file, details see @FileGenerationMode.
+     * Mode for creating the file, which is used together with on('photoAssetAvailable').
      * @type { ?FileGenerationMode }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
     fileGenerationMode?: FileGenerationMode;
     /**
-     * Sets the video rotation angle in output file, and for the file to playback, mp4 support
-     * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
+     * Rotation angle of the recorded video. The value can be 0 (default), 90, 180, or 270 for MP4 videos.<br>This API
+     * is supported since API version 6 and deprecated since API version 12. You are advised to use
+     * **AVMetadata.videoOrientation** instead. If both parameters are set, **AVMetadata.videoOrientation** is used.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
@@ -8102,7 +8704,9 @@ declare namespace media {
      */
     rotation?: number;
     /**
-     * Geographical location information.
+     * Geographical location of the recorded video. By default, the geographical location information is not recorded.
+     * <br>This API is supported since API version 6 and deprecated since API version 12. You are advised to use
+     * **AVMetadata.location** instead. If both parameters are set, **AVMetadata.location** is used.
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
@@ -8111,18 +8715,21 @@ declare namespace media {
      */
     location?: Location;
     /**
-     * Set global metadata info. Details see @AVMetadata
+     * Metadata. For details, see @AVMetadata.
      * @type { ?AVMetadata }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
     metadata?: AVMetadata;
     /**
-     * Set the longest duration allowed for current recording.
+     * Maximum recording duration, in seconds. The value range is [1, 2^31-1]. If an invalid value is provided,
+     * it is reset to the maximum allowed duration. Once the recording reaches the specified duration,
+     * it stops automatically and notifies via the **stateChange** callback that the recording has stopped:
+     * AVRecorderState = 'stopped', StateChangeReason = BACKGROUND.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 18
-    */
+     */
     maxDuration?: number;
   }
 
@@ -8885,7 +9492,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the video transcode configuration definitions
+   * Describes the video transcoding parameters.
    *
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
@@ -8893,7 +9500,7 @@ declare namespace media {
    */
   interface AVTranscoderConfig {
     /**
-     * Indicates the audio bitrate.
+     * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8901,7 +9508,7 @@ declare namespace media {
     audioBitrate?: number;
 
     /**
-     * Indicates the audio encoding format.
+     * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8909,7 +9516,7 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * Indicates the output file format.
+     * Container format of the output video file. Currently, only MP4 is supported.
      * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8917,7 +9524,9 @@ declare namespace media {
     fileFormat: ContainerFormatType;
 
     /**
-     * Indicates the video bitrate.
+     * Bitrate of the output video, in bit/s. The default bitrate depends on the resolution of the output video.
+     * The default bitrate is 1 Mbit/s for the resolution in the range [240p, 480P],
+     * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8925,7 +9534,8 @@ declare namespace media {
     videoBitrate?: number;
 
     /**
-     * Indicates the video encoding foramt.
+     * Encoding format of the output video. Currently, only AVC and HEVC are supported.
+     * If the source video is in HEVC format, the default value is **HEVC**. Otherwise, the default value is **AVC**.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8933,7 +9543,8 @@ declare namespace media {
     videoCodec?: CodecMimeType;
 
     /**
-     * Indicates the video width.
+     * Width of the output video frame, in px. The value range is [240 - 3840].
+     * The default value is the width of the source video frame.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8941,7 +9552,8 @@ declare namespace media {
     videoFrameWidth?: number;
  
     /**
-     * Indicates the video height.
+     * Height of the output video frame, in px. The value range is [240 - 2160].
+     * The default value is the height of the source video frame.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8950,9 +9562,8 @@ declare namespace media {
   }
  
   /**
-   * Transcode a source video file to a destination video file.
-   * Before calling an AVTranscoder method, you must use @createAVTranscoder
-   * to create an AVTranscoder instance.
+   * A transcoding management class that provides APIs to transcode videos. Before calling any API in **AVTranscoder**,
+   * you must use [createAVTranscoder()]{@link #createAVTranscoder} to create an **AVTranscoder** instance.
    *
    * @typedef AVTranscoder
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
@@ -8960,7 +9571,19 @@ declare namespace media {
    */
   interface AVTranscoder {
     /**
-     * Source media file descriptor. Mainstream media formats are supported.
+     * Source media file descriptor, which specifies the data source.
+     *
+     * **Example:**
+     *
+     * There is a media file that stores continuous assets, the address offset is 0, and the byte length is 100.
+     * Its file descriptor is **AVFileDescriptor { fd = resourceHandle; offset = 0; length = 100; }**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVTranscoder** instance, do not use the resource handle
+     * to perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance.
+     * Competition occurs when multiple **AVTranscoders** use the same resource handle to read and write files
+     * at the same time, resulting in errors in obtaining data.
      * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8968,7 +9591,15 @@ declare namespace media {
     fdSrc: AVFileDescriptor;
 
     /**
-     * Destination media file descriptor. Mainstream media formats are supported.
+     * Destination media file descriptor, which specifies the data source. After creating an **AVTranscoder** instance,
+     * you must set both **fdSrc** and **fdDst**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVTranscoder** instance, do not use the resource handle
+     * to perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance.
+     * Competition occurs when multiple AVTranscoders use the same resource handle to read and write files
+     * at the same time, resulting in errors in obtaining data.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
@@ -8976,11 +9607,12 @@ declare namespace media {
     fdDst: number;
 
     /**
-     * Prepares for transcoding.
-     * @param { AVTranscoderConfig } config : Recording parameters.
-     * @returns { Promise<void> } A promise instance used to return when prepare completes.
+     * Sets video transcoding parameters. This API uses a promise to return the result.
+     * @param { AVTranscoderConfig } config - Video transcoding parameters to set.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
@@ -8989,8 +9621,10 @@ declare namespace media {
     prepare(config: AVTranscoderConfig): Promise<void>;
 
     /**
-     * Start AVTranscoder.
-     * @returns { Promise<void> } A promise instance used to return when start completes.
+     * Starts transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [prepare()]{@link AVTranscoder.prepare} API is called.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -9000,8 +9634,11 @@ declare namespace media {
     start(): Promise<void>;
 
     /**
-     * Pause AVTranscoder.
-     * @returns { Promise<void> } A promise instance used to return when pause completes.
+     * Pauses transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [start()]{@link AVTranscoder.start} API is called.
+     * You can call [resume()]{@link AVTranscoder.resume} to resume transcoding.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -9011,8 +9648,10 @@ declare namespace media {
     pause(): Promise<void>;
 
     /**
-     * Resume AVTranscoder.
-     * @returns { Promise<void> } A promise instance used to return when resume completes.
+     * Resumes transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [pause()]{@link AVTranscoder.pause} API is called.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -9022,8 +9661,10 @@ declare namespace media {
     resume(): Promise<void>;
 
     /**
-     * Cancel AVTranscoder.
-     * @returns { Promise<void> } A promise instance used to return when cancel completes.
+     * Cancels transcoding. This API uses a promise to return the result.
+     * This API can be called only after the [prepare()]{@link AVTranscoder.prepare}, [start()]{@link AVTranscoder.start},
+     * [pause()]{@link AVTranscoder.pause}, or [resume()]{@link AVTranscoder.resume} API is called.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -9033,8 +9674,10 @@ declare namespace media {
     cancel(): Promise<void>;
 
     /**
-     * Release resources used for AVTranscoder.
-     * @returns { Promise<void> } A promise instance used to return when cancel completes.
+     * Releases the video transcoding resources. This API uses a promise to return the result.
+     *
+     * After the resources are released, you can no longer perform any operation on the **AVTranscoder** instance.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
@@ -9043,18 +9686,31 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * Register listener for trancoding complete event.
-     * @param { 'complete' } type - Type of the event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the complete event.
+     * Subscribes to the event indicating that transcoding is complete.
+     * An application can subscribe to only one transcoding completion event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     *
+     * When this event is reported, the current transcoding operation is complete.
+     * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
+     * @param { 'complete' } type - Event type, which is **'complete'** in this case.
+     * This event is triggered by the system during transcoding.
+     * @param { Callback<void> } callback - Callback that has been registered to listen for
+     * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
     on(type:'complete', callback: Callback<void>):void;
 
     /**
-     * Register listener for trancoding error event.
-     * @param { 'error' } type - Type of the event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the error event.
+     * Subscribes to AVTranscoder errors. If this event is reported, call [release()]{@link AVTranscoder.release}
+     * to exit the transcoding.
+     *
+     * An application can subscribe to only one AVTranscoder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     *
+     * This event is triggered when an error occurs during transcoding.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
@@ -9069,36 +9725,47 @@ declare namespace media {
     on(type:'error', callback: ErrorCallback):void;
 
     /**
-     * Register listener for trancoding progressUpdate event.
-     * @param { 'progressUpdate' } type - Type of the event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the progressUpdate event.
+     * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
+     * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     * This event is triggered by the system during transcoding.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
     on(type:'progressUpdate', callback: Callback<number>):void;
 
     /**
-     * Unregister listener for trancoding complete event.
-     * @param { 'complete' } type - Type of the event to listen for.
-     * @param { Callback<void> } [callback] - Callback used to listen for the complete event.
+     * Unsubscribes from the event indicating that transcoding is complete.
+     * @param { 'complete' } type - Event type, which is **'complete'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { Callback<void> } callback - Callback that has been registered to listen for
+     * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
     off(type:'complete', callback?: Callback<void>):void;
 
     /**
-     * Unregister listener for trancoding error event.
-     * @param { 'error' } type - Type of the event to listen for.
-     * @param { ErrorCallback } [callback] - Callback used to listen for the error event.
+     * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
+     * receive AVTranscoder errors.
+     * @param { 'error' } type - 	Event type, which is **'error'** in this case.
+     *
+     * This event is triggered when an error occurs during transcoding.
+     * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
     off(type:'error', callback?: ErrorCallback):void;
 
     /**
-     * Unregister listener for trancoding progressUpdate event.
-     * @param { 'progressUpdate' } type - Type of the event to listen for.
-     * @param { Callback<number> } [callback] - Callback used to listen for the progressUpdate event.
+     * Unsubscribes from transcoding progress updates.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { Callback<number> } callback - Called that has been registered to listen for progress updates.
+     * You are advised to use the default value because only the last registered callback is retained in the current
+     * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */

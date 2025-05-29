@@ -3533,6 +3533,31 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link getAttachState} for indicating the attach state of controller.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enum ControllerAttachState {
+    /**
+     * Indicates webviewController is not attached a web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    UNATTACHED = 0,
+
+    /**
+     * Indicates webviewController is attached a web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    ATTACHED = 1
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -6344,6 +6369,61 @@ declare namespace webview {
      * @since 20
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
+  
+    /**
+     * Get whether webviewController is attached to a web component.
+     * @returns { ControllerAttachState } the attach state of controller
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getAttachState(): ControllerAttachState;
+
+    /**
+     * Register the callback for controller attach state change.
+     *
+     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
+     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    on(type: 'controllerAttachStateChange', callback: Callback<ControllerAttachState>): void;
+
+    /**
+     * Unregister the callback for controller attach state change.
+     *
+     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
+     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
+
+
+    /**
+     * Wait for the controller to attach a web component until timeout.
+     *
+     * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
+     * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    waitForAttached(timeout: number): Promise<ControllerAttachState>;
+
+    /**
+     * Enables debugging of web contents.
+     * <p><strong>API Note</strong>:<br>
+     * Port numbers from 0 to 1024 are not allowed.
+     * </p>
+     *
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
+     *                        socket is created instead of a unix domain socket.
+     * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
   }
 
   /**

@@ -495,6 +495,39 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
 }
 
 /**
+ * Provide an interface to set the background style of selected items.
+ *
+ * @interface PickerBackgroundStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface PickerBackgroundStyle {
+  /**
+   * Define the background color of selected item.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  color?: ResourceColor;
+
+  /**
+   * Defines the border radius of selected items.
+   *
+   * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  borderRadius?: LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses;
+}
+
+/**
  * Callback of the listened scroll stop event.
  *
  * @typedef {function} TextPickerScrollStopCallback
@@ -1018,6 +1051,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TextPickerAttribute;
+
+  /**
+   * Sets the background style of selected items.
+   *
+   * @param { Optional<PickerBackgroundStyle> } style - the background style of selected items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedBackgroundStyle(style: Optional<PickerBackgroundStyle>): TextPickerAttribute;
 }
 
 /**
@@ -1662,6 +1707,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 18
    */
   enableHapticFeedback?: boolean;
+
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  selectedBackgroundStyle?: PickerBackgroundStyle;
 }
 
 /**

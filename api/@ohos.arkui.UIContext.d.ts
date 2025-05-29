@@ -1443,7 +1443,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 18
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
@@ -1465,7 +1465,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 18
    */
   updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1483,7 +1483,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 18
   */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
@@ -1533,6 +1533,33 @@ declare type PanListenerCallback = (event: GestureEvent, current: GestureRecogni
  * @since 12
  */
 declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
+
+/**
+ * Defines the type can be used for identiting the node, for the string type, it's the inspector id
+ * set through .id attribute, and for the number type, it's the unique ID got from the FrameNode by
+ * getUniqueID method.
+ *
+ * @typedef { string | number } NodeIdentity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type NodeIdentity = string | number;
+
+/**
+ * Defines the callback type used in UIObserver to monitor one specific node's render state.
+ *
+ * @typedef { function } NodeRenderStateChangeCallback
+ * @param { NodeRenderState } state - the node's render state
+ * @param { FrameNode } [node] - the information of frameNode
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
  * Defines the PageInfo type.
@@ -1736,6 +1763,33 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { number } navigationUniqueId - The uniqueId of the navigation.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  on(type: 'navDestinationUpdate', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { number } navigationUniqueId - The uniqueId of the navigation.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  off(type: 'navDestinationUpdate', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
@@ -2239,6 +2293,55 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the specific node's render state changed.
+   * This callback will be executed once immediately when the register is successful.
+   * [Notes]:
+   *  1. Be aware of the limit on the number of nodes:
+   *     For performance considerations, the system has imposed a limit on the number of
+   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
+   *     if overmuch. Please use this interface with caution.
+   *  2. Understanding scenarios where notifications may not occur:
+   *     In general, within container components that have view or page switching functionality,
+   *     when a view or page within the screen is moved outside the screen, the components previously
+   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
+   *     notification. However, this is not always the case, as some scenarios involve views or components
+   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
+   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
+   *     such component. The cacheCount property of the swiper component allows you to force, via its second
+   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
+   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
+   *     Another example is scrolling components like list or scroll, where their internal content remains in the
+   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
+   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
+   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   *
+   * @param { 'nodeRenderState' } type - The type of event to listen for.
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
+   *                                                    when the clickEvent will be trigger or after.
+   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function to be called before tapGesture is called.
+   *
+   * @param { 'nodeRenderState' } type - The type of event to remove the listener for.
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 }
 
 /**
@@ -2872,6 +2975,16 @@ export class MeasureUtils {
   activate(isActive: boolean, autoInactive?: boolean): void;
 
   /**
+   * Get whether the focus style is active.
+   * @returns { boolean } Whether the focus style is active.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isActive(): boolean
+
+  /**
   * Set whether to enable autofocus transfer.
   * @param { boolean } isAutoFocusTransfer - A Boolean value that indicates whether autofocus transfer is enabled.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3188,6 +3301,17 @@ export class ComponentSnapshot {
  * @since 11
  */
 export class UIContext {
+      /**
+   * Checks whether the UiContext object ia available.
+   *
+   * @returns { boolean } Returns true if the UIConetxt object is available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isAvailable(): boolean;
+
   /**
    * get object font.
    *
@@ -4346,4 +4470,48 @@ export class TextMenuController {
    * @since 20
    */
   static disableMenuItems(items: Array<TextMenuItemId>): void;
+}
+
+/**
+ * An enumeration type that identifies the current node's rendering state. The UI components used in
+ * the application are automatically managed by the system and controlled for participation in graphical
+ * rendering by either mounting them onto the render tree or removing them from it. Only nodes that
+ * participate in graphical rendering have the potential to be displayed. However, participating in
+ * rendering does not equal to the node's visibility, as there may be many occlusion scenarios in the
+ * actual implementation of the application. Nevertheless, if a node does not participate in rendering,
+ * it will definitely not be visible.
+ *
+ * @enum { number } NodeRenderState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export const enum NodeRenderState {
+  /**
+   * The node has been mount on to the render tree and will soon be rendered. Generally, after the next frame,
+   * the user will be able to see this node. However, this is not always the case, as in reality, the node may be
+   * occluded by other nodes, meaning it is rendered but not be visible.
+   * When registering a listener for the render state using the UIObserver interface, the system will immediately
+   * trigger the callback once, and the state notified at this time typically represents the current state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ABOUT_TO_RENDER_IN = 0,
+
+  /**
+   * The node has been removed from the render tree and will no longer be rendered shortly. Generally speaking,
+   * after the next frame, the user will no longer be able to see this node.
+   * When registering a listener for the render state using the UIObserver interface, the system will immediately
+   * trigger the callback once, and the state notified at this time typically represents the current state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ABOUT_TO_RENDER_OUT = 1
 }

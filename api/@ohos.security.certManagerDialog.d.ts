@@ -142,7 +142,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 13
@@ -219,7 +220,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 29700002 - The user cancels the installation operation.
    * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -239,7 +241,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 29700002 - The user cancels the installation operation.
    * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -261,7 +264,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 29700002 - The user cancels the uninstallation operation.
    * @throws { BusinessError } 29700003 - The user uninstall certificate failed in the certificate manager dialog, such as the certificate uri is not exist.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -303,7 +307,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 29700003 - Show the certificate detail dialog fail, such as the certificate is in an invalid format.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
    * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -311,6 +316,27 @@ declare namespace certificateManagerDialog {
    * @since 18
    */
   function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
+
+  /**
+   * Opens the authorization page of the certificate management dialog box. On the page displayed, the user can
+   * authorize a certificate for the application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context Context of the HAP.
+   * @returns { Promise<string> } Promise used to return the URI of the certificate authorized.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   * permission required to call the API.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
+   * unspecified.
+   * 2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 29700002 The user cancels the authorization.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 20
+   */
+  function openAuthorizeDialog(context: common.Context): Promise<string>;
 }
 
 export default certificateManagerDialog;

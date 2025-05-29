@@ -429,6 +429,23 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Called when the minimum font scale of the font is set.
+   * Value range: [0, 1]
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   *
+   * @param { number | Resource } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   minFontScale(scale: number | Resource): TextAttribute;
 
   /**
@@ -445,6 +462,22 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Called when the maximum font scale of the font is set.
+   * Value range: [1, +∞)
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>A value less than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   *
+   * @param { number | Resource  } scale
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxFontScale(scale: number | Resource): TextAttribute;
 
@@ -1339,6 +1372,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
   /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle } shader - The shader style of the text.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  shaderStyle(shader: ShaderStyle): TextAttribute;
+
+  /**
    * Set the ellipsis mode.
    *
    * @param { EllipsisMode } value - The ellipsis mode.
@@ -1596,6 +1641,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   halfLeading(halfLeading: boolean): TextAttribute;
 
   /**
+   * Set to remove trailing spaces from text.
+   *
+   * @param { Optional<boolean> } trim
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  trimSpace(trim: Optional<boolean>): TextAttribute;
+
+  /**
    * Enable or disable haptic feedback.
    *
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
@@ -1606,6 +1663,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextAttribute;
 }
 
 /**

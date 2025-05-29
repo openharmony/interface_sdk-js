@@ -126,6 +126,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
@@ -193,6 +194,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
@@ -274,6 +276,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -355,6 +358,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -385,6 +389,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -420,6 +425,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -449,6 +455,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

@@ -238,7 +238,7 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -246,9 +246,9 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo, abilityInfo and extensionAbility.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
      * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
-     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIES | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIE | GET_BUNDLE_INFO_WITH_METADATA
      * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -258,7 +258,7 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
@@ -322,7 +322,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing menu configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_MENU | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -332,7 +333,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ROUTER_MAP | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -342,7 +344,9 @@ declare namespace bundleManager {
     /**
      * Used to obtain the skillInfo contained in abilityInfo and extensionInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
-     * GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_ABILITIE, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIE
+     * or GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -359,7 +363,9 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
-     * Used to obtain the bundleInfo only if any user installed
+     * Used to obtain the bundle information of an application installed by any user.
+     * It must be used together with GET_BUNDLE_INFO_WITH_APPLICATION. 
+     * It is valid only in the {@link getBundleInfo} and {@link getAllBundleInfo} APIs.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -430,6 +436,14 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   */
   enum AbilityFlag {
     /**
      * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
@@ -439,6 +453,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
+     * permission, metadata and disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
      * Used to obtain the abilityInfo containing permission.
@@ -446,6 +468,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -455,6 +484,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing applicationInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
      * Used to obtain the abilityInfo containing metadata.
@@ -463,6 +499,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing metadata.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
      * Used to obtain the abilityInfo containing disabled abilityInfo.
@@ -470,6 +513,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
     /**
@@ -486,6 +536,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 11
      */
+    /**
+     * Used to obtain the abilityInfo only for system app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
     /**
      * Used to obtain the abilityInfo with domain verification.
@@ -494,6 +551,13 @@ declare namespace bundleManager {
      * @systemapi
      * @since 12
      */
+    /**
+     * Used to obtain the abilityInfo with domain verification.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
     GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
     /**
      * Used to obtain the abilityInfo with Skill
@@ -501,6 +565,13 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Used to obtain the abilityInfo with Skill
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
      */
     GET_ABILITY_INFO_WITH_SKILL = 0x00000080,
   }
@@ -803,6 +874,15 @@ declare namespace bundleManager {
      * @since 20
      */
     APP_SERVICE = 29,
+
+    /**
+     * Indicates extension info with type of the live form
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
+    LIVE_FORM = 30,
 
     /**
      * Indicates extension info with type of unspecified
@@ -2914,7 +2994,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -2930,7 +3009,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2949,7 +3027,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -2965,7 +3042,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2984,7 +3060,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
@@ -3000,7 +3075,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -3019,7 +3093,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3034,7 +3107,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3052,7 +3124,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3067,7 +3138,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3085,7 +3155,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -3100,7 +3169,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3544,6 +3612,31 @@ declare namespace bundleManager {
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
   /**
+   * Enable dynamic icon.
+   * If you need to enable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to enable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Disable dynamic icon.
    *
    * @permission ohos.permission.ACCESS_DYNAMIC_ICON
@@ -3561,6 +3654,29 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
   /**
+   * Disable dynamic icon.
+   * If you need to disable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to disable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3576,6 +3692,42 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
+
+  /**
+   * Get dynamic icon info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
+
+  /**
+   * Get all dynamic icon info.
+   * If you need to query dynamic icon information under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to query dynamic icon information under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } [userId] - Indicates the user id, default value is to query all users.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAllDynamicIconInfo(userId?: number): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
@@ -4377,6 +4529,26 @@ declare namespace bundleManager {
    * @since 19
    */
   export type PluginModuleInfo = _PluginModuleInfo;
+
+  /**
+   * Contains dynamic icon.
+   *
+   * @typedef { _BundleInfo.DynamicIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type DynamicIconInfo = _BundleInfo.DynamicIconInfo;
+
+  /**
+   * Contains bundle options.
+   *
+   * @typedef { _BundleInfo.BundleOptions }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type BundleOptions = _BundleInfo.BundleOptions;
 }
 
 export default bundleManager;

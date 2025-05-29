@@ -1004,6 +1004,17 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
+   * Set the shader style of the symbol, such as lineargradient or radialgradient.
+   *
+   * @param { Array<ShaderStyle> } shaders - The shaders style of the symbol.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  shaderStyle(shaders: Array<ShaderStyle>): SymbolGlyphAttribute;
+
+  /**
    * Called when the font symbolGlyph weight is set.
    *
    * @param { number | FontWeight | string } value

@@ -1385,6 +1385,24 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Called when the minimum font scale of the font is set.
+   * Value range: [0, 1]
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The undefined type is supported.
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   minFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
 
   /**
@@ -1401,6 +1419,22 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Called when the maximum font scale of the font is set.
+   * Value range: [1, +∞)
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>A value less than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
   
@@ -1897,6 +1931,42 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 15
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+
+  /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextAreaAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): TextAreaAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

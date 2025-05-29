@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,26 @@
  * @file
  * @kit ArkUI
  */
+
+/**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
  * Defines the options of Component ClassDecorator.
@@ -4777,6 +4797,18 @@ declare interface SweepGradientOptions {
    * @since 18
    */
   colors: Array<[ResourceColor, number]>;
+  
+  /**
+   * Defines color description in ColorMetrics format for gradients.
+   * This parameter takes precedence over colors parameter.
+   *
+   * @type { ?Array<[ColorMetrics, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  metricsColors?: Array<[ColorMetrics, number]>;
 
   /**
    * repeating:repeating. The default value is false
@@ -10209,6 +10241,26 @@ declare enum LayoutSafeAreaType {
    * @since 12
    */
   SYSTEM = 0,
+
+  /**
+   * Soft keyboard area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  KEYBOARD = 1,
+
+  /**
+   * All safe area regions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ALL = 2,
 }
 
 /**
@@ -10240,6 +10292,56 @@ declare enum LayoutSafeAreaEdge {
    * @since 12
    */
   BOTTOM = 1,
+
+  /**
+   * Start edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  START = 2,
+
+  /**
+   * End edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  END = 3,
+
+  /**
+   * Vertical edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  VERTICAL = 4,
+
+  /**
+   * Horizontal edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HORIZONTAL = 5,
+
+  /**
+   * All edges of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ALL = 6,
 }
 
 /**
@@ -10913,6 +11015,32 @@ declare class LayoutPolicy {
    * @since 15
    */
   static readonly matchParent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children but it is constained by its parent.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly wrapContent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly fixAtIdealSize: LayoutPolicy;
 }
 
 /**
@@ -12240,7 +12368,21 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+/**
+ * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ *
+ * @typedef { function } GestureRecognizerJudgeBeginCallback
+ * @param { BaseGestureEvent } event - the event information
+ * @param { GestureRecognizer } current - the current gesture recognizer of the component
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { Array<TouchRecognizer> } touchRecognizers - the touch recognizers of the component on the response chain
+ * @returns { GestureJudgeResult } the gesture judge result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
@@ -14343,6 +14485,18 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Set contentCover content adapts to safeArea.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableSafeArea?: boolean;
 }
 
 /**
@@ -14766,6 +14920,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   dragBar?: boolean;
+
+  /**
+   * Defines whether the sheet dragbar is floating, when it's displayed.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableFloatingDragBar?: boolean;
 
   /**
    * Mask color of the sheet.
@@ -17676,6 +17842,17 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   hoverScale?: AnimationRange<number>;
+
+  /**
+   * Sets whether support to interrupt the process of hover scale.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  hoverScaleInterruption?: boolean;
 }
 
 /**
@@ -18912,6 +19089,15 @@ declare interface MenuElement {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Sets the symbol of the menu element.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
@@ -19442,6 +19628,15 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
  * @atomicservice
  * @since 12
  */
+/**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
 /**
@@ -19810,6 +20005,17 @@ declare type Optional<T> = T | undefined;
 declare type TipsMessageType = ResourceStr | StyledString;
 
 /**
+ * Import the Matrix4Transit type object for common method.
+ *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
  * Define the options for background image.
  *
  * @interface BackgroundImageOptions
@@ -19845,6 +20051,56 @@ interface BackgroundImageOptions {
    * @since 18
    */
   repeat?: ImageRepeat;
+}
+
+/**
+ * Defines background options.
+ *
+ * @interface BackgroundOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface BackgroundOptions {
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * @type { ?Alignment} align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * @type { ?Alignment} align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the alignment of the custom background and component.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?Alignment }
+   * @default Alignment.Center
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  align?: Alignment;
+  /**
+   * The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * @type { ?Array<LayoutSafeAreaEdge> }
+   * @default LayoutSafeAreaEdge.ALL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
 
 /**
@@ -20061,6 +20317,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
+
+  /**
+   * Expands the layout safe area of a component.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): T;
 
   /**
    * Sets the response region of the current component.
@@ -20473,6 +20742,20 @@ declare class CommonMethod<T> {
   background(builder: CustomBuilder, options?: { align?: Alignment }): T;
 
   /**
+   * Add a background for the component.
+   *
+   * Anonymous Object Rectification.
+   * @param { CustomBuilder | ResourceColor } content
+   * @param { BackgroundOptions } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
+
+  /**
    * Background color
    *
    * @param { ResourceColor } value
@@ -20524,6 +20807,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   backgroundColor(color: Optional<ResourceColor>): T;
+
+  /**
+   * Background color
+   *
+   * @param { Optional<ResourceColor | ColorMetrics> } color
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
 
   /**
    * Sets the pixel rounding policy for the current component in the specified direction.
@@ -23700,6 +23996,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   transform(transform: Optional<object>): T;
+
+  /**
+   * Sets the transformation matrix for the current component.
+   * The interface can display the effect of three-dimensional matrix transformation.
+   *
+   * @param { Optional<Matrix4Transit> } transform - transform3D matrix
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  transform3D(transform: Optional<Matrix4Transit>): T;
 
   /**
    * This callback is triggered when a component mounts a display.
@@ -27164,6 +27473,36 @@ declare class CommonMethod<T> {
    * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
+
+  /**
+ * Enables the component as a drag-and-drop target with spring loading functionality.
+ *
+ * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+ * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+ * by hovering (hover) without needing to use another hand.
+ * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+ * some common scenarios suitable for supporting this feature:
+ *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+ *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+ *  automatically opened.
+ *
+ * Please note:
+ *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a control makes it a
+ *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
+ *   child controls always have higher priority.
+ *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
+ *   dragged object leaves and re-enters the component's range.
+ *
+ * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
+ *    sets it to null to reset the component's support for spring loading.
+ * @param { dragController.DragSpringLoadingConfiguration } configuration The initialized spring loading configuration which is
+ *    only used when the entire spring detecting.
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 }
 
 /**
