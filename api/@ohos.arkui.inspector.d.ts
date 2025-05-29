@@ -174,6 +174,7 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @test
    * @arkts 1.2
    */
   function getInspectorByKey(id: string): string;
@@ -186,8 +187,8 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    * @test
+   * @arkts 1.2
    */
   function getInspectorTree(): Object;
   
@@ -202,10 +203,40 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    * @test
+   * @arkts 1.2
    */
   function sendEventByKey(id: string, action: number, params: string): boolean;
 }
 
 export default inspector;
+/**
+ * export function getInspectorByKey from inspector namespace and provide it for kit ArkUI.
+ * @constant
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
+/**
+ * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
+ * @constant
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export const GETINSPECTORTREE = inspector.getInspectorTree;
+/**
+ * export function sendEventByKey from inspector namespace and provide it for kit ArkUI.
+ * @constant
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export const SENDEVENTBYKEY = inspector.sendEventByKey;
