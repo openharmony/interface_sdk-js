@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { Callback, ShadowOptions, ClickEvent, Optional } from './common';
+import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -65,26 +65,12 @@ export type StyledStringMarshallingValue = UserDataSpan;
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
 /**
- * Defines the callback type used in marshalling.
- *
- * @typedef { function } StyledStringMarshallCallback
- * @param { StyledStringMarshallingValue } marshallableVal - value that will be serialized to array buffer
- * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
-
-/**
  * Defines the callback type used in unmarshalling.
  *
  * @typedef { function } StyledStringUnmarshallCallback
@@ -94,24 +80,10 @@ export type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshal
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
-
-/**
- * Defines the callback type used in unmarshalling.
- *
- * @typedef { function } StyledStringUnmarshallCallback
- * @param { ArrayBuffer } buf - The buffer that will be deserialized to a StyledStringMarshallingValue.
- * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
 
 /**
  * StyledString
@@ -1632,21 +1604,10 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly value: PixelMap;
-    /**
-     * Get the image content of the StyledString.
-     *
-     * @type { PixelMap } - the image content of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    readonly value: image.PixelMap;
 
     /**
      * Get the imageSize of the StyledString.
@@ -1829,20 +1790,10 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: PixelMap;
-    /**
-     * The content of the ImageAttachment.
-     *
-     * @type { PixelMap }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20}
-     * @arkts 1.2
-     */
-    value: image.PixelMap;
 
     /**
      * Image size.
@@ -1912,21 +1863,10 @@ declare interface ImageAttachmentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
-
-/**
- * Defines the Attachment Type.
- *
- * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
 /**
  * Defines the ColorFilter Type.
