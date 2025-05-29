@@ -9376,7 +9376,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order instead of array order.
    * The script is executed in the lexicographic order, not array order.
    * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
@@ -9396,7 +9395,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * <p><strong>API NOTE</strong>:<br>
    * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not the array order.
-   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
    * <p>
