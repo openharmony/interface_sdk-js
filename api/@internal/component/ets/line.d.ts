@@ -29,11 +29,12 @@ import { Length } from './units';
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-export type ShapePoint = [Length, Length]
+export type ShapePoint = [Length, Length];
 
 /**
  * Defines Line constructor options.

@@ -597,7 +597,8 @@ declare interface VideoOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class VideoController {
   /**
@@ -619,7 +620,8 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -647,6 +649,17 @@ declare class VideoController {
   start();
 
   /**
+   * Provides events to play.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  start(): void;
+
+  /**
    * Provides a pause event for playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -670,6 +683,17 @@ declare class VideoController {
   pause();
 
   /**
+   * Provides a pause event for playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pause(): void;
+
+  /**
    * Provides an event to stop playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -691,6 +715,17 @@ declare class VideoController {
    * @since 11
    */
   stop();
+
+  /**
+   * Provides an event to stop playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  stop(): void;
 
   /**
    * Provide the progress method of video playback.
@@ -719,6 +754,18 @@ declare class VideoController {
   setCurrentTime(value: number);
 
   /**
+   * Provide the progress method of video playback.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  setCurrentTime(value: number): void;
+
+  /**
    * Provides a full screen playback method.
    *
    * @param { boolean } value
@@ -745,6 +792,18 @@ declare class VideoController {
   requestFullscreen(value: boolean);
 
   /**
+   * Provides a full screen playback method.
+   *
+   * @param { boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  requestFullscreen(value: boolean): void;
+
+  /**
    * Provides a method to exit full screen playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -766,6 +825,17 @@ declare class VideoController {
    * @since 11
    */
   exitFullscreen();
+
+  /**
+   * Provides a method to exit full screen playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  exitFullscreen(): void;
 
   /**
    * Provide the progress method of video playback.
@@ -797,11 +867,25 @@ declare class VideoController {
   setCurrentTime(value: number, seekMode: SeekMode);
 
   /**
+   * Provide the progress method of video playback.
+   *
+   * @param { number } value
+   * @param { SeekMode } seekMode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  setCurrentTime(value: number, seekMode: SeekMode): void;
+
+  /**
    * Provide the reset method of video playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reset(): void;
 }
@@ -1500,116 +1584,3 @@ declare const Video: VideoInterface;
  * @since 11
  */
 declare const VideoInstance: VideoAttribute;
-
-/**
- * Defines the video controller.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class VideoController {
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor();
-
-  /**
-   * Provides events to play.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  start(): void;
-
-  /**
-   * Provides a pause event for playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pause(): void;
-
-  /**
-   * Provides an event to stop playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  stop(): void;
-
-  /**
-   * Provide the progress method of video playback.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setCurrentTime(value: number): void;
-
-  /**
-   * Provides a full screen playback method.
-   *
-   * @param { boolean } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  requestFullscreen(value: boolean): void;
-
-  /**
-   * Provides a method to exit full screen playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  exitFullscreen(): void;
-
-  /**
-   * Provide the progress method of video playback.
-   *
-   * @param { number } value
-   * @param { SeekMode } seekMode
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setCurrentTime(value: number, seekMode: SeekMode): void;
-
-  /**
-   * Provide the reset method of video playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  reset(): void;
-}
