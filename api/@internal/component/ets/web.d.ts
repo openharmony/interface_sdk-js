@@ -7328,6 +7328,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
    * and whether the audio of multiple Web instances in an application is exclusive.
+   * <p><strong>API Note</strong>:<br>
+   * Audios in the same Web instance are considered as the same audio.
+   * The media playback policy controls videos with an audio track.
+   * After the parameter settings are updated, the playback must be started again for the settings to take effect.
+   * It is recommended that you set the same audioExclusive value for all Web components.
+   * Audio and video interruption takes effect within an app and between apps, and playback resumption takes effect only between apps.
+   * </p>
    *
    * @param { WebMediaOptions } options Set the media policy for the web.
    * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
