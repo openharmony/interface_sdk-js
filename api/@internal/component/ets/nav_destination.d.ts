@@ -20,11 +20,14 @@
 
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource'
-import { CommonMethod,Callback,LayoutSafeAreaType,LayoutSafeAreaEdge, Optional } from './common'
+import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, Optional, PixelMap } from './common'
 import { CustomBuilder } from './builder'
 import { Length, ResourceStr } from './units'
-import { TitleHeight,Curve } from './enums'
-import { NavPathInfo,NavPathStack,NavigationTitleOptions,NavigationMenuItem,NavigationToolbarOptions,ToolbarItem,NavigationMenuOptions,NavigationOperation,SystemBarStyle } from './navigation'
+import { TitleHeight, Curve } from './enums'
+import {
+  NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions,
+  ToolbarItem, NavigationMenuOptions, NavigationOperation, SystemBarStyle
+} from './navigation'
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
 import window from '../../@ohos.window'
 import image from '../../@ohos.multimedia.image'
@@ -38,7 +41,7 @@ import { Scroller } from './scroll'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type Orientation = import('../api/@ohos.window').default.Orientation;
 
@@ -809,7 +812,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @arkts 1.1&1.2
    */
   title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource,
-        options?: NavigationTitleOptions): NavDestinationAttribute;
+    options?: NavigationTitleOptions): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
@@ -985,24 +988,12 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
 
   /**
-   * Set back button icon.
-   *
-   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } value - Indicates icon of back button.
-   * @returns { NavDestinationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  backButtonIcon(value: ResourceStr | image.PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
-
-  /**
    * Set back button icon and accessibility broadcast content.
    *
    * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Indicates icon of back button.
@@ -1011,25 +1002,12 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavDestinationAttribute;
 
 
-  /**
-   * Set back button icon and accessibility broadcast content.
-   *
-   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Indicates icon of back button.
-   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
-   * @returns { NavDestinationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  backButtonIcon(icon: ResourceStr | image.PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavDestinationAttribute;
-  
   /**
    * NavDestination title bar's menus
    *
@@ -1288,13 +1266,13 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onNewParam(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
   /**
    * Invoked when destination be pushed with singleton mode.
    *
-   * @param { Optional<Callback<ESObject>> } callback - Indicates callback when destination be pushed with singleton mode.
+   * @param { Optional<Callback<Object | null | undefined>> } callback - Indicates callback when destination be pushed with singleton mode.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1302,7 +1280,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 20
    * @arkts 1.2
    */
-  onNewParam(callback: Optional<Callback<Object | undefined | null>>): NavDestinationAttribute;
+  onNewParam(callback: Optional<Callback<Object | null | undefined>>): NavDestinationAttribute;
   /**
    * Set NavDestination's preferred Orientation.
    * 

@@ -23,13 +23,12 @@ import window from '../../@ohos.window';
 import { Resource } from '../../global/resource';
 import { TextModifier } from '../../arkui/TextModifier';
 import { LengthMetrics } from '../../arkui/Graphics';
-import { Callback,BlurStyle ,CommonMethod, Optional,LayoutSafeAreaType,LayoutSafeAreaEdge,BackgroundEffectOptions,BackgroundBlurStyleOptions} from './common'
+import { Callback, BlurStyle, CommonMethod, Optional, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, BackgroundBlurStyleOptions, PixelMap } from './common'
 import { CustomBuilder, PageMapBuilder } from './builder'
-import { Length,ResourceStr,ResourceColor,Dimension } from './units'
-import { TitleHeight } from './enums' 
+import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units'
+import { TitleHeight } from './enums'
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
-import { NavDestinationContext,NavDestinationMode } from './navDestination'
-import image from '../../@ohos.multimedia.image';
+import { NavDestinationContext, NavDestinationMode } from './navDestination'
 /*** endif */
 
 /**
@@ -775,16 +774,16 @@ declare class NavPathInfo {
    * Creates an instance of NavPathInfo.
    *
    * @param { string } name - The name of NavDestination.
-   * @param { Object | undefined | null } param - The detailed parameter of the NavDestination.
-   * @param { ?Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { ?boolean } isEntry - Indicates whether it is an entry destination.
+   * @param { Object | null | undefined } param - The detailed parameter of the NavDestination.
+   * @param { Callback<PopInfo> } [onPop] - The callback when next page returns.
+   * @param { boolean } [isEntry] - Indicates whether it is an entry destination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-    constructor(name: string, param: Object | undefined | null, onPop?: Callback<PopInfo>, isEntry?: boolean);
+  constructor(name: string, param: Object | null | undefined, onPop?: Callback<PopInfo>, isEntry?: boolean);
 
   /**
    * The name of NavDestination.
@@ -817,14 +816,25 @@ declare class NavPathInfo {
   /**
    * The detailed parameter of the NavDestination.
    *
-   * @type { ? Object | undefined | null }
+   * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  param?: Object | undefined | null;
+  param?: unknown;
+
+  /**
+   * The detailed parameter of the NavDestination.
+   *
+   * @type { ?(Object | null | undefined) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  param?: Object | null | undefined;
 
   /**
    * The callback when next page returns.
@@ -855,7 +865,7 @@ declare class NavPathInfo {
    * @since 20
    * @arkts 1.2
    */
-    onPop?: Callback<PopInfo>;
+  onPop?: Callback<PopInfo>;
 
   /**
    * Indicates whether it is an entry destination.
@@ -927,7 +937,7 @@ declare enum LaunchMode {
    * @arkts 1.1&1.2
    */
   POP_TO_SINGLETON = 2,
-  
+
   /**
    * Forced to create a new NavDestination instance.
    *
@@ -1117,15 +1127,28 @@ declare class NavPathStack {
    * Pushes the specified NavDestination into the stack.
    *
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object | undefined | null } param - Indicates the detailed parameter of the NavDestination to be pushed.
+   * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  pushPathByName(name: string, param: Object | undefined | null, animated?: boolean): void;
+  pushPathByName(name: string, param: unknown, animated?: boolean): void;
+
+  /**
+   * Pushes the specified NavDestination into the stack.
+   *
+   * @param { string } name - Indicates the name of the NavDestination to be pushed.
+   * @param { Object | null | undefined } param - Indicates the detailed parameter of the NavDestination to be pushed.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pushPathByName(name: string, param: Object | null | undefined, animated?: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1165,7 +1188,7 @@ declare class NavPathStack {
    * @since 20
    * @arkts 1.2
    */
-    pushPathByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): void;
+  pushPathByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1269,7 +1292,7 @@ declare class NavPathStack {
    * @since 20
    * @arkts 1.2
    */
-    pushDestinationByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
+  pushDestinationByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
@@ -1783,23 +1806,12 @@ declare class NavPathStack {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type NavBar = 'navBar'
 
 /**
- * Navigation home name
- *
- * @typedef { 'navBar' } NavBar
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type NavBar = 'navBar'
-
-/**
  * navigation interception callback using in willShow and didShow
  *
  * @typedef { function } InterceptionShowCallback
@@ -1810,25 +1822,10 @@ type NavBar = 'navBar'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
-
-/**
- * navigation interception callback using in willShow and didShow
- *
- * @typedef { function } InterceptionShowCallback
- * @param { NavDestinationContext | NavBar } from - Indicates the starting NavDestination or NavBar.
- * @param { NavDestinationContext | NavBar } to - Indicates the destination NavDestination or NavBar.
- * @param { NavigationOperation } operation - Indicates the type of stack operation.
- * @param { boolean } isAnimated - Indicates whether the transition is animated.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
+declare type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
  * navigation interception callback using in navigation mode change
@@ -1838,22 +1835,10 @@ type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDest
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type InterceptionModeCallback = (mode: NavigationMode) => void;
-
-/**
- * navigation interception callback using in navigation mode change
- *
- * @typedef { function } InterceptionModeCallback
- * @param { NavigationMode } mode - Indicates the mode of Navigation.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type InterceptionModeCallback = (mode: NavigationMode) => void;
 
 /**
  * Provide navigation transition interception
@@ -1874,8 +1859,8 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   willShow?: InterceptionShowCallback;
 
@@ -1886,8 +1871,8 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   didShow?: InterceptionShowCallback;
 
@@ -1898,8 +1883,8 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   modeChange?: InterceptionModeCallback;
 }
@@ -2385,7 +2370,7 @@ declare interface NavigationTitleOptions {
    * @arkts 1.1&1.2
    */
   subTitleModifier?: TextModifier;
-  
+
   /**
    * Defines whether to respond to the hover mode.
    *
@@ -2554,16 +2539,16 @@ declare interface NavigationToolbarOptions {
  * @arkts 1.1&1.2
  */
 declare interface NavigationMenuOptions {
-/**
- * More button options.
- *
- * @type { ?MoreButtonOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
- */
+  /**
+   * More button options.
+   *
+   * @type { ?MoreButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   moreButtonOptions?: MoreButtonOptions;
 }
 
@@ -2589,7 +2574,7 @@ declare interface MoreButtonOptions {
    * @arkts 1.1&1.2
    */
   backgroundBlurStyle?: BlurStyle;
-  
+
   /**
    * Background blur style options.
    *
@@ -2810,22 +2795,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
-
-  /**
-   * Sets the back button icon.
-   *
-   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  backButtonIcon(value: string | image.PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Sets the back button icon and accessibility broadcast content.
@@ -2836,23 +2809,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
-
-  /**
-   * Sets the back button icon and accessibility broadcast content.
-   *
-   * @param { string | image.PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
-   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  backButtonIcon(icon: string | image.PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
@@ -3268,7 +3228,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 11
    */
-  navDestination(builder: (name: string, param: Object | null | undefined) => void): NavigationAttribute;
+  navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
 
   /**
    * Set builder for user-defined NavDestination component.
@@ -3330,7 +3290,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @arkts 1.1&1.2
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
-  
+
   /**
    * Set the Navigation can be restored after the application is terminated.
    * To enable this attribute, a navigation id must be set.
@@ -3355,7 +3315,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @arkts 1.1&1.2
    */
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
-  
+
   /**
    * whether to enable modeChangeAnimation
    * 
@@ -3560,20 +3520,20 @@ declare interface NavigationTransitionProxy {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   cancelTransition?(): void;
 
   /**
    * Notification system transition animation canceled.
    *
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  cancelTransition?:()=> void;
+  cancelTransition?: VoidCallback;
 
   /**
    * Notification system transition animation update.
@@ -3583,22 +3543,34 @@ declare interface NavigationTransitionProxy {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   updateTransition?(progress: number): void;
 
   /**
    * Notification system transition animation update.
    *
-   * @param { number } progress - The progress of transition animation.
+   * @type { ?UpdateTransitionCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  updateTransition?:(progress: number)=> void;
+  updateTransition?: UpdateTransitionCallback;
 }
+
+/**
+ * navigation update transition callback.
+ *
+ * @typedef { function } UpdateTransitionCallback
+ * @param { number } progress - Indicates the process of transition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type UpdateTransitionCallback = (progress: number) => void;
 
 /**
  * Navigation content info.
