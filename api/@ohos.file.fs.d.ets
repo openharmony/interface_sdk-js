@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit CoreFileKit
+ * @arkts 1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -3275,7 +3276,7 @@ interface CopyOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20
  */
-export type ProgressListener = (progress: Progress) => void;
+type ProgressListener = (progress: Progress) => void;
 
 /**
  * File object.
