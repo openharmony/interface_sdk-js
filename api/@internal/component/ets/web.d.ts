@@ -7102,7 +7102,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
   *
-  *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
   * @syscap SystemCapability.Web.Webview.Core
@@ -7194,7 +7193,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
    * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
@@ -7204,7 +7203,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
    * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7212,7 +7211,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7221,7 +7222,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7659,7 +7661,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Notifies the application that the title has changed..
+   * Notifies the application that the title has changed.
    * If the page being loaded does not specify a title via the <title> element,
    * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
@@ -9374,8 +9376,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order instead of array sequence.
-   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script is executed in the lexicographic order instead of array order.
+   * The script is executed in the lexicographic order, not array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
    * </p>
    *
@@ -9388,11 +9391,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
-   * the script is executed on any page whose source matches scriptRules.
+   * Injects the JavaScripts script into the Web component.
+   * When the specified page or document has been loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
-   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
+   * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not the array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
    * <p>
    *
