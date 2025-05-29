@@ -996,9 +996,9 @@ declare const ShapeInstance: ShapeAttribute;
  */
 interface ShapeInterface {
   /**
-   * Called when a component is drawn.
+   * Shape component constructor.
    *
-   * @param { PixelMap } value
+   * @param { PixelMap } [value] - PixelMap object to draw.
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1006,18 +1006,5 @@ interface ShapeInterface {
    * @since 20
    * @arkts 1.2
    */
-  (value: PixelMap): ShapeAttribute;
-
-  /**
-   * Called when a component is drawn.
-   *
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (): ShapeAttribute;
+  (value?: PixelMap): ShapeAttribute;
 }

@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonShapeMethod,CommonMethod } from './common';
-import { Point } from './polygon';
+import { CommonShapeMethod } from './common';
+import { ShapePoint } from './line';
 /*** endif */
 
 /**
@@ -264,7 +264,8 @@ interface PolylineInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
@@ -306,6 +307,20 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @since 11
    */
   points(value: Array<any>): PolylineAttribute;
+
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   *
+   * @param { Array<ShapePoint> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  points(value: Array<ShapePoint>): PolylineAttribute;
 }
 
 /**
@@ -385,7 +400,7 @@ declare const PolylineInstance: PolylineAttribute;
  */
 interface PolylineInterface {
   /**
-   * Called when using the draw fold.
+   * Set options for polyline component.
    *
    * @param { PolylineOptions } [options] - Poly line options
    * @returns { PolylineAttribute }
@@ -397,29 +412,4 @@ interface PolylineInterface {
    * @arkts 1.2
    */
   (options?: PolylineOptions): PolylineAttribute;
-}
-
-/**
- * @extends CommonShapeMethod<PolylineAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
-  /**
-   * Called when the polyline is set to pass through the coordinate point list.
-   *
-   * @param { Array<Point> } value
-   * @returns { PolylineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  points(value: Array<Point>): PolylineAttribute;
 }

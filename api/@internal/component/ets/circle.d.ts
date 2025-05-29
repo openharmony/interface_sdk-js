@@ -363,9 +363,9 @@ declare const CircleInstance: CircleAttribute;
  */
 interface CircleInterface {
   /**
-   * Set the value..
+   * Set the options for circle component.
    *
-   * @param { CircleOptions } value
+   * @param { CircleOptions } [value] - options to create circle component.
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
