@@ -241,7 +241,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     export enum KeepAliveAppType {
       /**
@@ -249,7 +250,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       ALL = 0,
   
@@ -258,7 +260,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       THIRD_PARTY = 1,
   
@@ -267,7 +270,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SYSTEM = 2
     }
@@ -277,7 +281,8 @@ declare namespace appManager {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export enum KeepAliveSetter {
       /**
@@ -285,7 +290,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SYSTEM = 0,
   
@@ -294,7 +300,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       USER = 1
     }
@@ -305,7 +312,8 @@ declare namespace appManager {
      * @typedef KeepAliveBundleInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export interface KeepAliveBundleInfo {
       /**
@@ -314,7 +322,8 @@ declare namespace appManager {
        * @type { string }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       bundleName: string;
   
@@ -324,7 +333,8 @@ declare namespace appManager {
        * @type { KeepAliveAppType }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       type: KeepAliveAppType;
   
@@ -334,7 +344,8 @@ declare namespace appManager {
        * @type { KeepAliveSetter }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since arkts {'1.1':'14', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       setter: KeepAliveSetter;
     }
@@ -615,7 +626,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
 
@@ -634,7 +646,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRunningInStabilityTest(): Promise<boolean>;
 
@@ -666,7 +679,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -682,7 +696,8 @@ declare namespace appManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
 
@@ -767,7 +782,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRamConstrainedDevice(): Promise<boolean>;
 
@@ -790,7 +806,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
@@ -809,7 +826,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppMemorySize(): Promise<number>;
 
@@ -832,7 +850,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppMemorySize(callback: AsyncCallback<number>): void;
 
