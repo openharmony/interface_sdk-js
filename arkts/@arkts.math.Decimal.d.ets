@@ -1444,7 +1444,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toBinary(): string;
 
@@ -1469,7 +1470,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toBinary(significantDigits: number): string;
 
@@ -1496,7 +1498,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toBinary(significantDigits: number, rounding: Rounding): string;
 
@@ -1515,7 +1518,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toOctal(): string;
 
@@ -1538,7 +1542,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toOctal(significantDigits: number): string;
 
@@ -1565,7 +1570,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toOctal(significantDigits: number, rounding: Rounding): string;
 
@@ -1584,7 +1590,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toHexadecimal(): string;
 
@@ -1607,7 +1614,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toHexadecimal(significantDigits: number): string;
 
@@ -1634,7 +1642,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toHexadecimal(significantDigits: number, rounding: Rounding): string;
 
@@ -1727,7 +1736,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toExponential(): string;
 
@@ -1752,7 +1762,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toExponential(decimalPlaces: number): string;
 
@@ -1779,7 +1790,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toExponential(decimalPlaces: number, rounding: Rounding): string;
 
@@ -1798,7 +1810,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toFixed(): string;
 
@@ -1821,7 +1834,8 @@ declare class Decimal {
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toFixed(decimalPlaces: number): string;
 
@@ -1848,7 +1862,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toFixed(decimalPlaces: number, rounding: Rounding): string;
 
@@ -1869,7 +1884,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toFraction(): Decimal[];
 
@@ -1900,7 +1916,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toFraction(maxDenominator: DecimalValue): Decimal[];
 
@@ -1927,7 +1944,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toNearest(n: DecimalValue): Decimal;
 
@@ -1960,7 +1978,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toNearest(n: DecimalValue, rounding: Rounding): Decimal;
 
@@ -1979,7 +1998,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toPrecision(): string;
 
@@ -2002,7 +2022,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toPrecision(significantDigits: number): string;
 
@@ -2029,7 +2050,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toPrecision(significantDigits: number, rounding: Rounding): string;
 
@@ -2048,7 +2070,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toSignificantDigits(): Decimal;
 
@@ -2073,7 +2096,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toSignificantDigits(significantDigits: number): Decimal;
 
@@ -2100,7 +2124,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal;
 
@@ -2184,7 +2209,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decimalPlaces(): number;
 
