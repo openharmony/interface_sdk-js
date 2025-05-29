@@ -925,7 +925,17 @@ declare interface LocalizedEdgeWidths {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline width property.
+ *
+ * @interface EdgeOutlineWidths
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeOutlineWidths {
@@ -1250,7 +1260,17 @@ declare interface LocalizedBorderRadiuses  {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline radius property.
+ *
+ * @interface OutlineRadiuses
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface OutlineRadiuses {
@@ -1738,7 +1758,17 @@ declare interface EdgeStyles {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline style property.
+ *
+ * @interface EdgeOutlineStyles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeOutlineStyles {
