@@ -96,7 +96,7 @@ declare namespace shortcutManager {
    * @param { string } id - Indicates id of shortcut to set.
    * @param { boolean } visible - The value true means to set the shortcut visible, otherwise set the shortcut invisible.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 17700070 - The specified shortcut id is not exist.
+   * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    */

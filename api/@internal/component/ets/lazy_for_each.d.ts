@@ -891,7 +891,7 @@ interface LazyForEachInterface {
   (
     dataSource: IDataSource,
     itemGenerator: (item: any, index: number) => void,
-    keyGenerator?: (item: any, index: number) => string,
+    keyGenerator?: (item: any, index: number) => string
   ): LazyForEachAttribute;
 }
 

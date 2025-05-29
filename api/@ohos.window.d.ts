@@ -598,8 +598,8 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   enum WindowStatusType {
@@ -1170,6 +1170,89 @@ declare namespace window {
   }
 
   /**
+   * Enum for window anchor
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum WindowAnchor {
+    /**
+     * The value means window top left corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    TOP_START = 0,
+    /**
+     * The value means horizontal midpoint of the border on the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    TOP = 1,
+    /**
+     * The value means window top right corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    TOP_END = 2,
+    /**
+     * The value means vertical midpoint of the left border of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    START = 3,
+    /**
+     * The value means window horizontal and vertical midpoint.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    CENTER = 4,
+    /**
+     * The value means vertical midpoint of the right border of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    END = 5,
+    /**
+     * The value means window bottom left corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    BOTTOM_START = 6,
+    /**
+     * The value means horizontal midpoint of the lower border of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    BOTTOM = 7,
+    /**
+     * The value means window bottom right corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    BOTTOM_END = 8,
+  }
+
+  /**
    * Avoid area
    *
    * @interface AvoidArea
@@ -1497,7 +1580,7 @@ declare namespace window {
      *
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossPlatform
+     * @crossplatform
      * @since 20
      */
     windowStatusType: WindowStatusType;
@@ -4101,6 +4184,25 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
+   * Describes the window transition type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  enum WindowTransitionType {
+    /**
+     * window transition type destroy
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    DESTROY = 0,
+  }
+
+  /**
    * Describes the window animation curve
    *
    * @enum { number }
@@ -4169,6 +4271,35 @@ declare namespace window {
   }
 
   /**
+   * The animation configuration of window transition
+   *
+   * @interface TransitionAnimation
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface TransitionAnimation {
+    /**
+     * The config of window animation
+     *
+     * @type { WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    config: WindowAnimationConfig;
+    /**
+     * The opacity of window
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    opacity?: number;
+  }
+
+  /**
    * The information of keyboard
    *
    * @interface KeyboardInfo
@@ -4216,6 +4347,66 @@ declare namespace window {
      * @since 20
      */
     config?: WindowAnimationConfig;
+  }
+
+  /**
+   * The policy of key frame.
+   *
+   * @interface KeyFramePolicy
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface KeyFramePolicy {
+    /**
+     * Whether to use key frame.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    enable: boolean;
+
+    /**
+     * Set the drag interval to notify rect change in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    interval?: number;
+
+    /**
+     * Set the drag distance to notify rect change in px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    distance?: number;
+
+    /**
+     * Set the rect change animation duration in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDuration?: number;
+
+    /**
+     * Set then rect change animation delay in millisecond
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDelay?: number;
   }
 
   /**
@@ -4911,6 +5102,29 @@ declare namespace window {
      * @since 17
      */
     setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Set whether the first level sub window supports maintaining the same relative position with the main window.
+     *
+     * @param { boolean } enabled - The value true means the first level sub window supports maintaining the same relative position with the main window,
+     *                              and false means the opposite.
+     * @param { WindowAnchor } anchor - Window anchor point that setting
+     *                                  when the relative position between the primary sub window and the main window remains unchanged.
+     * @param { number } offsetX - The x-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { number } offsetY - The y-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *                                 Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor, offsetX?: number, offsetY?: number): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -7931,8 +8145,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @crossplatform
+     * @atomicservice
      * @since 20
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
@@ -8126,6 +8340,19 @@ declare namespace window {
      * @since 12
      */
     snapshot(): Promise<image.PixelMap>;
+
+    /**
+     * Obtains snapshot of window
+     *
+     * @returns { image.PixelMap } Return pixel map of snapshot.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300018 - Timeout.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    snapshotSync(): image.PixelMap;
 
     /**
      * Obtains snapshot of window even set the privacy mode.
@@ -9466,6 +9693,42 @@ declare namespace window {
     disableLandscapeMultiWindow(): Promise<void>;
 
     /**
+     * Set window transition animation
+     *
+     * @param { WindowTransitionType } transitionType - Transition animation type.
+     * @param { TransitionAnimation } animation - Transition animation config.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: TransitionAnimation): Promise<void>;
+
+    
+    /**
+     * Get window transition animation configuration
+     *
+     * @param { WindowTransitionType } transitionType - Transition animation type.
+     * @returns { TransitionAnimation | undefined } Transition animation with transition type, or undefined if it has not been set.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    getWindowTransitionAnimation(transitionType: WindowTransitionType): TransitionAnimation | undefined;
+
+    /**
      * Register the callback of title buttons area change.
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
@@ -9858,6 +10121,21 @@ declare namespace window {
      * @since 18
      */
     getSubWindowZLevel(): number;
+
+    /**
+     * Set the policy of key frame when resize by dragging.
+     *
+     * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
+     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
   }
 
   /**
@@ -9996,8 +10274,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#INTERACTIVE
      */
     RESUMED,
     /**
@@ -10008,30 +10284,8 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#NONINTERACTIVE
      */
-    PAUSED,
-    /**
-     * The window stage is interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    INTERACTIVE = 8,
-    /**
-     * The window stage is non-interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    NONINTERACTIVE
+    PAUSED
   }
 
   /**

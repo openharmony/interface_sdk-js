@@ -2779,6 +2779,17 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * The reason for text changes.
+   *
+   * @type { ?TextChangeReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 20
+   */
+  changeReason?: TextChangeReason;
 }
 
 /**
@@ -3476,6 +3487,15 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the StyledString of the RichEditor.
+   *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   getStyledString(): MutableStyledString;
 

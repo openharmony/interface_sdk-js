@@ -452,6 +452,46 @@ declare enum ImageRotateOrientation {
    * @since 14
    */
   LEFT = 4,
+
+  /**
+   * Flip the orignial image horizontally
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  UP_MIRRORED = 5,
+
+  /**
+   * Flip the orignial image horizontally and rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  RIGHT_MIRRORED = 6,
+
+  /**
+   * Flip the orignial image vertically
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  DOWN_MIRRORED = 7,
+
+  /**
+   * Flip the orignial image horizontally and rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  LEFT_MIRRORED = 8,
 }
 
 /**
@@ -1125,7 +1165,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   * @returns { ImageAttribute }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 20
+  * @since 19
   */
  hdrBrightness(brightness: number): ImageAttribute;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -741,6 +741,15 @@ interface CancelButtonOptions {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the CancelButton symbol options
+ *
+ * @interface CancelButtonSymbolOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 interface CancelButtonSymbolOptions {
   /**
    * Set the CancelButton style.
@@ -761,6 +770,16 @@ interface CancelButtonSymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Set the CancelButton symbol icon.
+   * Symbol icon of the Cancel button on the right.
+   * 
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   icon?: SymbolGlyphModifier;
 }
@@ -1502,7 +1521,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
    * @since 11
    */
   /**
@@ -1516,9 +1534,23 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Called when the input of maximum text length is set.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>By default, there is no maximum number of characters.
+   * <br>When the maximum number is reached, no more characters can be entered.
+   * </p>
+   * 
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxLength(value: number): SearchAttribute;
 
@@ -1661,6 +1693,24 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 18
    */
+   /**
+   * Called when the minimum font scale of the font is set.
+   * Value range: [0, 1]
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The undefined type is supported.
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
    minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
@@ -1678,6 +1728,23 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 18
+    */
+   /**
+    * Called when the maximum font scale of the font is set.
+    * Value range: [1, +∞)
+    * 
+    * <p><strong>NOTE</strong>:
+    * <br>The undefined type is supported.
+    * <br>A value less than 1 is handled as 1.
+    * <br>Abnormal values are ineffective by default.
+    * </p>
+    * 
+    * @param { Optional<number | Resource> } scale
+    * @returns { SearchAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 20
     */
    maxFontScale(scale: Optional<number | Resource>): SearchAttribute;
    

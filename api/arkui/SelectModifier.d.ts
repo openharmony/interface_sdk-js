@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Select Modifier
+ *
+ * @extends SelectAttribute
+ * @implements AttributeModifier<SelectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SelectModifier extends SelectAttribute implements AttributeModifier<SelectAttribute> {
 
   /**

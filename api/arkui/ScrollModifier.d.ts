@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Scroll Modifier
+ *
+ * @extends ScrollAttribute
+ * @implements AttributeModifier<ScrollAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ScrollModifier extends ScrollAttribute implements AttributeModifier<ScrollAttribute> {
 
   /**

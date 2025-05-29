@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -506,6 +506,14 @@ declare interface TabBarIconStyle {
  * @atomicservice
  * @since 12
  */
+/**
+ * TabBarSymbol object.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 declare class TabBarSymbol {
   /**
    * Symbol icon in the normal style.
@@ -515,6 +523,16 @@ declare class TabBarSymbol {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Symbol icon in the normal style.
+   *
+   * @type { SymbolGlyphModifier }
+   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   normal: SymbolGlyphModifier;
 
@@ -526,6 +544,16 @@ declare class TabBarSymbol {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Symbol icon in the selected style.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   selected?: SymbolGlyphModifier;
 }

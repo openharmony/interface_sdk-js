@@ -752,7 +752,7 @@ declare enum WindowMode {
    * @since 11
    * @test
    */
-  FLOATING = 3,
+  FLOATING = 3
 }
 
 /**
@@ -898,7 +898,7 @@ declare enum ResizeDirection {
    * @since 11
    * @test
    */
-  RIGHT_DOWN = 7,
+  RIGHT_DOWN = 7
 }
 
 /**
@@ -980,7 +980,7 @@ declare enum DisplayRotation {
    * @since 11
    * @test
    */
-  ROTATION_270 = 3,
+  ROTATION_270 = 3
 }
 
 /**
@@ -1090,20 +1090,20 @@ declare interface Point {
    * @atomicservice
    * @since 20
    */
-  displayId?: number; 
+  displayId?: number;
 }
 
 /**
  * Represents the rectangle area on the device screen.
  *
- * @typedef Rect 
+ * @typedef Rect
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 /**
  * Represents the rectangle area on the device screen.
  *
- * @typedef Rect 
+ * @typedef Rect
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since 11
@@ -1111,7 +1111,7 @@ declare interface Point {
 /**
  * Represents the rectangle area on the device screen.
  *
- * @typedef Rect 
+ * @typedef Rect
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
@@ -1122,7 +1122,7 @@ declare interface Rect {
    * The x-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1130,7 +1130,7 @@ declare interface Rect {
    * The x-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1144,13 +1144,22 @@ declare interface Rect {
    * @crossplatform
    * @atomicservice
    * @since 12
-   */ 
-  readonly left: number;
+   */
+  /**
+   * The x-coordinate of the top left corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  left: number;
   /**
    * The y-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1158,7 +1167,7 @@ declare interface Rect {
    * The y-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1173,12 +1182,21 @@ declare interface Rect {
    * @atomicservice
    * @since 12
    */
-  readonly top: number;
+  /**
+   * The y-coordinate of the top left corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  top: number;
   /**
    * The x-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1186,7 +1204,7 @@ declare interface Rect {
    * The x-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1201,12 +1219,21 @@ declare interface Rect {
    * @atomicservice
    * @since 12
    */
-  readonly right: number;
+  /**
+   * The x-coordinate at the bottom right corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  right: number;
   /**
    * The y-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1214,7 +1241,7 @@ declare interface Rect {
    * The y-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
-   * @readonly 
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1229,7 +1256,25 @@ declare interface Rect {
    * @atomicservice
    * @since 12
    */
-  readonly bottom: number;
+  /**
+   * The y-coordinate at the bottom right corner of the rectangle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  bottom: number;
+  /**
+   * The displayId to which the rect belongs, default is the displayId of the main screen.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   */
+  displayId?: number;
 }
 
 /**
@@ -1326,6 +1371,16 @@ declare interface WindowFilter {
    * @since 11
    */
   active?: boolean;
+
+  /**
+   * Find the window in the specified ID display. By default, it searches all displays.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   */
+  displayId?: number;
 }
 
 /**
@@ -1591,7 +1646,7 @@ declare enum UiDirection {
    * @since 12
    * @test
    */
-  DOWN = 3,
+  DOWN = 3
 }
 
 /**
@@ -1657,7 +1712,7 @@ declare enum MouseButton {
    * @since 11
    * @test
    */
-  MOUSE_BUTTON_MIDDLE = 2,
+  MOUSE_BUTTON_MIDDLE = 2
 }
 
 /**
@@ -2232,6 +2287,19 @@ declare class On {
   inWindow(bundleName: string): On;
 
   /**
+   * Specifies the displayId to which the target Component belongs.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  belongingDisplay(displayId: number): On;
+
+  /**
    * Specifies the description for the target Component.
    *
    * @param { string } val - the description value.
@@ -2449,6 +2517,19 @@ declare class Component {
    * @test
    */
   getId(): Promise<string>;
+
+  /**
+   * Get the displayId to which the component belongs.
+   *
+   * @returns { Promise<number> } the displayId value.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplayId(): Promise<number>;
 
   /**
    * Get the text attribute value.
@@ -2848,7 +2929,7 @@ declare class Component {
    * @param { InputTextMode } mode - specific the mode to input text.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported, function can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2857,6 +2938,7 @@ declare class Component {
    * @test
    */
   inputText(text: string, mode: InputTextMode): Promise<void>;
+
   /**
    * Clear text of this {@link Component},applicable to TextInput.
    *
@@ -3510,6 +3592,20 @@ declare class Driver {
   pressBack(): Promise<void>;
 
   /**
+   * Press the BACK key on the specified display.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  pressBack(displayId: number): Promise<void>;
+
+  /**
    * Press the specified key.
    *
    * @param { number } keyCode the target keyCode.
@@ -3534,6 +3630,21 @@ declare class Driver {
    * @test
    */
   triggerKey(keyCode: number): Promise<void>;
+
+  /**
+   * Press the specified key on the specified display.
+   *
+   * @param { number } keyCode - the target keyCode.
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  triggerKey(keyCode: number, displayId: number): Promise<void>;
 
   /**
    * Press two or three key combinations
@@ -3564,6 +3675,23 @@ declare class Driver {
    * @test
    */
   triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
+
+  /**
+   * Press two or three key combinations on the specified display.
+   *
+   * @param { number } key0 - the first keyCode.
+   * @param { number } key1 - the second keyCode.
+   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
+   * @param { number } [displayId] - the Id of the specified display, default is the displayId of the main screen.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number): Promise<void>;
 
   /**
    * Click on the specified location on the screen.
@@ -3770,9 +3898,37 @@ declare class Driver {
    * @test
    */
   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
-  
+
   /**
-   * Long click on the specified location on the screen, specifies the duration if necessary.
+   * Click on the specified location on the screen.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  clickAt(point: Point): Promise<void>;
+
+  /**
+   * DoubleClick on the specified location on the screen.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  doubleClickAt(point: Point): Promise<void>;
+
+  /**
+   * LongClick on the specified location on the screen, specifies the duration if necessary.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
    * @param { number } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
@@ -3787,12 +3943,28 @@ declare class Driver {
   longClickAt(point: Point, duration?: number): Promise<void>;
   
   /**
+   * Swipe on the screen between the specified points.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { number } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  swipeBetween(from: Point, to: Point, speed?: number): Promise<void>;
+
+  /**
    * Drag on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - speed of drag(pixels per second),the value ranges from 200 to 4000.Set it default 600 if out out of range or null or undefined.   
-   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
+   * @param { number } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.   
+   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default values are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3827,6 +3999,21 @@ declare class Driver {
    * @test
    */
   screenCap(savePath: string): Promise<boolean>;
+
+  /**
+   * Capture specified screen and save as picture which PNG format.
+   *
+   * @param { string } savePath - the path where to store the picture, must be in the application sandbox directory.
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  screenCap(savePath: string, displayId: number): Promise<boolean>;
 
   /**
    * Set the rotation of the device display.
@@ -3875,6 +4062,20 @@ declare class Driver {
   getDisplayRotation(): Promise<DisplayRotation>;
 
   /**
+   * Get the rotation of the specified device display.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<DisplayRotation> } the current display rotation.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplayRotation(displayId: number): Promise<DisplayRotation>;
+
+  /**
    * Enable/disable the rotation of device display.
    *
    * @param { boolean } enabled Enable the rotation or not.
@@ -3921,6 +4122,20 @@ declare class Driver {
   getDisplaySize(): Promise<Point>;
 
   /**
+   * Get the size of the specified device display.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<Point> } the size of the device display.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplaySize(displayId: number): Promise<Point>;
+
+  /**
    * Get the density of the device display.
    *
    * @returns { Promise<Point> } the density of the device display.
@@ -3940,6 +4155,20 @@ declare class Driver {
    * @test
    */
   getDisplayDensity(): Promise<Point>;
+
+  /**
+   * Get the density of the specified device display.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<Point> } the density of the device display.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplayDensity(displayId: number): Promise<Point>;
 
   /**
    * Wake up the device display.
@@ -3982,6 +4211,20 @@ declare class Driver {
    * @test
    */
   pressHome(): Promise<void>;
+
+  /**
+   * Press the home key to the specified display.
+   *
+   * @param { number } displayId - the Id of the specified display.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  pressHome(displayId: number): Promise<void>;
 
   /**
    * Wait for the UI become idle.
@@ -4125,6 +4368,22 @@ declare class Driver {
    * @test
    */
   fling(direction: UiDirection, speed: number): Promise<void>;
+
+  /**
+   * Inject fling on the specified device display.
+   *
+   * @param { UiDirection } direction - the direction of this action.
+   * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } displayId - the Id of the specified display.
+  * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  fling(direction: UiDirection, speed: number, displayId: number): Promise<void>;
 
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -4896,6 +5155,19 @@ declare class UiWindow {
    * @test
    */
   isActive(): Promise<boolean>;
+
+  /**
+   * Get the displayId to which the window belongs.
+   *
+   * @returns { Promise<number> } the displayId value.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getDisplayId(): Promise<number>;
 }
 
 /**

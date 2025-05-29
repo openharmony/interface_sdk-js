@@ -77,6 +77,7 @@ declare namespace bundleManager {
    */
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -183,6 +184,7 @@ declare namespace bundleManager {
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
@@ -238,7 +240,7 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -246,9 +248,9 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo, abilityInfo and extensionAbility.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
      * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
-     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITIES | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_METADATA
      * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -258,7 +260,10 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
@@ -322,7 +327,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing menu configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_MENU | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -332,7 +338,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ROUTER_MAP | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -342,7 +349,9 @@ declare namespace bundleManager {
     /**
      * Used to obtain the skillInfo contained in abilityInfo and extensionInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
-     * GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY
+     * or GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -359,7 +368,9 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
-     * Used to obtain the bundleInfo only if any user installed
+     * Used to obtain the bundle information of an application installed by any user.
+     * It must be used together with GET_BUNDLE_INFO_WITH_APPLICATION. 
+     * It is valid only in the {@link getBundleInfo} and {@link getAllBundleInfo} APIs.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -868,6 +879,15 @@ declare namespace bundleManager {
      * @since 20
      */
     APP_SERVICE = 29,
+
+    /**
+     * Indicates extension info with type of the live form
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     */
+    LIVE_FORM = 30,
 
     /**
      * Indicates extension info with type of unspecified
@@ -2979,7 +2999,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3013,7 +3032,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -3047,7 +3065,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
@@ -3081,7 +3098,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3113,7 +3129,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3145,7 +3160,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */

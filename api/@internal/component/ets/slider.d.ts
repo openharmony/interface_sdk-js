@@ -991,6 +991,93 @@ interface SliderInterface {
 }
 
 /**
+ * Defines the options for customizing the accessibility of content within a slider.
+ * These options can be used to enhance the user experience for assistive technologies.
+ *
+ * @interface SliderCustomContentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderCustomContentOptions {
+  /**
+   * The text used for accessibility purposes. This text will be read by screen readers
+   * to provide a more descriptive label for the slider content. 
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * A more detailed description for accessibility. This can provide additional context
+   * about the slider content for users relying on assistive technologies. 
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityDescription?: ResourceStr;
+   
+  /**
+   * The accessibility level of the slider content. This could be used to indicate the importance
+   * or priority of the content for assistive technologies. 
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityLevel?: string;
+  
+  /**
+   * Indicates whether the slider content should be treated as an accessibility group.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityGroup?: boolean;
+}
+
+/**
+ * Options used for customizing the prefix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderPrefixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderPrefixOptions extends SliderCustomContentOptions {
+}
+
+/**
+ * Options used for customizing the suffix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderSuffixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderSuffixOptions extends SliderCustomContentOptions {
+}
+
+/**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod<SliderAttribute>
@@ -1593,6 +1680,38 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 18
    */
   enableHapticFeedback(enabled: boolean): SliderAttribute;
+
+  /**
+   * Sets the prefix part of the slider.
+   * The prefix is the content that appears before the main slider component.
+   *
+   * @param { ComponentContent } content - Custom components that will be displayed as the prefix.
+   *                                       This can be any valid custom UI component structure.
+   * @param { SliderPrefixOptions } [options] - Optional options for customizing the prefix.
+   *                                            These options can include accessibility settings.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  prefix(content: ComponentContent, options?: SliderPrefixOptions): SliderAttribute;
+
+  /**
+   * Sets the suffix part of the slider.
+   * The suffix is the content that appears after the main slider component.
+   *
+   * @param { ComponentContent } content - Custom components that will be displayed as the suffix.
+   *                                       This can be any valid custom UI component structure.
+   * @param { SliderSuffixOptions } [options] - Optional options for customizing the suffix.
+   *                                            These options can include accessibility settings.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
 }
 
 /**

@@ -587,6 +587,20 @@ declare namespace i18n {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Sets the preferred language of the application. Resources are loaded in the preferred language when the
+     * application is launched. If the preferred language is set to default, the application's language will be the
+     * same as the system language, and the setting will take effect upon cold starting of the application.
+     *
+     * @param { string } language - Valid language ID or default.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     static setAppPreferredLanguage(language: string): void;
 
     /**
@@ -603,6 +617,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Obtains the preferred language of an application.
+     *
+     * @returns { string } Preferred language of the application.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     static getAppPreferredLanguage(): string;
 

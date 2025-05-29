@@ -174,12 +174,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -202,12 +202,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -233,12 +233,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -265,7 +265,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -274,8 +274,8 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -300,7 +300,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -340,12 +340,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -368,7 +368,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -397,7 +397,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -428,7 +428,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -436,15 +436,15 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000067 - Start options check failed.
-   * @throws { BusinessError } 16000068 - Ability already running.
+   * @throws { BusinessError } 16000067 - The StartOptions check failed.
+   * @throws { BusinessError } 16000068 - The ability is already running.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -465,7 +465,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -489,7 +489,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -509,7 +509,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -533,7 +533,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -551,12 +551,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -581,12 +581,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -612,12 +612,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -645,7 +645,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -654,15 +654,15 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000067 - Start options check failed.
-   * @throws { BusinessError } 16000068 - Ability already running.
+   * @throws { BusinessError } 16000067 - The StartOptions check failed.
+   * @throws { BusinessError } 16000068 - The ability is already running.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -684,7 +684,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -709,7 +709,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -730,7 +730,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -755,7 +755,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000079 - The APP_INSTANCE_KEY cannot be specified.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @throws { BusinessError } 16300003 - The target application is not the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -779,12 +779,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -814,12 +814,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -848,7 +848,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -883,7 +883,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -927,7 +927,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -960,7 +960,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -994,7 +994,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1038,12 +1038,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -1073,7 +1073,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1109,7 +1109,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1147,7 +1147,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1174,7 +1174,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -1201,7 +1201,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -1228,13 +1228,13 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1257,7 +1257,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -1297,7 +1297,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1329,7 +1329,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1362,7 +1362,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1403,12 +1403,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -1438,7 +1438,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1447,7 +1447,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -1475,7 +1475,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1517,12 +1517,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1550,7 +1550,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1584,7 +1584,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1592,7 +1592,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -1620,7 +1620,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1666,12 +1666,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -1702,7 +1702,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1711,7 +1711,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -1740,7 +1740,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1777,12 +1777,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1806,12 +1806,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -1837,12 +1837,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -1869,7 +1869,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1878,8 +1878,8 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -1904,7 +1904,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1946,7 +1946,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -1986,12 +1986,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2015,7 +2015,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2045,7 +2045,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2076,7 +2076,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2084,8 +2084,8 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -2110,7 +2110,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2151,7 +2151,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2190,12 +2190,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2220,12 +2220,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -2252,12 +2252,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -2285,7 +2285,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2294,8 +2294,8 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -2321,7 +2321,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2364,7 +2364,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2412,12 +2412,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2440,12 +2440,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -2470,7 +2470,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2479,7 +2479,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -2502,7 +2502,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2544,12 +2544,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2577,7 +2577,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2611,7 +2611,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2619,7 +2619,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -2647,7 +2647,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2698,12 +2698,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2727,12 +2727,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -2758,7 +2758,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2767,7 +2767,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -2791,7 +2791,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2855,7 +2855,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2883,7 +2883,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2935,7 +2935,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -2963,7 +2963,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3019,7 +3019,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3049,7 +3049,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3105,7 +3105,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3135,7 +3135,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3185,7 +3185,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3233,7 +3233,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3284,7 +3284,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3335,7 +3335,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3354,7 +3354,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3397,7 +3397,7 @@ export default class UIAbilityContext extends Context {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3440,7 +3440,7 @@ export default class UIAbilityContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3485,7 +3485,7 @@ export default class UIAbilityContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3536,7 +3536,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000074 - The caller does not exist.
-   * @throws { BusinessError } 16000075 - Not support back to caller.
+   * @throws { BusinessError } 16000075 - BackToCaller is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -3574,7 +3574,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3625,7 +3625,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3890,12 +3890,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -3921,12 +3921,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -3954,7 +3954,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -3989,7 +3989,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4028,12 +4028,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -4059,7 +4059,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4091,7 +4091,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4125,7 +4125,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4163,12 +4163,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -4195,12 +4195,12 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -4229,7 +4229,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4265,7 +4265,7 @@ export default class UIAbilityContext extends Context {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4301,12 +4301,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -4330,7 +4330,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4357,12 +4357,12 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -4387,7 +4387,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -4455,7 +4455,7 @@ export default class UIAbilityContext extends Context {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4496,7 +4496,7 @@ export default class UIAbilityContext extends Context {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4535,7 +4535,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4576,7 +4576,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4614,7 +4614,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -4700,7 +4700,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -4731,7 +4731,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -4789,8 +4789,8 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000065 - The API can be called only when the ability is running in the foreground.
-   * @throws { BusinessError } 16000084 - Only allow DelegatorAbility to call the method once.
-   * @throws { BusinessError } 16000085 - The interaction process between Ability and Window encountered an error.
+   * @throws { BusinessError } 16000084 - Only DelegatorAbility is allowed to call this API, and only once.
+   * @throws { BusinessError } 16000085 - An error occurred during the interaction between the ability and window.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17
@@ -4808,4 +4808,90 @@ export default class UIAbilityContext extends Context {
    * @since 18
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
+
+  /**
+   * Starts a new app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible app service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000200 - The target and the caller are not in the same group.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  startAppServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Stops an app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible app service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000200 - The target and the caller are not in the same group.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  stopAppServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Connects current ability to an app service extension ability.
+   * If the target app service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible app service extension ability.
+   *
+   * @param { Want } want - The element name of the app service ability
+   * @param { ConnectOptions } options - The remote object instance
+   * @returns { number } Returns the number code of the ability connected
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000201 - The target has not been started yet.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  connectAppServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+
+  /**
+   * Disconnect current ability from an app service extension, in contrast to {@link connectAppServiceExtensionAbility}.
+   *
+   * @param { number } connection - The number code of the ability connected
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
 }

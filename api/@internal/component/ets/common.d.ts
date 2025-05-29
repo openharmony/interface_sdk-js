@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11015,6 +11015,32 @@ declare class LayoutPolicy {
    * @since 15
    */
   static readonly matchParent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children but it is constained by its parent.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly wrapContent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly fixAtIdealSize: LayoutPolicy;
 }
 
 /**
@@ -17816,6 +17842,17 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   hoverScale?: AnimationRange<number>;
+
+  /**
+   * Sets whether support to interrupt the process of hover scale.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  hoverScaleInterruption?: boolean;
 }
 
 /**
@@ -19052,6 +19089,15 @@ declare interface MenuElement {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Sets the symbol of the menu element.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
@@ -19581,6 +19627,15 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ */
+/**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 

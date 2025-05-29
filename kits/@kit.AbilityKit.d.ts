@@ -110,6 +110,7 @@ import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
+import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -129,5 +130,5 @@ export {
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, CompletionHandler
+  InsightIntentEntry, CompletionHandler, AppServiceExtensionAbility
 };
