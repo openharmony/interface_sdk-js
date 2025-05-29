@@ -400,14 +400,17 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   dirType = DirType.typeThree;
   const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
   const fileContent = sourceFile.getFullText();
+  let newContent = '';
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
   if (!arktsTagRegx.test(fileContent)) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
-      writeFile(outputPath, saveLatestJsDoc(fileContent));
+      newContent = saveLatestJsDoc(fileContent);
+      newContent = deleteArktsTag(newContent);
+      writeFile(outputPath, newContent);
     }
     return;
   }
-  let newContent = getDeletionContent(sourceFile);
+  newContent = getDeletionContent(sourceFile);
   if (newContent === '') {
     return;
   }
