@@ -9017,39 +9017,6 @@ declare namespace window {
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
 
     /**
-     * Register the callback of title buttons visible change.
-     *
-     * @param { 'windowTitleButtonVisibleChange' } type - The value is fixed at 'windowTitleButtonVisibleChange', indicating the title buttons visible change event.
-     * @param { Callback<boolean> } callback - Callback used to return the current title buttons visibility.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    on(type: 'windowTitleButtonVisibleChange', callback: Callback<boolean>): void;
-
-    /**
-     * Unregister the callback of title buttons visible change.
-     *
-     * @param { 'windowTitleButtonVisibleChange' } type - The value is fixed at 'windowTitleButtonVisibleChange', indicating the title buttons visible change event.
-     * @param { Callback<boolean> } callback - Callback used to return the current title buttons visibility.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
-     *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    off(type: 'windowTitleButtonVisibleChange', callback?: Callback<boolean>): void;
-
-    /**
      *  Set the window mask of window
      *
      * @param { Array<Array<number>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
