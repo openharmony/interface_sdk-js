@@ -6692,9 +6692,9 @@ declare type TransitionEffects = {
 };
 
 /**
- * Defines asymmetricOptions.
+ * Defines the option of asymmetric transition.
  *
- * @interface AsymmetricOptions
+ * @interface AsymmetricTransitionOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -6702,141 +6702,32 @@ declare type TransitionEffects = {
  * @since 20
  * @arkts 1.2
  */
-declare interface AsymmetricOptions {
+declare interface AsymmetricTransitionOption {
   /**
-  * appear
-  *
-  * @type { RotateOptions }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  * @arkts 1.2
-  */ 
+   * TransitionEffect used for appearing
+   *
+   * @type { TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
   appear: TransitionEffect;
-  /**
-  * appear
-  * 
-  * @type { TransitionEffect }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  * @arkts 1.2
-  */ 
-  disappear: TransitionEffect;
-}
 
-/**
- * Defines all transition effects.
- *
- * @interface TransitionEffects
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface TransitionEffects {
   /**
-  * identity
-  *
-  * @type { undefined }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  * @arkts 1.2
-  */ 
- identity: undefined;
- /**
- * opacity
- *
- * @type { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- opacity: number;
- /**
- * slideSwitch
- *
- * @type { undefined }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- slideSwitch: undefined;
- /**
- * move
- *
- * @type { TransitionEdge }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- move: TransitionEdge;
- /**
- * translate
- *
- * @type { TranslateOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- translate: TranslateOptions;
- /**
- * rotate
- *
- * @type { RotateOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- rotate: RotateOptions;
- /**
- * scale
- *
- * @type { ScaleOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */ 
- scale: ScaleOptions;
- /**
- * asymmetric
- *
- * @type { AsymmetricOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */  
- asymmetric: AsymmetricOptions;
+   * TransitionEffect used for disappearing
+   *
+   * @type { TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  disappear: TransitionEffect;
 }
 
 /**
@@ -7346,7 +7237,6 @@ declare class TransitionEffect {
    */
   static readonly IDENTITY: TransitionEffect;
 
-
   /**
    * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
@@ -7377,7 +7267,6 @@ declare class TransitionEffect {
    */
   static readonly SLIDE: TransitionEffect;
 
-
   /**
    * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
    * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
@@ -7400,7 +7289,8 @@ declare class TransitionEffect {
    * Creates a translate transition effect
    *
    * @param { TranslateOptions } options - translate options
-   * @returns { TransitionEffect<"translate"> }
+   * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7425,6 +7315,7 @@ declare class TransitionEffect {
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
    * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7434,12 +7325,12 @@ declare class TransitionEffect {
    */
   static rotate(options: RotateOptions): TransitionEffect;
 
-
   /**
    * Creates a scale transition effect
    *
    * @param { ScaleOptions } options - scale options
-   * @returns { TransitionEffect<"scale"> }
+   * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7449,13 +7340,13 @@ declare class TransitionEffect {
    */
   static scale(options: ScaleOptions): TransitionEffect;
 
-
   /**
    * Creates an opacity transition effect with alpha value
    *
    * @param { number } alpha - opacity alpha value, value range [0, 1].
    * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
-   * @returns { TransitionEffect<"opacity"> }
+   * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7465,12 +7356,12 @@ declare class TransitionEffect {
    */
   static opacity(alpha: number): TransitionEffect;
 
-
   /**
    * Creates a move transition effect
    *
    * @param { TransitionEdge } edge - the edge that component will move to
-   * @returns { TransitionEffect<"move"> }
+   * @returns { TransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7496,9 +7387,8 @@ declare class TransitionEffect {
    */
   static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
 
- 
   /**
-   * TransitionEffect constructor
+   * identity or slideSwitch TransitionEffect constructor
    *
    * @param { 'identity' | 'slideSwitch' } type - transition type
    * @param { undefined } effect - transition options
@@ -7510,8 +7400,9 @@ declare class TransitionEffect {
    * @arkts 1.2
    */
   constructor(type: 'identity' | 'slideSwitch', effect: undefined);
+
   /**
-   * TransitionEffect constructor
+   * opacity TransitionEffect constructor
    *
    * @param { 'opacity' } type - transition type
    * @param { number } effect - transition options
@@ -7522,9 +7413,10 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'opacity',effect:number);
+  constructor(type: 'opacity', effect: number);
+
   /**
-   * TransitionEffect constructor
+   * move TransitionEffect constructor
    *
    * @param { 'move' } type - transition type
    * @param { TransitionEdge } effect - transition options
@@ -7535,9 +7427,10 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'move', effect:TransitionEdge);
+  constructor(type: 'move', effect: TransitionEdge);
+
   /**
-   * TransitionEffect constructor
+   * translate TransitionEffect constructor
    *
    * @param { 'translate' } type - transition type
    * @param { TranslateOptions } effect - transition options
@@ -7549,8 +7442,9 @@ declare class TransitionEffect {
    * @arkts 1.2
    */
   constructor(type: 'translate', effect:TranslateOptions);
+
   /**
-   * TransitionEffect constructor
+   * rotate TransitionEffect constructor
    *
    * @param { 'rotate' } type - transition type
    * @param { RotateOptions } effect - transition options
@@ -7562,8 +7456,9 @@ declare class TransitionEffect {
    * @arkts 1.2
    */
   constructor(type: 'rotate', effect: RotateOptions);
+
   /**
-   * TransitionEffect constructor
+   * scale TransitionEffect constructor
    *
    * @param { 'scale' } type - transition type
    * @param { ScaleOptions } effect - transition options
@@ -7575,11 +7470,12 @@ declare class TransitionEffect {
    * @arkts 1.2
    */
   constructor(type: 'scale', effect: ScaleOptions);
+
   /**
-   * TransitionEffect constructor
+   * asymmetric TransitionEffect constructor
    *
    * @param { 'asymmetric' } type - transition type
-   * @param { AsymmetricOptions } effect - transition options
+   * @param { AsymmetricTransitionOption } effect - transition options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7587,7 +7483,8 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  constructor(type: 'asymmetric', effect: AsymmetricOptions);
+  constructor(type: 'asymmetric', effect: AsymmetricTransitionOption);
+
   /**
    * Set the animation of current transition effect
    *
@@ -23346,9 +23243,9 @@ declare class CommonMethod<T> {
   transition(value: TransitionOptions | TransitionEffect): T;
 
   /**
-   * Transition parameter
+   * Set the transition effect of component when it appears and disappears.
    *
-   * @param { TransitionEffect } value - transition options or transition effect
+   * @param { TransitionEffect } value - transition effect
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
