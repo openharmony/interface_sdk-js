@@ -2521,9 +2521,10 @@ declare namespace window {
    * @interface Configuration
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export interface Configuration {
+  interface Configuration {
     /**
      * Indicates window id.
      *
@@ -3035,16 +3036,18 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
-   * Creates a child window or system window. This API uses an asynchronous callback to return the result.
+   * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
    *
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
-   * @param { Configuration } config - Parameters used for creating the window.
+   * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
@@ -3054,9 +3057,10 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 17
+   * @since arkts{'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
+  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -3092,7 +3096,8 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Create a window with a specific configuration
@@ -3102,7 +3107,7 @@ declare namespace window {
    * @param { Configuration } config - Parameters for window creation.
    * @returns { Promise<Window> } Promise used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
@@ -3112,9 +3117,10 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 17
+   * @since arkts{'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export function createWindow(config: Configuration): Promise<Window>;
+  function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -7559,7 +7565,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
@@ -7580,7 +7587,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
@@ -11296,7 +11304,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createSubWindow(name: string): Promise<Window>;
     /**
@@ -11334,7 +11343,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
