@@ -2457,11 +2457,11 @@ declare namespace window {
     zIndex?: number;
 
     /**
-     * Indicates whether enable window default density.
+     * Indicates whether to use default density.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     defaultDensityEnabled?: boolean;
