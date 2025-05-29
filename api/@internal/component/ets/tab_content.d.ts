@@ -283,23 +283,21 @@ interface IndicatorStyle {
 }
 
 /**
- * Provide an interface for the style of an indicator including color, height, width, border radius
+ * Provide an interface for the style of an SubTabBar indicator including color, height, width, border radius
  * and margin top
  *
  * @interface SubTabBarIndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-interface SubTabBarIndicatorStyle {
+declare interface SubTabBarIndicatorStyle {
   /**
    * Define the color of the indicator
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -311,7 +309,6 @@ interface SubTabBarIndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -325,7 +322,6 @@ interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -338,7 +334,6 @@ interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -351,7 +346,6 @@ interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
