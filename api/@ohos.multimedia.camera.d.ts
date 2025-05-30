@@ -242,7 +242,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Picture size.
+     * Resolution. The settings are the width and height of the camera's resolution, not the width and height of the actual output image.
      *
      * @type { Size }
      * @readonly
@@ -335,7 +335,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Frame rate in unit fps (frames per second).
+     * Frame rate range, in fps (frames per second).
      *
      * @type { FrameRateRange }
      * @readonly
@@ -785,7 +785,7 @@ declare namespace camera {
    * @since 10
    */
   /**
-   * Camera manager object.
+   * Camera Manager class, the camera manager instance needs to be get from the getCameraManager interface before using it.
    *
    * @interface CameraManager
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -801,7 +801,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Gets supported camera descriptions.
+     * Gets the supported camera device objects and return the results synchronously.
      *
      * @returns { Array<CameraDevice> } An array of supported cameras.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -811,7 +811,7 @@ declare namespace camera {
     getSupportedCameras(): Array<CameraDevice>;
 
     /**
-     * Gets supported output capability for specific camera.
+     * Queries the output capability supported by the camera device in the specified mode and returns the result synchronously.
      *
      * @param { CameraDevice } camera - Camera device.
      * @returns { CameraOutputCapability } The camera output capability.
@@ -870,7 +870,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Determine whether camera is muted.
+     * Queries whether the current camera is muted.
      *
      * @returns { boolean } Is camera muted.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -949,10 +949,15 @@ declare namespace camera {
      */
     /**
      * Creates a CameraInput instance by camera.
+     * 
+     * Before using this interface, first through the getSupportedCameras interface to query the current list of camera
+     * devices supported by the device, the developer needs to be based on specific scenarios to choose the camera device
+     * that meets the needs of the developer, and then use this interface to create a CameraInput instance.
      *
      * @permission ohos.permission.CAMERA
      * @param { CameraDevice } camera - Camera device used to create the instance.
-     * @returns { CameraInput } The CameraInput instance.
+     * @returns { CameraInput } Returns a CameraInput instance. Failure of an interface call returns the corresponding
+     * error code, which is of type CameraErrorCode.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -990,9 +995,14 @@ declare namespace camera {
      * Creates a CameraInput instance by camera position and type.
      *
      * @permission ohos.permission.CAMERA
-     * @param { CameraPosition } position - Target camera position.
-     * @param { CameraType } type - Target camera type.
-     * @returns { CameraInput } The CameraInput instance.
+     * @param { CameraPosition } position - Camera position, first get the supported camera device
+     * objects through the getSupportedCameras interface, and then get the device position information
+     * based on the returned camera device objects.
+     * @param { CameraType } type - camera type, first get the supported camera device object through
+     * the getSupportedCameras interface, then get the device type information based on the returned
+     * camera device object.
+     * @returns { CameraInput } Returns a CameraInput instance. Failure of an interface call returns
+     * the corresponding error code, which is of type CameraErrorCode.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -1254,8 +1264,10 @@ declare namespace camera {
     /**
      * Gets a Session instance by specific scene mode.
      *
-     * @param { SceneMode } mode - Scene mode.
-     * @returns { T } The specific Session instance by specific scene mode.
+     * @param { SceneMode } mode - The modes supported by the camera. If the passed parameters are
+     * abnormal (e.g. out of range, passed null or undefined, etc.), the actual interface will not take effect.
+     * @returns { T } Session instance. Failure of an interface call returns the appropriate error code,
+     * which is of type CameraErrorCode.
      * @throws { BusinessError } 7400101 - Parameter error. Possible causes:
      * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * 3. Parameter verification failed.
@@ -1359,7 +1371,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes fold status change event callback.
+     * Registers a listener for folding device fold state changes. Use callback asynchronous callback.
      *
      * @param { 'foldStatusChanged' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
@@ -1725,7 +1737,8 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * is torch active
+     * Whether the flashlight is activated or not. True means the flashlight is activated, false means the flashlight
+     * is not activated.
      *
      * @type { boolean }
      * @readonly
@@ -1744,7 +1757,7 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * the current torch brightness level.
+     * Flashlight brightness level, value range is [0,1], the closer to 1, the brighter it is.
      *
      * @type { number }
      * @readonly
@@ -1825,7 +1838,7 @@ declare namespace camera {
    * @since 10
    */
   /**
-   * Camera status info.
+   * An instance of the interface returned by the camera manager's callback that represents camera state information.
    *
    * @typedef CameraStatusInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2271,7 +2284,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Camera id attribute.
+     * Camera ID attribute.
      *
      * @type { string }
      * @readonly
@@ -2403,7 +2416,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Camera sensor orientation attribute.
+     * The camera mounting angle, which does not change with screen rotation, takes values from 0° to 360° in degrees.
      *
      * @type { number }
      * @readonly
@@ -2484,7 +2497,7 @@ declare namespace camera {
    * @since 10
    */
   /**
-   * Point parameter.
+   * Point coordinates are used for focus and exposure configuration.
    *
    * @typedef Point
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2605,7 +2618,8 @@ declare namespace camera {
     /**
      * Open camera.
      *
-     * @param { boolean } isSecureEnabled - Enable secure camera.
+     * @param { boolean } isSecureEnabled - Setting true enables the camera to be opened in a safe way,
+     * setting false does the opposite. Failure of an interface call returns an error code of type CameraErrorCode.
      * @returns { Promise<bigint> } Promise used to return the result.
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
@@ -3427,7 +3441,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Auto exposure mode.
+     * Auto exposure mode. Exposure area center point can be set by AutoExposure.setMeteringPoint interface.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -4181,7 +4195,8 @@ declare namespace camera {
     /**
      * Gets current focus point.
      *
-     * @returns { Point } The current focus point.
+     * @returns { Point } Used to get the current focus. Failure of the interface call will return the
+     * corresponding error code, which is of type CameraErrorCode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -5062,7 +5077,7 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Camera HDF can select mode automatically.
+     * The stabilization algorithm is selected automatically. Selection of the stabilization algorithm is performed automatically.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -6731,7 +6746,11 @@ declare namespace camera {
     getMeteringPoint(): Point;
 
     /**
-     * Set the center point of the metering area.
+     * Set the center point of the exposure area, the exposure point should be located in the 0-1 coordinate system,
+     * which is {0, 0} in the upper left corner and {1, 1} in the bottom right corner. This coordinate system is
+     * based on the horizontal device orientation when the device charging port is on the right side, e.g. the preview
+     * interface layout of an application is based on the vertical direction when the device charging port is on the lower side,
+     * the layout width and height is {w, h}, and the touch point is {x, y}. Then the transformed coordinate point is {y/h, 1-x/w}.
      *
      * @param { Point } point - metering point
      * @throws { BusinessError } 7400103 - Session not config.
@@ -6767,7 +6786,7 @@ declare namespace camera {
     setExposureBias(exposureBias: number): void;
 
     /**
-     * Query the exposure value.
+     * Queries the current exposure value.
      *
      * @returns { number } The exposure value.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -6779,7 +6798,7 @@ declare namespace camera {
     getExposureValue(): number;
 
     /**
-     * Checks whether a specified focus mode is supported.
+     * Queries whether a specified focus mode is supported.
      *
      * @param { FocusMode } afMode - Focus mode.
      * @returns { boolean } Is the focus mode supported.
@@ -7383,7 +7402,7 @@ declare namespace camera {
    * @since 11
    */
   /**
-   * Photo session object.
+   * The Normal Photo Mode session category provides operations for flash, exposure, focus, zoom, and color space.
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch
    * @interface PhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9897,7 +9916,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Add Secure output for camera.
+     * Preview output is marked as secure out put by this interface.
      *
      * @param { PreviewOutput } previewOutput - Specify the output as a secure flow.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -10703,7 +10722,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Set a frame rate range.
+     * The supported frame rate range can be queried via the getSupportedFrameRates interface before setting.
      *
      * @param { number } minFps - Minimum frame rate per second.
      * @param { number } maxFps - Maximum frame rate per second.
@@ -10723,7 +10742,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Get active frame rate range which has been set before.
+     * Queryable after setting the frame rate for the preview stream using the setFrameRate interface.
      *
      * @returns { FrameRateRange } The active frame rate range.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -11459,7 +11478,7 @@ declare namespace camera {
      * @since 13
      */
     /**
-     * Codec type AVC.
+     * Video encoding type AVC.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -11474,7 +11493,7 @@ declare namespace camera {
      * @since 13
      */
     /**
-     * Codec type HEVC.
+     * Video encoding type HEVC.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -12066,7 +12085,8 @@ declare namespace camera {
     /**
      * Subscribes capture end event callback.
      *
-     * @param { 'captureEnd' } type - Event type.
+     * @param { 'captureEnd' } type - Listen to the event, fixed to 'captureEnd', when photoOutput is created successfully.
+     * This event can be triggered when the photoOutput is created successfully.
      * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
