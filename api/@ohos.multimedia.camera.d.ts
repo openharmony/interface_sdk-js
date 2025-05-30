@@ -4370,7 +4370,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     AUTO = 0,
 
@@ -4387,7 +4386,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     CLOUDY = 1,
 
@@ -4404,7 +4402,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     INCANDESCENT = 2,
 
@@ -4421,7 +4418,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     FLUORESCENT = 3,
 
@@ -4438,7 +4434,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DAYLIGHT = 4,
 
@@ -4455,7 +4450,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     MANUAL = 5,
 
@@ -4472,7 +4466,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     LOCKED = 6
   }
@@ -4515,7 +4508,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean;
 
@@ -4537,7 +4529,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getWhiteBalanceRange(): Array<number>;
   }
@@ -4578,7 +4569,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getWhiteBalanceMode(): WhiteBalanceMode;
 
@@ -4602,7 +4592,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     setWhiteBalanceMode(mode: WhiteBalanceMode): void;
 
@@ -4624,7 +4613,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     getWhiteBalance(): number;
 
@@ -4648,7 +4636,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     setWhiteBalance(whiteBalance: number): void;
   }
