@@ -3283,6 +3283,26 @@ export class ComponentSnapshot {
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Get a component snapshot by component range.
+   *
+   * @param { NodeIdentity } start - the start component ID, set by developer through .id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { NodeIdentity } end - the end component ID, set by developer through.id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
+   *     rect of the start component, false for using the rect of the end component.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 }
 
 /**
