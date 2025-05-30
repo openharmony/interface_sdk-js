@@ -195,7 +195,7 @@ declare interface CalendarOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface CalendarPickerInterface {
+interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
    * @param { CalendarOptions } options - the option of th calendarPicker.

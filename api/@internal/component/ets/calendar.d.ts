@@ -41,7 +41,7 @@ import { Axis } from './enums'
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface CalendarDay {
+interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
@@ -287,7 +287,7 @@ export interface CalendarDay {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface MonthData {
+interface MonthData {
   /**
    * Gregorian calendar year.
    *
@@ -367,7 +367,7 @@ export interface MonthData {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface CurrentDayStyle {
+interface CurrentDayStyle {
   /**
    * Text color.
    *
@@ -847,7 +847,7 @@ export interface CurrentDayStyle {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface NonCurrentDayStyle {
+interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
    *
@@ -947,7 +947,7 @@ export interface NonCurrentDayStyle {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface TodayStyle {
+interface TodayStyle {
   /**
    * Style of focus color.
    *
@@ -1047,7 +1047,7 @@ export interface TodayStyle {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface WeekStyle {
+interface WeekStyle {
   /**
    * Style of week color.
    *
@@ -1207,7 +1207,7 @@ export interface WeekStyle {
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export interface WorkStateStyle {
+interface WorkStateStyle {
   /**
    * Style of day color.
    *
@@ -1559,7 +1559,7 @@ declare interface CalendarRequestedData {
  * @since 20
  * @arkts 1.2
  */
-export interface DateOptions {
+interface DateOptions {
   /**
    * Gregorian calendar year.
    *
@@ -1709,7 +1709,6 @@ declare class CalendarController {
  * @form
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
- * @component
  */
 interface CalendarInterface {
   /**

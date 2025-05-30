@@ -324,7 +324,7 @@ declare interface DatePickerOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface DatePickerInterface {
+interface DatePickerInterface {
   /**
    * Defines the DatePicker constructor.
    *
