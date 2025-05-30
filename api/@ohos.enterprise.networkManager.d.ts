@@ -1357,7 +1357,7 @@ declare namespace networkManager {
   function updateApn(admin: Want, apnInfo: Record<string, string>, apnId: string): void;
 
   /**
-   * Sets prefer apn.
+   * Sets preferred apn.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APN
@@ -1371,10 +1371,10 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 20
    */
-  function setPreferApn(admin: Want, apnId: string): void;
+  function setPreferredApn(admin: Want, apnId: string): void;
 
   /**
-   * Get the apn params for the specific apn id.
+   * Get the apn params for the specific apn info.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APN
