@@ -4468,7 +4468,17 @@ declare namespace webview {
      * @since 12
      */
     /**
-     * Registers the JavaScript object and method list.
+     * Registers the supplied ArkTs object into this Web component.
+     * The object is registered into all frames of the web page, including all iframes, using the specified name.
+     * This allows the methods of the ArkTS object to be accessed from JavaScript.
+     * <p><strong>API Note</strong>:<br>
+     * Registed objects will not appear in JavaScript until the page is next (re)load.
+     * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
+     * To avoid security risks, it is recommended that registerJavaScriptProxy be used with trusted web components.
+     * If the same method is registered repeatedly in both synchronous and asynchronous list, it will default to an asynchronous method.
+     * The synchronous function list and asynchronous function list cannot be empty at the same time.<br>
+     * otherwise, this registration will fail.
+     *  <p>
      *
      * @param { object } object - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
@@ -4654,7 +4664,14 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     * Asynchronously execute JavaScript in the context of the currently displayed page.
+     * The result of the script execution will be returned through a via Promise.
+     * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+     * <p><strong>API Note</strong>:<br>
+     * The state of JavaScript is no longer persisted across navigations like loadUrl.
+     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
+     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+     * <p>
      *
      * @param { string } script - JavaScript Script.
      * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
@@ -4684,7 +4701,14 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     * Asynchronously execute JavaScript in the context of the currently displayed page.
+     * The result of the script execution will be returned through an asynchronous callback.
+     * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+     * <p><strong>API Note</strong>:<br>
+     * The state of JavaScript is no longer persisted across navigations like loadUrl.
+     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
+     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+     * <p>
      *
      * @param { string } script - JavaScript Script.
      * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
