@@ -1139,7 +1139,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 15
      */
      getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
@@ -1242,7 +1242,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 15
      */
     on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
 
