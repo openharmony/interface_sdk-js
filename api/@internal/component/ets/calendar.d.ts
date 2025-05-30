@@ -1691,6 +1691,77 @@ declare class CalendarController {
 }
 
 /**
+ * Defines the struct of CalendarRequestedMonths.
+ *
+ * @interface CalendarRequestedMonths
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @form
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface CalendarRequestedMonths {
+  /**
+   * Default selected year/month/day.
+   * @type { CalendarSelectedDate } date
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  date: CalendarSelectedDate;
+
+  /**
+   * Dates contained in the current month.
+   * 
+   * @type { MonthData } currentData
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  currentData: MonthData;
+
+  /**
+   * Dates contained in the previous month.
+   * 
+   * @type { MonthData } preData
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  preData: MonthData;
+
+  /**
+   * Dates contained in the next month.
+   * 
+   * @type { MonthData } nextData
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  nextData: MonthData;
+
+  /**
+   * Calendar controller.
+   * 
+   * @type { ?CalendarController } controller
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  controller?: CalendarController;
+}
+
+/**
  * Calendar Interface
  *
  * @interface CalendarInterface
@@ -1735,6 +1806,19 @@ interface CalendarInterface {
     nextData: MonthData;
     controller?: CalendarController;
   }): CalendarAttribute;
+
+  /**
+   * Set value.
+   *
+   * @param { CalendarRequestedMonths } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 20
+   * @arkts 1.2
+   */
+  (value: CalendarRequestedMonths): CalendarAttribute;
 }
 
 /**

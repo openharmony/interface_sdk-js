@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { Resource, ResourceColor, Offset, Dimension } from './units';
+import { Resource, ResourceColor, Offset, Dimension, ResourceStr } from './units';
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback } from './common';
 import { DialogAlignment } from './alertDialog';
 import { CrownSensitivity, TextOverflow } from './enums';
@@ -222,10 +222,20 @@ declare interface TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Value of the current selection.
+   * Only valid when only text is displayed.
+   *
+   * @type { ?(ResourceStr | ResourceStr[]) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  value?: string | string[];
+  value?: ResourceStr | ResourceStr[];
 
   /**
    * Current selected subscript.
