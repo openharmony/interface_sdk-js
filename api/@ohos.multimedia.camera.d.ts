@@ -4520,6 +4520,7 @@ declare namespace camera {
      * @returns { Array<number> } The array of white balance mode range.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -4584,6 +4585,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
