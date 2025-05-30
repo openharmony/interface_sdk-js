@@ -1418,7 +1418,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1430,7 +1430,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;

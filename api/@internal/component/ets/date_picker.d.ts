@@ -19,10 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common'
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions } from './common'
 import { ResourceColor, Offset, VoidCallback } from './units'
 import { DialogAlignment } from './alertDialog'
-import intl from '../../@ohos.intl'
 import { CrownSensitivity } from './enums'
 /*** endif */
 
@@ -563,6 +562,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    */
   /**
    * This event is triggered when a DatePicker date or time is selected.
+   * Anonymous Object Rectification.
    *
    * @param { Callback<Date> } callback
    * @returns { DatePickerAttribute }
@@ -970,6 +970,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1010,6 +1011,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   * Anonymous Object Rectification.
    *
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1039,6 +1041,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
+   * Anonymous Object Rectification.
    *
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1100,7 +1103,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1112,7 +1115,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
@@ -1128,6 +1131,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function when the dialog appears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1149,6 +1153,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function when the dialog disappears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1170,6 +1175,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function before the dialog openAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1191,6 +1197,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Callback function before the dialog closeAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1220,22 +1227,10 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dateTimeOptions?: DateTimeOptions;
-
-  /**
-   * Set time format
-   *
-   * @type { ?intl.DateTimeOptions } 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dateTimeOptions?: intl.DateTimeOptions;
 
   /**
    * Defines whether to respond to the hover mode.

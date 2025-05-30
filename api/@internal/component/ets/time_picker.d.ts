@@ -21,9 +21,8 @@
 /*** if arkts 1.2 */
 import { ResourceColor, Offset } from './units';
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType,
-   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback } from './common';
+   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions } from './common';
 import { DialogAlignment } from './alertDialog';
-import intl from '../../@ohos.intl';
 import { CrownSensitivity } from './enums';
 /*** endif */
 
@@ -151,7 +150,7 @@ declare enum TimePickerFormat {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  HOUR_MINUTE,
+  HOUR_MINUTE = 0,
 
   /**
    * Hour and minute and second
@@ -167,7 +166,7 @@ declare enum TimePickerFormat {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  HOUR_MINUTE_SECOND,
+  HOUR_MINUTE_SECOND = 1,
 }
 
 /**
@@ -295,7 +294,7 @@ declare interface TimePickerOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface TimePickerInterface {
+interface TimePickerInterface {
   /**
    * Defines the TimePicker constructor.
    *
@@ -344,22 +343,10 @@ declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptio
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
-
-/**
- * Callback of the timePicker time is selected event.
- * 
- * @typedef {function} OnTimePickerChangeCallback
- * @param { TimePickerResult } result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
 
 /**
  * Defines the TimePicker attribute functions.
@@ -575,23 +562,10 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
-
-  /**
-   * Set time format
-   *
-   * @param { intl.DateTimeOptions } value - indicates the format of the time display.
-   * @returns { TimePickerAttribute } the attribute of the time picker
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dateTimeOptions(value: intl.DateTimeOptions): TimePickerAttribute;
 
   /**
    * Set time format
@@ -601,23 +575,10 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
-   * @arkts 1.1
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */ 
   dateTimeOptions(timeFormat: Optional<DateTimeOptions>): TimePickerAttribute;
-
-  /**
-   * Set time format
-   *
-   * @param { Optional<intl.DateTimeOptions> } timeFormat - indicates the format of the time display.
-   * @returns { TimePickerAttribute } the attribute of the time picker
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */ 
-  dateTimeOptions(timeFormat: Optional<intl.DateTimeOptions>): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
@@ -1069,7 +1030,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1081,7 +1042,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
@@ -1166,22 +1127,10 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dateTimeOptions?: DateTimeOptions;
-
-  /**
-   * Set time format
-   *
-   * @type { ?intl.DateTimeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dateTimeOptions?: intl.DateTimeOptions;
 
   /**
    * Defines whether to respond to the hover mode.
