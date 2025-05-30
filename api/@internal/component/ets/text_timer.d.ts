@@ -44,8 +44,8 @@ import { FontStyle,FontWeight } from './enums'
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
- * @arkts 1.1
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextTimerController {
   /**
@@ -69,7 +69,8 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -99,6 +100,18 @@ declare class TextTimerController {
   start();
 
   /**
+   * Provides a start event for timer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  start():void;
+
+  /**
    * Provides a pause event for timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -124,6 +137,18 @@ declare class TextTimerController {
   pause();
 
   /**
+   * Provides a pause event for timer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pause():void;
+
+  /**
    * Provides an event to reset timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -147,54 +172,6 @@ declare class TextTimerController {
    * @since 11
    */
   reset();
-}
-
-/**
- * Provides a way to control the process.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class TextTimerController {
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor();
-
-  /**
-   * Provides a start event for timer.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  start():void;
-
-  /**
-   * Provides a pause event for timer.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pause():void;
 
   /**
    * Provides an event to reset timer.
