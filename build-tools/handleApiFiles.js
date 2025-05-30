@@ -272,7 +272,7 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
  * @returns 
  */
 function deleteArktsTag(fileContent) {
-  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|\*\s*@arkts\s*1.2s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|\*\s*@arkts\s*1.2s*(\r|\n)\s*|\*\s*@arkts\s*1.1s*(\r|\n)\s*/g;
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });
