@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import {  ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent } from './common';
+import {  ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent, PixelMap } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font } from './units';
 import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, ResponseType, CopyOptions, BarState } from './enums';
@@ -28,7 +28,6 @@ import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance } from './textCommon';
 import { GestureEvent } from './gesture';
-import image from '../../@ohos.multimedia.image';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics , ColorMetrics } from '../Graphics';
 import { TextBackgroundStyle } from "./span";
@@ -583,20 +582,10 @@ declare interface LeadingMarginPlaceholder {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pixelMap: PixelMap;
-  /**
-   * Placeholder pixelMap.
-   *
-   * @type { PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pixelMap: image.PixelMap;
 
   /**
    * Placeholder size.
@@ -1809,20 +1798,10 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   valuePixelMap?: PixelMap;
-  /**
-   * The pixel map of the image span.
-   *
-   * @type { ?PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  valuePixelMap?: image.PixelMap;
 
   /**
    * The resource string of the image span.
@@ -1933,20 +1912,10 @@ declare interface RichEditorImageSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: PixelMap | ResourceStr;
-  /**
-   * The content of the image span.
-   *
-   * @type { PixelMap | ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  value: image.PixelMap | ResourceStr;
 
   /**
    * image style.
@@ -3341,21 +3310,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPreviewText(): PreviewText;
-
-  /**
-   * Get PreviewText.
-   *
-   * @type { ?Callback<void, PreviewText> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getPreviewText?: Callback<void, PreviewText>;
 
   /**
    * Get CaretRect.
@@ -3436,22 +3394,10 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
-  /**
-   * Add a image span.
-   *
-   * @param { PixelMap | ResourceStr } value - image value.
-   * @param { RichEditorImageSpanOptions } [options] - image span info.
-   * @returns { number } span index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  addImageSpan(value: image.PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
 
   /**
    * Add a builder span.
@@ -3660,21 +3606,10 @@ declare class RichEditorController extends RichEditorBaseController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
-
-/**
- * Defines the types of spans in rich editor.
- *
- * @typedef { RichEditorImageSpanResult | RichEditorTextSpanResult } RichEditorSpan
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
 
 /**
  * Provides Controller for RichEditor with StyledString.
@@ -4440,25 +4375,12 @@ declare interface RichEditorUrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
- * callback of the listened enter key event.
- *
- * @typedef { function } SubmitCallback
- * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
- * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
-
-/**
  * Callback function when the selection menu appears.
  *
  * @typedef { function } MenuOnAppearCallback
@@ -4467,23 +4389,10 @@ type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
-
-/**
- * Callback function when the selection menu appears.
- *
- * @typedef { function } MenuOnAppearCallback
- * @param { number } start - Start offset of the selected content in rich editor.
- * @param { number } end - End offset of the selected content in rich editor.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Callback function when the selection menu show or hide.
@@ -4507,22 +4416,10 @@ declare type MenuCallback = (start: number, end: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type PasteEventCallback = (event?: PasteEvent) => void;
-
-/**
- * Callback function when a paste operation is performed.
- *
- * @typedef { function } PasteEventCallback
- * @param { PasteEvent } [event] - The paste event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type PasteEventCallback = (event?: PasteEvent) => void;
 
 /**
  * callback of the on hover event.

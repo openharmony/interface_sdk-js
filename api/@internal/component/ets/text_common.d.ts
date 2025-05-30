@@ -611,14 +611,14 @@ declare interface TextEditControllerEx extends TextBaseController {
   /**
    * Get PreviewText.
    *
-   * @type { ?Callback<void, PreviewText> }
+   * @returns { PreviewText } - Return the PreviewText.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  getPreviewText?: Callback<void, PreviewText>;
+  getPreviewText(): PreviewText;
 }
 
 /**
