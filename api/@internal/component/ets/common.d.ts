@@ -66,7 +66,7 @@ import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
 import { LocalStorage } from '../stateManagement/storages/localStorage';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, WrappedBuilder } from './builder';
 /*** endif */
 
 /**
@@ -31742,17 +31742,6 @@ declare interface LightSource {
  * @since 12
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
-/**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare function wrapBuilder<Args extends Array<Object>>(builder: (args: Args) => void): WrappedBuilder<Args>;
 
 /**
  * Defines the WrappedBuilder class.
@@ -31800,37 +31789,6 @@ declare class WrappedBuilder<Args extends Object[]> {
 }
 
 
-
-/**
- * Defines the WrappedBuilder class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class WrappedBuilder<Args extends Array<Object>> {
-
-  /**
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  builder: (args: Args) => void;
-
-  /**
-   * @param { function } builder
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(builder: (args: Args) => void);
-}
 
 
 /**
