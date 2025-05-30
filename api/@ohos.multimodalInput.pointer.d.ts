@@ -725,7 +725,8 @@ declare namespace pointer {
   /**
    * Obtains the mouse pointer style. This API uses a promise to return the result.
    *
-   * @param { number } windowId - Window ID.
+   * @param { number } windowId - Window ID. The value is an integer greater than or equal to -1. 
+   * The value -1 indicates the global window.
    * @returns { Promise<PointerStyle> } Promise used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -735,7 +736,8 @@ declare namespace pointer {
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
   /**
-   * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. This API returns the result synchronously.
+   * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
+   * This API returns the result synchronously.
    *
    * @param { number } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
@@ -821,7 +823,7 @@ declare namespace pointer {
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks the visible status of the mouse pointer. This API uses a promise to return the result.
+   * Obtains the visible status of the mouse pointer. This API uses a promise to return the result.
    *
    * @returns { Promise<boolean> } Promise used to return the visible status of the mouse pointer. 
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
