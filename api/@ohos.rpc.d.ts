@@ -157,16 +157,14 @@ declare namespace rpc {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum TypeCode {
     /**
      * The TypedArray type is Int8Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INT8_ARRAY = 0,
 
@@ -174,8 +172,7 @@ declare namespace rpc {
      * The TypedArray type is Uint8Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     UINT8_ARRAY = 1,
 
@@ -183,8 +180,7 @@ declare namespace rpc {
      * The TypedArray type is Int16Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INT16_ARRAY = 2,
 
@@ -192,8 +188,7 @@ declare namespace rpc {
      * The TypedArray type is Uint16Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     UINT16_ARRAY = 3,
 
@@ -201,8 +196,7 @@ declare namespace rpc {
      * The TypedArray type is Int32Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INT32_ARRAY = 4,
 
@@ -210,8 +204,7 @@ declare namespace rpc {
      * The TypedArray type is Uint32Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     UINT32_ARRAY = 5,
 
@@ -219,8 +212,7 @@ declare namespace rpc {
      * The TypedArray type is Float32Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FLOAT32_ARRAY = 6,
 
@@ -228,8 +220,7 @@ declare namespace rpc {
      * The TypedArray type is Float64Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FLOAT64_ARRAY = 7,
 
@@ -237,8 +228,7 @@ declare namespace rpc {
      * The TypedArray type is BigInt64Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     BIGINT64_ARRAY = 8,
 
@@ -246,8 +236,7 @@ declare namespace rpc {
      * The TypedArray type is BigUint64Array.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     BIGUINT64_ARRAY = 9
   }
@@ -2332,8 +2321,7 @@ declare namespace rpc {
      *                            object will be marshalled.
      * @returns { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     marshalling(dataOut: MessageSequence): boolean;
 
@@ -2344,8 +2332,7 @@ declare namespace rpc {
      *                            which the {@code Parcelable} object has been marshalled.
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     unmarshalling(dataIn: MessageSequence): boolean;
   }
@@ -2412,8 +2399,7 @@ declare namespace rpc {
    *
    * @typedef RequestResult
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface RequestResult {
     /**
@@ -2421,8 +2407,7 @@ declare namespace rpc {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     errCode: number;
 
@@ -2431,8 +2416,7 @@ declare namespace rpc {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     code: number;
 
@@ -2442,8 +2426,7 @@ declare namespace rpc {
      *
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     data: MessageSequence;
 
@@ -2453,8 +2436,7 @@ declare namespace rpc {
      *
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     reply: MessageSequence;
   }
@@ -2734,8 +2716,7 @@ declare namespace rpc {
    * 
    * @typedef IRemoteBroker
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface IRemoteBroker {
     /**
@@ -2744,8 +2725,7 @@ declare namespace rpc {
      * @returns { IRemoteObject } Return the RemoteObject if the caller is a RemoteObject; return the IRemoteObject,
      * that is, the holder of this RemoteProxy object, if the caller is a RemoteProxy object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     asObject(): IRemoteObject;
   }
@@ -2767,16 +2747,14 @@ declare namespace rpc {
    * 
    * @typedef DeathRecipient
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface DeathRecipient {
     /**
      * Called to perform subsequent operations when a death notification of the remote object is received.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     onRemoteDied(): void;
   }
@@ -3697,8 +3675,7 @@ declare namespace rpc {
    * obtaining the Ashmem size, and setting Ashmem protection.
    *
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   class Ashmem {
     /**
@@ -3708,8 +3685,7 @@ declare namespace rpc {
      * @default 4
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     static PROT_EXEC: number;
 
@@ -3720,8 +3696,7 @@ declare namespace rpc {
      * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     static PROT_NONE: number;
 
@@ -3732,8 +3707,7 @@ declare namespace rpc {
      * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     static PROT_READ: number;
 
@@ -3744,8 +3718,7 @@ declare namespace rpc {
      * @default 2
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     static PROT_WRITE: number;
 
@@ -3774,8 +3747,7 @@ declare namespace rpc {
      *     3.The Ashmem name passed is empty;
      *     4.The Ashmem size passed is less than or equal to 0.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     static create(name: string, size: number): Ashmem;
 
@@ -3803,8 +3775,7 @@ declare namespace rpc {
      *     2.The passed parameter is not an Ahmem object;
      *     3.The ashmem instance for obtaining packaging is empty.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     static create(ashmem: Ashmem): Ashmem;
 
@@ -3812,8 +3783,7 @@ declare namespace rpc {
      * Closes this Ashmem object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     closeAshmem(): void;
 
@@ -3821,8 +3791,7 @@ declare namespace rpc {
      * Deletes the mappings for the specified address range of this Ashmem object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     unmapAshmem(): void;
 
@@ -3831,8 +3800,7 @@ declare namespace rpc {
      *
      * @returns { number } Memory size mapped.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getAshmemSize(): number;
 
@@ -3860,8 +3828,7 @@ declare namespace rpc {
      *     3.The passed mapType exceeds the maximum protection level.
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     mapTypedAshmem(mapType: number): void;
 
@@ -3881,8 +3848,7 @@ declare namespace rpc {
      *
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     mapReadWriteAshmem(): void;
 
@@ -3902,8 +3868,7 @@ declare namespace rpc {
      *
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     mapReadonlyAshmem(): void;
 
@@ -3928,8 +3893,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900002 - Failed to call ioctl.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     setProtectionType(protectionType: number): void;
 
@@ -3980,8 +3944,7 @@ declare namespace rpc {
      *     3.Failed to obtain arrayBuffer information.
      * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     writeDataToAshmem(buf: ArrayBuffer, size: number, offset: number): void;
 
@@ -4029,8 +3992,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     readDataFromAshmem(size: number, offset: number): ArrayBuffer;
   }
