@@ -1676,7 +1676,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1693,7 +1693,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 18
    */
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1711,7 +1711,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 20
    */
-   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
+  minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
     * Called when the maximum font scale of the font is set.
