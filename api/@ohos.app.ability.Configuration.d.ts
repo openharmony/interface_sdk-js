@@ -185,7 +185,7 @@ export interface Configuration {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   hasPointerDevice?: boolean;
@@ -216,7 +216,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   fontSizeScale?: number;

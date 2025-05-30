@@ -317,7 +317,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
 

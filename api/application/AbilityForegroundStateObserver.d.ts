@@ -25,7 +25,7 @@ import AbilityStateData from './AbilityStateData';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare class AbilityForegroundStateObserver {
