@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { CommonMethod } from './common'
-import { ResourceColor } from './units'
+import { ResourceColor, ResourceStr } from './units'
 import { Resource } from '../../global/resource'
 /*** endif */
 
@@ -96,10 +96,21 @@ interface QRCodeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Called when a QR code is set.
+   *
+   * @param { ResourceStr } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  (value: string): QRCodeAttribute;
+  (value: ResourceStr): QRCodeAttribute;
 }
 
 /**
