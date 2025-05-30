@@ -24,6 +24,7 @@ import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationSty
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
 import { GestureEvent } from "./gesture";
+import { DrawingColorFilter } from './image';
 import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
@@ -1875,21 +1876,10 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
-
-/**
- * Defines the ColorFilter Type.
- *
- * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type ColorFilterType = ColorFilter | drawing.ColorFilter;
 
 /**
  * Defines the  ImageAttachment Layout Style.
