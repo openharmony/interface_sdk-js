@@ -9168,10 +9168,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Whether the window can be open automatically through JavaScript.
+   * <p><strong>API Note</strong>:<br>
+   * This API takes effect only when {@link JavaScript} is enabled.
+   * This API opens a new window when {@link multiWindowAccess} is enabled and opens a local window
+   * when {@link multiWindowAccess} is disabled.
+   * The default value of **flag** is subject to the settings of the **persist.web.allowWindowOpenMethod.enabled** system attribute.
+   * If this attribute is not set, the default value of **flag** is **false**.
+   * To check the settings of **persist.web.allowWindowOpenMethod.enabled**,
+   * run the **hdc shell param get persist.web.allowWindowOpenMethod.enabled** command.
+   * If the attribute value is 1, it means the system attribute is enabled;
+   * If the attribute value is 0 or does not exist, it means that the system attribute has not been enabled.  
+   * you can run the **hdc shell param set persist.web.allowWindowOpenMethod.enabled 1** command to enable it.
+   * </p>
    *
    * @param { boolean } flag If it is true, the window can be opened automatically through JavaScript.
    * If it is false and user behavior, the window can be opened automatically through JavaScript.
    * Otherwise, the window cannot be opened.
+   * The user behavior here refers to the behavior of requesting to open a new window (window. open) within 5 seconds after
+   * the user clicks or performs other operations on the web component.
+   * The default value is associated with system properties.
+   * When the system property **persist.web.allowWindowOpenMethod.enabled** is set to true, the default value is true.
+   * If the system property is not set, the default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice

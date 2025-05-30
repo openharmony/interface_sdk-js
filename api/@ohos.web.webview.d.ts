@@ -6033,6 +6033,11 @@ declare namespace webview {
      * Set render process mode of the ArkWeb.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
+     *        Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device.
+     *        The enumerated value **0** indicates the single render subprocess mode,
+     *        and **1** indicates the multi-render subprocess mode.
+     *        If an invalid number other than the enumerated value of **RenderProcessMode** is passed,
+     *        the multi-render subprocess mode is used by default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
