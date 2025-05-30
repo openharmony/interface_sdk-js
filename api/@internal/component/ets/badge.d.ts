@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor,Length, Position } from './units';
+import { ResourceColor, Length, Position, Resource } from './units';
 import { FontWeight } from './enums';
 import { CommonMethod } from './common';
 /*** endif */
@@ -887,7 +887,7 @@ interface BadgeInterface {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
+declare class BadgeAttribute extends CommonMethod<BadgeAttribute> { }
 
 /**
  * Defines Badge Component.
@@ -952,3 +952,29 @@ declare const Badge: BadgeInterface;
  * @since 11
  */
 declare const BadgeInstance: BadgeAttribute;
+
+/**
+ * Define BadgeParamWithString's property 'value' type
+ * 
+ * @typedef { string | Resource } BadgeParamWithStringType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+declare type BadgeParamWithStringType = string | Resource;
+
+/**
+ * Define BadgeStyle's size-relative properties type
+ * 
+ * @typedef { number | string | Resource } BadgeParamWithString
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+declare type BadgeStyleSizeType = number | string | Resource;

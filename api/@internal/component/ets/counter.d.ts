@@ -180,7 +180,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   onInc(event: VoidCallback): CounterAttribute;
@@ -232,7 +232,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   onDec(event: VoidCallback): CounterAttribute;

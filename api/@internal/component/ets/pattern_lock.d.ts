@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor,Length } from './units' 
+import { ResourceColor, Length } from './units'
 import { LengthMetrics } from '../Graphics'
-import { CommonMethod,Callback,Optional } from './common' 
+import { CommonMethod, Callback, Optional } from './common'
 /*** endif */
 
 /**
@@ -130,7 +130,7 @@ declare interface CircleStyleOptions {
    * @since arkts {'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
-    enableForeground?: boolean;
+  enableForeground?: boolean;
 }
 
 /**
@@ -636,7 +636,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Called when connecting to a grid dot.
-   * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+   * @param { Callback<number> } callback - A callback instance used when connection to a grid dot.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -645,7 +645,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @arkts 1.2
    */
   onDotConnect(callback: Callback<number>): PatternLockAttribute;
-  
+
   /**
    * The activate circle style.
    *
