@@ -37,6 +37,7 @@ import { FocusBoxStyle, FocusPriority } from './focus';
 import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from './image';
 import { Theme } from '../../@ohos.arkui.theme';
+import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from './button';
 import {
   Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
@@ -32595,6 +32596,18 @@ declare interface DateRange {
    */
   end?: Date;
 }
+
+/**
+ * Defines the format for displaying dates and times.
+ * 
+ * @typedef { intl.DateTimeOptions } DateTimeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DateTimeOptions = intl.DateTimeOptions;
 
 /**
  * Defines a bindable property

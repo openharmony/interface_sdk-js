@@ -1645,7 +1645,6 @@ declare class CalendarController {
    * @systemapi
    * @form
    * @since 10
-   * @arkts 1.1
    */
   backToToday();
 
@@ -1676,20 +1675,19 @@ declare class CalendarController {
    * @systemapi
    * @form
    * @since 10
-   * @arkts 1.1
    */
   goTo(value: { year: number; month: number; day: number });
   /**
    * To the specified element.
    *
-   * @param { DateOptions } value
+   * @param { CalendarSelectedDate } date
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
    * @since 20
    * @arkts 1.2
    */
-  goTo(value: DateOptions):void;
+  goTo(date: CalendarSelectedDate): void;
 }
 
 /**
