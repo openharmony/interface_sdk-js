@@ -65,14 +65,6 @@ export declare enum KeyCode {
    * @since 9
    */
   KEYCODE_BACK = 2,
-  
-  /**
-   * Play/Pause key for wired headset
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 20
-   */
-  KEYCODE_HEADSETHOOK = 6,
 
   /**
    * KEYCODE_SEARCH
