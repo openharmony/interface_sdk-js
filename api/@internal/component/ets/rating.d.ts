@@ -202,7 +202,7 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts 11
+   * @since 11
    */
   /**
    * Foreground URI option.
@@ -250,7 +250,7 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts 11
+   * @since 11
    */
   /**
    * Secondary URI option.
