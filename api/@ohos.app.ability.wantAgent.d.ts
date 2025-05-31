@@ -68,7 +68,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
+  function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the bundle name of a WantAgent.
@@ -96,7 +96,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getBundleName(agent: WantAgent): Promise<string>;
+  function getBundleName(agent: WantAgent): Promise<string>;
 
   /**
    * Obtains the UID of a WantAgent.
@@ -124,7 +124,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
+  function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
 
   /**
    * Obtains the UID of a WantAgent.
@@ -152,7 +152,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getUid(agent: WantAgent): Promise<number>;
+  function getUid(agent: WantAgent): Promise<number>;
 
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
@@ -169,7 +169,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
+  function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
@@ -186,7 +186,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getWant(agent: WantAgent): Promise<Want>;
+  function getWant(agent: WantAgent): Promise<Want>;
 
   /**
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
@@ -214,7 +214,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
+  function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
@@ -242,7 +242,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function cancel(agent: WantAgent): Promise<void>;
+  function cancel(agent: WantAgent): Promise<void>;
 
   /**
    * Triggers a WantAgent.
@@ -268,7 +268,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
+  function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
    * Checks whether two WantAgent objects are equal.
@@ -294,7 +294,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
+  function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether two WantAgent objects are equal.
@@ -320,7 +320,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
+  function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
   /**
    * Obtains a WantAgent object.
@@ -348,7 +348,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
+  function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
   /**
    * Obtains a WantAgent object.
@@ -376,7 +376,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
+  function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
   /**
    * Obtains the {@link OperationType} of a {@link WantAgent}.
@@ -406,7 +406,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
+  function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
 
   /**
    * Obtains the {@link OperationType} of a {@link WantAgent}.
@@ -436,7 +436,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getOperationType(agent: WantAgent): Promise<number>;
+  function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
    * Set the wantagent within the process to support multithreading.
@@ -451,7 +451,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
+  function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 
   /**
    * Enumerates flags for using a WantAgent.

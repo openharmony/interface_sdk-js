@@ -54,7 +54,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function grantUriPermission(
+  function grantUriPermission(
     uri: string,
     flag: wantConstant.Flags,
     targetBundleName: string,
@@ -85,7 +85,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
   /**
    * Grant URI to another application
@@ -113,7 +113,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
   /**
    * Revoke URI from one application
@@ -150,7 +150,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
+  function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
   /**
    * Revoke URI from one application
@@ -187,7 +187,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
+  function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 
   /**
    * Revoke URI from one application
@@ -208,7 +208,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
 }
 
 export default uriPermissionManager;
