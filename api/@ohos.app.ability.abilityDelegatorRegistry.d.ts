@@ -21,9 +21,10 @@
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
-// import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
-
+/*** if arkts 1.1 */
+import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
+/*** endif */
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
@@ -343,7 +344,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   export type AbilityMonitor = _AbilityMonitor;
