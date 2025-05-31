@@ -29,11 +29,12 @@ import { Length } from './units';
  * @typedef { [Length, Length] } RadiusItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type RadiusItem = [Length, Length]
+declare type RadiusItem = [Length, Length];
 
 /**
  * Define options used to construct a rectangle.

@@ -24,6 +24,7 @@ import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
 import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+import { Size } from '../Graphics' 
 /*** endif */
 
 /**
@@ -2006,10 +2007,22 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly height: number;
+
+  /**
+   * Indicates the height of the CSS pixel unit of ImageData.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get height(): number;
 
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
@@ -2047,10 +2060,22 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly width: number;
+
+  /**
+   * Indicates the width of the CSS pixel unit of ImageData.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get width(): number;
 
   /**
    * Releases all graphics resources associated with an ImageBitmap.
@@ -2117,8 +2142,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(src: string);
 
@@ -2131,8 +2155,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(src: string, unit: LengthMetricsUnit);
   
@@ -2158,8 +2181,7 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(data: PixelMap);
 
@@ -2171,10 +2193,22 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
+
+  /**
+   * Create an ImageBitmap object based on the transferred image path or PixelMap object.
+   *
+   * @param { PixelMap | string } src - image path or PixelMap object
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(src: PixelMap | string, unit?: LengthMetricsUnit);
 }
 
 /**
@@ -2245,10 +2279,22 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly data: Uint8ClampedArray;
+
+  /**
+   * Array containing image pixel data
+   *
+   * @return { Uint8ClampedArray }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get data(): Uint8ClampedArray;
 
   /**
    * Width of the image.
@@ -2286,14 +2332,26 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly height: number;
 
   /**
    * Height of the image.
    *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get height(): number;
+
+  /**
+   * Height of the image.
+   *
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2327,10 +2385,22 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly width: number;
+
+  /**
+   * Width of the image.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get width(): number;
 
   /**
    * Create an ImageData object based on the input parameters.
@@ -2457,10 +2527,35 @@ declare class RenderingContextSettings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   antialias?: boolean;
+
+  /**
+   * Get the status whether anti-aliasing is enabled for canvas. The default value is false.
+   *
+   * @return { boolean | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get antialias(): boolean | undefined;
+
+  /**
+   * Set the status whether anti-aliasing is enabled for canvas. The default value is false.
+   *
+   * @param { boolean | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set antialias(antialias: boolean | undefined);
 
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
@@ -2544,12 +2639,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   letterSpacing: LengthMetrics | string;
 
   /**
+   * Get spacing for letter.
+   *
+   * @return { LengthMetrics | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get letterSpacing(): LengthMetrics | string;
+
+  /**
+   * Set spacing for letter.
+   *
+   * @param { LengthMetrics | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set letterSpacing(letterSpacing: LengthMetrics | string);
+
+  /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    If the value is out of range, the assignment is invalid.
    *
@@ -2589,10 +2707,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   globalAlpha: number;
+
+  /**
+   * Get transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
+   *    If the value is out of range, the assignment is invalid.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get globalAlpha(): number;
+
+    /**
+   * Set transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
+   *    If the value is out of range, the assignment is invalid.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set globalAlpha(globalAlpha: number);
 
   /**
    * Type of composition operation applied when drawing a new shape. The following types are supported:
@@ -2686,10 +2831,63 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   globalCompositeOperation: string;
+
+  /**
+   * Get the type of composition operation applied when drawing a new shape. The following types are supported:
+   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
+   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
+   *    Everything else is transparent.
+   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
+   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
+   * destination-over: Draws a new graphic behind the existing canvas content.
+   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
+   *    Everything else is transparent.
+   * destination-out: Existing content remains where the new drawing does not overlap.
+   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
+   *    which is drawn behind the canvas content.
+   * lighter: The color of two overlapping shapes is determined by adding the color values.
+   * copy: Only new graphics are displayed.
+   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
+   *
+   * @return { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get globalCompositeOperation(): string;
+
+  /**
+   * Set the type of composition operation applied when drawing a new shape. The following types are supported:
+   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
+   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
+   *    Everything else is transparent.
+   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
+   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
+   * destination-over: Draws a new graphic behind the existing canvas content.
+   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
+   *    Everything else is transparent.
+   * destination-out: Existing content remains where the new drawing does not overlap.
+   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
+   *    which is drawn behind the canvas content.
+   * lighter: The color of two overlapping shapes is determined by adding the color values.
+   * copy: Only new graphics are displayed.
+   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
+   *
+   * @param { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set globalCompositeOperation(globalCompositeOperation: string);
 
   /**
    * Draw an image on a canvas
@@ -3085,8 +3283,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stroke(): void;
 
@@ -3122,12 +3319,24 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stroke(path: Path2D): void;
 
   /**
+   * Draws the specified path according to the current stroke style
+   *
+   * @param { Path2D } [path] - Specified stroke path object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  stroke(path?: Path2D): void;
+
+  /**
    * Attributes that describe the fill color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
@@ -3177,10 +3386,43 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
+
+  /**
+   * Get the attributes specifie the color, gradient, or pattern to use inside shapes. The options are as follows:
+   *
+   * @return { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get fillStyle(): string | number | CanvasGradient | CanvasPattern;
+
+  /**
+   * Set the attributes specifie the color, gradient, or pattern to use inside shapes. The options are as follows:
+   *
+   * @param { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set fillStyle(fillStyle: string | number | CanvasGradient | CanvasPattern);
 
   /**
    * Attributes of the stroke color and style. The options are as follows:
@@ -3232,10 +3474,45 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
+
+  /**
+   * Get the attributes specifie the color, gradient, or pattern to use for the strokes (outlines) around shapes.
+   * The options are as follows:
+   *
+   * @return { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get strokeStyle(): string | number | CanvasGradient | CanvasPattern;
+
+  /**
+   * Set the attributes specifie the color, gradient, or pattern to use for the strokes (outlines) around shapes.
+   * The options are as follows:
+   *
+   * @param { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set strokeStyle(strokeStyle: string | number | CanvasGradient | CanvasPattern);
 
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
@@ -3548,10 +3825,67 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   filter: string;
+
+  /**
+   * Provides filter effects such as blur and grayscale. You can get the following filter effects:
+   * blur(<length>): Adds a Gaussian blur effect to the drawing
+   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
+   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
+   *    When the value is 100%, there is no change in the image.
+   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
+   *    When the value is 0%, there is no change in the image.
+   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
+   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
+   *    the image is completely inverted. When the value is 0%, there is no change in the image.
+   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
+   *    When the value is 100%, there is no change in the image.
+   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
+   *    When the value is 100%, there is no change in the image.
+   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
+   *    When the value is 0%, there is no change in the image.
+   * none: Turn off filter effects
+   *
+   * @return { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get filter(): string;
+
+  /**
+   * Provides filter effects such as blur and grayscale. You can set the following filter effects:
+   * blur(<length>): Adds a Gaussian blur effect to the drawing
+   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
+   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
+   *    When the value is 100%, there is no change in the image.
+   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
+   *    When the value is 0%, there is no change in the image.
+   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
+   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
+   *    the image is completely inverted. When the value is 0%, there is no change in the image.
+   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
+   *    When the value is 100%, there is no change in the image.
+   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
+   *    When the value is 100%, there is no change in the image.
+   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
+   *    When the value is 0%, there is no change in the image.
+   * none: Turn off filter effects
+   *
+   * @param { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set filter(filter: string);
 
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -3905,12 +4239,39 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   imageSmoothingEnabled: boolean;
 
   /**
+   * Get the status whether to smooth the image. The value true indicates that the image is smooth.
+   *    The value false indicates that the image is not smooth.
+   *
+   * @return { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get imageSmoothingEnabled(): boolean;
+
+  /**
+   * Set the status whether to smooth the image. The value true indicates that the image is smooth.
+   *    The value false indicates that the image is not smooth.
+   *
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set imageSmoothingEnabled(imageSmoothingEnabled: boolean);
+
+  /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
@@ -3946,12 +4307,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
+   * Get the smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
+   *
+   * @return { ImageSmoothingQuality }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get imageSmoothingQuality(): ImageSmoothingQuality;
+
+  /**
+   * Set the smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
+   *
+   * @param { ImageSmoothingQuality }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set imageSmoothingQuality(imageSmoothingQuality: ImageSmoothingQuality);
+
+  /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
@@ -3987,10 +4373,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lineCap: CanvasLineCap;
+  
+  /**
+   * Get the line segment endpoint attribute. For details, see {@link CanvasLineCap}.
+   *
+   * @return { CanvasLineCap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get lineCap(): CanvasLineCap;
+
+  /**
+   * Set the line segment endpoint attribute. For details, see {@link CanvasLineCap}.
+   *
+   * @param { CanvasLineCap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set lineCap(lineCap: CanvasLineCap);
 
   /**
    * Dotted line offset attribute.
@@ -4028,12 +4439,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lineDashOffset: number;
 
   /**
+   * Get the dotted line offset attribute.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get lineDashOffset(): number;
+
+  /**
+   * Set the dotted line offset attribute.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set lineDashOffset(lineDashOffset: number);
+
+  /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
@@ -4069,12 +4505,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lineJoin: CanvasLineJoin;
 
   /**
+   * Get the line segment connection point attribute. For details, see {@link CanvasLineJoin}.
+   *
+   * @return { CanvasLineJoin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get lineJoin(): CanvasLineJoin;
+
+  /**
+   * Set the line segment connection point attribute. For details, see {@link CanvasLineJoin}.
+   *
+   * @param { CanvasLineJoin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set lineJoin(lineJoin: CanvasLineJoin);
+
+  /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
@@ -4110,10 +4571,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lineWidth: number;
+
+  /**
+   * Get the line thickness attribute. The value cannot be 0 or a negative number.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get lineWidth(): number;
+
+  /**
+   * Set the line thickness attribute. The value cannot be 0 or a negative number.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set lineWidth(lineWidth: number);
 
   /**
    * The value of this parameter cannot be 0 or a negative number.
@@ -4151,10 +4637,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   miterLimit: number;
+
+  /**
+   * Get the value of this parameter cannot be 0 or a negative number.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get miterLimit(): number;
+
+  /**
+   * Set the value of this parameter cannot be 0 or a negative number.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set miterLimit(miterLimit: number);
 
   /**
    * Gets the current segment style.
@@ -4417,12 +4928,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   shadowBlur: number;
 
   /**
+   * Get the shadow blur radius. The value cannot be a negative number.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get shadowBlur(): number;
+
+  /**
+   * Set the shadow blur radius. The value cannot be a negative number.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set shadowBlur(shadowBlur: number);
+
+  /**
    * Shadow color.
    *
    * @type { string }
@@ -4458,12 +4994,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   shadowColor: string;
 
   /**
+   * Get the shadow color.
+   *
+   * @return { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get shadowColor(): string;
+
+  /**
+   * Set the shadow color.
+   *
+   * @param { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set shadowColor(shadowColor: string);
+
+  /**
    * Horizontal offset distance of the shadow.
    *
    * @type { number }
@@ -4499,10 +5060,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   shadowOffsetX: number;
+
+  /**
+   * Get the horizontal offset distance of the shadow.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get shadowOffsetX(): number;
+
+  /**
+   * Set the horizontal offset distance of the shadow.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set shadowOffsetX(shadowOffsetX: number);
 
   /**
    * Vertical offset distance of the shadow.
@@ -4540,10 +5126,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   shadowOffsetY: number;
+
+  /**
+   * Get the vertical offset distance of the shadow.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get shadowOffsetY(): number;
+
+  /**
+   * Set the vertical offset distance of the shadow.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set shadowOffsetY(shadowOffsetY: number);
 
   /**
    * Top of the stack pop-up state in the drawing state stack
@@ -4786,12 +5397,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   direction: CanvasDirection;
 
   /**
+   * Get the text drawing direction. For details, see {@link CanvasDirection}.
+   *
+   * @return { CanvasDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get direction(): CanvasDirection;
+
+  /**
+   * Set the text drawing direction. For details, see {@link CanvasDirection}.
+   *
+   * @param { CanvasDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set direction(direction: CanvasDirection);
+
+  /**
    * Font style.
    *
    * @type { string }
@@ -4827,12 +5463,37 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   font: string;
 
   /**
+   * Get the font style.
+   *
+   * @return { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get font(): string;
+
+  /**
+   * Set the font style.
+   *
+   * @param { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set font(font: string);
+
+  /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
@@ -4868,10 +5529,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   textAlign: CanvasTextAlign;
+
+  /**
+   * Get the text alignment mode. For details, see {@link CanvasTextAlign}.
+   *
+   * @return { CanvasTextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get textAlign(): CanvasTextAlign;
+
+  /**
+   * Set the text alignment mode. For details, see {@link CanvasTextAlign}.
+   *
+   * @param { CanvasTextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set textAlign(textAlign: CanvasTextAlign);
 
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
@@ -4909,10 +5595,35 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   textBaseline: CanvasTextBaseline;
+
+  /**
+   * Get the text baseline. For details, see {@link CanvasTextBaseline}.
+   *
+   * @return { CanvasTextBaseline }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get textBaseline(): CanvasTextBaseline;
+
+  /**
+   * Set the text baseline. For details, see {@link CanvasTextBaseline}.
+   *
+   * @param { CanvasTextBaseline }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set textBaseline(textBaseline: CanvasTextBaseline);
 
   /**
    * Obtains the currently applied transformation matrix.
@@ -5357,14 +6068,14 @@ declare class CanvasRenderer extends CanvasPath {
   restoreLayer(): void;
 
   /**
-     * Clear the backing buffer, drawing state stack, any defined paths, and styles.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
+   * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   reset(): void;
 }
 
@@ -5440,10 +6151,23 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly height: number;
+
+  /**
+   * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
+   *
+   * @return { number }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get height(): number;
 
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
@@ -5481,10 +6205,23 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly width: number;
+
+  /**
+   * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
+   *
+   * @return { number }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get width(): number;
 
   /**
    * Frame node of the canvas. The default value is null.
@@ -5494,10 +6231,21 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   readonly canvas: FrameNode;
+
+  /**
+   * Frame node of the canvas. The default value is null.
+   *
+   * @return { FrameNode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get canvas(): FrameNode;
 
   /**
    * Generate a character string in the data url format.
@@ -5550,8 +6298,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { string } [type] - Image format. The default value is image/png.
+   * @param { number } [quality] - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5792,8 +6540,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { string } [type] - Image format. The default value is image/png.
+   * @param { number } [quality] - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5970,10 +6718,35 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height: number;
+
+  /**
+   * Get the height of the off-screen canvas.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get height(): number;
+
+  /**
+   * Set the height of the off-screen canvas.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set height(height: number);
 
   /**
    * Width of the off-screen canvas.
@@ -6007,10 +6780,35 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width: number;
+
+  /**
+   * Get the width of the off-screen canvas.
+   *
+   * @return { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get width(): number;
+
+  /**
+   * Set the width of the off-screen canvas.
+   *
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set width(width: number);
 
   /**
    * Exports rendered content as an ImageBitmap object
@@ -6111,8 +6909,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(width: number, height: number);
 
@@ -6126,12 +6923,27 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(width: number, height: number, unit: LengthMetricsUnit);
+
+  /**
+   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
+   *
+   * @param { number } width - Width of the off-screen canvas.
+   * @param { number } height - Height of the off-screen canvas.
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(width: number, height: number, unit?: LengthMetricsUnit);
 }
 
+/*** if arkts 1.1 */
 /**
  * Size info.
  *
@@ -6167,6 +6979,7 @@ declare interface Size {
    */
   height: number;
 }
+/*** endif */
 
 /**
  * Defines DrawingRenderingContext.
