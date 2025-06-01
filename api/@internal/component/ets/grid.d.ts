@@ -996,7 +996,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { OnItemDragStartCallback } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -1365,7 +1364,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { OnScrollFrameBeginCallback } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -1378,7 +1376,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -1392,7 +1389,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
