@@ -96,8 +96,8 @@ declare class ImageAnalyzerController {
  * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
- * @arkts 1.1
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ImageAnalyzerConfig {
   /**
@@ -106,8 +106,8 @@ declare interface ImageAnalyzerConfig {
    * @type { ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   types: ImageAnalyzerType[];
 }
@@ -118,8 +118,8 @@ declare interface ImageAnalyzerConfig {
  * @interface ImageAIOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
- * @arkts 1.1
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ImageAIOptions {
   /**
@@ -128,8 +128,8 @@ declare interface ImageAIOptions {
    * @type { ?ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   types?: ImageAnalyzerType[];
 
@@ -139,64 +139,8 @@ declare interface ImageAIOptions {
    * @type { ?ImageAnalyzerController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
-   * @arkts 1.1
-   */
-  aiController?: ImageAnalyzerController;
-}
-
-
-/**
- * Image analyzer config.
- *
- * @interface ImageAnalyzerConfig
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export interface ImageAnalyzerConfig {
-  /**
-   * Image analyze types.
-   *
-   * @type { ImageAnalyzerType[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  types: ImageAnalyzerType[];
-}
-
-/**
- * Image ai options.
- *
- * @interface ImageAIOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export interface ImageAIOptions {
-  /**
-   * Image analyze types.
-   *
-   * @type { ?ImageAnalyzerType[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  types?: ImageAnalyzerType[];
-
-  /**
-   * Image analyze types.
-   *
-   * @type { ?ImageAnalyzerController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   aiController?: ImageAnalyzerController;
 }
