@@ -39,22 +39,10 @@ import { DrawContext } from '../../arkui/Graphics';
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
-
-/**
- * Defines the StyledStringMarshallingValue Type.
- *
- * @typedef { UserDataSpan } StyledStringMarshallingValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type StyledStringMarshallingValue = UserDataSpan;
 
 /**
  * Defines the callback type used in marshalling.
@@ -1188,25 +1176,10 @@ declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
-TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan | BackgroundColorStyle;
-
-/**
- * Defines the Span Type.
- *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
- * UserDataSpan | BackgroundColorStyle } StyledStringValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
 UserDataSpan | BackgroundColorStyle;
 

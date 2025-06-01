@@ -1309,23 +1309,10 @@ interface PasswordIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
-
-/**
- * Defines a TextInput callback when onSubmit.
- *
- * @typedef { function } OnSubmitCallback
- * @param { EnterKeyType } enterKey - Input method Enter key type.
- * @param { SubmitEvent } event - The event submitted.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
  * Defines a TextInput callback when onTextSelectionChange.
