@@ -44,7 +44,17 @@ import { TouchEvent } from './component/common';
  * @atomicservice
  * @since 12
  */
-export abstract class NodeController {
+/**
+ * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
+ * and methods to control the child node of the NodeContainer.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare abstract class NodeController {
   /**
    * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
    * attach the return result to the associated NodeContainer.
@@ -66,7 +76,8 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts{'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
@@ -90,6 +101,18 @@ export abstract class NodeController {
   aboutToResize?(size: Size): void;
 
   /**
+   * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
+   *
+   * @param { Size } size - size used to resize
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  aboutToResize(size: Size): void;
+
+  /**
    * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,6 +130,17 @@ export abstract class NodeController {
   aboutToAppear?(): void;
 
   /**
+   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  aboutToAppear(): void;
+
+  /**
    * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -122,6 +156,17 @@ export abstract class NodeController {
    * @since 12
    */
   aboutToDisappear?(): void;
+
+  /**
+   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  aboutToDisappear(): void;
 
   /**
    * Rebuild Method. Used to invoke the makeNode method.
@@ -158,6 +203,18 @@ export abstract class NodeController {
    * @since 12
    */
   onTouchEvent?(event: TouchEvent): void;
+  
+  /**
+   * OnTouchEvent Method. Executed when associated NodeContainer is touched.
+   *
+   * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onTouchEvent(event: TouchEvent): void;
 
   /**
    * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
@@ -168,144 +225,6 @@ export abstract class NodeController {
    * @since 18
    */
   onAttach?(): void;
-
-  /**
-   * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onDetach?(): void;
-
-  /**
-   * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
-   *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillBind?(containerId: number): void;
-
-  /**
-   * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
-   *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillUnbind?(containerId: number): void;
-  
-  /**
-   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
-   *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onBind?(containerId: number): void;
-
-  /**
-   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
-   *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onUnbind?(containerId: number): void;
-}
-
-/**
- * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare abstract class NodeController {
-  /**
-   * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
-   * attach the return result to the associated NodeContainer.
-   * Executed when the associated NodeContainer is created or the rebuild function is called.
-   *
-   * @param { UIContext } uiContext - uiContext used to makeNode
-   * @returns { FrameNode | null } - Returns a FrameNode or null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  abstract makeNode(uiContext: UIContext): FrameNode | null;
-
-  /**
-   * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
-   *
-   * @type { ?Callback<Size> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToResize(size: Size): void;
-
-  /**
-   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToAppear(): void;
-
-  /**
-   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  aboutToDisappear(): void;
-
-  /**
-   * Rebuild Method. Used to re invoke the makeNode method.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  rebuild(): void;
-
-  /**
-   * OnTouchEvent Method. Executed when associated NodeContainer is touched.
-   *
-   * @param { TouchEvent } event - The Touch Event Callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onTouchEvent(event: TouchEvent): void;
 
   /**
    * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
@@ -324,15 +243,36 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * @since 18
+   */
+  onDetach?(): void;
+
+  /**
+   * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
   onDetach(): void;
 
   /**
-   * OnWillBind Method. Executed before the NodeController will bind to a NodeContainer.
+   * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - The NodeContainer id that the nodeController will bind to.
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onWillBind?(containerId: number): void;
+
+  /**
+   * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -342,9 +282,20 @@ export declare abstract class NodeController {
   onWillBind(containerId: number): void;
 
   /**
-   * OnWillUnbind Method. Executed before the NodeController will unbind with the NodeContainer.
+   * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - The NodeContainer id that the nodeController will unbind with.
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onWillUnbind?(containerId: number): void;
+
+  /**
+   * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -352,11 +303,22 @@ export declare abstract class NodeController {
    * @arkts 1.2
    */
   onWillUnbind(containerId: number): void;
-
+  
   /**
    * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - The NodeContainer id that the nodeController has bind to.
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onBind?(containerId: number): void;
+  
+  /**
+   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -368,7 +330,18 @@ export declare abstract class NodeController {
   /**
    * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - The NodeContainer id that the nodeController has unbind with.
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onUnbind?(containerId: number): void;
+
+  /**
+   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

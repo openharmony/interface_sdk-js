@@ -38,7 +38,8 @@ import { CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface NodeContainerInterface {
   /**
@@ -61,19 +62,6 @@ interface NodeContainerInterface {
   * @since 12
   */
   (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
-}
-
-/**
-* Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
-*
-* @interface NodeContainerInterface
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
-* @since 20
-* @arkts 1.2
-*/
-interface NodeContainerInterface {
   /**
    * Constructor parameters
    *

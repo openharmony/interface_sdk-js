@@ -34,7 +34,15 @@ import { BorderStyle } from './component/enums'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines RenderNode. Contains node tree operations and render property operations on node.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare class RenderNode {

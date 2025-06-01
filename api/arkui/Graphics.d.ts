@@ -99,7 +99,15 @@ export interface Size {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines DrawContext.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare class DrawContext {
@@ -805,7 +813,7 @@ export enum LengthMetricsUnit {
    */
   PX = 1
 }
-/*** if arkts 1.1 */
+
 /**
  * Defines the Length Metrics.
  *
@@ -814,9 +822,6 @@ export enum LengthMetricsUnit {
  * @atomicservice
  * @since 12
  */
-declare class LengthMetrics {
-/*** endif */
-/*** if arkts 1.2 */
 /**
  * Defines the Length Metrics.
  *
@@ -824,10 +829,9 @@ declare class LengthMetrics {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.2
+ * @arkts 1.1&1.2
  */
 export declare class LengthMetrics {
-/*** endif */
   /**
    * Constructor.
    *
@@ -952,7 +956,7 @@ export declare class LengthMetrics {
    */
   public value: number;
 }
-/*** if arkts 1.1 */
+
 /**
  * Defines the ColorMetrics class.
  *
@@ -961,9 +965,6 @@ export declare class LengthMetrics {
  * @atomicservice
  * @since 12
  */
-declare class ColorMetrics {
-/*** endif */
-/*** if arkts 1.2 */
 /**
  * Defines the ColorMetrics class.
  *
@@ -971,7 +972,7 @@ declare class ColorMetrics {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.2
+ * @arkts 1.1&1.2
  */
 export declare class ColorMetrics {
 /*** endif */
@@ -1512,7 +1513,17 @@ export declare class ShapeClip {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Obtain a object with all edges are set to the same color.
+ *
+ * @param { number } all - The edge color will be set.
+ * @returns { Edges<number> } - The object with all edges are set to the same color.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare function edgeColors(all: number): Edges<number>;
@@ -1525,7 +1536,17 @@ export declare function edgeColors(all: number): Edges<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Obtain a object with all edges are set to the same width.
+ *
+ * @param { number } all - The edge width will be set.
+ * @returns { Edges<number> } - The object with all edges are set to the same width.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare function edgeWidths(all: number): Edges<number>;
@@ -1538,7 +1559,17 @@ export declare function edgeWidths(all: number): Edges<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Obtain a object with all edges are set to the same style.
+ *
+ * @param { BorderStyle } all - The edge style will be set.
+ * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
@@ -1551,7 +1582,17 @@ export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Obtain a BorderRadiuses object with all edges are set to the same radius.
+ *
+ * @param { number } all - The edge radius will be set.
+ * @returns { BorderRadiuses } - The BorderRadiuses object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare function borderRadiuses(all: number): BorderRadiuses;
