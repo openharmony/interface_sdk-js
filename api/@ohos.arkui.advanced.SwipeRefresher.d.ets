@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Prop } from './arkui/stateManagement/common';
-import { Component } from './arkui/component/customComponent';
-/*** endif */
-
 /**
  * Declare component SwipeRefresher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32,8 +27,7 @@ import { Component } from './arkui/component/customComponent';
  * Declare component SwipeRefresher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 @Component
 export declare struct SwipeRefresher {
@@ -48,8 +42,7 @@ export declare struct SwipeRefresher {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop content?: string;
 
@@ -64,8 +57,7 @@ export declare struct SwipeRefresher {
    * type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop isLoading: boolean;
 }

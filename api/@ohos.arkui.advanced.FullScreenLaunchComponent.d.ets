@@ -21,17 +21,11 @@
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
-/*** if arkts 1.2 */
-import AtomicServiceOptions from './@ohos.app.ability.AtomicServiceOptions';
-import { Callback } from './@ohos.base';
-/*** endif */
-
 /**
  * Declare component FullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 @Component
 export declare struct FullScreenLaunchComponent {
@@ -40,8 +34,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   @BuilderParam content: Callback<void>;
   /**
@@ -49,8 +42,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   appId: string;
   /**
@@ -58,8 +50,7 @@ export declare struct FullScreenLaunchComponent {
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   options?: AtomicServiceOptions;
     /**

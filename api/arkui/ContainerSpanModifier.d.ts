@@ -18,25 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ContainerSpanAttribute } from './component/containerSpan'
-/*** endif */
-
-/*** if arkts 1.2 */
-/**
- * Declare the apply normal status function.
- *
- * @typedef { function } ContainerSpanApplyNormalFunction
- * @param { ContainerSpanAttribute } containerSpanAttribute - The attribute of component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type ContainerSpanApplyNormalFunction = (containerSpanAttribute: ContainerSpanAttribute) => void;
-/*** endif */
-
 /**
  * Defines ContainerSpan modifier, the base class for quick use modifier ability
  * 
@@ -45,8 +26,7 @@ declare type ContainerSpanApplyNormalFunction = (containerSpanAttribute: Contain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
 
@@ -60,18 +40,4 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @since 12
    */
   applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: ContainerSpanApplyNormalFunction;
-  /*** endif */
 }
