@@ -2014,7 +2014,7 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $r function
  *
  * @param { string } value
- * @param { any[] } params
+ * @param { (Object | null | undefined)[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2023,7 +2023,7 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @since 20
  * @arkts 1.2
  */
-declare function $r(value: string, ...params: Object[]): Resource;
+declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
 
 /**
  * global $rawfile function
@@ -32127,7 +32127,7 @@ declare interface Callback<T, V = void> {
  * @since 20
  * @arkts 1.2
  */
-declare type Callback<T, V = void> = (data: T) => V;
+export type Callback<T, V = void> = (data: T) => V;
 
 /**
  * Defines the callback type used in hover events.
