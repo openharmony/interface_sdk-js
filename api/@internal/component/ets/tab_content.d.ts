@@ -913,15 +913,14 @@ declare class SubTabBarStyle {
   /**
    * Set the style of the indicator when selected
    *
-   * @param { SubTabBarIndicatorStyle } value - indicates the indicator style of the sub tab bar
+   * @param { SubTabBarIndicatorStyle } style - indicates the indicator style of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  indicator(value: SubTabBarIndicatorStyle): SubTabBarStyle;
+  indicator(style: SubTabBarIndicatorStyle): SubTabBarStyle;
 
   /**
    * Set the mode of the indicator when selected
@@ -989,17 +988,16 @@ declare class SubTabBarStyle {
   labelStyle(value: LabelStyle): SubTabBarStyle;
 
   /**
-   * Set the label style of the indicator
+   * Set the label style of the sub tab bar
    *
-   * @param { TabBarLabelStyle } value - indicates the label style of the sub tab bar
+   * @param { TabBarLabelStyle } style - indicates the label style of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  labelStyle(value: TabBarLabelStyle): SubTabBarStyle;
+  labelStyle(style: TabBarLabelStyle): SubTabBarStyle;
 
   /**
    * Set the padding of the sub tab bar
@@ -1182,17 +1180,16 @@ declare class BottomTabBarStyle {
   labelStyle(value: LabelStyle): BottomTabBarStyle;
 
   /**
-   * Set the label style of the indicator
+   * Set the label style of the bottom tab bar
    *
-   * @param { TabBarLabelStyle } value - indicates the label style of the bottom tab bar
+   * @param { TabBarLabelStyle } style - indicates the label style of the bottom tab bar
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  labelStyle(value: TabBarLabelStyle): BottomTabBarStyle;
+  labelStyle(style: TabBarLabelStyle): BottomTabBarStyle;
 
   /**
    * Set the padding of the bottom tab bar

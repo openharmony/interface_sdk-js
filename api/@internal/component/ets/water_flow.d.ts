@@ -808,7 +808,6 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { OnScrollFrameBeginCallback } event
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -837,7 +836,6 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -851,7 +849,6 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
