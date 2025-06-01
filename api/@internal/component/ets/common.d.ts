@@ -17729,6 +17729,45 @@ declare enum HapticFeedbackMode {
 }
 
 /**
+ * Define the modal mode of menu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum ModalMode {
+  /**
+   * Modal modal automatically.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  AUTO = 0,
+  /**
+   * Operation takes effect around menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  NONE = 1,
+  /**
+   * Operation takes no effect around menu in target window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET_WINDOW = 2
+}
+
+/**
  * Menu mask type
  *
  * @interface MenuMaskType
@@ -18206,6 +18245,18 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   mask?: boolean | MenuMaskType;
+
+  /**
+   * Defines modal mode of menu.
+   *
+   * @type { ?ModalMode }
+   * @default ModalMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  modalMode?: ModalMode;
 }
 
 /**
