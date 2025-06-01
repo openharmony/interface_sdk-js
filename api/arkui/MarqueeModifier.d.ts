@@ -18,23 +18,8 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { MarqueeAttribute } from './component/marquee'
-/*** endif */
-/*** if arkts 1.2 */
-/**
- * Declare the apply normal status function.
- *
- * @typedef { function } MarqueeApplyNormalFunction
- * @param { MarqueeAttribute } marqueeAttribute - The attribute of component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type MarqueeApplyNormalFunction = (marqueeAttribute: MarqueeAttribute) => void;
-/*** endif */
+
+
 
 /**
  * Defines Marquee Modifier
@@ -43,8 +28,7 @@ declare type MarqueeApplyNormalFunction = (marqueeAttribute: MarqueeAttribute) =
  * @implements AttributeModifier<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class MarqueeModifier extends MarqueeAttribute implements AttributeModifier<MarqueeAttribute> {
 
@@ -58,18 +42,4 @@ export declare class MarqueeModifier extends MarqueeAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?(instance: MarqueeAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: MarqueeApplyNormalFunction;
-  /*** endif */
 }

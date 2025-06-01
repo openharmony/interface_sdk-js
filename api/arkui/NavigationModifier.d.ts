@@ -18,6 +18,9 @@
  * @kit ArkUI
  */
 
+
+
+
 /**
  * Defines Navigation Modifier
  *
@@ -25,8 +28,7 @@
  * @implements AttributeModifier<NavigationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class NavigationModifier extends NavigationAttribute implements AttributeModifier<NavigationAttribute> {
 
@@ -40,16 +42,4 @@ export declare class NavigationModifier extends NavigationAttribute implements A
    * @since 12
    */
   applyNormalAttribute?(instance: NavigationAttribute): void;
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { NavigationAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?:(instance: NavigationAttribute)=> void;
 }

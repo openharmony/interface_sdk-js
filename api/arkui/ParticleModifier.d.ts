@@ -39,16 +39,4 @@ export declare class ParticleModifier extends ParticleAttribute implements Attri
    * @since 12
    */
     applyNormalAttribute?(particleAttribute: ParticleAttribute): void;
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { ParticleAttribute } particleAttribute
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?:(instance: ParticleAttribute)=> void;
 }

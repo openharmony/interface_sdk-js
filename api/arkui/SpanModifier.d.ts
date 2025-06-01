@@ -18,24 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { SpanAttribute } from './component/span'
-/*** endif */
 
-/*** if arkts 1.2 */
-/**
- * Declare the apply normal status function.
- *
- * @typedef { function } SpanApplyNormalFunction
- * @param { SpanAttribute } spanAttribute - The attribute of component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type SpanApplyNormalFunction = (spanAttribute: SpanAttribute) => void;
-/*** endif */
 
 
 /**
@@ -45,8 +28,7 @@ declare type SpanApplyNormalFunction = (spanAttribute: SpanAttribute) => void;
  * @implements AttributeModifier<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 export declare class SpanModifier extends SpanAttribute implements AttributeModifier<SpanAttribute> {
 
@@ -60,18 +42,4 @@ export declare class SpanModifier extends SpanAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?(instance: SpanAttribute): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?: SpanApplyNormalFunction;
-  /*** endif */
 }
