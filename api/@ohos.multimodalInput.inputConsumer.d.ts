@@ -18,8 +18,13 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+/*** endif */
+/*** if arkts 1.2 */
+import { Callback } from './@ohos.base';
+/*** endif */
 
 /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
