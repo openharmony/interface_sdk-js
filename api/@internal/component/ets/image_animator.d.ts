@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import { Resource } from "../../global/resource";
 import image from '../../@ohos.multimedia.image'
-import { CommonMethod } from './common'
+import { CommonMethod, PixelMap } from './common'
 import { AnimationStatus,FillMode } from './enums'
 /*** endif */
 
@@ -152,22 +152,10 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   src: string | Resource | PixelMap;
-
-  /**
-   * Image path
-   *
-   * @type { string | Resource | image.PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  src: string | Resource | image.PixelMap;
 
   /**
    * Image width
