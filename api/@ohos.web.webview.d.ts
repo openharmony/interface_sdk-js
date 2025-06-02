@@ -6432,9 +6432,9 @@ declare namespace webview {
 
     /**
      * Gets the loading progress for the current page.
-     * 
-     * @returns {number} The loading progress for the current page.
-     * @syscap SystemCapability.Web.Webview.core
+     *
+     * @returns { number } The loading progress for the current page.
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
     getProgress() : number;
