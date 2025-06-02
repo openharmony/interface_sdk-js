@@ -415,8 +415,7 @@ export declare interface MouseEvent extends InputEvent {
    * List of pressed keys
    * @type { KeyCode[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9'}
-   * @arkts 1.1
+   * @since 9
    */
   pressedKeys: KeyCode[];
 
