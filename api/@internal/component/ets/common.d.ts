@@ -11192,7 +11192,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
   rollAngle?: number;
