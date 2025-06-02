@@ -24,7 +24,6 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 /*** endif */
 /*** if arkts 1.2 */
 import { Callback, AsyncCallback } from './@ohos.base';
-import { KeyCode } from './@ohos.multimodalInput.keyCode';
 /*** endif */
 
 /**
