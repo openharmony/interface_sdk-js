@@ -10778,7 +10778,7 @@ declare namespace window {
      * @atomicservice
      * @since 19
      */
-    orientation: Orientation;
+    orientation: number;
     /**
      * Display id
      *
