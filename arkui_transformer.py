@@ -43,9 +43,9 @@ def compile_package(options):
 
     if os.path.exists(package_path):
         if (len(config_path) > 0):
-           p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output, "--config-path", config_path], cwd=tool_path, shell=False)
+            p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output, "--config-path", config_path], cwd=tool_path, shell=False)
         else:
-           p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output], cwd=tool_path, shell=False)
+            p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output], cwd=tool_path, shell=False)
     else:
         print("arkui_transformer: tool path does not exist")
     
