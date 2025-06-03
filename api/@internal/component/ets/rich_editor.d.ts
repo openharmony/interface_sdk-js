@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import {  ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent, PixelMap } from './common';
 import { CustomBuilder } from './builder';
-import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font } from './units';
+import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font, VoidCallback } from './units';
 import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, ResponseType, CopyOptions, BarState } from './enums';
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
@@ -3062,10 +3062,21 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDisappear?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu disappears.
+   * 
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDisappear?: VoidCallback;
 
   /**
    * Menu type, default value is MenuType.SELECTION_MENU.
