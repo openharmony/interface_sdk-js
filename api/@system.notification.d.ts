@@ -21,8 +21,9 @@
 /**
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'3', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 3
+ * @deprecated since 7
+ * @useinstead ohos.notification
  */
 export interface ActionResult {
   /**
@@ -30,8 +31,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   bundleName: string;
 
@@ -40,8 +41,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   abilityName: string;
 
@@ -54,8 +55,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   uri: string;
 }
@@ -63,8 +64,8 @@ export interface ActionResult {
 /**
  * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'3', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 3
+ * @deprecated since 7
  */
 export interface ShowNotificationOptions {
   /**
@@ -72,8 +73,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   contentTitle?: string;
 
@@ -82,8 +83,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   contentText?: string;
 
@@ -92,16 +93,17 @@ export interface ShowNotificationOptions {
    *
    * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'3', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 3
+   * @deprecated since 7
    */
   clickAction?: ActionResult;
 }
 
 /**
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'3', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 3
+ * @deprecated since 7
+ * @useinstead ohos.notification
  */
 declare class Notification {
   /**
@@ -110,6 +112,7 @@ declare class Notification {
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   static show(options?: ShowNotificationOptions): void;
 }
