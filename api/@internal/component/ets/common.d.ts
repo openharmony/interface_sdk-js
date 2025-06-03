@@ -16206,6 +16206,18 @@ declare interface PopupCommonOptions {
   followTransformOfTarget?: boolean;
 
   /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
+  /**
    * The width of popup's outline.
    *
    * @type { ?Dimension }
@@ -17030,6 +17042,19 @@ declare interface PopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
@@ -17667,6 +17692,19 @@ declare interface CustomPopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
