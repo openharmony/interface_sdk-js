@@ -513,7 +513,8 @@ declare namespace inputDevice {
    *
    * @param { number } deviceId - ID of the input device. The device ID changes if the same physical device is repeatedly removed and inserted.
    * @param { Array<KeyCode> } keys - Keycodes to be queried. A maximum of five keycodes can be specified.
-   * @returns { Array<boolean> } Result indicating whether the input device supports the keycode value. The value true indicates yes, and the value false indicates no.
+   * @returns { Array<boolean> } Result indicating whether the input device supports the keycode value. 
+   * The value true indicates yes, and the value false indicates no.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice

@@ -846,7 +846,8 @@ declare namespace pointer {
    * Sets the pointer color. This API uses an asynchronous callback to return the result.
    *
    * @param { number } color - Pointer color. The default value is black (0x000000).
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -922,7 +923,8 @@ declare namespace pointer {
    * Sets the pointer size. This API uses an asynchronous callback to return the result.
    *
    * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1051,7 +1053,8 @@ declare namespace pointer {
   /**
    * Sets the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Status of the mouse hover scroll switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1065,7 +1068,8 @@ declare namespace pointer {
   /**
    * Sets the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Status of the mouse hover scroll switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1079,7 +1083,8 @@ declare namespace pointer {
   /**
    * Obtains the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Obtains the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<boolean> } callback - Obtains the status of the mouse hover scroll switch. 
+   * This API uses an asynchronous callback to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1092,7 +1097,8 @@ declare namespace pointer {
   /**
    * Obtains the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1622,7 +1628,8 @@ declare namespace pointer {
   /**
    * Sets the double-tap and drag switch for the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isOpen - Status of the double-tap and drag switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1636,7 +1643,8 @@ declare namespace pointer {
   /**
    * Sets the double-tap and drag switch for the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } isOpen - Status of the double-tap and drag switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
