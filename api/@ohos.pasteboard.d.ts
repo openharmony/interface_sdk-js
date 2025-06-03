@@ -379,29 +379,25 @@ declare namespace pasteboard {
    * Enumerates the patterns allowed in the system pasteboard.
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enum Pattern {
     /**
      * URL pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     URL = 0,
     /**
      * Number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     NUMBER = 1,
     /**
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     EMAIL_ADDRESS = 2,
   }
@@ -1149,16 +1145,14 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum FileConflictOptions {
     /**
      * OVERWRITE overwrite when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     OVERWRITE,
 
@@ -1166,8 +1160,7 @@ declare namespace pasteboard {
      * SKIP skip when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SKIP
   }
@@ -1177,16 +1170,14 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum ProgressIndicator {
     /**
      * NONE getting data without system default progress indicator.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     NONE,
 
@@ -1194,8 +1185,7 @@ declare namespace pasteboard {
      * DEFALUT getting data with system default progress indicator.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     DEFAULT
   }
@@ -1205,8 +1195,7 @@ declare namespace pasteboard {
    * @interface ProgressInfo
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface ProgressInfo {
     /**
@@ -1214,8 +1203,7 @@ declare namespace pasteboard {
      * @type { number }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     progress: number;
   }
@@ -1225,8 +1213,7 @@ declare namespace pasteboard {
    * @typedef { function } ProgressListener
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   type ProgressListener = (progress: ProgressInfo) => void;
 
@@ -1235,16 +1222,14 @@ declare namespace pasteboard {
    * @class ProgressSignal
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export class ProgressSignal {
     /**
      * Cancel the paste in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     cancel(): void;
   }
@@ -1254,8 +1239,7 @@ declare namespace pasteboard {
    * @interface GetDataParams
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface GetDataParams {
     /**
@@ -1264,8 +1248,7 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     destUri?: string;
 
@@ -1275,8 +1258,7 @@ declare namespace pasteboard {
      * @default FileConflictOptions.OVERWRITE
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     fileConflictOptions?: FileConflictOptions;
 
@@ -1285,8 +1267,7 @@ declare namespace pasteboard {
      * @type { ProgressIndicator }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     progressIndicator: ProgressIndicator;
 
@@ -1296,8 +1277,7 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     progressListener?: ProgressListener;
 
@@ -1307,8 +1287,7 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     progressSignal?: ProgressSignal;
   }
