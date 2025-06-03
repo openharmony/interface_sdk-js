@@ -17,8 +17,12 @@
  * @file
  * @kit AbilityKit
  */
-
+/*** if arkts 1.1 */
+import type appManager from '../@ohos.app.ability.appManager';
+/*** endif */
+/*** if arkts 1.2 */
 import appManager from '../@ohos.app.ability.appManager';
+/*** endif */
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**

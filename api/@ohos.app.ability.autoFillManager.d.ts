@@ -328,7 +328,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export type PopupSize = _AutoFillPopupConfig.PopupSize;
 

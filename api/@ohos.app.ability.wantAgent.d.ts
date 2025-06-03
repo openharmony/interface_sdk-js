@@ -219,7 +219,7 @@ declare namespace wantAgent {
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<void> } The promise returned by the export function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
@@ -231,7 +231,7 @@ declare namespace wantAgent {
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<void> } The promise returned by the export function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
