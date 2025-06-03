@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import("//build/config/components/ets_frontend/ets2abc_config.gni")
 import("//build/ohos.gni")
 import("//build/ohos/notice/notice.gni")
 import("//build/ohos_var.gni")
@@ -197,7 +198,7 @@ ohos_copy_internal("ets_component") {
   iv_input = interface_sdk_path_ets1 + "/api/@internal/component/ets"
 }
 
-# ets1.2/component执行脚本
+# ets1.2/arkui/component执行脚本
 ohos_copy_internal("ets_component2") {
   sdk_type = "ets2"
   iv_input = "//out/arkui_transformer_api"
@@ -259,4 +260,118 @@ ohos_copy("syscap_check") {
   outputs = [ target_out_dir + "/${target_name}/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/${target_name}"
   module_install_name = ""
+}
+
+action("ohos_ets_api_tmp") {
+
+  script = "//interface/sdk-js/ohos_copy_ets.py"
+
+  args = [
+    "--input",
+    rebase_path("//interface/sdk-js/api"),
+    "--output",
+    rebase_path("$ohos_ets_api_tmp_path"),
+    "--type",
+    "ets2",
+    "--source-root-dir",
+    rebase_path("//"),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir),
+  ]
+
+  outputs = [ "$ohos_ets_api_tmp_path" ]
+}
+
+action("ohos_ets_arkts_tmp") {
+  script = "//interface/sdk-js/ohos_copy_ets.py"
+
+  args = [
+    "--input",
+    rebase_path("//interface/sdk-js/arkts"),
+    "--output",
+    rebase_path("$ohos_ets_arkts_tmp_path"),
+    "--type",
+    "ets2",
+    "--source-root-dir",
+    rebase_path("//"),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir),
+  ]
+
+  outputs = [ "$ohos_ets_arkts_tmp_path" ]
+}
+
+action("ohos_ets_kits_tmp") {
+  script = "//interface/sdk-js/ohos_copy_ets.py"
+
+  args = [
+    "--input",
+    rebase_path("//interface/sdk-js/kits"),
+    "--output",
+    rebase_path("$ohos_ets_kits_tmp_path"),
+    "--type",
+    "ets2",
+    "--source-root-dir",
+    rebase_path("//"),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir),
+  ]
+
+  outputs = [ "$ohos_ets_kits_tmp_path" ]
+}
+
+action("ohos_ets_api_arkui_tmp") {
+  deps = [ ":ohos_ets_api_tmp" ]
+  script = "//interface/sdk-js/arkui_transformer.py"
+
+  if (host_os == "mac") {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
+    npm_path =
+        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
+  } else {
+    node_path =
+        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
+    npm_path =
+        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
+  }
+  args = [
+    "--input",
+    rebase_path(ohos_ets_api_tmp_path + "/@internal/component/ets",
+                root_build_dir),
+    "--output",
+    rebase_path(ohos_ets_api_tmp_path + "/arkui/component", root_build_dir),
+    "--source_root_dir",
+    rebase_path("//", root_build_dir),
+    "--npm-path",
+    rebase_path(npm_path, root_build_dir),
+    "--node-js",
+    rebase_path(node_path, root_build_dir),
+  ]
+  outputs = [ "$ohos_ets_api_arkui_tmp_path" ]
+}
+
+ohos_copy("ohos_ets_arkts") {
+  deps = [ ":ohos_ets_arkts_tmp" ]
+  sources = [ ohos_ets_arkts_tmp_path ]
+  outputs = [ ohos_ets_arkts_path ]
+  part_name = "sdk"
+  subsystem_name = "sdk"
+}
+
+ohos_copy("ohos_ets_kits") {
+  deps = [ ":ohos_ets_kits_tmp" ]
+  sources = [ ohos_ets_kits_tmp_path ]
+  outputs = [ ohos_ets_kits_path ]
+  part_name = "sdk"
+  subsystem_name = "sdk"
+}
+
+ohos_copy("ohos_ets_api") {
+  deps = [
+    ":ohos_ets_api_tmp",
+  ]
+  sources = [ ohos_ets_api_tmp_path ]
+  outputs = [ ohos_ets_api_path ]
+  part_name = "sdk"
+  subsystem_name = "sdk"
 }
