@@ -1676,7 +1676,8 @@ declare namespace connection {
    *
    * @typedef PinRequiredParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PinRequiredParam {
     /**
@@ -2066,7 +2067,8 @@ declare namespace connection {
    *
    * @typedef DiscoveryResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DiscoveryResult {
     /**
@@ -2141,7 +2143,8 @@ declare namespace connection {
    *
    * @typedef BatteryInfo
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BatteryInfo {
     /**
