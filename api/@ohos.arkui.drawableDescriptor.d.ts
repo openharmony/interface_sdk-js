@@ -265,7 +265,7 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-interface AnimationOptions {
+declare interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *
