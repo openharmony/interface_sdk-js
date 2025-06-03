@@ -22,6 +22,7 @@
 import type { AbilityResult } from '../ability/abilityResult';
 import type { ConnectOptions } from '../ability/connectOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
 /*** if arkts 1.2 */
 import { AbilityResult } from '../ability/abilityResult';
@@ -32,7 +33,6 @@ import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
