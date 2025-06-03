@@ -1421,8 +1421,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface UIElementInfo {
    /**
@@ -1499,8 +1499,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface UIEventObserver {
 /**
@@ -1522,8 +1522,8 @@
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @test
+   * @arkts 1.1&1.2
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
 
@@ -1546,8 +1546,8 @@
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice  
    * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @test
+   * @arkts 1.1&1.2
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
  }
@@ -1760,8 +1760,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface TouchPadSwipeOptions {
    /**
@@ -2394,8 +2394,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class Component {
    /**
@@ -3368,8 +3368,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class Driver {
    /**
@@ -4416,8 +4416,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @test    * @arkts 1.1&1.2
-
+    * @test    
+    * @arkts 1.1&1.2
     */
    mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
  
@@ -4444,8 +4444,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @test    * @arkts 1.1&1.2
-
+    * @test
+    * @arkts 1.1&1.2
     */
    screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
  
@@ -4662,8 +4662,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class UiWindow {
    /**
@@ -5061,8 +5061,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class PointerMatrix {
    /**
@@ -5145,8 +5145,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare const ON: On;
  
