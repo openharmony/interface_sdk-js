@@ -4302,6 +4302,18 @@ export class UIContext {
   getTextMenuController(): TextMenuController;
 
   /**
+   * Set the keyboard appearance config for this input component before attach InputMethod.
+   *
+   * @param { number } uniqueId - The unique id of the input component.
+   * @param { KeyboardAppearanceConfig } config - The config of keyboard.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
+
+  /**
    * Create a UI instance singleton without window and get its UIContext object.
    *
    * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
