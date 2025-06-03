@@ -1992,6 +1992,20 @@ declare class SslErrorHandler {
    * @since 11
    */
   handleCancel(): void;
+
+  /**
+   * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
+   * continue displaying the error to users.
+   *
+   * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
+   *                                 user will remain on the current page. If it is false, the SSL error
+   *                                 will not be ignored, and a blank page will be displayed. If a default
+   *                                 error page is enabled, the default error page will be shown instead.
+   *                                 The default value is false.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  handleCancel(abortLoading: boolean): void;
 }
 
 /**
