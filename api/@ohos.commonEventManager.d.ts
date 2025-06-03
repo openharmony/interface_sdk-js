@@ -940,6 +940,26 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
     /**
+     * Indicates the target user (i.e the OS account) is going to be locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
+
+    /**
+     * Indicates the target user (i.e the OS acount) is locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
+
+    /**
      * Remind new user of that the service has been stopping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
