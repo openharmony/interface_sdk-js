@@ -18,9 +18,6 @@
  * @kit IMEKit
  */
 
-import { Resource } from './global/resource';
-import { CustomDialogController } from './arkui/component/customDialogController'
-
 /**
  * Define pattern options of keyboard.
  *
@@ -87,10 +84,8 @@ export interface Pattern {
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11
  */
-/**
- * @CustomDialog
- */
-declare interface InputMethodListDialog {
+@CustomDialog
+export declare struct InputMethodListDialog {
   /**
    * Sets the controller.
    *
@@ -108,4 +103,3 @@ declare interface InputMethodListDialog {
    */
   patternOptions?: PatternOptions;
 }
-export InputMethodListDialog;
