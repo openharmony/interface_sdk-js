@@ -20,6 +20,7 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import { Resource } from './global/resource';
 
 /**
@@ -3544,12 +3545,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Set the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this pen.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this pen.
@@ -3821,12 +3843,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Sets the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this brush.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this brush.
