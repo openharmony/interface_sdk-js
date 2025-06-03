@@ -22,7 +22,7 @@ import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
- * The inputConsumer module implements listening for combination key events.
+ * The inputConsumer module provides APIs for subscribing to and unsubscribing from global shortcut keys. 
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -74,7 +74,8 @@ declare namespace inputConsumer {
     /**
      * Duration for holding down the key, in μs. 
      * If the value of this field is 0, a callback is triggered immediately. 
-     * If the value of this field is greater than 0 and isFinalKeyDown is true, a callback is triggered when the key keeps being pressed after the specified duration expires. 
+     * If the value of this field is greater than 0 and isFinalKeyDown is true, 
+     * a callback is triggered when the key keeps being pressed after the specified duration expires. 
      * If isFinalKeyDown is false, a callback is triggered when the key is released before the specified duration expires.
      *
      * @type { number }
@@ -105,7 +106,8 @@ declare namespace inputConsumer {
    */
   interface HotkeyOptions {
     /**
-     * Modifier key set (including Ctrl, Shift, and Alt). A maximum of two modifier keys are supported. There is no requirement on the sequence of modifier keys.
+     * Modifier key set (including Ctrl, Shift, and Alt). A maximum of two modifier keys are supported. 
+     * There is no requirement on the sequence of modifier keys.
      * For example, in Ctrl+Shift+Esc, Ctrl and Shift are modifier keys.
      *
      * @type { Array<number> }
@@ -115,7 +117,7 @@ declare namespace inputConsumer {
     preKeys: Array<number>;
 
     /**
-     * Modified key, which is the key other than the modifier key and meta key.
+     * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see Keycode.
      * For example, in Ctrl+Shift+Esc, Esc is the modified key.
      *
      * @type { number }
@@ -153,9 +155,7 @@ declare namespace inputConsumer {
     key: number;
 
     /**
-     * Key event type. Currently, the value can only be 1.
-     * 1: Key press.
-     * 2: Key release.
+     * Key event type. Currently, this parameter can only be set to 1, indicating key press.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -164,7 +164,7 @@ declare namespace inputConsumer {
     action: number;
 
     /**
-     * Whether to report repeated key events.
+     * The value true means to report repeated key events, and the value false means the opposite. The default value is true.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -198,7 +198,8 @@ declare namespace inputConsumer {
    * 
    * @param { 'key' } type - Event type. Currently, only key is supported.
    * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data when a combination key event that meets the specified condition occurs.
+   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data 
+   * when a combination key event that meets the specified condition occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -211,7 +212,8 @@ declare namespace inputConsumer {
    * 
    * @param { 'key' } type - Event type. Currently, only key is supported.
    * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data when a combination key event that meets the specified condition occurs.
+   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data 
+   * when a combination key event that meets the specified condition occurs.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -226,7 +228,8 @@ declare namespace inputConsumer {
    *
    * @param { 'key' } type - Event type. Currently, only key is supported.
    * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback to unregister. If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
+   * @param { Callback<KeyOptions> } callback - Callback to unregister. 
+   * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -238,7 +241,8 @@ declare namespace inputConsumer {
    *
    * @param { 'key' } type - Event type. Currently, only key is supported.
    * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback to unregister. If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
+   * @param { Callback<KeyOptions> } callback - Callback to unregister. 
+   * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -253,8 +257,8 @@ declare namespace inputConsumer {
    *
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - Shortcut key shield mode. Currently, only FACTORY_MODE is supported, which means to shield all shortcut keys.
-   * @param { boolean } isShield - Whether to enable key shielding. The value true means to enable key shielding, and the value false indicates the opposite.
-   * all key events directly dispatch to window, if the value <b>false</b> indicates not shield shortcut key.
+   * @param { boolean } isShield - Whether to enable shortcut key shielding. 
+   * The value true means to enable shortcut key shielding, and the value false indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -292,12 +296,12 @@ declare namespace inputConsumer {
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
   /**
-   * Enables listening for global combination key events.
-   * This API uses an asynchronous callback to return the combination key data when a combination key event that meets the specified condition occurs.
+   * Subscribes to application shortcut key change events based on the specified options. 
+   * This API uses an asynchronous callback to return the result.
    * 
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of hotkeyChange.
    * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return the combination key data when a global combination key event that meets the specified condition occurs.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return the application shortcut key change event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -309,11 +313,12 @@ declare namespace inputConsumer {
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
-   * Disables listening for global combination key events.
+   * Unsubscribes from application shortcut key change events.
    * 
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of hotkeyChange.
    * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback to unregister. If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
+   * @param { Callback<HotkeyOptions> } callback - Callback to unregister. 
+   * If this parameter is left unspecified, listening will be disabled for all callbacks registered for the specified shortcut key options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -323,11 +328,12 @@ declare namespace inputConsumer {
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
-   * Subscribes to key press events. If the current application is in the foreground focus window, a callback is triggered when the specified key is pressed.
+   * Subscribes to key press events. This API uses an asynchronous callback to return the result. 
+   * If the current application is in the foreground focus window, a callback is triggered when the specified key is pressed.
    *
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of keyPressed.
    * @param { KeyPressedConfig } options - Sets the key event consumption configuration.
-   * @param { Callback<KeyEvent> } callback - Callback used to return the key event.
+   * @param { Callback<KeyEvent> } callback - Callback used to return key press events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -338,9 +344,11 @@ declare namespace inputConsumer {
 
   /**
    * Unsubscribes from key press events.
+   * This API uses an asynchronous callback to return the result.
    *
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of keyPressed.
-   * @param { Callback<KeyEvent> } callback - Callback to unregister. If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
+   * @param { Callback<KeyEvent> } callback - Callback to unregister. 
+   * If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.

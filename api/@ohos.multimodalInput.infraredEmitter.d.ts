@@ -83,7 +83,8 @@ declare namespace infraredEmitter {
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @param { number} infraredFrequency - IR infrared frequency, in Hz.
    * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
-   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
+   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
+   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -98,7 +99,8 @@ declare namespace infraredEmitter {
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @param { number} infraredFrequency - IR infrared frequency, in Hz.
    * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
-   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
+   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
+   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
