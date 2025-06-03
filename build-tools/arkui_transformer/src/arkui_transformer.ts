@@ -29,8 +29,14 @@ function getFiles(dir: string, fileFilter: (f: string) => boolean): string[] {
   for (const entry of dirents) {
     const fullPath = path.join(dir, entry.name)
     if (entry.isFile() && fileFilter(fullPath) && !uiconfig.notUIFile(fullPath)) {
-      result.push(fullPath)
-      uiconfig.addComponentFile(fullPath)
+      let addFile: boolean = true
+      if (uiconfig.isHdsComponent) {
+        addFile = entry.name.startsWith("@hms.hds.")
+      }
+      if (addFile) {
+        result.push(fullPath)
+        uiconfig.addComponentFile(fullPath)
+      }
     }
   }
   return result
@@ -96,6 +102,7 @@ function main() {
 const options = program
   .option('--input-dir <path>', "Path of where d.ets exist")
   .option('--target-dir <path>', "Path to generate d.ets file")
+  .option('--config-path <path>', "Path to folder with config files")
   .option('--use-memo-m3', "Generate code with m3 @memo annotations and functions with @ComponentBuilder", false)
   .parse()
   .opts()
