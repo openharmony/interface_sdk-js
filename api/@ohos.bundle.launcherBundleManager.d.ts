@@ -23,9 +23,7 @@ import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 /*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
-/*** if arkts 1.1 */
 import StartOptions from './@ohos.app.ability.StartOptions';
-/*** endif */
 
 /**
  * Launcher bundle manager.
@@ -212,27 +210,10 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
-
-  /**
-   * Starts shortcut.
-   *
-   * @permission ohos.permission.START_SHORTCUT
-   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Verify permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not support.
-   * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  function startShortcut(shortcutInfo: ShortcutInfo): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
