@@ -54,7 +54,6 @@
         "Menu",
         "MenuItem",
         "MenuItemGroup",
-        "Metaball",
         "MovingPhotoView",
         "NavDestination",
         "NavRouter",
@@ -130,8 +129,6 @@
         "ContainerSpan",
         "ArcSwiper",
         "ArcScrollBar",
-        "ArcAlphabetIndexer",
-        "HdsNavigation",
-        "HdsNavDestination"
+        "ArcAlphabetIndexer"
     ]
 }
