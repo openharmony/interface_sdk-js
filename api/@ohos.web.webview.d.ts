@@ -6028,7 +6028,8 @@ declare namespace webview {
      * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
@@ -8257,6 +8258,27 @@ declare namespace webview {
   }
 
   /**
+   * The function of reusme media play.
+   *
+   * @typedef { function } ResumePlayerFn
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type ResumePlayerFn = () => void;
+
+  /**
+   * The function of suspend media play.
+   *
+   * @typedef { function } SuspendPlayerFn
+   * @param { SuspendType } type - The scenario for suspending the media player.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type SuspendPlayerFn = (type: SuspendType) => void;
+
+  /**
    * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.
@@ -8264,7 +8286,8 @@ declare namespace webview {
    * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface NativeMediaPlayerBridge {
     /**
@@ -8276,7 +8299,8 @@ declare namespace webview {
      * @param { number } height - The height of video tag.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateRect(x: number, y: number, width: number, height: number): void
 
@@ -8285,7 +8309,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     play(): void
 
@@ -8294,7 +8319,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): void
 
@@ -8306,7 +8332,8 @@ declare namespace webview {
      * @param { number } targetTime - The target time (in seconds) to FF/BF to.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     seek(targetTime: number): void
 
@@ -8318,7 +8345,8 @@ declare namespace webview {
      * @param { number } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setVolume(volume: number): void
 
@@ -8328,7 +8356,8 @@ declare namespace webview {
      * @param { boolean } muted - Should mute native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMuted(muted: boolean): void
 
@@ -8340,7 +8369,8 @@ declare namespace webview {
      * @param { number } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPlaybackRate(playbackRate: number): void
 
@@ -8349,7 +8379,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): void
 
@@ -8358,7 +8389,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enterFullscreen(): void
 
@@ -8367,7 +8399,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     exitFullscreen(): void
 
@@ -8380,6 +8413,16 @@ declare namespace webview {
     resumePlayer?(): void
 
     /**
+     * Resume the native media player.
+     *
+     * @type { ?ResumePlayerFn }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    resumePlayer?: ResumePlayerFn;
+
+    /**
      * Suspend to release native media player, not the NativeMediaPlayerBridge. The
      * embedder should save the status of player when release the native media player
      * through NativeMediaPlayerBridge.
@@ -8389,6 +8432,18 @@ declare namespace webview {
      * @since 12
      */
     suspendPlayer?(type: SuspendType): void
+
+    /**
+     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
+     * embedder should save the status of player when release the native media player
+     * through NativeMediaPlayerBridge.
+     *
+     * @type { ?SuspendPlayerFn }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    suspendPlayer?: SuspendPlayerFn;
   }
 
   /**
@@ -8713,7 +8768,8 @@ declare namespace webview {
    * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CreateNativeMediaPlayerCallback =
       (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
