@@ -726,7 +726,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -746,7 +747,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -762,7 +764,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
@@ -778,7 +781,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -798,7 +802,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -818,7 +823,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -833,7 +839,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -848,7 +855,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -863,7 +871,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -875,7 +884,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -906,7 +916,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -921,7 +932,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -935,7 +947,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -947,7 +960,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAllSlots(): Promise<void>;
 
@@ -1384,7 +1398,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -1425,7 +1440,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -1508,7 +1524,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1587,7 +1604,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -1626,7 +1644,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -3482,7 +3501,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
@@ -3521,7 +3541,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
@@ -3553,7 +3574,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(
     type: 'checkNotification',
