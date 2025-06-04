@@ -18,28 +18,24 @@ import * as ts from "typescript";
 export function addImportTransformer(): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         return (sourceFile) => {
-            if (sourceFile) {
-                const targetImport = createTargetImport();
-                const insertPosition = findBestInsertPosition(sourceFile);
-    
-                const newStatements = [
-                    ...sourceFile.statements.slice(0, insertPosition),
-                    targetImport,
-                    ...sourceFile.statements.slice(insertPosition)
-                ];
-    
-                return ts.factory.updateSourceFile(
-                    sourceFile,
-                    newStatements,
-                    sourceFile.isDeclarationFile,
-                    sourceFile.referencedFiles,
-                    sourceFile.typeReferenceDirectives,
-                    sourceFile.hasNoDefaultLib,
-                    sourceFile.libReferenceDirectives
-                );
-            } else {
-                return sourceFile;
-            }
+            const targetImport = createTargetImport();
+            const insertPosition = findBestInsertPosition(sourceFile);
+
+            const newStatements = [
+                ...sourceFile.statements.slice(0, insertPosition),
+                targetImport,
+                ...sourceFile.statements.slice(insertPosition)
+            ];
+
+            return ts.factory.updateSourceFile(
+                sourceFile,
+                newStatements,
+                sourceFile.isDeclarationFile,
+                sourceFile.referencedFiles,
+                sourceFile.typeReferenceDirectives,
+                sourceFile.hasNoDefaultLib,
+                sourceFile.libReferenceDirectives
+            );
         };
     };
 }
