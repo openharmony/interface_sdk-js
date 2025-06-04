@@ -1430,6 +1430,40 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Swiper' } nodeType - node type.
+   * @returns { SwiperAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Swiper'): SwiperAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { SwiperController } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Swiper' } nodeType - node type.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function bindController(node: FrameNode, controller: SwiperController, nodeType: 'Swiper'): void;
+
+  /**
    * Define the FrameNode type for Progress.
    * 
    * <p><strong>NOTE</strong>:
@@ -1745,6 +1779,40 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'List'): List;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { ListAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'List'): ListAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function bindController(node: FrameNode, controller: Scroller, nodeType: 'List'): void;
+
+  /**
    * Define the FrameNode type for ListItem.
    * 
    * <p><strong>NOTE</strong>:
@@ -1786,6 +1854,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'ListItem' } nodeType - node type.
+   * @returns { ListItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'ListItem'): ListItemAttribute | undefined;
 
   /**
    * Define the FrameNode type for TextInput.
@@ -1884,6 +1968,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'ListItemGroup' } nodeType - node type.
+   * @returns { ListItemGroupAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'ListItemGroup'): ListItemGroupAttribute | undefined;
+
+  /**
    * Define the FrameNode type for WaterFlow.
    * 
    * <p><strong>NOTE</strong>:
@@ -1912,6 +2012,40 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { WaterFlowAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'WaterFlow'): WaterFlowAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function bindController(node: FrameNode, controller: Scroller, nodeType: 'WaterFlow'): void;
 
   /**
    * Get the event instance of Scroll node.
@@ -1955,6 +2089,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'FlowItem' } nodeType - node type.
+   * @returns { FlowItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'FlowItem'): FlowItemAttribute | undefined;
 
   /**
    * Define the FrameNode type for XComponent.
@@ -2464,6 +2614,40 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { GridAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Grid'): GridAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function bindController(node: FrameNode, controller: Scroller, nodeType: 'Grid'): void;
+
+  /**
    * Get the event instance of Scroll node.
    * 
    * @param { FrameNode } node - the target FrameNode.
@@ -2505,6 +2689,22 @@ export namespace typeNode {
    * @since 14
    */
   function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'GridItem'): GridItemAttribute | undefined;
 }
 
 /**
