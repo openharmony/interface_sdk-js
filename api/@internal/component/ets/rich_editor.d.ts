@@ -4092,6 +4092,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
 
   /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): RichEditorAttribute;
+
+  /**
    * Set the keyboard appearance.
    *
    * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
