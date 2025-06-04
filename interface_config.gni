@@ -19,3 +19,4 @@ common_api_src = [
   "//interface/sdk-js/api/@system.prompt.d.ts",
   "//interface/sdk-js/api/@system.router.d.ts",
 ]
+sdk_type = "ets"
