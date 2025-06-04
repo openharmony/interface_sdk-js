@@ -4041,7 +4041,8 @@ declare namespace notificationManager {
      * @type { ?function }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
   }
