@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1048,6 +1048,52 @@ declare namespace drawing {
      * @since 18
      */
     getPathIterator(): PathIterator;
+
+    /**
+     * Approximates the path with a series of line segments.
+     *
+     * @param { number } acceptableError - Indicates the acceptable error for a line on the path. Should be no less than 0.
+     * @returns { Array<number> } - Returns with the array containing point components.
+     * <br>There are three components for each point:
+     * <br>1. Fraction along the length of the path that the point resides [0.0, 1.0].
+     * <br>2. The x coordinate of the point.
+     * <br>3. The y coordinate of the point.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    approximate(acceptableError: number): Array<number>;
+
+    /**
+     * Performs interpolation between the current path and another path based on a given weight, and stores the result in the target path object.
+     *
+     * @param { Path } other - Indicates the other path to be interpolated with the current path.
+     * @param { number } weight - Indicates the interpolation weight, which must be in the range [0, 1].
+     * @param { Path } interpolatedPath - Indicates the target path object where the interpolation result will be stored.
+     * @returns { boolean } - Returns true if the interpolation operation was successful; returns false otherwise.
+     * <br>Possible reasons for failure include:
+     * <br>1. The 'other' is incompatible with the current path.
+     * <br>2. The 'weight' is outside the [0, 1] range.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    interpolate(other: Path, weight: number, interpolatedPath: Path): boolean;
+
+    /**
+     * Checks whether the current path is compatible with another path (other) for interpolation, which means
+     * they have exactly the same structure, both paths must have the same operations, in the same order.
+     * If any of the operations are of type PathIteratorVerb.CONIC, then the weights of those conics must also match.
+     *
+     * @param { Path } other - Indicates the path to be checked for compatibility with the current path.
+     * @returns { boolean } - Returns true if the current path and the other path are compatible for interpolation; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isInterpolate(other: Path): boolean;
   }
 
   /**
