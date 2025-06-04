@@ -2866,7 +2866,7 @@ export declare enum KeyCode {
    */
   KEYCODE_DAGGER_LONG_PRESS = 3213,
 
-    /**
+  /**
    * KEYCODE_DIV
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
