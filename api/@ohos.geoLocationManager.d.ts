@@ -1603,7 +1603,8 @@ declare namespace geoLocationManager {
    *
    * @typedef ReverseGeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ReverseGeoCodeRequest {
     /**
@@ -1611,7 +1612,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locale?: string;
 
@@ -1620,7 +1622,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     country?: string;
 
@@ -1629,7 +1632,8 @@ declare namespace geoLocationManager {
      *
      * @type { number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     latitude: number;
 
@@ -1638,7 +1642,8 @@ declare namespace geoLocationManager {
      *
      * @type { number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longitude: number;
 
@@ -1647,7 +1652,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxItems?: number;
   }
@@ -1657,7 +1663,8 @@ declare namespace geoLocationManager {
    *
    * @typedef GeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface GeoCodeRequest {
     /**
@@ -1665,7 +1672,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locale?: string;
 
@@ -1674,7 +1682,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     country?: string;
 
@@ -1683,7 +1692,8 @@ declare namespace geoLocationManager {
      *
      * @type { string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description: string;
 
@@ -1692,7 +1702,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxItems?: number;
 
@@ -1701,7 +1712,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minLatitude?: number;
 
@@ -1710,7 +1722,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minLongitude?: number;
 
@@ -1719,7 +1732,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxLatitude?: number;
 
@@ -1728,7 +1742,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxLongitude?: number;
   }
@@ -1738,7 +1753,8 @@ declare namespace geoLocationManager {
    *
    * @typedef GeoAddress
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface GeoAddress {
     /**
@@ -1748,7 +1764,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     latitude?: number;
 
@@ -1759,7 +1776,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longitude?: number;
 
@@ -1769,7 +1787,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locale?: string;
 
@@ -1778,7 +1797,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     placeName?: string;
 
@@ -1787,7 +1807,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     countryCode?: string;
 
@@ -1796,7 +1817,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     countryName?: string;
 
@@ -1805,7 +1827,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     administrativeArea?: string;
 
@@ -1814,7 +1837,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subAdministrativeArea?: string;
 
@@ -1823,7 +1847,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locality?: string;
 
@@ -1832,7 +1857,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subLocality?: string;
 
@@ -1841,7 +1867,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     roadName?: string;
 
@@ -1850,7 +1877,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subRoadName?: string;
 
@@ -1859,7 +1887,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     premises?: string;
 
@@ -1868,7 +1897,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     postalCode?: string;
 
@@ -1877,7 +1907,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     phoneNumber?: string;
 
@@ -1886,7 +1917,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addressUrl?: string;
 
@@ -1895,7 +1927,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptions?: Array<string>;
 
@@ -1904,7 +1937,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptionsSize?: number;
 
@@ -1914,7 +1948,8 @@ declare namespace geoLocationManager {
      * @type { ?Boolean }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isFromMock?: Boolean;
   }
@@ -1932,7 +1967,8 @@ declare namespace geoLocationManager {
    * @typedef LocationRequest
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface LocationRequest {
     /**
@@ -1948,7 +1984,8 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: LocationRequestPriority;
 
@@ -1965,7 +2002,8 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scenario?: LocationRequestScenario;
 
@@ -1982,7 +2020,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timeInterval?: number;
 
@@ -1999,7 +2038,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     distanceInterval?: number;
 
@@ -2016,7 +2056,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxAccuracy?: number;
   }
@@ -2037,7 +2078,7 @@ declare namespace geoLocationManager {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface CurrentLocationRequest {
+   export interface CurrentLocationRequest {
     /**
      * Priority of the location request.
      *
@@ -2144,7 +2185,8 @@ declare namespace geoLocationManager {
    * @typedef ContinuousLocationRequest
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ContinuousLocationRequest {
     /**
@@ -2153,7 +2195,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval: number;
 
@@ -2163,7 +2206,8 @@ declare namespace geoLocationManager {
      * @type { UserActivityScenario | PowerConsumptionScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locationScenario: UserActivityScenario | PowerConsumptionScenario;
 
@@ -2175,7 +2219,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sportsType?: SportsType;
   }
@@ -2501,7 +2546,8 @@ declare namespace geoLocationManager {
    * @typedef LocatingRequiredDataConfig
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface LocatingRequiredDataConfig {
     /**
@@ -2510,7 +2556,8 @@ declare namespace geoLocationManager {
      * @type {LocatingRequiredDataType}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: LocatingRequiredDataType;
 
@@ -2520,7 +2567,8 @@ declare namespace geoLocationManager {
      * @type {boolean}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     needStartScan: boolean;
 
@@ -2531,7 +2579,8 @@ declare namespace geoLocationManager {
      * @type {?number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scanInterval?: number;
 
@@ -2542,7 +2591,8 @@ declare namespace geoLocationManager {
      * @type {?number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scanTimeout?: number;
   }
@@ -2552,7 +2602,8 @@ declare namespace geoLocationManager {
    * @typedef LocatingRequiredData
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface LocatingRequiredData {
     /**
@@ -2561,7 +2612,8 @@ declare namespace geoLocationManager {
      * @type {?WifiScanInfo}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wifiData?: WifiScanInfo;
 
@@ -2571,7 +2623,8 @@ declare namespace geoLocationManager {
      * @type {?BluetoothScanInfo}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bluetoothData?: BluetoothScanInfo;
   }
@@ -2581,7 +2634,8 @@ declare namespace geoLocationManager {
    * @typedef WifiScanInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WifiScanInfo {
     /**
@@ -2590,7 +2644,8 @@ declare namespace geoLocationManager {
      * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ssid: string;
 
@@ -2600,7 +2655,8 @@ declare namespace geoLocationManager {
      * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssid: string;
 
@@ -2610,7 +2666,8 @@ declare namespace geoLocationManager {
      * @type {number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssi: number;
 
@@ -2620,7 +2677,8 @@ declare namespace geoLocationManager {
      * @type {number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frequency: number;
 
@@ -2630,7 +2688,8 @@ declare namespace geoLocationManager {
      * @type {number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timestamp: number;
   }
@@ -2641,7 +2700,8 @@ declare namespace geoLocationManager {
    * @typedef BluetoothScanInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface BluetoothScanInfo {
     /**
@@ -2650,7 +2710,8 @@ declare namespace geoLocationManager {
      * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -2660,7 +2721,8 @@ declare namespace geoLocationManager {
      * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     macAddress: string;
 
@@ -2670,7 +2732,8 @@ declare namespace geoLocationManager {
      * @type {number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssi: number;
 
@@ -2680,7 +2743,8 @@ declare namespace geoLocationManager {
      * @type {number}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timestamp: number;
   }
@@ -2690,7 +2754,8 @@ declare namespace geoLocationManager {
    *
    * @typedef BluetoothScanResult
    * @syscap SystemCapability.Location.Location.Core
-   * @since 16
+   * @since arkts {'1.1':'16','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface BluetoothScanResult {
     /**
@@ -2698,7 +2763,8 @@ declare namespace geoLocationManager {
      *
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 16
+     * @since arkts {'1.1':'16','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -2707,7 +2773,8 @@ declare namespace geoLocationManager {
      *
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 16
+     * @since arkts {'1.1':'16','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssi: number;
 
@@ -2716,7 +2783,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 16
+     * @since arkts {'1.1':'16','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data?: ArrayBuffer;
 
@@ -2725,7 +2793,8 @@ declare namespace geoLocationManager {
      *
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 16
+     * @since arkts {'1.1':'16','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -2734,7 +2803,8 @@ declare namespace geoLocationManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 16
+     * @since arkts {'1.1':'16','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connectable: boolean;
   }
@@ -2795,14 +2865,16 @@ declare namespace geoLocationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Geofence
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CoordinateSystemType {
     /**
      * WGS84 coordinates system.
      *
      * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WGS84 = 1,
 
@@ -2810,7 +2882,8 @@ declare namespace geoLocationManager {
      * GCJ-02 coordinates system.
      *
      * @syscap SystemCapability.Location.Location.Geofence
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GCJ02 = 2
   }
@@ -2821,7 +2894,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationIconStatus {
     /**
@@ -2829,7 +2903,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_NOT_STARTED = 0,
 
@@ -2838,7 +2913,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_STARTED = 1,
 
@@ -2847,7 +2923,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HD_LOCATING_STARTED = 2
   }
@@ -2858,7 +2935,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationError {
     /**
@@ -2866,7 +2944,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_FAILED_DEFAULT = -1,
 
@@ -2875,7 +2954,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_FAILED_LOCATION_PERMISSION_DENIED = -2,
 
@@ -2884,7 +2964,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED = -3,
 
@@ -2893,7 +2974,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_FAILED_LOCATION_SWITCH_OFF = -4,
 
@@ -2902,7 +2984,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCATING_FAILED_INTERNET_ACCESS_FAILURE = -5
   }
@@ -2945,14 +3028,16 @@ declare namespace geoLocationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SatelliteConstellationCategory {
     /**
      * Invalid value.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_UNKNOWN = 0,
 
@@ -2960,7 +3045,8 @@ declare namespace geoLocationManager {
      * GPS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_GPS = 1,
 
@@ -2968,7 +3054,8 @@ declare namespace geoLocationManager {
      * SBAS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_SBAS = 2,
 
@@ -2976,7 +3063,8 @@ declare namespace geoLocationManager {
      * GLONASS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_GLONASS = 3,
 
@@ -2984,7 +3072,8 @@ declare namespace geoLocationManager {
      * QZSS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_QZSS = 4,
 
@@ -2992,7 +3081,8 @@ declare namespace geoLocationManager {
      * BEIDOU.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_BEIDOU = 5,
 
@@ -3000,7 +3090,8 @@ declare namespace geoLocationManager {
      * GALILEO.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_GALILEO = 6,
 
@@ -3008,7 +3099,8 @@ declare namespace geoLocationManager {
      * IRNSS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTELLATION_CATEGORY_IRNSS = 7
   }
@@ -3018,14 +3110,16 @@ declare namespace geoLocationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SatelliteAdditionalInfo {
     /**
      * Default value.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATELLITES_ADDITIONAL_INFO_NULL = 0,
 
@@ -3033,7 +3127,8 @@ declare namespace geoLocationManager {
      * Ephemeris data exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST = 1,
 
@@ -3041,7 +3136,8 @@ declare namespace geoLocationManager {
      * Almanac data exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST = 2,
 
@@ -3049,7 +3145,8 @@ declare namespace geoLocationManager {
      * This satellite is being used in location fix.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATELLITES_ADDITIONAL_INFO_USED_IN_FIX = 4,
 
@@ -3057,7 +3154,8 @@ declare namespace geoLocationManager {
      * Carrier frequency exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST = 8
   }
@@ -3068,7 +3166,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum UserActivityScenario {
     /**
@@ -3076,7 +3175,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NAVIGATION = 0x401,
 
@@ -3085,7 +3185,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPORT = 0x402,
 
@@ -3094,7 +3195,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSPORT = 0x403,
 
@@ -3103,7 +3205,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DAILY_LIFE_SERVICE = 0x404
   }
@@ -3341,7 +3444,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PowerConsumptionScenario {
     /**
@@ -3349,7 +3453,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH_POWER_CONSUMPTION = 0x601,
 
@@ -3358,7 +3463,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW_POWER_CONSUMPTION = 0x602,
 
@@ -3367,7 +3473,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_POWER_CONSUMPTION = 0x603
   }
@@ -3378,7 +3485,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationPrivacyType {
     /**
@@ -3386,7 +3494,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OTHERS = 0,
 
@@ -3395,7 +3504,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STARTUP,
 
@@ -3404,7 +3514,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CORE_LOCATION
   }
@@ -3415,7 +3526,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SportsType {
     /**
@@ -3423,7 +3535,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RUNNING = 1,
 
@@ -3432,7 +3545,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WALKING,
 
@@ -3441,7 +3555,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CYCLING
   }
@@ -3478,7 +3593,8 @@ declare namespace geoLocationManager {
    *
    * @typedef CountryCode
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CountryCode {
     /**
@@ -3486,7 +3602,8 @@ declare namespace geoLocationManager {
      *
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     country: string;
 
@@ -3495,7 +3612,8 @@ declare namespace geoLocationManager {
      *
      * @type { CountryCodeType }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: CountryCodeType;
   }
@@ -3505,14 +3623,16 @@ declare namespace geoLocationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CountryCodeType {
     /**
      * Country code obtained from the locale setting.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COUNTRY_CODE_FROM_LOCALE = 1,
 
@@ -3520,7 +3640,8 @@ declare namespace geoLocationManager {
      * Country code obtained from the SIM information.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COUNTRY_CODE_FROM_SIM,
 
@@ -3528,7 +3649,8 @@ declare namespace geoLocationManager {
      * Query the country code information from the reverse geocoding result.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COUNTRY_CODE_FROM_LOCATION,
 
@@ -3536,7 +3658,8 @@ declare namespace geoLocationManager {
      * Obtain the country code from the cell registration information.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COUNTRY_CODE_FROM_NETWORK
   }
@@ -3547,7 +3670,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocatingRequiredDataType {
     /**
@@ -3555,7 +3679,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI = 1,
 
@@ -3564,7 +3689,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLUETOOTH
   }

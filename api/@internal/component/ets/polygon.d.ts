@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonShapeMethod,CommonMethod } from './common';
+import { CommonShapeMethod } from './common';
+import { ShapePoint } from './line';
 /*** endif */
 
 /**
@@ -270,7 +271,8 @@ interface PolygonInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -312,6 +314,20 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @since 11
    */
   points(value: Array<any>): PolygonAttribute;
+
+  /**
+   * Called when the vertex coordinate list of a polygon is set.
+   *
+   * @param { Array<ShapePoint> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+   points(value: Array<ShapePoint>): PolygonAttribute;
 }
 
 /**
@@ -403,70 +419,4 @@ interface PolygonInterface {
    * @arkts 1.2
    */
   (options?: PolygonOptions): PolygonAttribute;
-}
-
-/**
- * Defines the Point interface
- * 
- * @interface Point
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface Point {
-  /**
-   * The x-axis coordinate of the point.
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  x: number | string;
-
-  /**
-   * The y-axis coordinate of the point.
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  y: number | string;
-}
-
-/**
- * Provides attribute for Polygon.
- *
- * @extends CommonShapeMethod<PolygonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
-  /**
-   * Called when the vertex coordinate list of a polygon is set.
-   *
-   * @param { Array<Point> } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  points(value: Array<Point>): PolygonAttribute;
 }

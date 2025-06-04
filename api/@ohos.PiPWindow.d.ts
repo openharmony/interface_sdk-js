@@ -90,8 +90,7 @@ declare namespace PiPWindow {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function create(config: PiPConfiguration): Promise<PiPController>;
 
@@ -111,7 +110,6 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
-   * @arkts 1.1
    */
   function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
@@ -1067,8 +1065,7 @@ declare namespace PiPWindow {
      * @param { boolean } enable - Enable auto start picture-in-picture when back home
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setAutoStartEnabled(enable: boolean): void;
 
@@ -1089,8 +1086,7 @@ declare namespace PiPWindow {
      *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1103,8 +1099,7 @@ declare namespace PiPWindow {
      *                                                                3. Parameter verification failed
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1133,8 +1128,7 @@ declare namespace PiPWindow {
      *                                                                3. Parameter verification failed
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1145,8 +1139,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
      getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
@@ -1163,8 +1156,7 @@ declare namespace PiPWindow {
      * @param { function } callback - Used to handle {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void;
 
@@ -1179,8 +1171,7 @@ declare namespace PiPWindow {
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'stateChange'): void;
 
@@ -1198,8 +1189,7 @@ declare namespace PiPWindow {
      * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void;
 
@@ -1214,8 +1204,7 @@ declare namespace PiPWindow {
      * @param { 'controlPanelActionEvent' } type - Used to unregister listener for {'controlPanelActionEvent'} command
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'controlPanelActionEvent'): void;
 
@@ -1226,8 +1215,7 @@ declare namespace PiPWindow {
      * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'controlEvent', callback: Callback<ControlEventParam>): void;
 
@@ -1237,8 +1225,7 @@ declare namespace PiPWindow {
      * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
 
@@ -1255,8 +1242,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
 
@@ -1273,8 +1259,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
@@ -1286,8 +1271,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      * @test
      */
     isPiPSupported(): boolean;

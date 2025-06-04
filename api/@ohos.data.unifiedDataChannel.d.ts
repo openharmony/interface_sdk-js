@@ -53,24 +53,21 @@ declare namespace unifiedDataChannel {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum ShareOptions {
     /**
      * IN_APP indicates that only use in the same app is allowed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     IN_APP,
     /**
      * CROSS_APP indicates that use in any app in this device is allowed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CROSS_APP
   }
@@ -83,8 +80,7 @@ declare namespace unifiedDataChannel {
    * @returns { UnifiedData } Return the UnifiedData required.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type GetDelayData = (type: string) => UnifiedData;
 
@@ -111,8 +107,7 @@ declare namespace unifiedDataChannel {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class UnifiedDataProperties {
     /**
@@ -120,8 +115,7 @@ declare namespace unifiedDataChannel {
      * @type { ?Record<string, object> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     extras?: Record<string, object>;
 
@@ -130,8 +124,7 @@ declare namespace unifiedDataChannel {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     tag?: string;
     /**
@@ -140,8 +133,7 @@ declare namespace unifiedDataChannel {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly timestamp?: Date;
     /**
@@ -150,8 +142,7 @@ declare namespace unifiedDataChannel {
      * @type { ?ShareOptions }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     shareOptions?: ShareOptions;
 
@@ -160,8 +151,7 @@ declare namespace unifiedDataChannel {
      * @type { ?GetDelayData }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getDelayData?: GetDelayData;
   }
@@ -266,8 +256,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     addRecord(record: UnifiedRecord): void;
     /**
@@ -374,8 +363,7 @@ declare namespace unifiedDataChannel {
      * @type { Record<string, number> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     summary: Record<string, number>;
     /**
@@ -390,8 +378,7 @@ declare namespace unifiedDataChannel {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     totalSize: number;
   }
@@ -855,8 +842,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   class File extends UnifiedRecord {
     /**
@@ -880,8 +866,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     details?: Record<string, string>;
     /**
@@ -905,8 +890,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     uri: string;
   }
@@ -933,8 +917,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   class Image extends File {
     /**
@@ -958,8 +941,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     imageUri: string;
   }
@@ -986,8 +968,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   class Video extends File {
     /**
@@ -1011,8 +992,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     videoUri: string;
   }

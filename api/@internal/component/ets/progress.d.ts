@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor,Length, PX , VP , LPX, Font } from './units'
+import { ResourceColor,Length, PX , VP , LPX, Font, ResourceStr } from './units'
 import { Resource } from '../../global/resource';
 import { CommonMethod, Optional,ContentModifier,CommonConfiguration } from './common'
 import { LinearGradient } from './dataPanel'
@@ -1684,8 +1684,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
 /**
  * Defines the progress attribute functions.
  *
- * @extends CommonMethod
- * @typedef ProgressAttribute
+ * @extends CommonMethod<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -1693,7 +1692,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @since 20
  * @arkts 1.2
  */
-export declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
+declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
    * Called when the current progress value is set.
    *

@@ -33,7 +33,7 @@ import { LinearGradient } from './dataPanel'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 interface GaugeOptions {
@@ -69,7 +69,18 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Set current data value.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   value: number;
@@ -106,7 +117,18 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Set current segment minimum value.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   min?: number;
@@ -143,7 +165,18 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Set current segment maximum value.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   max?: number;
@@ -233,6 +266,7 @@ interface GaugeInterface {
    */
   /**
    * Called when the gauge component is used.
+   * Anonymous Object Rectification.
    *
    * @param { GaugeOptions } options - Gauge options.
    * @returns { GaugeAttribute }
@@ -240,7 +274,7 @@ interface GaugeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   (options: GaugeOptions): GaugeAttribute;

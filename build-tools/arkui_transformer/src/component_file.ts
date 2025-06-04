@@ -41,7 +41,7 @@ export class ComponentFile {
   }
 
   public appendFunction(str: string) {
-    this.functionSource = str
+    this.functionSource += str
   }
 
   get concactSource() {

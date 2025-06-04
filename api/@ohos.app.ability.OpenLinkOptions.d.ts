@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
+ * @since arkts {'1.1':'12', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 export default interface OpenLinkOptions {

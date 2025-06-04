@@ -2115,7 +2115,7 @@ declare namespace promptAction {
   /**
    * Displays the notification text.
    *
-   * @param { ShowToastOptions } options - Options.
+   * @param { ShowToastOptions } toastInfo - toastInfo.
    * @returns { Promise<number> } return the toast id that will be used by closeToast.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -2128,7 +2128,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function openToast(options: ShowToastOptions): Promise<number>;
+  export function openToast(toastInfo: ShowToastOptions): Promise<number>;
 
   /**
    * Close the notification text.

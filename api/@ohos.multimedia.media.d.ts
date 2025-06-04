@@ -3586,6 +3586,16 @@ declare namespace media {
   }
 
   /**
+   * Provides the container definition for media description key-value pairs.
+   *
+   * @typedef { Record<string, Object> }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type PlaybackInfo = Record<string, Object>;
+
+  /**
    * Enumerates statistics info keys for player.
    *
    * @enum { string }
@@ -8084,36 +8094,34 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  // interface MediaDescription {
-  //   /**
-  //    * key:value pair, key see @MediaDescriptionKey .
-  //    * @syscap SystemCapability.Multimedia.Media.Core
-  //    * @since 8
-  //    */
-  //   /**
-  //    * key:value pair, key see @MediaDescriptionKey .
-  //    * @syscap SystemCapability.Multimedia.Media.Core
-  //    * @atomicservice
-  //    * @since 11
-  //    */
-  //   /**
-  //    * key:value pair, key see @MediaDescriptionKey .
-  //    * @syscap SystemCapability.Multimedia.Media.Core
-  //    * @crossplatform
-  //    * @atomicservice
-  //    * @since arkts {'1.1':'12','1.2':'20'}
-  //    * @arkts 1.1&1.2
-  //    */
-  //   [key: string]: Object;
-  // }
+  interface MediaDescription {
+    /**
+     * key:value pair, key see @MediaDescriptionKey .
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 8
+     */
+    /**
+     * key:value pair, key see @MediaDescriptionKey .
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * key:value pair, key see @MediaDescriptionKey .
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    [key: string]: Object;
+  }
 
   /**
    * Provides the container definition for media description key-value pairs.
    *
-   * @typedef { Record<string, Object> } MediaDescription
+   * @typedef { Record<string, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice

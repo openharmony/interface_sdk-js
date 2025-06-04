@@ -173,7 +173,7 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   disabledDateRange?: DateRange[];
@@ -195,7 +195,7 @@ declare interface CalendarOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare interface CalendarPickerInterface {
+interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
    * @param { CalendarOptions } options - the option of th calendarPicker.
@@ -320,6 +320,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    */
   /**
    * Callback for selected date changed.
+   * Anonymous Object Rectification.
    * @param { Callback<Date> } callback - callback for selected date changed.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -350,7 +351,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   markToday(enabled: boolean): CalendarPickerAttribute;
@@ -392,6 +393,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   * Anonymous Object Rectification.
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -418,6 +420,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   * Anonymous Object Rectification.
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -444,6 +447,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * This event is triggered when a date is selected in dialog.
+   * Anonymous Object Rectification.
    * @type { ?Callback<Date> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -504,7 +508,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -516,7 +520,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
@@ -556,6 +560,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function when the dialog appears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -577,6 +582,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function when the dialog disappears.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -598,6 +604,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function before the dialog openAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -619,6 +626,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    */
   /**
    * Callback function before the dialog closeAnimation starts.
+   * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -675,7 +683,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   markToday?: boolean;

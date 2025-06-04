@@ -30,6 +30,10 @@ def compile_package(options):
     nodejs = os.path.abspath(options.node_js)
     input_dir = os.path.abspath(options.input)
     output = os.path.abspath(options.output)
+    config_path = ''
+    if (len(options.config_path) > 0):
+        config_path = os.path.abspath(options.config_path)
+
     custom_env = {
         'PATH': f"{os.path.dirname(os.path.abspath(options.node_js))}:{os.environ.get('PATH')}",
         'NODE_HOME': os.path.dirname(os.path.abspath(options.node_js)),
@@ -38,7 +42,10 @@ def compile_package(options):
     process = subprocess.run([npm, "run", "compile:arkui"], env=custom_env, cwd=tool_path, shell=False)
 
     if os.path.exists(package_path):
-        p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output], cwd=tool_path, shell=False)
+        if (len(config_path) > 0):
+            p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output, "--config-path", config_path], cwd=tool_path, shell=False)
+        else:
+            p = subprocess.run([nodejs, package_path, "--input-dir", input_dir, "--target-dir", output], cwd=tool_path, shell=False)
     else:
         print("arkui_transformer: tool path does not exist")
     
@@ -49,6 +56,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
     parser.add_argument('--output', required=True)
+    parser.add_argument('--config_path', required=False, default='')
     parser.add_argument('--source_root_dir', required=True)
     parser.add_argument('--npm-path', required=True)
     parser.add_argument('--node-js', required=True)

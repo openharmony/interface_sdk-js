@@ -28,6 +28,7 @@ import { ComponentContent } from './ComponentContent';
 /*** if arkts 1.2 */
 import { UIContext } from '@ohos.arkui.UIContext';
 import { UICommonEvent, UIGestureEvent, CommonAttribute } from './component/common'
+import { ListOptions, ListAttribute } from './component/list'
 /*** endif */
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -170,7 +171,15 @@ export enum ExpandMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
+ * @since 12
+ */
+/**
+ * Defines FrameNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export declare class FrameNode {
@@ -912,7 +921,6 @@ export declare class FrameNode {
    */
   reuse(): void;
 }
-/*** if arkts 1.1 */
 /**
  * Used to define the FrameNode type.
  *
@@ -924,21 +932,6 @@ export declare class FrameNode {
  * @since 12
  */
 export interface TypedFrameNode<C, T> extends FrameNode {
-/*** endif */
-
-/*** if arkts 1.2 */
-/**
- * Used to define the FrameNode type.
- *
- * @extends FrameNode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class TypedFrameNode<C, T> extends FrameNode {
-/*** endif */
   /**
    * Initialize FrameNode.
    * 
@@ -946,8 +939,7 @@ export declare class TypedFrameNode<C, T> extends FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   initialize: C;
   /**
@@ -958,8 +950,32 @@ export declare class TypedFrameNode<C, T> extends FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  readonly attribute: T;
+}
+
+/**
+ * Used to define the FrameNode type.
+ *
+ * @extends FrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare abstract class TypedFrameNode<T> extends FrameNode {
+  /**
+   * Get attribute instance of FrameNode to set attributes.
+   *
+   * @type { T }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   readonly attribute: T;
 }
@@ -973,7 +989,17 @@ export declare class TypedFrameNode<C, T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace typeNode {
+/**
+ * Provides methods to implement FrameNode.
+ *
+ * @namespace typeNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since arkts{ '1.1':'20','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export declare namespace typeNode {
   /**
    * Define the FrameNode type for Text.
    * 
@@ -1382,6 +1408,43 @@ export namespace typeNode {
   type List = TypedFrameNode<ListInterface, ListAttribute>;
 
   /**
+   * Define the List type of FrameNode.
+   *
+   * @extends TypedFrameNode<ListAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  abstract class ListFrameNode extends TypedFrameNode<ListAttribute> {  
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { ListOptions } [options] - list options
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    abstract initialize(options?: ListOptions): ListAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for List.
+   *
+   * @typedef { ListFrameNode } List
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type List = ListFrameNode;
+
+  /**
    * Create a FrameNode of List type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -1391,7 +1454,18 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'List'): List;
+  /**
+   * Create a FrameNode of List type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'List' } nodeType - node type.
+   * @returns { List } - Return List type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts{ '1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export function createNode(context: UIContext, nodeType: 'List'): List;
 
   /**
    * Define the FrameNode type for ListItem.
@@ -1949,7 +2023,6 @@ export namespace typeNode {
    */
   function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
-
 /**
  * Used for lazy loading of typeNode.
  *

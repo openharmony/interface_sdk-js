@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
+import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Optional,
+  OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from './scroll';
 import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
@@ -2210,15 +2211,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { function } event
-   * @returns { ListAttribute }
+   * @param { OnItemDragStartCallback } event - callback function, triggered when the item drag start.
+   * @returns { ListAttribute } Returns the instance of the ListAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-   onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => Object) | undefined)): ListAttribute;
+  onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -2381,7 +2381,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { OnScrollFrameBeginCallback } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 20
@@ -2395,7 +2394,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
@@ -2409,7 +2407,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 20

@@ -25,7 +25,8 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  *
  * @namespace hid
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hid {
   /**
@@ -33,7 +34,8 @@ declare namespace hid {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -45,7 +47,8 @@ declare namespace hid {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createHidHostProfile(): HidHostProfile;
 
@@ -55,7 +58,8 @@ declare namespace hid {
    * @extends BaseProfile
    * @typedef HidHostProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HidHostProfile extends BaseProfile {
     /**

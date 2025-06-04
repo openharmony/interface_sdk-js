@@ -23,9 +23,6 @@ import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
-/*** if arkts 1.1 */
-import { double, int } from './@ohos.base';
-/*** endif */
 /**
  * systemPasteboard
  * @namespace pasteboard
@@ -469,21 +466,12 @@ declare namespace pasteboard {
      */
     /**
      * a timestamp, which indicates when data is written to the system pasteboard.
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11
-     */
-    readonly timestamp: number;
-    /**
-     * a timestamp, which indicates when data is written to the system pasteboard.
      * @type { long }
      * @readonly
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly timestamp: long;
     /**

@@ -66,7 +66,7 @@ declare type Resource = import('../api/global/resource').Resource;
 /**
  * Defines the data type of the interface restriction.
  *
- * @typedef { import('../api/global/resource').Resource } Resource
+ * @typedef { _Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -143,7 +143,7 @@ declare type PX = `${number}px`;
 /**
  * Defines the length property with number in units of px.
  *
- * @typedef { `${number}px` } PX
+ * @typedef { string } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -179,7 +179,7 @@ declare type VP = `${number}vp` | number;
 /**
  * Defines the length property with number or number in units of vp.
  *
- * @typedef { `${number}vp` | number } VP
+ * @typedef { string | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -216,7 +216,7 @@ declare type FP = `${number}fp`;
 /**
  * Defines the length property with number in units of fp.
  *
- * @typedef { `${number}fp` } FP
+ * @typedef { string } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -253,7 +253,7 @@ declare type LPX = `${number}lpx`;
 /**
  * Defines the length property with number in units of lpx.
  *
- * @typedef { `${number}lpx` } LPX
+ * @typedef { string } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -290,7 +290,7 @@ declare type Percentage = `${number}%`;
 /**
  * Defines the length property with number in units of Percentage.
  *
- * @typedef { `${number}%` } Percentage
+ * @typedef { string } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -318,7 +318,7 @@ declare type Degree = `${number}deg`;
 /**
  * Defines the angle property with number in units of deg.
  *
- * @typedef { `${number}deg` } Degree
+ * @typedef { string } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
@@ -925,7 +925,17 @@ declare interface LocalizedEdgeWidths {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline width property.
+ *
+ * @interface EdgeOutlineWidths
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeOutlineWidths {
@@ -1250,7 +1260,17 @@ declare interface LocalizedBorderRadiuses  {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline radius property.
+ *
+ * @interface OutlineRadiuses
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface OutlineRadiuses {
@@ -1738,7 +1758,17 @@ declare interface EdgeStyles {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the outline style property.
+ *
+ * @interface EdgeOutlineStyles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeOutlineStyles {

@@ -20,13 +20,15 @@
 
 /*** if arkts 1.2 */
 import image from '../../@ohos.multimedia.image';
+import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4'
+import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
-import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths } from './units';
+import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics } from './units';
 import { ImageFit, ImageRepeat, CopyOptions } from './enums';
 import { Resource } from '../../global/resource';
-import { CommonMethod, PointLightStyle } from './common'
+import { CommonMethod, PointLightStyle, PixelMap } from './common'
 /*** endif */
 
 /**
@@ -57,6 +59,18 @@ declare type DrawableDescriptor = import('../api/@ohos.arkui.drawableDescriptor'
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
 /**
+ * Import the DrawingColorFilter type object for image color filter setting.
+ *
+ * @typedef { drawing.ColorFilter } DrawingColorFilter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DrawingColorFilter = drawing.ColorFilter;
+
+/**
  * Enumerates all the levels available for the image resolution quality.
  *
  * @typedef {import('../api/@ohos.multimedia.image').default.ResolutionQuality} ResolutionQuality
@@ -67,6 +81,17 @@ declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').defaul
 declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
 
 /**
+ * Enumerates all the levels available for the image resolution quality.
+ *
+ * @typedef { image.ResolutionQuality } ResolutionQuality
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ * @arkts 1.2
+ */
+declare type ResolutionQuality = image.ResolutionQuality;
+
+/**
  * Lattice for dividing an image into grids.
  *
  * @typedef { import('../api/@ohos.graphics.drawing').default.Lattice } Lattice
@@ -75,7 +100,19 @@ declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default
  * @atomicservice
  * @since 12
  */
-declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
+declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice;
+
+/**
+ * Lattice for dividing an image into grids.
+ *
+ * @typedef { drawing.Lattice } DrawingLattice
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DrawingLattice = drawing.Lattice;
 
 /**
  * Object matrix used for setting image transformations.
@@ -86,7 +123,31 @@ declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.L
  * @atomicservice
  * @since 15
  */
-declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
+declare type ImageMatrix = import('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
+ * Object matrix used for setting image transformations.
+ *
+ * @typedef { matrix4.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type ImageMatrix = matrix4.Matrix4Transit;
+
+/**
+  * Business error in onError callback.
+  *
+  * @typedef { import('../api/@ohos.base').BusinessError<T> } BusinessError<T>
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+declare type BusinessError<T> = import('../api/@ohos.base').BusinessError<T>;
 
 /**
  * @enum { number }
@@ -471,6 +532,50 @@ declare enum ImageRotateOrientation {
    * @arkts 1.1&1.2
    */
   LEFT = 4,
+
+  /**
+   * Flip the original image horizontally
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  UP_MIRRORED = 5,
+
+  /**
+   * Flip the original image horizontally and rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  RIGHT_MIRRORED = 6,
+
+  /**
+   * Flip the original image vertically
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  DOWN_MIRRORED = 7,
+
+  /**
+   * Flip the original image horizontally and rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  LEFT_MIRRORED = 8,
 }
 
 /**
@@ -493,7 +598,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -506,7 +610,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -519,7 +622,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -532,7 +634,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -547,7 +648,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -560,7 +660,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -573,7 +672,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -586,7 +684,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -599,7 +696,6 @@ export interface ImageCompleteEvent {
    * @crossplatform
    * @form
    * @atomicservice
-
    * @since 20
    * @arkts 1.2
    */
@@ -630,7 +726,8 @@ export interface ImageCompleteEvent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ImageInterface {
   /**
@@ -682,7 +779,8 @@ interface ImageInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
 
@@ -694,91 +792,10 @@ interface ImageInterface {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
-}
-
-/**
- * @interface ImageInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface ImageInterface {
-  /**
-   * Set src to obtain images.
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-  /**
-   * Set src to obtain images
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 20
-   * @arkts 1.2
-   */
-  /**
-   * Set src to obtain images
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 20
-   * @arkts 1.2
-   */
-  /**
-   * Set src to obtain images
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (src: image.PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
-
-  /**
-   * Set src to obtain images
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (src: image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
-
-  /**
-   * Set src and ai options to obtain images
-   *
-   * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
-   * @param { ImageAIOptions } imageAIOptions
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (src: image.PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
 }
 
 /**
@@ -789,10 +806,9 @@ interface ImageInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
-
 interface ImageSourceSize {
   /**
    * Set width.
@@ -826,7 +842,18 @@ interface ImageSourceSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Set width.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   width: number;
@@ -863,7 +890,18 @@ interface ImageSourceSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Set height.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   height: number;
@@ -969,23 +1007,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alt(value: string | Resource | PixelMap): ImageAttribute;
-
-  /**
-   * Placeholder displayed on load
-   *
-   * @param { string | Resource | image.PixelMap } value
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  alt(value: string | Resource | image.PixelMap): ImageAttribute;
 
   /**
    * match Text Direction
@@ -1124,6 +1149,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
   /**
+   * fill Color
+   *
+   * @param { ResourceColor | ColorContent | ColorMetrics } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  fillColor(color: ResourceColor | ColorContent | ColorMetrics): ImageAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value
@@ -1172,22 +1210,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageMatrix(matrix: ImageMatrix): ImageAttribute;
-
-  /**
-   * Sets the matrix for the image.
-   *
-   * @param { matrix4.Matrix4Transit } matrix
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  imageMatrix(matrix: matrix4.Matrix4Transit): ImageAttribute;
 
   /**
    * Set the repeat style of the picture
@@ -1410,6 +1436,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * Anonymous Object Rectification.
    *
    * @param { ImageSourceSize } value - Image source size.
    * @returns { ImageAttribute }
@@ -1417,7 +1444,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   sourceSize(value: ImageSourceSize): ImageAttribute;
@@ -1506,23 +1533,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
-
-  /**
-   * Sets the color filter effect on the image.
-   *
-   * @param { ColorFilter } value ColorFilter object.
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  colorFilter(value: ColorFilter): ImageAttribute;
 
   /**
    * Allow replication.
@@ -2096,7 +2110,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
@@ -2320,7 +2335,20 @@ declare interface ImageError {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  message: string
+  message: string;
+
+  /**
+   * Error code.
+   *
+   * @type { ?BusinessError<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  error?: BusinessError<void>;
 }
 
 /**
@@ -2338,7 +2366,8 @@ declare interface ImageError {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ResizableOptions {
   /**
@@ -2356,7 +2385,8 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   slice?: EdgeWidths;
 
@@ -2367,31 +2397,8 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lattice?: DrawingLattice;
-}
-
-/**
- * Image resizable options
- *
- * @interface ResizableOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
- declare interface ResizableOptions {
-  /**
-   * Image slice widths.
-   *
-   * @type { ?EdgeWidths }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  slice?: EdgeWidths;
 }

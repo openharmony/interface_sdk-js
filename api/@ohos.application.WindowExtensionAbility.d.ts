@@ -29,9 +29,10 @@ import window from './@ohos.window';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class WindowExtensionAbility {
+declare class WindowExtensionAbility {
   /**
    * Indicates window extension ability context.
    *
@@ -39,7 +40,8 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: WindowExtensionContext;
 
@@ -50,7 +52,8 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnect(want: Want): void;
 
@@ -61,7 +64,8 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDisconnect(want: Want): void;
 
@@ -72,10 +76,13 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowReady(window: window.Window): void;
 }
+
+export default WindowExtensionAbility;
 
 /**
  * The context of window extension. It allows access to
@@ -85,6 +92,7 @@ export default class WindowExtensionAbility {
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type WindowExtensionContext = _WindowExtensionContext;

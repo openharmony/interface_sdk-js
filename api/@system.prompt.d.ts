@@ -503,7 +503,7 @@ export interface ShowActionMenuOptions {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class Prompt {
+declare class Prompt {
   /**
    * Displays the notification text.
    *
@@ -517,8 +517,7 @@ export default class Prompt {
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   static showToast(options: ShowToastOptions): void;
 
@@ -558,3 +557,5 @@ export default class Prompt {
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }
+
+export default Prompt;

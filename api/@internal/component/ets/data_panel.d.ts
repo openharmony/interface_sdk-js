@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor,Length } from './units'
-import { CommonMethod,ContentModifier,CommonConfiguration,MultiShadowOptions } from './common'
+import { ResourceColor, Length } from './units'
+import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common'
 /*** endif */
 
 /**

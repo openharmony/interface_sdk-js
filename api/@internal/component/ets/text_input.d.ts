@@ -1309,25 +1309,12 @@ interface PasswordIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
- * Defines a TextInput callback when onSubmit.
- *
- * @typedef { function } OnSubmitCallback
- * @param { EnterKeyType } enterKey - Input method Enter key type.
- * @param { SubmitEvent } event - The event submitted.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
-
-/**
  * Defines a TextInput callback when onTextSelectionChange.
  *
  * @typedef { function } OnTextSelectionChangeCallback
@@ -1336,25 +1323,12 @@ export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => v
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 
 /**
- * Defines a TextInput callback when onTextSelectionChange.
- *
- * @typedef { function } OnTextSelectionChangeCallback
- * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
- * @param { number } selectionEnd - The end location of the selected text.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
-
-/**
  * Defines a TextInput callback when onContentScroll.
  *
  * @typedef { function } OnContentScrollCallback
@@ -1363,25 +1337,12 @@ export type OnTextSelectionChangeCallback = (selectionStart: number, selectionEn
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 
 /**
- * Defines a TextInput callback when onContentScroll.
- *
- * @typedef { function } OnContentScrollCallback
- * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
- * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
-
-/**
  * Defines a TextInput callback when onPaste.
  *
  * @typedef { function } OnPasteCallback
@@ -1390,23 +1351,10 @@ export type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numbe
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
-
-/**
- * Defines a TextInput callback when onPaste.
- *
- * @typedef { function } OnPasteCallback
- * @param { string } content - The text content of the paste.
- * @param { PasteEvent } event - User-defined paste event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
 /**
  * Defines the TextInput attribute functions.
