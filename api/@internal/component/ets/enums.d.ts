@@ -10616,6 +10616,37 @@ declare enum EventQueryType {
 }
 
 /**
+ * Follow position type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TipsAnchorType {
+  /**
+   * Follow the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET,
+
+  /**
+   * Follow the cursor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CURSOR
+}
+
+/**
  * Define ColorSpace enumeration.
  *
  * @enum { number }

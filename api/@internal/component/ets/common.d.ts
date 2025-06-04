@@ -16351,6 +16351,17 @@ declare interface TipsOptions {
    * @since 19
    */
   arrowHeight?: Dimension;
+
+  /**
+   * The position of the tips.
+   *
+   * @type { ?TipsAnchorType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showAtAnchor?: TipsAnchorType;
 }
 
 /**
