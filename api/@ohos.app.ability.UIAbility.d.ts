@@ -539,10 +539,6 @@ declare class UIAbility extends Ability {
    */
   /**
    * Called back before an ability is destroyed.
-   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be executed.
-   * You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroy() finishes the execution.
    *
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -735,8 +731,8 @@ declare class UIAbility extends Ability {
    * @since 10
    */
   /**
-   * Called when a UIAbility instance that has undergone the following states is started again:
-   * started in the foreground, running in the foreground, and switched to the background.
+   * Called when the launch mode of an ability is set to singleton.
+   * This happens when you re-launch an ability that has been at the top of the ability stack.
    *
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
