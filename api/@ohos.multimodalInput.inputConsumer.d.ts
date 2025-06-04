@@ -101,7 +101,8 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HotkeyOptions {
     /**
@@ -109,7 +110,8 @@ declare namespace inputConsumer {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preKeys: Array<number>;
 
@@ -118,7 +120,8 @@ declare namespace inputConsumer {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     finalKey: number;
 
@@ -127,7 +130,8 @@ declare namespace inputConsumer {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRepeat?: boolean;
   }
@@ -145,7 +149,8 @@ declare namespace inputConsumer {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     key: number;
 
@@ -155,7 +160,8 @@ declare namespace inputConsumer {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     action: number;
 
@@ -164,7 +170,8 @@ declare namespace inputConsumer {
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRepeat: boolean;
   }
@@ -299,7 +306,8 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
@@ -313,7 +321,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
@@ -328,7 +337,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
@@ -341,7 +351,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }
