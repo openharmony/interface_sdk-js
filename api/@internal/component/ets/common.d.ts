@@ -17858,6 +17858,7 @@ interface ContextMenuAnimationOptions {
    * Sets whether support to interrupt the process of hover scale.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
