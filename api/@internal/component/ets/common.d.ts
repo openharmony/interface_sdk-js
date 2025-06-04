@@ -12412,6 +12412,22 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
+ * Defines the callback type used in onTouchTestDone.
+ * When the user touch down, the system performs hit test process to collect all gesture recognizers
+ * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
+ * the callback is triggered, you can get all recognizer's information from this callback.
+ *
+ * @typedef { function } TouchTestDoneCallback
+ * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27566,6 +27582,21 @@ declare class CommonMethod<T> {
  * @since 20
  */
   onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
+
+  /**
+   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+   * position, after this, before handling any move events, the component can use this interface to know which
+   * gesture recognizers will participate in the recognition and competing with each other.
+   *
+   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onTouchTestDone(callback: TouchTestDoneCallback): T;
 }
 
 /**
