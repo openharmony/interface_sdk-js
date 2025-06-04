@@ -19,9 +19,6 @@
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
 
 /**
  * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
@@ -131,7 +128,7 @@ declare namespace runningLock {
    * {@link BACKGROUND} ensures that applications can run in the background.
    * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -155,7 +152,7 @@ declare namespace runningLock {
      * @since arkts {'1.1':'7', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    PROXIMITY_SCREEN_CONTROL
+    PROXIMITY_SCREEN_CONTROL = 2
   }
 
   /**
@@ -194,7 +191,8 @@ declare namespace runningLock {
    * 2. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupported(type: RunningLockType): boolean;
 
