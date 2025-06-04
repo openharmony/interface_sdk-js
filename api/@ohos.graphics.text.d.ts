@@ -953,6 +953,7 @@ declare namespace text {
     /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * Layout should be recalculated for all typography using the font alias.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
      * unload a font that is currently in used may lead to text rendering anomalies,
@@ -967,6 +968,7 @@ declare namespace text {
     /**
      * Unloads a custom font. This API uses a promise to return the result.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * Layout should be recalculated for all typography using the font alias.
      * - Unloading a non-existent font alias has no effect and will **not** throw an error.
      * - This operation only affects subsequent font usages.
      * unload a font that is currently in used may lead to text rendering anomalies,
