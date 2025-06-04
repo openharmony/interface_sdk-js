@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,15 +18,21 @@
  * @kit CoreFileKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.ability.wantConstant';
-
+/*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback, Callback } from './@ohos.base';
+import type wantConstant from './@ohos.app.ability.wantConstant';
+/*** endif */
 /**
  * Provides fileshare APIS
  *
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace fileShare {
   /**
@@ -34,14 +40,16 @@ declare namespace fileShare {
    *
    * @enum { number } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum OperationMode {
     /**
      * Indicates read permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     READ_MODE = 0b1,
 
@@ -49,7 +57,8 @@ declare namespace fileShare {
      * Indicates write permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WRITE_MODE = 0b10,
   }
@@ -136,7 +145,8 @@ declare namespace fileShare {
    *
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PolicyInfo {
     /**
@@ -144,7 +154,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -153,7 +164,8 @@ declare namespace fileShare {
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     operationMode: number;
   }
@@ -225,7 +237,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function grantUriPermission(
     uri: string,
@@ -249,7 +262,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 143000001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 
@@ -300,7 +314,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -317,7 +332,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
