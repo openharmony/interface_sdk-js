@@ -62,11 +62,11 @@ declare namespace motion {
 
   /**
    * Subscribe to detect the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
@@ -81,11 +81,11 @@ declare namespace motion {
 
   /**
    * Unsubscribe to detect the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
@@ -100,10 +100,10 @@ declare namespace motion {
 
   /**
    * Get the recent operating hand status.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @returns { OperatingHandStatus } The result of operating hand status.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
-   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
