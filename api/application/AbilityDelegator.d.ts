@@ -18,10 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityStageMonitor } from './AbilityStageMonitor';
-/*** endif */
 import { AsyncCallback } from '../@ohos.base';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import { AbilityMonitor } from './AbilityMonitor';
@@ -146,7 +144,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -181,7 +180,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -216,7 +216,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -239,7 +240,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -274,7 +276,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -309,7 +312,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -332,7 +336,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -367,7 +372,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -402,7 +408,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -425,7 +432,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -460,7 +468,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void;
 
@@ -498,7 +507,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<UIAbility>): void;
 
@@ -536,7 +546,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility>;
 
@@ -571,7 +582,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
 
@@ -609,7 +621,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void;
 
@@ -647,7 +660,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
 
@@ -706,7 +720,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getAbilityState(ability: UIAbility): number;
 
@@ -956,7 +971,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -991,7 +1007,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   doAbilityForeground(ability: UIAbility): Promise<void>;
 
@@ -1026,7 +1043,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -1061,7 +1079,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   doAbilityBackground(ability: UIAbility): Promise<void>;
 
@@ -1093,7 +1112,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   print(msg: string, callback: AsyncCallback<void>): void;
 
@@ -1125,7 +1145,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   print(msg: string): Promise<void>;
 

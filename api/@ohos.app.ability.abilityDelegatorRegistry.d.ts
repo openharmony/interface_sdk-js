@@ -21,10 +21,8 @@
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
-import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
-/*** if arkts 1.1 */
 import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
-/*** endif */
+import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
@@ -152,7 +150,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AbilityLifecycleState {
     /**
@@ -174,7 +173,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNINITIALIZED,
 
@@ -197,7 +197,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CREATE,
 
@@ -220,7 +221,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOREGROUND,
 
@@ -243,7 +245,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKGROUND,
 
@@ -266,7 +269,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DESTROY
   }
@@ -374,7 +378,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityStageMonitor = _AbilityStageMonitor;
 }
