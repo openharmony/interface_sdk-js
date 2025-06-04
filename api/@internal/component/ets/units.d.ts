@@ -66,7 +66,7 @@ declare type Resource = import('../api/global/resource').Resource;
 /**
  * Defines the data type of the interface restriction.
  *
- * @typedef { import('../api/global/resource').Resource } Resource
+ * @typedef { _Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
