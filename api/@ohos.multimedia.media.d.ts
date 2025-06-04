@@ -3161,9 +3161,9 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Unsubscribes from the event that indicates the end of the stream being played.
+     * Unregister listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3501,9 +3501,9 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Unsubscribes from the event that indicates rendering starts for the first frame.
+     * Unregister listens for start render video frame events.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - 	Callback invoked when the event is triggered.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 20
