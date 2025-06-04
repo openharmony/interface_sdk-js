@@ -198,7 +198,7 @@ declare namespace pasteboard {
    * @since 9
    */
   /**
-   * Creates a PasteData object with MIME type and value.
+   * Creates a PasteData object of the specified type.
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
@@ -281,10 +281,10 @@ declare namespace pasteboard {
    * @since 9
    */
   /**
-   * Creates a record object with MIME type and value.
+   * Creates a PasteDataRecord object of the specified type.
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - content to be saved.
-   * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
+   * @param { ValueType } value - Data content of the specified type. 
+   * @returns { PasteDataRecord } A new paste data record of a specified type.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameters types;
    *    3. Parameter verification failed.
@@ -331,7 +331,7 @@ declare namespace pasteboard {
      * @since 9
      */
     /**
-     * INAPP indicates that only paste in the same app is allowed.
+     * INAPP indicates that only intra-application pasting is allowed. 
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
@@ -344,7 +344,7 @@ declare namespace pasteboard {
      * @since 9
      */
     /**
-     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * LOCALDEVICE indicates that paste is allowed in any application.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
@@ -357,7 +357,7 @@ declare namespace pasteboard {
      * @since 9
      */
     /**
-     * CROSSDEVICE indicates that paste in any app across devices is allowed.
+     * CROSSDEVICE indicates that paste is allowed in any application across devices.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -404,7 +404,8 @@ declare namespace pasteboard {
    * @since 7
    */
   /**
-   * Paste data property.
+   * Defines the properties of all data records on the pasteboard, including the timestamp, data type, pasteable range, 
+   * and additional data. The defined properties can be applied to the pasteboard only with the setProperty method.
    * @interface PasteDataProperty
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
@@ -1093,7 +1094,7 @@ declare namespace pasteboard {
     /**
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in PasteData.
-     * @param { PasteDataRecord } record - the content of a new record.
+     * @param { PasteDataRecord } record - the content of the replaced record.
      * @returns { boolean } The query returns True on success, or False on failure.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
@@ -1115,7 +1116,7 @@ declare namespace pasteboard {
     /**
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in PasteData.
-     * @param { PasteDataRecord } record - the content of a new record.
+     * @param { PasteDataRecord } record - the content of the replaced record.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
@@ -1343,8 +1344,8 @@ declare namespace pasteboard {
     isRemoteData(): boolean;
 
     /**
-     * Gets source of data.
-     * @returns { string } data source.
+     * Obtains the application bundle name of the data source.
+     * @returns { string }  Application bundle name of the data source.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
