@@ -6453,6 +6453,15 @@ declare namespace webview {
      * @since 20
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
+
+    /**
+     * Gets the loading progress for the current page.
+     *
+     * @returns { number } The loading progress for the current page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getProgress() : number;
   }
 
   /**
