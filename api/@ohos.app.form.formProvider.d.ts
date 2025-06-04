@@ -539,5 +539,22 @@ declare namespace formProvider {
    * @since 20
    */
   function getFormRect(formId: string): Promise<formInfo.Rect>;
+
+  /**
+   * Open the view of forms belonging to the specified bundle.
+   * Client to communication with FormManagerService.
+   *
+   * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE
+   * @param { Want } want - The want of the form to open.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function openFormManagerCrossBundle(want: Want): void
 }
 export default formProvider;
