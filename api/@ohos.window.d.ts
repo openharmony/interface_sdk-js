@@ -11316,7 +11316,6 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. 3. Incorrect parameter format.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @atomicservice
      * @since 20
      */
     setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise<void>;
