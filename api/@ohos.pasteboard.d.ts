@@ -992,7 +992,7 @@ declare namespace pasteboard {
 
     /**
      * the number of records in a PasteData object.
-     * @returns { int } The number of the clipboard contents
+     * @returns { number } The number of the clipboard contents
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
@@ -1080,7 +1080,7 @@ declare namespace pasteboard {
      */
     /**
      * Removes a Record based on a specified index.
-     * @param { int } index - indicates the record index in PasteData.
+     * @param { number } index - indicates the record index in PasteData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
@@ -1088,7 +1088,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-    removeRecord(index: int): void;
+    removeRecord(index: number): void;
 
     /**
      * Replaces a specified record with a new one.
@@ -1114,7 +1114,7 @@ declare namespace pasteboard {
      */
     /**
      * Replaces a specified record with a new one.
-     * @param { int } index - indicates the record index in PasteData.
+     * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
@@ -1123,7 +1123,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-    replaceRecord(index: int, record: PasteDataRecord): void;
+    replaceRecord(index: number, record: PasteDataRecord): void;
 
     /**
      * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
@@ -1200,12 +1200,12 @@ declare namespace pasteboard {
   interface ProgressInfo {
     /**
      * Progress when getting PasteData without using default system progress.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15
      */
-    progress: int;
+    progress: number;
   }
 
   /**
@@ -1827,12 +1827,12 @@ declare namespace pasteboard {
     /**
      * Gets the number of Pasteboard data changes.
      * 
-     * @returns { int } The number of Pasteboard data changes.
+     * @returns { number } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 18
      */
-    getChangeCount(): int;
+    getChangeCount(): number;
     
     /**
      * Gets pastedata from the system pasteboard with system progress.
