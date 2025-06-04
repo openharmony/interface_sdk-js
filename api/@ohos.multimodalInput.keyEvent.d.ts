@@ -96,7 +96,8 @@ export declare enum Action {
  * @typedef Key
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface Key {
   /**
@@ -110,7 +111,8 @@ export declare interface Key {
    * @type { KeyCode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code: KeyCode;
 
@@ -125,7 +127,8 @@ export declare interface Key {
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressedTime: number;
 
@@ -140,7 +143,8 @@ export declare interface Key {
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   deviceId: number;
 }
