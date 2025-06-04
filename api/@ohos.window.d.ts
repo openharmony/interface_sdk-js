@@ -3683,7 +3683,6 @@ declare namespace window {
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 20
    */
   function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
@@ -6864,20 +6863,18 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     on(type: 'screenshotAppEvent', callback: Callback<ScreenshotEventType>): void;
 
     /**
-     * Register the callback of screenshot app event
+     * Unregister the callback of screenshot app event
      *
      * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app event.
      * @param { Callback<ScreenshotEventType> } callback - Callback invoked when a screenshot app event occurs.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     off(type: 'screenshotAppEvent', callback?: Callback<ScreenshotEventType>): void;
@@ -11618,7 +11615,6 @@ declare namespace window {
      * System screenshot
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     SYSTEM_SCREENSHOT = 0,
@@ -11626,7 +11622,6 @@ declare namespace window {
      * System screenshot abort
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     SYSTEM_SCREENSHOT_ABORT = 1,
@@ -11634,7 +11629,6 @@ declare namespace window {
      * Scroll shot start
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     SCROLL_SHOT_START = 2,
@@ -11642,7 +11636,6 @@ declare namespace window {
      * Scroll shot end
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     SCROLL_SHOT_END = 3,
@@ -11650,7 +11643,6 @@ declare namespace window {
      * Scroll shot abort
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @since 20
      */
     SCROLL_SHOT_ABORT = 4,
