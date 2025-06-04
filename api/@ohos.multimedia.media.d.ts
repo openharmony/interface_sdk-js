@@ -3115,6 +3115,16 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Unsubscribes from the event that checks whether the volume is successfully set.
+     * @param { 'volumeChange' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective volume.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
      * Register listens for media playback endOfStream event.
@@ -3149,6 +3159,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Unsubscribes from the event that indicates the end of the stream being played.
+     * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
@@ -3244,6 +3263,16 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Unsubscribes from the event that checks whether the playback speed is successfully set.
+     * @param { 'speedDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to return the result. When the call of
+     * setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     off(type: 'speedDone', callback?: Callback<number>): void;
     /**
      * Register listens for media playbackRateDone event.
@@ -3295,6 +3324,15 @@ declare namespace media {
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
+     */
+    /**
+     * Unsubscribes from the event that checks whether the bit rate is successfully set.
+     * @param { 'bitrateDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * It reports the effective bit rate.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
      */
     off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
@@ -3380,6 +3418,15 @@ declare namespace media {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Unsubscribes from media asset duration changes.
+     * @param { 'durationUpdate' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to return the resource duration.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     off(type: 'durationUpdate', callback?: Callback<number>): void;
 
     /**
@@ -3452,6 +3499,14 @@ declare namespace media {
      * @param { Callback<void> } callback - 	Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
+     */
+    /**
+     * Unsubscribes from the event that indicates rendering starts for the first frame.
+     * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - 	Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 20
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
 
