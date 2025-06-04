@@ -55,8 +55,6 @@ declare namespace fastbuffer {
      * @param { string | FastBuffer | number } [fill] - fill [fill=0] A value to pre-fill the new FastBuffer with
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
      * @returns { FastBuffer } Return a new allocated FastBuffer
-     * @throws { BusinessError } 10200001 - Range error. Possible causes:
-     * The value of the parameter is not within the specified range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -68,8 +66,6 @@ declare namespace fastbuffer {
      *
      * @param { number } size - size size The desired length of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
-     * @throws { BusinessError } 10200001 - Range error. Possible causes:
-     * The value of the parameter is not within the specified range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -81,8 +77,6 @@ declare namespace fastbuffer {
      *
      * @param { number } size - size size The desired length of the new FastBuffer
      * @returns { FastBuffer } Return a new allocated FastBuffer
-     * @throws { BusinessError } 10200001 - Range error. Possible causes:
-     * The value of the parameter is not within the specified range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -250,7 +244,6 @@ declare namespace fastbuffer {
          * Returns the number of bytes in buf
          *
          * @type { number }
-         * @throws { BusinessError } 10200013 - Length  Cannot set property on Container.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -261,7 +254,6 @@ declare namespace fastbuffer {
          * The arraybuffer underlying the FastBuffer object
          *
          * @type { ArrayBuffer }
-         * @throws { BusinessError } 10200013 - ArrayBuffer  Cannot set property on Container.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -272,7 +264,6 @@ declare namespace fastbuffer {
          * The byteOffset of the Buffers underlying ArrayBuffer object
          *
          * @type { number }
-         * @throws { BusinessError } 10200013 - ByteOffset  Cannot set property on Container.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
