@@ -2051,6 +2051,7 @@ declare namespace photoAccessHelper {
    *
    * @enum { string } PhotoKeys
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 20
    */
