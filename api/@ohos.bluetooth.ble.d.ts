@@ -6150,7 +6150,8 @@ declare namespace ble {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AdvertisingState {
     /**
