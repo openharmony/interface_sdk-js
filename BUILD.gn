@@ -215,16 +215,23 @@ ohos_copy_internal("ets_component2") {
 }
 
 # ets/kits执行脚本
-ohos_copy("bundle_kits") {
+ohos_copy_internal("bundle_kits") {
   sdk_type = "ets"
   if (sdk_build_public || product_name == "ohos-sdk") {
-    sources = [ "//out/sdk-public/public_interface/sdk-js/kits" ]
+    iv_input = "//out/sdk-public/public_interface/sdk-js/kits"
   } else {
-    sources = [ "//interface/sdk-js/kits" ]
+    iv_input = "//interface/sdk-js/kits"
   }
-  outputs = [ target_out_dir + "/${sdk_type}/${target_name}" ]
-  module_source_dir = target_out_dir + "/${sdk_type}/${target_name}"
-  module_install_name = ""
+}
+
+# ets2/kits执行脚本
+ohos_copy_internal("bundle_kits2") {
+  sdk_type = "ets2"
+  if (sdk_build_public || product_name == "ohos-sdk") {
+    iv_input = "//out/sdk-public/public_interface/sdk-js/kits"
+  } else {
+    iv_input = "//interface/sdk-js/kits"
+  }
 }
 
 # js/api执行脚本
