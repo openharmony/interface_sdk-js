@@ -1084,6 +1084,15 @@ declare interface WebMediaOptions {
    * @since 11
    */
   audioExclusive?: boolean;
+
+  /**
+   * The type for audio sessions.
+   *
+   * @type { ?AudioSessionType }
+   * @syscap SystemCapability.Web.Webview.Core   
+   * @since 20
+   */
+  audioSessionType?: AudioSessionType;
 }
 
 /**
@@ -6828,6 +6837,24 @@ declare enum WebResponseType {
    * @since 13
    */
   LONG_PRESS = 1
+}
+
+/**
+ * Arkweb audio session Type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum AudioSessionType {
+  /**
+   * Ambient audio, which is mixable with other types of audio. 
+   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AMBIENT=3
 }
 
 /**
