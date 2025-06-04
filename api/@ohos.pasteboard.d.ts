@@ -421,12 +421,14 @@ declare namespace pasteboard {
      */
     /**
      * additional property data. key-value pairs.
-     * @type { Record<string, object> }
+     * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
      */
-    additions: Record<string, object>
+    additions: {
+      [key: string]: object
+    }
     /**
      * non-repeating MIME types of all records in PasteData.
      * @type { Array<string> }
@@ -619,12 +621,14 @@ declare namespace pasteboard {
      */
     /**
      * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
-     * @type { Record<string, ArrayBuffer> }
+     * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
      */
-    data: Record<string, ArrayBuffer>
+    data: {
+      [mimeType: string]: ArrayBuffer
+    }
 
     /**
      * Converts data in PasteData to text format.
