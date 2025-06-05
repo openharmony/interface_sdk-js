@@ -2513,11 +2513,11 @@ declare namespace text {
    * This configuration affects how the renderer displays characters that are not defined in the font:
    * - The default behavior follows font's internal .notdef glyph design
    * - Tofu blocks explicitly show missing characters as visible squares
-   * @param { TextUndefinedGlyphDisplay } undefinedGlyphDisplay - The strategy for handling undefined glyphs.
+   * @param { TextUndefinedGlyphDisplay } noGlyphShow - The strategy for handling undefined glyphs.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 20
    */
-  function setTextUndefinedGlyphDisplay(undefinedGlyphDisplay: TextUndefinedGlyphDisplay): void;
+  function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
 }
 
 export default text;
