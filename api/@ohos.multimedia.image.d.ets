@@ -24,51 +24,15 @@ import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
 
 /**
- * @namespace image
- * @since 6
- */
-/**
- * This module provides the capability of image codec and access
- * @namespace image
- * @syscap SystemCapability.Multimedia.Image.Core
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
  * This module provides the capability of image codec and access
  * @namespace image
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 20
  */
 declare namespace image {
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
   /**
    * Enumerates pixel map formats.
    *
@@ -77,30 +41,9 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   enum PixelMapFormat {
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Indicates an unknown format.
      *
@@ -108,7 +51,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     UNKNOWN = 0,
 
@@ -118,37 +61,10 @@ declare namespace image {
      * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     RGB_565 = 2,
 
@@ -157,34 +73,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     RGBA_8888 = 3,
 
@@ -193,34 +85,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     BGRA_8888 = 4,
 
@@ -229,34 +97,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     RGB_888 = 5,
 
@@ -265,34 +109,10 @@ declare namespace image {
      * and is stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     ALPHA_8 = 6,
 
@@ -301,34 +121,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits in F16.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     RGBA_F16 = 7,
 
@@ -337,34 +133,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     NV21 = 8,
 
@@ -373,34 +145,10 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     NV12 = 9,
 
@@ -409,7 +157,7 @@ declare namespace image {
      * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     RGBA_1010102 = 10,
 
@@ -418,7 +166,7 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     YCBCR_P010 = 11,
 
@@ -427,7 +175,7 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     YCRCB_P010 = 12,
   }
@@ -438,7 +186,7 @@ declare namespace image {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since 12
+   * @since 20
    */
   enum ResolutionQuality {
     /**
@@ -446,7 +194,7 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since 20
      */
     LOW = 1,
 
@@ -455,7 +203,7 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since 20
      */
     MEDIUM = 2,
 
@@ -464,7 +212,7 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since 12
+     * @since 20
      */
     HIGH = 3
   }
@@ -474,70 +222,12 @@ declare namespace image {
    *
    * @typedef Size
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 6
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface Size {
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Height
      *
@@ -550,40 +240,6 @@ declare namespace image {
      */
     height: int;
 
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Width
      *
@@ -602,29 +258,16 @@ declare namespace image {
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Enumerates exchangeable image file format (Exif) information types of an image.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 10
+   * @since 20
    */
   enum PropertyKey {
     /**
      * Number of bits in each pixel of an image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Number of bits in each pixel of an image.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     BITS_PER_SAMPLE = 'BitsPerSample',
 
@@ -632,14 +275,8 @@ declare namespace image {
      * Image rotation mode.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image rotation mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     ORIENTATION = 'Orientation',
 
@@ -647,14 +284,8 @@ declare namespace image {
      * Image length.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image length.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     IMAGE_LENGTH = 'ImageLength',
 
@@ -662,14 +293,8 @@ declare namespace image {
      * Image width.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image width.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     IMAGE_WIDTH = 'ImageWidth',
 
@@ -677,14 +302,8 @@ declare namespace image {
      * GPS latitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS latitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     GPS_LATITUDE = 'GPSLatitude',
 
@@ -692,14 +311,8 @@ declare namespace image {
      * GPS longitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS longitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     GPS_LONGITUDE = 'GPSLongitude',
 
@@ -707,14 +320,8 @@ declare namespace image {
      * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     GPS_LATITUDE_REF = 'GPSLatitudeRef',
 
@@ -722,14 +329,8 @@ declare namespace image {
      * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     GPS_LONGITUDE_REF = 'GPSLongitudeRef',
 
@@ -737,14 +338,8 @@ declare namespace image {
      * Shooting time
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Shooting time
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     DATE_TIME_ORIGINAL = 'DateTimeOriginal',
 
@@ -752,14 +347,8 @@ declare namespace image {
      * Exposure time
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Exposure time
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     EXPOSURE_TIME = 'ExposureTime',
 
@@ -767,14 +356,8 @@ declare namespace image {
      * Scene type
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Scene type
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     SCENE_TYPE = 'SceneType',
 
@@ -782,14 +365,8 @@ declare namespace image {
      * ISO speedratings
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * ISO speedratings
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     ISO_SPEED_RATINGS = 'ISOSpeedRatings',
 
@@ -797,14 +374,8 @@ declare namespace image {
      * Aperture value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Aperture value
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     F_NUMBER = 'FNumber',
 
@@ -812,7 +383,7 @@ declare namespace image {
      * Date time
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     DATE_TIME = 'DateTime',
 
@@ -820,7 +391,7 @@ declare namespace image {
      * GPS time stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     GPS_TIME_STAMP = 'GPSTimeStamp',
  
@@ -828,7 +399,7 @@ declare namespace image {
      * GPS date stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     GPS_DATE_STAMP = 'GPSDateStamp',
  
@@ -836,7 +407,7 @@ declare namespace image {
      * Image description
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     IMAGE_DESCRIPTION = 'ImageDescription',
  
@@ -844,7 +415,7 @@ declare namespace image {
      * Make
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     MAKE = 'Make',
  
@@ -852,7 +423,7 @@ declare namespace image {
      * Model
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     MODEL = 'Model',
  
@@ -860,7 +431,7 @@ declare namespace image {
      * Photo mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     PHOTO_MODE = 'PhotoMode',
  
@@ -868,7 +439,7 @@ declare namespace image {
      * Sensitivity type
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     SENSITIVITY_TYPE = 'SensitivityType',
  
@@ -876,7 +447,7 @@ declare namespace image {
      * Standard output sensitivity
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
  
@@ -884,7 +455,7 @@ declare namespace image {
      * Recommended exposure index
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
  
@@ -892,7 +463,7 @@ declare namespace image {
      * ISO speed
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     ISO_SPEED = 'ISOSpeedRatings',
  
@@ -900,7 +471,7 @@ declare namespace image {
      * Aperture value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     APERTURE_VALUE = 'ApertureValue',
  
@@ -908,7 +479,7 @@ declare namespace image {
      * Exposure bias value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
  
@@ -916,7 +487,7 @@ declare namespace image {
      * Metering mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     METERING_MODE = 'MeteringMode',
  
@@ -924,7 +495,7 @@ declare namespace image {
      * Light source
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     LIGHT_SOURCE = 'LightSource',
  
@@ -932,7 +503,7 @@ declare namespace image {
      * Flash
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     FLASH = 'Flash',
  
@@ -940,7 +511,7 @@ declare namespace image {
      * Focal length
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     FOCAL_LENGTH = 'FocalLength',
  
@@ -948,7 +519,7 @@ declare namespace image {
      * User comment
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     USER_COMMENT = 'UserComment',
  
@@ -956,7 +527,7 @@ declare namespace image {
      * Pixel x dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     PIXEL_X_DIMENSION = 'PixelXDimension',
  
@@ -964,7 +535,7 @@ declare namespace image {
      * Pixel y dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     PIXEL_Y_DIMENSION = 'PixelYDimension',
  
@@ -972,7 +543,7 @@ declare namespace image {
      * White balance
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     WHITE_BALANCE = 'WhiteBalance',
  
@@ -980,7 +551,7 @@ declare namespace image {
      * Focal length in 35mm film
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
  
@@ -988,7 +559,7 @@ declare namespace image {
      * Capture mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     CAPTURE_MODE = 'HwMnoteCaptureMode',
  
@@ -996,7 +567,7 @@ declare namespace image {
      * Physical aperture
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 20
      */
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
 
@@ -1005,7 +576,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     ROLL_ANGLE = 'HwMnoteRollAngle',
 
@@ -1014,7 +585,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     PITCH_ANGLE = 'HwMnotePitchAngle',
 
@@ -1023,7 +594,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
 
@@ -1032,7 +603,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
 
@@ -1041,7 +612,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
@@ -1050,7 +621,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
@@ -1059,7 +630,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
 
@@ -1068,7 +639,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
 
@@ -1077,7 +648,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
 
@@ -1086,7 +657,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
 
@@ -1095,7 +666,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
 
@@ -1104,7 +675,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
 
@@ -1113,7 +684,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     FACE_COUNT = 'HwMnoteFaceCount',
 
@@ -1122,7 +693,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     FOCUS_MODE = 'HwMnoteFocusMode',
   
@@ -1131,7 +702,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COMPRESSION = 'Compression',
 
@@ -1140,7 +711,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
@@ -1149,7 +720,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     STRIP_OFFSETS = 'StripOffsets',
 
@@ -1158,7 +729,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SAMPLES_PER_PIXEL = 'SamplesPerPixel',
 
@@ -1167,7 +738,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     ROWS_PER_STRIP = 'RowsPerStrip',
 
@@ -1176,7 +747,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     STRIP_BYTE_COUNTS = 'StripByteCounts',
 
@@ -1185,7 +756,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     X_RESOLUTION = 'XResolution',
 
@@ -1194,7 +765,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     Y_RESOLUTION = 'YResolution',
 
@@ -1203,7 +774,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     PLANAR_CONFIGURATION = 'PlanarConfiguration',
 
@@ -1212,7 +783,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     RESOLUTION_UNIT = 'ResolutionUnit',
 
@@ -1221,7 +792,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     TRANSFER_FUNCTION = 'TransferFunction',
 
@@ -1230,7 +801,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SOFTWARE = 'Software',
 
@@ -1239,7 +810,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     ARTIST = 'Artist',
 
@@ -1248,7 +819,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     WHITE_POINT = 'WhitePoint',
 
@@ -1257,7 +828,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
@@ -1266,7 +837,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
 
@@ -1275,7 +846,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
 
@@ -1284,7 +855,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     YCBCR_POSITIONING = 'YCbCrPositioning',
 
@@ -1293,7 +864,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
@@ -1302,7 +873,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COPYRIGHT = 'Copyright',
 
@@ -1311,7 +882,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
 
@@ -1320,7 +891,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
 
@@ -1329,7 +900,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
@@ -1338,7 +909,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
@@ -1347,7 +918,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     OECF = 'OECF',
 
@@ -1356,7 +927,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     EXIF_VERSION = 'ExifVersion',
 
@@ -1365,7 +936,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     DATE_TIME_DIGITIZED = 'DateTimeDigitized',
 
@@ -1374,7 +945,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
 
@@ -1383,7 +954,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
@@ -1392,7 +963,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
@@ -1401,7 +972,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     MAX_APERTURE_VALUE = 'MaxApertureValue',
 
@@ -1410,7 +981,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBJECT_DISTANCE = 'SubjectDistance',
 
@@ -1419,7 +990,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBJECT_AREA = 'SubjectArea',
 
@@ -1428,7 +999,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     MAKER_NOTE = 'MakerNote',
 
@@ -1437,7 +1008,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBSEC_TIME = 'SubsecTime',
 
@@ -1446,7 +1017,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
@@ -1455,7 +1026,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
@@ -1464,7 +1035,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FLASHPIX_VERSION = 'FlashpixVersion',
 
@@ -1473,7 +1044,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COLOR_SPACE = 'ColorSpace',
 
@@ -1482,7 +1053,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     RELATED_SOUND_FILE = 'RelatedSoundFile',
 
@@ -1491,7 +1062,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FLASH_ENERGY = 'FlashEnergy',
 
@@ -1500,7 +1071,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
 
@@ -1509,7 +1080,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
 
@@ -1518,7 +1089,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FOCAL_PLANE_Y_RESOLUTION = 'FocalPlaneYResolution',
 
@@ -1527,7 +1098,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
 
@@ -1536,7 +1107,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBJECT_LOCATION = 'SubjectLocation',
 
@@ -1545,7 +1116,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     EXPOSURE_INDEX = 'ExposureIndex',
 
@@ -1554,7 +1125,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SENSING_METHOD = 'SensingMethod',
 
@@ -1563,7 +1134,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FILE_SOURCE = 'FileSource',
 
@@ -1572,7 +1143,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     CFA_PATTERN = 'CFAPattern',
 
@@ -1581,7 +1152,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     CUSTOM_RENDERED = 'CustomRendered',
 
@@ -1590,7 +1161,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     EXPOSURE_MODE = 'ExposureMode',
 
@@ -1599,7 +1170,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
 
@@ -1608,7 +1179,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SCENE_CAPTURE_TYPE = 'SceneCaptureType',
 
@@ -1617,7 +1188,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GAIN_CONTROL = 'GainControl',
 
@@ -1626,7 +1197,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     CONTRAST = 'Contrast',
 
@@ -1635,7 +1206,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SATURATION = 'Saturation',
 
@@ -1644,7 +1215,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SHARPNESS = 'Sharpness',
 
@@ -1653,7 +1224,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     DEVICE_SETTING_DESCRIPTION = 'DeviceSettingDescription',
 
@@ -1662,7 +1233,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBJECT_DISTANCE_RANGE = 'SubjectDistanceRange',
 
@@ -1671,7 +1242,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     IMAGE_UNIQUE_ID = 'ImageUniqueID',
 
@@ -1680,7 +1251,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_VERSION_ID = 'GPSVersionID',
 
@@ -1689,7 +1260,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_ALTITUDE_REF = 'GPSAltitudeRef',
 
@@ -1698,7 +1269,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_ALTITUDE = 'GPSAltitude',
 
@@ -1707,7 +1278,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_SATELLITES = 'GPSSatellites',
 
@@ -1716,7 +1287,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_STATUS = 'GPSStatus',
 
@@ -1725,7 +1296,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_MEASURE_MODE = 'GPSMeasureMode',
 
@@ -1734,7 +1305,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DOP = 'GPSDOP',
 
@@ -1743,7 +1314,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_SPEED_REF = 'GPSSpeedRef',
 
@@ -1752,7 +1323,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_SPEED = 'GPSSpeed',
 
@@ -1761,7 +1332,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_TRACK_REF = 'GPSTrackRef',
 
@@ -1770,7 +1341,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_TRACK = 'GPSTrack',
 
@@ -1779,7 +1350,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_IMG_DIRECTION_REF = 'GPSImgDirectionRef',
 
@@ -1788,7 +1359,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_IMG_DIRECTION = 'GPSImgDirection',
 
@@ -1797,7 +1368,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_MAP_DATUM = 'GPSMapDatum',
 
@@ -1806,7 +1377,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_LATITUDE_REF = 'GPSDestLatitudeRef',
 
@@ -1815,7 +1386,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_LATITUDE = 'GPSDestLatitude',
 
@@ -1824,7 +1395,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_LONGITUDE_REF = 'GPSDestLongitudeRef',
 
@@ -1833,7 +1404,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_LONGITUDE = 'GPSDestLongitude',
 
@@ -1842,7 +1413,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_BEARING_REF = 'GPSDestBearingRef',
 
@@ -1851,7 +1422,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_BEARING = 'GPSDestBearing',
 
@@ -1860,7 +1431,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_DISTANCE_REF = 'GPSDestDistanceRef',
 
@@ -1869,7 +1440,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
@@ -1878,7 +1449,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
@@ -1887,7 +1458,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_AREA_INFORMATION = 'GPSAreaInformation',
 
@@ -1896,7 +1467,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
@@ -1905,7 +1476,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
@@ -1914,7 +1485,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     CAMERA_OWNER_NAME = 'CameraOwnerName',
 
@@ -1923,7 +1494,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COMPOSITE_IMAGE = 'CompositeImage',
 
@@ -1932,7 +1503,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
@@ -1941,7 +1512,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     DNG_VERSION = 'DNGVersion',
 
@@ -1950,7 +1521,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
@@ -1959,7 +1530,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GAMMA = 'Gamma',
 
@@ -1968,7 +1539,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     ISO_SPEED_LATITUDE_YYY = 'ISOSpeedLatitudeyyy',
 
@@ -1977,7 +1548,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     ISO_SPEED_LATITUDE_ZZZ = 'ISOSpeedLatitudezzz',
 
@@ -1986,7 +1557,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     LENS_MAKE = 'LensMake',
 
@@ -1995,7 +1566,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     LENS_MODEL = 'LensModel',
 
@@ -2004,7 +1575,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     LENS_SERIAL_NUMBER = 'LensSerialNumber',
 
@@ -2013,7 +1584,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     LENS_SPECIFICATION = 'LensSpecification',
 
@@ -2022,7 +1593,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
@@ -2031,7 +1602,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     OFFSET_TIME = 'OffsetTime',
 
@@ -2040,7 +1611,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
@@ -2049,7 +1620,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
@@ -2058,7 +1629,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
 
@@ -2067,7 +1638,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
@@ -2076,7 +1647,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SUBFILE_TYPE = 'SubfileType',
 
@@ -2085,7 +1656,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
@@ -2094,7 +1665,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
 
@@ -2103,7 +1674,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     BURST_NUMBER = 'HwMnoteBurstNumber',
 
@@ -2112,7 +1683,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_CONF = 'HwMnoteFaceConf',
 
@@ -2121,7 +1692,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_LEYE_CENTER = 'HwMnoteFaceLeyeCenter',
 
@@ -2130,7 +1701,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
 
@@ -2139,7 +1710,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_POINTER = 'HwMnoteFacePointer',
 
@@ -2148,7 +1719,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_RECT = 'HwMnoteFaceRect',
 
@@ -2157,7 +1728,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
 
@@ -2166,7 +1737,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
 
@@ -2175,7 +1746,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FACE_VERSION = 'HwMnoteFaceVersion',
 
@@ -2184,7 +1755,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     FRONT_CAMERA = 'HwMnoteFrontCamera',
 
@@ -2193,7 +1764,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SCENE_POINTER = 'HwMnoteScenePointer',
 
@@ -2202,7 +1773,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
@@ -2211,7 +1782,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
 
@@ -2220,7 +1791,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     XMAGE_MODE = 'HwMnoteXmageMode',
 
@@ -2229,7 +1800,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     XMAGE_LEFT = 'HwMnoteXmageLeft',
 
@@ -2238,7 +1809,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     XMAGE_TOP = 'HwMnoteXmageTop',
 
@@ -2247,7 +1818,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     XMAGE_RIGHT = 'HwMnoteXmageRight',
 
@@ -2256,7 +1827,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     XMAGE_BOTTOM = 'HwMnoteXmageBottom',
 
@@ -2265,7 +1836,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
 
@@ -2274,7 +1845,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
 
@@ -2284,7 +1855,7 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     GIF_LOOP_COUNT = 'GIFLoopCount'
   }
@@ -2294,57 +1865,12 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   enum AlphaType {
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Indicates an unknown alpha type.
      *
@@ -2352,7 +1878,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     UNKNOWN = 0,
 
@@ -2360,31 +1886,10 @@ declare namespace image {
      * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     OPAQUE = 1,
 
@@ -2392,31 +1897,10 @@ declare namespace image {
      * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     PREMUL = 2,
 
@@ -2424,31 +1908,10 @@ declare namespace image {
      * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     UNPREMUL = 3
   }
@@ -2458,14 +1921,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 20
    */
   enum DecodingDynamicRange {
     /**
      * Decoding according to the content of the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     AUTO = 0,
 
@@ -2473,7 +1936,7 @@ declare namespace image {
      * Decoding to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     SDR = 1,
 
@@ -2481,7 +1944,7 @@ declare namespace image {
      * Decoding to high dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     HDR = 2
   }
@@ -2491,14 +1954,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 20
    */
   enum PackingDynamicRange {
     /**
      * Packing according to the content of the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     AUTO = 0,
 
@@ -2506,7 +1969,7 @@ declare namespace image {
      * Packing to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     SDR = 1,
   }
@@ -2516,29 +1979,16 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
-   */
-  /**
-   * Enumerates the anti-aliasing level.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @atomicservice
-   * @since 14
+   * @since 20
    */
   enum AntiAliasingLevel {
     /**
      * Nearest-neighbor interpolation algorithm.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Nearest-neighbor interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since 20
      */
     NONE = 0,
 
@@ -2546,14 +1996,8 @@ declare namespace image {
      * Bilinear interpolation algorithm.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Bilinear interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since 20
      */
     LOW = 1,
 
@@ -2561,14 +2005,8 @@ declare namespace image {
      * Bilinear interpolation algorithm with mipmap linear filtering.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Bilinear interpolation algorithm with mipmap linear filtering.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since 20
      */
     MEDIUM = 2,
 
@@ -2576,14 +2014,8 @@ declare namespace image {
      * Cubic interpolation algorithm.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Cubic interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since 14
+     * @since 20
      */
     HIGH = 3,
   }
@@ -2593,57 +2025,12 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   enum ScaleMode {
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Indicates the effect that fits the image into the target size.
      *
@@ -2651,7 +2038,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     FIT_TARGET_SIZE = 0,
 
@@ -2659,31 +2046,10 @@ declare namespace image {
      * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     CENTER_CROP = 1
   }
@@ -2693,14 +2059,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 20
    */
   enum HdrMetadataKey {
     /**
      * Indicate the types of metadata that image needs to use.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     HDR_METADATA_TYPE = 0,
 
@@ -2708,7 +2074,7 @@ declare namespace image {
      * Static metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     HDR_STATIC_METADATA = 1,
 
@@ -2716,7 +2082,7 @@ declare namespace image {
      * Dynamic metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     HDR_DYNAMIC_METADATA = 2,
 
@@ -2724,7 +2090,7 @@ declare namespace image {
      * Gainmap metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     HDR_GAINMAP_METADATA = 3,
   }
@@ -2734,14 +2100,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 20
    */
   enum HdrMetadataType {
     /**
      * No metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     NONE = 0,
 
@@ -2749,7 +2115,7 @@ declare namespace image {
      * Indicates that metadata will be used for the base image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     BASE = 1,
 
@@ -2757,7 +2123,7 @@ declare namespace image {
      * Indicates that metadata will be used for the gainmap image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     GAINMAP = 2,
 
@@ -2765,7 +2131,7 @@ declare namespace image {
      * Indicates that metadata will be used for the alternate image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     ALTERNATE = 3,
   }
@@ -2775,34 +2141,10 @@ declare namespace image {
    *
    * @typedef Region
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 8
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface Region {
     /**
@@ -2810,71 +2152,13 @@ declare namespace image {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     size: Size;
 
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * x-coordinate at the upper left corner of the image.
      *
@@ -2887,40 +2171,6 @@ declare namespace image {
      */
     x: int;
 
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * y-coordinate at the upper left corner of the image.
      *
@@ -2939,34 +2189,10 @@ declare namespace image {
    *
    * @typedef PositionArea
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface PositionArea {
     /**
@@ -2974,71 +2200,13 @@ declare namespace image {
      *
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     pixels: ArrayBuffer;
 
-    /**
-     * Offset for data reading.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Offset for data reading.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Offset for data reading.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Offset for data reading.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Offset for data reading.
      *
@@ -3051,40 +2219,6 @@ declare namespace image {
      */
     offset: int;
 
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Number of bytes to read.
      *
@@ -3102,34 +2236,10 @@ declare namespace image {
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     region: Region;
   }
@@ -3139,34 +2249,10 @@ declare namespace image {
    *
    * @typedef ImageInfo
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 6
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface ImageInfo {
     /**
@@ -3174,71 +2260,13 @@ declare namespace image {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     size: Size;
 
-    /**
-     * Indicates image default density.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates image default density.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates image default density.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates image default density.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Indicates image default density.
      *
@@ -3251,23 +2279,6 @@ declare namespace image {
      */
     density: int;
 
-    /**
-     * The number of byte per row.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The number of byte per row.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * The number of byte per row.
      *
@@ -3287,7 +2298,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     pixelFormat: PixelMapFormat;
 
@@ -3299,7 +2310,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     alphaType: AlphaType;
 
@@ -3309,7 +2320,7 @@ declare namespace image {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     mimeType: string;
 
@@ -3318,7 +2329,7 @@ declare namespace image {
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     isHdr: boolean;
   }
@@ -3328,24 +2339,9 @@ declare namespace image {
    *
    * @typedef PackingOption
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * Describes the option for image packing.
-   *
-   * @typedef PackingOption
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the option for image packing.
-   *
-   * @typedef PackingOption
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   interface PackingOption {
     /**
@@ -3353,51 +2349,12 @@ declare namespace image {
      *
      * @type { string }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 20
      */
     format: string;
 
-    /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
      *
@@ -3409,33 +2366,6 @@ declare namespace image {
      */
     quality: int;
 
-    /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 9
-     */
-    /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
@@ -3453,7 +2383,7 @@ declare namespace image {
      *
      * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 20
      */
     desiredDynamicRange?: PackingDynamicRange;
 
@@ -3462,7 +2392,7 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 20
      */
     needsPackProperties?: boolean;
   }
@@ -3473,7 +2403,7 @@ declare namespace image {
    * @typedef ImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 11
+   * @since 20
    */
   interface ImagePropertyOptions {
     /**
@@ -3482,7 +2412,7 @@ declare namespace image {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     defaultValue?: string;
   }
@@ -3492,70 +2422,12 @@ declare namespace image {
    *
    * @typedef DecodingOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 7
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface DecodingOptions {
-    /**
-     * Number of image frames.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Number of image frames.
      *
@@ -3571,40 +2443,6 @@ declare namespace image {
     /**
      * Sampling ratio of the image pixel map.
      *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -3614,40 +2452,6 @@ declare namespace image {
      */
     sampleSize?: int;
 
-    /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
      *
@@ -3665,34 +2469,10 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     editable?: boolean;
 
@@ -3702,37 +2482,10 @@ declare namespace image {
      *
      * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     desiredSize?: Size;
 
@@ -3741,34 +2494,10 @@ declare namespace image {
      *
      * @type { ?Region }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     desiredRegion?: Region;
 
@@ -3777,71 +2506,13 @@ declare namespace image {
      *
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     desiredPixelFormat?: PixelMapFormat;
 
-    /**
-     * The density for image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
-     */
-    /**
-     * The density for image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The density for image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The density for image pixel map.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * The density for image pixel map.
      *
@@ -3860,7 +2531,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since 20
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
@@ -3869,7 +2540,7 @@ declare namespace image {
      *
      * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 12
+     * @since 20
      */
     desiredDynamicRange?: DecodingDynamicRange;
 
@@ -3879,7 +2550,7 @@ declare namespace image {
      * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since 12
+     * @since 20
      */
     resolutionQuality?: ResolutionQuality;
   }
@@ -3889,60 +2560,12 @@ declare namespace image {
    *
    * @typedef InitializationOptions
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 8
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface InitializationOptions {
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * PixelMap size.
      *
@@ -3951,7 +2574,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     size: Size;
 
@@ -3960,7 +2583,7 @@ declare namespace image {
      *
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 20
      */
     srcPixelFormat?: PixelMapFormat;
 
@@ -3969,34 +2592,10 @@ declare namespace image {
      *
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     pixelFormat?: PixelMapFormat;
 
@@ -4005,34 +2604,10 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     editable?: boolean;
 
@@ -4041,34 +2616,10 @@ declare namespace image {
      *
      * @type { ?AlphaType }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     alphaType?: AlphaType;
 
@@ -4077,34 +2628,10 @@ declare namespace image {
      *
      * @type { ?ScaleMode }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     scaleMode?: ScaleMode;
   }
@@ -4118,7 +2645,7 @@ declare namespace image {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 20
    */
 function createPixelMapSync(options: InitializationOptions): PixelMap;
 
@@ -4128,26 +2655,9 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @param { string } uri Image source URI.
    * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 6
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -4156,24 +2666,9 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * Creates an ImagePacker instance.
-   *
-   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImagePacker instance.
-   *
-   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   function createImagePacker(): ImagePacker;
 
@@ -4182,66 +2677,12 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef PixelMap
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * PixelMap instance.
-   *
-   * @typedef PixelMap
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface PixelMap {
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
      * a promise to return the result.
@@ -4252,7 +2693,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -4267,7 +2708,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
 
@@ -4276,34 +2717,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains pixel map information about this image. This method uses a promise to return the information.
-     *
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     getImageInfo(): Promise<ImageInfo>;
 
@@ -4316,44 +2733,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     getImageInfoSync(): ImageInfo;
 
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains the number of bytes in each line of the image pixel map.
-     *
-     * @returns { number } Number of bytes in each line.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Obtains the number of bytes in each line of the image pixel map.
      *
@@ -4366,40 +2749,6 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      */
     getBytesNumberPerRow(): int;
 
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains the total number of bytes of the image pixel map.
-     *
-     * @returns { number } Total number of bytes.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Obtains the total number of bytes of the image pixel map.
      *
@@ -4417,34 +2766,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
-     *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     createAlphaPixelmap(): Promise<PixelMap>;
 
@@ -4457,23 +2782,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     createAlphaPixelmapSync(): PixelMap;
 
-    /**
-     * Image zoom in width and height.
-     *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Image zoom in width and height.
      *
@@ -4489,20 +2801,6 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      */
     scaleSync(x: double, y: double): void;
 
-    /**
-     * Image zoom in width and height with anti-aliasing.
-     *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
-     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Image zoom in width and height with anti-aliasing.
      *
@@ -4530,7 +2828,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
 
@@ -4540,37 +2838,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @param { Region } region The region to crop.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Crop the image. This method uses a promise to return the result.
-     *
-     * @param { Region } region The region to crop.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     crop(region: Region): Promise<void>;
 
@@ -4584,7 +2855,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     cropSync(region: Region): void;
 
@@ -4593,34 +2864,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     release(): Promise<void>;
   }
@@ -4630,7 +2877,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   interface Picture {
     /**
@@ -4638,7 +2885,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { PixelMap } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     getMainPixelmap(): PixelMap;
   }
@@ -4651,7 +2898,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   function createPicture(mainPixelmap : PixelMap): Picture;
 
@@ -4660,7 +2907,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef AuxiliaryPicture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   interface AuxiliaryPicture {
     /**
@@ -4675,7 +2922,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
 
@@ -4687,7 +2934,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     readPixelsToBuffer(): Promise<ArrayBuffer>;
 
@@ -4696,7 +2943,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     getType(): AuxiliaryPictureType;
 
@@ -4711,7 +2958,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -4725,9 +2972,16 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>
+
+    /**
+     * Releases this AuxiliaryPicture object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 20
+     */
+    release():void
   }
 
   /**
@@ -4735,14 +2989,14 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   enum AuxiliaryPictureType {
     /**
      * Gain map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     GAINMAP = 1,
 
@@ -4750,7 +3004,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * Depth map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     DEPTH_MAP = 2,
 
@@ -4758,7 +3012,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * Unrefocus map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     UNREFOCUS_MAP = 3,
 
@@ -4766,7 +3020,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * Linear map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     LINEAR_MAP = 4,
 
@@ -4774,7 +3028,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * Fragment map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     FRAGMENT_MAP = 5,
   }
@@ -4784,14 +3038,14 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   enum MetadataType {
     /**
      * EXIF metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     EXIF_METADATA = 1,
 
@@ -4799,7 +3053,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * Fragment metadata. 
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     FRAGMENT_METADATA = 2,
   }
@@ -4809,7 +3063,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 20
    */
   interface Metadata {
     /**
@@ -4823,7 +3077,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
@@ -4838,7 +3092,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     setProperties(records: Record<string, string | null>): Promise<void>
 
@@ -4848,7 +3102,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     getAllProperties(): Promise<Record<string, string | null>>
 
@@ -4859,7 +3113,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 20
      */
     clone(): Promise<Metadata>
   }
@@ -4869,74 +3123,12 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef ImageSource
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 6
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface ImageSource {
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
     /**
      * Get image information from image source.
      *
@@ -4950,15 +3142,6 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      */
     getImageInfo(index?: int): Promise<ImageInfo>;
 
-    /**
-     * Get image information from image source synchronously.
-     *
-     * @param { number } index - Index of sequence images. If this parameter is not specified, default value is 0.
-     * @returns { ImageInfo } The image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12
-     */
     /**
      * Get image information from image source synchronously.
      *
@@ -4977,40 +3160,10 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -5021,7 +3174,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since 20
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
@@ -5030,15 +3183,8 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Releases an ImageSource instance and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     release(): Promise<void>;
   }
@@ -5048,24 +3194,9 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    *
    * @typedef ImagePacker
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * ImagePacker instance.
-   *
-   * @typedef ImagePacker
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImagePacker instance.
-   *
-   * @typedef ImagePacker
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 20
    */
   interface ImagePacker {
     /**
@@ -5073,15 +3204,8 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Releases an ImagePacker instance and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since 10
+     * @since 20
      */
     release(): Promise<void>;
   }
