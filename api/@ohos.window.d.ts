@@ -7029,7 +7029,6 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
@@ -7038,11 +7037,10 @@ declare namespace window {
      * Unregister the callback of windowStatusDidChange
      *
      * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
-     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @param { Callback<WindowStatusType> } [callback] - Callback used to return the window status.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
