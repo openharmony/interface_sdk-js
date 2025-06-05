@@ -3409,7 +3409,7 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11', '1.2':'20'}
+   * @since 11
    */
   interface PackingOption {
     /**
@@ -3434,7 +3434,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     format: string;
 
@@ -3460,7 +3460,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     quality: number;
 
@@ -3489,7 +3489,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     bufferSize?: number;
 
@@ -3498,7 +3498,7 @@ declare namespace image {
      *
      * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredDynamicRange?: PackingDynamicRange;
 
@@ -3507,7 +3507,7 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     needsPackProperties?: boolean;
   }
@@ -3684,7 +3684,7 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12', '1.2':'20'}
+   * @since 12
    */
   interface DecodingOptions {
     /**
@@ -3719,7 +3719,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     index?: number;
 
@@ -3755,7 +3755,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     sampleSize?: number;
 
@@ -3791,7 +3791,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     rotate?: number;
 
@@ -3827,7 +3827,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     editable?: boolean;
 
@@ -3867,7 +3867,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredSize?: Size;
 
@@ -3903,7 +3903,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredRegion?: Region;
 
@@ -3939,7 +3939,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredPixelFormat?: PixelMapFormat;
 
@@ -3975,7 +3975,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     fitDensity?: number;
 
@@ -3985,7 +3985,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
@@ -3994,7 +3994,7 @@ declare namespace image {
      *
      * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredDynamicRange?: DecodingDynamicRange;
 
@@ -4004,7 +4004,7 @@ declare namespace image {
      * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     resolutionQuality?: ResolutionQuality;
 
@@ -7671,7 +7671,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -7786,7 +7786,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 

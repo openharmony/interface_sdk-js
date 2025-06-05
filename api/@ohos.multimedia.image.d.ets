@@ -538,7 +538,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    height: number;
+    /**
+     * Height
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    height: int;
 
     /**
      * Width
@@ -574,7 +584,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    width: number;
+    /**
+     * Width
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    width: int;
   }
 
   /**
@@ -2855,7 +2875,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    x: number;
+    /**
+     * x-coordinate at the upper left corner of the image.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    x: int;
 
     /**
      * y-coordinate at the upper left corner of the image.
@@ -2891,7 +2921,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    y: number;
+    /**
+     * y-coordinate at the upper left corner of the image.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    y: int;
   }
 
   /**
@@ -2999,7 +3039,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    offset: number;
+    /**
+     * Offset for data reading.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    offset: int;
 
     /**
      * Number of bytes to read.
@@ -3035,7 +3085,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    stride: number;
+    /**
+     * Number of bytes to read.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    stride: int;
 
     /**
      * Region to read.
@@ -3179,7 +3239,17 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    density: number;
+    /**
+     * Indicates image default density.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    density: int;
 
     /**
      * The number of byte per row.
@@ -3198,7 +3268,16 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    stride: number;
+    /**
+     * The number of byte per row.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    stride: int;
 
     /**
      * Indicates image format.
@@ -3266,7 +3345,7 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since 11', '1.2':'20'}
+   * @since 11
    */
   interface PackingOption {
     /**
@@ -3291,7 +3370,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     format: string;
 
@@ -3317,9 +3396,18 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
-    quality: number;
+    /**
+     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    quality: int;
 
     /**
      * BufferSize of the target image.
@@ -3346,16 +3434,26 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
-    bufferSize?: number;
+    /**
+     * BufferSize of the target image.
+     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    bufferSize?: int;
 
     /**
      * The desired dynamic range of the target image.
      *
      * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredDynamicRange?: PackingDynamicRange;
 
@@ -3364,7 +3462,7 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     needsPackProperties?: boolean;
   }
@@ -3421,7 +3519,7 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12', '1.2':'20'}
+   * @since 12
    */
   interface DecodingOptions {
     /**
@@ -3456,9 +3554,19 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
-    index?: number;
+    /**
+     * Number of image frames.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    index?: int;
 
     /**
      * Sampling ratio of the image pixel map.
@@ -3492,9 +3600,19 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
-    sampleSize?: number;
+    /**
+     * Sampling ratio of the image pixel map.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    sampleSize?: int;
 
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
@@ -3528,9 +3646,19 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
-    rotate?: number;
+    /**
+     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    rotate?: int;
 
     /**
      * Whether the image pixel map is editable.
@@ -3564,7 +3692,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     editable?: boolean;
 
@@ -3604,7 +3732,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredSize?: Size;
 
@@ -3640,7 +3768,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredRegion?: Region;
 
@@ -3676,7 +3804,7 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredPixelFormat?: PixelMapFormat;
 
@@ -3712,9 +3840,19 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
-    fitDensity?: number;
+    /**
+     * The density for image pixel map.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    fitDensity?: int;
 
     /**
      * Color space of the image pixel map.
@@ -3722,7 +3860,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11', '1.2':'20'}
+     * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
@@ -3731,7 +3869,7 @@ declare namespace image {
      *
      * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     desiredDynamicRange?: DecodingDynamicRange;
 
@@ -3741,7 +3879,7 @@ declare namespace image {
      * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     resolutionQuality?: ResolutionQuality;
   }
@@ -4216,7 +4354,17 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @atomicservice
      * @since 12
      */
-    getBytesNumberPerRow(): number;
+    /**
+     * Obtains the number of bytes in each line of the image pixel map.
+     *
+     * @returns { int } Number of bytes in each line.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    getBytesNumberPerRow(): int;
 
     /**
      * Obtains the total number of bytes of the image pixel map.
@@ -4252,7 +4400,17 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @atomicservice
      * @since 12
      */
-    getPixelBytesNumber(): number;
+    /**
+     * Obtains the total number of bytes of the image pixel map.
+     *
+     * @returns { int } Total number of bytes.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    getPixelBytesNumber(): int;
 
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
@@ -4316,7 +4474,20 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: number, y: number): void;
+    /**
+     * Image zoom in width and height.
+     *
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scaleSync(x: double, y: double): void;
 
     /**
      * Image zoom in width and height with anti-aliasing.
@@ -4332,7 +4503,21 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+    /**
+     * Image zoom in width and height with anti-aliasing.
+     *
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scaleSync(x: double, y: double, level: AntiAliasingLevel): void;
 
     /**
      * Image flipping.
@@ -4752,7 +4937,18 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @atomicservice
      * @since 12
      */
-    getImageInfo(index?: number): Promise<ImageInfo>;
+    /**
+     * Get image information from image source.
+     *
+     * @param { int } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    getImageInfo(index?: int): Promise<ImageInfo>;
 
     /**
      * Get image information from image source synchronously.
@@ -4763,7 +4959,16 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @crossplatform
      * @since 12
      */
-    getImageInfoSync(index?: number): ImageInfo;
+    /**
+     * Get image information from image source synchronously.
+     *
+     * @param { int } index - Index of sequence images. If this parameter is not specified, default value is 0.
+     * @returns { ImageInfo } The image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 20
+     */
+    getImageInfoSync(index?: int): ImageInfo;
 
     /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
@@ -4805,7 +5010,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -4816,7 +5021,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12', '1.2':'20'}
+     * @since 12
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
