@@ -112,9 +112,11 @@ function handleComponentInterface(node: ts.InterfaceDeclaration, file: Component
     const result = getAllInterfaceCallSignature(node, file.sourceFile, !uiconfig.useMemoM3);
     const declPattern = readLangTemplate()
     const declComponentFunction: string[] = []
+    const attributeName = node.name!.escapedText as string
+    const componentName = attributeName.replaceAll('Interface', '');
     result.forEach(p => {
         declComponentFunction.push(declPattern
-            .replaceAll("%COMPONENT_NAME%", file.componentName)
+            .replaceAll("%COMPONENT_NAME%", componentName)
             .replaceAll("%FUNCTION_PARAMETERS%", p.sig?.map(it => `${it}, `).join("") ?? "")
             .replaceAll("%COMPONENT_COMMENT%", p.comment))
     })
