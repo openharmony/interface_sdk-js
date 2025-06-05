@@ -432,7 +432,7 @@ declare class TextStyle {
     readonly fontStyle?: FontStyle;
 
     /**
-     * Get the stroke width of the StyledString with the unit 'px'.
+     * Get the stroke width of the StyledString with the unit 'vp'.
      *
      * @type { ?number } - the stroke width of the StyledString or undefined
      * @readonly

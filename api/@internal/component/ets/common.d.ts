@@ -12412,6 +12412,22 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
+ * Defines the callback type used in onTouchTestDone.
+ * When the user touch down, the system performs hit test process to collect all gesture recognizers
+ * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
+ * the callback is triggered, you can get all recognizer's information from this callback.
+ *
+ * @typedef { function } TouchTestDoneCallback
+ * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16206,6 +16222,18 @@ declare interface PopupCommonOptions {
   followTransformOfTarget?: boolean;
 
   /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
+  /**
    * The width of popup's outline.
    *
    * @type { ?Dimension }
@@ -16351,6 +16379,17 @@ declare interface TipsOptions {
    * @since 19
    */
   arrowHeight?: Dimension;
+
+  /**
+   * The position of the tips.
+   *
+   * @type { ?TipsAnchorType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showAtAnchor?: TipsAnchorType;
 }
 
 /**
@@ -17030,6 +17069,19 @@ declare interface PopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
@@ -17667,6 +17719,19 @@ declare interface CustomPopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
@@ -17842,6 +17907,18 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   hoverScale?: AnimationRange<number>;
+
+  /**
+   * Sets whether support to interrupt the process of hover scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  hoverScaleInterruption?: boolean;
 }
 
 /**
@@ -17892,6 +17969,45 @@ declare enum HapticFeedbackMode {
    * @since 18
    */
   AUTO = 2
+}
+
+/**
+ * Define the modal mode of menu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum ModalMode {
+  /**
+   * Modal modal automatically.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  AUTO = 0,
+  /**
+   * Operation takes effect around menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  NONE = 1,
+  /**
+   * Operation takes no effect around menu in target window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET_WINDOW = 2
 }
 
 /**
@@ -18372,6 +18488,18 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   mask?: boolean | MenuMaskType;
+
+  /**
+   * Defines modal mode of menu.
+   *
+   * @type { ?ModalMode }
+   * @default ModalMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  modalMode?: ModalMode;
 }
 
 /**
@@ -27492,6 +27620,21 @@ declare class CommonMethod<T> {
  * @since 20
  */
   onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
+
+  /**
+   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+   * position, after this, before handling any move events, the component can use this interface to know which
+   * gesture recognizers will participate in the recognition and competing with each other.
+   *
+   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onTouchTestDone(callback: TouchTestDoneCallback): T;
 }
 
 /**

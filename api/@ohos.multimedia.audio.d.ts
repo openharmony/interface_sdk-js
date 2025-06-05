@@ -212,19 +212,6 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses an asynchronous callback to return the renderer instance.
-   *
-   * The AudioRenderer instance is used to play streaming audio data.
-   * When using AudioRenderer apis, there are many instructions for application
-   * to achieve better performance and lower power consumption:
-   * In music or audiobook background playback situation, you can have low power
-   * consumption by following this best practices document [Low-Power Rules in Music Playback Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-music-playback-scenarios}.
-   * And for navigation situation, you can follow [Low-Power Rules in Navigation and Positioning Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-navigation-scenarios}.
-   *
-   * Application developer should also be careful when app goes to background, please check if your audio playback
-   * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
-   * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
-   *
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -238,13 +225,16 @@ declare namespace audio {
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
-   * consumption by following this best practices document [Low-Power Rules in Music Playback Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-music-playback-scenarios}.
-   * And for navigation situation, you can follow [Low-Power Rules in Navigation and Positioning Scenarios]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-navigation-scenarios}.
+   * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
+   * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
-   * is still needed, see [Audio Resources]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-use}.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
-   * control measures when this behavior is detected, see [Audio Playback]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-reasonable-audio-playback-use}.
+   * is still needed, see **Audio Resources** in best practices document.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * control measures when this behavior is detected, see **Audio Playback** in best practices document.
+   * 
+   * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
+   * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
@@ -255,14 +245,32 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
 
   /**
-   * Obtains an {@link AudioRenderer} instance. This method uses a promise to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses a promise to return the renderer instance.
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @returns { Promise<AudioRenderer> } Promise used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 8
    */
   /**
-   * Obtains an {@link AudioRenderer} instance. This method uses a promise to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses a promise to return the renderer instance.
+   * 
+   * The AudioRenderer instance is used to play streaming audio data.
+   * When using AudioRenderer apis, there are many instructions for application
+   * to achieve better performance and lower power consumption:
+   * In music or audiobook background playback situation, you can have low power
+   * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
+   * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
+   *
+   * Application developer should also be careful when app goes to background, please check if your audio playback
+   * is still needed, see **Audio Resources** in best practices document.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * control measures when this behavior is detected, see **Audio Playback** in best practices document.
+   * 
+   * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
+   * scenes to consider, see **Developing an Audio Application** in best practices document.
+   *
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @returns { Promise<AudioRenderer> } Promise used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -834,6 +842,12 @@ declare namespace audio {
      * @since 18
      */
     REMOTE_DAUDIO = 29,
+    /**
+     * Nearlink Device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    NEARLINK = 31,
     /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -7419,7 +7433,7 @@ declare namespace audio {
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
      */
@@ -7432,9 +7446,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
-     * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -8921,9 +8936,10 @@ declare namespace audio {
      * @since 8
      */
     /**
-     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
-     * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * Obtains the timestamp for audio frame that passed by system framework most recently.
+     * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -8940,7 +8956,7 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the  audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -9132,7 +9148,7 @@ declare namespace audio {
     getOverflowCountSync(): number;
 
     /**
-     * Set if capturer want to be muted instead of interrupted.
+     * Set if capturer want to be muted instead of interrupted. should be set before start
      * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
      *     instead of interrupted.
      * @returns { Promise<void> } Promise used to return the result.

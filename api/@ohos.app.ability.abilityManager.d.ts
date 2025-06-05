@@ -530,7 +530,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @throws { BusinessError } 16000086 - The context is not UIAbilityContext.
-   * @throws { BusinessError } 16000090 - The caller is not an atomic service。
+   * @throws { BusinessError } 16000090 - The caller is not an atomic service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

@@ -2093,6 +2093,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   stackFromEnd(enabled: boolean): ListAttribute;
 
   /**
+   * Sets the focus wrap mode of the List component.
+   *
+   * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the List component.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  focusWrapMode(mode: Optional<FocusWrapMode>): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    *
    * @param { function } event

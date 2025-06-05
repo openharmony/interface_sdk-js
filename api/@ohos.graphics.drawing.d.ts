@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,6 +20,7 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import { Resource } from './global/resource';
 
 /**
@@ -402,7 +403,7 @@ declare namespace drawing {
     DIFFERENCE = 0,
 
     /**
-     * Intersect operation.
+     * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -416,7 +417,7 @@ declare namespace drawing {
     UNION = 2,
 
     /**
-     * Xor operation.
+     * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1048,6 +1049,52 @@ declare namespace drawing {
      * @since 18
      */
     getPathIterator(): PathIterator;
+
+    /**
+     * Approximates the path with a series of line segments.
+     *
+     * @param { number } acceptableError - Indicates the acceptable error for a line on the path. Should be no less than 0.
+     * @returns { Array<number> } - Returns with the array containing point components.
+     * <br>There are three components for each point:
+     * <br>1. Fraction along the length of the path that the point resides [0.0, 1.0].
+     * <br>2. The x coordinate of the point.
+     * <br>3. The y coordinate of the point.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    approximate(acceptableError: number): Array<number>;
+
+    /**
+     * Performs interpolation between the current path and another path based on a given weight, and stores the result in the target path object.
+     *
+     * @param { Path } other - Indicates the other path to be interpolated with the current path.
+     * @param { number } weight - Indicates the interpolation weight, which must be in the range [0, 1].
+     * @param { Path } interpolatedPath - Indicates the target path object where the interpolation result will be stored.
+     * @returns { boolean } - Returns true if the interpolation operation was successful; returns false otherwise.
+     * <br>Possible reasons for failure include:
+     * <br>1. The 'other' is incompatible with the current path.
+     * <br>2. The 'weight' is outside the [0, 1] range.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    interpolate(other: Path, weight: number, interpolatedPath: Path): boolean;
+
+    /**
+     * Checks whether the current path is compatible with another path (other) for interpolation, which means
+     * they have exactly the same structure, both paths must have the same operations, in the same order.
+     * If any of the operations are of type PathIteratorVerb.CONIC, then the weights of those conics must also match.
+     *
+     * @param { Path } other - Indicates the path to be checked for compatibility with the current path.
+     * @returns { boolean } - Returns true if the current path and the other path are compatible for interpolation; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isInterpolate(other: Path): boolean;
   }
 
   /**
@@ -1363,7 +1410,7 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * Fills clip with color color. Mode determines how ARGB is combined with destination.
+     * Draws the background color.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2973,7 +3020,7 @@ declare namespace drawing {
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
-     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
+     * The radial gradient transitions colors from the center to the ending shape in a radial manner.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { number } radius - Radius of the gradient. A negative number is invalid. The value is a floating point number.
      * @param { Array<number> } colors - Array of colors to distribute between the center and ending shape of the circle.
@@ -2995,8 +3042,8 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
-     * either in a clockwise or counterclockwise direction.
+     * Creates a ShaderEffect object that generates a sweep gradient based on the center.
+     * A sweep gradient paints a gradient of colors in a clockwise or counterclockwise direction based on a given circle center.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      * The values in the array are 32-bit (ARGB) unsigned integers.
@@ -3544,12 +3591,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Set the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this pen.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this pen.
@@ -3582,7 +3650,6 @@ declare namespace drawing {
 
     /**
     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
-    * If this API is not called, anti-aliasing is disabled by default.
     *
     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3701,7 +3768,7 @@ declare namespace drawing {
     setDither(dither: boolean): void;
 
     /**
-     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
+     * Sets the join style for this pen.
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3721,7 +3788,7 @@ declare namespace drawing {
     getJoinStyle(): JoinStyle;
 
     /**
-     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
+     * Sets the cap style for this pen.
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3821,12 +3888,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Sets the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this brush.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this brush.
@@ -3838,7 +3926,6 @@ declare namespace drawing {
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
-     * If this API is not called, anti-aliasing is disabled by default.
      * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3931,7 +4018,7 @@ declare namespace drawing {
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
     /**
-     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * Sets a blend mode for this brush.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4660,8 +4747,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the constraints on the source rectangle.
-   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
+   * Enumerates the constraint types of the source rectangle.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing

@@ -598,8 +598,8 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   enum WindowStatusType {
@@ -1580,7 +1580,7 @@ declare namespace window {
      *
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossPlatform
+     * @crossplatform
      * @since 20
      */
     windowStatusType: WindowStatusType;
@@ -2455,6 +2455,16 @@ declare namespace window {
      * @since 20
      */
     zIndex?: number;
+
+    /**
+     * Indicates whether to use default density.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    defaultDensityEnabled?: boolean;
   }
 
   /**
@@ -4337,6 +4347,66 @@ declare namespace window {
      * @since 20
      */
     config?: WindowAnimationConfig;
+  }
+
+  /**
+   * The policy of key frame.
+   *
+   * @interface KeyFramePolicy
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface KeyFramePolicy {
+    /**
+     * Whether to use key frame.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    enable: boolean;
+
+    /**
+     * Set the drag interval to notify rect change in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    interval?: number;
+
+    /**
+     * Set the drag distance to notify rect change in px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    distance?: number;
+
+    /**
+     * Set the rect change animation duration in millisecond.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDuration?: number;
+
+    /**
+     * Set then rect change animation delay in millisecond
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationDelay?: number;
   }
 
   /**
@@ -8075,8 +8145,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
      * @crossplatform
+     * @atomicservice
      * @since 20
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
@@ -10043,7 +10113,7 @@ declare namespace window {
      * Get the zlevel of current sub window.
      *
      * @returns { number } - the zlevel of current sub window.
-     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 801 - Capability not supported. Function getSubWindowZLevel can not work correctly due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -10051,6 +10121,21 @@ declare namespace window {
      * @since 18
      */
     getSubWindowZLevel(): number;
+
+    /**
+     * Set the policy of key frame when resize by dragging.
+     *
+     * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
+     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
   }
 
   /**
@@ -10189,8 +10274,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#INTERACTIVE
      */
     RESUMED,
     /**
@@ -10201,30 +10284,8 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#NONINTERACTIVE
      */
-    PAUSED,
-    /**
-     * The window stage is interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    INTERACTIVE = 8,
-    /**
-     * The window stage is non-interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    NONINTERACTIVE
+    PAUSED
   }
 
   /**

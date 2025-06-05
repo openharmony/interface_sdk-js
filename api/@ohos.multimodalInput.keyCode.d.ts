@@ -67,6 +67,14 @@ export declare enum KeyCode {
   KEYCODE_BACK = 2,
 
   /**
+   * KEYCODE_HEADSETHOOK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   */
+  KEYCODE_HEADSETHOOK = 6,
+
+  /**
    * KEYCODE_SEARCH
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -2864,5 +2872,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18
    */
-  KEYCODE_DAGGER_LONG_PRESS = 3213
+  KEYCODE_DAGGER_LONG_PRESS = 3213,
+
+  /**
+   * KEYCODE_DIV
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   */
+  KEYCODE_DIV = 3220
 }

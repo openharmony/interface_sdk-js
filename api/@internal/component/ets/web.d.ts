@@ -1084,6 +1084,15 @@ declare interface WebMediaOptions {
    * @since 11
    */
   audioExclusive?: boolean;
+
+  /**
+   * The type for audio sessions.
+   *
+   * @type { ?AudioSessionType }
+   * @syscap SystemCapability.Web.Webview.Core   
+   * @since 20
+   */
+  audioSessionType?: AudioSessionType;
 }
 
 /**
@@ -1992,6 +2001,20 @@ declare class SslErrorHandler {
    * @since 11
    */
   handleCancel(): void;
+
+  /**
+   * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
+   * continue displaying the error to users.
+   *
+   * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
+   *                                 user will remain on the current page. If it is false, the SSL error
+   *                                 will not be ignored, and a blank page will be displayed. If a default
+   *                                 error page is enabled, the default error page will be shown instead.
+   *                                 The default value is false.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  handleCancel(abortLoading: boolean): void;
 }
 
 /**
@@ -5625,6 +5648,16 @@ declare interface OnBeforeUnloadEvent {
    * @since 18
    */
   result: JsResult;
+
+  /**
+   * The isReload parameter is set to true when the page is refreshed;
+   * otherwise, it remains false. Default is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  isReload?: boolean;
 }
 
 /**
@@ -6817,6 +6850,24 @@ declare enum WebResponseType {
 }
 
 /**
+ * Arkweb audio session Type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum AudioSessionType {
+  /**
+   * Ambient audio, which is mixable with other types of audio. 
+   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AMBIENT=3
+}
+
+/**
  * Defines the options of preview menu
  *
  * @interface PreviewMenuOptions
@@ -7004,10 +7055,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to allow image resources to be loaded from the network.
-   *    The default value is true.
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   * {@code false} otherwise.
+   * Sets whether to enable access to online images through HTTP and HTTPS.
+   *
+   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
+   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7102,7 +7154,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
   *
-  *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
   * @syscap SystemCapability.Web.Webview.Core
@@ -7194,7 +7245,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
    * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
@@ -7204,7 +7255,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
    * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7212,7 +7263,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7221,7 +7274,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
+   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7327,6 +7381,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
    * and whether the audio of multiple Web instances in an application is exclusive.
+   * <p><strong>API Note</strong>:<br>
+   * Audios in the same Web instance are considered as the same audio.
+   * The media playback policy controls videos with an audio track.
+   * After the parameter settings are updated, the playback must be started again for the settings to take effect.
+   * It is recommended that you set the same audioExclusive value for all Web components.
+   * Audio and video interruption takes effect within an app and between apps, and playback resumption takes effect only between apps.
+   * </p>
    *
    * @param { WebMediaOptions } options Set the media policy for the web.
    * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
@@ -7659,7 +7720,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Notifies the application that the title has changed..
+   * Notifies the application that the title has changed.
    * If the page being loaded does not specify a title via the <title> element,
    * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
@@ -9168,10 +9229,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Whether the window can be open automatically through JavaScript.
+   * <p><strong>API Note</strong>:<br>
+   * This API takes effect only when {@link JavaScript} is enabled.
+   * This API opens a new window when {@link multiWindowAccess} is enabled and opens a local window
+   * when {@link multiWindowAccess} is disabled.
+   * The default value of **flag** is subject to the settings of the **persist.web.allowWindowOpenMethod.enabled** system attribute.
+   * If this attribute is not set, the default value of **flag** is **false**.
+   * To check the settings of **persist.web.allowWindowOpenMethod.enabled**,
+   * run the **hdc shell param get persist.web.allowWindowOpenMethod.enabled** command.
+   * If the attribute value is 1, it means the system attribute is enabled;
+   * If the attribute value is 0 or does not exist, it means that the system attribute has not been enabled.  
+   * you can run the **hdc shell param set persist.web.allowWindowOpenMethod.enabled 1** command to enable it.
+   * </p>
    *
    * @param { boolean } flag If it is true, the window can be opened automatically through JavaScript.
    * If it is false and user behavior, the window can be opened automatically through JavaScript.
    * Otherwise, the window cannot be opened.
+   * The user behavior here refers to the behavior of requesting to open a new window (window. open) within 5 seconds after
+   * the user clicks or performs other operations on the web component.
+   * The default value is associated with system properties.
+   * When the system property **persist.web.allowWindowOpenMethod.enabled** is set to true, the default value is true.
+   * If the system property is not set, the default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9374,9 +9452,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order instead of array sequence.
-   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script is executed in the lexicographic order, not array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
+   * When scripts with identical content are injected multiple times,
+   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
+   * and the scriptRules used during the first injection will be adopted.
    * </p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
@@ -9388,12 +9469,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
-   * the script is executed on any page whose source matches scriptRules.
+   * Injects the JavaScripts script into the Web component.
+   * When the specified page or document has been loaded, the script is executed on any page whose source matches scriptRules.
    * <p><strong>API NOTE</strong>:<br>
-   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
-   * The script is excuted in the lexicographic order, not the array order.
+   * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
+   * The script is excuted in the lexicographic order, not array order.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
+   * When scripts with identical content are injected multiple times,
+   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
+   * and the scriptRules used during the first injection will be adopted.
    * <p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
@@ -9841,6 +9926,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
+
+  /**
+   * Triggered when the web page is activated for window.open called by other web component.
+   *
+   * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onActivateContent(callback: Callback<void>): WebAttribute;
 }
 
 /**

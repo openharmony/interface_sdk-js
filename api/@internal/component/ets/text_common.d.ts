@@ -1206,6 +1206,19 @@ declare interface TextMenuItem {
 }
 
 /**
+ * Callback before displaying the menu when the selection range changes.
+ *
+ * @typedef { function } OnPrepareMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
@@ -1238,6 +1251,16 @@ declare interface EditMenuOptions {
    * @since 12
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+  /**
+   * Callback before displaying the menu when the selection range changes.
+   *
+   * @type { ?OnPrepareMenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onPrepareMenu?: OnPrepareMenuCallback;
 }
 
 /**

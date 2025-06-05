@@ -395,7 +395,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -414,7 +414,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -433,7 +433,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -453,7 +453,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -462,7 +462,7 @@ declare namespace backgroundTaskManager {
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
   /**
-   * Obtains all the transient task before an application enters the suspended state.
+   * Obtains transient task info before an application enters the suspended state.
    *
    * @returns { Promise<TransientTaskInfo> } The promise returns the transient task info.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -472,7 +472,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20
    */
-  function getAllTransientTasks(): Promise<TransientTaskInfo>;
+  function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
   /**
    * Service ability uses this method to request start running in background.
@@ -514,7 +514,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -564,7 +564,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -590,7 +590,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -614,7 +614,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -669,7 +669,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -724,7 +724,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -762,7 +762,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -780,7 +780,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.

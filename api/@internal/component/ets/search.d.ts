@@ -1521,7 +1521,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
    * @since 11
    */
   /**
@@ -1535,9 +1534,23 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Called when the input of maximum text length is set.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>By default, there is no maximum number of characters.
+   * <br>When the maximum number is reached, no more characters can be entered.
+   * </p>
+   * 
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxLength(value: number): SearchAttribute;
 
@@ -1663,7 +1676,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1680,7 +1693,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 18
    */
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1698,7 +1711,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 20
    */
-   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
+  minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
     * Called when the maximum font scale of the font is set.

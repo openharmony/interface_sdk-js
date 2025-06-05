@@ -34,7 +34,7 @@ import Context from './application/Context';
  */
 /**
  * app.ability.WantAgent is a class that encapsulates a {@link Want} object and allows the application to execute the
- * Want at a future time point.The module provides APIs for creating and comparing WantAgent objects, and obtaining
+ * Want at a future time point. The module provides APIs for creating and comparing WantAgent objects, and obtaining
  * the user ID and bundle name of a WantAgent object.
  * 
  * A typical use scenario of WantAgent is notification processing. For example, when a user touches a notification,
@@ -563,7 +563,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * 	Extra information of the existing WantAgent object is replaced with that of the new object.
+     * Extra information of the existing WantAgent object is replaced with that of the new object.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice

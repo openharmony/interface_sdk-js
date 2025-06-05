@@ -725,7 +725,8 @@ declare namespace pointer {
   /**
    * Obtains the mouse pointer style. This API uses a promise to return the result.
    *
-   * @param { number } windowId - Window ID.
+   * @param { number } windowId - Window ID. The value is an integer greater than or equal to -1. 
+   * The value -1 indicates the global window.
    * @returns { Promise<PointerStyle> } Promise used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -735,7 +736,8 @@ declare namespace pointer {
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
   /**
-   * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. This API returns the result synchronously.
+   * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
+   * This API returns the result synchronously.
    *
    * @param { number } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
@@ -821,7 +823,7 @@ declare namespace pointer {
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks the visible status of the mouse pointer. This API uses a promise to return the result.
+   * Obtains the visible status of the mouse pointer. This API uses a promise to return the result.
    *
    * @returns { Promise<boolean> } Promise used to return the visible status of the mouse pointer. 
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
@@ -844,7 +846,8 @@ declare namespace pointer {
    * Sets the pointer color. This API uses an asynchronous callback to return the result.
    *
    * @param { number } color - Pointer color. The default value is black (0x000000).
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -920,7 +923,8 @@ declare namespace pointer {
    * Sets the pointer size. This API uses an asynchronous callback to return the result.
    *
    * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1049,7 +1053,8 @@ declare namespace pointer {
   /**
    * Sets the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Status of the mouse hover scroll switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1063,7 +1068,8 @@ declare namespace pointer {
   /**
    * Sets the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Status of the mouse hover scroll switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1077,7 +1083,8 @@ declare namespace pointer {
   /**
    * Obtains the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Obtains the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<boolean> } callback - Obtains the status of the mouse hover scroll switch. 
+   * This API uses an asynchronous callback to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1090,7 +1097,8 @@ declare namespace pointer {
   /**
    * Obtains the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1611,7 +1619,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
-   * @throws { BusinessError } 26500001 - Invalid windowId.
+   * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15
    */
@@ -1620,7 +1628,8 @@ declare namespace pointer {
   /**
    * Sets the double-tap and drag switch for the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isOpen - Status of the double-tap and drag switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1634,7 +1643,8 @@ declare namespace pointer {
   /**
    * Sets the double-tap and drag switch for the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } isOpen - Status of the double-tap and drag switch. The value true indicates that the switch is enabled, and the value false indicates the opposite.
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
