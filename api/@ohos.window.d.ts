@@ -9977,6 +9977,17 @@ declare namespace window {
     getImmersiveModeEnabledState(): boolean;
 
     /**
+     * Checks whether the layout is immersive.
+     *
+     * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    isImmersiveLayout(): boolean;
+
+    /**
      * Get the window status of current window.
      *
      * @returns { WindowStatusType } - The status of window.
@@ -11358,17 +11369,6 @@ declare namespace window {
      * @since 20
      */
     setImageForRecent(imgResourceId: number, value: ImageFit): Promise<void>;
-
-    /**
-     * Checks whether the layout is immersive.
-     *
-     * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20
-     */
-    isImmersiveLayout(): boolean;
   }
 
   /**
