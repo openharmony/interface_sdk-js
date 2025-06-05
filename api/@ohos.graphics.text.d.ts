@@ -951,6 +951,37 @@ declare namespace text {
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
+     * Unloads a custom font synchronously. This API returns the result synchronously.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    unloadFontSync(name: string): void;
+
+    /**
+     * Unloads a custom font. This API uses a promise to return the result.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    unloadFont(name: string): Promise<void>;
+
+    /**
      * Clear font caches.
      * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
      * You are not advised to clear it unless otherwise required.
@@ -2474,6 +2505,43 @@ declare namespace text {
    * @since 20
    */
   function setTextHighContrast(action: TextHighContrast): void;
+
+  /**
+   * Visual representations for undefined (.notdef) glyphs.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextUndefinedGlyphDisplay {
+    /**
+     * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
+     * which might be an empty box, blank space, or custom symbol.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    USE_DEFAULT,
+    /**
+     * Always replace undefined glyphs with explicit tofu blocks,
+     * overriding the font's default behavior. Useful for debugging missing characters
+     * or enforcing consistent missing symbol display.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    USE_TOFU,
+  }
+
+  /**
+   * Sets the glyph type to use when a character maps to the .notdef (undefined) glyph.
+   * affects all text rendered after this call.
+   * This configuration affects how the renderer displays characters that are not defined in the font:
+   * - The default behavior follows font's internal .notdef glyph design
+   * - Tofu blocks explicitly show missing characters as visible squares
+   * @param { TextUndefinedGlyphDisplay } noGlyphShow - The strategy for handling undefined glyphs.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
 }
 
 export default text;
