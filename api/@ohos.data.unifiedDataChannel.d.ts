@@ -1520,6 +1520,34 @@ declare namespace unifiedDataChannel {
   }
 
   /**
+   * Describe the visibility range of data
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum Visibility {
+    /**
+     * The visibility level that specifies that any hap or native can be obtained.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    ALL,
+
+    /**
+     * The visibility level that specifies that only data providers can be obtained.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    OWN_PROCESS
+  }
+
+  /**
    * Describe the optional arguments of data operation
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1533,7 +1561,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
-  type Options = {
+  /**
+   * Describe the optional arguments of data operation
+   *
+   * @interface { Options }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface Options {
     /**
      * Indicates the target Intention
      *
@@ -1546,6 +1582,14 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the target Intention
+     *
+     * @type { ?Intention }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
      */
     intention?: Intention;
 
@@ -1562,8 +1606,27 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the unique identifier of target UnifiedData
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
     key?: string;
-  };
+
+    /**
+     * Represents the visibility range of data.
+     * This parameter is used only when data is inserted.
+     *
+     * @type { ?Visibility }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    visibility?: Visibility;
+  }
 
   /**
    * Defines the types of file conflict options when getting data from the UDMF.
