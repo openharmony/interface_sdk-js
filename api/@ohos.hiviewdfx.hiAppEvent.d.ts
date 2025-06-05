@@ -369,6 +369,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     const MAIN_THREAD_JANK: string;
+
+    /**
+     * App killed event. This is a system event name constant.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const APP_KILLED: string;
   }
 
   /**

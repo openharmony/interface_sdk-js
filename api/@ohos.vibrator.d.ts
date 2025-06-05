@@ -18,7 +18,7 @@
  * @kit SensorServiceKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to control motor vibration.
@@ -237,6 +237,20 @@ declare namespace vibrator {
   function stopVibrationSync(): void;
 
   /**
+   * Stop the vibrator on the specified device. When all parameters are set to default, stop all local vibrators.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
+   * <br> {@code VibratorInfoParam}.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  function stopVibration(param?: VibratorInfoParam): Promise<void>;
+
+  /**
    * Whether the preset vibration effect is supported.
    *
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
@@ -274,6 +288,37 @@ declare namespace vibrator {
    * @since 12
    */
   function isSupportEffectSync(effectId: string): boolean;
+
+  /**
+   * Get effect information by device ID and vibrator ID.
+   *
+   * @param { string } effectId - The effect type to query.
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
+   * <br> {@code VibratorInfoParam}. By default, query local vibrators.
+   * @returns { EffectInfo } Returns information about the specified effect.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  function getEffectInfoSync(effectId: string, param?: VibratorInfoParam): EffectInfo;
+
+  /**
+  * The information includes Indicates whether the effect is supported.
+  *
+  * @interface EffectInfo
+  * @syscap SystemCapability.Sensors.MiscDevice
+  * @since 19
+  */
+  interface EffectInfo {
+    /**
+     * Indicates whether the effect is supported, true means supported, false means not supported.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    isEffectSupported: boolean;
+  }
 
   /**
    * Stop the motor from vibrating.
@@ -461,6 +506,17 @@ declare namespace vibrator {
    * @since 11
    */
     id?: number;
+
+  /**
+   * Unique identifier for the device that contains one or multiple vibrators.
+   * By default, deviceId represents the local device.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 19
+   */
+    deviceId?: number;
 
   /**
    * The use of vibration.
@@ -998,6 +1054,167 @@ declare namespace vibrator {
      * @since 18
      */
     pattern: VibratorPattern;
+  }
+
+  /**
+  * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
+  * the local default vibrator.
+  * @interface VibratorInfoParam
+  * @syscap SystemCapability.Sensors.MiscDevice
+  * @since 19
+  */
+  interface VibratorInfoParam {
+    /**
+     * Unique identifier for the device that contains one or multiple vibrators.
+     * By default, deviceId may default to querying or controlling the local default vibrator.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    deviceId?: number;
+    /**
+     * Unique identifier for the vibrator itself within the device.
+     * By default, vibratorId may default to querying or controlling all vibrators on the corresponding device.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    vibratorId?: number;
+  }
+
+  /**
+   * Represents the information about a vibrator device in the system.
+   * @interface VibratorInfo
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  interface VibratorInfo {
+    /**
+     * Unique identifier for the device that contains one or multiple vibrators.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    deviceId: number;
+
+    /**
+     * Unique identifier for the vibrator itself within the device.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    vibratorId: number;
+
+    /**
+     * Name of the device.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    deviceName: string;
+
+    /**
+     * Indicates whether the vibrator device support HD haptic.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    isHdHapticSupported: boolean;
+
+    /**
+     * Indicates whether the vibrator is a local device or an external one.
+     * If the value is true, it represents a local device; if false, it represents an external device.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    isLocalVibrator: boolean;
+  }
+
+  /**
+   * Retrieve the list of vibrator information about one or all devices.
+   *
+   * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
+   * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on local device when param is unspecified.
+   * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
+   * <br> about the vibrator device.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  function getVibratorInfoSync(param?: VibratorInfoParam): Array<VibratorInfo>;
+
+  /**
+   * Register a callback function to be called when a vibrator plugin or unplug event occurs.
+   *
+   * @param { 'vibratorStateChange' } type - Event of the listening.
+   * @param { Callback<VibratorStatusEvent> } callback - The callback function to be executed when
+   * <br> the event is triggered.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  function on(type: 'vibratorStateChange', callback: Callback<VibratorStatusEvent>): void;
+
+  /**
+   * Unregister a callback function for vibrator plugin or unplug events.
+   *
+   * @param { 'vibratorStateChange' } type - Event of the listening.
+   * @param { Callback<VibratorStatusEvent> } [callback] - The callback function to be removed from the event listener.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  function off(type: 'vibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
+
+  /**
+   * Indicates information about vibrator online or offline events.
+   *
+   * @interface
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19
+   */
+  interface VibratorStatusEvent {
+    /**
+     * The timestamp of the reported event.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    timestamp: number;
+
+    /**
+     * Unique identifier for the device that contains one or multiple vibrators.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    deviceId: number;
+
+    /**
+     * Indicate the number of vibrators on the device.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    vibratorCount: number;
+
+    /**
+     * Indicates the device's online and offline status, true indicates online, false indicates offline.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 19
+     */
+    isVibratorOnline: boolean;
   }
 }
 

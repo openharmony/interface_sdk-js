@@ -629,6 +629,17 @@ declare interface RichEditorParagraphStyle {
   textAlign?: TextAlign;
 
   /**
+   * Vertical alignment of text.
+   *
+   * @type { ?TextVerticalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textVerticalAlign?: TextVerticalAlign;
+
+  /**
    * Leading margin.
    *
    * @type { ?(Dimension | LeadingMarginPlaceholder) }
@@ -4090,6 +4101,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 18
    */
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): RichEditorAttribute;
 
   /**
    * Set the keyboard appearance.

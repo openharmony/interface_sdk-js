@@ -6441,18 +6441,28 @@ declare namespace webview {
     /**
      * Enables debugging of web contents.
      * <p><strong>API Note</strong>:<br>
-     * Port numbers from 0 to 1024 are not allowed.
+     * The port numbers from 0 to 1024 are prohibited. Ports less than 0 or greater than 65535 are considered invalid.
+     * If an attempt is made to set these disabled or invalid ports, an exception will be thrown.
      * </p>
      *
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
      * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
-     *                        socket is created instead of a unix domain socket.
+     * socket is created instead of a unix domain socket.
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
+
+    /**
+     * Gets the loading progress for the current page.
+     *
+     * @returns { number } The loading progress for the current page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getProgress() : number;
   }
 
   /**

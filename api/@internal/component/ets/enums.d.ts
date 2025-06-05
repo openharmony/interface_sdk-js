@@ -8569,6 +8569,16 @@ declare enum ImageSpanAlignment {
    * @since 11
    */
   TOP,
+
+  /**
+   * The ImageSpan's alignment is same with the text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FOLLOW_PARAGRAPH,
 }
 
 /**
@@ -10613,6 +10623,37 @@ declare enum EventQueryType {
    * @since 19
    */
   ON_CLICK = 0,
+}
+
+/**
+ * Follow position type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TipsAnchorType {
+  /**
+   * Follow the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET,
+
+  /**
+   * Follow the cursor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CURSOR
 }
 
 /**

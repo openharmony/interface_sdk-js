@@ -141,6 +141,47 @@ declare namespace common2D {
     z: number;
   }
   
+  /**
+   * Provide a color with an ARGB structure described by floating point numbers.
+   * @typedef Color4f
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  interface Color4f {
+    /**
+     * Alpha component of color, represented as a floating point number between 0 and 1.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    alpha: number;
+    /**
+     * Red component of color, represented as a floating point number between 0 and 1.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    red: number;
+    /**
+     * Green component of color, represented as a floating point number between 0 and 1.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    green: number;
+    /**
+     * Blue component of color, represented as a floating point number between 0 and 1.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    blue: number;
+  }
 }
 
 export default common2D;

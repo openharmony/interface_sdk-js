@@ -1084,6 +1084,15 @@ declare interface WebMediaOptions {
    * @since 11
    */
   audioExclusive?: boolean;
+
+  /**
+   * The type for audio sessions.
+   *
+   * @type { ?AudioSessionType }
+   * @syscap SystemCapability.Web.Webview.Core   
+   * @since 20
+   */
+  audioSessionType?: AudioSessionType;
 }
 
 /**
@@ -1992,6 +2001,20 @@ declare class SslErrorHandler {
    * @since 11
    */
   handleCancel(): void;
+
+  /**
+   * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
+   * continue displaying the error to users.
+   *
+   * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
+   *                                 user will remain on the current page. If it is false, the SSL error
+   *                                 will not be ignored, and a blank page will be displayed. If a default
+   *                                 error page is enabled, the default error page will be shown instead.
+   *                                 The default value is false.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  handleCancel(abortLoading: boolean): void;
 }
 
 /**
@@ -5625,6 +5648,16 @@ declare interface OnBeforeUnloadEvent {
    * @since 18
    */
   result: JsResult;
+
+  /**
+   * The isReload parameter is set to true when the page is refreshed;
+   * otherwise, it remains false. Default is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  isReload?: boolean;
 }
 
 /**
@@ -6814,6 +6847,24 @@ declare enum WebResponseType {
    * @since 13
    */
   LONG_PRESS = 1
+}
+
+/**
+ * Arkweb audio session Type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum AudioSessionType {
+  /**
+   * Ambient audio, which is mixable with other types of audio. 
+   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AMBIENT=3
 }
 
 /**
@@ -9423,7 +9474,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * <p><strong>API NOTE</strong>:<br>
    * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
    * The script is excuted in the lexicographic order, not array order.
-   * If the array order is required, you are advised to use the runJavaScriptinDocumentEnd interface.
+   * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
    * When scripts with identical content are injected multiple times,
    * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,

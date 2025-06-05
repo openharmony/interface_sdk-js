@@ -273,7 +273,7 @@ declare class ArrayList<T> {
    * Removes an element with the specified position from this container.
    *
    * @param { number } index - Position index of the target element.
-   * @returns { T } the T type ,returns undefined if arraylist is empty,If the index is
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -582,7 +582,7 @@ declare class ArrayList<T> {
    *
    * @param { number } fromIndex - Index of the start position.
    * @param { number } toIndex - Index of the end position.
-   * @returns { ArrayList<T> }
+   * @returns { ArrayList<T> } New ArrayList instance obtained.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -726,7 +726,7 @@ declare class ArrayList<T> {
   /**
    * Checks whether this container is empty (contains no element).
    *
-   * @returns { boolean } the boolean type
+   * @returns { boolean } Returns true if the container is empty; returns false otherwise.
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

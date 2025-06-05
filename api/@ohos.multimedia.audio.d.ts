@@ -843,6 +843,12 @@ declare namespace audio {
      */
     REMOTE_DAUDIO = 29,
     /**
+     * Nearlink Device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    NEARLINK = 31,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9

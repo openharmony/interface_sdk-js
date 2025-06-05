@@ -1767,7 +1767,7 @@ export class UIObserver {
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { 'navDestinationUpdateByUniqueId' } type - The type of event to listen for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1775,12 +1775,12 @@ export class UIObserver {
    * @atomicservice
    * @since 20
    */
-  on(type: 'navDestinationUpdate', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
+  on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                      will be removed.
@@ -1789,7 +1789,7 @@ export class UIObserver {
    * @atomicservice
    * @since 20
    */
-  off(type: 'navDestinationUpdate', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
+  off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
@@ -3283,6 +3283,26 @@ export class ComponentSnapshot {
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Get a component snapshot by component range.
+   *
+   * @param { NodeIdentity } start - the start component ID, set by developer through .id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { NodeIdentity } end - the end component ID, set by developer through.id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
+   *     rect of the start component, false for using the rect of the end component.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 }
 
 /**
