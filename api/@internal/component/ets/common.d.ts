@@ -6579,6 +6579,16 @@ declare class DrawModifier {
    * @since 12
    */
   drawFront?(drawContext: DrawContext): void;
+
+  /**
+   * drawforeground Method. Executed after drawing associated Node and its children.
+   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  drawForeground?(drawContext: DrawContext): void;
   
   /**
    * Invalidate the component, which will cause a re-render of the component.
