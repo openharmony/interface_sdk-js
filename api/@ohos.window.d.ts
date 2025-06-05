@@ -4203,6 +4203,25 @@ declare namespace window {
   }
 
   /**
+   * Describes the window animation type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+    enum AnimationType {
+      /**
+       * window animation type fade in out
+       *
+       * @syscap SystemCapability.Window.SessionManager
+       * @atomicservice
+       * @since 20
+       */
+      FADE_IN_OUT = 0,
+    }
+
+  /**
    * Describes the window animation curve
    *
    * @enum { number }
@@ -4297,6 +4316,55 @@ declare namespace window {
      * @since 20
      */
     opacity?: number;
+  }
+
+  /**
+   * The animation configuration of start system scene aniamtion
+   *
+   * @interface StartAnimationSystemOption
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface StartAnimationSystemOption {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    type: AnimationType;
+    /**
+     * The opacity of window
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    animationConfig?: WindowAnimationConfig;
+  }
+
+  /**
+   * The animation configuration of start scene aniamtion
+   *
+   * @interface StartAnimationOption
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface StartAnimationOption {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    type: AnimationType;
   }
 
   /**
