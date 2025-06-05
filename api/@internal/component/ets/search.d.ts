@@ -1947,6 +1947,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
 
   /**
+   * Called before the search component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAttachIME(callback: Callback<IMEClient>): SearchAttribute;
+
+  /**
    * Set the custom text menu.
    * Sets the extended options of the custom context menu on selection,
    * including the text content, icon, and callback.

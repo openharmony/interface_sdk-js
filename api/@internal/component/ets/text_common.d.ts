@@ -1834,3 +1834,111 @@ declare enum TextVerticalAlign {
    */
   TOP = 3,
 }
+
+/**
+ * Keyboard Gradient mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardGradientMode {
+  /**
+   * Disable gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Linear gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  LINEAR_GRADIENT = 1,
+}
+
+/**
+ * Keyboard fluid light mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardFluidLightMode {
+  /**
+   * Disable fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Background fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  BACKGROUND_FLUID_LIGHT = 1,
+}
+
+/**
+ * Defines the keyboard appearance config.
+ *
+ * @interface KeyboardAppearanceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface KeyboardAppearanceConfig {
+/**
+  * Used to set keyboard gradient mode.
+  *
+  * @type { ?KeyboardGradientMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  gradientMode?: KeyboardGradientMode;
+
+/**
+  * Used to set keyboard fluid light mode..
+  *
+  * @type { ?KeyboardFluidLightMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  fluidLightMode?: KeyboardFluidLightMode;
+}
+
+/**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  nodeId: number;
+}
