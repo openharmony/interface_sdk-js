@@ -2231,7 +2231,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
-    getTextDirection: TextDirection;
+    getTextDirection(): TextDirection;
 
     /**
      * Gets the glyph width array within the range.
