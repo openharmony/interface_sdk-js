@@ -3207,6 +3207,14 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016,
     /**
+     * The key with same alias is already exist.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
+    /**
      * The input parameter is invalid.
      * 
      * @syscap SystemCapability.Security.Huks.Core
@@ -5668,6 +5676,14 @@ declare namespace huks {
      * @since 12
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
+    /**
+     * The tag indicates wheather to override the key with same alias.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
 
     /*
      * Other reserved TAG: 601 - 1000
