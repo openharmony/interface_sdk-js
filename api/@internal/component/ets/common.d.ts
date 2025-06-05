@@ -18518,6 +18518,17 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   modalMode?: ModalMode;
+
+  /**
+   * Defines the menu position.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  anchorPosition?: Position;
 }
 
 /**
