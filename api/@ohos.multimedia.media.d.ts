@@ -106,7 +106,7 @@ declare namespace media {
    * The actual number of instances that can be created may be different. It depends on the specifications of
    * the device chip in use.
    * 
-   * @returns { Promise<AVPlayer> } Callback used to return the result. If the operation is successful, an 
+   * @returns { Promise<AVPlayer> } A Promise instance used to return the result. If the operation is successful, an
    * **AVPlayer** instance is returned; **null** is returned otherwise. The instance can be used to play
    * audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -2608,8 +2608,8 @@ declare namespace media {
      * @param { number } width - width of the window. The value range is [320-1920], in px.
      * @param { number } height - height of the window. The value range is [320-1080], in px.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5410003 - Super-resolution not supported. Return by promise.
      * @throws { BusinessError } 5410004 - Missing enable super-resolution feature in {@link PlaybackStrategy}.
      *                                     Return by promise.
@@ -2636,6 +2636,8 @@ declare namespace media {
      * Media URI. It can be set only when the AVPlayer is in the idle state.
      * The video formats MP4, MPEG-TS, and MKV are supported.
      * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
+     * To set a network playback path, you must declare the ohos.permission.INTERNET permission by following the
+     * instructions provided in Declaring Permissions. The error code 201 may be reported.
      * Network:http://xxx
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3690,7 +3692,7 @@ declare namespace media {
      * connected or disconnected by referring to Responding to Audio Output Device Changes.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * The event is triggered when the output device is changed.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - 	Callback used to return the output device
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to return the output device
      * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
