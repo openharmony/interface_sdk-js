@@ -318,17 +318,7 @@ declare namespace audioHaptic {
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Check whether the device supports vibration intensity ramp effect.
-     * @returns { boolean } - {@code true} means supported.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @systemapi
-     * @since 20
-     */
-    isVibrationRampSupported(): boolean;
-
-    /**
-     * Enable haptics when the ringer mode is slient mode. Should be called before playback starting.
+     * Enable haptics when the ringer mode is silent mode. Should be called before playback starting.
      * @param { boolean } enable - use {@code true} if application want to enable this feature.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 5400102 - Operate not permit.
@@ -336,27 +326,7 @@ declare namespace audioHaptic {
      * @systemapi
      * @since 20
      */
-    enableHapticsInSlientMode(enable: boolean): void;
-
-    /**
-     * Set vibration intensity ramp effect for this player. Should be called before playback starting.
-     * This method uses a promise to return the result.
-     * @param { number } duration - ramp duration to set, unit is milliseconds.
-     *     The value should be an integer, and not less than 100.
-     * @param { number } startIntensity - Starting intensity for vibration ramp to set.
-     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
-     * @param { number } endIntensity - End intensity for vibration ramp to set.
-     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 801 - Function is not supported in current device.
-     * @throws { BusinessError } 5400102 - Operate not permit.
-     * @throws { BusinessError } 5400108 - Parameter out of range.
-     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @systemapi
-     * @since 20
-     */
-    setVibrationRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
+    enableHapticsInSilentMode(enable: boolean): void;
 
     /**
      * Set audio volume for this player. This method uses a promise to return the result.
@@ -373,18 +343,18 @@ declare namespace audioHaptic {
     setVolume(volume: number): Promise<void>;
 
     /**
-     * Check whether the device supports vibration intensity adjustment.
+     * Check whether the device supports haptics intensity adjustment.
      * @returns { boolean } - {@code true} means supported.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20
      */
-    isVibrationIntensityAdjustmentSupported(): boolean;
+    isHapticsIntensityAdjustmentSupported(): boolean;
 
     /**
      * Set vibration intensity for this player. This method uses a promise to return the result.
-     * @param { number } intensity - Target Vibration intensity value.
+     * @param { number } intensity - Target Hpatics intensity value.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -395,7 +365,7 @@ declare namespace audioHaptic {
      * @systemapi
      * @since 20
      */
-    setVibrationIntensity(intensity: number): Promise<void>;
+    setHapticsIntensity(intensity: number): Promise<void>;
   }
 }
 export default audioHaptic;
