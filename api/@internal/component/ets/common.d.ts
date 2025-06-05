@@ -18529,6 +18529,50 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   anchorPosition?: Position;
+
+  /**
+   * Callback function when the menu appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidAppear?: Callback<void>;
+
+  /**
+   * Callback function when the menu disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidDisappear?: Callback<void>;
+
+  /**
+   * Callback function before the menu openAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAppear?: Callback<void>;
+
+  /**
+   * Callback function before the menu closeAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillDisappear?: Callback<void>;
 }
 
 /**
