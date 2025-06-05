@@ -553,7 +553,6 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function openFormManagerCrossBundle(want: Want): void
 }
